@@ -136,6 +136,8 @@ mojo.internal.bindings.blink.mojom.UseCounterFeatureType = {
   kPermissionsPolicyEnabledPrivacySensitive: 7,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UseCounterFeature
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UseCounterFeatureSpec, 'blink.mojom.UseCounterFeature', [

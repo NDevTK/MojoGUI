@@ -137,3 +137,5 @@ mojo.internal.bindings.ui.mojom.MenuSourceType = {
   kAdjustSelection: 9,
   kAdjustSelectionReset: 10,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

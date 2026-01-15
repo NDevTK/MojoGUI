@@ -131,12 +131,6 @@ mojo.internal.bindings.color_change_listener.mojom.Page.$interfaceName = 'color_
 mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec = { $: {} };
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec, 'color_change_listener.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.color_change_listener.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.color_change_listener.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,7 +243,7 @@ mojo.internal.bindings.color_change_listener.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_page);
+          const result = this.impl.setPage(params.arg_arg_page);
           break;
         }
       }
@@ -267,11 +261,6 @@ mojo.internal.bindings.color_change_listener.mojom.PageHandlerRequest = mojo.int
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec, 'color_change_listener.mojom.Page_OnColorProviderChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.color_change_listener.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -399,4 +388,17 @@ mojo.internal.bindings.color_change_listener.mojom.PageReceiver = mojo.internal.
 
 mojo.internal.bindings.color_change_listener.mojom.PagePtr = mojo.internal.bindings.color_change_listener.mojom.PageRemote;
 mojo.internal.bindings.color_change_listener.mojom.PageRequest = mojo.internal.bindings.color_change_listener.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.color_change_listener.mojom.PageHandler_SetPage_ParamsSpec, 'color_change_listener.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.color_change_listener.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.color_change_listener.mojom.Page_OnColorProviderChanged_ParamsSpec, 'color_change_listener.mojom.Page_OnColorProviderChanged_Params', [
+    ],
+    [[0, 8]]);
 

@@ -186,6 +186,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.TreesInVizTimingSpec = mojo.internal.bindings.viz.mojom.TreesInVizTimingSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CompositorFrameMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameMetadataSpec, 'viz.mojom.CompositorFrameMetadata', [

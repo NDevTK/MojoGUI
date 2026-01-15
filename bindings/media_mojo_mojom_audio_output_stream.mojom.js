@@ -166,27 +166,6 @@ mojo.internal.bindings.media.mojom.DisconnectReason = {
 };
 
 // Interface: AudioOutputStream
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec, 'media.mojom.AudioOutputStream_Play_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec, 'media.mojom.AudioOutputStream_Pause_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec, 'media.mojom.AudioOutputStream_Flush_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec, 'media.mojom.AudioOutputStream_SetVolume_Params', [
-      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AudioOutputStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -362,7 +341,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVolume');
-          const result = this.impl.setVolume(params.arg_volume);
+          const result = this.impl.setVolume(params.arg_arg_volume);
           break;
         }
       }
@@ -380,22 +359,6 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamRequest = mojo.internal.bind
 
 
 // Interface: AudioOutputStreamObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidStartPlaying_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidStopPlaying_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_Params', [
-      mojo.internal.StructField('arg_is_audible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AudioOutputStreamObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -550,7 +513,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeAudibleState');
-          const result = this.impl.didChangeAudibleState(params.arg_is_audible);
+          const result = this.impl.didChangeAudibleState(params.arg_arg_is_audible);
           break;
         }
       }
@@ -568,13 +531,6 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRequest = mojo.inter
 
 
 // Interface: AudioOutputStreamProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec, 'media.mojom.AudioOutputStreamProvider_Acquire_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.AudioOutputStreamProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -687,7 +643,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquire');
-          const result = this.impl.acquire(params.arg_params, params.arg_client);
+          const result = this.impl.acquire(params.arg_arg_params, params.arg_arg_client);
           break;
         }
       }
@@ -705,13 +661,6 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRequest = mojo.inter
 
 
 // Interface: AudioOutputStreamProviderClient
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec, 'media.mojom.AudioOutputStreamProviderClient_Created_Params', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -824,7 +773,7 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.created');
-          const result = this.impl.created(params.arg_stream, params.arg_data_pipe);
+          const result = this.impl.created(params.arg_arg_stream, params.arg_arg_data_pipe);
           break;
         }
       }
@@ -842,12 +791,6 @@ mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientRequest = mojo
 
 
 // Interface: DeviceSwitchInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec, 'media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_Params', [
-      mojo.internal.StructField('arg_output_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.DeviceSwitchInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -960,7 +903,7 @@ mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.switchAudioOutputDeviceId');
-          const result = this.impl.switchAudioOutputDeviceId(params.arg_output_device_id);
+          const result = this.impl.switchAudioOutputDeviceId(params.arg_arg_output_device_id);
           break;
         }
       }
@@ -975,4 +918,63 @@ mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceReceiver = mojo.internal
 
 mojo.internal.bindings.media.mojom.DeviceSwitchInterfacePtr = mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRemote;
 mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRequest = mojo.internal.bindings.media.mojom.DeviceSwitchInterfacePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStream_Play_ParamsSpec, 'media.mojom.AudioOutputStream_Play_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStream_Pause_ParamsSpec, 'media.mojom.AudioOutputStream_Pause_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStream_Flush_ParamsSpec, 'media.mojom.AudioOutputStream_Flush_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStream_SetVolume_ParamsSpec, 'media.mojom.AudioOutputStream_SetVolume_Params', [
+      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStartPlaying_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidStartPlaying_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidStopPlaying_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidStopPlaying_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_ParamsSpec, 'media.mojom.AudioOutputStreamObserver_DidChangeAudibleState_Params', [
+      mojo.internal.StructField('arg_is_audible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStreamProvider_Acquire_ParamsSpec, 'media.mojom.AudioOutputStreamProvider_Acquire_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioOutputStreamProviderClient_Created_ParamsSpec, 'media.mojom.AudioOutputStreamProviderClient_Created_Params', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_pipe', 8, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_ParamsSpec, 'media.mojom.DeviceSwitchInterface_SwitchAudioOutputDeviceId_Params', [
+      mojo.internal.StructField('arg_output_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

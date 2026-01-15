@@ -131,3 +131,5 @@ mojo.internal.bindings.ui.mojom.BrowserColorVariant = {
   kVibrant: 3,
   kExpressive: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

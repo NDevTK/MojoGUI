@@ -132,6 +132,8 @@ mojo.internal.bindings.tabs_api.mojom.Type = {
   kCollection: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: NodeId
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, 'tabs_api.mojom.NodeId', [

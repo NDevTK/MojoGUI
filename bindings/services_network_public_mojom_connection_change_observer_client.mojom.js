@@ -138,33 +138,7 @@ mojo.internal.bindings.network.mojom.NetworkChangeEvent = {
   kDefaultNetworkChanged: 3,
 };
 
-// Struct: ConnectionKeepAliveConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec, 'network.mojom.ConnectionKeepAliveConfig', [
-      mojo.internal.StructField('arg_idle_timeout_in_seconds', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ping_interval_in_seconds', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_connection_keep_alive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_quic_connection_options', 16, 0, mojo.internal.String, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: ConnectionChangeObserverClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.network.mojom.NetworkChangeEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -312,7 +286,7 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkEvent');
-          const result = this.impl.onNetworkEvent(params.arg_event);
+          const result = this.impl.onNetworkEvent(params.arg_arg_event);
           break;
         }
         case 2: {
@@ -334,4 +308,32 @@ mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientReceiver = mo
 
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientPtr = mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRemote;
 mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientRequest = mojo.internal.bindings.network.mojom.ConnectionChangeObserverClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ConnectionKeepAliveConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ConnectionKeepAliveConfigSpec, 'network.mojom.ConnectionKeepAliveConfig', [
+      mojo.internal.StructField('arg_idle_timeout_in_seconds', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ping_interval_in_seconds', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_connection_keep_alive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_quic_connection_options', 16, 0, mojo.internal.String, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnSessionClosed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnSessionClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnNetworkEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.network.mojom.NetworkChangeEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_ParamsSpec, 'network.mojom.ConnectionChangeObserverClient_OnConnectionFailed_Params', [
+    ],
+    [[0, 8]]);
 

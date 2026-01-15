@@ -136,12 +136,6 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserSpec = mojo.intern
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote || class {};
 
 // Interface: QuickPairService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec, 'ash.quick_pair.mojom.QuickPairService_Connect_Params', [
-      mojo.internal.StructField('arg_fast_pair_data_parser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -254,7 +248,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_fast_pair_data_parser);
+          const result = this.impl.connect(params.arg_arg_fast_pair_data_parser);
           break;
         }
       }
@@ -269,4 +263,12 @@ mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceReceiver = mojo.inte
 
 mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServicePtr = mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceRemote;
 mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServiceRequest = mojo.internal.bindings.ash.quick_pair.mojom.QuickPairServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.QuickPairService_Connect_ParamsSpec, 'ash.quick_pair.mojom.QuickPairService_Connect_Params', [
+      mojo.internal.StructField('arg_fast_pair_data_parser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

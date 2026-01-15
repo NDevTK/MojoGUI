@@ -133,13 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MemoryUsageMonitorLinux
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec, 'blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_Params', [
-      mojo.internal.StructField('arg_statm_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcFiles');
-          const result = this.impl.setProcFiles(params.arg_statm_file, params.arg_status_file);
+          const result = this.impl.setProcFiles(params.arg_arg_statm_file, params.arg_arg_status_file);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxReceiver = mojo.intern
 
 mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxPtr = mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxRemote;
 mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxRequest = mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinuxPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_ParamsSpec, 'blink.mojom.MemoryUsageMonitorLinux_SetProcFiles_Params', [
+      mojo.internal.StructField('arg_statm_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -127,3 +127,5 @@ mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationErrorSpec = { $
 mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationError = {
   kInvalidList: 0,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

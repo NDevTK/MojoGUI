@@ -272,78 +272,7 @@ mojo.internal.bindings.network.mojom.UpdateType = {
   REMOVED: 2,
 };
 
-// Union: HostResolverHost
-mojo.internal.Union(
-    mojo.internal.bindings.network.mojom.HostResolverHostSpec, 'network.mojom.HostResolverHost', {
-      'arg_scheme_host_port': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.url.mojom.SchemeHostPortSpec,
-        'nullable': false,
-      },
-      'arg_host_port_pair': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.network.mojom.HostPortPairSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: DnsOverHttpsServerConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec, 'network.mojom.DnsOverHttpsServerConfig', [
-      mojo.internal.StructField('arg_server_template', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoints', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.network.mojom.IPAddressSpec, false), false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DnsOverHttpsConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, 'network.mojom.DnsOverHttpsConfig', [
-      mojo.internal.StructField('arg_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: DnsConfigOverrides
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec, 'network.mojom.DnsConfigOverrides', [
-      mojo.internal.StructField('arg_nameservers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_search', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_append_to_multi_label_name', 16, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ndots', 20, 0, mojo.internal.Int8, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_clear_hosts', 21, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_fallback_period', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_attempts', 32, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_rotate', 36, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_use_local_ipv6', 40, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_dns_mode', 44, 0, mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dns_over_https_config', 48, 0, mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allow_dns_over_https_upgrade', 56, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fallback_doh_nameservers', 64, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 80]]);
-
-// Struct: ResolveHostParameters
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ResolveHostParametersSpec, 'network.mojom.ResolveHostParameters', [
-      mojo.internal.StructField('arg_dns_query_type', 0, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_initial_priority', 4, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.network.mojom.SourceSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_usage', 12, 0, mojo.internal.bindings.network.mojom.CacheUsageSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_control_handle', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ResolveHostHandleRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_include_canonical_name', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_loopback_only', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_speculative', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_dns_policy', 24, 0, mojo.internal.bindings.network.mojom.SecureDnsPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_purpose', 28, 0, mojo.internal.bindings.network.mojom.PurposeSpec, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ResolveHostHandle
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec, 'network.mojom.ResolveHostHandle_Cancel_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.ResolveHostHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -456,7 +385,7 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel(params.arg_result);
+          const result = this.impl.cancel(params.arg_arg_result);
           break;
         }
       }
@@ -474,27 +403,6 @@ mojo.internal.bindings.network.mojom.ResolveHostHandleRequest = mojo.internal.bi
 
 
 // Interface: ResolveHostClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec, 'network.mojom.ResolveHostClient_OnComplete_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resolve_error_info', 8, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolved_addresses', 16, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alternative_endpoints', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HostResolverEndpointResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec, 'network.mojom.ResolveHostClient_OnTextResults_Params', [
-      mojo.internal.StructField('arg_text_results', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec, 'network.mojom.ResolveHostClient_OnHostnameResults_Params', [
-      mojo.internal.StructField('arg_hosts', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HostPortPairSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.ResolveHostClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -635,21 +543,21 @@ mojo.internal.bindings.network.mojom.ResolveHostClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_result, params.arg_resolve_error_info, params.arg_resolved_addresses, params.arg_alternative_endpoints);
+          const result = this.impl.onComplete(params.arg_arg_result, params.arg_arg_resolve_error_info, params.arg_arg_resolved_addresses, params.arg_arg_alternative_endpoints);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextResults');
-          const result = this.impl.onTextResults(params.arg_text_results);
+          const result = this.impl.onTextResults(params.arg_arg_text_results);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResults');
-          const result = this.impl.onHostnameResults(params.arg_hosts);
+          const result = this.impl.onHostnameResults(params.arg_arg_hosts);
           break;
         }
       }
@@ -667,37 +575,6 @@ mojo.internal.bindings.network.mojom.ResolveHostClientRequest = mojo.internal.bi
 
 
 // Interface: MdnsListenClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnAddressResult_Params', [
-      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoint', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnTextResult_Params', [
-      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_records', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnHostnameResult_Params', [
-      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnUnhandledResult_Params', [
-      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.MdnsListenClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -852,28 +729,28 @@ mojo.internal.bindings.network.mojom.MdnsListenClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAddressResult');
-          const result = this.impl.onAddressResult(params.arg_update_type, params.arg_query_type, params.arg_endpoint);
+          const result = this.impl.onAddressResult(params.arg_arg_update_type, params.arg_arg_query_type, params.arg_arg_endpoint);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextResult');
-          const result = this.impl.onTextResult(params.arg_update_type, params.arg_query_type, params.arg_text_records);
+          const result = this.impl.onTextResult(params.arg_arg_update_type, params.arg_arg_query_type, params.arg_arg_text_records);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostnameResult');
-          const result = this.impl.onHostnameResult(params.arg_update_type, params.arg_query_type, params.arg_host);
+          const result = this.impl.onHostnameResult(params.arg_arg_update_type, params.arg_arg_query_type, params.arg_arg_host);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnhandledResult');
-          const result = this.impl.onUnhandledResult(params.arg_update_type, params.arg_query_type);
+          const result = this.impl.onUnhandledResult(params.arg_arg_update_type, params.arg_arg_query_type);
           break;
         }
       }
@@ -891,29 +768,6 @@ mojo.internal.bindings.network.mojom.MdnsListenClientRequest = mojo.internal.bin
 
 
 // Interface: HostResolver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec, 'network.mojom.HostResolver_ResolveHost_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.network.mojom.HostResolverHostSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_anonymization_key', 16, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_optional_parameters', 32, 0, mojo.internal.bindings.network.mojom.ResolveHostParametersSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_response_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ResolveHostClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec, 'network.mojom.HostResolver_MdnsListen_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_query_type', 8, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec, 'network.mojom.HostResolver_MdnsListen_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.HostResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1040,19 +894,22 @@ mojo.internal.bindings.network.mojom.HostResolverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveHost');
-          const result = this.impl.resolveHost(params.arg_host, params.arg_network_anonymization_key, params.arg_optional_parameters, params.arg_response_client);
+          const result = this.impl.resolveHost(params.arg_arg_host, params.arg_arg_network_anonymization_key, params.arg_arg_optional_parameters, params.arg_arg_response_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mdnsListen');
-          const result = this.impl.mdnsListen(params.arg_host, params.arg_query_type, params.arg_response_client);
+          const result = this.impl.mdnsListen(params.arg_arg_host, params.arg_arg_query_type, params.arg_arg_response_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MdnsListen FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] mdnsListen FAILED:', e));
           }
           break;
         }
@@ -1071,11 +928,6 @@ mojo.internal.bindings.network.mojom.HostResolverRequest = mojo.internal.binding
 
 
 // Interface: DnsConfigChangeManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec, 'network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1206,12 +1058,6 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRequest = mojo.
 
 
 // Interface: DnsConfigChangeManager
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.DnsConfigChangeManager_RequestNotifications_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1324,7 +1170,7 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
-          const result = this.impl.requestNotifications(params.arg_client);
+          const result = this.impl.requestNotifications(params.arg_arg_client);
           break;
         }
       }
@@ -1339,4 +1185,163 @@ mojo.internal.bindings.network.mojom.DnsConfigChangeManagerReceiver = mojo.inter
 
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerPtr = mojo.internal.bindings.network.mojom.DnsConfigChangeManagerRemote;
 mojo.internal.bindings.network.mojom.DnsConfigChangeManagerRequest = mojo.internal.bindings.network.mojom.DnsConfigChangeManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: HostResolverHost
+mojo.internal.Union(
+    mojo.internal.bindings.network.mojom.HostResolverHostSpec, 'network.mojom.HostResolverHost', {
+      'arg_scheme_host_port': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.url.mojom.SchemeHostPortSpec,
+        'nullable': false,
+      },
+      'arg_host_port_pair': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.network.mojom.HostPortPairSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: DnsOverHttpsServerConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec, 'network.mojom.DnsOverHttpsServerConfig', [
+      mojo.internal.StructField('arg_server_template', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoints', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.network.mojom.IPAddressSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DnsOverHttpsConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, 'network.mojom.DnsOverHttpsConfig', [
+      mojo.internal.StructField('arg_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DnsOverHttpsServerConfigSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: DnsConfigOverrides
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DnsConfigOverridesSpec, 'network.mojom.DnsConfigOverrides', [
+      mojo.internal.StructField('arg_nameservers', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_search', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_append_to_multi_label_name', 16, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ndots', 20, 0, mojo.internal.Int8, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_clear_hosts', 21, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_period', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_attempts', 32, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_rotate', 36, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_use_local_ipv6', 40, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_dns_mode', 44, 0, mojo.internal.bindings.network.mojom.OptionalSecureDnsModeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dns_over_https_config', 48, 0, mojo.internal.bindings.network.mojom.DnsOverHttpsConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_allow_dns_over_https_upgrade', 56, 0, mojo.internal.bindings.network.mojom.TristateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_doh_nameservers', 64, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPEndPointSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 80]]);
+
+// Struct: ResolveHostParameters
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ResolveHostParametersSpec, 'network.mojom.ResolveHostParameters', [
+      mojo.internal.StructField('arg_dns_query_type', 0, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_initial_priority', 4, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.network.mojom.SourceSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_usage', 12, 0, mojo.internal.bindings.network.mojom.CacheUsageSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_control_handle', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ResolveHostHandleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_include_canonical_name', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_loopback_only', 20, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_speculative', 20, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_dns_policy', 24, 0, mojo.internal.bindings.network.mojom.SecureDnsPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_purpose', 28, 0, mojo.internal.bindings.network.mojom.PurposeSpec, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ResolveHostHandle_Cancel_ParamsSpec, 'network.mojom.ResolveHostHandle_Cancel_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ResolveHostClient_OnComplete_ParamsSpec, 'network.mojom.ResolveHostClient_OnComplete_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resolve_error_info', 8, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolved_addresses', 16, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alternative_endpoints', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HostResolverEndpointResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ResolveHostClient_OnTextResults_ParamsSpec, 'network.mojom.ResolveHostClient_OnTextResults_Params', [
+      mojo.internal.StructField('arg_text_results', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ResolveHostClient_OnHostnameResults_ParamsSpec, 'network.mojom.ResolveHostClient_OnHostnameResults_Params', [
+      mojo.internal.StructField('arg_hosts', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HostPortPairSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsListenClient_OnAddressResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnAddressResult_Params', [
+      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoint', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsListenClient_OnTextResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnTextResult_Params', [
+      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_records', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsListenClient_OnHostnameResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnHostnameResult_Params', [
+      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsListenClient_OnUnhandledResult_ParamsSpec, 'network.mojom.MdnsListenClient_OnUnhandledResult_Params', [
+      mojo.internal.StructField('arg_update_type', 0, 0, mojo.internal.bindings.network.mojom.UpdateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_type', 4, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.HostResolver_ResolveHost_ParamsSpec, 'network.mojom.HostResolver_ResolveHost_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.network.mojom.HostResolverHostSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 16, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_optional_parameters', 32, 0, mojo.internal.bindings.network.mojom.ResolveHostParametersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_response_client', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ResolveHostClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ParamsSpec, 'network.mojom.HostResolver_MdnsListen_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_query_type', 8, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.MdnsListenClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.HostResolver_MdnsListen_ResponseParamsSpec, 'network.mojom.HostResolver_MdnsListen_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_ParamsSpec, 'network.mojom.DnsConfigChangeManagerClient_OnDnsConfigChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DnsConfigChangeManager_RequestNotifications_ParamsSpec, 'network.mojom.DnsConfigChangeManager_RequestNotifications_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DnsConfigChangeManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -159,31 +159,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ProxyResolvingSocketOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec, 'network.mojom.ProxyResolvingSocketOptions', [
-      mojo.internal.StructField('arg_use_tls', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ProxyResolvingSocket
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec, 'network.mojom.ProxyResolvingSocket_UpgradeToTLS_Params', [
-      mojo.internal.StructField('arg_host_port_pair', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TLSClientSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParams', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,12 +272,14 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.upgradeToTLS');
-          const result = this.impl.upgradeToTLS(params.arg_host_port_pair, params.arg_traffic_annotation, params.arg_receiver, params.arg_observer);
+          const result = this.impl.upgradeToTLS(params.arg_arg_host_port_pair, params.arg_arg_traffic_annotation, params.arg_arg_receiver, params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpgradeToTLS FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] upgradeToTLS FAILED:', e));
           }
           break;
         }
@@ -320,27 +298,6 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketRequest = mojo.internal
 
 
 // Interface: ProxyResolvingSocketFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 44, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 64]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -453,12 +410,14 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProxyResolvingSocket');
-          const result = this.impl.createProxyResolvingSocket(params.arg_url, params.arg_network_anonymization_key, params.arg_options, params.arg_traffic_annotation, params.arg_socket, params.arg_observer);
+          const result = this.impl.createProxyResolvingSocket(params.arg_arg_url, params.arg_arg_network_anonymization_key, params.arg_arg_options, params.arg_arg_traffic_annotation, params.arg_arg_socket, params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateProxyResolvingSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createProxyResolvingSocket FAILED:', e));
           }
           break;
         }
@@ -474,4 +433,51 @@ mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryReceiver = mojo.
 
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryPtr = mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRemote;
 mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryRequest = mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ProxyResolvingSocketOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec, 'network.mojom.ProxyResolvingSocketOptions', [
+      mojo.internal.StructField('arg_use_tls', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ParamsSpec, 'network.mojom.ProxyResolvingSocket_UpgradeToTLS_Params', [
+      mojo.internal.StructField('arg_host_port_pair', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 8, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TLSClientSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocket_UpgradeToTLS_ResponseParams', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 16, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.network.mojom.ProxyResolvingSocketOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.ProxyResolvingSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 44, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 64]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParamsSpec, 'network.mojom.ProxyResolvingSocketFactory_CreateProxyResolvingSocket_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 

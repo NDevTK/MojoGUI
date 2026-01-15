@@ -127,12 +127,6 @@ mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest.$interfaceName = 'tes
 mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec = { $: {} };
 
 // Interface: MojoFileSystemAccessTest
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec, 'test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_Params', [
-      mojo.internal.StructField('arg_h', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveTransferToken');
-          const result = this.impl.resolveTransferToken(params.arg_h);
+          const result = this.impl.resolveTransferToken(params.arg_arg_h);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestReceiver = mojo.intern
 
 mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestPtr = mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestRemote;
 mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestRequest = mojo.internal.bindings.test.mojom.MojoFileSystemAccessTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_ParamsSpec, 'test.mojom.MojoFileSystemAccessTest_ResolveTransferToken_Params', [
+      mojo.internal.StructField('arg_h', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

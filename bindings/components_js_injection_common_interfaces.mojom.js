@@ -172,66 +172,7 @@ mojo.internal.bindings.origin_matcher = mojo.internal.bindings.origin_matcher ||
 mojo.internal.bindings.origin_matcher.mojom = mojo.internal.bindings.origin_matcher.mojom || {};
 mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec = mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: JsWebMessage
-mojo.internal.Union(
-    mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec, 'js_injection.mojom.JsWebMessage', {
-      'arg_string_value': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.String16Spec,
-        'nullable': false,
-      },
-      'arg_array_buffer_value': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: JsObject
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsObjectSpec, 'js_injection.mojom.JsObject', [
-      mojo.internal.StructField('arg_js_object_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_js_world', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_matcher', 24, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: JavaScriptExecutable
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec, 'js_injection.mojom.JavaScriptExecutable', [
-      mojo.internal.StructField('arg_script_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_injection_time', 4, 0, mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_matcher', 16, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_js_world', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: JsWebMessageArrayBufferValue
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec, 'js_injection.mojom.JsWebMessageArrayBufferValue', [
-      mojo.internal.StructField('arg_array_buffer_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_resizable_by_user_javascript', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_max_byte_length', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: JsToBrowserMessaging
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec, 'js_injection.mojom.JsToBrowserMessaging_PostMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ports', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -358,14 +299,14 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessage');
-          const result = this.impl.postMessage(params.arg_message, params.arg_ports);
+          const result = this.impl.postMessage(params.arg_arg_message, params.arg_arg_ports);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBrowserToJsMessaging');
-          const result = this.impl.setBrowserToJsMessaging(params.arg_browser_to_js_messaging);
+          const result = this.impl.setBrowserToJsMessaging(params.arg_arg_browser_to_js_messaging);
           break;
         }
       }
@@ -383,11 +324,6 @@ mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRequest = mojo.int
 
 
 // Interface: JsObjectsClient
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec, 'js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.js_injection.mojom.JsObjectsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -518,12 +454,6 @@ mojo.internal.bindings.js_injection.mojom.JsObjectsClientRequest = mojo.internal
 
 
 // Interface: BrowserToJsMessagingFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_Params', [
-      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -636,7 +566,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBrowserToJsMessaging');
-          const result = this.impl.sendBrowserToJsMessaging(params.arg_browser_to_js_messaging);
+          const result = this.impl.sendBrowserToJsMessaging(params.arg_arg_browser_to_js_messaging);
           break;
         }
       }
@@ -654,12 +584,6 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRequest = m
 
 
 // Interface: BrowserToJsMessaging
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec, 'js_injection.mojom.BrowserToJsMessaging_OnPostMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -772,7 +696,7 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPostMessage');
-          const result = this.impl.onPostMessage(params.arg_message);
+          const result = this.impl.onPostMessage(params.arg_arg_message);
           break;
         }
       }
@@ -790,25 +714,6 @@ mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRequest = mojo.int
 
 
 // Interface: JsCommunication
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec, 'js_injection.mojom.JsCommunication_SetJsObjects_Params', [
-      mojo.internal.StructField('arg_js_objects', 0, 0, mojo.internal.Array(mojo.internal.bindings.js_injection.mojom.JsObjectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec, 'js_injection.mojom.JsCommunication_AddPersistentJavaScript_Params', [
-      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec, 'js_injection.mojom.JsCommunication_RemovePersistentJavaScript_Params', [
-      mojo.internal.StructField('arg_script_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.js_injection.mojom.JsCommunicationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -949,21 +854,21 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setJsObjects');
-          const result = this.impl.setJsObjects(params.arg_js_objects, params.arg_client);
+          const result = this.impl.setJsObjects(params.arg_arg_js_objects, params.arg_arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPersistentJavaScript');
-          const result = this.impl.addPersistentJavaScript(params.arg_script);
+          const result = this.impl.addPersistentJavaScript(params.arg_arg_script);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePersistentJavaScript');
-          const result = this.impl.removePersistentJavaScript(params.arg_script_id);
+          const result = this.impl.removePersistentJavaScript(params.arg_arg_script_id);
           break;
         }
       }
@@ -978,4 +883,101 @@ mojo.internal.bindings.js_injection.mojom.JsCommunicationReceiver = mojo.interna
 
 mojo.internal.bindings.js_injection.mojom.JsCommunicationPtr = mojo.internal.bindings.js_injection.mojom.JsCommunicationRemote;
 mojo.internal.bindings.js_injection.mojom.JsCommunicationRequest = mojo.internal.bindings.js_injection.mojom.JsCommunicationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: JsWebMessage
+mojo.internal.Union(
+    mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec, 'js_injection.mojom.JsWebMessage', {
+      'arg_string_value': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.String16Spec,
+        'nullable': false,
+      },
+      'arg_array_buffer_value': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: JsObject
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsObjectSpec, 'js_injection.mojom.JsObject', [
+      mojo.internal.StructField('arg_js_object_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_js_to_browser_messaging', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsToBrowserMessagingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_to_js_factory', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_js_world', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_matcher', 24, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: JavaScriptExecutable
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec, 'js_injection.mojom.JavaScriptExecutable', [
+      mojo.internal.StructField('arg_script_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_injection_time', 4, 0, mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_matcher', 16, 0, mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_js_world', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: JsWebMessageArrayBufferValue
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsWebMessageArrayBufferValueSpec, 'js_injection.mojom.JsWebMessageArrayBufferValue', [
+      mojo.internal.StructField('arg_array_buffer_value', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_resizable_by_user_javascript', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_byte_length', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_PostMessage_ParamsSpec, 'js_injection.mojom.JsToBrowserMessaging_PostMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ports', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.JsToBrowserMessaging_SetBrowserToJsMessaging_Params', [
+      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_ParamsSpec, 'js_injection.mojom.JsObjectsClient_OnWindowObjectCleared_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_ParamsSpec, 'js_injection.mojom.BrowserToJsMessagingFactory_SendBrowserToJsMessaging_Params', [
+      mojo.internal.StructField('arg_browser_to_js_messaging', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.js_injection.mojom.BrowserToJsMessagingRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.BrowserToJsMessaging_OnPostMessage_ParamsSpec, 'js_injection.mojom.BrowserToJsMessaging_OnPostMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.js_injection.mojom.JsWebMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsCommunication_SetJsObjects_ParamsSpec, 'js_injection.mojom.JsCommunication_SetJsObjects_Params', [
+      mojo.internal.StructField('arg_js_objects', 0, 0, mojo.internal.Array(mojo.internal.bindings.js_injection.mojom.JsObjectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.js_injection.mojom.JsObjectsClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsCommunication_AddPersistentJavaScript_ParamsSpec, 'js_injection.mojom.JsCommunication_AddPersistentJavaScript_Params', [
+      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.js_injection.mojom.JavaScriptExecutableSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.js_injection.mojom.JsCommunication_RemovePersistentJavaScript_ParamsSpec, 'js_injection.mojom.JsCommunication_RemovePersistentJavaScript_Params', [
+      mojo.internal.StructField('arg_script_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

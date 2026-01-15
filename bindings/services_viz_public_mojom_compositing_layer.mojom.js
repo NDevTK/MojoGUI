@@ -233,6 +233,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec = mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: LayerExtra
 mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.LayerExtraSpec, 'viz.mojom.LayerExtra', {

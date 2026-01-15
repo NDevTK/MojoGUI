@@ -129,3 +129,5 @@ mojo.internal.bindings.content.mojom.RendererType = {
   MOJO_RENDERER: 1,
   REMOTING_RENDERER: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -139,25 +139,6 @@ mojo.internal.bindings.arc.mojom.ArcResizeLockState = {
 };
 
 // Interface: CompatibilityModeInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_SetResizeLockState_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec, 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParams', [
-      mojo.internal.StructField('arg_is_o4c_app', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,19 +265,22 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResizeLockState');
-          const result = this.impl.setResizeLockState(params.arg_package_name, params.arg_state);
+          const result = this.impl.setResizeLockState(params.arg_arg_package_name, params.arg_arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isOptimizedForCrosApp');
-          const result = this.impl.isOptimizedForCrosApp(params.arg_package_name);
+          const result = this.impl.isOptimizedForCrosApp(params.arg_arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsOptimizedForCrosApp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_o4c_app' in response) ? response.arg_arg_is_o4c_app : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isOptimizedForCrosApp FAILED:', e));
           }
           break;
         }
@@ -312,4 +296,25 @@ mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceReceiver = mojo.intern
 
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstancePtr = mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceRemote;
 mojo.internal.bindings.arc.mojom.CompatibilityModeInstanceRequest = mojo.internal.bindings.arc.mojom.CompatibilityModeInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_SetResizeLockState_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_SetResizeLockState_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.arc.mojom.ArcResizeLockStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ParamsSpec, 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParamsSpec, 'arc.mojom.CompatibilityModeInstance_IsOptimizedForCrosApp_ResponseParams', [
+      mojo.internal.StructField('arg_is_o4c_app', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

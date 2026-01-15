@@ -153,6 +153,8 @@ mojo.internal.bindings.device.mojom.GeopositionErrorCode = {
   kWifiDisabled: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: GeopositionResult
 mojo.internal.Union(
     mojo.internal.bindings.device.mojom.GeopositionResultSpec, 'device.mojom.GeopositionResult', {

@@ -192,3 +192,5 @@ mojo.internal.bindings.color.mojom.RendererColorId = {
   kColorWebNativeControlSliderHovered: 64,
   kColorWebNativeControlSliderPressed: 65,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

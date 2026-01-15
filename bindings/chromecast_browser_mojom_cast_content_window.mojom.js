@@ -167,17 +167,6 @@ mojo.internal.bindings.chromecast.mojom.VisibilityPriority = {
 };
 
 // Interface: CastContentWindowObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_Params', [
-      mojo.internal.StructField('arg_visibility_type', 0, 0, mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -304,7 +293,7 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisibilityChange');
-          const result = this.impl.onVisibilityChange(params.arg_visibility_type);
+          const result = this.impl.onVisibilityChange(params.arg_arg_visibility_type);
           break;
         }
         case 1: {
@@ -329,41 +318,6 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRequest = mojo.
 
 
 // Interface: CastContentWindow
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec, 'chromecast.mojom.CastContentWindow_CreateWindow_Params', [
-      mojo.internal.StructField('arg_z_order', 0, 0, mojo.internal.bindings.chromecast.mojom.ZOrderSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 4, 0, mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec, 'chromecast.mojom.CastContentWindow_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_GrantScreenAccess_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_RevokeScreenAccess_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec, 'chromecast.mojom.CastContentWindow_EnableTouchInput_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.CastContentWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -546,14 +500,14 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWindow');
-          const result = this.impl.createWindow(params.arg_z_order, params.arg_priority);
+          const result = this.impl.createWindow(params.arg_arg_z_order, params.arg_arg_priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
         case 2: {
@@ -574,14 +528,14 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisibility');
-          const result = this.impl.requestVisibility(params.arg_priority);
+          const result = this.impl.requestVisibility(params.arg_arg_priority);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTouchInput');
-          const result = this.impl.enableTouchInput(params.arg_enabled);
+          const result = this.impl.enableTouchInput(params.arg_arg_enabled);
           break;
         }
       }
@@ -596,4 +550,52 @@ mojo.internal.bindings.chromecast.mojom.CastContentWindowReceiver = mojo.interna
 
 mojo.internal.bindings.chromecast.mojom.CastContentWindowPtr = mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote;
 mojo.internal.bindings.chromecast.mojom.CastContentWindowRequest = mojo.internal.bindings.chromecast.mojom.CastContentWindowPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnVisibilityChange_Params', [
+      mojo.internal.StructField('arg_visibility_type', 0, 0, mojo.internal.bindings.chromecast.mojom.VisibilityTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_ParamsSpec, 'chromecast.mojom.CastContentWindowObserver_OnWindowDestroyed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_CreateWindow_ParamsSpec, 'chromecast.mojom.CastContentWindow_CreateWindow_Params', [
+      mojo.internal.StructField('arg_z_order', 0, 0, mojo.internal.bindings.chromecast.mojom.ZOrderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 4, 0, mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_AddObserver_ParamsSpec, 'chromecast.mojom.CastContentWindow_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.CastContentWindowObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_GrantScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_GrantScreenAccess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_RevokeScreenAccess_ParamsSpec, 'chromecast.mojom.CastContentWindow_RevokeScreenAccess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_RequestVisibility_ParamsSpec, 'chromecast.mojom.CastContentWindow_RequestVisibility_Params', [
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.chromecast.mojom.VisibilityPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastContentWindow_EnableTouchInput_ParamsSpec, 'chromecast.mojom.CastContentWindow_EnableTouchInput_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

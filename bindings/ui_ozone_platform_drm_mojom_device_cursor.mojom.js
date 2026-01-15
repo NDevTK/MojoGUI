@@ -146,22 +146,6 @@ mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DeviceCursor
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
-      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bitmaps', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_frame_delay', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
-      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,14 +272,14 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
-          const result = this.impl.setCursor(params.arg_window, params.arg_bitmaps, params.arg_point, params.arg_frame_delay);
+          const result = this.impl.setCursor(params.arg_arg_window, params.arg_arg_bitmaps, params.arg_arg_point, params.arg_arg_frame_delay);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursor');
-          const result = this.impl.moveCursor(params.arg_window, params.arg_point);
+          const result = this.impl.moveCursor(params.arg_arg_window, params.arg_arg_point);
           break;
         }
       }
@@ -310,4 +294,22 @@ mojo.internal.bindings.ui.ozone.mojom.DeviceCursorReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPtr = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRemote;
 mojo.internal.bindings.ui.ozone.mojom.DeviceCursorRequest = mojo.internal.bindings.ui.ozone.mojom.DeviceCursorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_SetCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_SetCursor_Params', [
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bitmaps', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_frame_delay', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.DeviceCursor_MoveCursor_ParamsSpec, 'ui.ozone.mojom.DeviceCursor_MoveCursor_Params', [
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

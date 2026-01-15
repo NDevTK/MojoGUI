@@ -162,47 +162,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatus = {
   kFailedToSend: 3,
 };
 
-// Struct: AggregatableReportRequestID
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, 'private_aggregation_internals.mojom.AggregatableReportRequestID', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: AggregatableHistogramContribution
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, 'private_aggregation_internals.mojom.AggregatableHistogramContribution', [
-      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: WebUIAggregatableReport
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, 'private_aggregation_internals.mojom.WebUIAggregatableReport', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_api_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_api_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contributions', 40, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_body', 56, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: Observer
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnRequestStorageModified_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.private_aggregation_internals.mojom.ObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -336,7 +296,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportHandled');
-          const result = this.impl.onReportHandled(params.arg_report);
+          const result = this.impl.onReportHandled(params.arg_arg_report);
           break;
         }
       }
@@ -354,38 +314,6 @@ mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRequest = moj
 
 
 // Interface: Handler
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_ResponseParams', [
-      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_Params', [
-      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.private_aggregation_internals.mojom.HandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -530,8 +458,11 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetReports FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_reports' in response) ? response.arg_arg_reports : response;
+              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getReports FAILED:', e));
           }
           break;
         }
@@ -539,12 +470,14 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendReports');
-          const result = this.impl.sendReports(params.arg_ids);
+          const result = this.impl.sendReports(params.arg_arg_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendReports FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendReports FAILED:', e));
           }
           break;
         }
@@ -556,8 +489,10 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClearStorage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] clearStorage FAILED:', e));
           }
           break;
         }
@@ -576,13 +511,6 @@ mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRequest = mojo
 
 
 // Interface: Factory
-mojo.internal.Struct(
-    mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec, 'private_aggregation_internals.mojom.Factory_Create_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.private_aggregation_internals.mojom.FactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -695,7 +623,7 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_observer, params.arg_handler);
+          const result = this.impl.create(params.arg_arg_observer, params.arg_arg_handler);
           break;
         }
       }
@@ -710,4 +638,85 @@ mojo.internal.bindings.private_aggregation_internals.mojom.FactoryReceiver = moj
 
 mojo.internal.bindings.private_aggregation_internals.mojom.FactoryPtr = mojo.internal.bindings.private_aggregation_internals.mojom.FactoryRemote;
 mojo.internal.bindings.private_aggregation_internals.mojom.FactoryRequest = mojo.internal.bindings.private_aggregation_internals.mojom.FactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AggregatableReportRequestID
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, 'private_aggregation_internals.mojom.AggregatableReportRequestID', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AggregatableHistogramContribution
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, 'private_aggregation_internals.mojom.AggregatableHistogramContribution', [
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.mojo_base.mojom.Uint128Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: WebUIAggregatableReport
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, 'private_aggregation_internals.mojom.WebUIAggregatableReport', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_api_identifier', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_api_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contributions', 40, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableHistogramContributionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 48, 0, mojo.internal.bindings.private_aggregation_internals.mojom.ReportStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_body', 56, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnRequestStorageModified_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnRequestStorageModified_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Observer_OnReportHandled_ParamsSpec, 'private_aggregation_internals.mojom.Observer_OnReportHandled_Params', [
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_GetReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_GetReports_ResponseParams', [
+      mojo.internal.StructField('arg_reports', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.WebUIAggregatableReportSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_Params', [
+      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_aggregation_internals.mojom.AggregatableReportRequestIDSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_SendReports_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_SendReports_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParamsSpec, 'private_aggregation_internals.mojom.Handler_ClearStorage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_aggregation_internals.mojom.Factory_Create_ParamsSpec, 'private_aggregation_internals.mojom.Factory_Create_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.private_aggregation_internals.mojom.ObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.private_aggregation_internals.mojom.HandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

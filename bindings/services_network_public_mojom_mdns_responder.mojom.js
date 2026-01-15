@@ -135,32 +135,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MdnsResponder
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_Params', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_ResponseParams', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_announcement_scheduled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_Params', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParams', [
-      mojo.internal.StructField('arg_removed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_goodbye_scheduled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.MdnsResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,12 +261,14 @@ mojo.internal.bindings.network.mojom.MdnsResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNameForAddress');
-          const result = this.impl.createNameForAddress(params.arg_address);
+          const result = this.impl.createNameForAddress(params.arg_arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateNameForAddress FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec.$.structSpec, ['response.arg_arg_name', 'response.arg_arg_announcement_scheduled']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createNameForAddress FAILED:', e));
           }
           break;
         }
@@ -300,12 +276,14 @@ mojo.internal.bindings.network.mojom.MdnsResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeNameForAddress');
-          const result = this.impl.removeNameForAddress(params.arg_address);
+          const result = this.impl.removeNameForAddress(params.arg_arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveNameForAddress FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec.$.structSpec, ['response.arg_arg_removed', 'response.arg_arg_goodbye_scheduled']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeNameForAddress FAILED:', e));
           }
           break;
         }
@@ -321,4 +299,32 @@ mojo.internal.bindings.network.mojom.MdnsResponderReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.network.mojom.MdnsResponderPtr = mojo.internal.bindings.network.mojom.MdnsResponderRemote;
 mojo.internal.bindings.network.mojom.MdnsResponderRequest = mojo.internal.bindings.network.mojom.MdnsResponderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_Params', [
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsResponder_CreateNameForAddress_ResponseParamsSpec, 'network.mojom.MdnsResponder_CreateNameForAddress_ResponseParams', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_announcement_scheduled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_Params', [
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParamsSpec, 'network.mojom.MdnsResponder_RemoveNameForAddress_ResponseParams', [
+      mojo.internal.StructField('arg_removed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_goodbye_scheduled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

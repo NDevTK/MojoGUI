@@ -140,20 +140,7 @@ mojo.internal.bindings.drivefs.mojom.ExtensionConnectionStatus = {
   kUnknownError: 3,
 };
 
-// Struct: ExtensionConnectionParams
-mojo.internal.Struct(
-    mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec, 'drivefs.mojom.ExtensionConnectionParams', [
-      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: NativeMessagingPort
-mojo.internal.Struct(
-    mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec, 'drivefs.mojom.NativeMessagingPort_PostMessageToExtension_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.drivefs.mojom.NativeMessagingPortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,7 +253,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToExtension');
-          const result = this.impl.postMessageToExtension(params.arg_message);
+          const result = this.impl.postMessageToExtension(params.arg_arg_message);
           break;
         }
       }
@@ -284,12 +271,6 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingPortRequest = mojo.internal.
 
 
 // Interface: NativeMessagingHost
-mojo.internal.Struct(
-    mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec, 'drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.drivefs.mojom.NativeMessagingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -402,7 +383,7 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleMessageFromExtension');
-          const result = this.impl.handleMessageFromExtension(params.arg_message);
+          const result = this.impl.handleMessageFromExtension(params.arg_arg_message);
           break;
         }
       }
@@ -417,4 +398,25 @@ mojo.internal.bindings.drivefs.mojom.NativeMessagingHostReceiver = mojo.internal
 
 mojo.internal.bindings.drivefs.mojom.NativeMessagingHostPtr = mojo.internal.bindings.drivefs.mojom.NativeMessagingHostRemote;
 mojo.internal.bindings.drivefs.mojom.NativeMessagingHostRequest = mojo.internal.bindings.drivefs.mojom.NativeMessagingHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ExtensionConnectionParams
+mojo.internal.Struct(
+    mojo.internal.bindings.drivefs.mojom.ExtensionConnectionParamsSpec, 'drivefs.mojom.ExtensionConnectionParams', [
+      mojo.internal.StructField('arg_extension_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.drivefs.mojom.NativeMessagingPort_PostMessageToExtension_ParamsSpec, 'drivefs.mojom.NativeMessagingPort_PostMessageToExtension_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_ParamsSpec, 'drivefs.mojom.NativeMessagingHost_HandleMessageFromExtension_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -135,23 +135,6 @@ mojo.internal.bindings.device.mojom.NFCSpec = mojo.internal.bindings.device.mojo
 mojo.internal.bindings.device.mojom.NFCRemote = mojo.internal.bindings.device.mojom.NFCRemote || class {};
 
 // Interface: NFCProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec, 'device.mojom.NFCProvider_GetNFCForHost_Params', [
-      mojo.internal.StructField('arg_host_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.NFCRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_SuspendNFCOperations_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_ResumeNFCOperations_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.NFCProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -292,7 +275,7 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNFCForHost');
-          const result = this.impl.getNFCForHost(params.arg_host_id, params.arg_receiver);
+          const result = this.impl.getNFCForHost(params.arg_arg_host_id, params.arg_arg_receiver);
           break;
         }
         case 1: {
@@ -321,4 +304,23 @@ mojo.internal.bindings.device.mojom.NFCProviderReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.device.mojom.NFCProviderPtr = mojo.internal.bindings.device.mojom.NFCProviderRemote;
 mojo.internal.bindings.device.mojom.NFCProviderRequest = mojo.internal.bindings.device.mojom.NFCProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.NFCProvider_GetNFCForHost_ParamsSpec, 'device.mojom.NFCProvider_GetNFCForHost_Params', [
+      mojo.internal.StructField('arg_host_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.NFCRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.NFCProvider_SuspendNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_SuspendNFCOperations_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.NFCProvider_ResumeNFCOperations_ParamsSpec, 'device.mojom.NFCProvider_ResumeNFCOperations_Params', [
+    ],
+    [[0, 8]]);
 

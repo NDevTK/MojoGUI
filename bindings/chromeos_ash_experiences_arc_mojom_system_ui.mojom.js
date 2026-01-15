@@ -139,19 +139,6 @@ mojo.internal.bindings.arc.mojom.ThemeStyleType = {
 };
 
 // Interface: SystemUiInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec, 'arc.mojom.SystemUiInstance_SetDarkThemeStatus_Params', [
-      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec, 'arc.mojom.SystemUiInstance_SetOverlayColor_Params', [
-      mojo.internal.StructField('arg_source_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_theme_style', 4, 0, mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.SystemUiInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -278,14 +265,14 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDarkThemeStatus');
-          const result = this.impl.setDarkThemeStatus(params.arg_active);
+          const result = this.impl.setDarkThemeStatus(params.arg_arg_active);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOverlayColor');
-          const result = this.impl.setOverlayColor(params.arg_source_color, params.arg_theme_style);
+          const result = this.impl.setOverlayColor(params.arg_arg_source_color, params.arg_arg_theme_style);
           break;
         }
       }
@@ -300,4 +287,19 @@ mojo.internal.bindings.arc.mojom.SystemUiInstanceReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.arc.mojom.SystemUiInstancePtr = mojo.internal.bindings.arc.mojom.SystemUiInstanceRemote;
 mojo.internal.bindings.arc.mojom.SystemUiInstanceRequest = mojo.internal.bindings.arc.mojom.SystemUiInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SystemUiInstance_SetDarkThemeStatus_ParamsSpec, 'arc.mojom.SystemUiInstance_SetDarkThemeStatus_Params', [
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SystemUiInstance_SetOverlayColor_ParamsSpec, 'arc.mojom.SystemUiInstance_SetOverlayColor_Params', [
+      mojo.internal.StructField('arg_source_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_theme_style', 4, 0, mojo.internal.bindings.arc.mojom.ThemeStyleTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

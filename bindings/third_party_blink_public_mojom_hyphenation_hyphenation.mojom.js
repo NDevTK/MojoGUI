@@ -134,18 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Hyphenation
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_Params', [
-      mojo.internal.StructField('arg_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_ResponseParams', [
-      mojo.internal.StructField('arg_hyphenation_dictionary_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.HyphenationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,12 +246,15 @@ mojo.internal.bindings.blink.mojom.HyphenationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDictionary');
-          const result = this.impl.openDictionary(params.arg_locale);
+          const result = this.impl.openDictionary(params.arg_arg_locale);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenDictionary FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_hyphenation_dictionary_handle' in response) ? response.arg_arg_hyphenation_dictionary_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openDictionary FAILED:', e));
           }
           break;
         }
@@ -279,4 +270,18 @@ mojo.internal.bindings.blink.mojom.HyphenationReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.blink.mojom.HyphenationPtr = mojo.internal.bindings.blink.mojom.HyphenationRemote;
 mojo.internal.bindings.blink.mojom.HyphenationRequest = mojo.internal.bindings.blink.mojom.HyphenationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_Params', [
+      mojo.internal.StructField('arg_locale', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Hyphenation_OpenDictionary_ResponseParamsSpec, 'blink.mojom.Hyphenation_OpenDictionary_ResponseParams', [
+      mojo.internal.StructField('arg_hyphenation_dictionary_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

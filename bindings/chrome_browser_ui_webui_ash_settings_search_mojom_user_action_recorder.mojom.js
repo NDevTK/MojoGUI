@@ -145,64 +145,7 @@ mojo.internal.bindings.chromeos.settings = mojo.internal.bindings.chromeos.setti
 mojo.internal.bindings.chromeos.settings.mojom = mojo.internal.bindings.chromeos.settings.mojom || {};
 mojo.internal.bindings.chromeos.settings.mojom.SettingSpec = mojo.internal.bindings.chromeos.settings.mojom.SettingSpec || { $: mojo.internal.Enum().$ };
 
-// Union: SettingChangeValue
-mojo.internal.Union(
-    mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec, 'ash.settings.mojom.SettingChangeValue', {
-      'arg_bool_value': {
-        'ordinal': 0,
-        'type': mojo.internal.Bool,
-        'nullable': false,
-      },
-      'arg_int_value': {
-        'ordinal': 1,
-        'type': mojo.internal.Int32,
-        'nullable': false,
-      },
-      'arg_string_value': {
-        'ordinal': 2,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
 // Interface: UserActionRecorder
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageFocus_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageBlur_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordClick_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordNavigation_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSearch_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChange_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
-      mojo.internal.StructField('arg_setting', 0, 0, mojo.internal.bindings.chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,7 +384,7 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordSettingChangeWithDetails');
-          const result = this.impl.recordSettingChangeWithDetails(params.arg_setting, params.arg_value);
+          const result = this.impl.recordSettingChangeWithDetails(params.arg_arg_setting, params.arg_arg_value);
           break;
         }
       }
@@ -456,4 +399,63 @@ mojo.internal.bindings.ash.settings.mojom.UserActionRecorderReceiver = mojo.inte
 
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorderPtr = mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRemote;
 mojo.internal.bindings.ash.settings.mojom.UserActionRecorderRequest = mojo.internal.bindings.ash.settings.mojom.UserActionRecorderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SettingChangeValue
+mojo.internal.Union(
+    mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec, 'ash.settings.mojom.SettingChangeValue', {
+      'arg_bool_value': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+        'nullable': false,
+      },
+      'arg_int_value': {
+        'ordinal': 1,
+        'type': mojo.internal.Int32,
+        'nullable': false,
+      },
+      'arg_string_value': {
+        'ordinal': 2,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageFocus_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageFocus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordPageBlur_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordPageBlur_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordClick_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordClick_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordNavigation_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordNavigation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSearch_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSearch_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChange_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChange_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_ParamsSpec, 'ash.settings.mojom.UserActionRecorder_RecordSettingChangeWithDetails_Params', [
+      mojo.internal.StructField('arg_setting', 0, 0, mojo.internal.bindings.chromeos.settings.mojom.SettingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ash.settings.mojom.SettingChangeValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 

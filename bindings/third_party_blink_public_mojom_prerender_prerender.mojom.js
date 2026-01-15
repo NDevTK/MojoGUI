@@ -148,28 +148,7 @@ mojo.internal.bindings.blink.mojom.PrerenderTriggerType = {
   kLinkRelNext: 1,
 };
 
-// Struct: PrerenderAttributes
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec, 'blink.mojom.PrerenderAttributes', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger_type', 8, 0, mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: NoStatePrefetchProcessor
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Start_Params', [
-      mojo.internal.StructField('arg_prerender_attribute', 0, 0, mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,7 +275,7 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_prerender_attribute);
+          const result = this.impl.start(params.arg_arg_prerender_attribute);
           break;
         }
         case 1: {
@@ -318,4 +297,27 @@ mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorReceiver = mojo.inter
 
 mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorPtr = mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorRemote;
 mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorRequest = mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PrerenderAttributes
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec, 'blink.mojom.PrerenderAttributes', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger_type', 8, 0, mojo.internal.bindings.blink.mojom.PrerenderTriggerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Start_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Start_Params', [
+      mojo.internal.StructField('arg_prerender_attribute', 0, 0, mojo.internal.bindings.blink.mojom.PrerenderAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.NoStatePrefetchProcessor_Cancel_ParamsSpec, 'blink.mojom.NoStatePrefetchProcessor_Cancel_Params', [
+    ],
+    [[0, 8]]);
 

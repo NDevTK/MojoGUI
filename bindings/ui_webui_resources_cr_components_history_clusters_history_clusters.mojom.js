@@ -209,147 +209,7 @@ mojo.internal.bindings.history_clusters.mojom.VisitType = {
   kNonSRP: 1,
 };
 
-// Struct: QueryResult
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.QueryResultSpec, 'history_clusters.mojom.QueryResult', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clusters', 8, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.ClusterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_load_more', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_continuation', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec, 'history_clusters.mojom.PageHandler_OpenHistoryUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_modifiers', 8, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec, 'history_clusters.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowContextMenuForURL_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowSidePanelUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec, 'history_clusters.mojom.PageHandler_ToggleVisibility_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParams', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec, 'history_clusters.mojom.PageHandler_StartQueryClusters_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_recluster', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec, 'history_clusters.mojom.PageHandler_LoadMoreClusters_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec, 'history_clusters.mojom.PageHandler_HideVisits_Params', [
-      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_HideVisits_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisits_Params', [
-      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisits_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec, 'history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_Params', [
-      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_group_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordVisitAction_Params', [
-      mojo.internal.StructField('arg_visit_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.VisitActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_type', 8, 0, mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordRelatedSearchAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordClusterAction_Params', [
-      mojo.internal.StructField('arg_cluster_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cluster_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordToggledVisibility_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.history_clusters.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -672,28 +532,28 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openHistoryUrl');
-          const result = this.impl.openHistoryUrl(params.arg_url, params.arg_click_modifiers);
+          const result = this.impl.openHistoryUrl(params.arg_arg_url, params.arg_arg_click_modifiers);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_page);
+          const result = this.impl.setPage(params.arg_arg_page);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenuForSearchbox');
-          const result = this.impl.showContextMenuForSearchbox(params.arg_query, params.arg_point);
+          const result = this.impl.showContextMenuForSearchbox(params.arg_arg_query, params.arg_arg_point);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenuForURL');
-          const result = this.impl.showContextMenuForURL(params.arg_url, params.arg_point);
+          const result = this.impl.showContextMenuForURL(params.arg_arg_url, params.arg_arg_point);
           break;
         }
         case 4: {
@@ -707,12 +567,15 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleVisibility');
-          const result = this.impl.toggleVisibility(params.arg_visible);
+          const result = this.impl.toggleVisibility(params.arg_arg_visible);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ToggleVisibility FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_visible' in response) ? response.arg_arg_visible : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] toggleVisibility FAILED:', e));
           }
           break;
         }
@@ -720,26 +583,29 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startQueryClusters');
-          const result = this.impl.startQueryClusters(params.arg_query, params.arg_begin_time, params.arg_recluster);
+          const result = this.impl.startQueryClusters(params.arg_arg_query, params.arg_arg_begin_time, params.arg_arg_recluster);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadMoreClusters');
-          const result = this.impl.loadMoreClusters(params.arg_query);
+          const result = this.impl.loadMoreClusters(params.arg_arg_query);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideVisits');
-          const result = this.impl.hideVisits(params.arg_visits);
+          const result = this.impl.hideVisits(params.arg_arg_visits);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HideVisits FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hideVisits FAILED:', e));
           }
           break;
         }
@@ -747,12 +613,15 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVisits');
-          const result = this.impl.removeVisits(params.arg_visits);
+          const result = this.impl.removeVisits(params.arg_arg_visits);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveVisits FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeVisits FAILED:', e));
           }
           break;
         }
@@ -760,12 +629,15 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVisitByUrlAndTime');
-          const result = this.impl.removeVisitByUrlAndTime(params.arg_url, params.arg_timestamp);
+          const result = this.impl.removeVisitByUrlAndTime(params.arg_arg_url, params.arg_arg_timestamp);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveVisitByUrlAndTime FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeVisitByUrlAndTime FAILED:', e));
           }
           break;
         }
@@ -773,35 +645,35 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openVisitUrlsInTabGroup');
-          const result = this.impl.openVisitUrlsInTabGroup(params.arg_visits, params.arg_tab_group_name);
+          const result = this.impl.openVisitUrlsInTabGroup(params.arg_arg_visits, params.arg_arg_tab_group_name);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVisitAction');
-          const result = this.impl.recordVisitAction(params.arg_visit_action, params.arg_visit_index, params.arg_visit_type);
+          const result = this.impl.recordVisitAction(params.arg_arg_visit_action, params.arg_arg_visit_index, params.arg_arg_visit_type);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordRelatedSearchAction');
-          const result = this.impl.recordRelatedSearchAction(params.arg_action, params.arg_visit_index);
+          const result = this.impl.recordRelatedSearchAction(params.arg_arg_action, params.arg_arg_visit_index);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordClusterAction');
-          const result = this.impl.recordClusterAction(params.arg_cluster_action, params.arg_cluster_index);
+          const result = this.impl.recordClusterAction(params.arg_arg_cluster_action, params.arg_arg_cluster_index);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordToggledVisibility');
-          const result = this.impl.recordToggledVisibility(params.arg_visible);
+          const result = this.impl.recordToggledVisibility(params.arg_arg_visible);
           break;
         }
       }
@@ -819,42 +691,6 @@ mojo.internal.bindings.history_clusters.mojom.PageHandlerRequest = mojo.internal
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec, 'history_clusters.mojom.Page_OnClustersQueryResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_clusters.mojom.QueryResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec, 'history_clusters.mojom.Page_OnClusterImageUpdated_Params', [
-      mojo.internal.StructField('arg_cluster_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_image_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec, 'history_clusters.mojom.Page_OnVisitsHidden_Params', [
-      mojo.internal.StructField('arg_hidden_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec, 'history_clusters.mojom.Page_OnVisitsRemoved_Params', [
-      mojo.internal.StructField('arg_removed_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec, 'history_clusters.mojom.Page_OnHistoryDeleted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec, 'history_clusters.mojom.Page_OnQueryChangedByUser_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.history_clusters.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1037,28 +873,28 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClustersQueryResult');
-          const result = this.impl.onClustersQueryResult(params.arg_result);
+          const result = this.impl.onClustersQueryResult(params.arg_arg_result);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClusterImageUpdated');
-          const result = this.impl.onClusterImageUpdated(params.arg_cluster_index, params.arg_image_url);
+          const result = this.impl.onClusterImageUpdated(params.arg_arg_cluster_index, params.arg_arg_image_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisitsHidden');
-          const result = this.impl.onVisitsHidden(params.arg_hidden_visits);
+          const result = this.impl.onVisitsHidden(params.arg_arg_hidden_visits);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVisitsRemoved');
-          const result = this.impl.onVisitsRemoved(params.arg_removed_visits);
+          const result = this.impl.onVisitsRemoved(params.arg_arg_removed_visits);
           break;
         }
         case 4: {
@@ -1072,7 +908,7 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onQueryChangedByUser');
-          const result = this.impl.onQueryChangedByUser(params.arg_query);
+          const result = this.impl.onQueryChangedByUser(params.arg_arg_query);
           break;
         }
       }
@@ -1087,4 +923,182 @@ mojo.internal.bindings.history_clusters.mojom.PageReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.history_clusters.mojom.PagePtr = mojo.internal.bindings.history_clusters.mojom.PageRemote;
 mojo.internal.bindings.history_clusters.mojom.PageRequest = mojo.internal.bindings.history_clusters.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: QueryResult
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.QueryResultSpec, 'history_clusters.mojom.QueryResult', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clusters', 8, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.ClusterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_load_more', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_continuation', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenHistoryUrl_ParamsSpec, 'history_clusters.mojom.PageHandler_OpenHistoryUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_modifiers', 8, 0, mojo.internal.bindings.ui.mojom.ClickModifiersSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_SetPage_ParamsSpec, 'history_clusters.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowContextMenuForSearchbox_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowContextMenuForURL_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowContextMenuForURL_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_ShowSidePanelUI_ParamsSpec, 'history_clusters.mojom.PageHandler_ShowSidePanelUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ParamsSpec, 'history_clusters.mojom.PageHandler_ToggleVisibility_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_ToggleVisibility_ResponseParams', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_StartQueryClusters_ParamsSpec, 'history_clusters.mojom.PageHandler_StartQueryClusters_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_begin_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_recluster', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_LoadMoreClusters_ParamsSpec, 'history_clusters.mojom.PageHandler_LoadMoreClusters_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ParamsSpec, 'history_clusters.mojom.PageHandler_HideVisits_Params', [
+      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_HideVisits_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_HideVisits_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisits_Params', [
+      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisits_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParamsSpec, 'history_clusters.mojom.PageHandler_RemoveVisitByUrlAndTime_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_ParamsSpec, 'history_clusters.mojom.PageHandler_OpenVisitUrlsInTabGroup_Params', [
+      mojo.internal.StructField('arg_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_group_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordVisitAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordVisitAction_Params', [
+      mojo.internal.StructField('arg_visit_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.VisitActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_type', 8, 0, mojo.internal.bindings.history_clusters.mojom.VisitTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordRelatedSearchAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordRelatedSearchAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.RelatedSearchActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordClusterAction_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordClusterAction_Params', [
+      mojo.internal.StructField('arg_cluster_action', 0, 0, mojo.internal.bindings.history_clusters.mojom.ClusterActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cluster_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.PageHandler_RecordToggledVisibility_ParamsSpec, 'history_clusters.mojom.PageHandler_RecordToggledVisibility_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.Page_OnClustersQueryResult_ParamsSpec, 'history_clusters.mojom.Page_OnClustersQueryResult_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.history_clusters.mojom.QueryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.Page_OnClusterImageUpdated_ParamsSpec, 'history_clusters.mojom.Page_OnClusterImageUpdated_Params', [
+      mojo.internal.StructField('arg_cluster_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsHidden_ParamsSpec, 'history_clusters.mojom.Page_OnVisitsHidden_Params', [
+      mojo.internal.StructField('arg_hidden_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.Page_OnVisitsRemoved_ParamsSpec, 'history_clusters.mojom.Page_OnVisitsRemoved_Params', [
+      mojo.internal.StructField('arg_removed_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.history_clusters.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.Page_OnHistoryDeleted_ParamsSpec, 'history_clusters.mojom.Page_OnHistoryDeleted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters.mojom.Page_OnQueryChangedByUser_ParamsSpec, 'history_clusters.mojom.Page_OnQueryChangedByUser_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

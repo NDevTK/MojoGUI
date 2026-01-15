@@ -123,6 +123,8 @@ mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
 
 mojo.internal.bindings.smbfs.mojom.IPAddressSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IPAddress
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.IPAddressSpec, 'smbfs.mojom.IPAddress', [

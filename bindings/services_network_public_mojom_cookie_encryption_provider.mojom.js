@@ -134,17 +134,6 @@ mojo.internal.bindings.os_crypt_async.mojom = mojo.internal.bindings.os_crypt_as
 mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec = mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CookieEncryptionProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParams', [
-      mojo.internal.StructField('arg_encryptor', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.CookieEncryptionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,8 +250,11 @@ mojo.internal.bindings.network.mojom.CookieEncryptionProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetEncryptor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_encryptor' in response) ? response.arg_arg_encryptor : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getEncryptor FAILED:', e));
           }
           break;
         }
@@ -278,4 +270,17 @@ mojo.internal.bindings.network.mojom.CookieEncryptionProviderReceiver = mojo.int
 
 mojo.internal.bindings.network.mojom.CookieEncryptionProviderPtr = mojo.internal.bindings.network.mojom.CookieEncryptionProviderRemote;
 mojo.internal.bindings.network.mojom.CookieEncryptionProviderRequest = mojo.internal.bindings.network.mojom.CookieEncryptionProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParamsSpec, 'network.mojom.CookieEncryptionProvider_GetEncryptor_ResponseParams', [
+      mojo.internal.StructField('arg_encryptor', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

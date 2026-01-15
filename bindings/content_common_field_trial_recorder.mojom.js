@@ -127,12 +127,6 @@ mojo.internal.bindings.content.mojom.FieldTrialRecorder.$interfaceName = 'conten
 mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec = { $: {} };
 
 // Interface: FieldTrialRecorder
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec, 'content.mojom.FieldTrialRecorder_FieldTrialActivated_Params', [
-      mojo.internal.StructField('arg_trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.FieldTrialRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.content.mojom.FieldTrialRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fieldTrialActivated');
-          const result = this.impl.fieldTrialActivated(params.arg_trial_name);
+          const result = this.impl.fieldTrialActivated(params.arg_arg_trial_name);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.content.mojom.FieldTrialRecorderReceiver = mojo.internal.
 
 mojo.internal.bindings.content.mojom.FieldTrialRecorderPtr = mojo.internal.bindings.content.mojom.FieldTrialRecorderRemote;
 mojo.internal.bindings.content.mojom.FieldTrialRecorderRequest = mojo.internal.bindings.content.mojom.FieldTrialRecorderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FieldTrialRecorder_FieldTrialActivated_ParamsSpec, 'content.mojom.FieldTrialRecorder_FieldTrialActivated_Params', [
+      mojo.internal.StructField('arg_trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

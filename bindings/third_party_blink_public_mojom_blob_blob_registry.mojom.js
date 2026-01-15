@@ -147,12 +147,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SerializedBlobSpec = mojo.internal.bindings.blink.mojom.SerializedBlobSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ProgressClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec, 'blink.mojom.ProgressClient_OnProgress_Params', [
-      mojo.internal.StructField('arg_delta', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ProgressClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,7 +259,7 @@ mojo.internal.bindings.blink.mojom.ProgressClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_delta);
+          const result = this.impl.onProgress(params.arg_arg_delta);
           break;
         }
       }
@@ -283,37 +277,6 @@ mojo.internal.bindings.blink.mojom.ProgressClientRequest = mojo.internal.binding
 
 
 // Interface: BlobRegistry
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec, 'blink.mojom.BlobRegistry_Register_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_elements', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataElementSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec, 'blink.mojom.BlobRegistry_Register_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_Params', [
-      mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_disposition', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length_hint', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_client', 32, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ProgressClientRemote), null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BlobRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -440,12 +403,14 @@ mojo.internal.bindings.blink.mojom.BlobRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_content_disposition, params.arg_elements);
+          const result = this.impl.register(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_content_type, params.arg_arg_content_disposition, params.arg_arg_elements);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -453,12 +418,15 @@ mojo.internal.bindings.blink.mojom.BlobRegistryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFromStream');
-          const result = this.impl.registerFromStream(params.arg_content_type, params.arg_content_disposition, params.arg_length_hint, params.arg_data, params.arg_progress_client);
+          const result = this.impl.registerFromStream(params.arg_arg_content_type, params.arg_arg_content_disposition, params.arg_arg_length_hint, params.arg_arg_data, params.arg_arg_progress_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RegisterFromStream FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] registerFromStream FAILED:', e));
           }
           break;
         }
@@ -474,4 +442,43 @@ mojo.internal.bindings.blink.mojom.BlobRegistryReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.blink.mojom.BlobRegistryPtr = mojo.internal.bindings.blink.mojom.BlobRegistryRemote;
 mojo.internal.bindings.blink.mojom.BlobRegistryRequest = mojo.internal.bindings.blink.mojom.BlobRegistryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ProgressClient_OnProgress_ParamsSpec, 'blink.mojom.ProgressClient_OnProgress_Params', [
+      mojo.internal.StructField('arg_delta', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ParamsSpec, 'blink.mojom.BlobRegistry_Register_Params', [
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_disposition', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elements', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DataElementSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BlobRegistry_Register_ResponseParamsSpec, 'blink.mojom.BlobRegistry_Register_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_Params', [
+      mojo.internal.StructField('arg_content_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_disposition', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length_hint', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_client', 32, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ProgressClientRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BlobRegistry_RegisterFromStream_ResponseParamsSpec, 'blink.mojom.BlobRegistry_RegisterFromStream_ResponseParams', [
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.blink.mojom.SerializedBlobSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

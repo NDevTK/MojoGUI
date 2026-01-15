@@ -131,6 +131,8 @@ mojo.internal.bindings.extensions.mojom.HostType = {
   kControlledFrameEmbedder: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: HostID
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.HostIDSpec, 'extensions.mojom.HostID', [

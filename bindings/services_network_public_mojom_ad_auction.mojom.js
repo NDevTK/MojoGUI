@@ -137,6 +137,8 @@ mojo.internal.bindings.network.mojom.Type = {
   kClick: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AdAuctionEventRecord
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AdAuctionEventRecordSpec, 'network.mojom.AdAuctionEventRecord', [

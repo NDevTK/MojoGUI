@@ -211,75 +211,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReason = {
   DOWNLOAD_TOTAL_EXCEEDED: 7,
 };
 
-// Struct: BackgroundFetchSettledFetch
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec, 'blink.mojom.BackgroundFetchSettledFetch', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: BackgroundFetchOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec, 'blink.mojom.BackgroundFetchOptions', [
-      mojo.internal.StructField('arg_icons', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_download_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: BackgroundFetchRegistrationData
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec, 'blink.mojom.BackgroundFetchRegistrationData', [
-      mojo.internal.StructField('arg_developer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uploaded', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_download_total', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_downloaded', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 40, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_failure_reason', 44, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: BackgroundFetchRegistration
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, 'blink.mojom.BackgroundFetchRegistration', [
-      mojo.internal.StructField('arg_registration_data', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registration_interface', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: BackgroundFetchUkmData
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec, 'blink.mojom.BackgroundFetchUkmData', [
-      mojo.internal.StructField('arg_ideal_to_chosen_icon_size', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: BackgroundFetchRegistrationObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_Params', [
-      mojo.internal.StructField('arg_upload_total', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uploaded', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_download_total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_downloaded', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 32, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_failure_reason', 36, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,7 +352,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_upload_total, params.arg_uploaded, params.arg_download_total, params.arg_downloaded, params.arg_result, params.arg_failure_reason);
+          const result = this.impl.onProgress(params.arg_arg_upload_total, params.arg_arg_uploaded, params.arg_arg_download_total, params.arg_arg_downloaded, params.arg_arg_result, params.arg_arg_failure_reason);
           break;
         }
         case 1: {
@@ -434,7 +366,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCompleted');
-          const result = this.impl.onRequestCompleted(params.arg_request, params.arg_response);
+          const result = this.impl.onRequestCompleted(params.arg_arg_request, params.arg_arg_response);
           break;
         }
       }
@@ -452,62 +384,6 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRequest = 
 
 
 // Interface: BackgroundFetchService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_developer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_requests', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ukm_data', 40, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_developer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_developer_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParams', [
-      mojo.internal.StructField('arg_icon_size_pixels', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BackgroundFetchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -662,12 +538,14 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetch');
-          const result = this.impl.fetch(params.arg_service_worker_registration_id, params.arg_developer_id, params.arg_requests, params.arg_options, params.arg_icon, params.arg_ukm_data);
+          const result = this.impl.fetch(params.arg_arg_service_worker_registration_id, params.arg_arg_developer_id, params.arg_arg_requests, params.arg_arg_options, params.arg_arg_icon, params.arg_arg_ukm_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Fetch FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_registration']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetch FAILED:', e));
           }
           break;
         }
@@ -675,12 +553,14 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistration');
-          const result = this.impl.getRegistration(params.arg_service_worker_registration_id, params.arg_developer_id);
+          const result = this.impl.getRegistration(params.arg_arg_service_worker_registration_id, params.arg_arg_developer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetRegistration FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_registration']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getRegistration FAILED:', e));
           }
           break;
         }
@@ -688,12 +568,14 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeveloperIds');
-          const result = this.impl.getDeveloperIds(params.arg_service_worker_registration_id);
+          const result = this.impl.getDeveloperIds(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDeveloperIds FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_developer_ids']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDeveloperIds FAILED:', e));
           }
           break;
         }
@@ -705,8 +587,11 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetIconDisplaySize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_icon_size_pixels' in response) ? response.arg_arg_icon_size_pixels : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getIconDisplaySize FAILED:', e));
           }
           break;
         }
@@ -725,50 +610,6 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchServiceRequest = mojo.internal
 
 
 // Interface: BackgroundFetchRegistrationService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_Abort_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_Params', [
-      mojo.internal.StructField('arg_request_to_match', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cache_query_options', 8, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_match_all', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParams', [
-      mojo.internal.StructField('arg_fetches', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -923,12 +764,15 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateUI');
-          const result = this.impl.updateUI(params.arg_title, params.arg_icon);
+          const result = this.impl.updateUI(params.arg_arg_title, params.arg_arg_icon);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateUI FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateUI FAILED:', e));
           }
           break;
         }
@@ -940,8 +784,11 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Abort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] abort FAILED:', e));
           }
           break;
         }
@@ -949,12 +796,15 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchRequests');
-          const result = this.impl.matchRequests(params.arg_request_to_match, params.arg_cache_query_options, params.arg_match_all);
+          const result = this.impl.matchRequests(params.arg_arg_request_to_match, params.arg_arg_cache_query_options, params.arg_arg_match_all);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MatchRequests FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_fetches' in response) ? response.arg_arg_fetches : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] matchRequests FAILED:', e));
           }
           break;
         }
@@ -962,7 +812,7 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addRegistrationObserver');
-          const result = this.impl.addRegistrationObserver(params.arg_observer);
+          const result = this.impl.addRegistrationObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -977,4 +827,174 @@ mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceReceiver = 
 
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServicePtr = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemote;
 mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRequest = mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BackgroundFetchSettledFetch
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec, 'blink.mojom.BackgroundFetchSettledFetch', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: BackgroundFetchOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec, 'blink.mojom.BackgroundFetchOptions', [
+      mojo.internal.StructField('arg_icons', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_download_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: BackgroundFetchRegistrationData
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec, 'blink.mojom.BackgroundFetchRegistrationData', [
+      mojo.internal.StructField('arg_developer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_total', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uploaded', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_download_total', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_downloaded', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 40, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_reason', 44, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: BackgroundFetchRegistration
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, 'blink.mojom.BackgroundFetchRegistration', [
+      mojo.internal.StructField('arg_registration_data', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration_interface', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: BackgroundFetchUkmData
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec, 'blink.mojom.BackgroundFetchUkmData', [
+      mojo.internal.StructField('arg_ideal_to_chosen_icon_size', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnProgress_Params', [
+      mojo.internal.StructField('arg_upload_total', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uploaded', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_download_total', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_downloaded', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 32, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_failure_reason', 36, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchFailureReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnRecordsUnavailable_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationObserver_OnRequestCompleted_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.blink.mojom.FetchAPIResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_developer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requests', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 24, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ukm_data', 40, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchUkmDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_Fetch_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_Fetch_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_developer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetRegistration_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetRegistration_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration', 8, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetDeveloperIds_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_developer_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ParamsSpec, 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParamsSpec, 'blink.mojom.BackgroundFetchService_GetIconDisplaySize_ResponseParams', [
+      mojo.internal.StructField('arg_icon_size_pixels', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_Params', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_UpdateUI_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_Abort_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_Abort_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundFetchErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_Params', [
+      mojo.internal.StructField('arg_request_to_match', 0, 0, mojo.internal.bindings.blink.mojom.FetchAPIRequestSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cache_query_options', 8, 0, mojo.internal.bindings.blink.mojom.CacheQueryOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_match_all', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_MatchRequests_ResponseParams', [
+      mojo.internal.StructField('arg_fetches', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BackgroundFetchSettledFetchSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_ParamsSpec, 'blink.mojom.BackgroundFetchRegistrationService_AddRegistrationObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BackgroundFetchRegistrationObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

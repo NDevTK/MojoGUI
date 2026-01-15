@@ -132,12 +132,6 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpe
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec = { $: {} };
 
 // Interface: GuestOsSkForwarderFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_Params', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGuestOsSkForwarder');
-          const result = this.impl.bindGuestOsSkForwarder(params.arg_remote);
+          const result = this.impl.bindGuestOsSkForwarder(params.arg_arg_remote);
           break;
         }
       }
@@ -268,18 +262,6 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactoryRequest = mojo.int
 
 
 // Interface: GuestOsSkForwarder
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec, 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -392,12 +374,15 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardRequest');
-          const result = this.impl.forwardRequest(params.arg_message);
+          const result = this.impl.forwardRequest(params.arg_arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ForwardRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] forwardRequest FAILED:', e));
           }
           break;
         }
@@ -413,4 +398,24 @@ mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderReceiver = mojo.internal.
 
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderPtr = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemote;
 mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRequest = mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarderFactory_BindGuestOsSkForwarder_Params', [
+      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ParamsSpec, 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParamsSpec, 'crosapi.mojom.GuestOsSkForwarder_ForwardRequest_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

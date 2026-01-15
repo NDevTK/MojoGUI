@@ -129,3 +129,5 @@ mojo.internal.bindings.sandbox.mojom.Context = {
   kPrivilegedUtility: 1,
   kLowest: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

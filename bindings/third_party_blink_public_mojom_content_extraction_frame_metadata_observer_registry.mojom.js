@@ -142,12 +142,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.MetaTagSpec = mojo.internal.bindings.blink.mojom.MetaTagSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PaidContentMetadataObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec, 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params', [
-      mojo.internal.StructField('arg_has_paid_content', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,7 +254,7 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPaidContentMetadataChanged');
-          const result = this.impl.onPaidContentMetadataChanged(params.arg_has_paid_content);
+          const result = this.impl.onPaidContentMetadataChanged(params.arg_arg_has_paid_content);
           break;
         }
       }
@@ -278,12 +272,6 @@ mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRequest = mojo.int
 
 
 // Interface: MetaTagsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
-      mojo.internal.StructField('arg_meta_tags', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.MetaTagsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -396,7 +384,7 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMetaTagsChanged');
-          const result = this.impl.onMetaTagsChanged(params.arg_meta_tags);
+          const result = this.impl.onMetaTagsChanged(params.arg_arg_meta_tags);
           break;
         }
       }
@@ -414,19 +402,6 @@ mojo.internal.bindings.blink.mojom.MetaTagsObserverRequest = mojo.internal.bindi
 
 
 // Interface: FrameMetadataObserverRegistry
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params', [
-      mojo.internal.StructField('arg_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -553,14 +528,14 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPaidContentMetadataObserver');
-          const result = this.impl.addPaidContentMetadataObserver(params.arg_observer);
+          const result = this.impl.addPaidContentMetadataObserver(params.arg_arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMetaTagsObserver');
-          const result = this.impl.addMetaTagsObserver(params.arg_names, params.arg_observer);
+          const result = this.impl.addMetaTagsObserver(params.arg_arg_names, params.arg_arg_observer);
           break;
         }
       }
@@ -575,4 +550,31 @@ mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPtr = mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRemote;
 mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryRequest = mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_ParamsSpec, 'blink.mojom.PaidContentMetadataObserver_OnPaidContentMetadataChanged_Params', [
+      mojo.internal.StructField('arg_has_paid_content', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MetaTagsObserver_OnMetaTagsChanged_ParamsSpec, 'blink.mojom.MetaTagsObserver_OnMetaTagsChanged_Params', [
+      mojo.internal.StructField('arg_meta_tags', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.MetaTagSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddPaidContentMetadataObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PaidContentMetadataObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_ParamsSpec, 'blink.mojom.FrameMetadataObserverRegistry_AddMetaTagsObserver_Params', [
+      mojo.internal.StructField('arg_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MetaTagsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -163,18 +163,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.MtpStorageInfoSpec = mojo.internal.bindings.device.mojom.MtpStorageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MtpManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageAttached_Params', [
-      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageDetached_Params', [
-      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.MtpManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -301,14 +289,14 @@ mojo.internal.bindings.device.mojom.MtpManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storageAttached');
-          const result = this.impl.storageAttached(params.arg_storage_info);
+          const result = this.impl.storageAttached(params.arg_arg_storage_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storageDetached');
-          const result = this.impl.storageDetached(params.arg_storage_name);
+          const result = this.impl.storageDetached(params.arg_arg_storage_name);
           break;
         }
       }
@@ -326,169 +314,6 @@ mojo.internal.bindings.device.mojom.MtpManagerClientRequest = mojo.internal.bind
 
 
 // Interface: MtpManager
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.MtpManagerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('arg_storages', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec, 'device.mojom.MtpManager_GetStorageInfo_Params', [
-      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfo_ResponseParams', [
-      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec, 'device.mojom.MtpManager_GetStorageInfoFromDevice_Params', [
-      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParams', [
-      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec, 'device.mojom.MtpManager_OpenStorage_Params', [
-      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec, 'device.mojom.MtpManager_OpenStorage_ResponseParams', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec, 'device.mojom.MtpManager_CloseStorage_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec, 'device.mojom.MtpManager_CloseStorage_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec, 'device.mojom.MtpManager_CreateDirectory_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_directory_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec, 'device.mojom.MtpManager_CreateDirectory_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec, 'device.mojom.MtpManager_ReadDirectoryEntryIds_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec, 'device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParams', [
-      mojo.internal.StructField('arg_file_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec, 'device.mojom.MtpManager_ReadFileChunk_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec, 'device.mojom.MtpManager_ReadFileChunk_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec, 'device.mojom.MtpManager_GetFileInfo_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetFileInfo_ResponseParams', [
-      mojo.internal.StructField('arg_file_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpFileEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec, 'device.mojom.MtpManager_RenameObject_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_object_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_new_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec, 'device.mojom.MtpManager_RenameObject_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec, 'device.mojom.MtpManager_CopyFileFromLocal_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_file_descriptor', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_file_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec, 'device.mojom.MtpManager_CopyFileFromLocal_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec, 'device.mojom.MtpManager_DeleteObject_Params', [
-      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_object_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec, 'device.mojom.MtpManager_DeleteObject_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.MtpManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -755,12 +580,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumerateStoragesAndSetClient');
-          const result = this.impl.enumerateStoragesAndSetClient(params.arg_client);
+          const result = this.impl.enumerateStoragesAndSetClient(params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EnumerateStoragesAndSetClient FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_storages' in response) ? response.arg_arg_storages : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] enumerateStoragesAndSetClient FAILED:', e));
           }
           break;
         }
@@ -768,12 +596,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageInfo');
-          const result = this.impl.getStorageInfo(params.arg_storage_name);
+          const result = this.impl.getStorageInfo(params.arg_arg_storage_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStorageInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_storage_info' in response) ? response.arg_arg_storage_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStorageInfo FAILED:', e));
           }
           break;
         }
@@ -781,12 +612,14 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStorageInfoFromDevice');
-          const result = this.impl.getStorageInfoFromDevice(params.arg_storage_name);
+          const result = this.impl.getStorageInfoFromDevice(params.arg_arg_storage_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStorageInfoFromDevice FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec.$.structSpec, ['response.arg_arg_storage_info', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStorageInfoFromDevice FAILED:', e));
           }
           break;
         }
@@ -794,12 +627,14 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openStorage');
-          const result = this.impl.openStorage(params.arg_storage_name, params.arg_mode);
+          const result = this.impl.openStorage(params.arg_arg_storage_name, params.arg_arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenStorage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_storage_handle', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openStorage FAILED:', e));
           }
           break;
         }
@@ -807,12 +642,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeStorage');
-          const result = this.impl.closeStorage(params.arg_storage_handle);
+          const result = this.impl.closeStorage(params.arg_arg_storage_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CloseStorage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] closeStorage FAILED:', e));
           }
           break;
         }
@@ -820,12 +658,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDirectory');
-          const result = this.impl.createDirectory(params.arg_storage_handle, params.arg_parent_id, params.arg_directory_name);
+          const result = this.impl.createDirectory(params.arg_arg_storage_handle, params.arg_arg_parent_id, params.arg_arg_directory_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateDirectory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createDirectory FAILED:', e));
           }
           break;
         }
@@ -833,12 +674,14 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readDirectoryEntryIds');
-          const result = this.impl.readDirectoryEntryIds(params.arg_storage_handle, params.arg_file_id);
+          const result = this.impl.readDirectoryEntryIds(params.arg_arg_storage_handle, params.arg_arg_file_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReadDirectoryEntryIds FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec.$.structSpec, ['response.arg_arg_file_ids', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] readDirectoryEntryIds FAILED:', e));
           }
           break;
         }
@@ -846,12 +689,14 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readFileChunk');
-          const result = this.impl.readFileChunk(params.arg_storage_handle, params.arg_file_id, params.arg_offset, params.arg_count);
+          const result = this.impl.readFileChunk(params.arg_arg_storage_handle, params.arg_arg_file_id, params.arg_arg_offset, params.arg_arg_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReadFileChunk FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec.$.structSpec, ['response.arg_arg_data', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] readFileChunk FAILED:', e));
           }
           break;
         }
@@ -859,12 +704,14 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileInfo');
-          const result = this.impl.getFileInfo(params.arg_storage_handle, params.arg_file_ids);
+          const result = this.impl.getFileInfo(params.arg_arg_storage_handle, params.arg_arg_file_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFileInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_file_entries', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFileInfo FAILED:', e));
           }
           break;
         }
@@ -872,12 +719,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.renameObject');
-          const result = this.impl.renameObject(params.arg_storage_handle, params.arg_object_id, params.arg_new_name);
+          const result = this.impl.renameObject(params.arg_arg_storage_handle, params.arg_arg_object_id, params.arg_arg_new_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RenameObject FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] renameObject FAILED:', e));
           }
           break;
         }
@@ -885,12 +735,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyFileFromLocal');
-          const result = this.impl.copyFileFromLocal(params.arg_storage_handle, params.arg_source_file_descriptor, params.arg_parent_id, params.arg_file_name);
+          const result = this.impl.copyFileFromLocal(params.arg_arg_storage_handle, params.arg_arg_source_file_descriptor, params.arg_arg_parent_id, params.arg_arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CopyFileFromLocal FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] copyFileFromLocal FAILED:', e));
           }
           break;
         }
@@ -898,12 +751,15 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteObject');
-          const result = this.impl.deleteObject(params.arg_storage_handle, params.arg_object_id);
+          const result = this.impl.deleteObject(params.arg_arg_storage_handle, params.arg_arg_object_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteObject FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deleteObject FAILED:', e));
           }
           break;
         }
@@ -919,4 +775,181 @@ mojo.internal.bindings.device.mojom.MtpManagerReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.device.mojom.MtpManagerPtr = mojo.internal.bindings.device.mojom.MtpManagerRemote;
 mojo.internal.bindings.device.mojom.MtpManagerRequest = mojo.internal.bindings.device.mojom.MtpManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManagerClient_StorageAttached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageAttached_Params', [
+      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManagerClient_StorageDetached_ParamsSpec, 'device.mojom.MtpManagerClient_StorageDetached_Params', [
+      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.MtpManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParamsSpec, 'device.mojom.MtpManager_EnumerateStoragesAndSetClient_ResponseParams', [
+      mojo.internal.StructField('arg_storages', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ParamsSpec, 'device.mojom.MtpManager_GetStorageInfo_Params', [
+      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfo_ResponseParams', [
+      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ParamsSpec, 'device.mojom.MtpManager_GetStorageInfoFromDevice_Params', [
+      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParamsSpec, 'device.mojom.MtpManager_GetStorageInfoFromDevice_ResponseParams', [
+      mojo.internal.StructField('arg_storage_info', 0, 0, mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ParamsSpec, 'device.mojom.MtpManager_OpenStorage_Params', [
+      mojo.internal.StructField('arg_storage_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_OpenStorage_ResponseParamsSpec, 'device.mojom.MtpManager_OpenStorage_ResponseParams', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ParamsSpec, 'device.mojom.MtpManager_CloseStorage_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_CloseStorage_ResponseParamsSpec, 'device.mojom.MtpManager_CloseStorage_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ParamsSpec, 'device.mojom.MtpManager_CreateDirectory_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_directory_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_CreateDirectory_ResponseParamsSpec, 'device.mojom.MtpManager_CreateDirectory_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ParamsSpec, 'device.mojom.MtpManager_ReadDirectoryEntryIds_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParamsSpec, 'device.mojom.MtpManager_ReadDirectoryEntryIds_ResponseParams', [
+      mojo.internal.StructField('arg_file_ids', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ParamsSpec, 'device.mojom.MtpManager_ReadFileChunk_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_ReadFileChunk_ResponseParamsSpec, 'device.mojom.MtpManager_ReadFileChunk_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ParamsSpec, 'device.mojom.MtpManager_GetFileInfo_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_GetFileInfo_ResponseParamsSpec, 'device.mojom.MtpManager_GetFileInfo_ResponseParams', [
+      mojo.internal.StructField('arg_file_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.MtpFileEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ParamsSpec, 'device.mojom.MtpManager_RenameObject_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_object_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_new_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_RenameObject_ResponseParamsSpec, 'device.mojom.MtpManager_RenameObject_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ParamsSpec, 'device.mojom.MtpManager_CopyFileFromLocal_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file_descriptor', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_id', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_file_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_CopyFileFromLocal_ResponseParamsSpec, 'device.mojom.MtpManager_CopyFileFromLocal_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ParamsSpec, 'device.mojom.MtpManager_DeleteObject_Params', [
+      mojo.internal.StructField('arg_storage_handle', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_object_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.MtpManager_DeleteObject_ResponseParamsSpec, 'device.mojom.MtpManager_DeleteObject_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

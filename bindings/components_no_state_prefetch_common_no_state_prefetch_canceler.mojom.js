@@ -128,16 +128,6 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePref
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec = { $: {} };
 
 // Interface: NoStatePrefetchCanceler
-mojo.internal.Struct(
-    mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec, 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec, 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,4 +276,16 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerReceiver = mojo.in
 
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerPtr = mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerRemote;
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerRequest = mojo.internal.bindings.prerender.mojom.NoStatePrefetchCancelerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_ParamsSpec, 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchForUnsupportedScheme_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_ParamsSpec, 'prerender.mojom.NoStatePrefetchCanceler_CancelNoStatePrefetchAfterSubresourcesDiscovered_Params', [
+    ],
+    [[0, 8]]);
 

@@ -162,17 +162,6 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.SurfaceIdSpec = mojo.internal.bindings.viz.mojom.SurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PictureInPictureSessionObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_Params', [
-      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnStopped_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -299,7 +288,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWindowSizeChanged');
-          const result = this.impl.onWindowSizeChanged(params.arg_size);
+          const result = this.impl.onWindowSizeChanged(params.arg_arg_size);
           break;
         }
         case 1: {
@@ -324,32 +313,6 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRequest = mojo
 
 
 // Interface: PictureInPictureSession
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec, 'blink.mojom.PictureInPictureSession_Update_Params', [
-      mojo.internal.StructField('arg_player_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_player_remote', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_play_pause_button', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_id', 16, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_natural_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec, 'blink.mojom.PictureInPictureSession_UpdateMediaPosition_Params', [
-      mojo.internal.StructField('arg_media_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PictureInPictureSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -490,7 +453,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_player_id, params.arg_player_remote, params.arg_surface_id, params.arg_natural_size, params.arg_show_play_pause_button);
+          const result = this.impl.update(params.arg_arg_player_id, params.arg_arg_player_remote, params.arg_arg_surface_id, params.arg_arg_natural_size, params.arg_arg_show_play_pause_button);
           break;
         }
         case 1: {
@@ -501,8 +464,10 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Stop FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }
           break;
         }
@@ -510,7 +475,7 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMediaPosition');
-          const result = this.impl.updateMediaPosition(params.arg_media_position);
+          const result = this.impl.updateMediaPosition(params.arg_arg_media_position);
           break;
         }
       }
@@ -528,25 +493,6 @@ mojo.internal.bindings.blink.mojom.PictureInPictureSessionRequest = mojo.interna
 
 
 // Interface: PictureInPictureService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_Params', [
-      mojo.internal.StructField('arg_player_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_player_remote', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_play_pause_button', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_id', 16, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_natural_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_bounds', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_ResponseParams', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.PictureInPictureServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -659,12 +605,14 @@ mojo.internal.bindings.blink.mojom.PictureInPictureServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSession');
-          const result = this.impl.startSession(params.arg_player_id, params.arg_player_remote, params.arg_surface_id, params.arg_natural_size, params.arg_show_play_pause_button, params.arg_observer, params.arg_source_bounds);
+          const result = this.impl.startSession(params.arg_arg_player_id, params.arg_arg_player_remote, params.arg_arg_surface_id, params.arg_arg_natural_size, params.arg_arg_show_play_pause_button, params.arg_arg_observer, params.arg_arg_source_bounds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec.$.structSpec, ['response.arg_arg_session', 'response.arg_arg_size']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startSession FAILED:', e));
           }
           break;
         }
@@ -680,4 +628,62 @@ mojo.internal.bindings.blink.mojom.PictureInPictureServiceReceiver = mojo.intern
 
 mojo.internal.bindings.blink.mojom.PictureInPictureServicePtr = mojo.internal.bindings.blink.mojom.PictureInPictureServiceRemote;
 mojo.internal.bindings.blink.mojom.PictureInPictureServiceRequest = mojo.internal.bindings.blink.mojom.PictureInPictureServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnWindowSizeChanged_Params', [
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserver_OnStopped_ParamsSpec, 'blink.mojom.PictureInPictureSessionObserver_OnStopped_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureSession_Update_ParamsSpec, 'blink.mojom.PictureInPictureSession_Update_Params', [
+      mojo.internal.StructField('arg_player_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_player_remote', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_show_play_pause_button', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_id', 16, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_natural_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureSession_Stop_ResponseParamsSpec, 'blink.mojom.PictureInPictureSession_Stop_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureSession_UpdateMediaPosition_ParamsSpec, 'blink.mojom.PictureInPictureSession_UpdateMediaPosition_Params', [
+      mojo.internal.StructField('arg_media_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_Params', [
+      mojo.internal.StructField('arg_player_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_player_remote', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.MediaPlayerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_show_play_pause_button', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_id', 16, 0, mojo.internal.bindings.viz.mojom.SurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_natural_size', 24, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_bounds', 40, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PictureInPictureService_StartSession_ResponseParamsSpec, 'blink.mojom.PictureInPictureService_StartSession_ResponseParams', [
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.PictureInPictureSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

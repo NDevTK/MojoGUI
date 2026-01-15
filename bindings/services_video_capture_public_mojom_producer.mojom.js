@@ -135,24 +135,6 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoBufferHandleSpec = mojo.internal.bindings.media.mojom.VideoBufferHandleSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Producer
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_handle', 8, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec, 'video_capture.mojom.Producer_OnBufferRetired_Params', [
-      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.video_capture.mojom.ProducerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -279,12 +261,14 @@ mojo.internal.bindings.video_capture.mojom.ProducerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNewBuffer');
-          const result = this.impl.onNewBuffer(params.arg_buffer_id, params.arg_buffer_handle);
+          const result = this.impl.onNewBuffer(params.arg_arg_buffer_id, params.arg_arg_buffer_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnNewBuffer FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onNewBuffer FAILED:', e));
           }
           break;
         }
@@ -292,7 +276,7 @@ mojo.internal.bindings.video_capture.mojom.ProducerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBufferRetired');
-          const result = this.impl.onBufferRetired(params.arg_buffer_id);
+          const result = this.impl.onBufferRetired(params.arg_arg_buffer_id);
           break;
         }
       }
@@ -307,4 +291,24 @@ mojo.internal.bindings.video_capture.mojom.ProducerReceiver = mojo.internal.bind
 
 mojo.internal.bindings.video_capture.mojom.ProducerPtr = mojo.internal.bindings.video_capture.mojom.ProducerRemote;
 mojo.internal.bindings.video_capture.mojom.ProducerRequest = mojo.internal.bindings.video_capture.mojom.ProducerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_Params', [
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_handle', 8, 0, mojo.internal.bindings.media.mojom.VideoBufferHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.Producer_OnNewBuffer_ResponseParamsSpec, 'video_capture.mojom.Producer_OnNewBuffer_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.Producer_OnBufferRetired_ParamsSpec, 'video_capture.mojom.Producer_OnBufferRetired_Params', [
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

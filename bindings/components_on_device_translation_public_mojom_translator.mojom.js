@@ -130,30 +130,6 @@ mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_Par
 mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec = { $: {} };
 
 // Interface: Translator
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec, 'on_device_translation.mojom.Translator_Translate_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec, 'on_device_translation.mojom.Translator_Translate_ResponseParams', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec, 'on_device_translation.mojom.Translator_SplitSentences_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec, 'on_device_translation.mojom.Translator_SplitSentences_ResponseParams', [
-      mojo.internal.StructField('arg_sentences', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.on_device_translation.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,12 +256,15 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translate');
-          const result = this.impl.translate(params.arg_input);
+          const result = this.impl.translate(params.arg_arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Translate FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] translate FAILED:', e));
           }
           break;
         }
@@ -293,12 +272,15 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.splitSentences');
-          const result = this.impl.splitSentences(params.arg_input);
+          const result = this.impl.splitSentences(params.arg_arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SplitSentences FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_sentences' in response) ? response.arg_arg_sentences : response;
+              encoder.encodeStructInline(mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] splitSentences FAILED:', e));
           }
           break;
         }
@@ -314,4 +296,30 @@ mojo.internal.bindings.on_device_translation.mojom.TranslatorReceiver = mojo.int
 
 mojo.internal.bindings.on_device_translation.mojom.TranslatorPtr = mojo.internal.bindings.on_device_translation.mojom.TranslatorRemote;
 mojo.internal.bindings.on_device_translation.mojom.TranslatorRequest = mojo.internal.bindings.on_device_translation.mojom.TranslatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ParamsSpec, 'on_device_translation.mojom.Translator_Translate_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation.mojom.Translator_Translate_ResponseParamsSpec, 'on_device_translation.mojom.Translator_Translate_ResponseParams', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ParamsSpec, 'on_device_translation.mojom.Translator_SplitSentences_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation.mojom.Translator_SplitSentences_ResponseParamsSpec, 'on_device_translation.mojom.Translator_SplitSentences_ResponseParams', [
+      mojo.internal.StructField('arg_sentences', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

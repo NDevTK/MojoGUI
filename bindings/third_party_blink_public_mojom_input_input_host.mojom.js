@@ -130,48 +130,7 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_P
 mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec = { $: {} };
 
-// Struct: SpellCheckSuggestion
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec, 'blink.mojom.SpellCheckSuggestion', [
-      mojo.internal.StructField('arg_suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: TextSuggestion
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextSuggestionSpec, 'blink.mojom.TextSuggestion', [
-      mojo.internal.StructField('arg_marker_tag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_prefix', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suffix', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: TextSuggestionHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec, 'blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec, 'blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_Params', [
-      mojo.internal.StructField('arg_caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec, 'blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_Params', [
-      mojo.internal.StructField('arg_caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.TextSuggestionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.blink.mojom.TextSuggestionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -319,14 +278,14 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSpellCheckSuggestionMenu');
-          const result = this.impl.showSpellCheckSuggestionMenu(params.arg_caret_x, params.arg_caret_y, params.arg_marked_text, params.arg_suggestions);
+          const result = this.impl.showSpellCheckSuggestionMenu(params.arg_arg_caret_x, params.arg_arg_caret_y, params.arg_arg_marked_text, params.arg_arg_suggestions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showTextSuggestionMenu');
-          const result = this.impl.showTextSuggestionMenu(params.arg_caret_x, params.arg_caret_y, params.arg_marked_text, params.arg_suggestions);
+          const result = this.impl.showTextSuggestionMenu(params.arg_arg_caret_x, params.arg_arg_caret_y, params.arg_arg_marked_text, params.arg_arg_suggestions);
           break;
         }
       }
@@ -341,4 +300,47 @@ mojo.internal.bindings.blink.mojom.TextSuggestionHostReceiver = mojo.internal.bi
 
 mojo.internal.bindings.blink.mojom.TextSuggestionHostPtr = mojo.internal.bindings.blink.mojom.TextSuggestionHostRemote;
 mojo.internal.bindings.blink.mojom.TextSuggestionHostRequest = mojo.internal.bindings.blink.mojom.TextSuggestionHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SpellCheckSuggestion
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec, 'blink.mojom.SpellCheckSuggestion', [
+      mojo.internal.StructField('arg_suggestion', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: TextSuggestion
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextSuggestionSpec, 'blink.mojom.TextSuggestion', [
+      mojo.internal.StructField('arg_marker_tag', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_prefix', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suffix', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_ParamsSpec, 'blink.mojom.TextSuggestionHost_StartSuggestionMenuTimer_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_ParamsSpec, 'blink.mojom.TextSuggestionHost_ShowSpellCheckSuggestionMenu_Params', [
+      mojo.internal.StructField('arg_caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpellCheckSuggestionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_ParamsSpec, 'blink.mojom.TextSuggestionHost_ShowTextSuggestionMenu_Params', [
+      mojo.internal.StructField('arg_caret_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_caret_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_marked_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestions', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.TextSuggestionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

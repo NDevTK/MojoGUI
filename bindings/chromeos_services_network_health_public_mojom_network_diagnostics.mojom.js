@@ -384,401 +384,7 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnecti
   kProxyConnectionFailure: 1,
 };
 
-// Union: GoogleServicesConnectivityProblem
-mojo.internal.Union(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblem', {
-      'arg_connection_error': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec,
-        'nullable': false,
-      },
-      'arg_proxy_connection_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec,
-        'nullable': false,
-      },
-      'arg_no_valid_proxy_error': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: RoutineProblems
-mojo.internal.Union(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, 'chromeos.network_diagnostics.mojom.RoutineProblems', {
-      'arg_lan_connectivity_problems': {
-        'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.LanConnectivityProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_signal_strength_problems': {
-        'ordinal': 1,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.SignalStrengthProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_gateway_can_be_pinged_problems': {
-        'ordinal': 2,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.GatewayCanBePingedProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_has_secure_wifi_connection_problems': {
-        'ordinal': 3,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HasSecureWiFiConnectionProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_dns_resolver_present_problems': {
-        'ordinal': 4,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.DnsResolverPresentProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_dns_latency_problems': {
-        'ordinal': 5,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.DnsLatencyProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_dns_resolution_problems': {
-        'ordinal': 6,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.DnsResolutionProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_captive_portal_problems': {
-        'ordinal': 7,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.CaptivePortalProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_http_firewall_problems': {
-        'ordinal': 8,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpFirewallProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_https_firewall_problems': {
-        'ordinal': 9,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsFirewallProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_https_latency_problems': {
-        'ordinal': 10,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsLatencyProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_video_conferencing_problems': {
-        'ordinal': 11,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.VideoConferencingProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_arc_http_problems': {
-        'ordinal': 12,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.ArcHttpProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_arc_dns_resolution_problems': {
-        'ordinal': 13,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.ArcDnsResolutionProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_arc_ping_problems': {
-        'ordinal': 14,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.ArcPingProblemSpec, false),
-        'nullable': false,
-      },
-      'arg_google_services_connectivity_problems': {
-        'ordinal': 15,
-        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec, false),
-        'nullable': false,
-      },
-    });
-
-// Union: RoutineResultValue
-mojo.internal.Union(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, 'chromeos.network_diagnostics.mojom.RoutineResultValue', {
-      'arg_https_latency_result_value': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: GoogleServicesConnectivityErrorDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetails', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolution_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: GoogleServicesConnectivityConnectionErrorInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo', [
-      mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_details', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_start', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_timestamp_end', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: GoogleServicesConnectivityConnectionError
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError', [
-      mojo.internal.StructField('arg_problem_type', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_connection_info', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: GoogleServicesConnectivityProxyConnectionError
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError', [
-      mojo.internal.StructField('arg_problem_type', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_info', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: GoogleServicesConnectivityNoValidProxyError
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyError', [
-      mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error_details', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: HttpsLatencyResultValue
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec, 'chromeos.network_diagnostics.mojom.HttpsLatencyResultValue', [
-      mojo.internal.StructField('arg_latency', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: RoutineResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, 'chromeos.network_diagnostics.mojom.RoutineResult', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_problems', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_value', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, null, true, 1, undefined),
-    ],
-    [[0, 40], [1, 56], [2, 16]]);
-
 // Interface: NetworkDiagnosticsRoutines
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_Params', [
-      mojo.internal.StructField('arg_routine', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Map(mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineTypeSpec, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_Params', [
-      mojo.internal.StructField('arg_stun_server_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 16], [2, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1129,12 +735,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getResult');
-          const result = this.impl.getResult(params.arg_routine);
+          const result = this.impl.getResult(params.arg_arg_routine);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetResult FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getResult FAILED:', e));
           }
           break;
         }
@@ -1146,8 +755,11 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAllResults FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAllResults FAILED:', e));
           }
           break;
         }
@@ -1155,12 +767,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runLanConnectivity');
-          const result = this.impl.runLanConnectivity(params.arg_source);
+          const result = this.impl.runLanConnectivity(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunLanConnectivity FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runLanConnectivity FAILED:', e));
           }
           break;
         }
@@ -1168,12 +783,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runSignalStrength');
-          const result = this.impl.runSignalStrength(params.arg_source);
+          const result = this.impl.runSignalStrength(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunSignalStrength FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runSignalStrength FAILED:', e));
           }
           break;
         }
@@ -1181,12 +799,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runGatewayCanBePinged');
-          const result = this.impl.runGatewayCanBePinged(params.arg_source);
+          const result = this.impl.runGatewayCanBePinged(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunGatewayCanBePinged FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runGatewayCanBePinged FAILED:', e));
           }
           break;
         }
@@ -1194,12 +815,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHasSecureWiFiConnection');
-          const result = this.impl.runHasSecureWiFiConnection(params.arg_source);
+          const result = this.impl.runHasSecureWiFiConnection(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunHasSecureWiFiConnection FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runHasSecureWiFiConnection FAILED:', e));
           }
           break;
         }
@@ -1207,12 +831,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolverPresent');
-          const result = this.impl.runDnsResolverPresent(params.arg_source);
+          const result = this.impl.runDnsResolverPresent(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunDnsResolverPresent FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runDnsResolverPresent FAILED:', e));
           }
           break;
         }
@@ -1220,12 +847,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsLatency');
-          const result = this.impl.runDnsLatency(params.arg_source);
+          const result = this.impl.runDnsLatency(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunDnsLatency FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runDnsLatency FAILED:', e));
           }
           break;
         }
@@ -1233,12 +863,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runDnsResolution');
-          const result = this.impl.runDnsResolution(params.arg_source);
+          const result = this.impl.runDnsResolution(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunDnsResolution FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runDnsResolution FAILED:', e));
           }
           break;
         }
@@ -1246,12 +879,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runCaptivePortal');
-          const result = this.impl.runCaptivePortal(params.arg_source);
+          const result = this.impl.runCaptivePortal(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunCaptivePortal FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runCaptivePortal FAILED:', e));
           }
           break;
         }
@@ -1259,12 +895,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpFirewall');
-          const result = this.impl.runHttpFirewall(params.arg_source);
+          const result = this.impl.runHttpFirewall(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunHttpFirewall FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runHttpFirewall FAILED:', e));
           }
           break;
         }
@@ -1272,12 +911,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsFirewall');
-          const result = this.impl.runHttpsFirewall(params.arg_source);
+          const result = this.impl.runHttpsFirewall(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunHttpsFirewall FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runHttpsFirewall FAILED:', e));
           }
           break;
         }
@@ -1285,12 +927,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runHttpsLatency');
-          const result = this.impl.runHttpsLatency(params.arg_source);
+          const result = this.impl.runHttpsLatency(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunHttpsLatency FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runHttpsLatency FAILED:', e));
           }
           break;
         }
@@ -1298,12 +943,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runVideoConferencing');
-          const result = this.impl.runVideoConferencing(params.arg_stun_server_hostname, params.arg_source);
+          const result = this.impl.runVideoConferencing(params.arg_arg_stun_server_hostname, params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunVideoConferencing FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runVideoConferencing FAILED:', e));
           }
           break;
         }
@@ -1311,12 +959,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcHttp');
-          const result = this.impl.runArcHttp(params.arg_source);
+          const result = this.impl.runArcHttp(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunArcHttp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runArcHttp FAILED:', e));
           }
           break;
         }
@@ -1324,12 +975,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcPing');
-          const result = this.impl.runArcPing(params.arg_source);
+          const result = this.impl.runArcPing(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunArcPing FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runArcPing FAILED:', e));
           }
           break;
         }
@@ -1337,12 +991,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runArcDnsResolution');
-          const result = this.impl.runArcDnsResolution(params.arg_source);
+          const result = this.impl.runArcDnsResolution(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunArcDnsResolution FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runArcDnsResolution FAILED:', e));
           }
           break;
         }
@@ -1350,12 +1007,15 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runGoogleServicesConnectivity');
-          const result = this.impl.runGoogleServicesConnectivity(params.arg_source);
+          const result = this.impl.runGoogleServicesConnectivity(params.arg_arg_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunGoogleServicesConnectivity FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runGoogleServicesConnectivity FAILED:', e));
           }
           break;
         }
@@ -1371,4 +1031,400 @@ mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRout
 
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPtr = mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRemote;
 mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesRequest = mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutinesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: GoogleServicesConnectivityProblem
+mojo.internal.Union(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblem', {
+      'arg_connection_error': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec,
+        'nullable': false,
+      },
+      'arg_proxy_connection_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec,
+        'nullable': false,
+      },
+      'arg_no_valid_proxy_error': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: RoutineProblems
+mojo.internal.Union(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, 'chromeos.network_diagnostics.mojom.RoutineProblems', {
+      'arg_lan_connectivity_problems': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.LanConnectivityProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_signal_strength_problems': {
+        'ordinal': 1,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.SignalStrengthProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_gateway_can_be_pinged_problems': {
+        'ordinal': 2,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.GatewayCanBePingedProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_has_secure_wifi_connection_problems': {
+        'ordinal': 3,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HasSecureWiFiConnectionProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_dns_resolver_present_problems': {
+        'ordinal': 4,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.DnsResolverPresentProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_dns_latency_problems': {
+        'ordinal': 5,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.DnsLatencyProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_dns_resolution_problems': {
+        'ordinal': 6,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.DnsResolutionProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_captive_portal_problems': {
+        'ordinal': 7,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.CaptivePortalProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_http_firewall_problems': {
+        'ordinal': 8,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpFirewallProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_https_firewall_problems': {
+        'ordinal': 9,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsFirewallProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_https_latency_problems': {
+        'ordinal': 10,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsLatencyProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_video_conferencing_problems': {
+        'ordinal': 11,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.VideoConferencingProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_arc_http_problems': {
+        'ordinal': 12,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.ArcHttpProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_arc_dns_resolution_problems': {
+        'ordinal': 13,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.ArcDnsResolutionProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_arc_ping_problems': {
+        'ordinal': 14,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.ArcPingProblemSpec, false),
+        'nullable': false,
+      },
+      'arg_google_services_connectivity_problems': {
+        'ordinal': 15,
+        'type': mojo.internal.Array(mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemSpec, false),
+        'nullable': false,
+      },
+    });
+
+// Union: RoutineResultValue
+mojo.internal.Union(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, 'chromeos.network_diagnostics.mojom.RoutineResultValue', {
+      'arg_https_latency_result_value': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: GoogleServicesConnectivityErrorDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetails', [
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolution_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GoogleServicesConnectivityConnectionErrorInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfo', [
+      mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_details', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp_start', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_timestamp_end', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: GoogleServicesConnectivityConnectionError
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionError', [
+      mojo.internal.StructField('arg_problem_type', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProblemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_connection_info', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: GoogleServicesConnectivityProxyConnectionError
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyConnectionError', [
+      mojo.internal.StructField('arg_problem_type', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityProxyProblemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_info', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityConnectionErrorInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: GoogleServicesConnectivityNoValidProxyError
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyErrorSpec, 'chromeos.network_diagnostics.mojom.GoogleServicesConnectivityNoValidProxyError', [
+      mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_proxy', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error_details', 16, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.GoogleServicesConnectivityErrorDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: HttpsLatencyResultValue
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.HttpsLatencyResultValueSpec, 'chromeos.network_diagnostics.mojom.HttpsLatencyResultValue', [
+      mojo.internal.StructField('arg_latency', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: RoutineResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, 'chromeos.network_diagnostics.mojom.RoutineResult', [
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineVerdictSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_problems', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineProblemsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_value', 32, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultValueSpec, null, true, 1, undefined),
+    ],
+    [[0, 40], [1, 56], [2, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_Params', [
+      mojo.internal.StructField('arg_routine', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetResult_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_GetAllResults_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Map(mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineTypeSpec, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunLanConnectivity_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunSignalStrength_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGatewayCanBePinged_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHasSecureWiFiConnection_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolverPresent_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsLatency_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunDnsResolution_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunCaptivePortal_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpFirewall_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsFirewall_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunHttpsLatency_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_Params', [
+      mojo.internal.StructField('arg_stun_server_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunVideoConferencing_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcHttp_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcPing_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunArcDnsResolution_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineCallSourceSpec, null, true, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParamsSpec, 'chromeos.network_diagnostics.mojom.NetworkDiagnosticsRoutines_RunGoogleServicesConnectivity_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.network_diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

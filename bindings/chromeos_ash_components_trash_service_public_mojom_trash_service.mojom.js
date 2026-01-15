@@ -145,20 +145,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TrashService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec, 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_Params', [
-      mojo.internal.StructField('arg_trash_info_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec, 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_restore_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_deletion_date', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.ash.trash_service.mojom.TrashServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,12 +257,14 @@ mojo.internal.bindings.ash.trash_service.mojom.TrashServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseTrashInfoFile');
-          const result = this.impl.parseTrashInfoFile(params.arg_trash_info_file);
+          const result = this.impl.parseTrashInfoFile(params.arg_arg_trash_info_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseTrashInfoFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_restore_path', 'response.arg_arg_deletion_date']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseTrashInfoFile FAILED:', e));
           }
           break;
         }
@@ -292,4 +280,20 @@ mojo.internal.bindings.ash.trash_service.mojom.TrashServiceReceiver = mojo.inter
 
 mojo.internal.bindings.ash.trash_service.mojom.TrashServicePtr = mojo.internal.bindings.ash.trash_service.mojom.TrashServiceRemote;
 mojo.internal.bindings.ash.trash_service.mojom.TrashServiceRequest = mojo.internal.bindings.ash.trash_service.mojom.TrashServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ParamsSpec, 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_Params', [
+      mojo.internal.StructField('arg_trash_info_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParamsSpec, 'ash.trash_service.mojom.TrashService_ParseTrashInfoFile_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_restore_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deletion_date', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

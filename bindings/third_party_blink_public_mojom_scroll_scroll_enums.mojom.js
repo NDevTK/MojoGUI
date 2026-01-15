@@ -140,3 +140,5 @@ mojo.internal.bindings.blink.mojom.ScrollBehavior = {
   kInstant: 1,
   kSmooth: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

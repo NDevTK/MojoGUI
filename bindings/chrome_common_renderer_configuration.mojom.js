@@ -167,45 +167,7 @@ mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTrigger = {
   kThrottlingRequestsPaused: 8,
 };
 
-// Struct: BoundSessionThrottlerParams
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec, 'chrome.mojom.BoundSessionThrottlerParams', [
-      mojo.internal.StructField('arg_domain', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_expiry_date', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DynamicParams
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.DynamicParamsSpec, 'chrome.mojom.DynamicParams', [
-      mojo.internal.StructField('arg_bound_session_throttler_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_safe_search', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_youtube_restrict', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_domains_for_apps', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: StaticParams
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.StaticParamsSpec, 'chrome.mojom.StaticParams', [
-      mojo.internal.StructField('arg_is_instant_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: BoundSessionRequestThrottledHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Params', [
-      mojo.internal.StructField('arg_untrusted_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParams', [
-      mojo.internal.StructField('arg_resume_trigger', 0, 0, mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -318,12 +280,15 @@ mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleRequestBlockedOnCookie');
-          const result = this.impl.handleRequestBlockedOnCookie(params.arg_untrusted_request_url);
+          const result = this.impl.handleRequestBlockedOnCookie(params.arg_arg_untrusted_request_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HandleRequestBlockedOnCookie FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_resume_trigger' in response) ? response.arg_arg_resume_trigger : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] handleRequestBlockedOnCookie FAILED:', e));
           }
           break;
         }
@@ -451,27 +416,6 @@ mojo.internal.bindings.chrome.mojom.ChromeOSListenerRequest = mojo.internal.bind
 
 
 // Interface: RendererConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params', [
-      mojo.internal.StructField('arg_is_incognito_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_chromeos_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_content_settings_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfiguration_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chrome.mojom.DynamicParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chrome.mojom.StaticParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.RendererConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -612,21 +556,21 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInitialConfiguration');
-          const result = this.impl.setInitialConfiguration(params.arg_is_incognito_process, params.arg_chromeos_listener, params.arg_content_settings_manager, params.arg_bound_session_request_throttled_handler);
+          const result = this.impl.setInitialConfiguration(params.arg_arg_is_incognito_process, params.arg_arg_chromeos_listener, params.arg_arg_content_settings_manager, params.arg_arg_bound_session_request_throttled_handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
-          const result = this.impl.setConfiguration(params.arg_params);
+          const result = this.impl.setConfiguration(params.arg_arg_params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfigurationOnProcessLockUpdate');
-          const result = this.impl.setConfigurationOnProcessLockUpdate(params.arg_params);
+          const result = this.impl.setConfigurationOnProcessLockUpdate(params.arg_arg_params);
           break;
         }
       }
@@ -641,4 +585,65 @@ mojo.internal.bindings.chrome.mojom.RendererConfigurationReceiver = mojo.interna
 
 mojo.internal.bindings.chrome.mojom.RendererConfigurationPtr = mojo.internal.bindings.chrome.mojom.RendererConfigurationRemote;
 mojo.internal.bindings.chrome.mojom.RendererConfigurationRequest = mojo.internal.bindings.chrome.mojom.RendererConfigurationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BoundSessionThrottlerParams
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec, 'chrome.mojom.BoundSessionThrottlerParams', [
+      mojo.internal.StructField('arg_domain', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_expiry_date', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DynamicParams
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.DynamicParamsSpec, 'chrome.mojom.DynamicParams', [
+      mojo.internal.StructField('arg_bound_session_throttler_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.BoundSessionThrottlerParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_force_safe_search', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_youtube_restrict', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_domains_for_apps', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: StaticParams
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.StaticParamsSpec, 'chrome.mojom.StaticParams', [
+      mojo.internal.StructField('arg_is_instant_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_Params', [
+      mojo.internal.StructField('arg_untrusted_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParamsSpec, 'chrome.mojom.BoundSessionRequestThrottledHandler_HandleRequestBlockedOnCookie_ResponseParams', [
+      mojo.internal.StructField('arg_resume_trigger', 0, 0, mojo.internal.bindings.chrome.mojom.ResumeBlockedRequestsTriggerSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetInitialConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetInitialConfiguration_Params', [
+      mojo.internal.StructField('arg_is_incognito_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_chromeos_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.ChromeOSListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_content_settings_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_bound_session_request_throttled_handler', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.BoundSessionRequestThrottledHandlerRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfiguration_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfiguration_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chrome.mojom.DynamicParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_ParamsSpec, 'chrome.mojom.RendererConfiguration_SetConfigurationOnProcessLockUpdate_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chrome.mojom.StaticParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

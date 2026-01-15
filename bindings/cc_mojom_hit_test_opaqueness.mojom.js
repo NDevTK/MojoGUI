@@ -129,3 +129,5 @@ mojo.internal.bindings.cc.mojom.HitTestOpaqueness = {
   kMixed: 1,
   kOpaque: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

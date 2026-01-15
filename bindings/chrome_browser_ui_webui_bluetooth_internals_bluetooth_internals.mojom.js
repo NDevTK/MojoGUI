@@ -155,12 +155,6 @@ mojo.internal.bindings.bluetooth.mojom.AdapterSpec = mojo.internal.bindings.blue
 mojo.internal.bindings.bluetooth.mojom.AdapterRemote = mojo.internal.bindings.bluetooth.mojom.AdapterRemote || class {};
 
 // Interface: DebugLogsChangeHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec, 'mojom.DebugLogsChangeHandler_ChangeDebugLogsState_Params', [
-      mojo.internal.StructField('arg_should_debug_logs_be_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.DebugLogsChangeHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,7 +267,7 @@ mojo.internal.bindings.mojom.DebugLogsChangeHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeDebugLogsState');
-          const result = this.impl.changeDebugLogsState(params.arg_should_debug_logs_be_enabled);
+          const result = this.impl.changeDebugLogsState(params.arg_arg_should_debug_logs_be_enabled);
           break;
         }
       }
@@ -291,85 +285,6 @@ mojo.internal.bindings.mojom.DebugLogsChangeHandlerRequest = mojo.internal.bindi
 
 
 // Interface: BluetoothInternalsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec, 'mojom.BluetoothInternalsHandler_GetAdapter_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetAdapter_ResponseParams', [
-      mojo.internal.StructField('arg_adapter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParams', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.DebugLogsChangeHandlerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_initial_toggle_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec, 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParams', [
-      mojo.internal.StructField('arg_need_location_permission', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_need_nearby_devices_permission', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_need_location_services', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_request_permissions', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec, 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec, 'mojom.BluetoothInternalsHandler_RequestLocationServices_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParams', [
-      mojo.internal.StructField('arg_btsnoop', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.BluetoothBtsnoopRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec, 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParams', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.BluetoothInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -570,8 +485,11 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAdapter FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_adapter' in response) ? response.arg_arg_adapter : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAdapter FAILED:', e));
           }
           break;
         }
@@ -583,8 +501,10 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDebugLogsChangeHandler FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec.$.structSpec, ['response.arg_arg_handler', 'response.arg_arg_initial_toggle_value']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDebugLogsChangeHandler FAILED:', e));
           }
           break;
         }
@@ -596,8 +516,10 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckSystemPermissions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_need_location_permission', 'response.arg_arg_need_nearby_devices_permission', 'response.arg_arg_need_location_services', 'response.arg_arg_can_request_permissions']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkSystemPermissions FAILED:', e));
           }
           break;
         }
@@ -609,8 +531,10 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestSystemPermissions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestSystemPermissions FAILED:', e));
           }
           break;
         }
@@ -622,8 +546,10 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestLocationServices FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestLocationServices FAILED:', e));
           }
           break;
         }
@@ -635,8 +561,11 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartBtsnoop FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_btsnoop' in response) ? response.arg_arg_btsnoop : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startBtsnoop FAILED:', e));
           }
           break;
         }
@@ -648,8 +577,11 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsBtsnoopFeatureEnabled FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isBtsnoopFeatureEnabled FAILED:', e));
           }
           break;
         }
@@ -668,17 +600,6 @@ mojo.internal.bindings.mojom.BluetoothInternalsHandlerRequest = mojo.internal.bi
 
 
 // Interface: BluetoothBtsnoop
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec, 'mojom.BluetoothBtsnoop_Stop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec, 'mojom.BluetoothBtsnoop_Stop_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.BluetoothBtsnoopPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -795,8 +716,11 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Stop FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }
           break;
         }
@@ -812,4 +736,102 @@ mojo.internal.bindings.mojom.BluetoothBtsnoopReceiver = mojo.internal.bindings.m
 
 mojo.internal.bindings.mojom.BluetoothBtsnoopPtr = mojo.internal.bindings.mojom.BluetoothBtsnoopRemote;
 mojo.internal.bindings.mojom.BluetoothBtsnoopRequest = mojo.internal.bindings.mojom.BluetoothBtsnoopPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.DebugLogsChangeHandler_ChangeDebugLogsState_ParamsSpec, 'mojom.DebugLogsChangeHandler_ChangeDebugLogsState_Params', [
+      mojo.internal.StructField('arg_should_debug_logs_be_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ParamsSpec, 'mojom.BluetoothInternalsHandler_GetAdapter_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetAdapter_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetAdapter_ResponseParams', [
+      mojo.internal.StructField('arg_adapter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_GetDebugLogsChangeHandler_ResponseParams', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.DebugLogsChangeHandlerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_initial_toggle_value', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ParamsSpec, 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_CheckSystemPermissions_ResponseParams', [
+      mojo.internal.StructField('arg_need_location_permission', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_need_nearby_devices_permission', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_need_location_services', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_request_permissions', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ParamsSpec, 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RequestSystemPermissions_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ParamsSpec, 'mojom.BluetoothInternalsHandler_RequestLocationServices_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_RequestLocationServices_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_StartBtsnoop_ResponseParams', [
+      mojo.internal.StructField('arg_btsnoop', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.BluetoothBtsnoopRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ParamsSpec, 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParamsSpec, 'mojom.BluetoothInternalsHandler_IsBtsnoopFeatureEnabled_ResponseParams', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ParamsSpec, 'mojom.BluetoothBtsnoop_Stop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.BluetoothBtsnoop_Stop_ResponseParamsSpec, 'mojom.BluetoothBtsnoop_Stop_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

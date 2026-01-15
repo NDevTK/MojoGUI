@@ -186,6 +186,8 @@ mojo.internal.bindings.actor.webui.mojom.ConfirmationRequestErrorReason = {
   kPreemptedByNewRequest: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: SelectAutofillSuggestionsDialogResult
 mojo.internal.Union(
     mojo.internal.bindings.actor.webui.mojom.SelectAutofillSuggestionsDialogResultSpec, 'actor.webui.mojom.SelectAutofillSuggestionsDialogResult', {

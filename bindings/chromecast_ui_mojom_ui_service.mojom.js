@@ -135,3 +135,5 @@ mojo.internal.bindings.chromecast.mojom.ZOrder = {
   SETTINGS: 6,
   BOOT_ANIMATION_OVERLAY: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

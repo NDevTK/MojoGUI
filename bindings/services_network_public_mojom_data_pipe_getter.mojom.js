@@ -129,25 +129,6 @@ mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec = { 
 mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec = { $: {} };
 
 // Interface: DataPipeGetter
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec, 'network.mojom.DataPipeGetter_Read_Params', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec, 'network.mojom.DataPipeGetter_Read_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec, 'network.mojom.DataPipeGetter_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DataPipeGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,12 +255,14 @@ mojo.internal.bindings.network.mojom.DataPipeGetterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_pipe);
+          const result = this.impl.read(params.arg_arg_pipe);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_size']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -287,7 +270,7 @@ mojo.internal.bindings.network.mojom.DataPipeGetterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_receiver);
+          const result = this.impl.clone(params.arg_arg_receiver);
           break;
         }
       }
@@ -302,4 +285,25 @@ mojo.internal.bindings.network.mojom.DataPipeGetterReceiver = mojo.internal.bind
 
 mojo.internal.bindings.network.mojom.DataPipeGetterPtr = mojo.internal.bindings.network.mojom.DataPipeGetterRemote;
 mojo.internal.bindings.network.mojom.DataPipeGetterRequest = mojo.internal.bindings.network.mojom.DataPipeGetterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ParamsSpec, 'network.mojom.DataPipeGetter_Read_Params', [
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DataPipeGetter_Read_ResponseParamsSpec, 'network.mojom.DataPipeGetter_Read_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DataPipeGetter_Clone_ParamsSpec, 'network.mojom.DataPipeGetter_Clone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DataPipeGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

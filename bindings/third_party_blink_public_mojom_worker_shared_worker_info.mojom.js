@@ -146,6 +146,8 @@ mojo.internal.bindings.blink.mojom.SharedWorkerSameSiteCookies = {
   kNone: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SharedWorkerInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec, 'blink.mojom.SharedWorkerInfo', [

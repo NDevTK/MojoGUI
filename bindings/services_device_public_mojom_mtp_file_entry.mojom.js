@@ -141,6 +141,8 @@ mojo.internal.bindings.device.mojom.FileType = {
   FILE_TYPE_OTHER: 9999,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: MtpFileEntry
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpFileEntrySpec, 'device.mojom.MtpFileEntry', [

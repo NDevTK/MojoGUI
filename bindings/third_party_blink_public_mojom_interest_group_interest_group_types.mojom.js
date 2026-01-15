@@ -239,6 +239,8 @@ mojo.internal.bindings.blink.mojom.RealTimeReportingType = {
   kDefaultLocalReporting: 0,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: AuctionAdConfigMaybePromiseJson
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.AuctionAdConfigMaybePromiseJsonSpec, 'blink.mojom.AuctionAdConfigMaybePromiseJson', {

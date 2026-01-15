@@ -145,34 +145,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ServiceWorkerObjectInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, 'blink.mojom.ServiceWorkerObjectInfo', [
-      mojo.internal.StructField('arg_version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStateSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ServiceWorkerObjectHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.TransferableMessageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -299,7 +272,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postMessageToServiceWorker');
-          const result = this.impl.postMessageToServiceWorker(params.arg_message);
+          const result = this.impl.postMessageToServiceWorker(params.arg_arg_message);
           break;
         }
         case 1: {
@@ -310,8 +283,10 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TerminateForTesting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] terminateForTesting FAILED:', e));
           }
           break;
         }
@@ -330,12 +305,6 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRequest = mojo.interna
 
 
 // Interface: ServiceWorkerObject
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec, 'blink.mojom.ServiceWorkerObject_StateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerObjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -448,7 +417,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateChanged');
-          const result = this.impl.stateChanged(params.arg_state);
+          const result = this.impl.stateChanged(params.arg_arg_state);
           break;
         }
       }
@@ -463,4 +432,39 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerObjectReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerObjectPtr = mojo.internal.bindings.blink.mojom.ServiceWorkerObjectRemote;
 mojo.internal.bindings.blink.mojom.ServiceWorkerObjectRequest = mojo.internal.bindings.blink.mojom.ServiceWorkerObjectPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ServiceWorkerObjectInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectInfoSpec, 'blink.mojom.ServiceWorkerObjectInfo', [
+      mojo.internal.StructField('arg_version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStateSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_remote', 24, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_PostMessageToServiceWorker_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.TransferableMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParamsSpec, 'blink.mojom.ServiceWorkerObjectHost_TerminateForTesting_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerObject_StateChanged_ParamsSpec, 'blink.mojom.ServiceWorkerObject_StateChanged_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

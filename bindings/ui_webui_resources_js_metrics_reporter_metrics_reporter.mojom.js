@@ -143,37 +143,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageMetricsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParams', [
-      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnClearMark_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,19 +297,22 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageRemoteCreated');
-          const result = this.impl.onPageRemoteCreated(params.arg_page);
+          const result = this.impl.onPageRemoteCreated(params.arg_arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetMark');
-          const result = this.impl.onGetMark(params.arg_name);
+          const result = this.impl.onGetMark(params.arg_arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnGetMark FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_marked_time' in response) ? response.arg_arg_marked_time : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onGetMark FAILED:', e));
           }
           break;
         }
@@ -348,14 +320,14 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClearMark');
-          const result = this.impl.onClearMark(params.arg_name);
+          const result = this.impl.onClearMark(params.arg_arg_name);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUmaReportTime');
-          const result = this.impl.onUmaReportTime(params.arg_name, params.arg_time);
+          const result = this.impl.onUmaReportTime(params.arg_arg_name, params.arg_arg_time);
           break;
         }
       }
@@ -373,24 +345,6 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHostRequest = mojo.inte
 
 
 // Interface: PageMetrics
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParams', [
-      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnClearMark_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -517,12 +471,15 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetMark');
-          const result = this.impl.onGetMark(params.arg_name);
+          const result = this.impl.onGetMark(params.arg_arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnGetMark FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_marked_time' in response) ? response.arg_arg_marked_time : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onGetMark FAILED:', e));
           }
           break;
         }
@@ -530,7 +487,7 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClearMark');
-          const result = this.impl.onClearMark(params.arg_name);
+          const result = this.impl.onClearMark(params.arg_arg_name);
           break;
         }
       }
@@ -545,4 +502,55 @@ mojo.internal.bindings.metrics_reporter.mojom.PageMetricsReceiver = mojo.interna
 
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsPtr = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemote;
 mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRequest = mojo.internal.bindings.metrics_reporter.mojom.PageMetricsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnPageRemoteCreated_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics_reporter.mojom.PageMetricsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnGetMark_ResponseParams', [
+      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnClearMark_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnClearMark_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_ParamsSpec, 'metrics_reporter.mojom.PageMetricsHost_OnUmaReportTime_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnGetMark_ResponseParams', [
+      mojo.internal.StructField('arg_marked_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics_reporter.mojom.PageMetrics_OnClearMark_ParamsSpec, 'metrics_reporter.mojom.PageMetrics_OnClearMark_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

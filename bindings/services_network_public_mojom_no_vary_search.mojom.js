@@ -143,6 +143,8 @@ mojo.internal.bindings.network.mojom.NoVarySearchParseError = {
   kExceptWithoutTrueParams: 7,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: SearchParamsVariance
 mojo.internal.Union(
     mojo.internal.bindings.network.mojom.SearchParamsVarianceSpec, 'network.mojom.SearchParamsVariance', {

@@ -128,6 +128,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FilterOperationSpec = mojo.internal.bindings.viz.mojom.FilterOperationSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FilterOperations
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FilterOperationsSpec, 'viz.mojom.FilterOperations', [

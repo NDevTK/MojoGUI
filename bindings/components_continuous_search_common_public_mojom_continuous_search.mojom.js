@@ -161,45 +161,7 @@ mojo.internal.bindings.continuous_search.mojom.Status = {
   kNoResults: 1,
 };
 
-// Struct: SearchResult
-mojo.internal.Struct(
-    mojo.internal.bindings.continuous_search.mojom.SearchResultSpec, 'continuous_search.mojom.SearchResult', [
-      mojo.internal.StructField('arg_link', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ResultGroup
-mojo.internal.Struct(
-    mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, 'continuous_search.mojom.ResultGroup', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: CategoryResults
-mojo.internal.Struct(
-    mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
-      mojo.internal.StructField('arg_document_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_category_type', 8, 0, mojo.internal.bindings.continuous_search.mojom.CategorySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_groups', 16, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: SearchResultExtractor
-mojo.internal.Struct(
-    mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params', [
-      mojo.internal.StructField('arg_result_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.continuous_search.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -312,12 +274,14 @@ mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractCurrentSearchResults');
-          const result = this.impl.extractCurrentSearchResults(params.arg_result_types);
+          const result = this.impl.extractCurrentSearchResults(params.arg_arg_result_types);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractCurrentSearchResults FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_results']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extractCurrentSearchResults FAILED:', e));
           }
           break;
         }
@@ -333,4 +297,44 @@ mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorReceiver = m
 
 mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorPtr = mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorRemote;
 mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorRequest = mojo.internal.bindings.continuous_search.mojom.SearchResultExtractorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SearchResult
+mojo.internal.Struct(
+    mojo.internal.bindings.continuous_search.mojom.SearchResultSpec, 'continuous_search.mojom.SearchResult', [
+      mojo.internal.StructField('arg_link', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ResultGroup
+mojo.internal.Struct(
+    mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, 'continuous_search.mojom.ResultGroup', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CategoryResults
+mojo.internal.Struct(
+    mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, 'continuous_search.mojom.CategoryResults', [
+      mojo.internal.StructField('arg_document_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category_type', 8, 0, mojo.internal.bindings.continuous_search.mojom.CategorySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_groups', 16, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.ResultGroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_Params', [
+      mojo.internal.StructField('arg_result_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.continuous_search.mojom.ResultTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParamsSpec, 'continuous_search.mojom.SearchResultExtractor_ExtractCurrentSearchResults_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.continuous_search.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.bindings.continuous_search.mojom.CategoryResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -133,16 +133,6 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec = { $: {} };
 
 // Interface: PriceInsightsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -294,12 +284,6 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRequest
 
 
 // Interface: PriceInsightsHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,7 +396,7 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPriceInsightsHandler');
-          const result = this.impl.createPriceInsightsHandler(params.arg_handler);
+          const result = this.impl.createPriceInsightsHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -427,4 +411,22 @@ mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory
 
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactoryPtr = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactoryRemote;
 mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactoryRequest = mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandler_ShowSidePanelUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandler_ShowFeedback_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_ParamsSpec, 'commerce.price_insights.mojom.PriceInsightsHandlerFactory_CreatePriceInsightsHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.commerce.price_insights.mojom.PriceInsightsHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

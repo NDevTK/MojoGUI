@@ -129,6 +129,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AlternativeErrorPageOverrideInfo
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.AlternativeErrorPageOverrideInfoSpec, 'content.mojom.AlternativeErrorPageOverrideInfo', [

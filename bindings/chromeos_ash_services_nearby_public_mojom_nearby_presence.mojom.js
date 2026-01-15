@@ -212,92 +212,6 @@ mojo.internal.bindings.ash.nearby.presence.mojom.CredentialType = {
   kCredentialTypeGaia: 2,
 };
 
-// Struct: ScanRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec, 'ash.nearby.presence.mojom.ScanRequest', [
-      mojo.internal.StructField('arg_account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_types', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scan_filters', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: PrivateKey
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec, 'ash.nearby.presence.mojom.PrivateKey', [
-      mojo.internal.StructField('arg_certificate_alias', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PresenceScanFilter
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec, 'ash.nearby.presence.mojom.PresenceScanFilter', [
-      mojo.internal.StructField('arg_device_type', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: Metadata
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, 'ash.nearby.presence.mojom.Metadata', [
-      mojo.internal.StructField('arg_device_type', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_mac_address', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: SharedCredential
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, 'ash.nearby.presence.mojom.SharedCredential', [
-      mojo.internal.StructField('arg_key_seed', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time_millis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted_metadata_bytes_v0', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata_encryption_key_tag_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_signature_verification_key', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_advertisement_signature_verification_key', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_type', 56, 0, mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_credential_type', 60, 0, mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted_metadata_bytes_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_token_short_salt_adv_hmac_key_v1', 80, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 88, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dusi', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signature_version', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_token_extended_salt_adv_hmac_key_v1', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_token_signed_adv_hmac_key_v1', 120, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 136]]);
-
-// Struct: PresenceDevice
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, 'ash.nearby.presence.mojom.PresenceDevice', [
-      mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stable_device_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 24, 0, mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypt_shared_credential', 32, 0, mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: LocalCredential
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec, 'ash.nearby.presence.mojom.LocalCredential', [
-      mojo.internal.StructField('arg_secret_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_seed', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end_time_millis', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata_encryption_key_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_advertisement_signing_key', 40, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_signing_key', 48, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_type', 56, 0, mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_consumed_salts', 64, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Bool, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity_token_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signature_version', 88, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 104]]);
-
 // Interface: ScanSession
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionPendingReceiver = class {
   constructor(handle) {
@@ -408,24 +322,6 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionRequest = mojo.inter
 
 
 // Interface: ScanObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -566,21 +462,21 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceFound');
-          const result = this.impl.onDeviceFound(params.arg_device);
+          const result = this.impl.onDeviceFound(params.arg_arg_device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
-          const result = this.impl.onDeviceChanged(params.arg_device);
+          const result = this.impl.onDeviceChanged(params.arg_arg_device);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceLost');
-          const result = this.impl.onDeviceLost(params.arg_device);
+          const result = this.impl.onDeviceLost(params.arg_arg_device);
           break;
         }
       }
@@ -598,70 +494,6 @@ mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRequest = mojo.inte
 
 
 // Interface: NearbyPresence
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_Params', [
-      mojo.internal.StructField('arg_scan_request', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParams', [
-      mojo.internal.StructField('arg_scan_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_Params', [
-      mojo.internal.StructField('arg_scan_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParams', [
-      mojo.internal.StructField('arg_shared_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_Params', [
-      mojo.internal.StructField('arg_shared_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_account_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_Params', [
-      mojo.internal.StructField('arg_account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParams', [
-      mojo.internal.StructField('arg_shared_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresencePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -844,12 +676,14 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startScan');
-          const result = this.impl.startScan(params.arg_scan_request);
+          const result = this.impl.startScan(params.arg_arg_scan_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartScan FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec.$.structSpec, ['response.arg_arg_scan_session', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startScan FAILED:', e));
           }
           break;
         }
@@ -857,26 +691,28 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScanObserver');
-          const result = this.impl.setScanObserver(params.arg_scan_observer);
+          const result = this.impl.setScanObserver(params.arg_arg_scan_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadata');
-          const result = this.impl.updateLocalDeviceMetadata(params.arg_metadata);
+          const result = this.impl.updateLocalDeviceMetadata(params.arg_arg_metadata);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLocalDeviceMetadataAndGenerateCredentials');
-          const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.arg_metadata);
+          const result = this.impl.updateLocalDeviceMetadataAndGenerateCredentials(params.arg_arg_metadata);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateLocalDeviceMetadataAndGenerateCredentials FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec.$.structSpec, ['response.arg_arg_shared_credentials', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateLocalDeviceMetadataAndGenerateCredentials FAILED:', e));
           }
           break;
         }
@@ -884,12 +720,15 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRemoteSharedCredentials');
-          const result = this.impl.updateRemoteSharedCredentials(params.arg_shared_credentials, params.arg_account_name);
+          const result = this.impl.updateRemoteSharedCredentials(params.arg_arg_shared_credentials, params.arg_arg_account_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateRemoteSharedCredentials FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateRemoteSharedCredentials FAILED:', e));
           }
           break;
         }
@@ -897,12 +736,14 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalSharedCredentials');
-          const result = this.impl.getLocalSharedCredentials(params.arg_account_name);
+          const result = this.impl.getLocalSharedCredentials(params.arg_arg_account_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetLocalSharedCredentials FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec.$.structSpec, ['response.arg_arg_shared_credentials', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getLocalSharedCredentials FAILED:', e));
           }
           break;
         }
@@ -918,4 +759,174 @@ mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceReceiver = mojo.i
 
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresencePtr = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemote;
 mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRequest = mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresencePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ScanRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec, 'ash.nearby.presence.mojom.ScanRequest', [
+      mojo.internal.StructField('arg_account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_types', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scan_filters', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: PrivateKey
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec, 'ash.nearby.presence.mojom.PrivateKey', [
+      mojo.internal.StructField('arg_certificate_alias', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PresenceScanFilter
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.PresenceScanFilterSpec, 'ash.nearby.presence.mojom.PresenceScanFilter', [
+      mojo.internal.StructField('arg_device_type', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: Metadata
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, 'ash.nearby.presence.mojom.Metadata', [
+      mojo.internal.StructField('arg_device_type', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_mac_address', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: SharedCredential
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, 'ash.nearby.presence.mojom.SharedCredential', [
+      mojo.internal.StructField('arg_key_seed', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time_millis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted_metadata_bytes_v0', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_encryption_key_tag_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_signature_verification_key', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_advertisement_signature_verification_key', 48, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_type', 56, 0, mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credential_type', 60, 0, mojo.internal.bindings.ash.nearby.presence.mojom.CredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 64, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted_metadata_bytes_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_token_short_salt_adv_hmac_key_v1', 80, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 88, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dusi', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signature_version', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_token_extended_salt_adv_hmac_key_v1', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_token_signed_adv_hmac_key_v1', 120, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 136]]);
+
+// Struct: PresenceDevice
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, 'ash.nearby.presence.mojom.PresenceDevice', [
+      mojo.internal.StructField('arg_endpoint_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.ActionTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stable_device_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 24, 0, mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypt_shared_credential', 32, 0, mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: LocalCredential
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.LocalCredentialSpec, 'ash.nearby.presence.mojom.LocalCredential', [
+      mojo.internal.StructField('arg_secret_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_seed', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time_millis', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_time_millis', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_encryption_key_v0', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_advertisement_signing_key', 40, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_signing_key', 48, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PrivateKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_type', 56, 0, mojo.internal.bindings.ash.nearby.presence.mojom.IdentityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_consumed_salts', 64, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity_token_v1', 72, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signature_version', 88, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 104]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceFound_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceChanged_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_ParamsSpec, 'ash.nearby.presence.mojom.ScanObserver_OnDeviceLost_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.PresenceDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_Params', [
+      mojo.internal.StructField('arg_scan_request', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.ScanRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_StartScan_ResponseParams', [
+      mojo.internal.StructField('arg_scan_session', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanSessionRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_SetScanObserver_Params', [
+      mojo.internal.StructField('arg_scan_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.ScanObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadata_Params', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_Params', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.nearby.presence.mojom.MetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateLocalDeviceMetadataAndGenerateCredentials_ResponseParams', [
+      mojo.internal.StructField('arg_shared_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_Params', [
+      mojo.internal.StructField('arg_shared_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_UpdateRemoteSharedCredentials_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_Params', [
+      mojo.internal.StructField('arg_account_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParamsSpec, 'ash.nearby.presence.mojom.NearbyPresence_GetLocalSharedCredentials_ResponseParams', [
+      mojo.internal.StructField('arg_shared_credentials', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.nearby.presence.mojom.SharedCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mojo_base.mojom.AbslStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

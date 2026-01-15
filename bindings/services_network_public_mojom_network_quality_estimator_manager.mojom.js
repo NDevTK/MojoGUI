@@ -140,15 +140,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec = mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: NetworkQualityEstimatorManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_downlink_bandwidth_kbps', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_http_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transport_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,7 +252,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNetworkQualityChanged');
-          const result = this.impl.onNetworkQualityChanged(params.arg_type, params.arg_http_rtt, params.arg_transport_rtt, params.arg_downlink_bandwidth_kbps);
+          const result = this.impl.onNetworkQualityChanged(params.arg_arg_type, params.arg_arg_http_rtt, params.arg_arg_transport_rtt, params.arg_arg_downlink_bandwidth_kbps);
           break;
         }
       }
@@ -279,12 +270,6 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRequest
 
 
 // Interface: NetworkQualityEstimatorManager
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManager_RequestNotifications_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -397,7 +382,7 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNotifications');
-          const result = this.impl.requestNotifications(params.arg_client);
+          const result = this.impl.requestNotifications(params.arg_arg_client);
           break;
         }
       }
@@ -412,4 +397,21 @@ mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerReceiver = mo
 
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerPtr = mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRemote;
 mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerRequest = mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManagerClient_OnNetworkQualityChanged_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.EffectiveConnectionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_downlink_bandwidth_kbps', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_rtt', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transport_rtt', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManager_RequestNotifications_ParamsSpec, 'network.mojom.NetworkQualityEstimatorManager_RequestNotifications_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.NetworkQualityEstimatorManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

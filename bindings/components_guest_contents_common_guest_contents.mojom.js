@@ -135,19 +135,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: GuestContentsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_Params', [
-      mojo.internal.StructField('arg_frame_to_swap', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.guest_contents.mojom.GuestContentsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,12 +247,15 @@ mojo.internal.bindings.guest_contents.mojom.GuestContentsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attach');
-          const result = this.impl.attach(params.arg_frame_to_swap, params.arg_guest_contents_id);
+          const result = this.impl.attach(params.arg_arg_frame_to_swap, params.arg_arg_guest_contents_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Attach FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] attach FAILED:', e));
           }
           break;
         }
@@ -281,4 +271,19 @@ mojo.internal.bindings.guest_contents.mojom.GuestContentsHostReceiver = mojo.int
 
 mojo.internal.bindings.guest_contents.mojom.GuestContentsHostPtr = mojo.internal.bindings.guest_contents.mojom.GuestContentsHostRemote;
 mojo.internal.bindings.guest_contents.mojom.GuestContentsHostRequest = mojo.internal.bindings.guest_contents.mojom.GuestContentsHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_Params', [
+      mojo.internal.StructField('arg_frame_to_swap', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_guest_contents_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.guest_contents.mojom.GuestContentsHost_Attach_ResponseParamsSpec, 'guest_contents.mojom.GuestContentsHost_Attach_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

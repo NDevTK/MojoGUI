@@ -136,31 +136,7 @@ mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseP
 mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec = { $: {} };
 mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec = { $: {} };
 
-// Struct: NsdServiceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, 'sharing.mojom.NsdServiceInfo', [
-      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_txt_records', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_port_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_port_$value', originalFieldName: 'arg_port' }),
-      mojo.internal.StructField('arg_port_$value', 34, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_port_$flag', originalFieldName: 'arg_port' }),
-    ],
-    [[0, 48]]);
-
 // Interface: MdnsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
-      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
-      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sharing.mojom.MdnsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,14 +263,14 @@ mojo.internal.bindings.sharing.mojom.MdnsObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serviceFound');
-          const result = this.impl.serviceFound(params.arg_service_info);
+          const result = this.impl.serviceFound(params.arg_arg_service_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serviceLost');
-          const result = this.impl.serviceLost(params.arg_service_info);
+          const result = this.impl.serviceLost(params.arg_arg_service_info);
           break;
         }
       }
@@ -312,36 +288,6 @@ mojo.internal.bindings.sharing.mojom.MdnsObserverRequest = mojo.internal.binding
 
 
 // Interface: MdnsManager
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec, 'sharing.mojom.MdnsManager_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_Params', [
-      mojo.internal.StructField('arg_service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_Params', [
-      mojo.internal.StructField('arg_service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sharing.mojom.MdnsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -482,19 +428,22 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscoverySession');
-          const result = this.impl.startDiscoverySession(params.arg_service_type);
+          const result = this.impl.startDiscoverySession(params.arg_arg_service_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartDiscoverySession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startDiscoverySession FAILED:', e));
           }
           break;
         }
@@ -502,12 +451,15 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDiscoverySession');
-          const result = this.impl.stopDiscoverySession(params.arg_service_type);
+          const result = this.impl.stopDiscoverySession(params.arg_arg_service_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StopDiscoverySession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stopDiscoverySession FAILED:', e));
           }
           break;
         }
@@ -523,4 +475,60 @@ mojo.internal.bindings.sharing.mojom.MdnsManagerReceiver = mojo.internal.binding
 
 mojo.internal.bindings.sharing.mojom.MdnsManagerPtr = mojo.internal.bindings.sharing.mojom.MdnsManagerRemote;
 mojo.internal.bindings.sharing.mojom.MdnsManagerRequest = mojo.internal.bindings.sharing.mojom.MdnsManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: NsdServiceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, 'sharing.mojom.NsdServiceInfo', [
+      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_txt_records', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_ip_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_port_$flag', 32, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_port_$value', originalFieldName: 'arg_port' }),
+      mojo.internal.StructField('arg_port_$value', 34, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_port_$flag', originalFieldName: 'arg_port' }),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceFound_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceFound_Params', [
+      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsObserver_ServiceLost_ParamsSpec, 'sharing.mojom.MdnsObserver_ServiceLost_Params', [
+      mojo.internal.StructField('arg_service_info', 0, 0, mojo.internal.bindings.sharing.mojom.NsdServiceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsManager_AddObserver_ParamsSpec, 'sharing.mojom.MdnsManager_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_Params', [
+      mojo.internal.StructField('arg_service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StartDiscoverySession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_Params', [
+      mojo.internal.StructField('arg_service_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParamsSpec, 'sharing.mojom.MdnsManager_StopDiscoverySession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -127,12 +127,6 @@ mojo.internal.bindings.web_cache.mojom.WebCache.$interfaceName = 'web_cache.mojo
 mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec = { $: {} };
 
 // Interface: WebCache
-mojo.internal.Struct(
-    mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec, 'web_cache.mojom.WebCache_ClearCache_Params', [
-      mojo.internal.StructField('arg_on_navigation', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.web_cache.mojom.WebCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.web_cache.mojom.WebCacheReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCache');
-          const result = this.impl.clearCache(params.arg_on_navigation);
+          const result = this.impl.clearCache(params.arg_arg_on_navigation);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.web_cache.mojom.WebCacheReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.web_cache.mojom.WebCachePtr = mojo.internal.bindings.web_cache.mojom.WebCacheRemote;
 mojo.internal.bindings.web_cache.mojom.WebCacheRequest = mojo.internal.bindings.web_cache.mojom.WebCachePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.web_cache.mojom.WebCache_ClearCache_ParamsSpec, 'web_cache.mojom.WebCache_ClearCache_Params', [
+      mojo.internal.StructField('arg_on_navigation', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

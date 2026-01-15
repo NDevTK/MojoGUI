@@ -144,6 +144,8 @@ mojo.internal.bindings.mojo_base.mojom.Code = {
   kUnauthenticated: 16,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Error
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ErrorSpec, 'mojo_base.mojom.Error', [

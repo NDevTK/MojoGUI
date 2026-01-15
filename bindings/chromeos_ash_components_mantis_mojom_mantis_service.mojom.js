@@ -167,12 +167,6 @@ mojo.internal.bindings.mantis.mojom.InitializeResult = {
 };
 
 // Interface: PlatformModelProgressObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'mantis.mojom.PlatformModelProgressObserver_Progress_Params', [
-      mojo.internal.StructField('arg_progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,7 +279,7 @@ mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.progress');
-          const result = this.impl.progress(params.arg_progress);
+          const result = this.impl.progress(params.arg_arg_progress);
           break;
         }
       }
@@ -303,32 +297,6 @@ mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRequest = mojo.
 
 
 // Interface: MantisService
-mojo.internal.Struct(
-    mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
-      mojo.internal.StructField('arg_progress_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dlc_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 3, undefined),
-      mojo.internal.StructField('arg_text_classifier', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
-    ],
-    [[0, 24], [3, 32], [4, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.InitializeResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mantis.mojom.MantisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -459,8 +427,11 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMantisFeatureStatus FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMantisFeatureStatus FAILED:', e));
           }
           break;
         }
@@ -468,12 +439,15 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_progress_observer, params.arg_processor, params.arg_dlc_uuid, params.arg_text_classifier);
+          const result = this.impl.initialize(params.arg_arg_progress_observer, params.arg_arg_processor, params.arg_arg_dlc_uuid, params.arg_arg_text_classifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -489,4 +463,38 @@ mojo.internal.bindings.mantis.mojom.MantisServiceReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.mantis.mojom.MantisServicePtr = mojo.internal.bindings.mantis.mojom.MantisServiceRemote;
 mojo.internal.bindings.mantis.mojom.MantisServiceRequest = mojo.internal.bindings.mantis.mojom.MantisServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserver_Progress_ParamsSpec, 'mantis.mojom.PlatformModelProgressObserver_Progress_Params', [
+      mojo.internal.StructField('arg_progress', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParamsSpec, 'mantis.mojom.MantisService_GetMantisFeatureStatus_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mantis.mojom.MantisFeatureStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ParamsSpec, 'mantis.mojom.MantisService_Initialize_Params', [
+      mojo.internal.StructField('arg_progress_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mantis.mojom.PlatformModelProgressObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mantis.mojom.MantisProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dlc_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 3, undefined),
+      mojo.internal.StructField('arg_text_classifier', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.TextClassifierRemote), null, true, 4, undefined),
+    ],
+    [[0, 24], [3, 32], [4, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mantis.mojom.MantisService_Initialize_ResponseParamsSpec, 'mantis.mojom.MantisService_Initialize_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mantis.mojom.InitializeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

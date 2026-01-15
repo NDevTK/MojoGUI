@@ -145,29 +145,7 @@ mojo.internal.bindings.blink.mojom.FontEnumerationStatus = {
   kPermissionDenied: 5,
 };
 
-// Struct: FontData
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FontDataSpec, 'blink.mojom.FontData', [
-      mojo.internal.StructField('arg_postscript_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_full_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_family', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: FontAccessManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParams', [
-      mojo.internal.StructField('arg_enumeration_status', 0, 0, mojo.internal.bindings.blink.mojom.FontEnumerationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enumeration_table', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.FontAccessManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,8 +262,10 @@ mojo.internal.bindings.blink.mojom.FontAccessManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EnumerateLocalFonts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec.$.structSpec, ['response.arg_arg_enumeration_status', 'response.arg_arg_enumeration_table']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] enumerateLocalFonts FAILED:', e));
           }
           break;
         }
@@ -301,4 +281,28 @@ mojo.internal.bindings.blink.mojom.FontAccessManagerReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.FontAccessManagerPtr = mojo.internal.bindings.blink.mojom.FontAccessManagerRemote;
 mojo.internal.bindings.blink.mojom.FontAccessManagerRequest = mojo.internal.bindings.blink.mojom.FontAccessManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FontData
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FontDataSpec, 'blink.mojom.FontData', [
+      mojo.internal.StructField('arg_postscript_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_full_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_family', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParamsSpec, 'blink.mojom.FontAccessManager_EnumerateLocalFonts_ResponseParams', [
+      mojo.internal.StructField('arg_enumeration_status', 0, 0, mojo.internal.bindings.blink.mojom.FontEnumerationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enumeration_table', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

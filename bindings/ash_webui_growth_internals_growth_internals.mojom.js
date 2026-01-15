@@ -130,22 +130,6 @@ mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponsePar
 mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec = { $: {} };
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParams', [
-      mojo.internal.StructField('arg_logs', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec, 'ash.growth.mojom.PageHandler_ClearAllEvents_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.growth.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,8 +260,11 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCampaignsLogs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_logs' in response) ? response.arg_arg_logs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCampaignsLogs FAILED:', e));
           }
           break;
         }
@@ -300,4 +287,22 @@ mojo.internal.bindings.ash.growth.mojom.PageHandlerReceiver = mojo.internal.bind
 
 mojo.internal.bindings.ash.growth.mojom.PageHandlerPtr = mojo.internal.bindings.ash.growth.mojom.PageHandlerRemote;
 mojo.internal.bindings.ash.growth.mojom.PageHandlerRequest = mojo.internal.bindings.ash.growth.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParamsSpec, 'ash.growth.mojom.PageHandler_GetCampaignsLogs_ResponseParams', [
+      mojo.internal.StructField('arg_logs', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.growth.mojom.PageHandler_ClearAllEvents_ParamsSpec, 'ash.growth.mojom.PageHandler_ClearAllEvents_Params', [
+    ],
+    [[0, 8]]);
 

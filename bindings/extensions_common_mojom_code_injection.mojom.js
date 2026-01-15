@@ -156,6 +156,8 @@ mojo.internal.bindings.extensions.mojom.Operation = {
   kRemove: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: CodeInjection
 mojo.internal.Union(
     mojo.internal.bindings.extensions.mojom.CodeInjectionSpec, 'extensions.mojom.CodeInjection', {

@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerType = {
   kNotSkippable: 1,
   kEmptyFetchHandler: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

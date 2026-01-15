@@ -172,6 +172,8 @@ mojo.internal.bindings.storage.mojom.IdbTransactionState = {
   kFinished: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IdbOriginMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.IdbOriginMetadataSpec, 'storage.mojom.IdbOriginMetadata', [

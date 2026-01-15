@@ -137,47 +137,6 @@ mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: AppfuseHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec, 'arc.mojom.AppfuseHost_Mount_Params', [
-      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec, 'arc.mojom.AppfuseHost_Mount_ResponseParams', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec, 'arc.mojom.AppfuseHost_Unmount_Params', [
-      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec, 'arc.mojom.AppfuseHost_Unmount_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec, 'arc.mojom.AppfuseHost_OpenFile_Params', [
-      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_file_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec, 'arc.mojom.AppfuseHost_OpenFile_ResponseParams', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.AppfuseHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -318,12 +277,15 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mount');
-          const result = this.impl.mount(params.arg_uid, params.arg_mount_id);
+          const result = this.impl.mount(params.arg_arg_uid, params.arg_arg_mount_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Mount FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] mount FAILED:', e));
           }
           break;
         }
@@ -331,12 +293,15 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unmount');
-          const result = this.impl.unmount(params.arg_uid, params.arg_mount_id);
+          const result = this.impl.unmount(params.arg_arg_uid, params.arg_arg_mount_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Unmount FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unmount FAILED:', e));
           }
           break;
         }
@@ -344,12 +309,15 @@ mojo.internal.bindings.arc.mojom.AppfuseHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFile');
-          const result = this.impl.openFile(params.arg_uid, params.arg_mount_id, params.arg_file_id, params.arg_flags);
+          const result = this.impl.openFile(params.arg_arg_uid, params.arg_arg_mount_id, params.arg_arg_file_id, params.arg_arg_flags);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openFile FAILED:', e));
           }
           break;
         }
@@ -368,17 +336,6 @@ mojo.internal.bindings.arc.mojom.AppfuseHostRequest = mojo.internal.bindings.arc
 
 
 // Interface: AppfuseInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec, 'arc.mojom.AppfuseInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AppfuseHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec, 'arc.mojom.AppfuseInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.AppfuseInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -491,12 +448,14 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -512,4 +471,58 @@ mojo.internal.bindings.arc.mojom.AppfuseInstanceReceiver = mojo.internal.binding
 
 mojo.internal.bindings.arc.mojom.AppfuseInstancePtr = mojo.internal.bindings.arc.mojom.AppfuseInstanceRemote;
 mojo.internal.bindings.arc.mojom.AppfuseInstanceRequest = mojo.internal.bindings.arc.mojom.AppfuseInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ParamsSpec, 'arc.mojom.AppfuseHost_Mount_Params', [
+      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseHost_Mount_ResponseParamsSpec, 'arc.mojom.AppfuseHost_Mount_ResponseParams', [
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ParamsSpec, 'arc.mojom.AppfuseHost_Unmount_Params', [
+      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseHost_Unmount_ResponseParamsSpec, 'arc.mojom.AppfuseHost_Unmount_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ParamsSpec, 'arc.mojom.AppfuseHost_OpenFile_Params', [
+      mojo.internal.StructField('arg_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_file_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseHost_OpenFile_ResponseParamsSpec, 'arc.mojom.AppfuseHost_OpenFile_ResponseParams', [
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ParamsSpec, 'arc.mojom.AppfuseInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AppfuseHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppfuseInstance_Init_ResponseParamsSpec, 'arc.mojom.AppfuseInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

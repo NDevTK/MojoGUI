@@ -202,6 +202,8 @@ mojo.internal.bindings.ui.mojom.ImeTextSpanUnderlineStyle = {
   kSquiggle: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ImeTextSpan
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ImeTextSpanSpec, 'ui.mojom.ImeTextSpan', [

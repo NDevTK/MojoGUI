@@ -159,43 +159,7 @@ mojo.internal.bindings.arc.mojom.DeviceType = {
   DEVICE_TYPE_SD: 2,
 };
 
-// Struct: MountPointInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MountPointInfoSpec, 'arc.mojom.MountPointInfo', [
-      mojo.internal.StructField('arg_mount_event', 0, 0, mojo.internal.bindings.arc.mojom.MountEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.arc.mojom.DeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fs_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 40, 0, mojo.internal.Bool, false, false, 2, undefined),
-    ],
-    [[0, 48], [2, 56]]);
-
 // Interface: VolumeMounterHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec, 'arc.mojom.VolumeMounterHost_RequestAllMountPoints_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec, 'arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_Params', [
-      mojo.internal.StructField('arg_media_provider_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec, 'arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec, 'arc.mojom.VolumeMounterHost_OnReadyToSuspend_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.VolumeMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -343,12 +307,15 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpExternalStorageMountPoints');
-          const result = this.impl.setUpExternalStorageMountPoints(params.arg_media_provider_uid);
+          const result = this.impl.setUpExternalStorageMountPoints(params.arg_arg_media_provider_uid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetUpExternalStorageMountPoints FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setUpExternalStorageMountPoints FAILED:', e));
           }
           break;
         }
@@ -356,7 +323,7 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadyToSuspend');
-          const result = this.impl.onReadyToSuspend(params.arg_success);
+          const result = this.impl.onReadyToSuspend(params.arg_arg_success);
           break;
         }
       }
@@ -374,35 +341,6 @@ mojo.internal.bindings.arc.mojom.VolumeMounterHostRequest = mojo.internal.bindin
 
 
 // Interface: VolumeMounterInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec, 'arc.mojom.VolumeMounterInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VolumeMounterHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec, 'arc.mojom.VolumeMounterInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec, 'arc.mojom.VolumeMounterInstance_OnMountEvent_Params', [
-      mojo.internal.StructField('arg_mount_point_info', 0, 0, mojo.internal.bindings.arc.mojom.MountPointInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec, 'arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec, 'arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.VolumeMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -543,12 +481,14 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -556,19 +496,22 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMountEvent');
-          const result = this.impl.onMountEvent(params.arg_mount_point_info);
+          const result = this.impl.onMountEvent(params.arg_arg_mount_point_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareForRemovableMediaUnmount');
-          const result = this.impl.prepareForRemovableMediaUnmount(params.arg_path);
+          const result = this.impl.prepareForRemovableMediaUnmount(params.arg_arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PrepareForRemovableMediaUnmount FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] prepareForRemovableMediaUnmount FAILED:', e));
           }
           break;
         }
@@ -584,4 +527,71 @@ mojo.internal.bindings.arc.mojom.VolumeMounterInstanceReceiver = mojo.internal.b
 
 mojo.internal.bindings.arc.mojom.VolumeMounterInstancePtr = mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRemote;
 mojo.internal.bindings.arc.mojom.VolumeMounterInstanceRequest = mojo.internal.bindings.arc.mojom.VolumeMounterInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MountPointInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MountPointInfoSpec, 'arc.mojom.MountPointInfo', [
+      mojo.internal.StructField('arg_mount_event', 0, 0, mojo.internal.bindings.arc.mojom.MountEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 4, 0, mojo.internal.bindings.arc.mojom.DeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fs_uuid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 40, 0, mojo.internal.Bool, false, false, 2, undefined),
+    ],
+    [[0, 48], [2, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterHost_RequestAllMountPoints_ParamsSpec, 'arc.mojom.VolumeMounterHost_RequestAllMountPoints_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ParamsSpec, 'arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_Params', [
+      mojo.internal.StructField('arg_media_provider_uid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParamsSpec, 'arc.mojom.VolumeMounterHost_SetUpExternalStorageMountPoints_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterHost_OnReadyToSuspend_ParamsSpec, 'arc.mojom.VolumeMounterHost_OnReadyToSuspend_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ParamsSpec, 'arc.mojom.VolumeMounterInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VolumeMounterHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_Init_ResponseParamsSpec, 'arc.mojom.VolumeMounterInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_OnMountEvent_ParamsSpec, 'arc.mojom.VolumeMounterInstance_OnMountEvent_Params', [
+      mojo.internal.StructField('arg_mount_point_info', 0, 0, mojo.internal.bindings.arc.mojom.MountPointInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ParamsSpec, 'arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParamsSpec, 'arc.mojom.VolumeMounterInstance_PrepareForRemovableMediaUnmount_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

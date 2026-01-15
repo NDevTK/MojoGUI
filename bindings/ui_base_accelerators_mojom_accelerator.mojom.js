@@ -136,6 +136,8 @@ mojo.internal.bindings.ui.mojom.AcceleratorKeyState = {
   RELEASED: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Accelerator
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.AcceleratorSpec, 'ui.mojom.Accelerator', [

@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.PageVisibilityState = {
   kHidden: 1,
   kHiddenButPainting: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

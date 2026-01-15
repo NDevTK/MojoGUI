@@ -168,102 +168,6 @@ mojo.internal.bindings.autofill.mojom = mojo.internal.bindings.autofill.mojom ||
 mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec = mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TypeTraitsTest
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParams', [
-      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.autofill.mojom.TypeTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,12 +378,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormData');
-          const result = this.impl.passFormData(params.arg_s);
+          const result = this.impl.passFormData(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassFormData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passFormData FAILED:', e));
           }
           break;
         }
@@ -487,12 +394,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormFieldData');
-          const result = this.impl.passFormFieldData(params.arg_s);
+          const result = this.impl.passFormFieldData(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassFormFieldData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passFormFieldData FAILED:', e));
           }
           break;
         }
@@ -500,12 +410,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormDataPredictions');
-          const result = this.impl.passFormDataPredictions(params.arg_s);
+          const result = this.impl.passFormDataPredictions(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassFormDataPredictions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passFormDataPredictions FAILED:', e));
           }
           break;
         }
@@ -513,12 +426,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passFormFieldDataPredictions');
-          const result = this.impl.passFormFieldDataPredictions(params.arg_s);
+          const result = this.impl.passFormFieldDataPredictions(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassFormFieldDataPredictions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passFormFieldDataPredictions FAILED:', e));
           }
           break;
         }
@@ -526,12 +442,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordFormFillData');
-          const result = this.impl.passPasswordFormFillData(params.arg_s);
+          const result = this.impl.passPasswordFormFillData(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassPasswordFormFillData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passPasswordFormFillData FAILED:', e));
           }
           break;
         }
@@ -539,12 +458,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordFormGenerationData');
-          const result = this.impl.passPasswordFormGenerationData(params.arg_s);
+          const result = this.impl.passPasswordFormGenerationData(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassPasswordFormGenerationData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passPasswordFormGenerationData FAILED:', e));
           }
           break;
         }
@@ -552,12 +474,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordGenerationUIData');
-          const result = this.impl.passPasswordGenerationUIData(params.arg_s);
+          const result = this.impl.passPasswordGenerationUIData(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassPasswordGenerationUIData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passPasswordGenerationUIData FAILED:', e));
           }
           break;
         }
@@ -565,12 +490,15 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.passPasswordSuggestionRequest');
-          const result = this.impl.passPasswordSuggestionRequest(params.arg_s);
+          const result = this.impl.passPasswordSuggestionRequest(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PassPasswordSuggestionRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passed' in response) ? response.arg_arg_passed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] passPasswordSuggestionRequest FAILED:', e));
           }
           break;
         }
@@ -586,4 +514,102 @@ mojo.internal.bindings.autofill.mojom.TypeTraitsTestReceiver = mojo.internal.bin
 
 mojo.internal.bindings.autofill.mojom.TypeTraitsTestPtr = mojo.internal.bindings.autofill.mojom.TypeTraitsTestRemote;
 mojo.internal.bindings.autofill.mojom.TypeTraitsTestRequest = mojo.internal.bindings.autofill.mojom.TypeTraitsTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormData_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldData_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormDataPredictions_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormDataPredictionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassFormFieldDataPredictions_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.FormFieldDataPredictionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormFillData_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormFillDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordFormGenerationData_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordFormGenerationDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordGenerationUIData_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordGenerationUIDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParamsSpec, 'autofill.mojom.TypeTraitsTest_PassPasswordSuggestionRequest_ResponseParams', [
+      mojo.internal.StructField('arg_passed', 0, 0, mojo.internal.bindings.autofill.mojom.PasswordSuggestionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

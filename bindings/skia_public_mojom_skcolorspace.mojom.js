@@ -125,6 +125,8 @@ mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec = { $: {} };
 mojo.internal.bindings.skia.mojom.SkcmsTransferFunctionSpec = { $: {} };
 mojo.internal.bindings.skia.mojom.SkColorSpaceSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SkcmsMatrix3x3
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.SkcmsMatrix3x3Spec, 'skia.mojom.SkcmsMatrix3x3', [

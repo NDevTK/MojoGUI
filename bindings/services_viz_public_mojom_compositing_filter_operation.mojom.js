@@ -164,6 +164,8 @@ mojo.internal.bindings.viz.mojom.FilterType = {
   FILTER_TYPE_LAST: 15,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FilterOperation
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FilterOperationSpec, 'viz.mojom.FilterOperation', [

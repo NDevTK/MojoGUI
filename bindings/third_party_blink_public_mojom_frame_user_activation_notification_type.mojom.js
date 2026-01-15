@@ -142,3 +142,5 @@ mojo.internal.bindings.blink.mojom.UserActivationNotificationType = {
   kExtensionMessagingReceiverPrivileged: 14,
   kExtensionMessagingNeitherPrivileged: 15,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

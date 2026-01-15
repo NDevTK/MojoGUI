@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.ShareError = {
   PERMISSION_DENIED: 2,
   CANCELED: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -141,19 +141,6 @@ mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom ||
 mojo.internal.bindings.printing.mojom.PrinterTypeSpec = mojo.internal.bindings.printing.mojom.PrinterTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: DestinationProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_Params', [
-      mojo.internal.StructField('arg_destination_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printer_type', 8, 0, mojo.internal.bindings.printing.mojom.PrinterTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParams', [
-      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,12 +253,15 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchCapabilities');
-          const result = this.impl.fetchCapabilities(params.arg_destination_id, params.arg_printer_type);
+          const result = this.impl.fetchCapabilities(params.arg_arg_destination_id, params.arg_arg_printer_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FetchCapabilities FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetchCapabilities FAILED:', e));
           }
           break;
         }
@@ -287,4 +277,19 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRecei
 
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderPtr = mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRemote;
 mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderRequest = mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_Params', [
+      mojo.internal.StructField('arg_destination_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printer_type', 8, 0, mojo.internal.bindings.printing.mojom.PrinterTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParamsSpec, 'ash.printing.print_preview.mojom.DestinationProvider_FetchCapabilities_ResponseParams', [
+      mojo.internal.StructField('arg_capabilities', 0, 0, mojo.internal.bindings.ash.printing.print_preview.mojom.CapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

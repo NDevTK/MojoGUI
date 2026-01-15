@@ -140,18 +140,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SpellCheckService
-mojo.internal.Struct(
-    mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_Params', [
-      mojo.internal.StructField('arg_dictionary_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParams', [
-      mojo.internal.StructField('arg_dictionary', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.quick_answers.mojom.SpellCheckServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -264,12 +252,15 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDictionary');
-          const result = this.impl.createDictionary(params.arg_dictionary_file);
+          const result = this.impl.createDictionary(params.arg_arg_dictionary_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateDictionary FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_dictionary' in response) ? response.arg_arg_dictionary : response;
+              encoder.encodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createDictionary FAILED:', e));
           }
           break;
         }
@@ -288,18 +279,6 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckServiceRequest = mojo.inter
 
 
 // Interface: SpellCheckDictionary
-mojo.internal.Struct(
-    mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec, 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_Params', [
-      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParams', [
-      mojo.internal.StructField('arg_correctness', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,12 +391,15 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkSpelling');
-          const result = this.impl.checkSpelling(params.arg_word);
+          const result = this.impl.checkSpelling(params.arg_arg_word);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckSpelling FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_correctness' in response) ? response.arg_arg_correctness : response;
+              encoder.encodeStructInline(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkSpelling FAILED:', e));
           }
           break;
         }
@@ -433,4 +415,30 @@ mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryReceiver = mojo.i
 
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryPtr = mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemote;
 mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRequest = mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_Params', [
+      mojo.internal.StructField('arg_dictionary_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckService_CreateDictionary_ResponseParams', [
+      mojo.internal.StructField('arg_dictionary', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionaryRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ParamsSpec, 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_Params', [
+      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParamsSpec, 'quick_answers.mojom.SpellCheckDictionary_CheckSpelling_ResponseParams', [
+      mojo.internal.StructField('arg_correctness', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

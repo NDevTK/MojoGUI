@@ -152,6 +152,8 @@ mojo.internal.bindings.blink.mojom.CacheState = {
   kValidated: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ServerTimingInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServerTimingInfoSpec, 'blink.mojom.ServerTimingInfo', [

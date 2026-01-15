@@ -123,6 +123,8 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
 mojo.internal.bindings.gfx.mojom.HDRStaticMetadataSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: HDRStaticMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.HDRStaticMetadataSpec, 'gfx.mojom.HDRStaticMetadata', [

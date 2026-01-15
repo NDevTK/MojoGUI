@@ -131,3 +131,5 @@ mojo.internal.bindings.chrome.file_util.mojom.ExtractionResult = {
   kInvalidSrcFile: 2,
   kDstFileError: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

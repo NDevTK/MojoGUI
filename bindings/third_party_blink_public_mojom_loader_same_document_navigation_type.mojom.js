@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.SameDocumentNavigationType = {
   kNavigationApiIntercept: 2,
   kPrerenderNoVarySearchActivation: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

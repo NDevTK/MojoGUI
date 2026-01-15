@@ -141,6 +141,8 @@ mojo.internal.bindings.cros.mojom.EntryType = {
   NUM_TYPES: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CameraMetadataEntry
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.CameraMetadataEntrySpec, 'cros.mojom.CameraMetadataEntry', [

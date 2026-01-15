@@ -140,35 +140,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.signout_confirmation.mojom.Page.$interfaceName = 'signout_confirmation.mojom.Page';
 mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec = { $: {} };
 
-// Struct: ExtensionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec, 'signout_confirmation.mojom.ExtensionInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SignoutConfirmationData
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec, 'signout_confirmation.mojom.SignoutConfirmationData', [
-      mojo.internal.StructField('arg_dialog_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dialog_subtitle', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accept_button_label', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cancel_button_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_verify_button_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_account_extensions', 40, 0, mojo.internal.Array(mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_unsynced_data', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec, 'signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.signout_confirmation.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,7 +253,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSignoutConfirmationHandler');
-          const result = this.impl.createSignoutConfirmationHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createSignoutConfirmationHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -299,34 +271,6 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactoryRequest = mo
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec, 'signout_confirmation.mojom.PageHandler_UpdateViewHeight_Params', [
-      mojo.internal.StructField('arg_height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Accept_Params', [
-      mojo.internal.StructField('arg_uninstall_account_extensions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Cancel_Params', [
-      mojo.internal.StructField('arg_uninstall_account_extensions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec, 'signout_confirmation.mojom.PageHandler_PerformReauth_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Close_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.signout_confirmation.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -495,21 +439,21 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateViewHeight');
-          const result = this.impl.updateViewHeight(params.arg_height);
+          const result = this.impl.updateViewHeight(params.arg_arg_height);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
-          const result = this.impl.accept(params.arg_uninstall_account_extensions);
+          const result = this.impl.accept(params.arg_arg_uninstall_account_extensions);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel(params.arg_uninstall_account_extensions);
+          const result = this.impl.cancel(params.arg_arg_uninstall_account_extensions);
           break;
         }
         case 3: {
@@ -541,12 +485,6 @@ mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRequest = mojo.inte
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec, 'signout_confirmation.mojom.Page_SendSignoutConfirmationData_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.signout_confirmation.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -659,7 +597,7 @@ mojo.internal.bindings.signout_confirmation.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSignoutConfirmationData');
-          const result = this.impl.sendSignoutConfirmationData(params.arg_data);
+          const result = this.impl.sendSignoutConfirmationData(params.arg_arg_data);
           break;
         }
       }
@@ -674,4 +612,68 @@ mojo.internal.bindings.signout_confirmation.mojom.PageReceiver = mojo.internal.b
 
 mojo.internal.bindings.signout_confirmation.mojom.PagePtr = mojo.internal.bindings.signout_confirmation.mojom.PageRemote;
 mojo.internal.bindings.signout_confirmation.mojom.PageRequest = mojo.internal.bindings.signout_confirmation.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ExtensionInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec, 'signout_confirmation.mojom.ExtensionInfo', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SignoutConfirmationData
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec, 'signout_confirmation.mojom.SignoutConfirmationData', [
+      mojo.internal.StructField('arg_dialog_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_subtitle', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accept_button_label', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cancel_button_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_verify_button_label', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_extensions', 40, 0, mojo.internal.Array(mojo.internal.bindings.signout_confirmation.mojom.ExtensionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_unsynced_data', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_ParamsSpec, 'signout_confirmation.mojom.PageHandlerFactory_CreateSignoutConfirmationHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.signout_confirmation.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.signout_confirmation.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_UpdateViewHeight_ParamsSpec, 'signout_confirmation.mojom.PageHandler_UpdateViewHeight_Params', [
+      mojo.internal.StructField('arg_height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Accept_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Accept_Params', [
+      mojo.internal.StructField('arg_uninstall_account_extensions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Cancel_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Cancel_Params', [
+      mojo.internal.StructField('arg_uninstall_account_extensions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_PerformReauth_ParamsSpec, 'signout_confirmation.mojom.PageHandler_PerformReauth_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.PageHandler_Close_ParamsSpec, 'signout_confirmation.mojom.PageHandler_Close_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.signout_confirmation.mojom.Page_SendSignoutConfirmationData_ParamsSpec, 'signout_confirmation.mojom.Page_SendSignoutConfirmationData_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.signout_confirmation.mojom.SignoutConfirmationDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

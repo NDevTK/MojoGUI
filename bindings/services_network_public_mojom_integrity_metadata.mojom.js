@@ -128,6 +128,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IntegrityAlgorithmSpec = mojo.internal.bindings.network.mojom.IntegrityAlgorithmSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IntegrityMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IntegrityMetadataSpec, 'network.mojom.IntegrityMetadata', [

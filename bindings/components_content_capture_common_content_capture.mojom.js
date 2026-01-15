@@ -140,30 +140,6 @@ mojo.internal.bindings.content_capture.mojom = mojo.internal.bindings.content_ca
 mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec = mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ContentCaptureReceiver
-mojo.internal.Struct(
-    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_Params', [
-      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,21 +301,21 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCaptureContent');
-          const result = this.impl.didCaptureContent(params.arg_data, params.arg_first_data);
+          const result = this.impl.didCaptureContent(params.arg_arg_data, params.arg_arg_first_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateContent');
-          const result = this.impl.didUpdateContent(params.arg_data);
+          const result = this.impl.didUpdateContent(params.arg_arg_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didRemoveContent');
-          const result = this.impl.didRemoveContent(params.arg_ids);
+          const result = this.impl.didRemoveContent(params.arg_arg_ids);
           break;
         }
       }
@@ -357,16 +333,6 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiverRequest = moj
 
 
 // Interface: ContentCaptureSender
-mojo.internal.Struct(
-    mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StartCapture_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StopCapture_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -515,4 +481,40 @@ mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderReceiver = mojo
 
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPtr = mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRemote;
 mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderRequest = mojo.internal.bindings.content_capture.mojom.ContentCaptureSenderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCompleteBatchCaptureContent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidCaptureContent_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_first_data', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidUpdateContent_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_ParamsSpec, 'content_capture.mojom.ContentCaptureReceiver_DidRemoveContent_Params', [
+      mojo.internal.StructField('arg_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StartCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StartCapture_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_capture.mojom.ContentCaptureSender_StopCapture_ParamsSpec, 'content_capture.mojom.ContentCaptureSender_StopCapture_Params', [
+    ],
+    [[0, 8]]);
 

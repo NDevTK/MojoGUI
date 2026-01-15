@@ -230,38 +230,7 @@ mojo.internal.bindings.network.mojom.TransportType = {
   kCachedFromProxy: 3,
 };
 
-// Struct: LoadInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.LoadInfoSpec, 'network.mojom.LoadInfo', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_state', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state_param', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_position', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_upload_size', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: ClientCertificateResponder
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec, 'network.mojom.ClientCertificateResponder_ContinueWithCertificate_Params', [
-      mojo.internal.StructField('arg_x509_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_provider_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm_preferences', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ssl_private_key', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SSLPrivateKeyRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec, 'network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec, 'network.mojom.ClientCertificateResponder_CancelRequest_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.network.mojom.ClientCertificateResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -402,7 +371,7 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.continueWithCertificate');
-          const result = this.impl.continueWithCertificate(params.arg_x509_certificate, params.arg_provider_name, params.arg_algorithm_preferences, params.arg_ssl_private_key);
+          const result = this.impl.continueWithCertificate(params.arg_arg_x509_certificate, params.arg_arg_provider_name, params.arg_arg_algorithm_preferences, params.arg_arg_ssl_private_key);
           break;
         }
         case 1: {
@@ -434,20 +403,6 @@ mojo.internal.bindings.network.mojom.ClientCertificateResponderRequest = mojo.in
 
 
 // Interface: SSLPrivateKey
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec, 'network.mojom.SSLPrivateKey_Sign_Params', [
-      mojo.internal.StructField('arg_algorithm', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, 'network.mojom.SSLPrivateKey_Sign_ResponseParams', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.network.mojom.SSLPrivateKeyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -560,12 +515,14 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
-          const result = this.impl.sign(params.arg_algorithm, params.arg_input);
+          const result = this.impl.sign(params.arg_arg_algorithm, params.arg_arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Sign FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec.$.structSpec, ['response.arg_arg_net_error', 'response.arg_arg_signature']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sign FAILED:', e));
           }
           break;
         }
@@ -584,12 +541,6 @@ mojo.internal.bindings.network.mojom.SSLPrivateKeyRequest = mojo.internal.bindin
 
 
 // Interface: AuthChallengeResponder
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec, 'network.mojom.AuthChallengeResponder_OnAuthCredentials_Params', [
-      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.network.mojom.AuthCredentialsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.AuthChallengeResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -702,7 +653,7 @@ mojo.internal.bindings.network.mojom.AuthChallengeResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthCredentials');
-          const result = this.impl.onAuthCredentials(params.arg_credentials);
+          const result = this.impl.onAuthCredentials(params.arg_arg_credentials);
           break;
         }
       }
@@ -720,130 +671,6 @@ mojo.internal.bindings.network.mojom.AuthChallengeResponderRequest = mojo.intern
 
 
 // Interface: URLLoaderNetworkServiceObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fatal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ssl_info', 16, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParams', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_Params', [
-      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cert_info', 8, 0, mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cert_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ClientCertificateResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_Params', [
-      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_first_auth_attempt', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_auth_info', 24, 0, mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_auth_challenge_responder', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_Params', [
-      mojo.internal.StructField('arg_transport_type', 0, 0, mojo.internal.bindings.network.mojom.TransportTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address_space', 4, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_partitioned_state_allowed_only', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_partition_key', 24, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.network.mojom.LoadInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_Params', [
-      mojo.internal.StructField('arg_network_traffic_annotation_id_hash', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_recv_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sent_bytes', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_Params', [
-      mojo.internal.StructField('arg_request_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_methods_with_options', 8, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_with_lock', 16, 0, mojo.internal.bindings.network.mojom.LockNameSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_Params', [
-      mojo.internal.StructField('arg_ad_auction_event_record', 0, 0, mojo.internal.bindings.network.mojom.AdAuctionEventRecordSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_frame_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_Clone_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_Params', [
-      mojo.internal.StructField('arg_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address_space', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_Params', [
-      mojo.internal.StructField('arg_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_address_space', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_address_space', 12, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_address_space', 16, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1110,12 +937,15 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSSLCertificateError');
-          const result = this.impl.onSSLCertificateError(params.arg_url, params.arg_net_error, params.arg_ssl_info, params.arg_fatal);
+          const result = this.impl.onSSLCertificateError(params.arg_arg_url, params.arg_arg_net_error, params.arg_arg_ssl_info, params.arg_arg_fatal);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnSSLCertificateError FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onSSLCertificateError FAILED:', e));
           }
           break;
         }
@@ -1123,26 +953,29 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCertificateRequested');
-          const result = this.impl.onCertificateRequested(params.arg_window_id, params.arg_cert_info, params.arg_cert_responder);
+          const result = this.impl.onCertificateRequested(params.arg_arg_window_id, params.arg_arg_cert_info, params.arg_arg_cert_responder);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthRequired');
-          const result = this.impl.onAuthRequired(params.arg_window_id, params.arg_request_id, params.arg_url, params.arg_first_auth_attempt, params.arg_auth_info, params.arg_head_headers, params.arg_auth_challenge_responder);
+          const result = this.impl.onAuthRequired(params.arg_arg_window_id, params.arg_arg_request_id, params.arg_arg_url, params.arg_arg_first_auth_attempt, params.arg_arg_auth_info, params.arg_arg_head_headers, params.arg_arg_auth_challenge_responder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalNetworkAccessPermissionRequired');
-          const result = this.impl.onLocalNetworkAccessPermissionRequired(params.arg_transport_type, params.arg_ip_address_space);
+          const result = this.impl.onLocalNetworkAccessPermissionRequired(params.arg_arg_transport_type, params.arg_arg_ip_address_space);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnLocalNetworkAccessPermissionRequired FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onLocalNetworkAccessPermissionRequired FAILED:', e));
           }
           break;
         }
@@ -1150,12 +983,14 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClearSiteData');
-          const result = this.impl.onClearSiteData(params.arg_url, params.arg_header_value, params.arg_load_flags, params.arg_cookie_partition_key, params.arg_partitioned_state_allowed_only);
+          const result = this.impl.onClearSiteData(params.arg_arg_url, params.arg_arg_header_value, params.arg_arg_load_flags, params.arg_arg_cookie_partition_key, params.arg_arg_partitioned_state_allowed_only);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnClearSiteData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onClearSiteData FAILED:', e));
           }
           break;
         }
@@ -1163,12 +998,14 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLoadingStateUpdate');
-          const result = this.impl.onLoadingStateUpdate(params.arg_info);
+          const result = this.impl.onLoadingStateUpdate(params.arg_arg_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnLoadingStateUpdate FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onLoadingStateUpdate FAILED:', e));
           }
           break;
         }
@@ -1176,19 +1013,21 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDataUseUpdate');
-          const result = this.impl.onDataUseUpdate(params.arg_network_traffic_annotation_id_hash, params.arg_recv_bytes, params.arg_sent_bytes);
+          const result = this.impl.onDataUseUpdate(params.arg_arg_network_traffic_annotation_id_hash, params.arg_arg_recv_bytes, params.arg_arg_sent_bytes);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedStorageHeaderReceived');
-          const result = this.impl.onSharedStorageHeaderReceived(params.arg_request_origin, params.arg_methods_with_options, params.arg_with_lock);
+          const result = this.impl.onSharedStorageHeaderReceived(params.arg_arg_request_origin, params.arg_arg_methods_with_options, params.arg_arg_with_lock);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnSharedStorageHeaderReceived FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onSharedStorageHeaderReceived FAILED:', e));
           }
           break;
         }
@@ -1196,28 +1035,28 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAdAuctionEventRecordHeaderReceived');
-          const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.arg_ad_auction_event_record, params.arg_top_frame_origin);
+          const result = this.impl.onAdAuctionEventRecordHeaderReceived(params.arg_arg_ad_auction_event_record, params.arg_arg_top_frame_origin);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_listener);
+          const result = this.impl.clone(params.arg_arg_listener);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebSocketConnectedToPrivateNetwork');
-          const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.arg_request_url, params.arg_ip_address_space);
+          const result = this.impl.onWebSocketConnectedToPrivateNetwork(params.arg_arg_request_url, params.arg_arg_ip_address_space);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUrlLoaderConnectedToPrivateNetwork');
-          const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.arg_request_url, params.arg_response_address_space, params.arg_client_address_space, params.arg_target_address_space);
+          const result = this.impl.onUrlLoaderConnectedToPrivateNetwork(params.arg_arg_request_url, params.arg_arg_response_address_space, params.arg_arg_client_address_space, params.arg_arg_target_address_space);
           break;
         }
       }
@@ -1232,4 +1071,181 @@ mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverReceiver = m
 
 mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverPtr = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote;
 mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRequest = mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: LoadInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.LoadInfoSpec, 'network.mojom.LoadInfo', [
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_state', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state_param', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_position', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_upload_size', 40, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithCertificate_ParamsSpec, 'network.mojom.ClientCertificateResponder_ContinueWithCertificate_Params', [
+      mojo.internal.StructField('arg_x509_certificate', 0, 0, mojo.internal.bindings.network.mojom.X509CertificateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm_preferences', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ssl_private_key', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SSLPrivateKeyRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_ParamsSpec, 'network.mojom.ClientCertificateResponder_ContinueWithoutCertificate_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ClientCertificateResponder_CancelRequest_ParamsSpec, 'network.mojom.ClientCertificateResponder_CancelRequest_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ParamsSpec, 'network.mojom.SSLPrivateKey_Sign_Params', [
+      mojo.internal.StructField('arg_algorithm', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SSLPrivateKey_Sign_ResponseParamsSpec, 'network.mojom.SSLPrivateKey_Sign_ResponseParams', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signature', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.AuthChallengeResponder_OnAuthCredentials_ParamsSpec, 'network.mojom.AuthChallengeResponder_OnAuthCredentials_Params', [
+      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.network.mojom.AuthCredentialsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fatal', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ssl_info', 16, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSSLCertificateError_ResponseParams', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnCertificateRequested_Params', [
+      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cert_info', 8, 0, mojo.internal.bindings.network.mojom.SSLCertRequestInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cert_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.ClientCertificateResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAuthRequired_Params', [
+      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_first_auth_attempt', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_auth_info', 24, 0, mojo.internal.bindings.network.mojom.AuthChallengeInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head_headers', 32, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_auth_challenge_responder', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.AuthChallengeResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_Params', [
+      mojo.internal.StructField('arg_transport_type', 0, 0, mojo.internal.bindings.network.mojom.TransportTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_space', 4, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLocalNetworkAccessPermissionRequired_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.LocalNetworkAccessResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_flags', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_partitioned_state_allowed_only', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_partition_key', 24, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnClearSiteData_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.network.mojom.LoadInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnLoadingStateUpdate_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnDataUseUpdate_Params', [
+      mojo.internal.StructField('arg_network_traffic_annotation_id_hash', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_recv_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sent_bytes', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteSizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_Params', [
+      mojo.internal.StructField('arg_request_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_methods_with_options', 8, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_with_lock', 16, 0, mojo.internal.bindings.network.mojom.LockNameSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnSharedStorageHeaderReceived_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnAdAuctionEventRecordHeaderReceived_Params', [
+      mojo.internal.StructField('arg_ad_auction_event_record', 0, 0, mojo.internal.bindings.network.mojom.AdAuctionEventRecordSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_Clone_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_Clone_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnWebSocketConnectedToPrivateNetwork_Params', [
+      mojo.internal.StructField('arg_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_space', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_ParamsSpec, 'network.mojom.URLLoaderNetworkServiceObserver_OnUrlLoaderConnectedToPrivateNetwork_Params', [
+      mojo.internal.StructField('arg_request_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_address_space', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_address_space', 12, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_address_space', 16, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

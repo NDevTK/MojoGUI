@@ -159,32 +159,7 @@ mojo.internal.bindings.content.mojom.ChooserEventType = {
   UNAUTHORIZED: 9,
 };
 
-// Struct: FakeBluetoothChooserEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec, 'content.mojom.FakeBluetoothChooserEvent', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.ChooserEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_peripheral_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: FakeBluetoothChooser
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec, 'content.mojom.FakeBluetoothChooser_SelectPeripheral_Params', [
-      mojo.internal.StructField('arg_peripheral_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec, 'content.mojom.FakeBluetoothChooser_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec, 'content.mojom.FakeBluetoothChooser_Rescan_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,7 +300,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectPeripheral');
-          const result = this.impl.selectPeripheral(params.arg_peripheral_address);
+          const result = this.impl.selectPeripheral(params.arg_arg_peripheral_address);
           break;
         }
         case 1: {
@@ -357,18 +332,6 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserRequest = mojo.internal
 
 
 // Interface: FakeBluetoothChooserFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_Params', [
-      mojo.internal.StructField('arg_fake_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content.mojom.FakeBluetoothChooserRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -481,12 +444,14 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFakeBluetoothChooser');
-          const result = this.impl.createFakeBluetoothChooser(params.arg_fake_chooser, params.arg_client);
+          const result = this.impl.createFakeBluetoothChooser(params.arg_arg_fake_chooser, params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateFakeBluetoothChooser FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createFakeBluetoothChooser FAILED:', e));
           }
           break;
         }
@@ -505,12 +470,6 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactoryRequest = mojo.i
 
 
 // Interface: FakeBluetoothChooserClient
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec, 'content.mojom.FakeBluetoothChooserClient_OnEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -623,7 +582,7 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEvent');
-          const result = this.impl.onEvent(params.arg_event);
+          const result = this.impl.onEvent(params.arg_arg_event);
           break;
         }
       }
@@ -638,4 +597,49 @@ mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientReceiver = mojo.i
 
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientPtr = mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientRemote;
 mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientRequest = mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FakeBluetoothChooserEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec, 'content.mojom.FakeBluetoothChooserEvent', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.ChooserEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_peripheral_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooser_SelectPeripheral_ParamsSpec, 'content.mojom.FakeBluetoothChooser_SelectPeripheral_Params', [
+      mojo.internal.StructField('arg_peripheral_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Cancel_ParamsSpec, 'content.mojom.FakeBluetoothChooser_Cancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooser_Rescan_ParamsSpec, 'content.mojom.FakeBluetoothChooser_Rescan_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_Params', [
+      mojo.internal.StructField('arg_fake_chooser', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content.mojom.FakeBluetoothChooserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.FakeBluetoothChooserClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParamsSpec, 'content.mojom.FakeBluetoothChooserFactory_CreateFakeBluetoothChooser_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FakeBluetoothChooserClient_OnEvent_ParamsSpec, 'content.mojom.FakeBluetoothChooserClient_OnEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.content.mojom.FakeBluetoothChooserEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

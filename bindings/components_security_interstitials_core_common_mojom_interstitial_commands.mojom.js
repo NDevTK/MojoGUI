@@ -146,106 +146,6 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnh
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec = { $: {} };
 
 // Interface: InterstitialCommands
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DontProceed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_Proceed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ShowMoreSection_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_Reload_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDateSettings_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenLogin_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DoReport_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DontReport_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ReportPhishingError_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -772,4 +672,106 @@ mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsReceiver
 
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsPtr = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRemote;
 mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsRequest = mojo.internal.bindings.security_interstitials.mojom.InterstitialCommandsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontProceed_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DontProceed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Proceed_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_Proceed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowMoreSection_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ShowMoreSection_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenter_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDiagnostic_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_Reload_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_Reload_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDateSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDateSettings_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenLogin_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenLogin_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DoReport_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DoReport_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_DontReport_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_DontReport_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacy_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaper_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenHelpCenterInNewTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenDiagnosticInNewTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenReportingPrivacyInNewTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenWhitepaperInNewTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ReportPhishingErrorInNewTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ReportPhishingError_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ReportPhishingError_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_OpenEnhancedProtectionSettings_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_ParamsSpec, 'security_interstitials.mojom.InterstitialCommands_ShowCertificateViewer_Params', [
+    ],
+    [[0, 8]]);
 

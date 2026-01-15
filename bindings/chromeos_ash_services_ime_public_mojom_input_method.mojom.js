@@ -532,6 +532,353 @@ mojo.internal.bindings.ash.ime.mojom.AutocorrectSuggestionProvider = {
   MinVersion: 3,
 };
 
+// Interface: InputMethod
+mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.ash.ime.mojom.InputMethodRemote = class {
+  static get $interfaceName() {
+    return 'ash.ime.mojom.InputMethod';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onFocusDeprecated(arg_input_field_info, arg_settings) {
+    return this.$.onFocusDeprecated(arg_input_field_info, arg_settings);
+  }
+  onFocus(arg_input_field_info, arg_deprecated_settings) {
+    return this.$.onFocus(arg_input_field_info, arg_deprecated_settings);
+  }
+  onBlur() {
+    return this.$.onBlur();
+  }
+  processKeyEvent(arg_event) {
+    return this.$.processKeyEvent(arg_event);
+  }
+  onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range) {
+    return this.$.onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range);
+  }
+  onCompositionCanceledBySystem() {
+    return this.$.onCompositionCanceledBySystem();
+  }
+  onCandidateSelected(arg_selected_candidate_index) {
+    return this.$.onCandidateSelected(arg_selected_candidate_index);
+  }
+  onQuickSettingsUpdated(arg_settings) {
+    return this.$.onQuickSettingsUpdated(arg_settings);
+  }
+  isReadyForTesting() {
+    return this.$.isReadyForTesting();
+  }
+  onAssistiveWindowChanged(arg_window) {
+    return this.$.onAssistiveWindowChanged(arg_window);
+  }
+};
+
+mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputMethod', [
+      { explicit: 0 },
+      { explicit: 6 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+    ]);
+  }
+
+  onFocusDeprecated(arg_input_field_info, arg_settings) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
+      null,
+      [arg_input_field_info, arg_settings],
+      false);
+  }
+
+  onFocus(arg_input_field_info, arg_deprecated_settings) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
+      [arg_input_field_info, arg_deprecated_settings],
+      false);
+  }
+
+  onBlur() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  processKeyEvent(arg_event) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
+      [arg_event],
+      false);
+  }
+
+  onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
+      null,
+      [arg_text, arg_offset, arg_selection_range],
+      false);
+  }
+
+  onCompositionCanceledBySystem() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  onCandidateSelected(arg_selected_candidate_index) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
+      null,
+      [arg_selected_candidate_index],
+      false);
+  }
+
+  onQuickSettingsUpdated(arg_settings) {
+    return this.proxy.sendMessage(
+      this.ordinals[7],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
+      null,
+      [arg_settings],
+      false);
+  }
+
+  isReadyForTesting() {
+    return this.proxy.sendMessage(
+      this.ordinals[8],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  onAssistiveWindowChanged(arg_window) {
+    return this.proxy.sendMessage(
+      this.ordinals[9],  // ordinal
+      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
+      null,
+      [arg_window],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.ash.ime.mojom.InputMethod.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.ime.mojom.InputMethodRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.ime.mojom.InputMethod',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputMethod', [
+      { explicit: 0 },
+      { explicit: 6 },
+      { explicit: 1 },
+      { explicit: 2 },
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
+          const result = this.impl.onFocusDeprecated(params.arg_arg_input_field_info, params.arg_arg_settings);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onFocus');
+          const result = this.impl.onFocus(params.arg_arg_input_field_info, params.arg_arg_deprecated_settings);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_metadata']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onFocus FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onBlur');
+          const result = this.impl.onBlur();
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
+          const result = this.impl.processKeyEvent(params.arg_arg_event);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] processKeyEvent FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
+          const result = this.impl.onSurroundingTextChanged(params.arg_arg_text, params.arg_arg_offset, params.arg_arg_selection_range);
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onCompositionCanceledBySystem');
+          const result = this.impl.onCompositionCanceledBySystem();
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
+          const result = this.impl.onCandidateSelected(params.arg_arg_selected_candidate_index);
+          break;
+        }
+        case 7: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
+          const result = this.impl.onQuickSettingsUpdated(params.arg_arg_settings);
+          break;
+        }
+        case 8: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isReadyForTesting');
+          const result = this.impl.isReadyForTesting();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ready' in response) ? response.arg_arg_ready : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isReadyForTesting FAILED:', e));
+          }
+          break;
+        }
+        case 9: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
+          const result = this.impl.onAssistiveWindowChanged(params.arg_arg_window);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver;
+
+mojo.internal.bindings.ash.ime.mojom.InputMethodPtr = mojo.internal.bindings.ash.ime.mojom.InputMethodRemote;
+mojo.internal.bindings.ash.ime.mojom.InputMethodRequest = mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: DomKey
 mojo.internal.Union(
     mojo.internal.bindings.ash.ime.mojom.DomKeySpec, 'ash.ime.mojom.DomKey', {
@@ -784,8 +1131,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_show_underline_for_composition_text', 0, 3, mojo.internal.Bool, false, false, 20, undefined),
     ],
     [[0, 16], [20, 16]]);
-
-// Interface: InputMethod
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec, 'ash.ime.mojom.InputMethod_OnFocusDeprecated_Params', [
       mojo.internal.StructField('arg_input_field_info', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputFieldInfoSpec, null, false, 0, undefined),
@@ -865,339 +1210,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.ash.ime.mojom.AssistiveWindowSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.ash.ime.mojom.InputMethodRemote = class {
-  static get $interfaceName() {
-    return 'ash.ime.mojom.InputMethod';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onFocusDeprecated(arg_input_field_info, arg_settings) {
-    return this.$.onFocusDeprecated(arg_input_field_info, arg_settings);
-  }
-  onFocus(arg_input_field_info, arg_deprecated_settings) {
-    return this.$.onFocus(arg_input_field_info, arg_deprecated_settings);
-  }
-  onBlur() {
-    return this.$.onBlur();
-  }
-  processKeyEvent(arg_event) {
-    return this.$.processKeyEvent(arg_event);
-  }
-  onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range) {
-    return this.$.onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range);
-  }
-  onCompositionCanceledBySystem() {
-    return this.$.onCompositionCanceledBySystem();
-  }
-  onCandidateSelected(arg_selected_candidate_index) {
-    return this.$.onCandidateSelected(arg_selected_candidate_index);
-  }
-  onQuickSettingsUpdated(arg_settings) {
-    return this.$.onQuickSettingsUpdated(arg_settings);
-  }
-  isReadyForTesting() {
-    return this.$.isReadyForTesting();
-  }
-  onAssistiveWindowChanged(arg_window) {
-    return this.$.onAssistiveWindowChanged(arg_window);
-  }
-};
-
-mojo.internal.bindings.ash.ime.mojom.InputMethodRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputMethod', [
-      { explicit: 0 },
-      { explicit: 6 },
-      { explicit: 1 },
-      { explicit: 2 },
-      { explicit: 3 },
-      { explicit: 4 },
-      { explicit: 5 },
-      { explicit: 7 },
-      { explicit: 8 },
-      { explicit: 9 },
-    ]);
-  }
-
-  onFocusDeprecated(arg_input_field_info, arg_settings) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec,
-      null,
-      [arg_input_field_info, arg_settings],
-      false);
-  }
-
-  onFocus(arg_input_field_info, arg_deprecated_settings) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec,
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec,
-      [arg_input_field_info, arg_deprecated_settings],
-      false);
-  }
-
-  onBlur() {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  processKeyEvent(arg_event) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec,
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec,
-      [arg_event],
-      false);
-  }
-
-  onSurroundingTextChanged(arg_text, arg_offset, arg_selection_range) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec,
-      null,
-      [arg_text, arg_offset, arg_selection_range],
-      false);
-  }
-
-  onCompositionCanceledBySystem() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  onCandidateSelected(arg_selected_candidate_index) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec,
-      null,
-      [arg_selected_candidate_index],
-      false);
-  }
-
-  onQuickSettingsUpdated(arg_settings) {
-    return this.proxy.sendMessage(
-      this.ordinals[7],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec,
-      null,
-      [arg_settings],
-      false);
-  }
-
-  isReadyForTesting() {
-    return this.proxy.sendMessage(
-      this.ordinals[8],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec,
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  onAssistiveWindowChanged(arg_window) {
-    return this.proxy.sendMessage(
-      this.ordinals[9],  // ordinal
-      mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec,
-      null,
-      [arg_window],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.ash.ime.mojom.InputMethod.getRemote = function() {
-  let remote = new mojo.internal.bindings.ash.ime.mojom.InputMethodRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'ash.ime.mojom.InputMethod',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ash.ime.mojom.InputMethod', [
-      { explicit: 0 },
-      { explicit: 6 },
-      { explicit: 1 },
-      { explicit: 2 },
-      { explicit: 3 },
-      { explicit: 4 },
-      { explicit: 5 },
-      { explicit: 7 },
-      { explicit: 8 },
-      { explicit: 9 },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocusDeprecated_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onFocusDeprecated');
-          const result = this.impl.onFocusDeprecated(params.arg_input_field_info, params.arg_settings);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onFocus');
-          const result = this.impl.onFocus(params.arg_input_field_info, params.arg_deprecated_settings);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethod_OnFocus_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnFocus FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnBlur_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onBlur');
-          const result = this.impl.onBlur();
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.processKeyEvent');
-          const result = this.impl.processKeyEvent(params.arg_event);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethod_ProcessKeyEvent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ProcessKeyEvent FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnSurroundingTextChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onSurroundingTextChanged');
-          const result = this.impl.onSurroundingTextChanged(params.arg_text, params.arg_offset, params.arg_selection_range);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCompositionCanceledBySystem_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onCompositionCanceledBySystem');
-          const result = this.impl.onCompositionCanceledBySystem();
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnCandidateSelected_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onCandidateSelected');
-          const result = this.impl.onCandidateSelected(params.arg_selected_candidate_index);
-          break;
-        }
-        case 7: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnQuickSettingsUpdated_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onQuickSettingsUpdated');
-          const result = this.impl.onQuickSettingsUpdated(params.arg_settings);
-          break;
-        }
-        case 8: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isReadyForTesting');
-          const result = this.impl.isReadyForTesting();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethod_IsReadyForTesting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsReadyForTesting FAILED:', e));
-          }
-          break;
-        }
-        case 9: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethod_OnAssistiveWindowChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onAssistiveWindowChanged');
-          const result = this.impl.onAssistiveWindowChanged(params.arg_window);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver = mojo.internal.bindings.ash.ime.mojom.InputMethodReceiver;
-
-mojo.internal.bindings.ash.ime.mojom.InputMethodPtr = mojo.internal.bindings.ash.ime.mojom.InputMethodRemote;
-mojo.internal.bindings.ash.ime.mojom.InputMethodRequest = mojo.internal.bindings.ash.ime.mojom.InputMethodPendingReceiver;
 

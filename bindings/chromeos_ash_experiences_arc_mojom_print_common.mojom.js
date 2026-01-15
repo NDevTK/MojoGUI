@@ -162,6 +162,8 @@ mojo.internal.bindings.arc.mojom.PrinterStatus = {
   UNAVAILABLE: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PrintPageRange
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.PrintPageRangeSpec, 'arc.mojom.PrintPageRange', [

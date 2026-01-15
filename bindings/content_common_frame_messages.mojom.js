@@ -131,6 +131,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote || class {};
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DidCommitProvisionalLoadInterfaceParams
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, 'content.mojom.DidCommitProvisionalLoadInterfaceParams', [

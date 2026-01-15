@@ -151,3 +151,5 @@ mojo.internal.bindings.cc.mojom.RenderSurfaceReason = {
   k2DScaleTransformWithCompositedDescendants: 23,
   kTest: 24,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

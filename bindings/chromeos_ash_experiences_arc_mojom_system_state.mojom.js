@@ -132,24 +132,7 @@ mojo.internal.bindings.arc.mojom.SystemStateInstance.$interfaceName = 'arc.mojom
 mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec = { $: {} };
 
-// Struct: SystemAppRunningState
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec, 'arc.mojom.SystemAppRunningState', [
-      mojo.internal.StructField('arg_top_layer_app', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_foreground_app', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_background_app', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_performance_sensitive_app', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_background_service', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SystemStateHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec, 'arc.mojom.SystemStateHost_UpdateAppRunningState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.SystemStateHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -262,7 +245,7 @@ mojo.internal.bindings.arc.mojom.SystemStateHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAppRunningState');
-          const result = this.impl.updateAppRunningState(params.arg_state);
+          const result = this.impl.updateAppRunningState(params.arg_arg_state);
           break;
         }
       }
@@ -280,17 +263,6 @@ mojo.internal.bindings.arc.mojom.SystemStateHostRequest = mojo.internal.bindings
 
 
 // Interface: SystemStateInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec, 'arc.mojom.SystemStateInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SystemStateHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec, 'arc.mojom.SystemStateInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.SystemStateInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -403,12 +375,14 @@ mojo.internal.bindings.arc.mojom.SystemStateInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -424,4 +398,34 @@ mojo.internal.bindings.arc.mojom.SystemStateInstanceReceiver = mojo.internal.bin
 
 mojo.internal.bindings.arc.mojom.SystemStateInstancePtr = mojo.internal.bindings.arc.mojom.SystemStateInstanceRemote;
 mojo.internal.bindings.arc.mojom.SystemStateInstanceRequest = mojo.internal.bindings.arc.mojom.SystemStateInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SystemAppRunningState
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec, 'arc.mojom.SystemAppRunningState', [
+      mojo.internal.StructField('arg_top_layer_app', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_foreground_app', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_background_app', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_performance_sensitive_app', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_background_service', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SystemStateHost_UpdateAppRunningState_ParamsSpec, 'arc.mojom.SystemStateHost_UpdateAppRunningState_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.SystemAppRunningStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ParamsSpec, 'arc.mojom.SystemStateInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SystemStateHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SystemStateInstance_Init_ResponseParamsSpec, 'arc.mojom.SystemStateInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

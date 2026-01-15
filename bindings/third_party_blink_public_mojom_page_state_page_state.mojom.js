@@ -164,6 +164,8 @@ mojo.internal.bindings.blink.mojom.ScrollRestorationType = {
   kManual: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Element
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.ElementSpec, 'blink.mojom.Element', {

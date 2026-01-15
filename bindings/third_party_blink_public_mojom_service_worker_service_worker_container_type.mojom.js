@@ -131,3 +131,5 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerContainerType = {
   kForSharedWorker: 3,
   kForServiceWorker: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

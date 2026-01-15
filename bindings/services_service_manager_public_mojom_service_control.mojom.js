@@ -127,11 +127,6 @@ mojo.internal.bindings.service_manager.mojom.ServiceControl.$interfaceName = 'se
 mojo.internal.bindings.service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec = { $: {} };
 
 // Interface: ServiceControl
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec, 'service_manager.mojom.ServiceControl_RequestQuit_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.service_manager.mojom.ServiceControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.service_manager.mojom.ServiceControlReceiver = mojo.inter
 
 mojo.internal.bindings.service_manager.mojom.ServiceControlPtr = mojo.internal.bindings.service_manager.mojom.ServiceControlRemote;
 mojo.internal.bindings.service_manager.mojom.ServiceControlRequest = mojo.internal.bindings.service_manager.mojom.ServiceControlPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.ServiceControl_RequestQuit_ParamsSpec, 'service_manager.mojom.ServiceControl_RequestQuit_Params', [
+    ],
+    [[0, 8]]);
 

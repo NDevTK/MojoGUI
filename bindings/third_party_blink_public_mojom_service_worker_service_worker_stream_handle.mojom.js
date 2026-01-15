@@ -128,25 +128,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback.$interfaceName = 
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec = { $: {} };
 
-// Struct: ServiceWorkerStreamHandle
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec, 'blink.mojom.ServiceWorkerStreamHandle', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_callback_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ServiceWorkerStreamCallback
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnCompleted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnAborted_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -295,4 +277,24 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackReceiver = mojo.in
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackPtr = mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemote;
 mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRequest = mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ServiceWorkerStreamHandle
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerStreamHandleSpec, 'blink.mojom.ServiceWorkerStreamHandle', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_callback_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnCompleted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnCompleted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerStreamCallback_OnAborted_ParamsSpec, 'blink.mojom.ServiceWorkerStreamCallback_OnAborted_Params', [
+    ],
+    [[0, 8]]);
 

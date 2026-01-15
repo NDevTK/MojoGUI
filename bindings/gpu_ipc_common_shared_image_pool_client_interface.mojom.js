@@ -127,11 +127,6 @@ mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface.$interfaceName =
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec = { $: {} };
 
 // Interface: SharedImagePoolClientInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec, 'gpu.mojom.SharedImagePoolClientInterface_OnClearPool_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceReceiver = mojo.i
 
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfacePtr = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRemote;
 mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfaceRequest = mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterfacePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.gpu.mojom.SharedImagePoolClientInterface_OnClearPool_ParamsSpec, 'gpu.mojom.SharedImagePoolClientInterface_OnClearPool_Params', [
+    ],
+    [[0, 8]]);
 

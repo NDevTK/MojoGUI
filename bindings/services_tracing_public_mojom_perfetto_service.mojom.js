@@ -245,182 +245,7 @@ mojo.internal.bindings.tracing.mojom.TracingClientPriority = {
   kUserInitiated: 2,
 };
 
-// Struct: ChunksToMove
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ChunksToMoveSpec, 'tracing.mojom.ChunksToMove', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_chunk', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ChunkPatch
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, 'tracing.mojom.ChunkPatch', [
-      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ChunksToPatch
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ChunksToPatchSpec, 'tracing.mojom.ChunksToPatch', [
-      mojo.internal.StructField('arg_target_buffer', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_writer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_chunk_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_more_patches', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_patches', 16, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: CommitDataRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.CommitDataRequestSpec, 'tracing.mojom.CommitDataRequest', [
-      mojo.internal.StructField('arg_chunks_to_move', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunksToMoveSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_chunks_to_patch', 8, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunksToPatchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_flush_request_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ChromeConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ChromeConfigSpec, 'tracing.mojom.ChromeConfig', [
-      mojo.internal.StructField('arg_trace_config', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_filtering_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_convert_to_legacy_json', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_event_package_name_filter_enabled', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ConsoleConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ConsoleConfigSpec, 'tracing.mojom.ConsoleConfig', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.bindings.tracing.mojom.ConsoleOutputSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_colors', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: InterceptorConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.InterceptorConfigSpec, 'tracing.mojom.InterceptorConfig', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_console_config', 8, 0, mojo.internal.bindings.tracing.mojom.ConsoleConfigSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DataSourceConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, 'tracing.mojom.DataSourceConfig', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_trace_duration_ms', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_chrome_config', 24, 0, mojo.internal.bindings.tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interceptor_config', 32, 0, mojo.internal.bindings.tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_legacy_config', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_track_event_config_raw', 48, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_etw_config_raw', 56, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_metrics_config_raw', 64, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_samples_config_raw', 72, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 88]]);
-
-// Struct: DataSourceRegistration
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.DataSourceRegistrationSpec, 'tracing.mojom.DataSourceRegistration', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_will_notify_on_start', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_will_notify_on_stop', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_handles_incremental_state_clear', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: BufferConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BufferConfigSpec, 'tracing.mojom.BufferConfig', [
-      mojo.internal.StructField('arg_size_kb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_policy', 4, 0, mojo.internal.bindings.tracing.mojom.BufferFillPolicySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: DataSource
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.DataSourceSpec, 'tracing.mojom.DataSource', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_producer_name_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PerfettoBuiltinDataSource
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec, 'tracing.mojom.PerfettoBuiltinDataSource', [
-      mojo.internal.StructField('arg_disable_clock_snapshotting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_trace_config', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_system_info', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_service_events', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_trace_clock_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: IncrementalStateConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.IncrementalStateConfigSpec, 'tracing.mojom.IncrementalStateConfig', [
-      mojo.internal.StructField('arg_clear_period_ms', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: TraceConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TraceConfigSpec, 'tracing.mojom.TraceConfig', [
-      mojo.internal.StructField('arg_data_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.DataSourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_perfetto_builtin_data_source', 8, 0, mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffers', 16, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.BufferConfigSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_incremental_state_config', 24, 0, mojo.internal.bindings.tracing.mojom.IncrementalStateConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_write_into_file', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_trace_uuid', 40, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_unique_session_name', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: ProducerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec, 'tracing.mojom.ProducerHost_CommitData_Params', [
-      mojo.internal.StructField('arg_data_request', 0, 0, mojo.internal.bindings.tracing.mojom.CommitDataRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec, 'tracing.mojom.ProducerHost_CommitData_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_RegisterDataSource_Params', [
-      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.tracing.mojom.DataSourceRegistrationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_UpdateDataSource_Params', [
-      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.tracing.mojom.DataSourceRegistrationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec, 'tracing.mojom.ProducerHost_RegisterTraceWriter_Params', [
-      mojo.internal.StructField('arg_writer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_target_buffer', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec, 'tracing.mojom.ProducerHost_UnregisterTraceWriter_Params', [
-      mojo.internal.StructField('arg_writer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.tracing.mojom.ProducerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -589,12 +414,14 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitData');
-          const result = this.impl.commitData(params.arg_data_request);
+          const result = this.impl.commitData(params.arg_arg_data_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CommitData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] commitData FAILED:', e));
           }
           break;
         }
@@ -602,28 +429,28 @@ mojo.internal.bindings.tracing.mojom.ProducerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDataSource');
-          const result = this.impl.registerDataSource(params.arg_registration_info);
+          const result = this.impl.registerDataSource(params.arg_arg_registration_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDataSource');
-          const result = this.impl.updateDataSource(params.arg_registration_info);
+          const result = this.impl.updateDataSource(params.arg_arg_registration_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerTraceWriter');
-          const result = this.impl.registerTraceWriter(params.arg_writer_id, params.arg_target_buffer);
+          const result = this.impl.registerTraceWriter(params.arg_arg_writer_id, params.arg_arg_target_buffer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregisterTraceWriter');
-          const result = this.impl.unregisterTraceWriter(params.arg_writer_id);
+          const result = this.impl.unregisterTraceWriter(params.arg_arg_writer_id);
           break;
         }
       }
@@ -641,46 +468,6 @@ mojo.internal.bindings.tracing.mojom.ProducerHostRequest = mojo.internal.binding
 
 
 // Interface: ProducerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec, 'tracing.mojom.ProducerClient_OnTracingStart_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data_source_config', 8, 0, mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StopDataSource_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StopDataSource_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec, 'tracing.mojom.ProducerClient_Flush_Params', [
-      mojo.internal.StructField('arg_flush_request_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data_source_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec, 'tracing.mojom.ProducerClient_ClearIncrementalState_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.tracing.mojom.ProducerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -856,12 +643,14 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDataSource');
-          const result = this.impl.startDataSource(params.arg_id, params.arg_data_source_config);
+          const result = this.impl.startDataSource(params.arg_arg_id, params.arg_arg_data_source_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartDataSource FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startDataSource FAILED:', e));
           }
           break;
         }
@@ -869,12 +658,14 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopDataSource');
-          const result = this.impl.stopDataSource(params.arg_id);
+          const result = this.impl.stopDataSource(params.arg_arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StopDataSource FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stopDataSource FAILED:', e));
           }
           break;
         }
@@ -882,7 +673,7 @@ mojo.internal.bindings.tracing.mojom.ProducerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
-          const result = this.impl.flush(params.arg_flush_request_id, params.arg_data_source_ids);
+          const result = this.impl.flush(params.arg_arg_flush_request_id, params.arg_arg_data_source_ids);
           break;
         }
         case 4: {
@@ -907,15 +698,6 @@ mojo.internal.bindings.tracing.mojom.ProducerClientRequest = mojo.internal.bindi
 
 
 // Interface: PerfettoService
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec, 'tracing.mojom.PerfettoService_ConnectToProducerHost_Params', [
-      mojo.internal.StructField('arg_producer_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.ProducerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.ProducerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory_buffer_page_size_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.tracing.mojom.PerfettoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1028,7 +810,7 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToProducerHost');
-          const result = this.impl.connectToProducerHost(params.arg_producer_client, params.arg_producer_host_receiver, params.arg_shared_memory, params.arg_shared_memory_buffer_page_size_bytes);
+          const result = this.impl.connectToProducerHost(params.arg_arg_producer_client, params.arg_arg_producer_host_receiver, params.arg_arg_shared_memory, params.arg_arg_shared_memory_buffer_page_size_bytes);
           break;
         }
       }
@@ -1046,32 +828,6 @@ mojo.internal.bindings.tracing.mojom.PerfettoServiceRequest = mojo.internal.bind
 
 
 // Interface: ConsumerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec, 'tracing.mojom.ConsumerHost_EnableTracing_Params', [
-      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
-      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_filtering_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unguessable_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.tracing.mojom.ConsumerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1198,19 +954,21 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableTracing');
-          const result = this.impl.enableTracing(params.arg_tracing_session_host, params.arg_tracing_session_client, params.arg_config, params.arg_output_file);
+          const result = this.impl.enableTracing(params.arg_arg_tracing_session_host, params.arg_arg_tracing_session_client, params.arg_arg_config, params.arg_arg_output_file);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneSession');
-          const result = this.impl.cloneSession(params.arg_tracing_session_host, params.arg_tracing_session_client, params.arg_unguessable_name, params.arg_privacy_filtering_enabled);
+          const result = this.impl.cloneSession(params.arg_arg_tracing_session_host, params.arg_arg_tracing_session_client, params.arg_arg_unguessable_name, params.arg_arg_privacy_filtering_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CloneSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_error', 'response.arg_arg_uuid']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cloneSession FAILED:', e));
           }
           break;
         }
@@ -1229,54 +987,6 @@ mojo.internal.bindings.tracing.mojom.ConsumerHostRequest = mojo.internal.binding
 
 
 // Interface: TracingSessionHost
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec, 'tracing.mojom.TracingSessionHost_ChangeTraceConfig_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracing_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec, 'tracing.mojom.TracingSessionHost_ReadBuffers_Params', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_data_loss', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_full', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_Params', [
-      mojo.internal.StructField('arg_agent_label_filter', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_filtering_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.tracing.mojom.TracingSessionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1445,7 +1155,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeTraceConfig');
-          const result = this.impl.changeTraceConfig(params.arg_config);
+          const result = this.impl.changeTraceConfig(params.arg_arg_config);
           break;
         }
         case 1: {
@@ -1459,12 +1169,14 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readBuffers');
-          const result = this.impl.readBuffers(params.arg_stream);
+          const result = this.impl.readBuffers(params.arg_arg_stream);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReadBuffers FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] readBuffers FAILED:', e));
           }
           break;
         }
@@ -1476,8 +1188,10 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestBufferUsage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_percent_full', 'response.arg_arg_data_loss']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestBufferUsage FAILED:', e));
           }
           break;
         }
@@ -1485,12 +1199,14 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableTracingAndEmitJson');
-          const result = this.impl.disableTracingAndEmitJson(params.arg_agent_label_filter, params.arg_stream, params.arg_privacy_filtering_enabled);
+          const result = this.impl.disableTracingAndEmitJson(params.arg_arg_agent_label_filter, params.arg_arg_stream, params.arg_arg_privacy_filtering_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DisableTracingAndEmitJson FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] disableTracingAndEmitJson FAILED:', e));
           }
           break;
         }
@@ -1509,17 +1225,6 @@ mojo.internal.bindings.tracing.mojom.TracingSessionHostRequest = mojo.internal.b
 
 
 // Interface: TracingSessionClient
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec, 'tracing.mojom.TracingSessionClient_OnTracingEnabled_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec, 'tracing.mojom.TracingSessionClient_OnTracingDisabled_Params', [
-      mojo.internal.StructField('arg_tracing_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.tracing.mojom.TracingSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1653,7 +1358,7 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTracingDisabled');
-          const result = this.impl.onTracingDisabled(params.arg_tracing_succeeded);
+          const result = this.impl.onTracingDisabled(params.arg_arg_tracing_succeeded);
           break;
         }
       }
@@ -1668,4 +1373,315 @@ mojo.internal.bindings.tracing.mojom.TracingSessionClientReceiver = mojo.interna
 
 mojo.internal.bindings.tracing.mojom.TracingSessionClientPtr = mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote;
 mojo.internal.bindings.tracing.mojom.TracingSessionClientRequest = mojo.internal.bindings.tracing.mojom.TracingSessionClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ChunksToMove
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ChunksToMoveSpec, 'tracing.mojom.ChunksToMove', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_chunk', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ChunkPatch
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, 'tracing.mojom.ChunkPatch', [
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ChunksToPatch
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ChunksToPatchSpec, 'tracing.mojom.ChunksToPatch', [
+      mojo.internal.StructField('arg_target_buffer', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_chunk_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_more_patches', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_patches', 16, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunkPatchSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: CommitDataRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.CommitDataRequestSpec, 'tracing.mojom.CommitDataRequest', [
+      mojo.internal.StructField('arg_chunks_to_move', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunksToMoveSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_chunks_to_patch', 8, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ChunksToPatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_flush_request_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ChromeConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ChromeConfigSpec, 'tracing.mojom.ChromeConfig', [
+      mojo.internal.StructField('arg_trace_config', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_filtering_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_convert_to_legacy_json', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_event_package_name_filter_enabled', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ConsoleConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ConsoleConfigSpec, 'tracing.mojom.ConsoleConfig', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.bindings.tracing.mojom.ConsoleOutputSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_colors', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: InterceptorConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.InterceptorConfigSpec, 'tracing.mojom.InterceptorConfig', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_console_config', 8, 0, mojo.internal.bindings.tracing.mojom.ConsoleConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DataSourceConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, 'tracing.mojom.DataSourceConfig', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_buffer', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_duration_ms', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_chrome_config', 24, 0, mojo.internal.bindings.tracing.mojom.ChromeConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interceptor_config', 32, 0, mojo.internal.bindings.tracing.mojom.InterceptorConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_legacy_config', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track_event_config_raw', 48, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_etw_config_raw', 56, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_metrics_config_raw', 64, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_histogram_samples_config_raw', 72, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 88]]);
+
+// Struct: DataSourceRegistration
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.DataSourceRegistrationSpec, 'tracing.mojom.DataSourceRegistration', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_will_notify_on_start', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_will_notify_on_stop', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_handles_incremental_state_clear', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: BufferConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BufferConfigSpec, 'tracing.mojom.BufferConfig', [
+      mojo.internal.StructField('arg_size_kb', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_policy', 4, 0, mojo.internal.bindings.tracing.mojom.BufferFillPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: DataSource
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.DataSourceSpec, 'tracing.mojom.DataSource', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_producer_name_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PerfettoBuiltinDataSource
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec, 'tracing.mojom.PerfettoBuiltinDataSource', [
+      mojo.internal.StructField('arg_disable_clock_snapshotting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_trace_config', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_system_info', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_service_events', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_trace_clock_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: IncrementalStateConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.IncrementalStateConfigSpec, 'tracing.mojom.IncrementalStateConfig', [
+      mojo.internal.StructField('arg_clear_period_ms', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: TraceConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TraceConfigSpec, 'tracing.mojom.TraceConfig', [
+      mojo.internal.StructField('arg_data_sources', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.DataSourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_perfetto_builtin_data_source', 8, 0, mojo.internal.bindings.tracing.mojom.PerfettoBuiltinDataSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffers', 16, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.BufferConfigSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_incremental_state_config', 24, 0, mojo.internal.bindings.tracing.mojom.IncrementalStateConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_write_into_file', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_uuid', 40, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unique_session_name', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ParamsSpec, 'tracing.mojom.ProducerHost_CommitData_Params', [
+      mojo.internal.StructField('arg_data_request', 0, 0, mojo.internal.bindings.tracing.mojom.CommitDataRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerHost_CommitData_ResponseParamsSpec, 'tracing.mojom.ProducerHost_CommitData_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_RegisterDataSource_Params', [
+      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.tracing.mojom.DataSourceRegistrationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerHost_UpdateDataSource_ParamsSpec, 'tracing.mojom.ProducerHost_UpdateDataSource_Params', [
+      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.tracing.mojom.DataSourceRegistrationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerHost_RegisterTraceWriter_ParamsSpec, 'tracing.mojom.ProducerHost_RegisterTraceWriter_Params', [
+      mojo.internal.StructField('arg_writer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_buffer', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerHost_UnregisterTraceWriter_ParamsSpec, 'tracing.mojom.ProducerHost_UnregisterTraceWriter_Params', [
+      mojo.internal.StructField('arg_writer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_OnTracingStart_ParamsSpec, 'tracing.mojom.ProducerClient_OnTracingStart_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data_source_config', 8, 0, mojo.internal.bindings.tracing.mojom.DataSourceConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_StartDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StartDataSource_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ParamsSpec, 'tracing.mojom.ProducerClient_StopDataSource_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_StopDataSource_ResponseParamsSpec, 'tracing.mojom.ProducerClient_StopDataSource_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_Flush_ParamsSpec, 'tracing.mojom.ProducerClient_Flush_Params', [
+      mojo.internal.StructField('arg_flush_request_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data_source_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ProducerClient_ClearIncrementalState_ParamsSpec, 'tracing.mojom.ProducerClient_ClearIncrementalState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.PerfettoService_ConnectToProducerHost_ParamsSpec, 'tracing.mojom.PerfettoService_ConnectToProducerHost_Params', [
+      mojo.internal.StructField('arg_producer_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.ProducerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_producer_host_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.ProducerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory_buffer_page_size_bytes', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ConsumerHost_EnableTracing_ParamsSpec, 'tracing.mojom.ConsumerHost_EnableTracing_Params', [
+      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 24, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_Params', [
+      mojo.internal.StructField('arg_tracing_session_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.TracingSessionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracing_session_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracingSessionClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_filtering_enabled', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unguessable_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ConsumerHost_CloneSession_ResponseParamsSpec, 'tracing.mojom.ConsumerHost_CloneSession_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_ChangeTraceConfig_ParamsSpec, 'tracing.mojom.TracingSessionHost_ChangeTraceConfig_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.tracing.mojom.TraceConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracing_ParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracing_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ParamsSpec, 'tracing.mojom.TracingSessionHost_ReadBuffers_Params', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_ReadBuffers_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_RequestBufferUsage_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_data_loss', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_full', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_Params', [
+      mojo.internal.StructField('arg_agent_label_filter', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_filtering_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParamsSpec, 'tracing.mojom.TracingSessionHost_DisableTracingAndEmitJson_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingEnabled_ParamsSpec, 'tracing.mojom.TracingSessionClient_OnTracingEnabled_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingSessionClient_OnTracingDisabled_ParamsSpec, 'tracing.mojom.TracingSessionClient_OnTracingDisabled_Params', [
+      mojo.internal.StructField('arg_tracing_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

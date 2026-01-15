@@ -133,13 +133,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RenderMessageFilter
-mojo.internal.Struct(
-    mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec, 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params', [
-      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.android_webview.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.android_webview.mojom.RenderMessageFilterReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subFrameCreated');
-          const result = this.impl.subFrameCreated(params.arg_parent_frame_token, params.arg_child_frame_token);
+          const result = this.impl.subFrameCreated(params.arg_arg_parent_frame_token, params.arg_arg_child_frame_token);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.android_webview.mojom.RenderMessageFilterReceiver = mojo.
 
 mojo.internal.bindings.android_webview.mojom.RenderMessageFilterPtr = mojo.internal.bindings.android_webview.mojom.RenderMessageFilterRemote;
 mojo.internal.bindings.android_webview.mojom.RenderMessageFilterRequest = mojo.internal.bindings.android_webview.mojom.RenderMessageFilterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.android_webview.mojom.RenderMessageFilter_SubFrameCreated_ParamsSpec, 'android_webview.mojom.RenderMessageFilter_SubFrameCreated_Params', [
+      mojo.internal.StructField('arg_parent_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

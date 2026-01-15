@@ -138,6 +138,8 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.ImageInfoSpec = mojo.internal.bindings.skia.mojom.ImageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BitmapN32
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.BitmapN32Spec, 'skia.mojom.BitmapN32', [

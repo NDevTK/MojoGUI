@@ -127,20 +127,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationSpec = { $
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration.$interfaceName = 'chromecast.mojom.ActivityUrlFilterConfiguration';
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec = { $: {} };
 
-// Struct: ActivityUrlFilterCriteria
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec, 'chromecast.mojom.ActivityUrlFilterCriteria', [
-      mojo.internal.StructField('arg_criteria', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ActivityUrlFilterConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec, 'chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_Params', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,7 +240,7 @@ mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFilter');
-          const result = this.impl.setFilter(params.arg_filter);
+          const result = this.impl.setFilter(params.arg_arg_filter);
           break;
         }
       }
@@ -268,4 +255,19 @@ mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationReceiver =
 
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationPtr = mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationRemote;
 mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationRequest = mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfigurationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ActivityUrlFilterCriteria
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec, 'chromecast.mojom.ActivityUrlFilterCriteria', [
+      mojo.internal.StructField('arg_criteria', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_ParamsSpec, 'chromecast.mojom.ActivityUrlFilterConfiguration_SetFilter_Params', [
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.chromecast.mojom.ActivityUrlFilterCriteriaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

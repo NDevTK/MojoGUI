@@ -145,26 +145,7 @@ mojo.internal.bindings.optimization_guide.mojom.TextDumpEvent = {
   kFinishedLoad: 1,
 };
 
-// Struct: PageTextDumpRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec, 'optimization_guide.mojom.PageTextDumpRequest', [
-      mojo.internal.StructField('arg_max_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 4, 0, mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: PageTextConsumer
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_Params', [
-      mojo.internal.StructField('arg_chunk', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnChunksEnd_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,7 +272,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTextDumpChunk');
-          const result = this.impl.onTextDumpChunk(params.arg_chunk);
+          const result = this.impl.onTextDumpChunk(params.arg_arg_chunk);
           break;
         }
         case 1: {
@@ -316,13 +297,6 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRequest = mojo.i
 
 
 // Interface: PageTextService
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_consumer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.optimization_guide.mojom.PageTextServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -435,7 +409,7 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPageTextDump');
-          const result = this.impl.requestPageTextDump(params.arg_request, params.arg_consumer);
+          const result = this.impl.requestPageTextDump(params.arg_arg_request, params.arg_arg_consumer);
           break;
         }
       }
@@ -450,4 +424,32 @@ mojo.internal.bindings.optimization_guide.mojom.PageTextServiceReceiver = mojo.i
 
 mojo.internal.bindings.optimization_guide.mojom.PageTextServicePtr = mojo.internal.bindings.optimization_guide.mojom.PageTextServiceRemote;
 mojo.internal.bindings.optimization_guide.mojom.PageTextServiceRequest = mojo.internal.bindings.optimization_guide.mojom.PageTextServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PageTextDumpRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec, 'optimization_guide.mojom.PageTextDumpRequest', [
+      mojo.internal.StructField('arg_max_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 4, 0, mojo.internal.bindings.optimization_guide.mojom.TextDumpEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnTextDumpChunk_Params', [
+      mojo.internal.StructField('arg_chunk', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide.mojom.PageTextConsumer_OnChunksEnd_ParamsSpec, 'optimization_guide.mojom.PageTextConsumer_OnChunksEnd_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide.mojom.PageTextService_RequestPageTextDump_ParamsSpec, 'optimization_guide.mojom.PageTextService_RequestPageTextDump_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.optimization_guide.mojom.PageTextDumpRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_consumer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide.mojom.PageTextConsumerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

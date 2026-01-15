@@ -146,19 +146,6 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec = mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ExternalBeginFrameController
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParams', [
-      mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,12 +258,15 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueExternalBeginFrame');
-          const result = this.impl.issueExternalBeginFrame(params.arg_args, params.arg_force);
+          const result = this.impl.issueExternalBeginFrame(params.arg_arg_args, params.arg_arg_force);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IssueExternalBeginFrame FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ack' in response) ? response.arg_arg_ack : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] issueExternalBeginFrame FAILED:', e));
           }
           break;
         }
@@ -295,25 +285,6 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerRequest = mojo.inte
 
 
 // Interface: ExternalBeginFrameControllerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_Params', [
-      mojo.internal.StructField('arg_needs_begin_frames', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_Params', [
-      mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_begin_frames', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_Params', [
-      mojo.internal.StructField('arg_interval', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -454,21 +425,21 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNeedsBeginFrame');
-          const result = this.impl.setNeedsBeginFrame(params.arg_needs_begin_frames);
+          const result = this.impl.setNeedsBeginFrame(params.arg_arg_needs_begin_frames);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.needsBeginFrameWithId');
-          const result = this.impl.needsBeginFrameWithId(params.arg_display_id, params.arg_needs_begin_frames);
+          const result = this.impl.needsBeginFrameWithId(params.arg_arg_display_id, params.arg_arg_needs_begin_frames);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredInterval');
-          const result = this.impl.setPreferredInterval(params.arg_interval);
+          const result = this.impl.setPreferredInterval(params.arg_arg_interval);
           break;
         }
       }
@@ -483,4 +454,38 @@ mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientReceiver = mo
 
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientPtr = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRemote;
 mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientRequest = mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_Params', [
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_force', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParamsSpec, 'viz.mojom.ExternalBeginFrameController_IssueExternalBeginFrame_ResponseParams', [
+      mojo.internal.StructField('arg_ack', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameAckSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetNeedsBeginFrame_Params', [
+      mojo.internal.StructField('arg_needs_begin_frames', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_NeedsBeginFrameWithId_Params', [
+      mojo.internal.StructField('arg_display_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_begin_frames', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_ParamsSpec, 'viz.mojom.ExternalBeginFrameControllerClient_SetPreferredInterval_Params', [
+      mojo.internal.StructField('arg_interval', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

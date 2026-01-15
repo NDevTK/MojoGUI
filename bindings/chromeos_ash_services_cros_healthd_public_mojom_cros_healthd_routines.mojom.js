@@ -405,6 +405,479 @@ mojo.internal.bindings.ash.cros_healthd.mojom.Issue = {
   kLensAreDirty: 4,
 };
 
+// Interface: CrosHealthdRoutinesService
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote = class {
+  static get $interfaceName() {
+    return 'ash.cros_healthd.mojom.CrosHealthdRoutinesService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  createRoutine(arg_routine_argument, arg_routine_receiver, arg_routine_observer) {
+    return this.$.createRoutine(arg_routine_argument, arg_routine_receiver, arg_routine_observer);
+  }
+  isRoutineArgumentSupported(arg_routine_argument) {
+    return this.$.isRoutineArgumentSupported(arg_routine_argument);
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdRoutinesService', [
+      { explicit: 0 },
+      { explicit: 1 },
+    ]);
+  }
+
+  createRoutine(arg_routine_argument, arg_routine_receiver, arg_routine_observer) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec,
+      null,
+      [arg_routine_argument, arg_routine_receiver, arg_routine_observer],
+      false);
+  }
+
+  isRoutineArgumentSupported(arg_routine_argument) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
+      [arg_routine_argument],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cros_healthd.mojom.CrosHealthdRoutinesService',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdRoutinesService', [
+      { explicit: 0 },
+      { explicit: 1 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createRoutine');
+          const result = this.impl.createRoutine(params.arg_arg_routine_argument, params.arg_arg_routine_receiver, params.arg_arg_routine_observer);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
+          const result = this.impl.isRoutineArgumentSupported(params.arg_arg_routine_argument);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isRoutineArgumentSupported FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver;
+
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver;
+
+
+// Interface: RoutineControl
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote = class {
+  static get $interfaceName() {
+    return 'ash.cros_healthd.mojom.RoutineControl';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  getState() {
+    return this.$.getState();
+  }
+  start() {
+    return this.$.start();
+  }
+  replyInquiry(arg_reply) {
+    return this.$.replyInquiry(arg_reply);
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineControl', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
+  }
+
+  getState() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec,
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  start() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  replyInquiry(arg_reply) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec,
+      null,
+      [arg_reply],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cros_healthd.mojom.RoutineControl',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineControl', [
+      { explicit: 0 },
+      { explicit: 1 },
+      { explicit: 2 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getState');
+          const result = this.impl.getState();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getState FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.start');
+          const result = this.impl.start();
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.replyInquiry');
+          const result = this.impl.replyInquiry(params.arg_arg_reply);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver;
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPtr = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRequest = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver;
+
+
+// Interface: RoutineObserver
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote = class {
+  static get $interfaceName() {
+    return 'ash.cros_healthd.mojom.RoutineObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onRoutineStateChange(arg_state) {
+    return this.$.onRoutineStateChange(arg_state);
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineObserver', [
+      { explicit: 0 },
+    ]);
+  }
+
+  onRoutineStateChange(arg_state) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec,
+      null,
+      [arg_state],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'ash.cros_healthd.mojom.RoutineObserver',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineObserver', [
+      { explicit: 0 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
+          const result = this.impl.onRoutineStateChange(params.arg_arg_state);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver;
+
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote;
+mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: RoutineArgument
 mojo.internal.Union(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineArgumentSpec, 'ash.cros_healthd.mojom.RoutineArgument', {
@@ -1121,8 +1594,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_lens_not_dirty_test', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.CameraSubtestResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-// Interface: CrosHealthdRoutinesService
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec, 'ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_Params', [
       mojo.internal.StructField('arg_routine_argument', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineArgumentSpec, null, false, 0, undefined),
@@ -1143,163 +1614,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote = class {
-  static get $interfaceName() {
-    return 'ash.cros_healthd.mojom.CrosHealthdRoutinesService';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  createRoutine(arg_routine_argument, arg_routine_receiver, arg_routine_observer) {
-    return this.$.createRoutine(arg_routine_argument, arg_routine_receiver, arg_routine_observer);
-  }
-  isRoutineArgumentSupported(arg_routine_argument) {
-    return this.$.isRoutineArgumentSupported(arg_routine_argument);
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdRoutinesService', [
-      { explicit: 0 },
-      { explicit: 1 },
-    ]);
-  }
-
-  createRoutine(arg_routine_argument, arg_routine_receiver, arg_routine_observer) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec,
-      null,
-      [arg_routine_argument, arg_routine_receiver, arg_routine_observer],
-      false);
-  }
-
-  isRoutineArgumentSupported(arg_routine_argument) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec,
-      mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec,
-      [arg_routine_argument],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService.getRemote = function() {
-  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'ash.cros_healthd.mojom.CrosHealthdRoutinesService',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.CrosHealthdRoutinesService', [
-      { explicit: 0 },
-      { explicit: 1 },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_CreateRoutine_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createRoutine');
-          const result = this.impl.createRoutine(params.arg_routine_argument, params.arg_routine_receiver, params.arg_routine_observer);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isRoutineArgumentSupported');
-          const result = this.impl.isRoutineArgumentSupported(params.arg_routine_argument);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesService_IsRoutineArgumentSupported_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsRoutineArgumentSupported FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceReceiver;
-
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePtr = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRemote;
-mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServiceRequest = mojo.internal.bindings.ash.cros_healthd.mojom.CrosHealthdRoutinesServicePendingReceiver;
-
-
-// Interface: RoutineControl
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec, 'ash.cros_healthd.mojom.RoutineControl_GetState_Params', [
     ],
@@ -1322,315 +1636,9 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote = class {
-  static get $interfaceName() {
-    return 'ash.cros_healthd.mojom.RoutineControl';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  getState() {
-    return this.$.getState();
-  }
-  start() {
-    return this.$.start();
-  }
-  replyInquiry(arg_reply) {
-    return this.$.replyInquiry(arg_reply);
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineControl', [
-      { explicit: 0 },
-      { explicit: 1 },
-      { explicit: 2 },
-    ]);
-  }
-
-  getState() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec,
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  start() {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  replyInquiry(arg_reply) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec,
-      null,
-      [arg_reply],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl.getRemote = function() {
-  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'ash.cros_healthd.mojom.RoutineControl',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineControl', [
-      { explicit: 0 },
-      { explicit: 1 },
-      { explicit: 2 },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getState');
-          const result = this.impl.getState();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_GetState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetState FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_Start_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start();
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControl_ReplyInquiry_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.replyInquiry');
-          const result = this.impl.replyInquiry(params.arg_reply);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlReceiver;
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPtr = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRemote;
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlRequest = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineControlPendingReceiver;
-
-
-// Interface: RoutineObserver
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec, 'ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_Params', [
       mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineStateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote = class {
-  static get $interfaceName() {
-    return 'ash.cros_healthd.mojom.RoutineObserver';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onRoutineStateChange(arg_state) {
-    return this.$.onRoutineStateChange(arg_state);
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineObserver', [
-      { explicit: 0 },
-    ]);
-  }
-
-  onRoutineStateChange(arg_state) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec,
-      null,
-      [arg_state],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver.getRemote = function() {
-  let remote = new mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'ash.cros_healthd.mojom.RoutineObserver',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('ash.cros_healthd.mojom.RoutineObserver', [
-      { explicit: 0 },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserver_OnRoutineStateChange_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onRoutineStateChange');
-          const result = this.impl.onRoutineStateChange(params.arg_state);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverReceiver;
-
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPtr = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRemote;
-mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverRequest = mojo.internal.bindings.ash.cros_healthd.mojom.RoutineObserverPendingReceiver;
 

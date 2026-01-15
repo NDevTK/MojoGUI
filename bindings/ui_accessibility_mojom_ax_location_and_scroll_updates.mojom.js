@@ -130,6 +130,8 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec = mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXLocationChange
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXLocationChangeSpec, 'ax.mojom.AXLocationChange', [

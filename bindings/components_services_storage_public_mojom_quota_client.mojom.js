@@ -146,51 +146,6 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.storage.mojom.BucketLocatorSpec = mojo.internal.bindings.storage.mojom.BucketLocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: QuotaClient
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_Params', [
-      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_ResponseParams', [
-      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParams', [
-      mojo.internal.StructField('arg_storage_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.StorageKeySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_Params', [
-      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.storage.mojom.QuotaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -345,12 +300,15 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBucketUsage');
-          const result = this.impl.getBucketUsage(params.arg_bucket);
+          const result = this.impl.getBucketUsage(params.arg_arg_bucket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBucketUsage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_usage' in response) ? response.arg_arg_usage : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBucketUsage FAILED:', e));
           }
           break;
         }
@@ -362,8 +320,11 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDefaultStorageKeys FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_storage_keys' in response) ? response.arg_arg_storage_keys : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultStorageKeys FAILED:', e));
           }
           break;
         }
@@ -371,12 +332,15 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteBucketData');
-          const result = this.impl.deleteBucketData(params.arg_bucket);
+          const result = this.impl.deleteBucketData(params.arg_arg_bucket);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteBucketData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deleteBucketData FAILED:', e));
           }
           break;
         }
@@ -388,8 +352,10 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PerformStorageCleanup FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] performStorageCleanup FAILED:', e));
           }
           break;
         }
@@ -405,4 +371,51 @@ mojo.internal.bindings.storage.mojom.QuotaClientReceiver = mojo.internal.binding
 
 mojo.internal.bindings.storage.mojom.QuotaClientPtr = mojo.internal.bindings.storage.mojom.QuotaClientRemote;
 mojo.internal.bindings.storage.mojom.QuotaClientRequest = mojo.internal.bindings.storage.mojom.QuotaClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_Params', [
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_GetBucketUsage_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetBucketUsage_ResponseParams', [
+      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParamsSpec, 'storage.mojom.QuotaClient_GetDefaultStorageKeys_ResponseParams', [
+      mojo.internal.StructField('arg_storage_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.StorageKeySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_Params', [
+      mojo.internal.StructField('arg_bucket', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_DeleteBucketData_ResponseParamsSpec, 'storage.mojom.QuotaClient_DeleteBucketData_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParamsSpec, 'storage.mojom.QuotaClient_PerformStorageCleanup_ResponseParams', [
+    ],
+    [[0, 8]]);
 

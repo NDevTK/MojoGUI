@@ -181,3 +181,5 @@ mojo.internal.bindings.ui.mojom.CursorType = {
   kNorthEastSouthWestNoResize: 52,
   kNorthWestSouthEastNoResize: 53,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -134,17 +134,6 @@ mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec = mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ImageExtractor
-mojo.internal.Struct(
-    mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_ResponseParams', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.wallet.mojom.ImageExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,8 +250,11 @@ mojo.internal.bindings.wallet.mojom.ImageExtractorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractImages FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_images' in response) ? response.arg_arg_images : response;
+              encoder.encodeStructInline(mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extractImages FAILED:', e));
           }
           break;
         }
@@ -278,4 +270,17 @@ mojo.internal.bindings.wallet.mojom.ImageExtractorReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.wallet.mojom.ImageExtractorPtr = mojo.internal.bindings.wallet.mojom.ImageExtractorRemote;
 mojo.internal.bindings.wallet.mojom.ImageExtractorRequest = mojo.internal.bindings.wallet.mojom.ImageExtractorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.wallet.mojom.ImageExtractor_ExtractImages_ResponseParamsSpec, 'wallet.mojom.ImageExtractor_ExtractImages_ResponseParams', [
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapWithArbitraryBppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

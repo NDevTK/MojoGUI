@@ -138,43 +138,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: EnhancedCalendarResponseResult
-mojo.internal.Union(
-    mojo.internal.bindings.ai.mojom.EnhancedCalendarResponseResultSpec, 'ai.mojom.EnhancedCalendarResponseResult', {
-      'arg_response': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
-// Struct: EnhancedCalendarServiceRequestParams
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec, 'ai.mojom.EnhancedCalendarServiceRequestParams', [
-      mojo.internal.StructField('arg_selected_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_surrounding_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_optional_prompt', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: EnhancedCalendarService
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params', [
-      mojo.internal.StructField('arg_request_params', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarResponseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ai.mojom.EnhancedCalendarServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,12 +251,15 @@ mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeEnhancedCalendarRequest');
-          const result = this.impl.executeEnhancedCalendarRequest(params.arg_request_params);
+          const result = this.impl.executeEnhancedCalendarRequest(params.arg_arg_request_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExecuteEnhancedCalendarRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] executeEnhancedCalendarRequest FAILED:', e));
           }
           break;
         }
@@ -308,4 +275,42 @@ mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceReceiver = mojo.internal.
 
 mojo.internal.bindings.ai.mojom.EnhancedCalendarServicePtr = mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRemote;
 mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequest = mojo.internal.bindings.ai.mojom.EnhancedCalendarServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: EnhancedCalendarResponseResult
+mojo.internal.Union(
+    mojo.internal.bindings.ai.mojom.EnhancedCalendarResponseResultSpec, 'ai.mojom.EnhancedCalendarResponseResult', {
+      'arg_response': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+
+// Struct: EnhancedCalendarServiceRequestParams
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec, 'ai.mojom.EnhancedCalendarServiceRequestParams', [
+      mojo.internal.StructField('arg_selected_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surrounding_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_optional_prompt', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_Params', [
+      mojo.internal.StructField('arg_request_params', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarServiceRequestParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParamsSpec, 'ai.mojom.EnhancedCalendarService_ExecuteEnhancedCalendarRequest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.EnhancedCalendarResponseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

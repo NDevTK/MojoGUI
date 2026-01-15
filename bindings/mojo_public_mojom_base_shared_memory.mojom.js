@@ -125,6 +125,8 @@ mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = { $: {} 
 mojo.internal.bindings.mojo_base.mojom.WritableSharedMemoryRegionSpec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ReadOnlySharedMemoryRegion
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, 'mojo_base.mojom.ReadOnlySharedMemoryRegion', [

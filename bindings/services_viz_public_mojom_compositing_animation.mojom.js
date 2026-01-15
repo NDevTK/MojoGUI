@@ -202,6 +202,8 @@ mojo.internal.bindings.viz.mojom.AnimationFillMode = {
   kAuto: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: TimingFunction
 mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.TimingFunctionSpec, 'viz.mojom.TimingFunction', {

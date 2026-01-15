@@ -141,12 +141,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AssistantMessagePipe
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec, 'chromecast.mojom.AssistantMessagePipe_SendMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.mojom.AssistantMessagePipePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,7 +253,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_message);
+          const result = this.impl.sendMessage(params.arg_arg_message);
           break;
         }
       }
@@ -277,12 +271,6 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRequest = mojo.inter
 
 
 // Interface: AssistantMessageClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec, 'chromecast.mojom.AssistantMessageClient_OnMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.mojom.AssistantMessageClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -395,7 +383,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_message);
+          const result = this.impl.onMessage(params.arg_arg_message);
           break;
         }
       }
@@ -413,14 +401,6 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRequest = mojo.int
 
 
 // Interface: AssistantMessageService
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec, 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.chromecast.mojom.AssistantMessageServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -533,7 +513,7 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMessagePipe');
-          const result = this.impl.createMessagePipe(params.arg_client_id, params.arg_client, params.arg_pipe);
+          const result = this.impl.createMessagePipe(params.arg_arg_client_id, params.arg_arg_client, params.arg_arg_pipe);
           break;
         }
       }
@@ -548,4 +528,26 @@ mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceReceiver = mojo.i
 
 mojo.internal.bindings.chromecast.mojom.AssistantMessageServicePtr = mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceRemote;
 mojo.internal.bindings.chromecast.mojom.AssistantMessageServiceRequest = mojo.internal.bindings.chromecast.mojom.AssistantMessageServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.AssistantMessagePipe_SendMessage_ParamsSpec, 'chromecast.mojom.AssistantMessagePipe_SendMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.AssistantMessageClient_OnMessage_ParamsSpec, 'chromecast.mojom.AssistantMessageClient_OnMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.AssistantMessageService_CreateMessagePipe_ParamsSpec, 'chromecast.mojom.AssistantMessageService_CreateMessagePipe_Params', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.AssistantMessageClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.AssistantMessagePipeRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

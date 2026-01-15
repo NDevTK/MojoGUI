@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.PrerenderParamSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PrerenderParam
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PrerenderParamSpec, 'blink.mojom.PrerenderParam', [

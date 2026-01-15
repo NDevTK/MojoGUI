@@ -172,33 +172,6 @@ mojo.internal.bindings.network.mojom.NetLogEventPhase = {
 };
 
 // Interface: NetLogExporter
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec, 'network.mojom.NetLogExporter_Start_Params', [
-      mojo.internal.StructField('arg_destination', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_constants', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_capture_mode', 16, 0, mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_file_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec, 'network.mojom.NetLogExporter_Start_ResponseParams', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec, 'network.mojom.NetLogExporter_Stop_Params', [
-      mojo.internal.StructField('arg_polled_values', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec, 'network.mojom.NetLogExporter_Stop_ResponseParams', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.NetLogExporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,12 +298,15 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_destination, params.arg_extra_constants, params.arg_capture_mode, params.arg_max_file_size);
+          const result = this.impl.start(params.arg_arg_destination, params.arg_arg_extra_constants, params.arg_arg_capture_mode, params.arg_arg_max_file_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Start FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }
           break;
         }
@@ -338,12 +314,15 @@ mojo.internal.bindings.network.mojom.NetLogExporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_polled_values);
+          const result = this.impl.stop(params.arg_arg_polled_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Stop FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_net_error' in response) ? response.arg_arg_net_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stop FAILED:', e));
           }
           break;
         }
@@ -362,12 +341,6 @@ mojo.internal.bindings.network.mojom.NetLogExporterRequest = mojo.internal.bindi
 
 
 // Interface: NetLogProxySource
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec, 'network.mojom.NetLogProxySource_UpdateCaptureModes_Params', [
-      mojo.internal.StructField('arg_modes', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.NetLogProxySourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -480,7 +453,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCaptureModes');
-          const result = this.impl.updateCaptureModes(params.arg_modes);
+          const result = this.impl.updateCaptureModes(params.arg_arg_modes);
           break;
         }
       }
@@ -498,16 +471,6 @@ mojo.internal.bindings.network.mojom.NetLogProxySourceRequest = mojo.internal.bi
 
 
 // Interface: NetLogProxySink
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_phase', 4, 0, mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_log_source', 8, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.network.mojom.NetLogProxySinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -620,7 +583,7 @@ mojo.internal.bindings.network.mojom.NetLogProxySinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
-          const result = this.impl.addEntry(params.arg_type, params.arg_net_log_source, params.arg_phase, params.arg_time, params.arg_params);
+          const result = this.impl.addEntry(params.arg_arg_type, params.arg_arg_net_log_source, params.arg_arg_phase, params.arg_arg_time, params.arg_arg_params);
           break;
         }
       }
@@ -635,4 +598,49 @@ mojo.internal.bindings.network.mojom.NetLogProxySinkReceiver = mojo.internal.bin
 
 mojo.internal.bindings.network.mojom.NetLogProxySinkPtr = mojo.internal.bindings.network.mojom.NetLogProxySinkRemote;
 mojo.internal.bindings.network.mojom.NetLogProxySinkRequest = mojo.internal.bindings.network.mojom.NetLogProxySinkPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetLogExporter_Start_ParamsSpec, 'network.mojom.NetLogExporter_Start_Params', [
+      mojo.internal.StructField('arg_destination', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_constants', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_capture_mode', 16, 0, mojo.internal.bindings.network.mojom.NetLogCaptureModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_file_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetLogExporter_Start_ResponseParamsSpec, 'network.mojom.NetLogExporter_Start_ResponseParams', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ParamsSpec, 'network.mojom.NetLogExporter_Stop_Params', [
+      mojo.internal.StructField('arg_polled_values', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetLogExporter_Stop_ResponseParamsSpec, 'network.mojom.NetLogExporter_Stop_ResponseParams', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetLogProxySource_UpdateCaptureModes_ParamsSpec, 'network.mojom.NetLogProxySource_UpdateCaptureModes_Params', [
+      mojo.internal.StructField('arg_modes', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetLogProxySink_AddEntry_ParamsSpec, 'network.mojom.NetLogProxySink_AddEntry_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_phase', 4, 0, mojo.internal.bindings.network.mojom.NetLogEventPhaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_log_source', 8, 0, mojo.internal.bindings.network.mojom.NetLogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

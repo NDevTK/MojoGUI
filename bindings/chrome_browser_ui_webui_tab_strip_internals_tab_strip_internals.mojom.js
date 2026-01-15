@@ -202,6 +202,407 @@ mojo.internal.bindings.tab_strip_internals.mojom.Layout = {
   kHorizontal: 1,
 };
 
+// Interface: PageHandlerFactory
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
+  static get $interfaceName() {
+    return 'tab_strip_internals.mojom.PageHandlerFactory';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  createPageHandler(arg_page, arg_handler) {
+    return this.$.createPageHandler(arg_page, arg_handler);
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandlerFactory', [
+      { explicit: null },
+    ]);
+  }
+
+  createPageHandler(arg_page, arg_handler) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
+      null,
+      [arg_page, arg_handler],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
+  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'tab_strip_internals.mojom.PageHandlerFactory',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandlerFactory', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver;
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPtr = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRequest = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Interface: PageHandler
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote = class {
+  static get $interfaceName() {
+    return 'tab_strip_internals.mojom.PageHandler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  getTabStripData() {
+    return this.$.getTabStripData();
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandler', [
+      { explicit: null },
+    ]);
+  }
+
+  getTabStripData() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
+      mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandler.getRemote = function() {
+  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'tab_strip_internals.mojom.PageHandler',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandler', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getTabStripData');
+          const result = this.impl.getTabStripData();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getTabStripData FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver;
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPtr = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote;
+mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRequest = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Interface: Page
+mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageRemote = class {
+  static get $interfaceName() {
+    return 'tab_strip_internals.mojom.Page';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onTabStripUpdated(arg_data) {
+    return this.$.onTabStripUpdated(arg_data);
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.Page', [
+      { explicit: null },
+    ]);
+  }
+
+  onTabStripUpdated(arg_data) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
+      null,
+      [arg_data],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.Page.getRemote = function() {
+  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'tab_strip_internals.mojom.Page',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.Page', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onTabStripUpdated');
+          const result = this.impl.onTabStripUpdated(params.arg_arg_data);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver;
+
+mojo.internal.bindings.tab_strip_internals.mojom.PagePtr = mojo.internal.bindings.tab_strip_internals.mojom.PageRemote;
+mojo.internal.bindings.tab_strip_internals.mojom.PageRequest = mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Data
 mojo.internal.Union(
     mojo.internal.bindings.tab_strip_internals.mojom.DataSpec, 'tab_strip_internals.mojom.Data', {
@@ -433,8 +834,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_tabs', 24, 0, mojo.internal.Array(mojo.internal.bindings.tab_strip_internals.mojom.TabRestoreTabSpec, false), null, false, 0, undefined),
     ],
     [[0, 40]]);
-
-// Interface: PageHandlerFactory
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
       mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tab_strip_internals.mojom.PageRemote), null, false, 0, undefined),
@@ -442,136 +841,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote = class {
-  static get $interfaceName() {
-    return 'tab_strip_internals.mojom.PageHandlerFactory';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  createPageHandler(arg_page, arg_handler) {
-    return this.$.createPageHandler(arg_page, arg_handler);
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandlerFactory', [
-      { explicit: null },
-    ]);
-  }
-
-  createPageHandler(arg_page, arg_handler) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec,
-      null,
-      [arg_page, arg_handler],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory.getRemote = function() {
-  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'tab_strip_internals.mojom.PageHandlerFactory',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandlerFactory', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryReceiver;
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPtr = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRemote;
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryRequest = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerFactoryPendingReceiver;
-
-
-// Interface: PageHandler
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec, 'tab_strip_internals.mojom.PageHandler_GetTabStripData_Params', [
     ],
@@ -583,273 +852,9 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote = class {
-  static get $interfaceName() {
-    return 'tab_strip_internals.mojom.PageHandler';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  getTabStripData() {
-    return this.$.getTabStripData();
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandler', [
-      { explicit: null },
-    ]);
-  }
-
-  getTabStripData() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec,
-      mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandler.getRemote = function() {
-  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'tab_strip_internals.mojom.PageHandler',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.PageHandler', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getTabStripData');
-          const result = this.impl.getTabStripData();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tab_strip_internals.mojom.PageHandler_GetTabStripData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTabStripData FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerReceiver;
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPtr = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRemote;
-mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerRequest = mojo.internal.bindings.tab_strip_internals.mojom.PageHandlerPendingReceiver;
-
-
-// Interface: Page
 mojo.internal.Struct(
     mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec, 'tab_strip_internals.mojom.Page_OnTabStripUpdated_Params', [
       mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.tab_strip_internals.mojom.ContainerSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageRemote = class {
-  static get $interfaceName() {
-    return 'tab_strip_internals.mojom.Page';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onTabStripUpdated(arg_data) {
-    return this.$.onTabStripUpdated(arg_data);
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.Page', [
-      { explicit: null },
-    ]);
-  }
-
-  onTabStripUpdated(arg_data) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec,
-      null,
-      [arg_data],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.Page.getRemote = function() {
-  let remote = new mojo.internal.bindings.tab_strip_internals.mojom.PageRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'tab_strip_internals.mojom.Page',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('tab_strip_internals.mojom.Page', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.tab_strip_internals.mojom.Page_OnTabStripUpdated_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onTabStripUpdated');
-          const result = this.impl.onTabStripUpdated(params.arg_data);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver = mojo.internal.bindings.tab_strip_internals.mojom.PageReceiver;
-
-mojo.internal.bindings.tab_strip_internals.mojom.PagePtr = mojo.internal.bindings.tab_strip_internals.mojom.PageRemote;
-mojo.internal.bindings.tab_strip_internals.mojom.PageRequest = mojo.internal.bindings.tab_strip_internals.mojom.PagePendingReceiver;
 

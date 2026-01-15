@@ -137,33 +137,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: SmartTabGroupingResponseResult
-mojo.internal.Union(
-    mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec, 'ai.mojom.SmartTabGroupingResponseResult', {
-      'arg_error': {
-        'ordinal': 0,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-      'arg_response': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
-        'nullable': false,
-      },
-    });
-
 // Interface: SmartTabGroupingService
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ai.mojom.SmartTabGroupingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,8 +254,11 @@ mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExecuteSmartTabGroupingRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] executeSmartTabGroupingRequest FAILED:', e));
           }
           break;
         }
@@ -297,4 +274,32 @@ mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceReceiver = mojo.internal.
 
 mojo.internal.bindings.ai.mojom.SmartTabGroupingServicePtr = mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceRemote;
 mojo.internal.bindings.ai.mojom.SmartTabGroupingServiceRequest = mojo.internal.bindings.ai.mojom.SmartTabGroupingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SmartTabGroupingResponseResult
+mojo.internal.Union(
+    mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec, 'ai.mojom.SmartTabGroupingResponseResult', {
+      'arg_error': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+      'arg_response': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
+        'nullable': false,
+      },
+    });
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParamsSpec, 'ai.mojom.SmartTabGroupingService_ExecuteSmartTabGroupingRequest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.SmartTabGroupingResponseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

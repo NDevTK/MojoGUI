@@ -123,6 +123,8 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
 mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SharedImageCapabilities
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, 'gpu.mojom.SharedImageCapabilities', [

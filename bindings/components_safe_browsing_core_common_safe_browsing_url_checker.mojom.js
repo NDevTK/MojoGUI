@@ -134,20 +134,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SafeBrowsingUrlChecker
-mojo.internal.Struct(
-    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParams', [
-      mojo.internal.StructField('arg_proceed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_showed_interstitial', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,12 +246,14 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkUrl');
-          const result = this.impl.checkUrl(params.arg_url, params.arg_method);
+          const result = this.impl.checkUrl(params.arg_arg_url, params.arg_arg_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec.$.structSpec, ['response.arg_arg_proceed', 'response.arg_arg_showed_interstitial']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkUrl FAILED:', e));
           }
           break;
         }
@@ -281,4 +269,20 @@ mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerReceiver = mojo
 
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerPtr = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRemote;
 mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerRequest = mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlCheckerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParamsSpec, 'safe_browsing.mojom.SafeBrowsingUrlChecker_CheckUrl_ResponseParams', [
+      mojo.internal.StructField('arg_proceed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_showed_interstitial', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

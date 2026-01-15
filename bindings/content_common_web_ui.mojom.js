@@ -137,13 +137,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ListValueSpec = mojo.internal.bindings.mojo_base.mojom.ListValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebUIHost
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec, 'content.mojom.WebUIHost_Send_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.WebUIHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,7 +249,7 @@ mojo.internal.bindings.content.mojom.WebUIHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_message, params.arg_args);
+          const result = this.impl.send(params.arg_arg_message, params.arg_arg_args);
           break;
         }
       }
@@ -274,13 +267,6 @@ mojo.internal.bindings.content.mojom.WebUIHostRequest = mojo.internal.bindings.c
 
 
 // Interface: WebUI
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec, 'content.mojom.WebUI_SetProperty_Params', [
-      mojo.internal.StructField('arg_property_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_property_value_json', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.WebUIPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -393,7 +379,7 @@ mojo.internal.bindings.content.mojom.WebUIReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProperty');
-          const result = this.impl.setProperty(params.arg_property_name, params.arg_property_value_json);
+          const result = this.impl.setProperty(params.arg_arg_property_name, params.arg_arg_property_value_json);
           break;
         }
       }
@@ -408,4 +394,20 @@ mojo.internal.bindings.content.mojom.WebUIReceiver = mojo.internal.bindings.cont
 
 mojo.internal.bindings.content.mojom.WebUIPtr = mojo.internal.bindings.content.mojom.WebUIRemote;
 mojo.internal.bindings.content.mojom.WebUIRequest = mojo.internal.bindings.content.mojom.WebUIPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.WebUIHost_Send_ParamsSpec, 'content.mojom.WebUIHost_Send_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.WebUI_SetProperty_ParamsSpec, 'content.mojom.WebUI_SetProperty_Params', [
+      mojo.internal.StructField('arg_property_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_property_value_json', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

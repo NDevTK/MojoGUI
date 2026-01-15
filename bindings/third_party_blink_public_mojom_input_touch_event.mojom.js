@@ -134,6 +134,8 @@ mojo.internal.bindings.blink.mojom.TouchState = {
   kStateCancelled: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TouchEventConsumers
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TouchEventConsumersSpec, 'blink.mojom.TouchEventConsumers', [

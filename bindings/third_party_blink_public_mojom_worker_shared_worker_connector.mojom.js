@@ -146,16 +146,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec = mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SharedWorkerConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec, 'blink.mojom.SharedWorkerConnector_Connect_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedWorkerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_context_type', 16, 0, mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_port', 24, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blob_url_token', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.blink.mojom.SharedWorkerConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -268,7 +258,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_info, params.arg_client, params.arg_creation_context_type, params.arg_message_port, params.arg_blob_url_token);
+          const result = this.impl.connect(params.arg_arg_info, params.arg_arg_client, params.arg_arg_creation_context_type, params.arg_arg_message_port, params.arg_arg_blob_url_token);
           break;
         }
       }
@@ -283,4 +273,16 @@ mojo.internal.bindings.blink.mojom.SharedWorkerConnectorReceiver = mojo.internal
 
 mojo.internal.bindings.blink.mojom.SharedWorkerConnectorPtr = mojo.internal.bindings.blink.mojom.SharedWorkerConnectorRemote;
 mojo.internal.bindings.blink.mojom.SharedWorkerConnectorRequest = mojo.internal.bindings.blink.mojom.SharedWorkerConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SharedWorkerConnector_Connect_ParamsSpec, 'blink.mojom.SharedWorkerConnector_Connect_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.blink.mojom.SharedWorkerInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SharedWorkerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_context_type', 16, 0, mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_port', 24, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob_url_token', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BlobURLTokenRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
 

@@ -137,13 +137,6 @@ mojo.internal.bindings.batch_upload_promo.mojom.Page.$interfaceName = 'batch_upl
 mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec, 'batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.batch_upload_promo.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,7 +249,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBatchUploadPromoHandler');
-          const result = this.impl.createBatchUploadPromoHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createBatchUploadPromoHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -274,22 +267,6 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactoryRequest = mojo
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParams', [
-      mojo.internal.StructField('arg_local_data_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,8 +397,11 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBatchUploadPromoLocalDataCount FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_local_data_count' in response) ? response.arg_arg_local_data_count : response;
+              encoder.encodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBatchUploadPromoLocalDataCount FAILED:', e));
           }
           break;
         }
@@ -447,12 +427,6 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRequest = mojo.intern
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec, 'batch_upload_promo.mojom.Page_OnLocalDataCountChanged_Params', [
-      mojo.internal.StructField('arg_local_data_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.batch_upload_promo.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -565,7 +539,7 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocalDataCountChanged');
-          const result = this.impl.onLocalDataCountChanged(params.arg_local_data_count);
+          const result = this.impl.onLocalDataCountChanged(params.arg_arg_local_data_count);
           break;
         }
       }
@@ -580,4 +554,35 @@ mojo.internal.bindings.batch_upload_promo.mojom.PageReceiver = mojo.internal.bin
 
 mojo.internal.bindings.batch_upload_promo.mojom.PagePtr = mojo.internal.bindings.batch_upload_promo.mojom.PageRemote;
 mojo.internal.bindings.batch_upload_promo.mojom.PageRequest = mojo.internal.bindings.batch_upload_promo.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_ParamsSpec, 'batch_upload_promo.mojom.PageHandlerFactory_CreateBatchUploadPromoHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.batch_upload_promo.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.batch_upload_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParamsSpec, 'batch_upload_promo.mojom.PageHandler_GetBatchUploadPromoLocalDataCount_ResponseParams', [
+      mojo.internal.StructField('arg_local_data_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_ParamsSpec, 'batch_upload_promo.mojom.PageHandler_OnBatchUploadPromoClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.batch_upload_promo.mojom.Page_OnLocalDataCountChanged_ParamsSpec, 'batch_upload_promo.mojom.Page_OnLocalDataCountChanged_Params', [
+      mojo.internal.StructField('arg_local_data_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

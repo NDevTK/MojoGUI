@@ -193,6 +193,180 @@ mojo.internal.bindings.page_load_metrics.mojom.CacheType = {
   kMemory: 2,
 };
 
+// Interface: PageLoadMetrics
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote = class {
+  static get $interfaceName() {
+    return 'page_load_metrics.mojom.PageLoadMetrics';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics) {
+    return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics);
+  }
+  setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
+    return this.$.setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory);
+  }
+  addCustomUserTiming(arg_custom_user_timing) {
+    return this.$.addCustomUserTiming(arg_custom_user_timing);
+  }
+};
+
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('page_load_metrics.mojom.PageLoadMetrics', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
+      null,
+      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics],
+      false);
+  }
+
+  setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
+      null,
+      [arg_dropped_frames_memory],
+      false);
+  }
+
+  addCustomUserTiming(arg_custom_user_timing) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
+      null,
+      [arg_custom_user_timing],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
+  let remote = new mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'page_load_metrics.mojom.PageLoadMetrics',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('page_load_metrics.mojom.PageLoadMetrics', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateTiming');
+          const result = this.impl.updateTiming(params.arg_arg_page_load_timing, params.arg_arg_frame_metadata, params.arg_arg_new_features, params.arg_arg_resources, params.arg_arg_render_data, params.arg_arg_cpu_load_timing, params.arg_arg_input_timing_delta, params.arg_arg_subresource_load_metrics, params.arg_arg_soft_navigation_metrics);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
+          const result = this.impl.setUpSharedMemoryForDroppedFrames(params.arg_arg_dropped_frames_memory);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
+          const result = this.impl.addCustomUserTiming(params.arg_arg_custom_user_timing);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver;
+
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPtr = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote;
+mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRequest = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DocumentTiming
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.DocumentTimingSpec, 'page_load_metrics.mojom.DocumentTiming', [
@@ -448,8 +622,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_largest_contentful_paint', 32, 0, mojo.internal.bindings.page_load_metrics.mojom.LargestContentfulPaintTimingSpec, null, false, 0, undefined),
     ],
     [[0, 48]]);
-
-// Interface: PageLoadMetrics
 mojo.internal.Struct(
     mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec, 'page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_Params', [
       mojo.internal.StructField('arg_page_load_timing', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.PageLoadTimingSpec, null, false, 0, undefined),
@@ -475,174 +647,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_custom_user_timing', 0, 0, mojo.internal.bindings.page_load_metrics.mojom.CustomUserTimingMarkSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote = class {
-  static get $interfaceName() {
-    return 'page_load_metrics.mojom.PageLoadMetrics';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics) {
-    return this.$.updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics);
-  }
-  setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
-    return this.$.setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory);
-  }
-  addCustomUserTiming(arg_custom_user_timing) {
-    return this.$.addCustomUserTiming(arg_custom_user_timing);
-  }
-};
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('page_load_metrics.mojom.PageLoadMetrics', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  updateTiming(arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec,
-      null,
-      [arg_page_load_timing, arg_frame_metadata, arg_new_features, arg_resources, arg_render_data, arg_cpu_load_timing, arg_input_timing_delta, arg_subresource_load_metrics, arg_soft_navigation_metrics],
-      false);
-  }
-
-  setUpSharedMemoryForDroppedFrames(arg_dropped_frames_memory) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec,
-      null,
-      [arg_dropped_frames_memory],
-      false);
-  }
-
-  addCustomUserTiming(arg_custom_user_timing) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec,
-      null,
-      [arg_custom_user_timing],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics.getRemote = function() {
-  let remote = new mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'page_load_metrics.mojom.PageLoadMetrics',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('page_load_metrics.mojom.PageLoadMetrics', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_UpdateTiming_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateTiming');
-          const result = this.impl.updateTiming(params.arg_page_load_timing, params.arg_frame_metadata, params.arg_new_features, params.arg_resources, params.arg_render_data, params.arg_cpu_load_timing, params.arg_input_timing_delta, params.arg_subresource_load_metrics, params.arg_soft_navigation_metrics);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_SetUpSharedMemoryForDroppedFrames_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setUpSharedMemoryForDroppedFrames');
-          const result = this.impl.setUpSharedMemoryForDroppedFrames(params.arg_dropped_frames_memory);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetrics_AddCustomUserTiming_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.addCustomUserTiming');
-          const result = this.impl.addCustomUserTiming(params.arg_custom_user_timing);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsReceiver;
-
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPtr = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRemote;
-mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsRequest = mojo.internal.bindings.page_load_metrics.mojom.PageLoadMetricsPendingReceiver;
 

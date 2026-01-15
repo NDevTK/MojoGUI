@@ -133,3 +133,5 @@ mojo.internal.bindings.viz.mojom.ContextLostReason = {
   GPU_CHANNEL_LOST: 5,
   INVALID_GPU_MESSAGE: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

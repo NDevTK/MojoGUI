@@ -521,6 +521,8 @@ mojo.internal.bindings.media.mojom.AutoPipReason = {
   kBrowserInitiated: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: DecoderBufferSideDataNextConfig
 mojo.internal.Union(
     mojo.internal.bindings.media.mojom.DecoderBufferSideDataNextConfigSpec, 'media.mojom.DecoderBufferSideDataNextConfig', {

@@ -197,6 +197,8 @@ mojo.internal.bindings.sharing.mojom.Status = {
   kUnable: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Frame
 mojo.internal.Union(
     mojo.internal.bindings.sharing.mojom.FrameSpec, 'sharing.mojom.Frame', {

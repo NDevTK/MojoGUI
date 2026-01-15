@@ -123,6 +123,8 @@ mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 
 mojo.internal.bindings.lens.mojom.LanguageSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Language
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LanguageSpec, 'lens.mojom.Language', [

@@ -127,12 +127,6 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHost.$interfaceName 
 mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec = { $: {} };
 
 // Interface: DomAutomationControllerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec, 'content.mojom.DomAutomationControllerHost_DomOperationResponse_Params', [
-      mojo.internal.StructField('arg_json_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.DomAutomationControllerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.domOperationResponse');
-          const result = this.impl.domOperationResponse(params.arg_json_string);
+          const result = this.impl.domOperationResponse(params.arg_arg_json_string);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.content.mojom.DomAutomationControllerHostReceiver = mojo.
 
 mojo.internal.bindings.content.mojom.DomAutomationControllerHostPtr = mojo.internal.bindings.content.mojom.DomAutomationControllerHostRemote;
 mojo.internal.bindings.content.mojom.DomAutomationControllerHostRequest = mojo.internal.bindings.content.mojom.DomAutomationControllerHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.DomAutomationControllerHost_DomOperationResponse_ParamsSpec, 'content.mojom.DomAutomationControllerHost_DomOperationResponse_Params', [
+      mojo.internal.StructField('arg_json_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -230,173 +230,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: URLRequestDevToolsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec, 'network.mojom.URLRequestDevToolsInfo', [
-      mojo.internal.StructField('arg_method', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 16, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer_policy', 20, 0, mojo.internal.bindings.network.mojom.URLRequestReferrerPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_token_params', 24, 0, mojo.internal.bindings.network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_user_gesture', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_related', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_type', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: URLResponseHeadDevToolsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec, 'network.mojom.URLResponseHeadDevToolsInfo', [
-      mojo.internal.StructField('arg_response_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_charset', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_timing', 32, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cert_status', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_was_in_prefetch_cache', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_was_fetched_via_service_worker', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_was_fetched_via_spdy', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_emitted_extra_info', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_encoded_data_length', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_storage_cache_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alpn_negotiated_protocol', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alternate_protocol_usage', 72, 0, mojo.internal.bindings.network.mojom.AlternateProtocolUsageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_response_source', 76, 0, mojo.internal.bindings.network.mojom.FetchResponseSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_router_info', 80, 0, mojo.internal.bindings.network.mojom.ServiceWorkerRouterInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_ssl_info', 88, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_remote_endpoint', 96, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-    ],
-    [[0, 112]]);
-
-// Struct: OtherPartitionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec, 'network.mojom.OtherPartitionInfo', [
-      mojo.internal.StructField('arg_site_has_cookie_in_other_partition', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: DevToolsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnRawRequest_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookies_with_access_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieWithAccessResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_security_state', 32, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_other_partition_info', 40, 0, mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_applied_network_conditions_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 64]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnRawResponse_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookies_with_access_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieAndLineWithAccessResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_raw_response_headers', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_resource_address_space', 32, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_http_status_code', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_partition_key', 40, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnEarlyHintsResponse_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnPrivateNetworkRequest_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_warning', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_address_space', 20, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_security_state', 24, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequest_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_info', 16, 0, mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_initiator_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_initiator_devtool_request_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightResponse_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec, 'network.mojom.DevToolsObserver_OnTrustTokenOperationDone_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsError_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_initiator_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_security_state', 16, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 32, 0, mojo.internal.bindings.network.mojom.CorsErrorStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_warning', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec, 'network.mojom.DevToolsObserver_OnOrbError_Params', [
-      mojo.internal.StructField('arg_devtools_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec, 'network.mojom.DevToolsObserver_OnSharedDictionaryError_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.network.mojom.SharedDictionaryErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec, 'network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_issues', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SRIMessageSignatureIssueSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec, 'network.mojom.DevToolsObserver_OnUnencodedDigestError_Params', [
-      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_issue', 16, 0, mojo.internal.bindings.network.mojom.UnencodedDigestIssueSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec, 'network.mojom.DevToolsObserver_Clone_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DevToolsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.DevToolsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -691,98 +525,98 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRawRequest');
-          const result = this.impl.onRawRequest(params.arg_devtool_request_id, params.arg_cookies_with_access_result, params.arg_headers, params.arg_timestamp, params.arg_client_security_state, params.arg_other_partition_info, params.arg_applied_network_conditions_id);
+          const result = this.impl.onRawRequest(params.arg_arg_devtool_request_id, params.arg_arg_cookies_with_access_result, params.arg_arg_headers, params.arg_arg_timestamp, params.arg_arg_client_security_state, params.arg_arg_other_partition_info, params.arg_arg_applied_network_conditions_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRawResponse');
-          const result = this.impl.onRawResponse(params.arg_devtool_request_id, params.arg_cookies_with_access_result, params.arg_headers, params.arg_raw_response_headers, params.arg_resource_address_space, params.arg_http_status_code, params.arg_cookie_partition_key);
+          const result = this.impl.onRawResponse(params.arg_arg_devtool_request_id, params.arg_arg_cookies_with_access_result, params.arg_arg_headers, params.arg_arg_raw_response_headers, params.arg_arg_resource_address_space, params.arg_arg_http_status_code, params.arg_arg_cookie_partition_key);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEarlyHintsResponse');
-          const result = this.impl.onEarlyHintsResponse(params.arg_devtool_request_id, params.arg_headers);
+          const result = this.impl.onEarlyHintsResponse(params.arg_arg_devtool_request_id, params.arg_arg_headers);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrivateNetworkRequest');
-          const result = this.impl.onPrivateNetworkRequest(params.arg_devtool_request_id, params.arg_url, params.arg_is_warning, params.arg_resource_address_space, params.arg_client_security_state);
+          const result = this.impl.onPrivateNetworkRequest(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_is_warning, params.arg_arg_resource_address_space, params.arg_arg_client_security_state);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequest');
-          const result = this.impl.onCorsPreflightRequest(params.arg_devtool_request_id, params.arg_request_headers, params.arg_request_info, params.arg_initiator_url, params.arg_initiator_devtool_request_id);
+          const result = this.impl.onCorsPreflightRequest(params.arg_arg_devtool_request_id, params.arg_arg_request_headers, params.arg_arg_request_info, params.arg_arg_initiator_url, params.arg_arg_initiator_devtool_request_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightResponse');
-          const result = this.impl.onCorsPreflightResponse(params.arg_devtool_request_id, params.arg_url, params.arg_head);
+          const result = this.impl.onCorsPreflightResponse(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_head);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsPreflightRequestCompleted');
-          const result = this.impl.onCorsPreflightRequestCompleted(params.arg_devtool_request_id, params.arg_status);
+          const result = this.impl.onCorsPreflightRequestCompleted(params.arg_arg_devtool_request_id, params.arg_arg_status);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrustTokenOperationDone');
-          const result = this.impl.onTrustTokenOperationDone(params.arg_devtool_request_id, params.arg_result);
+          const result = this.impl.onTrustTokenOperationDone(params.arg_arg_devtool_request_id, params.arg_arg_result);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCorsError');
-          const result = this.impl.onCorsError(params.arg_devtool_request_id, params.arg_initiator_origin, params.arg_client_security_state, params.arg_url, params.arg_status, params.arg_is_warning);
+          const result = this.impl.onCorsError(params.arg_arg_devtool_request_id, params.arg_arg_initiator_origin, params.arg_arg_client_security_state, params.arg_arg_url, params.arg_arg_status, params.arg_arg_is_warning);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOrbError');
-          const result = this.impl.onOrbError(params.arg_devtools_request_id, params.arg_url);
+          const result = this.impl.onOrbError(params.arg_arg_devtools_request_id, params.arg_arg_url);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedDictionaryError');
-          const result = this.impl.onSharedDictionaryError(params.arg_devtool_request_id, params.arg_url, params.arg_error);
+          const result = this.impl.onSharedDictionaryError(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_error);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSRIMessageSignatureIssue');
-          const result = this.impl.onSRIMessageSignatureIssue(params.arg_devtool_request_id, params.arg_url, params.arg_issues);
+          const result = this.impl.onSRIMessageSignatureIssue(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_issues);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUnencodedDigestError');
-          const result = this.impl.onUnencodedDigestError(params.arg_devtool_request_id, params.arg_url, params.arg_issue);
+          const result = this.impl.onUnencodedDigestError(params.arg_arg_devtool_request_id, params.arg_arg_url, params.arg_arg_issue);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_listener);
+          const result = this.impl.clone(params.arg_arg_listener);
           break;
         }
       }
@@ -797,4 +631,172 @@ mojo.internal.bindings.network.mojom.DevToolsObserverReceiver = mojo.internal.bi
 
 mojo.internal.bindings.network.mojom.DevToolsObserverPtr = mojo.internal.bindings.network.mojom.DevToolsObserverRemote;
 mojo.internal.bindings.network.mojom.DevToolsObserverRequest = mojo.internal.bindings.network.mojom.DevToolsObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: URLRequestDevToolsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec, 'network.mojom.URLRequestDevToolsInfo', [
+      mojo.internal.StructField('arg_method', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 16, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 20, 0, mojo.internal.bindings.network.mojom.URLRequestReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_token_params', 24, 0, mojo.internal.bindings.network.mojom.TrustTokenParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_has_user_gesture', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_related', 32, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_type', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: URLResponseHeadDevToolsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec, 'network.mojom.URLResponseHeadDevToolsInfo', [
+      mojo.internal.StructField('arg_response_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpResponseHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_charset', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_timing', 32, 0, mojo.internal.bindings.network.mojom.LoadTimingInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cert_status', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_was_in_prefetch_cache', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_was_fetched_via_service_worker', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_was_fetched_via_spdy', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_emitted_extra_info', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_encoded_data_length', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_storage_cache_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alpn_negotiated_protocol', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alternate_protocol_usage', 72, 0, mojo.internal.bindings.network.mojom.AlternateProtocolUsageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_response_source', 76, 0, mojo.internal.bindings.network.mojom.FetchResponseSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_router_info', 80, 0, mojo.internal.bindings.network.mojom.ServiceWorkerRouterInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_ssl_info', 88, 0, mojo.internal.bindings.network.mojom.SSLInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_remote_endpoint', 96, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 112]]);
+
+// Struct: OtherPartitionInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec, 'network.mojom.OtherPartitionInfo', [
+      mojo.internal.StructField('arg_site_has_cookie_in_other_partition', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnRawRequest_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookies_with_access_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_security_state', 32, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_other_partition_info', 40, 0, mojo.internal.bindings.network.mojom.OtherPartitionInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_applied_network_conditions_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnRawResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnRawResponse_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookies_with_access_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieAndLineWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_response_headers', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_resource_address_space', 32, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_http_status_code', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_partition_key', 40, 0, mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnEarlyHintsResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnEarlyHintsResponse_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnPrivateNetworkRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnPrivateNetworkRequest_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_warning', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_address_space', 20, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_security_state', 24, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequest_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequest_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_info', 16, 0, mojo.internal.bindings.network.mojom.URLRequestDevToolsInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initiator_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initiator_devtool_request_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightResponse_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightResponse_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadDevToolsInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsPreflightRequestCompleted_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnTrustTokenOperationDone_ParamsSpec, 'network.mojom.DevToolsObserver_OnTrustTokenOperationDone_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.network.mojom.TrustTokenOperationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnCorsError_ParamsSpec, 'network.mojom.DevToolsObserver_OnCorsError_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_initiator_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_security_state', 16, 0, mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 32, 0, mojo.internal.bindings.network.mojom.CorsErrorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_warning', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnOrbError_ParamsSpec, 'network.mojom.DevToolsObserver_OnOrbError_Params', [
+      mojo.internal.StructField('arg_devtools_request_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnSharedDictionaryError_ParamsSpec, 'network.mojom.DevToolsObserver_OnSharedDictionaryError_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.network.mojom.SharedDictionaryErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_ParamsSpec, 'network.mojom.DevToolsObserver_OnSRIMessageSignatureIssue_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issues', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.SRIMessageSignatureIssueSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_OnUnencodedDigestError_ParamsSpec, 'network.mojom.DevToolsObserver_OnUnencodedDigestError_Params', [
+      mojo.internal.StructField('arg_devtool_request_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issue', 16, 0, mojo.internal.bindings.network.mojom.UnencodedDigestIssueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DevToolsObserver_Clone_ParamsSpec, 'network.mojom.DevToolsObserver_Clone_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DevToolsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

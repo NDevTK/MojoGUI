@@ -156,6 +156,8 @@ mojo.internal.bindings.crosapi.mojom.ClipboardHistoryDisplayFormat = {
   kFile: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ClipboardHistoryItemDescriptor
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.ClipboardHistoryItemDescriptorSpec, 'crosapi.mojom.ClipboardHistoryItemDescriptor', [

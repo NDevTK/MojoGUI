@@ -168,63 +168,6 @@ mojo.internal.bindings.video_capture.mojom.GetSourceInfosResult = {
 };
 
 // Interface: VideoSourceProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetVideoSource_Params', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_producer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.ProducerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_virtual_device_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_virtual_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_raise_event_if_virtual_devices_already_present', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_Close_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_Close_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -425,8 +368,10 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSourceInfos FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_source_infos']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSourceInfos FAILED:', e));
           }
           break;
         }
@@ -434,35 +379,35 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVideoSource');
-          const result = this.impl.getVideoSource(params.arg_source_id, params.arg_stream);
+          const result = this.impl.getVideoSource(params.arg_arg_source_id, params.arg_arg_stream);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSharedMemoryVirtualDevice');
-          const result = this.impl.addSharedMemoryVirtualDevice(params.arg_device_info, params.arg_producer, params.arg_virtual_device_receiver);
+          const result = this.impl.addSharedMemoryVirtualDevice(params.arg_arg_device_info, params.arg_arg_producer, params.arg_arg_virtual_device_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTextureVirtualDevice');
-          const result = this.impl.addTextureVirtualDevice(params.arg_device_info, params.arg_virtual_device_receiver);
+          const result = this.impl.addTextureVirtualDevice(params.arg_arg_device_info, params.arg_arg_virtual_device_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerVirtualDevicesChangedObserver');
-          const result = this.impl.registerVirtualDevicesChangedObserver(params.arg_observer, params.arg_raise_event_if_virtual_devices_already_present);
+          const result = this.impl.registerVirtualDevicesChangedObserver(params.arg_arg_observer, params.arg_arg_raise_event_if_virtual_devices_already_present);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDevicesChangedObserver');
-          const result = this.impl.registerDevicesChangedObserver(params.arg_observer);
+          const result = this.impl.registerDevicesChangedObserver(params.arg_arg_observer);
           break;
         }
         case 6: {
@@ -473,8 +418,10 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -490,4 +437,63 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderReceiver = mojo.in
 
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPtr = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote;
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRequest = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetSourceInfos_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.video_capture.mojom.GetSourceInfosResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_GetVideoSource_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_GetVideoSource_Params', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_AddSharedMemoryVirtualDevice_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_producer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.ProducerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_virtual_device_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.SharedMemoryVirtualDeviceRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_AddTextureVirtualDevice_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.media.mojom.VideoCaptureDeviceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_virtual_device_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.TextureVirtualDeviceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_RegisterVirtualDevicesChangedObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_raise_event_if_virtual_devices_already_present', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_RegisterDevicesChangedObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ParamsSpec, 'video_capture.mojom.VideoSourceProvider_Close_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoSourceProvider_Close_ResponseParamsSpec, 'video_capture.mojom.VideoSourceProvider_Close_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -149,27 +149,6 @@ mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderSpec = mojo.int
 mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote = mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote || class {};
 
 // Interface: Gpu
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_ResponseParams', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_handle', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_capabilities', 32, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params', [
-      mojo.internal.StructField('arg_vea_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.GpuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -300,8 +279,10 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EstablishGpuChannel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec.$.structSpec, ['response.arg_arg_client_id', 'response.arg_arg_channel_handle', 'response.arg_arg_gpu_info', 'response.arg_arg_gpu_feature_info', 'response.arg_arg_shared_image_capabilities']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] establishGpuChannel FAILED:', e));
           }
           break;
         }
@@ -309,7 +290,7 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoEncodeAcceleratorProvider');
-          const result = this.impl.createVideoEncodeAcceleratorProvider(params.arg_vea_provider);
+          const result = this.impl.createVideoEncodeAcceleratorProvider(params.arg_arg_vea_provider);
           break;
         }
       }
@@ -324,4 +305,27 @@ mojo.internal.bindings.viz.mojom.GpuReceiver = mojo.internal.bindings.viz.mojom.
 
 mojo.internal.bindings.viz.mojom.GpuPtr = mojo.internal.bindings.viz.mojom.GpuRemote;
 mojo.internal.bindings.viz.mojom.GpuRequest = mojo.internal.bindings.viz.mojom.GpuPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.Gpu_EstablishGpuChannel_ResponseParamsSpec, 'viz.mojom.Gpu_EstablishGpuChannel_ResponseParams', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_handle', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_capabilities', 32, 0, mojo.internal.bindings.gpu.mojom.SharedImageCapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_ParamsSpec, 'viz.mojom.Gpu_CreateVideoEncodeAcceleratorProvider_Params', [
+      mojo.internal.StructField('arg_vea_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoEncodeAcceleratorProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -149,28 +149,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionScheme = {
   kBrotli: 2,
 };
 
-// Struct: TrustedSignalsCacheKey
-mojo.internal.Struct(
-    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec, 'auction_worklet.mojom.TrustedSignalsCacheKey', [
-      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_partition_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: TrustedSignalsCacheClient
-mojo.internal.Struct(
-    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params', [
-      mojo.internal.StructField('arg_compression_scheme', 0, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compression_group_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnError_Params', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -297,14 +276,14 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSuccess');
-          const result = this.impl.onSuccess(params.arg_compression_scheme, params.arg_compression_group_data);
+          const result = this.impl.onSuccess(params.arg_arg_compression_scheme, params.arg_arg_compression_group_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_error_message);
+          const result = this.impl.onError(params.arg_arg_error_message);
           break;
         }
       }
@@ -322,13 +301,6 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRequest = 
 
 
 // Interface: TrustedSignalsCache
-mojo.internal.Struct(
-    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
-      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCachePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,7 +413,7 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTrustedSignals');
-          const result = this.impl.getTrustedSignals(params.arg_compression_group_token, params.arg_client);
+          const result = this.impl.getTrustedSignals(params.arg_arg_compression_group_token, params.arg_arg_client);
           break;
         }
       }
@@ -456,4 +428,34 @@ mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheReceiver = mojo.
 
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCachePtr = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheRemote;
 mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheRequest = mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCachePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TrustedSignalsCacheKey
+mojo.internal.Struct(
+    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheKeySpec, 'auction_worklet.mojom.TrustedSignalsCacheKey', [
+      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_partition_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnSuccess_Params', [
+      mojo.internal.StructField('arg_compression_scheme', 0, 0, mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCompressionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compression_group_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClient_OnError_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCacheClient_OnError_Params', [
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_ParamsSpec, 'auction_worklet.mojom.TrustedSignalsCache_GetTrustedSignals_Params', [
+      mojo.internal.StructField('arg_compression_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.auction_worklet.mojom.TrustedSignalsCacheClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

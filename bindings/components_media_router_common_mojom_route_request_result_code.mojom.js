@@ -141,3 +141,5 @@ mojo.internal.bindings.media_router.mojom.RouteRequestResultCode = {
   USER_NOT_ALLOWED: 13,
   NOTIFICATION_DISABLED: 14,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

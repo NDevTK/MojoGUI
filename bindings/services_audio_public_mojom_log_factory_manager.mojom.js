@@ -135,12 +135,6 @@ mojo.internal.bindings.media.mojom.AudioLogFactorySpec = mojo.internal.bindings.
 mojo.internal.bindings.media.mojom.AudioLogFactoryRemote = mojo.internal.bindings.media.mojom.AudioLogFactoryRemote || class {};
 
 // Interface: LogFactoryManager
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec, 'audio.mojom.LogFactoryManager_SetLogFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.audio.mojom.LogFactoryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,7 +247,7 @@ mojo.internal.bindings.audio.mojom.LogFactoryManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLogFactory');
-          const result = this.impl.setLogFactory(params.arg_factory);
+          const result = this.impl.setLogFactory(params.arg_arg_factory);
           break;
         }
       }
@@ -268,4 +262,12 @@ mojo.internal.bindings.audio.mojom.LogFactoryManagerReceiver = mojo.internal.bin
 
 mojo.internal.bindings.audio.mojom.LogFactoryManagerPtr = mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote;
 mojo.internal.bindings.audio.mojom.LogFactoryManagerRequest = mojo.internal.bindings.audio.mojom.LogFactoryManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.LogFactoryManager_SetLogFactory_ParamsSpec, 'audio.mojom.LogFactoryManager_SetLogFactory_Params', [
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

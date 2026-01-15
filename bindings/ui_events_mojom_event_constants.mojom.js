@@ -234,3 +234,5 @@ mojo.internal.bindings.ui.mojom.GestureDeviceType = {
   DEVICE_TOUCHPAD: 1,
   DEVICE_TOUCHSCREEN: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -239,13 +239,6 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceRequest = mojo.internal.bi
 
 
 // Interface: AssociatedInterfaceProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec, 'blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -358,7 +351,7 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
-          const result = this.impl.getAssociatedInterface(params.arg_name, params.arg_receiver);
+          const result = this.impl.getAssociatedInterface(params.arg_arg_name, params.arg_arg_receiver);
           break;
         }
       }
@@ -373,4 +366,13 @@ mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderReceiver = mojo.in
 
 mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPtr = mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote;
 mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRequest = mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_ParamsSpec, 'blink.mojom.AssociatedInterfaceProvider_GetAssociatedInterface_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

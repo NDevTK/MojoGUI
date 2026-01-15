@@ -667,6 +667,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.ThermalSensorSource = {
   kSysFs: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: ProcessResult
 mojo.internal.Union(
     mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec, 'ash.cros_healthd.mojom.ProcessResult', {

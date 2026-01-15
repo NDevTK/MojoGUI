@@ -128,35 +128,7 @@ mojo.internal.bindings.blink.mojom.LeakDetector.$interfaceName = 'blink.mojom.Le
 mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec = { $: {} };
 
-// Struct: LeakDetectionResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LeakDetectionResultSpec, 'blink.mojom.LeakDetectionResult', [
-      mojo.internal.StructField('arg_number_of_live_audio_nodes', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_documents', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_nodes', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_layout_objects', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_resources', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_context_lifecycle_state_observers', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_frames', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_v8_per_context_data', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_worker_global_scopes', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_ua_css_resources', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_live_resource_fetchers', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: LeakDetector
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.LeakDetectionResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.LeakDetectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,8 +245,11 @@ mojo.internal.bindings.blink.mojom.LeakDetectorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PerformLeakDetection FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] performLeakDetection FAILED:', e));
           }
           break;
         }
@@ -290,4 +265,34 @@ mojo.internal.bindings.blink.mojom.LeakDetectorReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.blink.mojom.LeakDetectorPtr = mojo.internal.bindings.blink.mojom.LeakDetectorRemote;
 mojo.internal.bindings.blink.mojom.LeakDetectorRequest = mojo.internal.bindings.blink.mojom.LeakDetectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: LeakDetectionResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LeakDetectionResultSpec, 'blink.mojom.LeakDetectionResult', [
+      mojo.internal.StructField('arg_number_of_live_audio_nodes', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_documents', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_nodes', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_layout_objects', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_resources', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_context_lifecycle_state_observers', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_frames', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_v8_per_context_data', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_worker_global_scopes', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_ua_css_resources', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_live_resource_fetchers', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LeakDetector_PerformLeakDetection_ResponseParamsSpec, 'blink.mojom.LeakDetector_PerformLeakDetection_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.LeakDetectionResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

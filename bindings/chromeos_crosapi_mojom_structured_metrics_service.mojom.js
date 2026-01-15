@@ -134,12 +134,6 @@ mojo.internal.bindings.metrics.structured.mojom = mojo.internal.bindings.metrics
 mojo.internal.bindings.metrics.structured.mojom.EventSpec = mojo.internal.bindings.metrics.structured.mojom.EventSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: StructuredMetricsService
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec, 'crosapi.mojom.StructuredMetricsService_Record_Params', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.metrics.structured.mojom.EventSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.StructuredMetricsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +246,7 @@ mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.record');
-          const result = this.impl.record(params.arg_events);
+          const result = this.impl.record(params.arg_arg_events);
           break;
         }
       }
@@ -267,4 +261,12 @@ mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceReceiver = mojo.int
 
 mojo.internal.bindings.crosapi.mojom.StructuredMetricsServicePtr = mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceRemote;
 mojo.internal.bindings.crosapi.mojom.StructuredMetricsServiceRequest = mojo.internal.bindings.crosapi.mojom.StructuredMetricsServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.StructuredMetricsService_Record_ParamsSpec, 'crosapi.mojom.StructuredMetricsService_Record_Params', [
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.metrics.structured.mojom.EventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

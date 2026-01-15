@@ -137,3 +137,5 @@ mojo.internal.bindings.ui.mojom.DragOperation = {
   kLink: 2,
   kMove: 16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

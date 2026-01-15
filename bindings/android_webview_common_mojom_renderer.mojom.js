@@ -128,17 +128,6 @@ mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec = { 
 mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec = { $: {} };
 
 // Interface: Renderer
-mojo.internal.Struct(
-    mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec, 'android_webview.mojom.Renderer_ClearCache_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec, 'android_webview.mojom.Renderer_SetJsOnlineProperty_Params', [
-      mojo.internal.StructField('arg_network_up', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.android_webview.mojom.RendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,7 +261,7 @@ mojo.internal.bindings.android_webview.mojom.RendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setJsOnlineProperty');
-          const result = this.impl.setJsOnlineProperty(params.arg_network_up);
+          const result = this.impl.setJsOnlineProperty(params.arg_arg_network_up);
           break;
         }
       }
@@ -287,4 +276,17 @@ mojo.internal.bindings.android_webview.mojom.RendererReceiver = mojo.internal.bi
 
 mojo.internal.bindings.android_webview.mojom.RendererPtr = mojo.internal.bindings.android_webview.mojom.RendererRemote;
 mojo.internal.bindings.android_webview.mojom.RendererRequest = mojo.internal.bindings.android_webview.mojom.RendererPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.android_webview.mojom.Renderer_ClearCache_ParamsSpec, 'android_webview.mojom.Renderer_ClearCache_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.android_webview.mojom.Renderer_SetJsOnlineProperty_ParamsSpec, 'android_webview.mojom.Renderer_SetJsOnlineProperty_Params', [
+      mojo.internal.StructField('arg_network_up', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

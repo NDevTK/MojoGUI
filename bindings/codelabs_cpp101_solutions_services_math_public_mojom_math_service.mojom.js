@@ -128,19 +128,6 @@ mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec = { $: {} };
 mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec = { $: {} };
 
 // Interface: MathService
-mojo.internal.Struct(
-    mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec, 'math.mojom.MathService_Divide_Params', [
-      mojo.internal.StructField('arg_dividend', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_divisor', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec, 'math.mojom.MathService_Divide_ResponseParams', [
-      mojo.internal.StructField('arg_quotient', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.math.mojom.MathServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,12 +240,15 @@ mojo.internal.bindings.math.mojom.MathServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.divide');
-          const result = this.impl.divide(params.arg_dividend, params.arg_divisor);
+          const result = this.impl.divide(params.arg_arg_dividend, params.arg_arg_divisor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Divide FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_quotient' in response) ? response.arg_arg_quotient : response;
+              encoder.encodeStructInline(mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] divide FAILED:', e));
           }
           break;
         }
@@ -274,4 +264,19 @@ mojo.internal.bindings.math.mojom.MathServiceReceiver = mojo.internal.bindings.m
 
 mojo.internal.bindings.math.mojom.MathServicePtr = mojo.internal.bindings.math.mojom.MathServiceRemote;
 mojo.internal.bindings.math.mojom.MathServiceRequest = mojo.internal.bindings.math.mojom.MathServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.math.mojom.MathService_Divide_ParamsSpec, 'math.mojom.MathService_Divide_Params', [
+      mojo.internal.StructField('arg_dividend', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_divisor', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.math.mojom.MathService_Divide_ResponseParamsSpec, 'math.mojom.MathService_Divide_ResponseParams', [
+      mojo.internal.StructField('arg_quotient', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

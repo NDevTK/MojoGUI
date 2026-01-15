@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.SelectionMenuBehavior = {
   kHide: 0,
   kShow: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

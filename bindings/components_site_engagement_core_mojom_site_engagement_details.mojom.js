@@ -135,35 +135,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: SiteEngagementDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec, 'site_engagement.mojom.SiteEngagementDetails', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_base_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_installed_bonus', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: SiteEngagementDetailsProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -294,8 +266,11 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSiteEngagementDetails FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSiteEngagementDetails FAILED:', e));
           }
           break;
         }
@@ -303,7 +278,7 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSiteEngagementBaseScoreForUrl');
-          const result = this.impl.setSiteEngagementBaseScoreForUrl(params.arg_url, params.arg_score);
+          const result = this.impl.setSiteEngagementBaseScoreForUrl(params.arg_arg_url, params.arg_arg_score);
           break;
         }
       }
@@ -318,4 +293,34 @@ mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderReceiv
 
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderPtr = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRemote;
 mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderRequest = mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SiteEngagementDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec, 'site_engagement.mojom.SiteEngagementDetails', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_base_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_installed_bonus', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_GetSiteEngagementDetails_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_ParamsSpec, 'site_engagement.mojom.SiteEngagementDetailsProvider_SetSiteEngagementBaseScoreForUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

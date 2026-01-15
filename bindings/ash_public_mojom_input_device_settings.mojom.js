@@ -293,6 +293,8 @@ mojo.internal.bindings.ash.mojom.CustomizationRestriction = {
   kAllowFKeyRewrites: 7,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: RemappingAction
 mojo.internal.Union(
     mojo.internal.bindings.ash.mojom.RemappingActionSpec, 'ash.mojom.RemappingAction', {

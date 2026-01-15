@@ -139,14 +139,6 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooser.$interfaceName = 'blink.moj
 mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec = { $: {} };
 
-// Struct: ColorSuggestion
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ColorSuggestionSpec, 'blink.mojom.ColorSuggestion', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ColorChooserFactory
 mojo.internal.bindings.blink.mojom.ColorChooserFactoryPendingReceiver = class {
   constructor(handle) {
@@ -257,12 +249,6 @@ mojo.internal.bindings.blink.mojom.ColorChooserFactoryRequest = mojo.internal.bi
 
 
 // Interface: ColorChooser
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec, 'blink.mojom.ColorChooser_SetSelectedColor_Params', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ColorChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -375,7 +361,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelectedColor');
-          const result = this.impl.setSelectedColor(params.arg_color);
+          const result = this.impl.setSelectedColor(params.arg_arg_color);
           break;
         }
       }
@@ -393,12 +379,6 @@ mojo.internal.bindings.blink.mojom.ColorChooserRequest = mojo.internal.bindings.
 
 
 // Interface: ColorChooserClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec, 'blink.mojom.ColorChooserClient_DidChooseColor_Params', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ColorChooserClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -511,7 +491,7 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChooseColor');
-          const result = this.impl.didChooseColor(params.arg_color);
+          const result = this.impl.didChooseColor(params.arg_arg_color);
           break;
         }
       }
@@ -529,18 +509,6 @@ mojo.internal.bindings.blink.mojom.ColorChooserClientRequest = mojo.internal.bin
 
 
 // Interface: EyeDropperChooser
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.EyeDropperChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -657,8 +625,10 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Choose FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_color']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] choose FAILED:', e));
           }
           break;
         }
@@ -674,4 +644,38 @@ mojo.internal.bindings.blink.mojom.EyeDropperChooserReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.EyeDropperChooserPtr = mojo.internal.bindings.blink.mojom.EyeDropperChooserRemote;
 mojo.internal.bindings.blink.mojom.EyeDropperChooserRequest = mojo.internal.bindings.blink.mojom.EyeDropperChooserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ColorSuggestion
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ColorSuggestionSpec, 'blink.mojom.ColorSuggestion', [
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ColorChooser_SetSelectedColor_ParamsSpec, 'blink.mojom.ColorChooser_SetSelectedColor_Params', [
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ColorChooserClient_DidChooseColor_ParamsSpec, 'blink.mojom.ColorChooserClient_DidChooseColor_Params', [
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EyeDropperChooser_Choose_ResponseParamsSpec, 'blink.mojom.EyeDropperChooser_Choose_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

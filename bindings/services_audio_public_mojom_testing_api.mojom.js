@@ -127,11 +127,6 @@ mojo.internal.bindings.audio.mojom.TestingApi.$interfaceName = 'audio.mojom.Test
 mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec = { $: {} };
 
 // Interface: TestingApi
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec, 'audio.mojom.TestingApi_Crash_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.audio.mojom.TestingApiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.audio.mojom.TestingApiReceiver = mojo.internal.bindings.a
 
 mojo.internal.bindings.audio.mojom.TestingApiPtr = mojo.internal.bindings.audio.mojom.TestingApiRemote;
 mojo.internal.bindings.audio.mojom.TestingApiRequest = mojo.internal.bindings.audio.mojom.TestingApiPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.TestingApi_Crash_ParamsSpec, 'audio.mojom.TestingApi_Crash_Params', [
+    ],
+    [[0, 8]]);
 

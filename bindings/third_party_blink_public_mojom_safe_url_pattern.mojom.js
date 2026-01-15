@@ -142,6 +142,8 @@ mojo.internal.bindings.blink.mojom.Modifier = {
   kNone: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: PatternTemplate
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PatternTemplateSpec, 'blink.mojom.PatternTemplate', {

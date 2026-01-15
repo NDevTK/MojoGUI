@@ -200,6 +200,8 @@ mojo.internal.bindings.ash.projector.mojom.RequestType = {
   kDelete: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: GetVideoResult
 mojo.internal.Union(
     mojo.internal.bindings.ash.projector.mojom.GetVideoResultSpec, 'ash.projector.mojom.GetVideoResult', {

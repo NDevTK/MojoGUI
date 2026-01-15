@@ -200,6 +200,8 @@ mojo.internal.bindings.gfx.mojom.ColorSpaceRangeID = {
   DERIVED: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ColorSpace
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, 'gfx.mojom.ColorSpace', [

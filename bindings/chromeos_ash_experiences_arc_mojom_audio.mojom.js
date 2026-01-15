@@ -166,17 +166,6 @@ mojo.internal.bindings.arc.mojom.AudioDeviceType = {
 };
 
 // Interface: AudioHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec, 'arc.mojom.AudioHost_ShowVolumeControls_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec, 'arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_Params', [
-      mojo.internal.StructField('arg_percent', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.AudioHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -310,7 +299,7 @@ mojo.internal.bindings.arc.mojom.AudioHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSystemVolumeUpdateRequest');
-          const result = this.impl.onSystemVolumeUpdateRequest(params.arg_percent);
+          const result = this.impl.onSystemVolumeUpdateRequest(params.arg_arg_percent);
           break;
         }
       }
@@ -328,42 +317,6 @@ mojo.internal.bindings.arc.mojom.AudioHostRequest = mojo.internal.bindings.arc.m
 
 
 // Interface: AudioInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec, 'arc.mojom.AudioInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AudioHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec, 'arc.mojom.AudioInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySwitchState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec, 'arc.mojom.AudioInstance_NotifyVolumeState_Params', [
-      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_muted', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySpatialAudioState_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec, 'arc.mojom.AudioInstance_NotifyOutputDeviceInfo_Params', [
-      mojo.internal.StructField('arg_device_type', 0, 0, mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.AudioInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -532,12 +485,14 @@ mojo.internal.bindings.arc.mojom.AudioInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -545,28 +500,28 @@ mojo.internal.bindings.arc.mojom.AudioInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySwitchState');
-          const result = this.impl.notifySwitchState(params.arg_state);
+          const result = this.impl.notifySwitchState(params.arg_arg_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyVolumeState');
-          const result = this.impl.notifyVolumeState(params.arg_volume, params.arg_muted);
+          const result = this.impl.notifyVolumeState(params.arg_arg_volume, params.arg_arg_muted);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySpatialAudioState');
-          const result = this.impl.notifySpatialAudioState(params.arg_enabled);
+          const result = this.impl.notifySpatialAudioState(params.arg_arg_enabled);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyOutputDeviceInfo');
-          const result = this.impl.notifyOutputDeviceInfo(params.arg_device_type);
+          const result = this.impl.notifyOutputDeviceInfo(params.arg_arg_device_type);
           break;
         }
       }
@@ -581,4 +536,53 @@ mojo.internal.bindings.arc.mojom.AudioInstanceReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.arc.mojom.AudioInstancePtr = mojo.internal.bindings.arc.mojom.AudioInstanceRemote;
 mojo.internal.bindings.arc.mojom.AudioInstanceRequest = mojo.internal.bindings.arc.mojom.AudioInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioHost_ShowVolumeControls_ParamsSpec, 'arc.mojom.AudioHost_ShowVolumeControls_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_ParamsSpec, 'arc.mojom.AudioHost_OnSystemVolumeUpdateRequest_Params', [
+      mojo.internal.StructField('arg_percent', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioInstance_Init_ParamsSpec, 'arc.mojom.AudioInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.AudioHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioInstance_Init_ResponseParamsSpec, 'arc.mojom.AudioInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioInstance_NotifySwitchState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySwitchState_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioInstance_NotifyVolumeState_ParamsSpec, 'arc.mojom.AudioInstance_NotifyVolumeState_Params', [
+      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_muted', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioInstance_NotifySpatialAudioState_ParamsSpec, 'arc.mojom.AudioInstance_NotifySpatialAudioState_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AudioInstance_NotifyOutputDeviceInfo_ParamsSpec, 'arc.mojom.AudioInstance_NotifyOutputDeviceInfo_Params', [
+      mojo.internal.StructField('arg_device_type', 0, 0, mojo.internal.bindings.arc.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

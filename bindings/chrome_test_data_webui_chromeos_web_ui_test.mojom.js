@@ -127,12 +127,6 @@ mojo.internal.bindings.web_ui_test.mojom.TestRunner.$interfaceName = 'web_ui_tes
 mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec = { $: {} };
 
 // Interface: TestRunner
-mojo.internal.Struct(
-    mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec, 'web_ui_test.mojom.TestRunner_TestComplete_Params', [
-      mojo.internal.StructField('arg_failureMessage', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.web_ui_test.mojom.TestRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.web_ui_test.mojom.TestRunnerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.testComplete');
-          const result = this.impl.testComplete(params.arg_failureMessage);
+          const result = this.impl.testComplete(params.arg_arg_failureMessage);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.web_ui_test.mojom.TestRunnerReceiver = mojo.internal.bind
 
 mojo.internal.bindings.web_ui_test.mojom.TestRunnerPtr = mojo.internal.bindings.web_ui_test.mojom.TestRunnerRemote;
 mojo.internal.bindings.web_ui_test.mojom.TestRunnerRequest = mojo.internal.bindings.web_ui_test.mojom.TestRunnerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.web_ui_test.mojom.TestRunner_TestComplete_ParamsSpec, 'web_ui_test.mojom.TestRunner_TestComplete_Params', [
+      mojo.internal.StructField('arg_failureMessage', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

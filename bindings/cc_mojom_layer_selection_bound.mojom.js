@@ -133,6 +133,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec = mojo.internal.bindings.gfx.mojom.SelectionBoundTypeSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: LayerSelectionBound
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.LayerSelectionBoundSpec, 'cc.mojom.LayerSelectionBound', [

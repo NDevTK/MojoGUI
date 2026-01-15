@@ -133,12 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CrashMemoryMetricsReporter
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec, 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params', [
-      mojo.internal.StructField('arg_shared_metrics_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSharedMemory');
-          const result = this.impl.setSharedMemory(params.arg_shared_metrics_buffer);
+          const result = this.impl.setSharedMemory(params.arg_arg_shared_metrics_buffer);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterReceiver = mojo.int
 
 mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterPtr = mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterRemote;
 mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterRequest = mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_ParamsSpec, 'blink.mojom.CrashMemoryMetricsReporter_SetSharedMemory_Params', [
+      mojo.internal.StructField('arg_shared_metrics_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

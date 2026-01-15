@@ -346,3 +346,5 @@ mojo.internal.bindings.ash.mojom.VKey = {
   kButtonY: 65294,
   kButtonZ: 65295,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

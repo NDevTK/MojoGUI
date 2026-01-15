@@ -140,6 +140,8 @@ mojo.internal.bindings.network.mojom.AncestorChainBit = {
   kCrossSite: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CookiePartitionKey
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CookiePartitionKeySpec, 'network.mojom.CookiePartitionKey', [

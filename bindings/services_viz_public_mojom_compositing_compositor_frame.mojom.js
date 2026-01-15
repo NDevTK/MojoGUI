@@ -134,6 +134,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.TransferableResourceSpec = mojo.internal.bindings.viz.mojom.TransferableResourceSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CompositorFrame
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameSpec, 'viz.mojom.CompositorFrame', [

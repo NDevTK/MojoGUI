@@ -148,71 +148,7 @@ mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec = mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: PaymentHandlerMethodData
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, 'payments.mojom.PaymentHandlerMethodData', [
-      mojo.internal.StructField('arg_method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stringified_data', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PaymentHandlerModifier
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec, 'payments.mojom.PaymentHandlerModifier', [
-      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PaymentRequestDetailsUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, 'payments.mojom.PaymentRequestDetailsUpdate', [
-      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_shipping_options', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 24, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stringified_payment_method_errors', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_shipping_address_errors', 40, 0, mojo.internal.bindings.payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: PaymentHandlerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_Params', [
-      mojo.internal.StructField('arg_method_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_Params', [
-      mojo.internal.StructField('arg_shipping_option_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_Params', [
-      mojo.internal.StructField('arg_shipping_address', 0, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -353,12 +289,15 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changePaymentMethod');
-          const result = this.impl.changePaymentMethod(params.arg_method_data);
+          const result = this.impl.changePaymentMethod(params.arg_arg_method_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ChangePaymentMethod FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] changePaymentMethod FAILED:', e));
           }
           break;
         }
@@ -366,12 +305,15 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeShippingOption');
-          const result = this.impl.changeShippingOption(params.arg_shipping_option_id);
+          const result = this.impl.changeShippingOption(params.arg_arg_shipping_option_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ChangeShippingOption FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] changeShippingOption FAILED:', e));
           }
           break;
         }
@@ -379,12 +321,15 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.changeShippingAddress');
-          const result = this.impl.changeShippingAddress(params.arg_shipping_address);
+          const result = this.impl.changeShippingAddress(params.arg_arg_shipping_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ChangeShippingAddress FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] changeShippingAddress FAILED:', e));
           }
           break;
         }
@@ -400,4 +345,70 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerHostReceiver = mojo.internal
 
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostPtr = mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote;
 mojo.internal.bindings.payments.mojom.PaymentHandlerHostRequest = mojo.internal.bindings.payments.mojom.PaymentHandlerHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PaymentHandlerMethodData
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, 'payments.mojom.PaymentHandlerMethodData', [
+      mojo.internal.StructField('arg_method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stringified_data', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PaymentHandlerModifier
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec, 'payments.mojom.PaymentHandlerModifier', [
+      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PaymentRequestDetailsUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, 'payments.mojom.PaymentRequestDetailsUpdate', [
+      mojo.internal.StructField('arg_total', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_options', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentHandlerModifierSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 24, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stringified_payment_method_errors', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_address_errors', 40, 0, mojo.internal.bindings.payments.mojom.AddressErrorsSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_Params', [
+      mojo.internal.StructField('arg_method_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerMethodDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangePaymentMethod_ResponseParams', [
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_Params', [
+      mojo.internal.StructField('arg_shipping_option_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingOption_ResponseParams', [
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_Params', [
+      mojo.internal.StructField('arg_shipping_address', 0, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParamsSpec, 'payments.mojom.PaymentHandlerHost_ChangeShippingAddress_ResponseParams', [
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.payments.mojom.PaymentRequestDetailsUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

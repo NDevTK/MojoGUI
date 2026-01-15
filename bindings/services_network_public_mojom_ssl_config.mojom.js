@@ -141,33 +141,7 @@ mojo.internal.bindings.network.mojom.SSLNamedGroupsPreset = {
   kCnsa2: 1,
 };
 
-// Struct: SSLConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SSLConfigSpec, 'network.mojom.SSLConfig', [
-      mojo.internal.StructField('arg_rev_checking_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_rev_checking_required_local_anchors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_sha1_local_anchors_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_tls13_cipher_prefer_aes_256', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_post_quantum_key_agreement_enabled', 0, 4, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_ech_enabled', 0, 5, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_version_min', 4, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_max', 8, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_named_groups_preset', 12, 0, mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_cipher_suites', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_cert_pooling_policy', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchor_ids', 32, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mtc_trust_anchor_ids', 40, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mtc_update_time_seconds', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: SSLConfigClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec, 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params', [
-      mojo.internal.StructField('arg_ssl_config', 0, 0, mojo.internal.bindings.network.mojom.SSLConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.SSLConfigClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,7 +254,7 @@ mojo.internal.bindings.network.mojom.SSLConfigClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSSLConfigUpdated');
-          const result = this.impl.onSSLConfigUpdated(params.arg_ssl_config);
+          const result = this.impl.onSSLConfigUpdated(params.arg_arg_ssl_config);
           break;
         }
       }
@@ -295,4 +269,32 @@ mojo.internal.bindings.network.mojom.SSLConfigClientReceiver = mojo.internal.bin
 
 mojo.internal.bindings.network.mojom.SSLConfigClientPtr = mojo.internal.bindings.network.mojom.SSLConfigClientRemote;
 mojo.internal.bindings.network.mojom.SSLConfigClientRequest = mojo.internal.bindings.network.mojom.SSLConfigClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SSLConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SSLConfigSpec, 'network.mojom.SSLConfig', [
+      mojo.internal.StructField('arg_rev_checking_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rev_checking_required_local_anchors', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_sha1_local_anchors_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tls13_cipher_prefer_aes_256', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_post_quantum_key_agreement_enabled', 0, 4, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_ech_enabled', 0, 5, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_version_min', 4, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_max', 8, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_named_groups_preset', 12, 0, mojo.internal.bindings.network.mojom.SSLNamedGroupsPresetSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_cipher_suites', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_cert_pooling_policy', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchor_ids', 32, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mtc_trust_anchor_ids', 40, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mtc_update_time_seconds', 48, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SSLConfigClient_OnSSLConfigUpdated_ParamsSpec, 'network.mojom.SSLConfigClient_OnSSLConfigUpdated_Params', [
+      mojo.internal.StructField('arg_ssl_config', 0, 0, mojo.internal.bindings.network.mojom.SSLConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

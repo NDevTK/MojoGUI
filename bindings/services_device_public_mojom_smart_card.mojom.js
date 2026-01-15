@@ -288,202 +288,7 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionState = {
   kSpecific: 5,
 };
 
-// Union: SmartCardResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardResultSpec, 'device.mojom.SmartCardResult', {
-      'arg_success': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.SmartCardSuccessSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardStatusChangeResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardStatusChangeResultSpec, 'device.mojom.SmartCardStatusChangeResult', {
-      'arg_reader_states': {
-        'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec, false),
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardListReadersResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardListReadersResultSpec, 'device.mojom.SmartCardListReadersResult', {
-      'arg_readers': {
-        'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.String, false),
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardCreateContextResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec, 'device.mojom.SmartCardCreateContextResult', {
-      'arg_context': {
-        'ordinal': 0,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardContextRemote),
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardConnectResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardConnectResultSpec, 'device.mojom.SmartCardConnectResult', {
-      'arg_success': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardDataResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, 'device.mojom.SmartCardDataResult', {
-      'arg_data': {
-        'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.Uint8, false),
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardStatusResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardStatusResultSpec, 'device.mojom.SmartCardStatusResult', {
-      'arg_status': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.SmartCardStatusSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: SmartCardTransactionResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.SmartCardTransactionResultSpec, 'device.mojom.SmartCardTransactionResult', {
-      'arg_transaction': {
-        'ordinal': 0,
-        'type': mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardTransactionRemote),
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: SmartCardReaderStateFlags
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, 'device.mojom.SmartCardReaderStateFlags', [
-      mojo.internal.StructField('arg_unaware', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ignore', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_changed', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unknown', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unavailable', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_empty', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_present', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_exclusive', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_inuse', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mute', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unpowered', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SmartCardReaderStateIn
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec, 'device.mojom.SmartCardReaderStateIn', [
-      mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SmartCardReaderStateOut
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec, 'device.mojom.SmartCardReaderStateOut', [
-      mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_to_reset', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: SmartCardProtocols
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec, 'device.mojom.SmartCardProtocols', [
-      mojo.internal.StructField('arg_t0', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_t1', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_raw', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SmartCardStatus
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardStatusSpec, 'device.mojom.SmartCardStatus', [
-      mojo.internal.StructField('arg_reader_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardConnectionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol', 12, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_to_reset', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SmartCardConnectSuccess
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec, 'device.mojom.SmartCardConnectSuccess', [
-      mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_protocol', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: SmartCardTransaction
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec, 'device.mojom.SmartCardTransaction_EndTransaction_Params', [
-      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec, 'device.mojom.SmartCardTransaction_EndTransaction_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.SmartCardTransactionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -596,12 +401,15 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.endTransaction');
-          const result = this.impl.endTransaction(params.arg_disposition);
+          const result = this.impl.endTransaction(params.arg_arg_disposition);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EndTransaction FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] endTransaction FAILED:', e));
           }
           break;
         }
@@ -620,91 +428,6 @@ mojo.internal.bindings.device.mojom.SmartCardTransactionRequest = mojo.internal.
 
 
 // Interface: SmartCardConnection
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec, 'device.mojom.SmartCardConnection_Disconnect_Params', [
-      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Disconnect_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec, 'device.mojom.SmartCardConnection_Transmit_Params', [
-      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Transmit_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec, 'device.mojom.SmartCardConnection_Control_Params', [
-      mojo.internal.StructField('arg_control_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Control_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec, 'device.mojom.SmartCardConnection_GetAttrib_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec, 'device.mojom.SmartCardConnection_GetAttrib_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec, 'device.mojom.SmartCardConnection_SetAttrib_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec, 'device.mojom.SmartCardConnection_SetAttrib_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ParamsSpec, 'device.mojom.SmartCardConnection_Status_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Status_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardStatusResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec, 'device.mojom.SmartCardConnection_BeginTransaction_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec, 'device.mojom.SmartCardConnection_BeginTransaction_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardTransactionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.SmartCardConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -901,12 +624,15 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disconnect');
-          const result = this.impl.disconnect(params.arg_disposition);
+          const result = this.impl.disconnect(params.arg_arg_disposition);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Disconnect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] disconnect FAILED:', e));
           }
           break;
         }
@@ -914,12 +640,15 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transmit');
-          const result = this.impl.transmit(params.arg_protocol, params.arg_data);
+          const result = this.impl.transmit(params.arg_arg_protocol, params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Transmit FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] transmit FAILED:', e));
           }
           break;
         }
@@ -927,12 +656,15 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.control');
-          const result = this.impl.control(params.arg_control_code, params.arg_data);
+          const result = this.impl.control(params.arg_arg_control_code, params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Control FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] control FAILED:', e));
           }
           break;
         }
@@ -940,12 +672,15 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAttrib');
-          const result = this.impl.getAttrib(params.arg_id);
+          const result = this.impl.getAttrib(params.arg_arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAttrib FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAttrib FAILED:', e));
           }
           break;
         }
@@ -953,12 +688,15 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAttrib');
-          const result = this.impl.setAttrib(params.arg_id, params.arg_data);
+          const result = this.impl.setAttrib(params.arg_arg_id, params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetAttrib FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setAttrib FAILED:', e));
           }
           break;
         }
@@ -970,8 +708,11 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Status FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] status FAILED:', e));
           }
           break;
         }
@@ -983,8 +724,11 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] BeginTransaction FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] beginTransaction FAILED:', e));
           }
           break;
         }
@@ -1003,11 +747,6 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionRequest = mojo.internal.b
 
 
 // Interface: SmartCardConnectionWatcher
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec, 'device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1138,56 +877,6 @@ mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRequest = mojo.int
 
 
 // Interface: SmartCardContext
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec, 'device.mojom.SmartCardContext_ListReaders_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec, 'device.mojom.SmartCardContext_ListReaders_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardListReadersResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec, 'device.mojom.SmartCardContext_GetStatusChange_Params', [
-      mojo.internal.StructField('arg_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reader_states', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec, 'device.mojom.SmartCardContext_GetStatusChange_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardStatusChangeResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ParamsSpec, 'device.mojom.SmartCardContext_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec, 'device.mojom.SmartCardContext_Cancel_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec, 'device.mojom.SmartCardContext_Connect_Params', [
-      mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_share_mode', 8, 0, mojo.internal.bindings.device.mojom.SmartCardShareModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_protocols', 16, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec, 'device.mojom.SmartCardContext_Connect_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardConnectResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.SmartCardContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1346,8 +1035,11 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ListReaders FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] listReaders FAILED:', e));
           }
           break;
         }
@@ -1355,12 +1047,15 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatusChange');
-          const result = this.impl.getStatusChange(params.arg_timeout, params.arg_reader_states);
+          const result = this.impl.getStatusChange(params.arg_arg_timeout, params.arg_arg_reader_states);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStatusChange FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStatusChange FAILED:', e));
           }
           break;
         }
@@ -1372,8 +1067,11 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }
@@ -1381,12 +1079,15 @@ mojo.internal.bindings.device.mojom.SmartCardContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_reader, params.arg_share_mode, params.arg_preferred_protocols, params.arg_connection_watcher);
+          const result = this.impl.connect(params.arg_arg_reader, params.arg_arg_share_mode, params.arg_arg_preferred_protocols, params.arg_arg_connection_watcher);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
           break;
         }
@@ -1405,17 +1106,6 @@ mojo.internal.bindings.device.mojom.SmartCardContextRequest = mojo.internal.bind
 
 
 // Interface: SmartCardContextFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec, 'device.mojom.SmartCardContextFactory_CreateContext_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec, 'device.mojom.SmartCardContextFactory_CreateContext_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.SmartCardContextFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1532,8 +1222,11 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateContext FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createContext FAILED:', e));
           }
           break;
         }
@@ -1549,4 +1242,352 @@ mojo.internal.bindings.device.mojom.SmartCardContextFactoryReceiver = mojo.inter
 
 mojo.internal.bindings.device.mojom.SmartCardContextFactoryPtr = mojo.internal.bindings.device.mojom.SmartCardContextFactoryRemote;
 mojo.internal.bindings.device.mojom.SmartCardContextFactoryRequest = mojo.internal.bindings.device.mojom.SmartCardContextFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SmartCardResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardResultSpec, 'device.mojom.SmartCardResult', {
+      'arg_success': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.device.mojom.SmartCardSuccessSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardStatusChangeResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardStatusChangeResultSpec, 'device.mojom.SmartCardStatusChangeResult', {
+      'arg_reader_states': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec, false),
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardListReadersResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardListReadersResultSpec, 'device.mojom.SmartCardListReadersResult', {
+      'arg_readers': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.String, false),
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardCreateContextResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec, 'device.mojom.SmartCardCreateContextResult', {
+      'arg_context': {
+        'ordinal': 0,
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardContextRemote),
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardConnectResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardConnectResultSpec, 'device.mojom.SmartCardConnectResult', {
+      'arg_success': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardDataResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, 'device.mojom.SmartCardDataResult', {
+      'arg_data': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.Uint8, false),
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardStatusResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardStatusResultSpec, 'device.mojom.SmartCardStatusResult', {
+      'arg_status': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.device.mojom.SmartCardStatusSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: SmartCardTransactionResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.SmartCardTransactionResultSpec, 'device.mojom.SmartCardTransactionResult', {
+      'arg_transaction': {
+        'ordinal': 0,
+        'type': mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardTransactionRemote),
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.SmartCardErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: SmartCardReaderStateFlags
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, 'device.mojom.SmartCardReaderStateFlags', [
+      mojo.internal.StructField('arg_unaware', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ignore', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_changed', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unknown', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unavailable', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_empty', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_present', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exclusive', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_inuse', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mute', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unpowered', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SmartCardReaderStateIn
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec, 'device.mojom.SmartCardReaderStateIn', [
+      mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SmartCardReaderStateOut
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardReaderStateOutSpec, 'device.mojom.SmartCardReaderStateOut', [
+      mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardReaderStateFlagsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_answer_to_reset', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: SmartCardProtocols
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec, 'device.mojom.SmartCardProtocols', [
+      mojo.internal.StructField('arg_t0', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_t1', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_raw', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SmartCardStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardStatusSpec, 'device.mojom.SmartCardStatus', [
+      mojo.internal.StructField('arg_reader_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.device.mojom.SmartCardConnectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol', 12, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer_to_reset', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SmartCardConnectSuccess
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnectSuccessSpec, 'device.mojom.SmartCardConnectSuccess', [
+      mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_protocol', 8, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ParamsSpec, 'device.mojom.SmartCardTransaction_EndTransaction_Params', [
+      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardTransaction_EndTransaction_ResponseParamsSpec, 'device.mojom.SmartCardTransaction_EndTransaction_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ParamsSpec, 'device.mojom.SmartCardConnection_Disconnect_Params', [
+      mojo.internal.StructField('arg_disposition', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDispositionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Disconnect_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Disconnect_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ParamsSpec, 'device.mojom.SmartCardConnection_Transmit_Params', [
+      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Transmit_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Transmit_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ParamsSpec, 'device.mojom.SmartCardConnection_Control_Params', [
+      mojo.internal.StructField('arg_control_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Control_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Control_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ParamsSpec, 'device.mojom.SmartCardConnection_GetAttrib_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_GetAttrib_ResponseParamsSpec, 'device.mojom.SmartCardConnection_GetAttrib_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardDataResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ParamsSpec, 'device.mojom.SmartCardConnection_SetAttrib_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_SetAttrib_ResponseParamsSpec, 'device.mojom.SmartCardConnection_SetAttrib_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ParamsSpec, 'device.mojom.SmartCardConnection_Status_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_Status_ResponseParamsSpec, 'device.mojom.SmartCardConnection_Status_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardStatusResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ParamsSpec, 'device.mojom.SmartCardConnection_BeginTransaction_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnection_BeginTransaction_ResponseParamsSpec, 'device.mojom.SmartCardConnection_BeginTransaction_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardTransactionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_ParamsSpec, 'device.mojom.SmartCardConnectionWatcher_NotifyConnectionUsed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ParamsSpec, 'device.mojom.SmartCardContext_ListReaders_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_ListReaders_ResponseParamsSpec, 'device.mojom.SmartCardContext_ListReaders_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardListReadersResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ParamsSpec, 'device.mojom.SmartCardContext_GetStatusChange_Params', [
+      mojo.internal.StructField('arg_timeout', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reader_states', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.SmartCardReaderStateInSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_GetStatusChange_ResponseParamsSpec, 'device.mojom.SmartCardContext_GetStatusChange_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardStatusChangeResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ParamsSpec, 'device.mojom.SmartCardContext_Cancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_Cancel_ResponseParamsSpec, 'device.mojom.SmartCardContext_Cancel_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ParamsSpec, 'device.mojom.SmartCardContext_Connect_Params', [
+      mojo.internal.StructField('arg_reader', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_mode', 8, 0, mojo.internal.bindings.device.mojom.SmartCardShareModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_protocols', 16, 0, mojo.internal.bindings.device.mojom.SmartCardProtocolsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_watcher', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SmartCardConnectionWatcherRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContext_Connect_ResponseParamsSpec, 'device.mojom.SmartCardContext_Connect_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardConnectResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ParamsSpec, 'device.mojom.SmartCardContextFactory_CreateContext_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SmartCardContextFactory_CreateContext_ResponseParamsSpec, 'device.mojom.SmartCardContextFactory_CreateContext_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SmartCardCreateContextResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -124,6 +124,8 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.VideoMemoryProcessStatsSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.VideoMemoryUsageStatsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VideoMemoryProcessStats
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VideoMemoryProcessStatsSpec, 'gpu.mojom.VideoMemoryProcessStats', [

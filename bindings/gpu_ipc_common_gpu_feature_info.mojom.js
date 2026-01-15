@@ -134,6 +134,8 @@ mojo.internal.bindings.gpu.mojom.GpuFeatureStatus = {
   Max: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GpuFeatureInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, 'gpu.mojom.GpuFeatureInfo', [

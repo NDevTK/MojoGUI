@@ -150,41 +150,7 @@ mojo.internal.bindings.media_router.mojom.PlayState = {
   BUFFERING: 2,
 };
 
-// Struct: MediaImage
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.MediaImageSpec, 'media_router.mojom.MediaImage', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MediaStatus
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.MediaStatusSpec, 'media_router.mojom.MediaStatus', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secondary_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_play_pause', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_mute', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_set_volume', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_seek', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_skip_to_next_track', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_skip_to_previous_track', 16, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_muted', 16, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_play_state', 20, 0, mojo.internal.bindings.media_router.mojom.PlayStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_volume', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_images', 48, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.MediaImageSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: MediaStatusObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec, 'media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media_router.mojom.MediaStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media_router.mojom.MediaStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -297,7 +263,7 @@ mojo.internal.bindings.media_router.mojom.MediaStatusObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMediaStatusUpdated');
-          const result = this.impl.onMediaStatusUpdated(params.arg_status);
+          const result = this.impl.onMediaStatusUpdated(params.arg_arg_status);
           break;
         }
       }
@@ -312,4 +278,40 @@ mojo.internal.bindings.media_router.mojom.MediaStatusObserverReceiver = mojo.int
 
 mojo.internal.bindings.media_router.mojom.MediaStatusObserverPtr = mojo.internal.bindings.media_router.mojom.MediaStatusObserverRemote;
 mojo.internal.bindings.media_router.mojom.MediaStatusObserverRequest = mojo.internal.bindings.media_router.mojom.MediaStatusObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MediaImage
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.MediaImageSpec, 'media_router.mojom.MediaImage', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MediaStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.MediaStatusSpec, 'media_router.mojom.MediaStatus', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_play_pause', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_mute', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_set_volume', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_seek', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_skip_to_next_track', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_skip_to_previous_track', 16, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_muted', 16, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_play_state', 20, 0, mojo.internal.bindings.media_router.mojom.PlayStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_volume', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 48, 0, mojo.internal.Array(mojo.internal.bindings.media_router.mojom.MediaImageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_ParamsSpec, 'media_router.mojom.MediaStatusObserver_OnMediaStatusUpdated_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media_router.mojom.MediaStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -137,6 +137,8 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: URLLoaderFactoryBundle
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, 'blink.mojom.URLLoaderFactoryBundle', [

@@ -155,43 +155,6 @@ mojo.internal.bindings.attribution_reporting.mojom.DataAvailableCallsite = {
 };
 
 // Interface: DataHost
-mojo.internal.Struct(
-    mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_SourceDataAvailable_Params', [
-      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_TriggerDataAvailable_Params', [
-      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsSourceDataAvailable_Params', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_Params', [
-      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec, 'attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_Params', [
-      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.attribution_reporting.mojom.DataHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -360,35 +323,35 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sourceDataAvailable');
-          const result = this.impl.sourceDataAvailable(params.arg_reporting_origin, params.arg_data, params.arg_was_fetched_via_service_worker);
+          const result = this.impl.sourceDataAvailable(params.arg_arg_reporting_origin, params.arg_arg_data, params.arg_arg_was_fetched_via_service_worker);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerDataAvailable');
-          const result = this.impl.triggerDataAvailable(params.arg_reporting_origin, params.arg_data, params.arg_was_fetched_via_service_worker);
+          const result = this.impl.triggerDataAvailable(params.arg_arg_reporting_origin, params.arg_arg_data, params.arg_arg_was_fetched_via_service_worker);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.osSourceDataAvailable');
-          const result = this.impl.osSourceDataAvailable(params.arg_registration, params.arg_was_fetched_via_service_worker);
+          const result = this.impl.osSourceDataAvailable(params.arg_arg_registration, params.arg_arg_was_fetched_via_service_worker);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.osTriggerDataAvailable');
-          const result = this.impl.osTriggerDataAvailable(params.arg_registration, params.arg_was_fetched_via_service_worker);
+          const result = this.impl.osTriggerDataAvailable(params.arg_arg_registration, params.arg_arg_was_fetched_via_service_worker);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportRegistrationHeaderError');
-          const result = this.impl.reportRegistrationHeaderError(params.arg_reporting_origin, params.arg_error);
+          const result = this.impl.reportRegistrationHeaderError(params.arg_arg_reporting_origin, params.arg_arg_error);
           break;
         }
       }
@@ -403,4 +366,43 @@ mojo.internal.bindings.attribution_reporting.mojom.DataHostReceiver = mojo.inter
 
 mojo.internal.bindings.attribution_reporting.mojom.DataHostPtr = mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote;
 mojo.internal.bindings.attribution_reporting.mojom.DataHostRequest = mojo.internal.bindings.attribution_reporting.mojom.DataHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.attribution_reporting.mojom.DataHost_SourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_SourceDataAvailable_Params', [
+      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.attribution_reporting.mojom.DataHost_TriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_TriggerDataAvailable_Params', [
+      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_fetched_via_service_worker', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsSourceDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsSourceDataAvailable_Params', [
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_ParamsSpec, 'attribution_reporting.mojom.DataHost_OsTriggerDataAvailable_Params', [
+      mojo.internal.StructField('arg_registration', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_fetched_via_service_worker', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_ParamsSpec, 'attribution_reporting.mojom.DataHost_ReportRegistrationHeaderError_Params', [
+      mojo.internal.StructField('arg_reporting_origin', 0, 0, mojo.internal.bindings.attribution_reporting.mojom.SuitableOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

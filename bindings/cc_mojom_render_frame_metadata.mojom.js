@@ -170,52 +170,7 @@ mojo.internal.bindings.cc.mojom.RootScrollOffsetUpdateFrequency = {
   kAllUpdates: 2,
 };
 
-// Struct: DelegatedInkBrowserMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec, 'cc.mojom.DelegatedInkBrowserMetadata', [
-      mojo.internal.StructField('arg_delegated_ink_is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: RenderFrameMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec, 'cc.mojom.RenderFrameMetadata', [
-      mojo.internal.StructField('arg_root_background_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_scroll_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_scroll_offset_at_top', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mobile_optimized', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_root_overflow_y_hidden', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_transparent_background', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_selection', 24, 0, mojo.internal.bindings.viz.mojom.SelectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegated_ink_metadata', 32, 0, mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_viewport_size_in_pixels', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_surface_id', 48, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_scale_factor', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_external_page_scale_factor', 60, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_height', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_shown_ratio', 68, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_new_vertical_scroll_direction', 72, 0, mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_height', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_main_frame_item_sequence_number', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tracked_element_bounds', 88, 0, mojo.internal.bindings.cc.mojom.TrackedElementBoundsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_min_height_offset', 100, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_min_height_offset', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min_page_scale_factor', 108, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_page_scale_factor', 112, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scrollable_viewport_size', 120, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_layer_size', 128, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-    ],
-    [[0, 144]]);
-
 // Interface: RenderFrameMetadataObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,7 +283,7 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAllFrameSubmissionsForTesting');
-          const result = this.impl.reportAllFrameSubmissionsForTesting(params.arg_enabled);
+          const result = this.impl.reportAllFrameSubmissionsForTesting(params.arg_arg_enabled);
           break;
         }
       }
@@ -346,19 +301,6 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRequest = mojo.intern
 
 
 // Interface: RenderFrameMetadataObserverClient
-mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -485,14 +427,14 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRenderFrameMetadataChanged');
-          const result = this.impl.onRenderFrameMetadataChanged(params.arg_frame_token, params.arg_metadata);
+          const result = this.impl.onRenderFrameMetadataChanged(params.arg_arg_frame_token, params.arg_arg_metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFrameSubmissionForTesting');
-          const result = this.impl.onFrameSubmissionForTesting(params.arg_frame_token);
+          const result = this.impl.onFrameSubmissionForTesting(params.arg_arg_frame_token);
           break;
         }
       }
@@ -507,4 +449,64 @@ mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientReceiver = mojo
 
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientPtr = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote;
 mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRequest = mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DelegatedInkBrowserMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec, 'cc.mojom.DelegatedInkBrowserMetadata', [
+      mojo.internal.StructField('arg_delegated_ink_is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: RenderFrameMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec, 'cc.mojom.RenderFrameMetadata', [
+      mojo.internal.StructField('arg_root_background_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_scroll_offset', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_scroll_offset_at_top', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mobile_optimized', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_root_overflow_y_hidden', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_transparent_background', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_selection', 24, 0, mojo.internal.bindings.viz.mojom.SelectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegated_ink_metadata', 32, 0, mojo.internal.bindings.cc.mojom.DelegatedInkBrowserMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_viewport_size_in_pixels', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_surface_id', 48, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_scale_factor', 56, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_external_page_scale_factor', 60, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_height', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_shown_ratio', 68, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_new_vertical_scroll_direction', 72, 0, mojo.internal.bindings.viz.mojom.VerticalScrollDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_height', 76, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_main_frame_item_sequence_number', 80, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tracked_element_bounds', 88, 0, mojo.internal.bindings.cc.mojom.TrackedElementBoundsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 96, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_min_height_offset', 100, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_min_height_offset', 104, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_page_scale_factor', 108, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_page_scale_factor', 112, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scrollable_viewport_size', 120, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_layer_size', 128, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+    ],
+    [[0, 144]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserver_ReportAllFrameSubmissionsForTesting_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnRenderFrameMetadataChanged_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.cc.mojom.RenderFrameMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_ParamsSpec, 'cc.mojom.RenderFrameMetadataObserverClient_OnFrameSubmissionForTesting_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

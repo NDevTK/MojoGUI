@@ -132,3 +132,5 @@ mojo.internal.bindings.blink.mojom.EngagementLevel = {
   HIGH: 4,
   MAX: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

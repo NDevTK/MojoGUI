@@ -140,23 +140,6 @@ mojo.internal.bindings.blink.mojom.SmsStatus = {
 };
 
 // Interface: WebOTPService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec, 'blink.mojom.WebOTPService_Receive_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec, 'blink.mojom.WebOTPService_Receive_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.SmsStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_otp', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec, 'blink.mojom.WebOTPService_Abort_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.WebOTPServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,8 +270,10 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Receive FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_otp']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] receive FAILED:', e));
           }
           break;
         }
@@ -311,4 +296,23 @@ mojo.internal.bindings.blink.mojom.WebOTPServiceReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.WebOTPServicePtr = mojo.internal.bindings.blink.mojom.WebOTPServiceRemote;
 mojo.internal.bindings.blink.mojom.WebOTPServiceRequest = mojo.internal.bindings.blink.mojom.WebOTPServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ParamsSpec, 'blink.mojom.WebOTPService_Receive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebOTPService_Receive_ResponseParamsSpec, 'blink.mojom.WebOTPService_Receive_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.SmsStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_otp', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebOTPService_Abort_ParamsSpec, 'blink.mojom.WebOTPService_Abort_Params', [
+    ],
+    [[0, 8]]);
 

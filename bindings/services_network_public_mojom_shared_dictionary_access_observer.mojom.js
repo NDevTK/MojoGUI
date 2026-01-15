@@ -144,29 +144,7 @@ mojo.internal.bindings.network.mojom.Type = {
   kWrite: 1,
 };
 
-// Struct: SharedDictionaryAccessDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec, 'network.mojom.SharedDictionaryAccessDetails', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_blocked', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_isolation_key', 16, 0, mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: SharedDictionaryAccessObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_Clone_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,14 +271,14 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSharedDictionaryAccessed');
-          const result = this.impl.onSharedDictionaryAccessed(params.arg_details);
+          const result = this.impl.onSharedDictionaryAccessed(params.arg_arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_observer);
+          const result = this.impl.clone(params.arg_arg_observer);
           break;
         }
       }
@@ -315,4 +293,28 @@ mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverReceiver = mo
 
 mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverPtr = mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemote;
 mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRequest = mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SharedDictionaryAccessDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec, 'network.mojom.SharedDictionaryAccessDetails', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_blocked', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_isolation_key', 16, 0, mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_OnSharedDictionaryAccessed_Params', [
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.network.mojom.SharedDictionaryAccessDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserver_Clone_ParamsSpec, 'network.mojom.SharedDictionaryAccessObserver_Clone_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.SharedDictionaryAccessObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

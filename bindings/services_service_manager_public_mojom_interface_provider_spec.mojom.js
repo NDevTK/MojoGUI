@@ -127,6 +127,8 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderSpecSpec = { $: {}
 
 mojo.internal.bindings.service_manager.mojom.kServiceManager_ConnectorSpec = "service_manager:connector";
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: InterfaceSet
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.InterfaceSetSpec, 'service_manager.mojom.InterfaceSet', [

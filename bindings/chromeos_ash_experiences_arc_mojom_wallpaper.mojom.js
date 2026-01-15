@@ -136,29 +136,6 @@ mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec = { $
 mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec = { $: {} };
 
 // Interface: WallpaperHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_ResponseParams', [
-      mojo.internal.StructField('arg_wallpaper', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetWallpaper_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_wallpaper_id', 8, 0, mojo.internal.Int32, 0, false, 2, undefined),
-    ],
-    [[0, 16], [2, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetDefaultWallpaper_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.WallpaperHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,8 +280,11 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetWallpaper FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_wallpaper' in response) ? response.arg_arg_wallpaper : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getWallpaper FAILED:', e));
           }
           break;
         }
@@ -312,7 +292,7 @@ mojo.internal.bindings.arc.mojom.WallpaperHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaper');
-          const result = this.impl.setWallpaper(params.arg_data, params.arg_wallpaper_id);
+          const result = this.impl.setWallpaper(params.arg_arg_data, params.arg_arg_wallpaper_id);
           break;
         }
         case 2: {
@@ -337,23 +317,6 @@ mojo.internal.bindings.arc.mojom.WallpaperHostRequest = mojo.internal.bindings.a
 
 
 // Interface: WallpaperInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec, 'arc.mojom.WallpaperInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.WallpaperHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec, 'arc.mojom.WallpaperInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec, 'arc.mojom.WallpaperInstance_OnWallpaperChanged_Params', [
-      mojo.internal.StructField('arg_wallpaper_id', 0, 0, mojo.internal.Int32, 0, false, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
 mojo.internal.bindings.arc.mojom.WallpaperInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -480,12 +443,14 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -493,7 +458,7 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperChanged');
-          const result = this.impl.onWallpaperChanged(params.arg_wallpaper_id);
+          const result = this.impl.onWallpaperChanged(params.arg_arg_wallpaper_id);
           break;
         }
       }
@@ -508,4 +473,46 @@ mojo.internal.bindings.arc.mojom.WallpaperInstanceReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.arc.mojom.WallpaperInstancePtr = mojo.internal.bindings.arc.mojom.WallpaperInstanceRemote;
 mojo.internal.bindings.arc.mojom.WallpaperInstanceRequest = mojo.internal.bindings.arc.mojom.WallpaperInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperHost_GetWallpaper_ResponseParamsSpec, 'arc.mojom.WallpaperHost_GetWallpaper_ResponseParams', [
+      mojo.internal.StructField('arg_wallpaper', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperHost_SetWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetWallpaper_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wallpaper_id', 8, 0, mojo.internal.Int32, 0, false, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperHost_SetDefaultWallpaper_ParamsSpec, 'arc.mojom.WallpaperHost_SetDefaultWallpaper_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ParamsSpec, 'arc.mojom.WallpaperInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.WallpaperHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperInstance_Init_ResponseParamsSpec, 'arc.mojom.WallpaperInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WallpaperInstance_OnWallpaperChanged_ParamsSpec, 'arc.mojom.WallpaperInstance_OnWallpaperChanged_Params', [
+      mojo.internal.StructField('arg_wallpaper_id', 0, 0, mojo.internal.Int32, 0, false, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
 

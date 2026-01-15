@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.ScrollbarMode = {
   kAlwaysOff: 1,
   kAlwaysOn: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

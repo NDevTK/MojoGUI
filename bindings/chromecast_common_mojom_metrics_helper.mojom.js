@@ -128,15 +128,6 @@ mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper.$interfaceName = '
 mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec = { $: {} };
 
 // Interface: MetricsHelper
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec, 'chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_Params', [
-      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sdk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,7 +240,7 @@ mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordApplicationEvent');
-          const result = this.impl.recordApplicationEvent(params.arg_app_id, params.arg_session_id, params.arg_sdk_version, params.arg_event);
+          const result = this.impl.recordApplicationEvent(params.arg_arg_app_id, params.arg_arg_session_id, params.arg_arg_sdk_version, params.arg_arg_event);
           break;
         }
       }
@@ -264,4 +255,15 @@ mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperReceiver = mojo.int
 
 mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperPtr = mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperRemote;
 mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperRequest = mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelperPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_ParamsSpec, 'chromecast.metrics.mojom.MetricsHelper_RecordApplicationEvent_Params', [
+      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sdk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

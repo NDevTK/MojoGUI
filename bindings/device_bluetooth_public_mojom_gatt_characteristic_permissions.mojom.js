@@ -123,6 +123,8 @@ mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom 
 
 mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPermissionsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GattCharacteristicPermissions
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.GattCharacteristicPermissionsSpec, 'bluetooth.mojom.GattCharacteristicPermissions', [

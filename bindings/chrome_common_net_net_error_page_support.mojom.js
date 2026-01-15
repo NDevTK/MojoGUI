@@ -128,17 +128,6 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec = { $: {} };
 
 // Interface: NetErrorPageSupport
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Params', [
-      mojo.internal.StructField('arg_showing_download_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,7 +261,7 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsShowingDownloadButtonInErrorPage');
-          const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.arg_showing_download_button);
+          const result = this.impl.setIsShowingDownloadButtonInErrorPage(params.arg_arg_showing_download_button);
           break;
         }
       }
@@ -287,4 +276,17 @@ mojo.internal.bindings.chrome.mojom.NetErrorPageSupportReceiver = mojo.internal.
 
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupportPtr = mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRemote;
 mojo.internal.bindings.chrome.mojom.NetErrorPageSupportRequest = mojo.internal.bindings.chrome.mojom.NetErrorPageSupportPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_DownloadPageLater_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_DownloadPageLater_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_ParamsSpec, 'chrome.mojom.NetErrorPageSupport_SetIsShowingDownloadButtonInErrorPage_Params', [
+      mojo.internal.StructField('arg_showing_download_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

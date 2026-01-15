@@ -153,105 +153,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: SafeArchiveAnalyzerResults
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, 'chrome.mojom.SafeArchiveAnalyzerResults', [
-    ],
-    [[0, 8]]);
-
-// Struct: ObfuscatedFileUtilHeaderData
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, 'chrome.mojom.ObfuscatedFileUtilHeaderData', [
-      mojo.internal.StructField('arg_derived_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nonce_prefix', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: SafeArchiveAnalyzer
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_Params', [
-      mojo.internal.StructField('arg_dmg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_Params', [
-      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_Params', [
-      mojo.internal.StructField('arg_seven_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_Params', [
-      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -434,12 +336,15 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeZipFile');
-          const result = this.impl.analyzeZipFile(params.arg_zip_file, params.arg_password, params.arg_temp_file_getter);
+          const result = this.impl.analyzeZipFile(params.arg_arg_zip_file, params.arg_arg_password, params.arg_arg_temp_file_getter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AnalyzeZipFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] analyzeZipFile FAILED:', e));
           }
           break;
         }
@@ -447,12 +352,15 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeDmgFile');
-          const result = this.impl.analyzeDmgFile(params.arg_dmg_file, params.arg_temp_file_getter);
+          const result = this.impl.analyzeDmgFile(params.arg_arg_dmg_file, params.arg_arg_temp_file_getter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AnalyzeDmgFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] analyzeDmgFile FAILED:', e));
           }
           break;
         }
@@ -460,12 +368,15 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeRarFile');
-          const result = this.impl.analyzeRarFile(params.arg_rar_file, params.arg_password, params.arg_temp_file_getter);
+          const result = this.impl.analyzeRarFile(params.arg_arg_rar_file, params.arg_arg_password, params.arg_arg_temp_file_getter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AnalyzeRarFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] analyzeRarFile FAILED:', e));
           }
           break;
         }
@@ -473,12 +384,15 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeSevenZipFile');
-          const result = this.impl.analyzeSevenZipFile(params.arg_seven_zip_file, params.arg_temp_file_getter);
+          const result = this.impl.analyzeSevenZipFile(params.arg_arg_seven_zip_file, params.arg_arg_temp_file_getter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AnalyzeSevenZipFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] analyzeSevenZipFile FAILED:', e));
           }
           break;
         }
@@ -486,12 +400,15 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedZipFile');
-          const result = this.impl.analyzeObfuscatedZipFile(params.arg_zip_file, params.arg_password, params.arg_header_data, params.arg_temp_file_getter);
+          const result = this.impl.analyzeObfuscatedZipFile(params.arg_arg_zip_file, params.arg_arg_password, params.arg_arg_header_data, params.arg_arg_temp_file_getter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AnalyzeObfuscatedZipFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] analyzeObfuscatedZipFile FAILED:', e));
           }
           break;
         }
@@ -499,12 +416,15 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.analyzeObfuscatedRarFile');
-          const result = this.impl.analyzeObfuscatedRarFile(params.arg_rar_file, params.arg_password, params.arg_header_data, params.arg_temp_file_getter);
+          const result = this.impl.analyzeObfuscatedRarFile(params.arg_arg_rar_file, params.arg_arg_password, params.arg_arg_header_data, params.arg_arg_temp_file_getter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AnalyzeObfuscatedRarFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] analyzeObfuscatedRarFile FAILED:', e));
           }
           break;
         }
@@ -523,17 +443,6 @@ mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRequest = mojo.internal.b
 
 
 // Interface: TemporaryFileGetter
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParams', [
-      mojo.internal.StructField('arg_temp_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -650,8 +559,11 @@ mojo.internal.bindings.chrome.mojom.TemporaryFileGetterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestTemporaryFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_temp_file' in response) ? response.arg_arg_temp_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestTemporaryFile FAILED:', e));
           }
           break;
         }
@@ -667,4 +579,115 @@ mojo.internal.bindings.chrome.mojom.TemporaryFileGetterReceiver = mojo.internal.
 
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetterPtr = mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote;
 mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRequest = mojo.internal.bindings.chrome.mojom.TemporaryFileGetterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SafeArchiveAnalyzerResults
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, 'chrome.mojom.SafeArchiveAnalyzerResults', [
+    ],
+    [[0, 8]]);
+
+// Struct: ObfuscatedFileUtilHeaderData
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, 'chrome.mojom.ObfuscatedFileUtilHeaderData', [
+      mojo.internal.StructField('arg_derived_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nonce_prefix', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_Params', [
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeZipFile_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_Params', [
+      mojo.internal.StructField('arg_dmg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeDmgFile_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_Params', [
+      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_temp_file_getter', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeRarFile_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_Params', [
+      mojo.internal.StructField('arg_seven_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_temp_file_getter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeSevenZipFile_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_Params', [
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedZipFile_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_Params', [
+      mojo.internal.StructField('arg_rar_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_header_data', 16, 0, mojo.internal.bindings.chrome.mojom.ObfuscatedFileUtilHeaderDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_temp_file_getter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.TemporaryFileGetterRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParamsSpec, 'chrome.mojom.SafeArchiveAnalyzer_AnalyzeObfuscatedRarFile_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParamsSpec, 'chrome.mojom.TemporaryFileGetter_RequestTemporaryFile_ResponseParams', [
+      mojo.internal.StructField('arg_temp_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

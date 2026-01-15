@@ -200,6 +200,8 @@ mojo.internal.bindings.viz.mojom.OverlayPriority = {
   kRequired: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: DrawQuadState
 mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.DrawQuadStateSpec, 'viz.mojom.DrawQuadState', {

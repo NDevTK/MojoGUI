@@ -186,71 +186,7 @@ mojo.internal.bindings.chromecast.mojom.GesturePriority = {
   SETTINGS_UI: 3,
 };
 
-// Struct: CastWebViewParams
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec, 'chromecast.mojom.CastWebViewParams', [
-      mojo.internal.StructField('arg_activity_id', 0, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sdk_version', 16, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_media_access', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_720p_resolution', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_managed', 24, 2, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_log_js_console_messages', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled_for_dev', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_root_window', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_handle_inner_contents', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_media_blocker', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_websql', 25, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_mixer_audio', 25, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_webrtc_allow_legacy_tls_protocols', 25, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_touch_input', 25, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_remote_control_mode', 25, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_turn_on_screen', 25, 5, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_screen_on', 25, 6, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_webui_bindings_permission', 25, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_url_rewrite_rules', 26, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_pool', 28, 0, mojo.internal.bindings.chromecast.mojom.RendererPoolSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_log_prefix', 32, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_shutdown_delay', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prelaunch_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_type', 56, 0, mojo.internal.bindings.chromecast.mojom.RendererTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 60, 0, mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url_filters', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_gesture_priority', 72, 0, mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec, 0, false, 0, undefined),
-    ],
-    [[0, 88]]);
-
 // Interface: CastWebService
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec, 'chromecast.mojom.CastWebService_CreateWebView_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_contents', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_window', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec, 'chromecast.mojom.CastWebService_RegisterWebUiClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_hosts', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec, 'chromecast.mojom.CastWebService_FlushDomLocalStorage_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec, 'chromecast.mojom.CastWebService_ClearLocalStorage_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec, 'chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chromecast.mojom.CastWebServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -405,14 +341,14 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebView');
-          const result = this.impl.createWebView(params.arg_params, params.arg_web_contents, params.arg_window);
+          const result = this.impl.createWebView(params.arg_arg_params, params.arg_arg_web_contents, params.arg_arg_window);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerWebUiClient');
-          const result = this.impl.registerWebUiClient(params.arg_client, params.arg_hosts);
+          const result = this.impl.registerWebUiClient(params.arg_arg_client, params.arg_arg_hosts);
           break;
         }
         case 2: {
@@ -430,8 +366,10 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClearLocalStorage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] clearLocalStorage FAILED:', e));
           }
           break;
         }
@@ -447,4 +385,70 @@ mojo.internal.bindings.chromecast.mojom.CastWebServiceReceiver = mojo.internal.b
 
 mojo.internal.bindings.chromecast.mojom.CastWebServicePtr = mojo.internal.bindings.chromecast.mojom.CastWebServiceRemote;
 mojo.internal.bindings.chromecast.mojom.CastWebServiceRequest = mojo.internal.bindings.chromecast.mojom.CastWebServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CastWebViewParams
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec, 'chromecast.mojom.CastWebViewParams', [
+      mojo.internal.StructField('arg_activity_id', 0, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sdk_version', 16, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_media_access', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_720p_resolution', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_managed', 24, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_log_js_console_messages', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled_for_dev', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_root_window', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_handle_inner_contents', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_media_blocker', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_websql', 25, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_mixer_audio', 25, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_webrtc_allow_legacy_tls_protocols', 25, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_touch_input', 25, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_remote_control_mode', 25, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_turn_on_screen', 25, 5, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_screen_on', 25, 6, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_webui_bindings_permission', 25, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_url_rewrite_rules', 26, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_pool', 28, 0, mojo.internal.bindings.chromecast.mojom.RendererPoolSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_log_prefix', 32, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_shutdown_delay', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prelaunch_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_type', 56, 0, mojo.internal.bindings.chromecast.mojom.RendererTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 60, 0, mojo.internal.bindings.chromecast.mojom.BackgroundColorSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url_filters', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_gesture_priority', 72, 0, mojo.internal.bindings.chromecast.mojom.GesturePrioritySpec, 0, false, 0, undefined),
+    ],
+    [[0, 88]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastWebService_CreateWebView_ParamsSpec, 'chromecast.mojom.CastWebService_CreateWebView_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.chromecast.mojom.CastWebViewParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastWebContentsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_window', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.CastContentWindowRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastWebService_RegisterWebUiClient_ParamsSpec, 'chromecast.mojom.CastWebService_RegisterWebUiClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hosts', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastWebService_FlushDomLocalStorage_ParamsSpec, 'chromecast.mojom.CastWebService_FlushDomLocalStorage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ParamsSpec, 'chromecast.mojom.CastWebService_ClearLocalStorage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParamsSpec, 'chromecast.mojom.CastWebService_ClearLocalStorage_ResponseParams', [
+    ],
+    [[0, 8]]);
 

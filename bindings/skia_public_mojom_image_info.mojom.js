@@ -146,6 +146,8 @@ mojo.internal.bindings.skia.mojom.AlphaType = {
   UNPREMUL: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ImageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.ImageInfoSpec, 'skia.mojom.ImageInfo', [

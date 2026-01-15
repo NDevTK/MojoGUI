@@ -150,6 +150,8 @@ mojo.internal.bindings.blink.mojom.StylusWritingGestureGranularity = {
   WORD: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: StylusWritingGestureData
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.StylusWritingGestureDataSpec, 'blink.mojom.StylusWritingGestureData', [

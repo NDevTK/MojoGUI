@@ -159,17 +159,6 @@ mojo.internal.bindings.ash.local_search_service.mojom.Backend = {
 };
 
 // Interface: SearchMetricsReporter
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_Params', [
-      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -282,12 +271,14 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchPerformed');
-          const result = this.impl.onSearchPerformed(params.arg_index_id);
+          const result = this.impl.onSearchPerformed(params.arg_arg_index_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnSearchPerformed FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onSearchPerformed FAILED:', e));
           }
           break;
         }
@@ -306,21 +297,6 @@ mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterReque
 
 
 // Interface: LocalSearchService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_Params', [
-      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_backend', 4, 0, mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_reporter_remote', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -433,12 +409,15 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindIndex');
-          const result = this.impl.bindIndex(params.arg_index_id, params.arg_backend, params.arg_index_receiver, params.arg_reporter_remote);
+          const result = this.impl.bindIndex(params.arg_arg_index_id, params.arg_arg_backend, params.arg_arg_index_receiver, params.arg_arg_reporter_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] BindIndex FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] bindIndex FAILED:', e));
           }
           break;
         }
@@ -454,4 +433,32 @@ mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceReceiver
 
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServicePtr = mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceRemote;
 mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServiceRequest = mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_Params', [
+      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParamsSpec, 'ash.local_search_service.mojom.SearchMetricsReporter_OnSearchPerformed_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_Params', [
+      mojo.internal.StructField('arg_index_id', 0, 0, mojo.internal.bindings.ash.local_search_service.mojom.IndexIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_backend', 4, 0, mojo.internal.bindings.ash.local_search_service.mojom.BackendSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_index_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.local_search_service.mojom.IndexRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_reporter_remote', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.local_search_service.mojom.SearchMetricsReporterRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParamsSpec, 'ash.local_search_service.mojom.LocalSearchService_BindIndex_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

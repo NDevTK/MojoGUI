@@ -129,3 +129,5 @@ mojo.internal.bindings.lens.mojom.PageContentType = {
   kPdf: 1,
   kHtml: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

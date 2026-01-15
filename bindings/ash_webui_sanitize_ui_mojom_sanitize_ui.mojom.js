@@ -129,11 +129,6 @@ mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetter.$interfaceName = '
 mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec = { $: {} };
 
 // Interface: SettingsResetter
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec, 'ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,4 +256,11 @@ mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterReceiver = mojo.int
 
 mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterPtr = mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterRemote;
 mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterRequest = mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_ParamsSpec, 'ash.sanitize_ui.mojom.SettingsResetter_PerformSanitizeSettings_Params', [
+    ],
+    [[0, 8]]);
 

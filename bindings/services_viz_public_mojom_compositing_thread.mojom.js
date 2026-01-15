@@ -133,6 +133,8 @@ mojo.internal.bindings.viz.mojom.ThreadType = {
   kOther: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Thread
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ThreadSpec, 'viz.mojom.Thread', [

@@ -161,25 +161,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResult = {
   kFailedToActivate: 2,
 };
 
-// Struct: CellularMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec, 'ash.cellular_setup.mojom.CellularMetadata', [
-      mojo.internal.StructField('arg_payment_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_carrier', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_meid', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_imei', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mdn', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: CarrierPortalHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec, 'ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -292,7 +274,7 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCarrierPortalStatusChange');
-          const result = this.impl.onCarrierPortalStatusChange(params.arg_status);
+          const result = this.impl.onCarrierPortalStatusChange(params.arg_arg_status);
           break;
         }
       }
@@ -310,18 +292,6 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRequest = mo
 
 
 // Interface: ActivationDelegate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -448,14 +418,14 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActivationStarted');
-          const result = this.impl.onActivationStarted(params.arg_metadata);
+          const result = this.impl.onActivationStarted(params.arg_arg_metadata);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActivationFinished');
-          const result = this.impl.onActivationFinished(params.arg_result);
+          const result = this.impl.onActivationFinished(params.arg_arg_result);
           break;
         }
       }
@@ -473,18 +443,6 @@ mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRequest = mojo
 
 
 // Interface: CellularSetup
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_Params', [
-      mojo.internal.StructField('arg_delegate', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -597,12 +555,15 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startActivation');
-          const result = this.impl.startActivation(params.arg_delegate);
+          const result = this.impl.startActivation(params.arg_arg_delegate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartActivation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startActivation FAILED:', e));
           }
           break;
         }
@@ -618,4 +579,48 @@ mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupReceiver = mojo.int
 
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupPtr = mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupRemote;
 mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupRequest = mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetupPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CellularMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec, 'ash.cellular_setup.mojom.CellularMetadata', [
+      mojo.internal.StructField('arg_payment_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_carrier', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_meid', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_imei', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mdn', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_ParamsSpec, 'ash.cellular_setup.mojom.CarrierPortalHandler_OnCarrierPortalStatusChange_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationStarted_Params', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.CellularMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_ParamsSpec, 'ash.cellular_setup.mojom.ActivationDelegate_OnActivationFinished_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.cellular_setup.mojom.ActivationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_Params', [
+      mojo.internal.StructField('arg_delegate', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.ActivationDelegateRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParamsSpec, 'ash.cellular_setup.mojom.CellularSetup_StartActivation_ResponseParams', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cellular_setup.mojom.CarrierPortalHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

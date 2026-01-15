@@ -127,14 +127,6 @@ mojo.internal.bindings.viz.mojom.GpuLogging.$interfaceName = 'viz.mojom.GpuLoggi
 mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec = { $: {} };
 
 // Interface: GpuLogging
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec, 'viz.mojom.GpuLogging_RecordLogMessage_Params', [
-      mojo.internal.StructField('arg_severity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_header', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.viz.mojom.GpuLoggingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,7 +239,7 @@ mojo.internal.bindings.viz.mojom.GpuLoggingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordLogMessage');
-          const result = this.impl.recordLogMessage(params.arg_severity, params.arg_header, params.arg_message);
+          const result = this.impl.recordLogMessage(params.arg_arg_severity, params.arg_arg_header, params.arg_arg_message);
           break;
         }
       }
@@ -262,4 +254,14 @@ mojo.internal.bindings.viz.mojom.GpuLoggingReceiver = mojo.internal.bindings.viz
 
 mojo.internal.bindings.viz.mojom.GpuLoggingPtr = mojo.internal.bindings.viz.mojom.GpuLoggingRemote;
 mojo.internal.bindings.viz.mojom.GpuLoggingRequest = mojo.internal.bindings.viz.mojom.GpuLoggingPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuLogging_RecordLogMessage_ParamsSpec, 'viz.mojom.GpuLogging_RecordLogMessage_Params', [
+      mojo.internal.StructField('arg_severity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_header', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojo
 
 mojo.internal.bindings.extensions.mojom.ExtensionIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ExtensionId
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ExtensionIdSpec, 'extensions.mojom.ExtensionId', [

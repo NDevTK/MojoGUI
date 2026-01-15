@@ -133,12 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VizDebugOutput
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec, 'viz.mojom.VizDebugOutput_LogFrame_Params', [
-      mojo.internal.StructField('arg_frameData', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.viz.mojom.VizDebugOutputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.viz.mojom.VizDebugOutputReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logFrame');
-          const result = this.impl.logFrame(params.arg_frameData);
+          const result = this.impl.logFrame(params.arg_arg_frameData);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.viz.mojom.VizDebugOutputReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.viz.mojom.VizDebugOutputPtr = mojo.internal.bindings.viz.mojom.VizDebugOutputRemote;
 mojo.internal.bindings.viz.mojom.VizDebugOutputRequest = mojo.internal.bindings.viz.mojom.VizDebugOutputPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizDebugOutput_LogFrame_ParamsSpec, 'viz.mojom.VizDebugOutput_LogFrame_Params', [
+      mojo.internal.StructField('arg_frameData', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -128,3 +128,5 @@ mojo.internal.bindings.performance_manager.mojom.LifecycleState = {
   kRunning: 0,
   kFrozen: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

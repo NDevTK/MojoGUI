@@ -129,3 +129,5 @@ mojo.internal.bindings.mojo_base.mojom.ProcessPriority = {
   kUserVisible: 1,
   kUserBlocking: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

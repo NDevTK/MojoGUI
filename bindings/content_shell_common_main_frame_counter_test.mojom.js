@@ -128,17 +128,6 @@ mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpe
 mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec = { $: {} };
 
 // Interface: MainFrameCounterTest
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParams', [
-      mojo.internal.StructField('arg_has_main_frame', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.MainFrameCounterTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,8 +244,11 @@ mojo.internal.bindings.content.mojom.MainFrameCounterTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HasMainFrame FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_has_main_frame' in response) ? response.arg_arg_has_main_frame : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hasMainFrame FAILED:', e));
           }
           break;
         }
@@ -272,4 +264,17 @@ mojo.internal.bindings.content.mojom.MainFrameCounterTestReceiver = mojo.interna
 
 mojo.internal.bindings.content.mojom.MainFrameCounterTestPtr = mojo.internal.bindings.content.mojom.MainFrameCounterTestRemote;
 mojo.internal.bindings.content.mojom.MainFrameCounterTestRequest = mojo.internal.bindings.content.mojom.MainFrameCounterTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParamsSpec, 'content.mojom.MainFrameCounterTest_HasMainFrame_ResponseParams', [
+      mojo.internal.StructField('arg_has_main_frame', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

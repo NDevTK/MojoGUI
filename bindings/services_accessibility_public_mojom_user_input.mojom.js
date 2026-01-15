@@ -152,39 +152,7 @@ mojo.internal.bindings.ax.mojom.SyntheticMouseEventButton = {
   kForward: 4,
 };
 
-// Struct: SyntheticKeyEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec, 'ax.mojom.SyntheticKeyEvent', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.EventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.ui.mojom.KeyDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SyntheticMouseEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec, 'ax.mojom.SyntheticMouseEvent', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.EventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_button', 4, 0, mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_accessibility_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_touch_accessibility_$value', originalFieldName: 'arg_touch_accessibility' }),
-      mojo.internal.StructField('arg_touch_accessibility_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_touch_accessibility_$flag', originalFieldName: 'arg_touch_accessibility' }),
-    ],
-    [[0, 32]]);
-
 // Interface: UserInput
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_Params', [
-      mojo.internal.StructField('arg_key_event', 0, 0, mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticMouseEvent_Params', [
-      mojo.internal.StructField('arg_mouse_event', 0, 0, mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ax.mojom.UserInputPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -311,14 +279,14 @@ mojo.internal.bindings.ax.mojom.UserInputReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSyntheticKeyEventForShortcutOrNavigation');
-          const result = this.impl.sendSyntheticKeyEventForShortcutOrNavigation(params.arg_key_event);
+          const result = this.impl.sendSyntheticKeyEventForShortcutOrNavigation(params.arg_arg_key_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendSyntheticMouseEvent');
-          const result = this.impl.sendSyntheticMouseEvent(params.arg_mouse_event);
+          const result = this.impl.sendSyntheticMouseEvent(params.arg_arg_mouse_event);
           break;
         }
       }
@@ -333,4 +301,38 @@ mojo.internal.bindings.ax.mojom.UserInputReceiver = mojo.internal.bindings.ax.mo
 
 mojo.internal.bindings.ax.mojom.UserInputPtr = mojo.internal.bindings.ax.mojom.UserInputRemote;
 mojo.internal.bindings.ax.mojom.UserInputRequest = mojo.internal.bindings.ax.mojom.UserInputPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SyntheticKeyEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec, 'ax.mojom.SyntheticKeyEvent', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.ui.mojom.KeyDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SyntheticMouseEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec, 'ax.mojom.SyntheticMouseEvent', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ui.mojom.EventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 4, 0, mojo.internal.bindings.ax.mojom.SyntheticMouseEventButtonSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_accessibility_$flag', 16, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_touch_accessibility_$value', originalFieldName: 'arg_touch_accessibility' }),
+      mojo.internal.StructField('arg_touch_accessibility_$value', 16, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_touch_accessibility_$flag', originalFieldName: 'arg_touch_accessibility' }),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticKeyEventForShortcutOrNavigation_Params', [
+      mojo.internal.StructField('arg_key_event', 0, 0, mojo.internal.bindings.ax.mojom.SyntheticKeyEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInput_SendSyntheticMouseEvent_ParamsSpec, 'ax.mojom.UserInput_SendSyntheticMouseEvent_Params', [
+      mojo.internal.StructField('arg_mouse_event', 0, 0, mojo.internal.bindings.ax.mojom.SyntheticMouseEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

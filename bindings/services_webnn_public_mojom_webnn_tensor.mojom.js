@@ -152,68 +152,7 @@ mojo.internal.bindings.webnn = mojo.internal.bindings.webnn || {};
 mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec = mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: ReadTensorResult
-mojo.internal.Union(
-    mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec, 'webnn.mojom.ReadTensorResult', {
-      'arg_buffer': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.BigBufferSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.gpu.mojom.ErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: TensorUsage
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.TensorUsageSpec, 'webnn.mojom.TensorUsage', [
-      mojo.internal.StructField('arg_web_gpu_interop', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_read', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_write', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_graph_constant', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: TensorInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.TensorInfoSpec, 'webnn.mojom.TensorInfo', [
-      mojo.internal.StructField('arg_descriptor', 0, 0, mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usage', 8, 0, mojo.internal.bindings.webnn.mojom.TensorUsageSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: WebNNTensor
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_WriteTensor_Params', [
-      mojo.internal.StructField('arg_src_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ExportTensor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ImportTensor_Params', [
-      mojo.internal.StructField('arg_fence', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.webnn.mojom.WebNNTensorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -372,8 +311,11 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReadTensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] readTensor FAILED:', e));
           }
           break;
         }
@@ -381,7 +323,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.writeTensor');
-          const result = this.impl.writeTensor(params.arg_src_buffer);
+          const result = this.impl.writeTensor(params.arg_arg_src_buffer);
           break;
         }
         case 2: {
@@ -395,7 +337,7 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.importTensor');
-          const result = this.impl.importTensor(params.arg_fence);
+          const result = this.impl.importTensor(params.arg_arg_fence);
           break;
         }
       }
@@ -410,4 +352,67 @@ mojo.internal.bindings.webnn.mojom.WebNNTensorReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.webnn.mojom.WebNNTensorPtr = mojo.internal.bindings.webnn.mojom.WebNNTensorRemote;
 mojo.internal.bindings.webnn.mojom.WebNNTensorRequest = mojo.internal.bindings.webnn.mojom.WebNNTensorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: ReadTensorResult
+mojo.internal.Union(
+    mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec, 'webnn.mojom.ReadTensorResult', {
+      'arg_buffer': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.BigBufferSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.gpu.mojom.ErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: TensorUsage
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.TensorUsageSpec, 'webnn.mojom.TensorUsage', [
+      mojo.internal.StructField('arg_web_gpu_interop', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_read', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_write', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_graph_constant', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: TensorInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.TensorInfoSpec, 'webnn.mojom.TensorInfo', [
+      mojo.internal.StructField('arg_descriptor', 0, 0, mojo.internal.bindings.webnn.mojom.OperandDescriptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usage', 8, 0, mojo.internal.bindings.webnn.mojom.TensorUsageSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNTensor_ReadTensor_ResponseParamsSpec, 'webnn.mojom.WebNNTensor_ReadTensor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.ReadTensorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNTensor_WriteTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_WriteTensor_Params', [
+      mojo.internal.StructField('arg_src_buffer', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNTensor_ExportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ExportTensor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNTensor_ImportTensor_ParamsSpec, 'webnn.mojom.WebNNTensor_ImportTensor_Params', [
+      mojo.internal.StructField('arg_fence', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

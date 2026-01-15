@@ -144,3 +144,5 @@ mojo.internal.bindings.device.mojom.ScreenOrientationLockType = {
   PORTRAIT: 7,
   NATURAL: 8,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

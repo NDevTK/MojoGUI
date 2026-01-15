@@ -288,6 +288,8 @@ mojo.internal.bindings.blink.mojom.ParentResourceTimingAccess = {
   kReportWithResponseDetails: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BeginNavigationParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.BeginNavigationParamsSpec, 'blink.mojom.BeginNavigationParams', [

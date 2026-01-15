@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UnguessableToken
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, 'mojo_base.mojom.UnguessableToken', [

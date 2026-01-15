@@ -123,6 +123,8 @@ mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 
 mojo.internal.bindings.skia.mojom.SkPathSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SkPath
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.SkPathSpec, 'skia.mojom.SkPath', [

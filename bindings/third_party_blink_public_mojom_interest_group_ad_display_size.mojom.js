@@ -139,6 +139,8 @@ mojo.internal.bindings.blink.mojom.LengthUnit = {
   kScreenHeight: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AdSize
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdSizeSpec, 'blink.mojom.AdSize', [

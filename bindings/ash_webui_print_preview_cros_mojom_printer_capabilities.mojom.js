@@ -167,6 +167,8 @@ mojo.internal.bindings.ash.printing.print_preview.mojom.PageOrientation = {
   kAuto: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ColorOption
 mojo.internal.Struct(
     mojo.internal.bindings.ash.printing.print_preview.mojom.ColorOptionSpec, 'ash.printing.print_preview.mojom.ColorOption', [

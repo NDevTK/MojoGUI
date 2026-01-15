@@ -234,12 +234,6 @@ mojo.internal.bindings.ash.auth.mojom.PasswordComplexity = {
 };
 
 // Interface: FactorObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec, 'ash.auth.mojom.FactorObserver_OnFactorChanged_Params', [
-      mojo.internal.StructField('arg_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.auth.mojom.FactorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -352,7 +346,7 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFactorChanged');
-          const result = this.impl.onFactorChanged(params.arg_factor);
+          const result = this.impl.onFactorChanged(params.arg_arg_factor);
           break;
         }
       }
@@ -370,70 +364,6 @@ mojo.internal.bindings.ash.auth.mojom.FactorObserverRequest = mojo.internal.bind
 
 
 // Interface: AuthFactorConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.auth.mojom.FactorObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParams', [
-      mojo.internal.StructField('arg_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParams', [
-      mojo.internal.StructField('arg_configured', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParams', [
-      mojo.internal.StructField('arg_management', 0, 0, mojo.internal.bindings.ash.auth.mojom.ManagementTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParams', [
-      mojo.internal.StructField('arg_editable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -616,19 +546,22 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeFactorChanges');
-          const result = this.impl.observeFactorChanges(params.arg_observer);
+          const result = this.impl.observeFactorChanges(params.arg_arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isSupported');
-          const result = this.impl.isSupported(params.arg_auth_token, params.arg_factor);
+          const result = this.impl.isSupported(params.arg_arg_auth_token, params.arg_arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsSupported FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_supported' in response) ? response.arg_arg_supported : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isSupported FAILED:', e));
           }
           break;
         }
@@ -636,12 +569,15 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isConfigured');
-          const result = this.impl.isConfigured(params.arg_auth_token, params.arg_factor);
+          const result = this.impl.isConfigured(params.arg_arg_auth_token, params.arg_arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsConfigured FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_configured' in response) ? response.arg_arg_configured : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isConfigured FAILED:', e));
           }
           break;
         }
@@ -649,12 +585,15 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getManagementType');
-          const result = this.impl.getManagementType(params.arg_auth_token, params.arg_factor);
+          const result = this.impl.getManagementType(params.arg_arg_auth_token, params.arg_arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetManagementType FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_management' in response) ? response.arg_arg_management : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getManagementType FAILED:', e));
           }
           break;
         }
@@ -662,12 +601,15 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isEditable');
-          const result = this.impl.isEditable(params.arg_auth_token, params.arg_factor);
+          const result = this.impl.isEditable(params.arg_arg_auth_token, params.arg_arg_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsEditable FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_editable' in response) ? response.arg_arg_editable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isEditable FAILED:', e));
           }
           break;
         }
@@ -675,7 +617,7 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLocalAuthFactorsComplexity');
-          const result = this.impl.getLocalAuthFactorsComplexity(params.arg_auth_token);
+          const result = this.impl.getLocalAuthFactorsComplexity(params.arg_arg_auth_token);
           break;
         }
       }
@@ -693,19 +635,6 @@ mojo.internal.bindings.ash.auth.mojom.AuthFactorConfigRequest = mojo.internal.bi
 
 
 // Interface: RecoveryFactorEditor
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -818,12 +747,15 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configure');
-          const result = this.impl.configure(params.arg_auth_token, params.arg_enabled);
+          const result = this.impl.configure(params.arg_arg_auth_token, params.arg_arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Configure FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] configure FAILED:', e));
           }
           break;
         }
@@ -842,69 +774,6 @@ mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditorRequest = mojo.interna
 
 
 // Interface: PinFactorEditor
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParams', [
-      mojo.internal.StructField('arg_pin_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParams', [
-      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.auth.mojom.PinFactorEditorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1073,12 +942,15 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPin');
-          const result = this.impl.setPin(params.arg_auth_token, params.arg_pin);
+          const result = this.impl.setPin(params.arg_arg_auth_token, params.arg_arg_pin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetPin FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setPin FAILED:', e));
           }
           break;
         }
@@ -1086,12 +958,15 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePin');
-          const result = this.impl.updatePin(params.arg_auth_token, params.arg_pin);
+          const result = this.impl.updatePin(params.arg_arg_auth_token, params.arg_arg_pin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdatePin FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updatePin FAILED:', e));
           }
           break;
         }
@@ -1099,12 +974,15 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePin');
-          const result = this.impl.removePin(params.arg_auth_token);
+          const result = this.impl.removePin(params.arg_arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemovePin FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removePin FAILED:', e));
           }
           break;
         }
@@ -1112,12 +990,15 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getConfiguredPinFactor');
-          const result = this.impl.getConfiguredPinFactor(params.arg_auth_token);
+          const result = this.impl.getConfiguredPinFactor(params.arg_arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetConfiguredPinFactor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pin_factor' in response) ? response.arg_arg_pin_factor : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getConfiguredPinFactor FAILED:', e));
           }
           break;
         }
@@ -1125,12 +1006,15 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkPinComplexity');
-          const result = this.impl.checkPinComplexity(params.arg_auth_token, params.arg_pin);
+          const result = this.impl.checkPinComplexity(params.arg_arg_auth_token, params.arg_arg_pin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckPinComplexity FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_complexity' in response) ? response.arg_arg_complexity : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkPinComplexity FAILED:', e));
           }
           break;
         }
@@ -1149,82 +1033,6 @@ mojo.internal.bindings.ash.auth.mojom.PinFactorEditorRequest = mojo.internal.bin
 
 
 // Interface: PasswordFactorEditor
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_Params', [
-      mojo.internal.StructField('arg_password', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParams', [
-      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_Params', [
-      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1407,12 +1215,15 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetLocalPassword');
-          const result = this.impl.updateOrSetLocalPassword(params.arg_auth_token, params.arg_new_password);
+          const result = this.impl.updateOrSetLocalPassword(params.arg_arg_auth_token, params.arg_arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateOrSetLocalPassword FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateOrSetLocalPassword FAILED:', e));
           }
           break;
         }
@@ -1420,12 +1231,15 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOrSetOnlinePassword');
-          const result = this.impl.updateOrSetOnlinePassword(params.arg_auth_token, params.arg_new_password);
+          const result = this.impl.updateOrSetOnlinePassword(params.arg_arg_auth_token, params.arg_arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateOrSetOnlinePassword FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateOrSetOnlinePassword FAILED:', e));
           }
           break;
         }
@@ -1433,12 +1247,15 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLocalPassword');
-          const result = this.impl.setLocalPassword(params.arg_auth_token, params.arg_new_password);
+          const result = this.impl.setLocalPassword(params.arg_arg_auth_token, params.arg_arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetLocalPassword FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setLocalPassword FAILED:', e));
           }
           break;
         }
@@ -1446,12 +1263,15 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOnlinePassword');
-          const result = this.impl.setOnlinePassword(params.arg_auth_token, params.arg_new_password);
+          const result = this.impl.setOnlinePassword(params.arg_arg_auth_token, params.arg_arg_new_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetOnlinePassword FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setOnlinePassword FAILED:', e));
           }
           break;
         }
@@ -1459,12 +1279,15 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkLocalPasswordComplexity');
-          const result = this.impl.checkLocalPasswordComplexity(params.arg_password);
+          const result = this.impl.checkLocalPasswordComplexity(params.arg_arg_password);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckLocalPasswordComplexity FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_complexity' in response) ? response.arg_arg_complexity : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkLocalPasswordComplexity FAILED:', e));
           }
           break;
         }
@@ -1472,12 +1295,15 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePassword');
-          const result = this.impl.removePassword(params.arg_auth_token);
+          const result = this.impl.removePassword(params.arg_arg_auth_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemovePassword FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removePassword FAILED:', e));
           }
           break;
         }
@@ -1493,4 +1319,228 @@ mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorReceiver = mojo.intern
 
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorPtr = mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRemote;
 mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorRequest = mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.FactorObserver_OnFactorChanged_ParamsSpec, 'ash.auth.mojom.FactorObserver_OnFactorChanged_Params', [
+      mojo.internal.StructField('arg_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_ObserveFactorChanges_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.auth.mojom.FactorObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsSupported_ResponseParams', [
+      mojo.internal.StructField('arg_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsConfigured_ResponseParams', [
+      mojo.internal.StructField('arg_configured', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetManagementType_ResponseParams', [
+      mojo.internal.StructField('arg_management', 0, 0, mojo.internal.bindings.ash.auth.mojom.ManagementTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_factor', 8, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParamsSpec, 'ash.auth.mojom.AuthFactorConfig_IsEditable_ResponseParams', [
+      mojo.internal.StructField('arg_editable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_ParamsSpec, 'ash.auth.mojom.AuthFactorConfig_GetLocalAuthFactorsComplexity_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParamsSpec, 'ash.auth.mojom.RecoveryFactorEditor_Configure_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_SetPin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_SetPin_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_UpdatePin_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_RemovePin_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_GetConfiguredPinFactor_ResponseParams', [
+      mojo.internal.StructField('arg_pin_factor', 0, 0, mojo.internal.bindings.ash.auth.mojom.AuthFactorSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pin', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParamsSpec, 'ash.auth.mojom.PinFactorEditor_CheckPinComplexity_ResponseParams', [
+      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PinComplexitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetLocalPassword_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_UpdateOrSetOnlinePassword_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetLocalPassword_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_SetOnlinePassword_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_Params', [
+      mojo.internal.StructField('arg_password', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_CheckLocalPasswordComplexity_ResponseParams', [
+      mojo.internal.StructField('arg_complexity', 0, 0, mojo.internal.bindings.ash.auth.mojom.PasswordComplexitySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_Params', [
+      mojo.internal.StructField('arg_auth_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParamsSpec, 'ash.auth.mojom.PasswordFactorEditor_RemovePassword_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.auth.mojom.ConfigureResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

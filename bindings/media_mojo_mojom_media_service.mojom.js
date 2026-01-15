@@ -144,13 +144,6 @@ mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbo
 mojo.internal.bindings.media.mojom.kMediaSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Interface: MediaService
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaService_CreateInterfaceFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.MediaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,7 +256,7 @@ mojo.internal.bindings.media.mojom.MediaServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInterfaceFactory');
-          const result = this.impl.createInterfaceFactory(params.arg_factory, params.arg_frame_interfaces);
+          const result = this.impl.createInterfaceFactory(params.arg_arg_factory, params.arg_arg_frame_interfaces);
           break;
         }
       }
@@ -278,4 +271,13 @@ mojo.internal.bindings.media.mojom.MediaServiceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.media.mojom.MediaServicePtr = mojo.internal.bindings.media.mojom.MediaServiceRemote;
 mojo.internal.bindings.media.mojom.MediaServiceRequest = mojo.internal.bindings.media.mojom.MediaServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaService_CreateInterfaceFactory_Params', [
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

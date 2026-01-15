@@ -279,59 +279,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelState = {
   kFailureDisconnectDuringAuthentication: 16,
 };
 
-// Struct: BluetoothConnectionMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, 'ash.secure_channel.mojom.BluetoothConnectionMetadata', [
-      mojo.internal.StructField('arg_current_rssi', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ConnectionMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec, 'ash.secure_channel.mojom.ConnectionMetadata', [
-      mojo.internal.StructField('arg_creation_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionCreationDetailSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_connection_metadata', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_channel_binding_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: Channel
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec, 'ash.secure_channel.mojom.Channel_SendMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_SendMessage_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.Channel_RegisterPayloadFile_Params', [
-      mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_files', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -472,12 +420,14 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_message);
+          const result = this.impl.sendMessage(params.arg_arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendMessage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendMessage FAILED:', e));
           }
           break;
         }
@@ -485,12 +435,15 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
-          const result = this.impl.registerPayloadFile(params.arg_payload_id, params.arg_payload_files, params.arg_listener);
+          const result = this.impl.registerPayloadFile(params.arg_arg_payload_id, params.arg_arg_payload_files, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RegisterPayloadFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] registerPayloadFile FAILED:', e));
           }
           break;
         }
@@ -502,8 +455,11 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetConnectionMetadata FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_metadata' in response) ? response.arg_arg_metadata : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getConnectionMetadata FAILED:', e));
           }
           break;
         }
@@ -522,12 +478,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.ChannelRequest = mojo.internal.b
 
 
 // Interface: MessageReceiver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec, 'ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -640,7 +590,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageReceived');
-          const result = this.impl.onMessageReceived(params.arg_message);
+          const result = this.impl.onMessageReceived(params.arg_arg_message);
           break;
         }
       }
@@ -658,20 +608,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverRequest = mojo.in
 
 
 // Interface: ConnectionDelegate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec, 'ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec, 'ash.secure_channel.mojom.ConnectionDelegate_OnConnection_Params', [
-      mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_receiver_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_connection_state_listener_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -798,14 +734,14 @@ mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnectionAttemptFailure');
-          const result = this.impl.onConnectionAttemptFailure(params.arg_reason);
+          const result = this.impl.onConnectionAttemptFailure(params.arg_arg_reason);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onConnection');
-          const result = this.impl.onConnection(params.arg_channel, params.arg_message_receiver_receiver, params.arg_nearby_connection_state_listener_receiver);
+          const result = this.impl.onConnection(params.arg_arg_channel, params.arg_arg_message_receiver_receiver, params.arg_arg_nearby_connection_state_listener_receiver);
           break;
         }
       }
@@ -823,26 +759,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRequest = mojo
 
 
 // Interface: SecureChannelStructuredMetricsLogger
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryErrorCodeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_Params', [
-      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -983,21 +899,21 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLo
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logDiscoveryAttempt');
-          const result = this.impl.logDiscoveryAttempt(params.arg_result, params.arg_error_code);
+          const result = this.impl.logDiscoveryAttempt(params.arg_arg_result, params.arg_arg_error_code);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logNearbyConnectionState');
-          const result = this.impl.logNearbyConnectionState(params.arg_step, params.arg_status);
+          const result = this.impl.logNearbyConnectionState(params.arg_arg_step, params.arg_arg_status);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logSecureChannelState');
-          const result = this.impl.logSecureChannelState(params.arg_state);
+          const result = this.impl.logSecureChannelState(params.arg_arg_state);
           break;
         }
       }
@@ -1015,47 +931,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLo
 
 
 // Interface: SecureChannel
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_Params', [
-      mojo.internal.StructField('arg_device_to_connect', 0, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_device', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_medium', 24, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_priority', 28, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_Params', [
-      mojo.internal.StructField('arg_device_to_connect', 0, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_device', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_medium', 24, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_priority', 28, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_channel_structured_metrics_logger', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote), null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_Params', [
-      mojo.internal.StructField('arg_nearby_connector', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_Params', [
-      mojo.internal.StructField('arg_remote_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec, 'ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParams', [
-      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1210,33 +1085,36 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listenForConnectionFromDevice');
-          const result = this.impl.listenForConnectionFromDevice(params.arg_device_to_connect, params.arg_local_device, params.arg_feature, params.arg_connection_medium, params.arg_connection_priority, params.arg_delegate);
+          const result = this.impl.listenForConnectionFromDevice(params.arg_arg_device_to_connect, params.arg_arg_local_device, params.arg_arg_feature, params.arg_arg_connection_medium, params.arg_arg_connection_priority, params.arg_arg_delegate);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiateConnectionToDevice');
-          const result = this.impl.initiateConnectionToDevice(params.arg_device_to_connect, params.arg_local_device, params.arg_feature, params.arg_connection_medium, params.arg_connection_priority, params.arg_delegate, params.arg_secure_channel_structured_metrics_logger);
+          const result = this.impl.initiateConnectionToDevice(params.arg_arg_device_to_connect, params.arg_arg_local_device, params.arg_arg_feature, params.arg_arg_connection_medium, params.arg_arg_connection_priority, params.arg_arg_delegate, params.arg_arg_secure_channel_structured_metrics_logger);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNearbyConnector');
-          const result = this.impl.setNearbyConnector(params.arg_nearby_connector);
+          const result = this.impl.setNearbyConnector(params.arg_arg_nearby_connector);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getLastSeenTimestamp');
-          const result = this.impl.getLastSeenTimestamp(params.arg_remote_device_id);
+          const result = this.impl.getLastSeenTimestamp(params.arg_arg_remote_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetLastSeenTimestamp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_time' in response) ? response.arg_arg_time : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getLastSeenTimestamp FAILED:', e));
           }
           break;
         }
@@ -1252,4 +1130,139 @@ mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelReceiver = mojo.int
 
 mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelPtr = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelRemote;
 mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelRequest = mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BluetoothConnectionMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, 'ash.secure_channel.mojom.BluetoothConnectionMetadata', [
+      mojo.internal.StructField('arg_current_rssi', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ConnectionMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec, 'ash.secure_channel.mojom.ConnectionMetadata', [
+      mojo.internal.StructField('arg_creation_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionCreationDetailSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_connection_metadata', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.BluetoothConnectionMetadataSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_channel_binding_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ParamsSpec, 'ash.secure_channel.mojom.Channel_SendMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.Channel_SendMessage_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_SendMessage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.Channel_RegisterPayloadFile_Params', [
+      mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_files', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_RegisterPayloadFile_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParamsSpec, 'ash.secure_channel.mojom.Channel_GetConnectionMetadata_ResponseParams', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_ParamsSpec, 'ash.secure_channel.mojom.MessageReceiver_OnMessageReceived_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_ParamsSpec, 'ash.secure_channel.mojom.ConnectionDelegate_OnConnectionAttemptFailure_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionAttemptFailureReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegate_OnConnection_ParamsSpec, 'ash.secure_channel.mojom.ConnectionDelegate_OnConnection_Params', [
+      mojo.internal.StructField('arg_channel', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_receiver_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.MessageReceiverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connection_state_listener_receiver', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogDiscoveryAttempt_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.DiscoveryErrorCodeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogNearbyConnectionState_Params', [
+      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_ParamsSpec, 'ash.secure_channel.mojom.SecureChannelStructuredMetricsLogger_LogSecureChannelState_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_ListenForConnectionFromDevice_Params', [
+      mojo.internal.StructField('arg_device_to_connect', 0, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_device', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_medium', 24, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_priority', 28, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_InitiateConnectionToDevice_Params', [
+      mojo.internal.StructField('arg_device_to_connect', 0, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_device', 8, 0, mojo.internal.bindings.ash.multidevice.mojom.RemoteDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_medium', 24, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionMediumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_priority', 28, 0, mojo.internal.bindings.ash.secure_channel.mojom.ConnectionPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.ConnectionDelegateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_channel_structured_metrics_logger', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.SecureChannelStructuredMetricsLoggerRemote), null, true, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_SetNearbyConnector_Params', [
+      mojo.internal.StructField('arg_nearby_connector', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ParamsSpec, 'ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_Params', [
+      mojo.internal.StructField('arg_remote_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParamsSpec, 'ash.secure_channel.mojom.SecureChannel_GetLastSeenTimestamp_ResponseParams', [
+      mojo.internal.StructField('arg_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

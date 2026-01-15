@@ -143,6 +143,8 @@ mojo.internal.bindings.viz.mojom.LetterboxingBehavior = {
   kLetterbox: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BlitRequest
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BlitRequestSpec, 'viz.mojom.BlitRequest', [

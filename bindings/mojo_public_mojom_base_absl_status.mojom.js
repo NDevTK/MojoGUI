@@ -143,3 +143,5 @@ mojo.internal.bindings.mojo_base.mojom.AbslStatusCode = {
   kDataLoss: 15,
   kUnauthenticated: 16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

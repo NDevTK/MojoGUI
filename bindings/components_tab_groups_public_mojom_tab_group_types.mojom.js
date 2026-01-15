@@ -135,3 +135,5 @@ mojo.internal.bindings.tab_groups.mojom.Color = {
   kCyan: 7,
   kOrange: 8,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

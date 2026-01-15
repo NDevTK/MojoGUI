@@ -143,102 +143,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec = mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: FileSystemAccessChangeType
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, 'blink.mojom.FileSystemAccessChangeType', {
-      'arg_appeared': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec,
-        'nullable': false,
-      },
-      'arg_disappeared': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec,
-        'nullable': false,
-      },
-      'arg_errored': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec,
-        'nullable': false,
-      },
-      'arg_modified': {
-        'ordinal': 3,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec,
-        'nullable': false,
-      },
-      'arg_moved': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec,
-        'nullable': false,
-      },
-      'arg_unknown': {
-        'ordinal': 5,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: FileSystemAccessChangeTypeAppeared
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec, 'blink.mojom.FileSystemAccessChangeTypeAppeared', [
-    ],
-    [[0, 8]]);
-
-// Struct: FileSystemAccessChangeTypeDisappeared
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec, 'blink.mojom.FileSystemAccessChangeTypeDisappeared', [
-    ],
-    [[0, 8]]);
-
-// Struct: FileSystemAccessChangeTypeErrored
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec, 'blink.mojom.FileSystemAccessChangeTypeErrored', [
-    ],
-    [[0, 8]]);
-
-// Struct: FileSystemAccessChangeTypeModified
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec, 'blink.mojom.FileSystemAccessChangeTypeModified', [
-    ],
-    [[0, 8]]);
-
-// Struct: FileSystemAccessChangeTypeMoved
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec, 'blink.mojom.FileSystemAccessChangeTypeMoved', [
-      mojo.internal.StructField('arg_former_relative_path', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FileSystemAccessChangeTypeUnknown
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec, 'blink.mojom.FileSystemAccessChangeTypeUnknown', [
-    ],
-    [[0, 8]]);
-
-// Struct: FileSystemAccessChangeMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec, 'blink.mojom.FileSystemAccessChangeMetadata', [
-      mojo.internal.StructField('arg_root', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_changed_entry', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_path', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: FileSystemAccessChange
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec, 'blink.mojom.FileSystemAccessChange', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: FileSystemAccessObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec, 'blink.mojom.FileSystemAccessObserver_OnFileChanges_Params', [
-      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -351,7 +256,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFileChanges');
-          const result = this.impl.onFileChanges(params.arg_changes);
+          const result = this.impl.onFileChanges(params.arg_arg_changes);
           break;
         }
       }
@@ -366,4 +271,101 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverReceiver = mojo.inter
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverPtr = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote;
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRequest = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: FileSystemAccessChangeType
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, 'blink.mojom.FileSystemAccessChangeType', {
+      'arg_appeared': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec,
+        'nullable': false,
+      },
+      'arg_disappeared': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec,
+        'nullable': false,
+      },
+      'arg_errored': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec,
+        'nullable': false,
+      },
+      'arg_modified': {
+        'ordinal': 3,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec,
+        'nullable': false,
+      },
+      'arg_moved': {
+        'ordinal': 4,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec,
+        'nullable': false,
+      },
+      'arg_unknown': {
+        'ordinal': 5,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: FileSystemAccessChangeTypeAppeared
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeAppearedSpec, 'blink.mojom.FileSystemAccessChangeTypeAppeared', [
+    ],
+    [[0, 8]]);
+
+// Struct: FileSystemAccessChangeTypeDisappeared
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeDisappearedSpec, 'blink.mojom.FileSystemAccessChangeTypeDisappeared', [
+    ],
+    [[0, 8]]);
+
+// Struct: FileSystemAccessChangeTypeErrored
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeErroredSpec, 'blink.mojom.FileSystemAccessChangeTypeErrored', [
+    ],
+    [[0, 8]]);
+
+// Struct: FileSystemAccessChangeTypeModified
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeModifiedSpec, 'blink.mojom.FileSystemAccessChangeTypeModified', [
+    ],
+    [[0, 8]]);
+
+// Struct: FileSystemAccessChangeTypeMoved
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeMovedSpec, 'blink.mojom.FileSystemAccessChangeTypeMoved', [
+      mojo.internal.StructField('arg_former_relative_path', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FileSystemAccessChangeTypeUnknown
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeUnknownSpec, 'blink.mojom.FileSystemAccessChangeTypeUnknown', [
+    ],
+    [[0, 8]]);
+
+// Struct: FileSystemAccessChangeMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec, 'blink.mojom.FileSystemAccessChangeMetadata', [
+      mojo.internal.StructField('arg_root', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_changed_entry', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_path', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: FileSystemAccessChange
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec, 'blink.mojom.FileSystemAccessChange', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessChangeTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessObserver_OnFileChanges_ParamsSpec, 'blink.mojom.FileSystemAccessObserver_OnFileChanges_Params', [
+      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessChangeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

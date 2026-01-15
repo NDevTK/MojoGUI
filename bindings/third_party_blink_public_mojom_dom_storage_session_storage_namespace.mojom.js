@@ -127,12 +127,6 @@ mojo.internal.bindings.blink.mojom.SessionStorageNamespace.$interfaceName = 'bli
 mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec = { $: {} };
 
 // Interface: SessionStorageNamespace
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec, 'blink.mojom.SessionStorageNamespace_Clone_Params', [
-      mojo.internal.StructField('arg_clone_to_namespace', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.SessionStorageNamespacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.blink.mojom.SessionStorageNamespaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_clone_to_namespace);
+          const result = this.impl.clone(params.arg_arg_clone_to_namespace);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.blink.mojom.SessionStorageNamespaceReceiver = mojo.intern
 
 mojo.internal.bindings.blink.mojom.SessionStorageNamespacePtr = mojo.internal.bindings.blink.mojom.SessionStorageNamespaceRemote;
 mojo.internal.bindings.blink.mojom.SessionStorageNamespaceRequest = mojo.internal.bindings.blink.mojom.SessionStorageNamespacePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SessionStorageNamespace_Clone_ParamsSpec, 'blink.mojom.SessionStorageNamespace_Clone_Params', [
+      mojo.internal.StructField('arg_clone_to_namespace', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

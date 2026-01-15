@@ -126,3 +126,5 @@ mojo.internal.bindings.ui.mojom.ScrollGranularitySpec = { $: mojo.internal.Enum(
 // Enum: ScrollGranularity
 mojo.internal.bindings.ui.mojom.ScrollGranularity = {
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

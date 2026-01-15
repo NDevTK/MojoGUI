@@ -145,6 +145,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec = mojo.internal.bindings.network.mojom.TrustTokenOperationStatusSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BlockedByResponseReasonWrapper
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.BlockedByResponseReasonWrapperSpec, 'network.mojom.BlockedByResponseReasonWrapper', [

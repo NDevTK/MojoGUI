@@ -135,6 +135,8 @@ mojo.internal.bindings.blink.mojom.AIManagerCreateClientError = {
   kUnsupportedLanguage: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AILanguageCode
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, 'blink.mojom.AILanguageCode', [

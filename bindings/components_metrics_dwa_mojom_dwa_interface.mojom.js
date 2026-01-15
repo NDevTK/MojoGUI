@@ -135,16 +135,6 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactorySpec = { $ : {} };
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory.$interfaceName = 'metrics.dwa.mojom.DwaRecorderFactory';
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec = { $: {} };
 
-// Struct: DwaEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec, 'metrics.dwa.mojom.DwaEntry', [
-      mojo.internal.StructField('arg_event_hash', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_hash', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_studies_of_interest', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_metrics', 24, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: DwaRecorderClientInterface
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
@@ -255,12 +245,6 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRequest = moj
 
 
 // Interface: DwaRecorderInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -373,7 +357,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
-          const result = this.impl.addEntry(params.arg_entry);
+          const result = this.impl.addEntry(params.arg_arg_entry);
           break;
         }
       }
@@ -391,13 +375,6 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRequest = mojo.inte
 
 
 // Interface: DwaRecorderFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -510,7 +487,7 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDwaRecorder');
-          const result = this.impl.createDwaRecorder(params.arg_receiver, params.arg_client_remote);
+          const result = this.impl.createDwaRecorder(params.arg_arg_receiver, params.arg_arg_client_remote);
           break;
         }
       }
@@ -525,4 +502,29 @@ mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryReceiver = mojo.inter
 
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryPtr = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryRemote;
 mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryRequest = mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DwaEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec, 'metrics.dwa.mojom.DwaEntry', [
+      mojo.internal.StructField('arg_event_hash', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_hash', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_studies_of_interest', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Bool, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metrics', 24, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterface_AddEntry_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderInterface_AddEntry_Params', [
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.metrics.dwa.mojom.DwaEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_ParamsSpec, 'metrics.dwa.mojom.DwaRecorderFactory_CreateDwaRecorder_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.dwa.mojom.DwaRecorderClientInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

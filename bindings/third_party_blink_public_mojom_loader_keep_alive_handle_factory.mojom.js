@@ -133,12 +133,6 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleSpec = mojo.internal.bindings.
 mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote = mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote || class {};
 
 // Interface: KeepAliveHandleFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec, 'blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_Params', [
-      mojo.internal.StructField('arg_keep_alive_handle', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.issueKeepAliveHandle');
-          const result = this.impl.issueKeepAliveHandle(params.arg_keep_alive_handle);
+          const result = this.impl.issueKeepAliveHandle(params.arg_arg_keep_alive_handle);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryReceiver = mojo.interna
 
 mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryPtr = mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryRemote;
 mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryRequest = mojo.internal.bindings.blink.mojom.KeepAliveHandleFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_ParamsSpec, 'blink.mojom.KeepAliveHandleFactory_IssueKeepAliveHandle_Params', [
+      mojo.internal.StructField('arg_keep_alive_handle', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

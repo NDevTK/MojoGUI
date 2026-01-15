@@ -156,12 +156,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,7 +268,7 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -292,86 +286,6 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactoryRequest = mojo.i
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParams', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParams', [
-      mojo.internal.StructField('arg_writable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParams', [
-      mojo.internal.StructField('arg_writable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_header', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -572,8 +486,11 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenFeedbackDialog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error_message' in response) ? response.arg_arg_error_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openFeedbackDialog FAILED:', e));
           }
           break;
         }
@@ -585,8 +502,10 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ToggleBrowserFullscreenMode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] toggleBrowserFullscreenMode FAILED:', e));
           }
           break;
         }
@@ -598,8 +517,10 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MaybeTriggerPdfHats FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] maybeTriggerPdfHats FAILED:', e));
           }
           break;
         }
@@ -607,12 +528,15 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isFileArcWritable');
-          const result = this.impl.isFileArcWritable(params.arg_token);
+          const result = this.impl.isFileArcWritable(params.arg_arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsFileArcWritable FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_writable' in response) ? response.arg_arg_writable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isFileArcWritable FAILED:', e));
           }
           break;
         }
@@ -620,12 +544,15 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isFileBrowserWritable');
-          const result = this.impl.isFileBrowserWritable(params.arg_token);
+          const result = this.impl.isFileBrowserWritable(params.arg_arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsFileBrowserWritable FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_writable' in response) ? response.arg_arg_writable : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isFileBrowserWritable FAILED:', e));
           }
           break;
         }
@@ -633,12 +560,14 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.editInPhotos');
-          const result = this.impl.editInPhotos(params.arg_token, params.arg_mime_type);
+          const result = this.impl.editInPhotos(params.arg_arg_token, params.arg_arg_mime_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EditInPhotos FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] editInPhotos FAILED:', e));
           }
           break;
         }
@@ -646,12 +575,14 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitForm');
-          const result = this.impl.submitForm(params.arg_url, params.arg_payload, params.arg_header);
+          const result = this.impl.submitForm(params.arg_arg_url, params.arg_arg_payload, params.arg_arg_header);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SubmitForm FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] submitForm FAILED:', e));
           }
           break;
         }
@@ -667,4 +598,92 @@ mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerReceiver = mojo.interna
 
 mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerPtr = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemote;
 mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRequest = mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.media_app_ui.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.media_app_ui.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_OpenFeedbackDialog_ResponseParams', [
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_ToggleBrowserFullscreenMode_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_MaybeTriggerPdfHats_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileArcWritable_ResponseParams', [
+      mojo.internal.StructField('arg_writable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_IsFileBrowserWritable_ResponseParams', [
+      mojo.internal.StructField('arg_writable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_EditInPhotos_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payload', 8, 0, mojo.internal.Array(mojo.internal.Int8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_header', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParamsSpec, 'ash.media_app_ui.mojom.PageHandler_SubmitForm_ResponseParams', [
+    ],
+    [[0, 8]]);
 

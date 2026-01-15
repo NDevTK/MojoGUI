@@ -143,6 +143,8 @@ mojo.internal.bindings.ash.local_search_service.mojom.ResponseStatus = {
   kEmptyIndex: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Content
 mojo.internal.Struct(
     mojo.internal.bindings.ash.local_search_service.mojom.ContentSpec, 'ash.local_search_service.mojom.Content', [

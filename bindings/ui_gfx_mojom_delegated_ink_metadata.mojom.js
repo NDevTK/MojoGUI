@@ -139,6 +139,8 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DelegatedInkMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec, 'gfx.mojom.DelegatedInkMetadata', [

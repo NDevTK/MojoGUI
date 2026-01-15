@@ -136,6 +136,8 @@ mojo.internal.bindings.network.mojom.Type = {
   KEEP_MATCHES: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ClearDataFilter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ClearDataFilterSpec, 'network.mojom.ClearDataFilter', [

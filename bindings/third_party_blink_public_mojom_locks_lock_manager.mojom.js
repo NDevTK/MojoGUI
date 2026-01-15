@@ -152,15 +152,6 @@ mojo.internal.bindings.blink.mojom.WaitMode = {
   PREEMPT: 2,
 };
 
-// Struct: LockInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockInfoSpec, 'blink.mojom.LockInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: LockHandle
 mojo.internal.bindings.blink.mojom.LockHandlePendingReceiver = class {
   constructor(handle) {
@@ -271,17 +262,6 @@ mojo.internal.bindings.blink.mojom.LockHandleRequest = mojo.internal.bindings.bl
 
 
 // Interface: LockRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec, 'blink.mojom.LockRequest_Granted_Params', [
-      mojo.internal.StructField('arg_lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockHandleRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec, 'blink.mojom.LockRequest_Failed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.LockRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -408,7 +388,7 @@ mojo.internal.bindings.blink.mojom.LockRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.granted');
-          const result = this.impl.granted(params.arg_lock_handle);
+          const result = this.impl.granted(params.arg_arg_lock_handle);
           break;
         }
         case 1: {
@@ -433,27 +413,6 @@ mojo.internal.bindings.blink.mojom.LockRequestRequest = mojo.internal.bindings.b
 
 
 // Interface: LockManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec, 'blink.mojom.LockManager_RequestLock_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wait', 12, 0, mojo.internal.bindings.blink.mojom.WaitModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockRequestRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec, 'blink.mojom.LockManager_QueryState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec, 'blink.mojom.LockManager_QueryState_ResponseParams', [
-      mojo.internal.StructField('arg_requested', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_held', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.LockManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -580,7 +539,7 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestLock');
-          const result = this.impl.requestLock(params.arg_name, params.arg_mode, params.arg_wait, params.arg_request);
+          const result = this.impl.requestLock(params.arg_arg_name, params.arg_arg_mode, params.arg_arg_wait, params.arg_arg_request);
           break;
         }
         case 1: {
@@ -591,8 +550,10 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec.$.structSpec, ['response.arg_arg_requested', 'response.arg_arg_held']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryState FAILED:', e));
           }
           break;
         }
@@ -608,4 +569,47 @@ mojo.internal.bindings.blink.mojom.LockManagerReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.blink.mojom.LockManagerPtr = mojo.internal.bindings.blink.mojom.LockManagerRemote;
 mojo.internal.bindings.blink.mojom.LockManagerRequest = mojo.internal.bindings.blink.mojom.LockManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: LockInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockInfoSpec, 'blink.mojom.LockInfo', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockRequest_Granted_ParamsSpec, 'blink.mojom.LockRequest_Granted_Params', [
+      mojo.internal.StructField('arg_lock_handle', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockRequest_Failed_ParamsSpec, 'blink.mojom.LockRequest_Failed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockManager_RequestLock_ParamsSpec, 'blink.mojom.LockManager_RequestLock_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 8, 0, mojo.internal.bindings.blink.mojom.LockModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wait', 12, 0, mojo.internal.bindings.blink.mojom.WaitModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 16, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.LockRequestRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockManager_QueryState_ParamsSpec, 'blink.mojom.LockManager_QueryState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockManager_QueryState_ResponseParamsSpec, 'blink.mojom.LockManager_QueryState_ResponseParams', [
+      mojo.internal.StructField('arg_requested', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_held', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.LockInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

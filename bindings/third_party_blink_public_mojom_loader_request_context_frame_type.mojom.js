@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.RequestContextFrameType = {
   kNone: 2,
   kTopLevel: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

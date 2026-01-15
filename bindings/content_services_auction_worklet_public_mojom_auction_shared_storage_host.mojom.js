@@ -149,21 +149,6 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunction = {
 };
 
 // Interface: AuctionSharedStorageHost
-mojo.internal.Struct(
-    mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_Params', [
-      mojo.internal.StructField('arg_method_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_auction_worklet_function', 8, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_Params', [
-      mojo.internal.StructField('arg_methods_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_source_auction_worklet_function', 16, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,14 +275,14 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageUpdate');
-          const result = this.impl.sharedStorageUpdate(params.arg_method_with_options, params.arg_source_auction_worklet_function);
+          const result = this.impl.sharedStorageUpdate(params.arg_arg_method_with_options, params.arg_arg_source_auction_worklet_function);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sharedStorageBatchUpdate');
-          const result = this.impl.sharedStorageBatchUpdate(params.arg_methods_with_options, params.arg_with_lock, params.arg_source_auction_worklet_function);
+          const result = this.impl.sharedStorageBatchUpdate(params.arg_arg_methods_with_options, params.arg_arg_with_lock, params.arg_arg_source_auction_worklet_function);
           break;
         }
       }
@@ -312,4 +297,21 @@ mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostReceiver = 
 
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostPtr = mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRemote;
 mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostRequest = mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageUpdate_Params', [
+      mojo.internal.StructField('arg_method_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageModifierMethodWithOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_auction_worklet_function', 8, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_ParamsSpec, 'auction_worklet.mojom.AuctionSharedStorageHost_SharedStorageBatchUpdate_Params', [
+      mojo.internal.StructField('arg_methods_with_options', 0, 0, mojo.internal.bindings.network.mojom.SharedStorageBatchUpdateMethodsArgumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_with_lock', 8, 0, mojo.internal.bindings.network.mojom.LockNameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_source_auction_worklet_function', 16, 0, mojo.internal.bindings.auction_worklet.mojom.AuctionWorkletFunctionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

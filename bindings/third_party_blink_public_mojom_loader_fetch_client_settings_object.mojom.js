@@ -140,6 +140,8 @@ mojo.internal.bindings.blink.mojom.InsecureRequestsPolicy = {
   kUpgrade: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FetchClientSettingsObject
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, 'blink.mojom.FetchClientSettingsObject', [

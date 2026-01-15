@@ -136,31 +136,6 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec = mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: InfoCollectionGpuService
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams', [
-      mojo.internal.StructField('arg_d3d12_feature_level', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_highest_shader_model_version', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_directml_feature_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_perf_info', 16, 0, mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParams', [
-      mojo.internal.StructField('arg_vulkan_version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,8 +266,10 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetGpuSupportedDirectXVersionAndDevicePerfInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_d3d12_feature_level', 'response.arg_arg_highest_shader_model_version', 'response.arg_arg_directml_feature_level', 'response.arg_arg_device_perf_info']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getGpuSupportedDirectXVersionAndDevicePerfInfo FAILED:', e));
           }
           break;
         }
@@ -304,8 +281,11 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetGpuSupportedVulkanVersionInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_vulkan_version' in response) ? response.arg_arg_vulkan_version : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getGpuSupportedVulkanVersionInfo FAILED:', e));
           }
           break;
         }
@@ -321,4 +301,31 @@ mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceReceiver = mojo.interna
 
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuServicePtr = mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote;
 mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRequest = mojo.internal.bindings.viz.mojom.InfoCollectionGpuServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedDirectXVersionAndDevicePerfInfo_ResponseParams', [
+      mojo.internal.StructField('arg_d3d12_feature_level', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_highest_shader_model_version', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_directml_feature_level', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_perf_info', 16, 0, mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParamsSpec, 'viz.mojom.InfoCollectionGpuService_GetGpuSupportedVulkanVersionInfo_ResponseParams', [
+      mojo.internal.StructField('arg_vulkan_version', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -134,6 +134,8 @@ mojo.internal.bindings.blink.mojom.MediaPlayerActionType = {
   kDefaultActionType: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: MediaPlayerAction
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.MediaPlayerActionSpec, 'blink.mojom.MediaPlayerAction', [

@@ -123,6 +123,8 @@ mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 
 mojo.internal.bindings.skia.mojom.SkColorSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SkColor
 mojo.internal.Struct(
     mojo.internal.bindings.skia.mojom.SkColorSpec, 'skia.mojom.SkColor', [

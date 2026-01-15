@@ -145,15 +145,6 @@ mojo.internal.bindings.infobar_internals.mojom.InfoBarType = {
   kSessionRestore: 2,
 };
 
-// Struct: InfoBarEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec, 'infobar_internals.mojom.InfoBarEntry', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: Page
 mojo.internal.bindings.infobar_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
@@ -264,29 +255,6 @@ mojo.internal.bindings.infobar_internals.mojom.PageRequest = mojo.internal.bindi
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParams', [
-      mojo.internal.StructField('arg_infobars', 0, 0, mojo.internal.Array(mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec, 'infobar_internals.mojom.PageHandler_TriggerInfoBar_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec, 'infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -417,8 +385,11 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInfoBars FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_infobars' in response) ? response.arg_arg_infobars : response;
+              encoder.encodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInfoBars FAILED:', e));
           }
           break;
         }
@@ -426,12 +397,15 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerInfoBar');
-          const result = this.impl.triggerInfoBar(params.arg_type);
+          const result = this.impl.triggerInfoBar(params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TriggerInfoBar FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] triggerInfoBar FAILED:', e));
           }
           break;
         }
@@ -450,13 +424,6 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerRequest = mojo.interna
 
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.infobar_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -569,7 +536,7 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -584,4 +551,45 @@ mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryReceiver = mojo
 
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryPtr = mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryRemote;
 mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryRequest = mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: InfoBarEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec, 'infobar_internals.mojom.InfoBarEntry', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParamsSpec, 'infobar_internals.mojom.PageHandler_GetInfoBars_ResponseParams', [
+      mojo.internal.StructField('arg_infobars', 0, 0, mojo.internal.Array(mojo.internal.bindings.infobar_internals.mojom.InfoBarEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ParamsSpec, 'infobar_internals.mojom.PageHandler_TriggerInfoBar_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.infobar_internals.mojom.InfoBarTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParamsSpec, 'infobar_internals.mojom.PageHandler_TriggerInfoBar_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'infobar_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.infobar_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.infobar_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

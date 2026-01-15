@@ -134,12 +134,6 @@ mojo.internal.bindings.ax.mojom.AutomationSpec = mojo.internal.bindings.ax.mojom
 mojo.internal.bindings.ax.mojom.AutomationRemote = mojo.internal.bindings.ax.mojom.AutomationRemote || class {};
 
 // Interface: RendererAutomationRegistry
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec, 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params', [
-      mojo.internal.StructField('arg_automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ax.mojom.AutomationRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +246,7 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAutomation');
-          const result = this.impl.bindAutomation(params.arg_automation);
+          const result = this.impl.bindAutomation(params.arg_arg_automation);
           break;
         }
       }
@@ -267,4 +261,12 @@ mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryReceiver = moj
 
 mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryPtr = mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryRemote;
 mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryRequest = mojo.internal.bindings.extensions.mojom.RendererAutomationRegistryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.RendererAutomationRegistry_BindAutomation_ParamsSpec, 'extensions.mojom.RendererAutomationRegistry_BindAutomation_Params', [
+      mojo.internal.StructField('arg_automation', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ax.mojom.AutomationRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

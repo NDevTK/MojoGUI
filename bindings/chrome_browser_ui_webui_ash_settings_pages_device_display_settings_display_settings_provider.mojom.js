@@ -191,31 +191,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOption = {
   k270Degree: 4,
 };
 
-// Struct: DisplaySettingsValue
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec, 'ash.settings.mojom.DisplaySettingsValue', [
-      mojo.internal.StructField('arg_is_internal_display_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_internal_display_$value', originalFieldName: 'arg_is_internal_display' }),
-      mojo.internal.StructField('arg_is_internal_display_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_internal_display_$flag', originalFieldName: 'arg_is_internal_display' }),
-      mojo.internal.StructField('arg_display_id_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_id_$value', originalFieldName: 'arg_display_id' }),
-      mojo.internal.StructField('arg_night_light_status_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_night_light_status_$value', originalFieldName: 'arg_night_light_status' }),
-      mojo.internal.StructField('arg_night_light_status_$value', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_night_light_status_$flag', originalFieldName: 'arg_night_light_status' }),
-      mojo.internal.StructField('arg_mirror_mode_status_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_mirror_mode_status_$value', originalFieldName: 'arg_mirror_mode_status' }),
-      mojo.internal.StructField('arg_mirror_mode_status_$value', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_mirror_mode_status_$flag', originalFieldName: 'arg_mirror_mode_status' }),
-      mojo.internal.StructField('arg_unified_mode_status_$flag', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_unified_mode_status_$value', originalFieldName: 'arg_unified_mode_status' }),
-      mojo.internal.StructField('arg_unified_mode_status_$value', 1, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_unified_mode_status_$flag', originalFieldName: 'arg_unified_mode_status' }),
-      mojo.internal.StructField('arg_orientation', 4, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_id_$flag', originalFieldName: 'arg_display_id' }),
-      mojo.internal.StructField('arg_night_light_schedule', 16, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: TabletModeObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec, 'ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_Params', [
-      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.mojom.TabletModeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,7 +304,7 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
-          const result = this.impl.onTabletModeChanged(params.arg_is_tablet_mode);
+          const result = this.impl.onTabletModeChanged(params.arg_arg_is_tablet_mode);
           break;
         }
       }
@@ -346,11 +322,6 @@ mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRequest = mojo.inter
 
 
 // Interface: DisplayConfigurationObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec, 'ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -481,13 +452,6 @@ mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRequest = 
 
 
 // Interface: DisplayBrightnessSettingsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec, 'ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_Params', [
-      mojo.internal.StructField('arg_brightness_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_triggered_by_als', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -600,7 +564,7 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayBrightnessChanged');
-          const result = this.impl.onDisplayBrightnessChanged(params.arg_brightness_percent, params.arg_triggered_by_als);
+          const result = this.impl.onDisplayBrightnessChanged(params.arg_arg_brightness_percent, params.arg_arg_triggered_by_als);
           break;
         }
       }
@@ -618,12 +582,6 @@ mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverReque
 
 
 // Interface: AmbientLightSensorObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec, 'ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_Params', [
-      mojo.internal.StructField('arg_is_ambient_light_sensor_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -736,7 +694,7 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAmbientLightSensorEnabledChanged');
-          const result = this.impl.onAmbientLightSensorEnabledChanged(params.arg_is_ambient_light_sensor_enabled);
+          const result = this.impl.onAmbientLightSensorEnabledChanged(params.arg_arg_is_ambient_light_sensor_enabled);
           break;
         }
       }
@@ -754,89 +712,6 @@ mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRequest = mo
 
 
 // Interface: DisplaySettingsProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParams', [
-      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParams', [
-      mojo.internal.StructField('arg_brightness_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParams', [
-      mojo.internal.StructField('arg_is_ambient_light_sensor_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_Params', [
-      mojo.internal.StructField('arg_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParams', [
-      mojo.internal.StructField('arg_has_ambient_light_sensor', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1075,12 +950,15 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeTabletMode');
-          const result = this.impl.observeTabletMode(params.arg_observer);
+          const result = this.impl.observeTabletMode(params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ObserveTabletMode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_tablet_mode' in response) ? response.arg_arg_is_tablet_mode : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] observeTabletMode FAILED:', e));
           }
           break;
         }
@@ -1088,19 +966,22 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayConfiguration');
-          const result = this.impl.observeDisplayConfiguration(params.arg_observer);
+          const result = this.impl.observeDisplayConfiguration(params.arg_arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeDisplayBrightnessSettings');
-          const result = this.impl.observeDisplayBrightnessSettings(params.arg_observer);
+          const result = this.impl.observeDisplayBrightnessSettings(params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ObserveDisplayBrightnessSettings FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_brightness_percent' in response) ? response.arg_arg_brightness_percent : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] observeDisplayBrightnessSettings FAILED:', e));
           }
           break;
         }
@@ -1108,12 +989,15 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeAmbientLightSensor');
-          const result = this.impl.observeAmbientLightSensor(params.arg_observer);
+          const result = this.impl.observeAmbientLightSensor(params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ObserveAmbientLightSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_ambient_light_sensor_enabled' in response) ? response.arg_arg_is_ambient_light_sensor_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] observeAmbientLightSensor FAILED:', e));
           }
           break;
         }
@@ -1121,28 +1005,28 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordChangingDisplaySettings');
-          const result = this.impl.recordChangingDisplaySettings(params.arg_type, params.arg_value);
+          const result = this.impl.recordChangingDisplaySettings(params.arg_arg_type, params.arg_arg_value);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShinyPerformance');
-          const result = this.impl.setShinyPerformance(params.arg_enabled);
+          const result = this.impl.setShinyPerformance(params.arg_arg_enabled);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayScreenBrightness');
-          const result = this.impl.setInternalDisplayScreenBrightness(params.arg_percent);
+          const result = this.impl.setInternalDisplayScreenBrightness(params.arg_arg_percent);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInternalDisplayAmbientLightSensorEnabled');
-          const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.arg_enabled);
+          const result = this.impl.setInternalDisplayAmbientLightSensorEnabled(params.arg_arg_enabled);
           break;
         }
         case 8: {
@@ -1160,8 +1044,11 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HasAmbientLightSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_has_ambient_light_sensor' in response) ? response.arg_arg_has_ambient_light_sensor : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hasAmbientLightSensor FAILED:', e));
           }
           break;
         }
@@ -1177,4 +1064,131 @@ mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderReceiver = mojo
 
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderPtr = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRemote;
 mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderRequest = mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DisplaySettingsValue
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec, 'ash.settings.mojom.DisplaySettingsValue', [
+      mojo.internal.StructField('arg_is_internal_display_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_internal_display_$value', originalFieldName: 'arg_is_internal_display' }),
+      mojo.internal.StructField('arg_is_internal_display_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_internal_display_$flag', originalFieldName: 'arg_is_internal_display' }),
+      mojo.internal.StructField('arg_display_id_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_display_id_$value', originalFieldName: 'arg_display_id' }),
+      mojo.internal.StructField('arg_night_light_status_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_night_light_status_$value', originalFieldName: 'arg_night_light_status' }),
+      mojo.internal.StructField('arg_night_light_status_$value', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_night_light_status_$flag', originalFieldName: 'arg_night_light_status' }),
+      mojo.internal.StructField('arg_mirror_mode_status_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_mirror_mode_status_$value', originalFieldName: 'arg_mirror_mode_status' }),
+      mojo.internal.StructField('arg_mirror_mode_status_$value', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_mirror_mode_status_$flag', originalFieldName: 'arg_mirror_mode_status' }),
+      mojo.internal.StructField('arg_unified_mode_status_$flag', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_unified_mode_status_$value', originalFieldName: 'arg_unified_mode_status' }),
+      mojo.internal.StructField('arg_unified_mode_status_$value', 1, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_unified_mode_status_$flag', originalFieldName: 'arg_unified_mode_status' }),
+      mojo.internal.StructField('arg_orientation', 4, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsOrientationOptionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_display_id_$flag', originalFieldName: 'arg_display_id' }),
+      mojo.internal.StructField('arg_night_light_schedule', 16, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsNightLightScheduleOptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_ParamsSpec, 'ash.settings.mojom.TabletModeObserver_OnTabletModeChanged_Params', [
+      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_ParamsSpec, 'ash.settings.mojom.DisplayConfigurationObserver_OnDisplayConfigurationChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_ParamsSpec, 'ash.settings.mojom.DisplayBrightnessSettingsObserver_OnDisplayBrightnessChanged_Params', [
+      mojo.internal.StructField('arg_brightness_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_triggered_by_als', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_ParamsSpec, 'ash.settings.mojom.AmbientLightSensorObserver_OnAmbientLightSensorEnabledChanged_Params', [
+      mojo.internal.StructField('arg_is_ambient_light_sensor_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.TabletModeObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveTabletMode_ResponseParams', [
+      mojo.internal.StructField('arg_is_tablet_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayConfiguration_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayConfigurationObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.DisplayBrightnessSettingsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveDisplayBrightnessSettings_ResponseParams', [
+      mojo.internal.StructField('arg_brightness_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.AmbientLightSensorObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_ObserveAmbientLightSensor_ResponseParams', [
+      mojo.internal.StructField('arg_is_ambient_light_sensor_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_RecordChangingDisplaySettings_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.ash.settings.mojom.DisplaySettingsValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_SetShinyPerformance_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayScreenBrightness_Params', [
+      mojo.internal.StructField('arg_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_SetInternalDisplayAmbientLightSensorEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_StartNativeTouchscreenMappingExperience_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParamsSpec, 'ash.settings.mojom.DisplaySettingsProvider_HasAmbientLightSensor_ResponseParams', [
+      mojo.internal.StructField('arg_has_ambient_light_sensor', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -143,12 +143,6 @@ mojo.internal.bindings.search_engine_choice.mojom.ScrollState = {
 };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,7 +255,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -279,34 +273,6 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactoryRequest = mo
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec, 'search_engine_choice.mojom.PageHandler_DisplayDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_Params', [
-      mojo.internal.StructField('arg_prepopulate_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_save_guest_mode_selection', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec, 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params', [
-      mojo.internal.StructField('arg_scroll_state', 0, 0, mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -482,7 +448,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleSearchEngineChoiceSelected');
-          const result = this.impl.handleSearchEngineChoiceSelected(params.arg_prepopulate_id, params.arg_save_guest_mode_selection);
+          const result = this.impl.handleSearchEngineChoiceSelected(params.arg_arg_prepopulate_id, params.arg_arg_save_guest_mode_selection);
           break;
         }
         case 2: {
@@ -503,7 +469,7 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordScrollState');
-          const result = this.impl.recordScrollState(params.arg_scroll_state);
+          const result = this.impl.recordScrollState(params.arg_arg_scroll_state);
           break;
         }
       }
@@ -518,4 +484,40 @@ mojo.internal.bindings.search_engine_choice.mojom.PageHandlerReceiver = mojo.int
 
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerPtr = mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemote;
 mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRequest = mojo.internal.bindings.search_engine_choice.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'search_engine_choice.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.search_engine_choice.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_DisplayDialog_ParamsSpec, 'search_engine_choice.mojom.PageHandler_DisplayDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleSearchEngineChoiceSelected_Params', [
+      mojo.internal.StructField('arg_prepopulate_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_save_guest_mode_selection', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleLearnMoreLinkClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_ParamsSpec, 'search_engine_choice.mojom.PageHandler_HandleMoreButtonClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search_engine_choice.mojom.PageHandler_RecordScrollState_ParamsSpec, 'search_engine_choice.mojom.PageHandler_RecordScrollState_Params', [
+      mojo.internal.StructField('arg_scroll_state', 0, 0, mojo.internal.bindings.search_engine_choice.mojom.ScrollStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

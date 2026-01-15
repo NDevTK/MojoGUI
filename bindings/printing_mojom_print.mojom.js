@@ -315,6 +315,8 @@ mojo.internal.bindings.printing.mojom.ClientType = {
   kOther: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PageSizeMargins
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec, 'printing.mojom.PageSizeMargins', [

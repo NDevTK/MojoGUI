@@ -142,18 +142,6 @@ mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Ocr
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec, 'pdf.mojom.Ocr_PerformOcr_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec, 'pdf.mojom.Ocr_PerformOcr_ResponseParams', [
-      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.pdf.mojom.OcrPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,12 +254,15 @@ mojo.internal.bindings.pdf.mojom.OcrReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcr');
-          const result = this.impl.performOcr(params.arg_image);
+          const result = this.impl.performOcr(params.arg_arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PerformOcr FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_visual_annotation' in response) ? response.arg_arg_visual_annotation : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] performOcr FAILED:', e));
           }
           break;
         }
@@ -396,4 +387,18 @@ mojo.internal.bindings.pdf.mojom.PdfServiceReceiver = mojo.internal.bindings.pdf
 
 mojo.internal.bindings.pdf.mojom.PdfServicePtr = mojo.internal.bindings.pdf.mojom.PdfServiceRemote;
 mojo.internal.bindings.pdf.mojom.PdfServiceRequest = mojo.internal.bindings.pdf.mojom.PdfServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ParamsSpec, 'pdf.mojom.Ocr_PerformOcr_Params', [
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.Ocr_PerformOcr_ResponseParamsSpec, 'pdf.mojom.Ocr_PerformOcr_ResponseParams', [
+      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -129,3 +129,5 @@ mojo.internal.bindings.cc.mojom.MissingTileReason = {
   kResourceNotReady: 1,
   kTileDeleted: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

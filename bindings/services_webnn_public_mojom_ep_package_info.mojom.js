@@ -133,6 +133,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.WStringSpec = mojo.internal.bindings.mojo_base.mojom.WStringSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PackageVersion
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.PackageVersionSpec, 'webnn.mojom.PackageVersion', [

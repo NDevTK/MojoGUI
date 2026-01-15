@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.WStringSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WString
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.WStringSpec, 'mojo_base.mojom.WString', [

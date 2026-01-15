@@ -165,48 +165,6 @@ mojo.internal.bindings.media.mojom.AudioStreamFactorySpec = mojo.internal.bindin
 mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote = mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote || class {};
 
 // Interface: AudioService
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec, 'audio.mojom.AudioService_BindSystemInfo_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.SystemInfoRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec, 'audio.mojom.AudioService_BindDebugRecording_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DebugRecordingRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec, 'audio.mojom.AudioService_BindStreamFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec, 'audio.mojom.AudioService_BindDeviceNotifier_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DeviceNotifierRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec, 'audio.mojom.AudioService_BindLogFactoryManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec, 'audio.mojom.AudioService_BindTestingApi_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.TestingApiRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec, 'audio.mojom.AudioService_BindMlModelManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.MlModelManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.audio.mojom.AudioServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -403,49 +361,49 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSystemInfo');
-          const result = this.impl.bindSystemInfo(params.arg_receiver);
+          const result = this.impl.bindSystemInfo(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDebugRecording');
-          const result = this.impl.bindDebugRecording(params.arg_receiver);
+          const result = this.impl.bindDebugRecording(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStreamFactory');
-          const result = this.impl.bindStreamFactory(params.arg_receiver);
+          const result = this.impl.bindStreamFactory(params.arg_arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindDeviceNotifier');
-          const result = this.impl.bindDeviceNotifier(params.arg_receiver);
+          const result = this.impl.bindDeviceNotifier(params.arg_arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLogFactoryManager');
-          const result = this.impl.bindLogFactoryManager(params.arg_receiver);
+          const result = this.impl.bindLogFactoryManager(params.arg_arg_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestingApi');
-          const result = this.impl.bindTestingApi(params.arg_receiver);
+          const result = this.impl.bindTestingApi(params.arg_arg_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMlModelManager');
-          const result = this.impl.bindMlModelManager(params.arg_receiver);
+          const result = this.impl.bindMlModelManager(params.arg_arg_receiver);
           break;
         }
       }
@@ -460,4 +418,48 @@ mojo.internal.bindings.audio.mojom.AudioServiceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.audio.mojom.AudioServicePtr = mojo.internal.bindings.audio.mojom.AudioServiceRemote;
 mojo.internal.bindings.audio.mojom.AudioServiceRequest = mojo.internal.bindings.audio.mojom.AudioServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindSystemInfo_ParamsSpec, 'audio.mojom.AudioService_BindSystemInfo_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.SystemInfoRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindDebugRecording_ParamsSpec, 'audio.mojom.AudioService_BindDebugRecording_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DebugRecordingRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindStreamFactory_ParamsSpec, 'audio.mojom.AudioService_BindStreamFactory_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindDeviceNotifier_ParamsSpec, 'audio.mojom.AudioService_BindDeviceNotifier_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.DeviceNotifierRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindLogFactoryManager_ParamsSpec, 'audio.mojom.AudioService_BindLogFactoryManager_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.LogFactoryManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindTestingApi_ParamsSpec, 'audio.mojom.AudioService_BindTestingApi_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.TestingApiRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.AudioService_BindMlModelManager_ParamsSpec, 'audio.mojom.AudioService_BindMlModelManager_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.audio.mojom.MlModelManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

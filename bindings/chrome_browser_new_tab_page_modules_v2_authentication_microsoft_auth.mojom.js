@@ -131,27 +131,6 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldS
 mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec = { $: {} };
 
 // Interface: MicrosoftAuthPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParams', [
-      mojo.internal.StructField('arg_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -310,8 +289,11 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShouldShowModule FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_show' in response) ? response.arg_arg_show : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shouldShowModule FAILED:', e));
           }
           break;
         }
@@ -327,4 +309,27 @@ mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerReceiver
 
 mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerPtr = mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerRemote;
 mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerRequest = mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_DismissModule_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_RestoreModule_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParamsSpec, 'ntp.authentication.mojom.MicrosoftAuthPageHandler_ShouldShowModule_ResponseParams', [
+      mojo.internal.StructField('arg_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

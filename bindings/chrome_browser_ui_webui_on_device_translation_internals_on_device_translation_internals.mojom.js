@@ -144,22 +144,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatus 
   kInstalled: 2,
 };
 
-// Struct: LanguagePackInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec, 'on_device_translation_internals.mojom.LanguagePackInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_translation_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,7 +257,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactoryR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -290,18 +275,6 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactoryR
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec, 'on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_Params', [
-      mojo.internal.StructField('arg_package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec, 'on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Params', [
-      mojo.internal.StructField('arg_package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -428,14 +401,14 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installLanguagePackage');
-          const result = this.impl.installLanguagePackage(params.arg_package_index);
+          const result = this.impl.installLanguagePackage(params.arg_arg_package_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.uninstallLanguagePackage');
-          const result = this.impl.uninstallLanguagePackage(params.arg_package_index);
+          const result = this.impl.uninstallLanguagePackage(params.arg_arg_package_index);
           break;
         }
       }
@@ -453,12 +426,6 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRequest 
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec, 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.on_device_translation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -571,7 +538,7 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLanguagePackStatus');
-          const result = this.impl.onLanguagePackStatus(params.arg_status);
+          const result = this.impl.onLanguagePackStatus(params.arg_arg_status);
           break;
         }
       }
@@ -586,4 +553,39 @@ mojo.internal.bindings.on_device_translation_internals.mojom.PageReceiver = mojo
 
 mojo.internal.bindings.on_device_translation_internals.mojom.PagePtr = mojo.internal.bindings.on_device_translation_internals.mojom.PageRemote;
 mojo.internal.bindings.on_device_translation_internals.mojom.PageRequest = mojo.internal.bindings.on_device_translation_internals.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: LanguagePackInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec, 'on_device_translation_internals.mojom.LanguagePackInfo', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'on_device_translation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.on_device_translation_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.on_device_translation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_ParamsSpec, 'on_device_translation_internals.mojom.PageHandler_InstallLanguagePackage_Params', [
+      mojo.internal.StructField('arg_package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_ParamsSpec, 'on_device_translation_internals.mojom.PageHandler_UninstallLanguagePackage_Params', [
+      mojo.internal.StructField('arg_package_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_device_translation_internals.mojom.Page_OnLanguagePackStatus_ParamsSpec, 'on_device_translation_internals.mojom.Page_OnLanguagePackStatus_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Array(mojo.internal.bindings.on_device_translation_internals.mojom.LanguagePackInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

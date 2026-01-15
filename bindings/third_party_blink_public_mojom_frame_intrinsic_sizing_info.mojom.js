@@ -129,6 +129,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.SizeFSpec = mojo.internal.bindings.gfx.mojom.SizeFSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IntrinsicSizingInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.IntrinsicSizingInfoSpec, 'blink.mojom.IntrinsicSizingInfo', [

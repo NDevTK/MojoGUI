@@ -142,33 +142,6 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorSpec = mojo.intern
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote || class {};
 
 // Interface: TestConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_Params', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_Params', [
-      mojo.internal.StructField('arg_collector', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec, 'heap_profiling.mojom.TestConnector_Disconnect_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.heap_profiling.mojom.TestConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -309,12 +282,14 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectSnapshotController');
-          const result = this.impl.connectSnapshotController(params.arg_controller);
+          const result = this.impl.connectSnapshotController(params.arg_arg_controller);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ConnectSnapshotController FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connectSnapshotController FAILED:', e));
           }
           break;
         }
@@ -322,12 +297,14 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectProfileCollector');
-          const result = this.impl.connectProfileCollector(params.arg_collector);
+          const result = this.impl.connectProfileCollector(params.arg_arg_collector);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ConnectProfileCollector FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connectProfileCollector FAILED:', e));
           }
           break;
         }
@@ -350,4 +327,33 @@ mojo.internal.bindings.heap_profiling.mojom.TestConnectorReceiver = mojo.interna
 
 mojo.internal.bindings.heap_profiling.mojom.TestConnectorPtr = mojo.internal.bindings.heap_profiling.mojom.TestConnectorRemote;
 mojo.internal.bindings.heap_profiling.mojom.TestConnectorRequest = mojo.internal.bindings.heap_profiling.mojom.TestConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_Params', [
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectSnapshotController_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_Params', [
+      mojo.internal.StructField('arg_collector', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParamsSpec, 'heap_profiling.mojom.TestConnector_ConnectProfileCollector_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.TestConnector_Disconnect_ParamsSpec, 'heap_profiling.mojom.TestConnector_Disconnect_Params', [
+    ],
+    [[0, 8]]);
 

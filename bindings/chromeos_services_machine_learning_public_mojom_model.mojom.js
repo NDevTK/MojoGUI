@@ -179,58 +179,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResult
   MinVersion: 4,
 };
 
-// Struct: GraphExecutorOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, 'chromeos.machine_learning.mojom.GraphExecutorOptions', [
-      mojo.internal.StructField('arg_use_nnapi', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_gpu', 0, 1, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_gpu_delegate_api', 4, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec, 0, false, 2, undefined),
-    ],
-    [[0, 16], [1, 16], [2, 16]]);
-
-// Struct: BuiltinModelSpec
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec, 'chromeos.machine_learning.mojom.BuiltinModelSpec', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FlatBufferModelSpec
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec, 'chromeos.machine_learning.mojom.FlatBufferModelSpec', [
-      mojo.internal.StructField('arg_model_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_inputs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_outputs', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Int32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_metrics_model_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: Model
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec, 'chromeos.machine_learning.mojom.Model_REMOVED_0_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec, 'chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec, 'chromeos.machine_learning.mojom.Model_CreateGraphExecutor_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec, 'chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.machine_learning.mojom.ModelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -357,12 +306,15 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rEMOVED_0');
-          const result = this.impl.rEMOVED_0(params.arg_receiver);
+          const result = this.impl.rEMOVED_0(params.arg_arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] REMOVED_0 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] rEMOVED_0 FAILED:', e));
           }
           break;
         }
@@ -370,12 +322,15 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGraphExecutor');
-          const result = this.impl.createGraphExecutor(params.arg_options, params.arg_receiver);
+          const result = this.impl.createGraphExecutor(params.arg_arg_options, params.arg_arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateGraphExecutor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createGraphExecutor FAILED:', e));
           }
           break;
         }
@@ -391,4 +346,57 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ModelReceiver = mojo.inte
 
 mojo.internal.bindings.chromeos.machine_learning.mojom.ModelPtr = mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRemote;
 mojo.internal.bindings.chromeos.machine_learning.mojom.ModelRequest = mojo.internal.bindings.chromeos.machine_learning.mojom.ModelPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: GraphExecutorOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, 'chromeos.machine_learning.mojom.GraphExecutorOptions', [
+      mojo.internal.StructField('arg_use_nnapi', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_gpu', 0, 1, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_gpu_delegate_api', 4, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GpuDelegateApiSpec, 0, false, 2, undefined),
+    ],
+    [[0, 16], [1, 16], [2, 16]]);
+
+// Struct: BuiltinModelSpec
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelSpecSpec, 'chromeos.machine_learning.mojom.BuiltinModelSpec', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.BuiltinModelIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FlatBufferModelSpec
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.FlatBufferModelSpecSpec, 'chromeos.machine_learning.mojom.FlatBufferModelSpec', [
+      mojo.internal.StructField('arg_model_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inputs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_outputs', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Int32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_metrics_model_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ParamsSpec, 'chromeos.machine_learning.mojom.Model_REMOVED_0_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParamsSpec, 'chromeos.machine_learning.mojom.Model_REMOVED_0_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ParamsSpec, 'chromeos.machine_learning.mojom.Model_CreateGraphExecutor_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParamsSpec, 'chromeos.machine_learning.mojom.Model_CreateGraphExecutor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.CreateGraphExecutorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

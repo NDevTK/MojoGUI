@@ -145,31 +145,7 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValue = {
   kCredentialless: 2,
 };
 
-// Struct: CrossOriginEmbedderPolicy
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_report_only_value', 4, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: CrossOriginEmbedderPolicyReporter
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_Params', [
-      mojo.internal.StructField('arg_blocked_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,14 +272,14 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueCorpViolationReport');
-          const result = this.impl.queueCorpViolationReport(params.arg_blocked_url, params.arg_destination, params.arg_report_only);
+          const result = this.impl.queueCorpViolationReport(params.arg_arg_blocked_url, params.arg_arg_destination, params.arg_arg_report_only);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_receiver);
+          const result = this.impl.clone(params.arg_arg_receiver);
           break;
         }
       }
@@ -318,4 +294,30 @@ mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterReceiver =
 
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterPtr = mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote;
 mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRequest = mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CrossOriginEmbedderPolicy
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, 'network.mojom.CrossOriginEmbedderPolicy', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only_value', 4, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyValueSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_endpoint', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_report_only_reporting_endpoint', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_QueueCorpViolationReport_Params', [
+      mojo.internal.StructField('arg_blocked_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination', 8, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_only', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporter_Clone_ParamsSpec, 'network.mojom.CrossOriginEmbedderPolicyReporter_Clone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -241,6 +241,8 @@ mojo.internal.bindings.nearby.connections.mojom.AuthenticationStatus = {
   kFailure: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: PayloadContent
 mojo.internal.Union(
     mojo.internal.bindings.nearby.connections.mojom.PayloadContentSpec, 'nearby.connections.mojom.PayloadContent', {

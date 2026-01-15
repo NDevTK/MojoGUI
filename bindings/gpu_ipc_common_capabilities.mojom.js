@@ -124,6 +124,8 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.CapabilitiesSpec = { $: {} };
 mojo.internal.bindings.gpu.mojom.GLCapabilitiesSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Capabilities
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.CapabilitiesSpec, 'gpu.mojom.Capabilities', [

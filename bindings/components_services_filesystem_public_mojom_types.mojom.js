@@ -169,6 +169,8 @@ mojo.internal.bindings.filesystem.mojom.FsFileType = {
   DIRECTORY: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TimespecOrNow
 mojo.internal.Struct(
     mojo.internal.bindings.filesystem.mojom.TimespecOrNowSpec, 'filesystem.mojom.TimespecOrNow', [

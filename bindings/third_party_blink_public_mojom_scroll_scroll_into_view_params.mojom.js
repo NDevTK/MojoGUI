@@ -152,6 +152,8 @@ mojo.internal.bindings.blink.mojom.Behavior = {
   kClosestEdge: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ScrollAlignment
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ScrollAlignmentSpec, 'blink.mojom.ScrollAlignment', [

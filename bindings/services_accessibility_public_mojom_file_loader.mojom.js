@@ -137,18 +137,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec = mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AccessibilityFileLoader
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_ResponseParams', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,12 +249,15 @@ mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.load');
-          const result = this.impl.load(params.arg_path);
+          const result = this.impl.load(params.arg_arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Load FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] load FAILED:', e));
           }
           break;
         }
@@ -282,4 +273,18 @@ mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderReceiver = mojo.internal.
 
 mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderPtr = mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRemote;
 mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderRequest = mojo.internal.bindings.ax.mojom.AccessibilityFileLoaderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.RelativeFilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.AccessibilityFileLoader_Load_ResponseParamsSpec, 'ax.mojom.AccessibilityFileLoader_Load_ResponseParams', [
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

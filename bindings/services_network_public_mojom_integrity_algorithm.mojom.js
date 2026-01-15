@@ -130,3 +130,5 @@ mojo.internal.bindings.network.mojom.IntegrityAlgorithm = {
   kSha512: 2,
   kEd25519: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

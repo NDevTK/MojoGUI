@@ -142,3 +142,5 @@ mojo.internal.bindings.network.mojom.AttributionReportingEligibility = {
   kTrigger: 4,
   kEventSourceOrTrigger: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

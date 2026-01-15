@@ -134,17 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: OnLoadScriptInjector
-mojo.internal.Struct(
-    mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_Params', [
-      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,7 +260,7 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOnLoadScript');
-          const result = this.impl.addOnLoadScript(params.arg_script);
+          const result = this.impl.addOnLoadScript(params.arg_arg_script);
           break;
         }
         case 1: {
@@ -293,4 +282,17 @@ mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorReceive
 
 mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorPtr = mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorRemote;
 mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorRequest = mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_AddOnLoadScript_Params', [
+      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_ParamsSpec, 'on_load_script_injector.mojom.OnLoadScriptInjector_ClearOnLoadScripts_Params', [
+    ],
+    [[0, 8]]);
 

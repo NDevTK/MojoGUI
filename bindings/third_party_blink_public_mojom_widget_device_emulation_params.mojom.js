@@ -152,6 +152,8 @@ mojo.internal.bindings.blink.mojom.EmulatedScreenType = {
   kMobile: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DeviceEmulationParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec, 'blink.mojom.DeviceEmulationParams', [

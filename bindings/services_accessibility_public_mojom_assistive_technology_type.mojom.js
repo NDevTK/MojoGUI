@@ -133,3 +133,5 @@ mojo.internal.bindings.ax.mojom.AssistiveTechnologyType = {
   kMagnifier: 5,
   kDictation: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

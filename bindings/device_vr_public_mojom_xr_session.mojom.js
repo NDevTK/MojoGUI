@@ -208,6 +208,8 @@ mojo.internal.bindings.device.mojom.XRDepthType = {
   kSmooth: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: XRTrackedImage
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRTrackedImageSpec, 'device.mojom.XRTrackedImage', [

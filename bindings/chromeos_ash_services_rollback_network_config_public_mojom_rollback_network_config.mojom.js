@@ -131,29 +131,6 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_R
 mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec = { $: {} };
 
 // Interface: RollbackNetworkConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,12 +257,15 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rollbackConfigImport');
-          const result = this.impl.rollbackConfigImport(params.arg_config);
+          const result = this.impl.rollbackConfigImport(params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RollbackConfigImport FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] rollbackConfigImport FAILED:', e));
           }
           break;
         }
@@ -297,8 +277,11 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RollbackConfigExport FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] rollbackConfigExport FAILED:', e));
           }
           break;
         }
@@ -314,4 +297,29 @@ mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRe
 
 mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigPtr = mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRemote;
 mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigRequest = mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfigPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigImport_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParamsSpec, 'ash.rollback_network_config.mojom.RollbackNetworkConfig_RollbackConfigExport_ResponseParams', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -139,17 +139,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SpellCheckPanel
-mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,7 +265,7 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleSpellPanel');
-          const result = this.impl.toggleSpellPanel(params.arg_visible);
+          const result = this.impl.toggleSpellPanel(params.arg_arg_visible);
           break;
         }
         case 1: {
@@ -301,18 +290,6 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelRequest = mojo.internal.b
 
 
 // Interface: SpellCheckPanelHost
-mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_Params', [
-      mojo.internal.StructField('arg_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Params', [
-      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -439,14 +416,14 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showSpellingPanel');
-          const result = this.impl.showSpellingPanel(params.arg_show);
+          const result = this.impl.showSpellingPanel(params.arg_arg_show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSpellingPanelWithMisspelledWord');
-          const result = this.impl.updateSpellingPanelWithMisspelledWord(params.arg_word);
+          const result = this.impl.updateSpellingPanelWithMisspelledWord(params.arg_arg_word);
           break;
         }
       }
@@ -461,4 +438,29 @@ mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostReceiver = mojo.inter
 
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostPtr = mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostRemote;
 mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostRequest = mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_ToggleSpellPanel_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_ParamsSpec, 'spellcheck.mojom.SpellCheckPanel_AdvanceToNextMisspelling_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_ShowSpellingPanel_Params', [
+      mojo.internal.StructField('arg_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_ParamsSpec, 'spellcheck.mojom.SpellCheckPanelHost_UpdateSpellingPanelWithMisspelledWord_Params', [
+      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

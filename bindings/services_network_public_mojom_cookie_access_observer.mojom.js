@@ -153,34 +153,7 @@ mojo.internal.bindings.network.mojom.Type = {
   kChange: 1,
 };
 
-// Struct: CookieAccessDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec, 'network.mojom.CookieAccessDetails', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_tagged', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_top_frame_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_site_for_cookies', 32, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_list', 40, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieOrLineWithAccessResultSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_request_id', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_setting_overrides', 56, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: CookieAccessObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec, 'network.mojom.CookieAccessObserver_OnCookiesAccessed_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec, 'network.mojom.CookieAccessObserver_Clone_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieAccessObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.CookieAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -307,14 +280,14 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCookiesAccessed');
-          const result = this.impl.onCookiesAccessed(params.arg_details);
+          const result = this.impl.onCookiesAccessed(params.arg_arg_details);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_listener);
+          const result = this.impl.clone(params.arg_arg_listener);
           break;
         }
       }
@@ -329,4 +302,33 @@ mojo.internal.bindings.network.mojom.CookieAccessObserverReceiver = mojo.interna
 
 mojo.internal.bindings.network.mojom.CookieAccessObserverPtr = mojo.internal.bindings.network.mojom.CookieAccessObserverRemote;
 mojo.internal.bindings.network.mojom.CookieAccessObserverRequest = mojo.internal.bindings.network.mojom.CookieAccessObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CookieAccessDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec, 'network.mojom.CookieAccessDetails', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_tagged', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_origin', 24, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_for_cookies', 32, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_list', 40, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieOrLineWithAccessResultSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_request_id', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cookie_setting_overrides', 56, 0, mojo.internal.bindings.network.mojom.CookieSettingOverridesSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CookieAccessObserver_OnCookiesAccessed_ParamsSpec, 'network.mojom.CookieAccessObserver_OnCookiesAccessed_Params', [
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieAccessDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.CookieAccessObserver_Clone_ParamsSpec, 'network.mojom.CookieAccessObserver_Clone_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.CookieAccessObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

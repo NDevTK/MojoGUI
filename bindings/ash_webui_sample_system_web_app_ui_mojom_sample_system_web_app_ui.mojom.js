@@ -152,22 +152,7 @@ mojo.internal.bindings.ash.mojom.sample_swa = mojo.internal.bindings.ash.mojom.s
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote || class {};
 
-// Struct: Preferences
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec, 'ash.mojom.sample_swa.Preferences', [
-      mojo.internal.StructField('arg_background', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_foreground', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,7 +265,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler, params.arg_page);
+          const result = this.impl.createPageHandler(params.arg_arg_handler, params.arg_arg_page);
           break;
         }
       }
@@ -298,28 +283,6 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactoryRequest = mojo.int
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParams', [
-      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_Send_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_DoSomething_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -464,8 +427,11 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPreferences FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_preferences' in response) ? response.arg_arg_preferences : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPreferences FAILED:', e));
           }
           break;
         }
@@ -473,7 +439,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_message);
+          const result = this.impl.send(params.arg_arg_message);
           break;
         }
         case 2: {
@@ -498,19 +464,6 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRequest = mojo.internal.b
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec, 'ash.mojom.sample_swa.Page_OnEventOccurred_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.Page_CreateParentPage_Params', [
-      mojo.internal.StructField('arg_child_untrusted_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_trusted_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.mojom.sample_swa.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -637,14 +590,14 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEventOccurred');
-          const result = this.impl.onEventOccurred(params.arg_name);
+          const result = this.impl.onEventOccurred(params.arg_arg_name);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
-          const result = this.impl.createParentPage(params.arg_child_untrusted_page, params.arg_parent_trusted_page);
+          const result = this.impl.createParentPage(params.arg_arg_child_untrusted_page, params.arg_arg_parent_trusted_page);
           break;
         }
       }
@@ -659,4 +612,56 @@ mojo.internal.bindings.ash.mojom.sample_swa.PageReceiver = mojo.internal.binding
 
 mojo.internal.bindings.ash.mojom.sample_swa.PagePtr = mojo.internal.bindings.ash.mojom.sample_swa.PageRemote;
 mojo.internal.bindings.ash.mojom.sample_swa.PageRequest = mojo.internal.bindings.ash.mojom.sample_swa.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Preferences
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec, 'ash.mojom.sample_swa.Preferences', [
+      mojo.internal.StructField('arg_background', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_foreground', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.sample_swa.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.PageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParamsSpec, 'ash.mojom.sample_swa.PageHandler_GetPreferences_ResponseParams', [
+      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.ash.mojom.sample_swa.PreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_Send_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_Send_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.PageHandler_DoSomething_ParamsSpec, 'ash.mojom.sample_swa.PageHandler_DoSomething_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.Page_OnEventOccurred_ParamsSpec, 'ash.mojom.sample_swa.Page_OnEventOccurred_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.Page_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.Page_CreateParentPage_Params', [
+      mojo.internal.StructField('arg_child_untrusted_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_trusted_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

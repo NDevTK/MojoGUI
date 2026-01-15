@@ -140,3 +140,5 @@ mojo.internal.bindings.gfx.mojom.SubpixelRendering = {
   kVRGB: 3,
   kVBGR: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

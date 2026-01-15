@@ -244,65 +244,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: EmbeddedWorkerStartParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec, 'blink.mojom.EmbeddedWorkerStartParams', [
-      mojo.internal.StructField('arg_service_worker_version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_type', 24, 0, mojo.internal.bindings.blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_route_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 32, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_agent', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ua_metadata', 48, 0, mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_worker_token', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_url_to_skip_throttling', 64, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wait_for_debugger', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_installed', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_receiver', 76, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_preferences', 80, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_forced_enabled_runtime_features', 88, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_provider', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_controller_receiver', 100, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_installed_scripts_info', 104, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_instance_host', 112, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_provider_info', 120, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_settings_proxy', 128, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_preference_watcher_receiver', 136, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_updater', 140, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_factories', 144, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_token', 152, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ukm_source_id', 160, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_main_script_load_params', 168, 0, mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 176, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_key', 184, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cors_exempt_header_list', 192, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_coep_reporting_observer', 200, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_dip_reporting_observer', 204, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 216]]);
-
-// Struct: EmbeddedWorkerStartTiming
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec, 'blink.mojom.EmbeddedWorkerStartTiming', [
-      mojo.internal.StructField('arg_start_worker_received_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_evaluation_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_script_evaluation_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: EmbeddedWorkerInstanceClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -429,7 +371,7 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startWorker');
-          const result = this.impl.startWorker(params.arg_params);
+          const result = this.impl.startWorker(params.arg_arg_params);
           break;
         }
         case 1: {
@@ -454,75 +396,6 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClientRequest = mojo.in
 
 
 // Interface: EmbeddedWorkerInstanceHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParams', [
-      mojo.internal.StructField('arg_will_be_terminated', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStartStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fetch_handler_type', 4, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_hid_event_handlers', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_usb_event_handlers', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_thread_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_start_timing', 16, 0, mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_Params', [
-      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_column_number', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.blink.mojom.ConsoleMessageSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_level', 4, 0, mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_line_number', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_source_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -751,8 +624,11 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestTermination FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_will_be_terminated' in response) ? response.arg_arg_will_be_terminated : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestTermination FAILED:', e));
           }
           break;
         }
@@ -760,14 +636,14 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.countFeature');
-          const result = this.impl.countFeature(params.arg_feature);
+          const result = this.impl.countFeature(params.arg_arg_feature);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadyForInspection');
-          const result = this.impl.onReadyForInspection(params.arg_agent, params.arg_agent_host);
+          const result = this.impl.onReadyForInspection(params.arg_arg_agent, params.arg_arg_agent_host);
           break;
         }
         case 3: {
@@ -788,21 +664,21 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStarted');
-          const result = this.impl.onStarted(params.arg_status, params.arg_fetch_handler_type, params.arg_has_hid_event_handlers, params.arg_has_usb_event_handlers, params.arg_thread_id, params.arg_start_timing);
+          const result = this.impl.onStarted(params.arg_arg_status, params.arg_arg_fetch_handler_type, params.arg_arg_has_hid_event_handlers, params.arg_arg_has_usb_event_handlers, params.arg_arg_thread_id, params.arg_arg_start_timing);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportException');
-          const result = this.impl.onReportException(params.arg_error_message, params.arg_line_number, params.arg_column_number, params.arg_source_url);
+          const result = this.impl.onReportException(params.arg_arg_error_message, params.arg_arg_line_number, params.arg_arg_column_number, params.arg_arg_source_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReportConsoleMessage');
-          const result = this.impl.onReportConsoleMessage(params.arg_source, params.arg_message_level, params.arg_message, params.arg_line_number, params.arg_source_url);
+          const result = this.impl.onReportConsoleMessage(params.arg_arg_source, params.arg_arg_message_level, params.arg_arg_message, params.arg_arg_line_number, params.arg_arg_source_url);
           break;
         }
         case 8: {
@@ -824,4 +700,133 @@ mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostReceiver = mojo.int
 
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostPtr = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemote;
 mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRequest = mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: EmbeddedWorkerStartParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec, 'blink.mojom.EmbeddedWorkerStartParams', [
+      mojo.internal.StructField('arg_service_worker_version_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_type', 24, 0, mojo.internal.bindings.blink.mojom.ScriptTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_route_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_outside_fetch_client_settings_object', 32, 0, mojo.internal.bindings.blink.mojom.FetchClientSettingsObjectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_agent', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ua_metadata', 48, 0, mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_worker_token', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_url_to_skip_throttling', 64, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wait_for_debugger', 72, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_installed', 72, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_receiver', 76, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_preferences', 80, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_forced_enabled_runtime_features', 88, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_provider', 96, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_controller_receiver', 100, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ControllerServiceWorkerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_installed_scripts_info', 104, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_instance_host', 112, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider_info', 120, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_settings_proxy', 128, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkerContentSettingsProxyRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_preference_watcher_receiver', 136, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_updater', 140, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 144, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_token', 152, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ukm_source_id', 160, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_main_script_load_params', 168, 0, mojo.internal.bindings.blink.mojom.WorkerMainScriptLoadParamsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 176, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_key', 184, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cors_exempt_header_list', 192, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_coep_reporting_observer', 200, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_dip_reporting_observer', 204, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ReportingObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 216]]);
+
+// Struct: EmbeddedWorkerStartTiming
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec, 'blink.mojom.EmbeddedWorkerStartTiming', [
+      mojo.internal.StructField('arg_start_worker_received_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_evaluation_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_script_evaluation_end_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StartWorker_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceClient_StopWorker_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_RequestTermination_ResponseParams', [
+      mojo.internal.StructField('arg_will_be_terminated', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_CountFeature_Params', [
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebFeatureSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReadyForInspection_Params', [
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptLoaded_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnScriptEvaluationStart_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStarted_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerStartStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetch_handler_type', 4, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_hid_event_handlers', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_usb_event_handlers', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_thread_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_start_timing', 16, 0, mojo.internal.bindings.blink.mojom.EmbeddedWorkerStartTimingSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportException_Params', [
+      mojo.internal.StructField('arg_error_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_column_number', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnReportConsoleMessage_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.blink.mojom.ConsoleMessageSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_level', 4, 0, mojo.internal.bindings.blink.mojom.ConsoleMessageLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_line_number', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_source_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_ParamsSpec, 'blink.mojom.EmbeddedWorkerInstanceHost_OnStopped_Params', [
+    ],
+    [[0, 8]]);
 

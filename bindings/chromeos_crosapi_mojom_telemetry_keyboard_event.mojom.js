@@ -208,6 +208,8 @@ mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardTopRightKey = {
   kControlPanel: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TelemetryKeyboardInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.TelemetryKeyboardInfoSpec, 'crosapi.mojom.TelemetryKeyboardInfo', [

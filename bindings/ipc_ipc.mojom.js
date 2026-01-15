@@ -138,27 +138,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: Message
-mojo.internal.Struct(
-    mojo.internal.bindings.IPC.mojom.MessageSpec, 'IPC.mojom.Message', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handles', 8, 0, mojo.internal.Array(mojo.internal.OpaqueStruct, false), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: Channel
-mojo.internal.Struct(
-    mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec, 'IPC.mojom.Channel_SetPeerPid_Params', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec, 'IPC.mojom.Channel_GetAssociatedInterface_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.IPC.mojom.ChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,14 +265,14 @@ mojo.internal.bindings.IPC.mojom.ChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPeerPid');
-          const result = this.impl.setPeerPid(params.arg_pid);
+          const result = this.impl.setPeerPid(params.arg_arg_pid);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
-          const result = this.impl.getAssociatedInterface(params.arg_receiver);
+          const result = this.impl.getAssociatedInterface(params.arg_arg_receiver);
           break;
         }
       }
@@ -416,4 +396,26 @@ mojo.internal.bindings.IPC.mojom.ChannelBootstrapReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.IPC.mojom.ChannelBootstrapPtr = mojo.internal.bindings.IPC.mojom.ChannelBootstrapRemote;
 mojo.internal.bindings.IPC.mojom.ChannelBootstrapRequest = mojo.internal.bindings.IPC.mojom.ChannelBootstrapPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Message
+mojo.internal.Struct(
+    mojo.internal.bindings.IPC.mojom.MessageSpec, 'IPC.mojom.Message', [
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handles', 8, 0, mojo.internal.Array(mojo.internal.OpaqueStruct, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.IPC.mojom.Channel_SetPeerPid_ParamsSpec, 'IPC.mojom.Channel_SetPeerPid_Params', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.IPC.mojom.Channel_GetAssociatedInterface_ParamsSpec, 'IPC.mojom.Channel_GetAssociatedInterface_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

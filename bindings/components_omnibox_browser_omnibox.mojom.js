@@ -159,3 +159,5 @@ mojo.internal.bindings.omnibox.mojom.PageClassification = {
   SEARCH_RESULT_PAGE_ON_CCT: 27,
   OTHER_ON_CCT: 28,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

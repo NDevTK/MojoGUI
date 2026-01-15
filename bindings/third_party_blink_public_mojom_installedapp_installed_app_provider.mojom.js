@@ -137,20 +137,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: InstalledAppProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params', [
-      mojo.internal.StructField('arg_related_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_add_saved_related_applications', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParams', [
-      mojo.internal.StructField('arg_installed_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.InstalledAppProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,12 +249,15 @@ mojo.internal.bindings.blink.mojom.InstalledAppProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filterInstalledApps');
-          const result = this.impl.filterInstalledApps(params.arg_related_apps, params.arg_manifest_url, params.arg_add_saved_related_applications);
+          const result = this.impl.filterInstalledApps(params.arg_arg_related_apps, params.arg_arg_manifest_url, params.arg_arg_add_saved_related_applications);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FilterInstalledApps FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_installed_apps' in response) ? response.arg_arg_installed_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] filterInstalledApps FAILED:', e));
           }
           break;
         }
@@ -284,4 +273,20 @@ mojo.internal.bindings.blink.mojom.InstalledAppProviderReceiver = mojo.internal.
 
 mojo.internal.bindings.blink.mojom.InstalledAppProviderPtr = mojo.internal.bindings.blink.mojom.InstalledAppProviderRemote;
 mojo.internal.bindings.blink.mojom.InstalledAppProviderRequest = mojo.internal.bindings.blink.mojom.InstalledAppProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_Params', [
+      mojo.internal.StructField('arg_related_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_add_saved_related_applications', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParamsSpec, 'blink.mojom.InstalledAppProvider_FilterInstalledApps_ResponseParams', [
+      mojo.internal.StructField('arg_installed_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.RelatedApplicationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

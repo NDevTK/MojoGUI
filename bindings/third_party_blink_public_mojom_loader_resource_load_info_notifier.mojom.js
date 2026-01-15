@@ -154,49 +154,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.SchemeHostPortSpec = mojo.internal.bindings.url.mojom.SchemeHostPortSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ResourceLoadInfoNotifier
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_Params', [
-      mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_redirect_response', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_final_response_url', 8, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_destination', 24, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_ad_resource', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_size_diff', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_Params', [
-      mojo.internal.StructField('arg_resource_load_info', 0, 0, mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_Clone_Params', [
-      mojo.internal.StructField('arg_pending_resource_load_info_notifier', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -379,42 +336,42 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceRedirectReceived');
-          const result = this.impl.notifyResourceRedirectReceived(params.arg_redirect_info, params.arg_redirect_response);
+          const result = this.impl.notifyResourceRedirectReceived(params.arg_arg_redirect_info, params.arg_arg_redirect_response);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceResponseReceived');
-          const result = this.impl.notifyResourceResponseReceived(params.arg_request_id, params.arg_final_response_url, params.arg_head, params.arg_request_destination, params.arg_is_ad_resource);
+          const result = this.impl.notifyResourceResponseReceived(params.arg_arg_request_id, params.arg_arg_final_response_url, params.arg_arg_head, params.arg_arg_request_destination, params.arg_arg_is_ad_resource);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceTransferSizeUpdated');
-          const result = this.impl.notifyResourceTransferSizeUpdated(params.arg_request_id, params.arg_transfer_size_diff);
+          const result = this.impl.notifyResourceTransferSizeUpdated(params.arg_arg_request_id, params.arg_arg_transfer_size_diff);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceLoadCompleted');
-          const result = this.impl.notifyResourceLoadCompleted(params.arg_resource_load_info, params.arg_status);
+          const result = this.impl.notifyResourceLoadCompleted(params.arg_arg_resource_load_info, params.arg_arg_status);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyResourceLoadCanceled');
-          const result = this.impl.notifyResourceLoadCanceled(params.arg_request_id);
+          const result = this.impl.notifyResourceLoadCanceled(params.arg_arg_request_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_pending_resource_load_info_notifier);
+          const result = this.impl.clone(params.arg_arg_pending_resource_load_info_notifier);
           break;
         }
       }
@@ -429,4 +386,49 @@ mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierReceiver = mojo.inter
 
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierPtr = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemote;
 mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRequest = mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceRedirectReceived_Params', [
+      mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_redirect_response', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceResponseReceived_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_final_response_url', 8, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_destination', 24, 0, mojo.internal.bindings.network.mojom.RequestDestinationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_ad_resource', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceTransferSizeUpdated_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_transfer_size_diff', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCompleted_Params', [
+      mojo.internal.StructField('arg_resource_load_info', 0, 0, mojo.internal.bindings.blink.mojom.ResourceLoadInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_NotifyResourceLoadCanceled_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifier_Clone_ParamsSpec, 'blink.mojom.ResourceLoadInfoNotifier_Clone_Params', [
+      mojo.internal.StructField('arg_pending_resource_load_info_notifier', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ResourceLoadInfoNotifierRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

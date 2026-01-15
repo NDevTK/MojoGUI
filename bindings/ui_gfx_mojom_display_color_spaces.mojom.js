@@ -144,6 +144,8 @@ mojo.internal.bindings.gfx.mojom.ContentColorUsage = {
   kHDR: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DisplayColorSpaces
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec, 'gfx.mojom.DisplayColorSpaces', [

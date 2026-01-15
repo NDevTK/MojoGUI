@@ -143,3 +143,5 @@ mojo.internal.bindings.mojo_base.mojom.FileError = {
   INVALID_URL: -15,
   IO: -16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

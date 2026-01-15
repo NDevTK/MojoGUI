@@ -145,6 +145,8 @@ mojo.internal.bindings.performance_manager.mojom.V8ContextWorldType = {
   kRegExp: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IframeAttributionData
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.IframeAttributionDataSpec, 'performance_manager.mojom.IframeAttributionData', [

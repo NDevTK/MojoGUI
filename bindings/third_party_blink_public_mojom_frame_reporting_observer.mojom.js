@@ -135,37 +135,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ReportBodyElement
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ReportBodyElementSpec, 'blink.mojom.ReportBodyElement', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ReportBody
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ReportBodySpec, 'blink.mojom.ReportBody', [
-      mojo.internal.StructField('arg_body', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ReportBodyElementSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: Report
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ReportSpec, 'blink.mojom.Report', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 16, 0, mojo.internal.bindings.blink.mojom.ReportBodySpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: ReportingObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec, 'blink.mojom.ReportingObserver_Notify_Params', [
-      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.blink.mojom.ReportSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -278,7 +248,7 @@ mojo.internal.bindings.blink.mojom.ReportingObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notify');
-          const result = this.impl.notify(params.arg_report);
+          const result = this.impl.notify(params.arg_arg_report);
           break;
         }
       }
@@ -293,4 +263,36 @@ mojo.internal.bindings.blink.mojom.ReportingObserverReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.ReportingObserverPtr = mojo.internal.bindings.blink.mojom.ReportingObserverRemote;
 mojo.internal.bindings.blink.mojom.ReportingObserverRequest = mojo.internal.bindings.blink.mojom.ReportingObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ReportBodyElement
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ReportBodyElementSpec, 'blink.mojom.ReportBodyElement', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ReportBody
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ReportBodySpec, 'blink.mojom.ReportBody', [
+      mojo.internal.StructField('arg_body', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ReportBodyElementSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: Report
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ReportSpec, 'blink.mojom.Report', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 16, 0, mojo.internal.bindings.blink.mojom.ReportBodySpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ReportingObserver_Notify_ParamsSpec, 'blink.mojom.ReportingObserver_Notify_Params', [
+      mojo.internal.StructField('arg_report', 0, 0, mojo.internal.bindings.blink.mojom.ReportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

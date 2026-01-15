@@ -130,26 +130,6 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec = { 
 mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec = { $: {} };
 
 // Interface: UpdateServiceInternal
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.updater.mojom.UpdateServiceInternalPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,8 +260,10 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Run FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] run FAILED:', e));
           }
           break;
         }
@@ -293,8 +275,10 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Hello FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hello FAILED:', e));
           }
           break;
         }
@@ -310,4 +294,26 @@ mojo.internal.bindings.updater.mojom.UpdateServiceInternalReceiver = mojo.intern
 
 mojo.internal.bindings.updater.mojom.UpdateServiceInternalPtr = mojo.internal.bindings.updater.mojom.UpdateServiceInternalRemote;
 mojo.internal.bindings.updater.mojom.UpdateServiceInternalRequest = mojo.internal.bindings.updater.mojom.UpdateServiceInternalPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Run_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Run_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.UpdateServiceInternal_Hello_ResponseParamsSpec, 'updater.mojom.UpdateServiceInternal_Hello_ResponseParams', [
+    ],
+    [[0, 8]]);
 

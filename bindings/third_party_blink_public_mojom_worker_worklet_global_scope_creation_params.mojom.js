@@ -159,28 +159,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: WorkletGlobalScopeCreationParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec, 'blink.mojom.WorkletGlobalScopeCreationParams', [
-      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_starter_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin_trial_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_token', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_host', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_code_cache_host', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_browser_interface_broker', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_wait_for_debugger', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: WorkletDevToolsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.WorkletDevToolsHost_OnReadyForInspection_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,7 +272,7 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadyForInspection');
-          const result = this.impl.onReadyForInspection(params.arg_agent, params.arg_agent_host);
+          const result = this.impl.onReadyForInspection(params.arg_arg_agent, params.arg_arg_agent_host);
           break;
         }
       }
@@ -308,4 +287,27 @@ mojo.internal.bindings.blink.mojom.WorkletDevToolsHostReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHostPtr = mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemote;
 mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRequest = mojo.internal.bindings.blink.mojom.WorkletDevToolsHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WorkletGlobalScopeCreationParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec, 'blink.mojom.WorkletGlobalScopeCreationParams', [
+      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_starter_origin', 8, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin_trial_features', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.OriginTrialFeatureSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_token', 24, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_host', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WorkletDevToolsHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_code_cache_host', 40, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_browser_interface_broker', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wait_for_debugger', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WorkletDevToolsHost_OnReadyForInspection_ParamsSpec, 'blink.mojom.WorkletDevToolsHost_OnReadyForInspection_Params', [
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent_host', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.DevToolsAgentHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

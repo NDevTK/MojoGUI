@@ -161,3 +161,5 @@ mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationError = {
   kAggregatableNamedBudgetWrongType: 34,
   kAggregatableNamedBudgetNameInvalid: 35,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

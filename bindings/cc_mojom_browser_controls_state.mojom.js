@@ -126,3 +126,5 @@ mojo.internal.bindings.cc.mojom.BrowserControlsStateSpec = { $: mojo.internal.En
 // Enum: BrowserControlsState
 mojo.internal.bindings.cc.mojom.BrowserControlsState = {
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

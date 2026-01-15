@@ -138,32 +138,6 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvi
 mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec = { $: {} };
 
 // Interface: State
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParams', [
-      mojo.internal.StructField('arg_has_next', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,8 +282,11 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LastCallHasNext FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_has_next' in response) ? response.arg_arg_has_next : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] lastCallHasNext FAILED:', e));
           }
           break;
         }
@@ -321,8 +298,10 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] WaitLastCall FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] waitLastCall FAILED:', e));
           }
           break;
         }
@@ -348,20 +327,6 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRequest = mojo.i
 
 
 // Interface: ConnectivityTestProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_Params', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Params', [
-      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -488,14 +453,14 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvi
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindContext');
-          const result = this.impl.bindContext(params.arg_remote, params.arg_receiver);
+          const result = this.impl.bindContext(params.arg_arg_remote, params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestProvider');
-          const result = this.impl.bindTestProvider(params.arg_interface_name, params.arg_receiver);
+          const result = this.impl.bindTestProvider(params.arg_arg_interface_name, params.arg_arg_receiver);
           break;
         }
       }
@@ -510,4 +475,46 @@ mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvi
 
 mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPtr = mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRemote;
 mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderRequest = mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_LastCallHasNext_ResponseParams', [
+      mojo.internal.StructField('arg_has_next', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_WaitLastCall_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.State_FulfillLastCallCallback_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindContext_Params', [
+      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.StateRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_ParamsSpec, 'ash.cros_healthd.connectivity.mojom.ConnectivityTestProvider_BindTestProvider_Params', [
+      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

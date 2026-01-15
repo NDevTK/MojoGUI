@@ -159,12 +159,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MuteStateObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec, 'media.mojom.MuteStateObserver_OnMuteStateChange_Params', [
-      mojo.internal.StructField('arg_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.MuteStateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +271,7 @@ mojo.internal.bindings.media.mojom.MuteStateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMuteStateChange');
-          const result = this.impl.onMuteStateChange(params.arg_muted);
+          const result = this.impl.onMuteStateChange(params.arg_arg_muted);
           break;
         }
       }
@@ -295,47 +289,6 @@ mojo.internal.bindings.media.mojom.MuteStateObserverRequest = mojo.internal.bind
 
 
 // Interface: FrameInterfaceFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_Params', [
-      mojo.internal.StructField('arg_provision_fetcher', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.ProvisionFetcherRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateCdmStorage_Params', [
-      mojo.internal.StructField('arg_cdm_storage', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmStorageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_Params', [
-      mojo.internal.StructField('arg_site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MuteStateObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_Params', [
-      mojo.internal.StructField('arg_registry', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParams', [
-      mojo.internal.StructField('arg_cdm_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.FrameInterfaceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -518,28 +471,28 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProvisionFetcher');
-          const result = this.impl.createProvisionFetcher(params.arg_provision_fetcher);
+          const result = this.impl.createProvisionFetcher(params.arg_arg_provision_fetcher);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmStorage');
-          const result = this.impl.createCdmStorage(params.arg_cdm_storage);
+          const result = this.impl.createCdmStorage(params.arg_arg_cdm_storage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerMuteStateObserver');
-          const result = this.impl.registerMuteStateObserver(params.arg_site_mute_observer);
+          const result = this.impl.registerMuteStateObserver(params.arg_arg_site_mute_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDCOMPSurfaceRegistry');
-          const result = this.impl.createDCOMPSurfaceRegistry(params.arg_registry);
+          const result = this.impl.createDCOMPSurfaceRegistry(params.arg_arg_registry);
           break;
         }
         case 4: {
@@ -550,8 +503,11 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCdmOrigin FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_cdm_origin' in response) ? response.arg_arg_cdm_origin : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCdmOrigin FAILED:', e));
           }
           break;
         }
@@ -559,7 +515,7 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEmbedderReceiver');
-          const result = this.impl.bindEmbedderReceiver(params.arg_receiver);
+          const result = this.impl.bindEmbedderReceiver(params.arg_arg_receiver);
           break;
         }
       }
@@ -574,4 +530,53 @@ mojo.internal.bindings.media.mojom.FrameInterfaceFactoryReceiver = mojo.internal
 
 mojo.internal.bindings.media.mojom.FrameInterfaceFactoryPtr = mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote;
 mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRequest = mojo.internal.bindings.media.mojom.FrameInterfaceFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MuteStateObserver_OnMuteStateChange_ParamsSpec, 'media.mojom.MuteStateObserver_OnMuteStateChange_Params', [
+      mojo.internal.StructField('arg_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateProvisionFetcher_Params', [
+      mojo.internal.StructField('arg_provision_fetcher', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.ProvisionFetcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateCdmStorage_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateCdmStorage_Params', [
+      mojo.internal.StructField('arg_cdm_storage', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmStorageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_RegisterMuteStateObserver_Params', [
+      mojo.internal.StructField('arg_site_mute_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MuteStateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_ParamsSpec, 'media.mojom.FrameInterfaceFactory_CreateDCOMPSurfaceRegistry_Params', [
+      mojo.internal.StructField('arg_registry', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DCOMPSurfaceRegistryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParamsSpec, 'media.mojom.FrameInterfaceFactory_GetCdmOrigin_ResponseParams', [
+      mojo.internal.StructField('arg_cdm_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_ParamsSpec, 'media.mojom.FrameInterfaceFactory_BindEmbedderReceiver_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

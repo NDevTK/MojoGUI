@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.FullscreenOptionsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FullscreenOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FullscreenOptionsSpec, 'blink.mojom.FullscreenOptions', [

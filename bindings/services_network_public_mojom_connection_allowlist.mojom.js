@@ -134,6 +134,8 @@ mojo.internal.bindings.network.mojom.ConnectionAllowlistIssue = {
   kReportingEndpointNotToken: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ConnectionAllowlist
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionAllowlistSpec, 'network.mojom.ConnectionAllowlist', [

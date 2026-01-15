@@ -152,21 +152,7 @@ mojo.internal.bindings.ash.cfm.mojom.FilterType = {
   CHANGE: 1,
 };
 
-// Struct: DataFilter
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, 'ash.cfm.mojom.DataFilter', [
-      mojo.internal.StructField('arg_filter_type', 0, 0, mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pattern', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: DataWatchDog
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec, 'ash.cfm.mojom.DataWatchDog_OnNotify_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cfm.mojom.DataWatchDogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -279,7 +265,7 @@ mojo.internal.bindings.ash.cfm.mojom.DataWatchDogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotify');
-          const result = this.impl.onNotify(params.arg_data);
+          const result = this.impl.onNotify(params.arg_arg_data);
           break;
         }
       }
@@ -297,35 +283,6 @@ mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRequest = mojo.internal.binding
 
 
 // Interface: DataSource
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_ResponseParams', [
-      mojo.internal.StructField('arg_serialized_payloads', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_watch_dog', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec, 'ash.cfm.mojom.DataSource_Flush_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.cfm.mojom.DataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -470,8 +427,11 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Fetch FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_serialized_payloads' in response) ? response.arg_arg_serialized_payloads : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetch FAILED:', e));
           }
           break;
         }
@@ -479,12 +439,15 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addWatchDog');
-          const result = this.impl.addWatchDog(params.arg_filter, params.arg_watch_dog);
+          const result = this.impl.addWatchDog(params.arg_arg_filter, params.arg_arg_watch_dog);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddWatchDog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addWatchDog FAILED:', e));
           }
           break;
         }
@@ -510,44 +473,6 @@ mojo.internal.bindings.ash.cfm.mojom.DataSourceRequest = mojo.internal.bindings.
 
 
 // Interface: DataAggregator
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParams', [
-      mojo.internal.StructField('arg_data_source_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_Params', [
-      mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_source', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataSourceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
-      mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filter', 8, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_watch_dog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cfm.mojom.DataAggregatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -692,8 +617,11 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDataSourceNames FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data_source_names' in response) ? response.arg_arg_data_source_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDataSourceNames FAILED:', e));
           }
           break;
         }
@@ -701,12 +629,15 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDataSource');
-          const result = this.impl.addDataSource(params.arg_source_name, params.arg_data_source);
+          const result = this.impl.addDataSource(params.arg_arg_source_name, params.arg_arg_data_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddDataSource FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addDataSource FAILED:', e));
           }
           break;
         }
@@ -714,12 +645,15 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addWatchDog');
-          const result = this.impl.addWatchDog(params.arg_source_name, params.arg_filter, params.arg_watch_dog);
+          const result = this.impl.addWatchDog(params.arg_arg_source_name, params.arg_arg_filter, params.arg_arg_watch_dog);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddWatchDog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addWatchDog FAILED:', e));
           }
           break;
         }
@@ -735,4 +669,87 @@ mojo.internal.bindings.ash.cfm.mojom.DataAggregatorReceiver = mojo.internal.bind
 
 mojo.internal.bindings.ash.cfm.mojom.DataAggregatorPtr = mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRemote;
 mojo.internal.bindings.ash.cfm.mojom.DataAggregatorRequest = mojo.internal.bindings.ash.cfm.mojom.DataAggregatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DataFilter
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, 'ash.cfm.mojom.DataFilter', [
+      mojo.internal.StructField('arg_filter_type', 0, 0, mojo.internal.bindings.ash.cfm.mojom.FilterTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pattern', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataWatchDog_OnNotify_ParamsSpec, 'ash.cfm.mojom.DataWatchDog_OnNotify_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataSource_Fetch_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_Fetch_ResponseParams', [
+      mojo.internal.StructField('arg_serialized_payloads', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_Params', [
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_watch_dog', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataSource_AddWatchDog_ResponseParamsSpec, 'ash.cfm.mojom.DataSource_AddWatchDog_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataSource_Flush_ParamsSpec, 'ash.cfm.mojom.DataSource_Flush_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_GetDataSourceNames_ResponseParams', [
+      mojo.internal.StructField('arg_data_source_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_Params', [
+      mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_source', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataSourceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_AddDataSource_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_Params', [
+      mojo.internal.StructField('arg_source_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 8, 0, mojo.internal.bindings.ash.cfm.mojom.DataFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_watch_dog', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.cfm.mojom.DataWatchDogRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParamsSpec, 'ash.cfm.mojom.DataAggregator_AddWatchDog_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

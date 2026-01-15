@@ -152,37 +152,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: IceServer
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.IceServerSpec, 'sharing.mojom.IceServer', [
-      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_credential', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: WebRtcDependencies
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec, 'sharing.mojom.WebRtcDependencies', [
-      mojo.internal.StructField('arg_socket_manager', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_messenger', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: IceConfigFetcher
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParams', [
-      mojo.internal.StructField('arg_ice_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.IceServerSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sharing.mojom.IceConfigFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -299,8 +269,11 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetIceServers FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ice_servers' in response) ? response.arg_arg_ice_servers : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getIceServers FAILED:', e));
           }
           break;
         }
@@ -319,12 +292,6 @@ mojo.internal.bindings.sharing.mojom.IceConfigFetcherRequest = mojo.internal.bin
 
 
 // Interface: MdnsResponderFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec, 'sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Params', [
-      mojo.internal.StructField('arg_responder_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.MdnsResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -437,7 +404,7 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMdnsResponder');
-          const result = this.impl.createMdnsResponder(params.arg_responder_receiver);
+          const result = this.impl.createMdnsResponder(params.arg_arg_responder_receiver);
           break;
         }
       }
@@ -452,4 +419,42 @@ mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryReceiver = mojo.interna
 
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryPtr = mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemote;
 mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRequest = mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: IceServer
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.IceServerSpec, 'sharing.mojom.IceServer', [
+      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_credential', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: WebRtcDependencies
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec, 'sharing.mojom.WebRtcDependencies', [
+      mojo.internal.StructField('arg_socket_manager', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mdns_responder_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsResponderFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_ice_config_fetcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IceConfigFetcherRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_messenger', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParamsSpec, 'sharing.mojom.IceConfigFetcher_GetIceServers_ResponseParams', [
+      mojo.internal.StructField('arg_ice_servers', 0, 0, mojo.internal.Array(mojo.internal.bindings.sharing.mojom.IceServerSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_ParamsSpec, 'sharing.mojom.MdnsResponderFactory_CreateMdnsResponder_Params', [
+      mojo.internal.StructField('arg_responder_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.MdnsResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -224,236 +224,7 @@ mojo.internal.bindings.ash.ime.mojom.HistogramBucketType = {
   kLinear: 1,
 };
 
-// Union: UkmEntry
-mojo.internal.Union(
-    mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec, 'ash.ime.mojom.UkmEntry', {
-      'arg_non_compliant_api': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: CompositionSpan
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec, 'ash.ime.mojom.CompositionSpan', [
-      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TextRange
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.TextRangeSpec, 'ash.ime.mojom.TextRange', [
-      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: AutocorrectSpan
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec, 'ash.ime.mojom.AutocorrectSpan', [
-      mojo.internal.StructField('arg_autocorrect_range', 0, 0, mojo.internal.bindings.ash.ime.mojom.TextRangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: CompletionCandidate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec, 'ash.ime.mojom.CompletionCandidate', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SuggestionsRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec, 'ash.ime.mojom.SuggestionsRequest', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_completion_candidates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SuggestionsResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec, 'ash.ime.mojom.SuggestionsResponse', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SuggestionsTextContext
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec, 'ash.ime.mojom.SuggestionsTextContext', [
-      mojo.internal.StructField('arg_last_n_chars', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_surrounding_text_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: NonCompliantApiMetric
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec, 'ash.ime.mojom.NonCompliantApiMetric', [
-      mojo.internal.StructField('arg_non_compliant_operation', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: Candidate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.CandidateSpec, 'ash.ime.mojom.Candidate', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_annotation', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: HighlightedCandidate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec, 'ash.ime.mojom.HighlightedCandidate', [
-      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: CandidatesWindow
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec, 'ash.ime.mojom.CandidatesWindow', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_DEPRECATED_highlighted_candidate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_auxiliary_text', 16, 0, mojo.internal.String, null, true, 4, undefined),
-      mojo.internal.StructField('arg_highlighted_candidate', 24, 0, mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec, null, true, 6, undefined),
-    ],
-    [[0, 24], [4, 32], [6, 40]]);
-
-// Struct: BucketedHistogram
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec, 'ash.ime.mojom.BucketedHistogram', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket_type', 8, 0, mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum', 14, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: InputMethodHost
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_CommitText_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cursor_behavior', 8, 0, mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spans', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_SetComposition_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spans', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_cursor_position', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec, 'ash.ime.mojom.InputMethodHost_SetCompositionRange_Params', [
-      mojo.internal.StructField('arg_start_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_end_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_FinishComposition_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DeleteSurroundingText_Params', [
-      mojo.internal.StructField('arg_num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params', [
-      mojo.internal.StructField('arg_num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec, 'ash.ime.mojom.InputMethodHost_HandleAutocorrect_Params', [
-      mojo.internal.StructField('arg_autocorrect_span', 0, 0, mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DisplaySuggestions_Params', [
-      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec, null, true, 10, undefined),
-    ],
-    [[0, 16], [10, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_Params', [
-      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_RequestSuggestions_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec, 'ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateQuickSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec, 'ash.ime.mojom.InputMethodHost_RecordUkm_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_Params', [
-      mojo.internal.StructField('arg_histogram', 0, 0, mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.ime.mojom.InputMethodHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -790,28 +561,28 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitText');
-          const result = this.impl.commitText(params.arg_text, params.arg_cursor_behavior);
+          const result = this.impl.commitText(params.arg_arg_text, params.arg_arg_cursor_behavior);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_SetComposition');
-          const result = this.impl.dEPRECATED_SetComposition(params.arg_text, params.arg_spans);
+          const result = this.impl.dEPRECATED_SetComposition(params.arg_arg_text, params.arg_arg_spans);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setComposition');
-          const result = this.impl.setComposition(params.arg_text, params.arg_spans, params.arg_new_cursor_position);
+          const result = this.impl.setComposition(params.arg_arg_text, params.arg_arg_spans, params.arg_arg_new_cursor_position);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCompositionRange');
-          const result = this.impl.setCompositionRange(params.arg_start_index, params.arg_end_index);
+          const result = this.impl.setCompositionRange(params.arg_arg_start_index, params.arg_arg_end_index);
           break;
         }
         case 4: {
@@ -825,47 +596,50 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSurroundingText');
-          const result = this.impl.deleteSurroundingText(params.arg_num_before_cursor, params.arg_num_after_cursor);
+          const result = this.impl.deleteSurroundingText(params.arg_arg_num_before_cursor, params.arg_arg_num_after_cursor);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.replaceSurroundingText');
-          const result = this.impl.replaceSurroundingText(params.arg_num_before_cursor, params.arg_num_after_cursor, params.arg_text);
+          const result = this.impl.replaceSurroundingText(params.arg_arg_num_before_cursor, params.arg_arg_num_after_cursor, params.arg_arg_text);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAutocorrect');
-          const result = this.impl.handleAutocorrect(params.arg_autocorrect_span);
+          const result = this.impl.handleAutocorrect(params.arg_arg_autocorrect_span);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.displaySuggestions');
-          const result = this.impl.displaySuggestions(params.arg_suggestions, params.arg_context);
+          const result = this.impl.displaySuggestions(params.arg_arg_suggestions, params.arg_arg_context);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCandidatesWindow');
-          const result = this.impl.updateCandidatesWindow(params.arg_window);
+          const result = this.impl.updateCandidatesWindow(params.arg_arg_window);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSuggestions');
-          const result = this.impl.requestSuggestions(params.arg_request);
+          const result = this.impl.requestSuggestions(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestSuggestions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestSuggestions FAILED:', e));
           }
           break;
         }
@@ -873,42 +647,42 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateQuickSettings');
-          const result = this.impl.updateQuickSettings(params.arg_settings);
+          const result = this.impl.updateQuickSettings(params.arg_arg_settings);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUkm');
-          const result = this.impl.recordUkm(params.arg_entry);
+          const result = this.impl.recordUkm(params.arg_arg_entry);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportKoreanAction');
-          const result = this.impl.dEPRECATED_ReportKoreanAction(params.arg_action);
+          const result = this.impl.dEPRECATED_ReportKoreanAction(params.arg_arg_action);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportKoreanSettings');
-          const result = this.impl.dEPRECATED_ReportKoreanSettings(params.arg_settings);
+          const result = this.impl.dEPRECATED_ReportKoreanSettings(params.arg_arg_settings);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportSuggestionOpportunity');
-          const result = this.impl.dEPRECATED_ReportSuggestionOpportunity(params.arg_mode);
+          const result = this.impl.dEPRECATED_ReportSuggestionOpportunity(params.arg_arg_mode);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_ReportHistogramSample');
-          const result = this.impl.dEPRECATED_ReportHistogramSample(params.arg_histogram, params.arg_value);
+          const result = this.impl.dEPRECATED_ReportHistogramSample(params.arg_arg_histogram, params.arg_arg_value);
           break;
         }
       }
@@ -923,4 +697,235 @@ mojo.internal.bindings.ash.ime.mojom.InputMethodHostReceiver = mojo.internal.bin
 
 mojo.internal.bindings.ash.ime.mojom.InputMethodHostPtr = mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote;
 mojo.internal.bindings.ash.ime.mojom.InputMethodHostRequest = mojo.internal.bindings.ash.ime.mojom.InputMethodHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: UkmEntry
+mojo.internal.Union(
+    mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec, 'ash.ime.mojom.UkmEntry', {
+      'arg_non_compliant_api': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: CompositionSpan
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec, 'ash.ime.mojom.CompositionSpan', [
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.ash.ime.mojom.CompositionSpanStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TextRange
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.TextRangeSpec, 'ash.ime.mojom.TextRange', [
+      mojo.internal.StructField('arg_start', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AutocorrectSpan
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec, 'ash.ime.mojom.AutocorrectSpan', [
+      mojo.internal.StructField('arg_autocorrect_range', 0, 0, mojo.internal.bindings.ash.ime.mojom.TextRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_text', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: CompletionCandidate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec, 'ash.ime.mojom.CompletionCandidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SuggestionsRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec, 'ash.ime.mojom.SuggestionsRequest', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_completion_candidates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompletionCandidateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SuggestionsResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec, 'ash.ime.mojom.SuggestionsResponse', [
+      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SuggestionsTextContext
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec, 'ash.ime.mojom.SuggestionsTextContext', [
+      mojo.internal.StructField('arg_last_n_chars', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_surrounding_text_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: NonCompliantApiMetric
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.NonCompliantApiMetricSpec, 'ash.ime.mojom.NonCompliantApiMetric', [
+      mojo.internal.StructField('arg_non_compliant_operation', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodApiOperationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: Candidate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.CandidateSpec, 'ash.ime.mojom.Candidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_annotation', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: HighlightedCandidate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec, 'ash.ime.mojom.HighlightedCandidate', [
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: CandidatesWindow
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec, 'ash.ime.mojom.CandidatesWindow', [
+      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_DEPRECATED_highlighted_candidate', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_auxiliary_text', 16, 0, mojo.internal.String, null, true, 4, undefined),
+      mojo.internal.StructField('arg_highlighted_candidate', 24, 0, mojo.internal.bindings.ash.ime.mojom.HighlightedCandidateSpec, null, true, 6, undefined),
+    ],
+    [[0, 24], [4, 32], [6, 40]]);
+
+// Struct: BucketedHistogram
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec, 'ash.ime.mojom.BucketedHistogram', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_type', 8, 0, mojo.internal.bindings.ash.ime.mojom.HistogramBucketTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum', 14, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_count', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_CommitText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_CommitText_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor_behavior', 8, 0, mojo.internal.bindings.ash.ime.mojom.CommitTextCursorBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_SetComposition_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_spans', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_SetComposition_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_spans', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.CompositionSpanSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_cursor_position', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_SetCompositionRange_ParamsSpec, 'ash.ime.mojom.InputMethodHost_SetCompositionRange_Params', [
+      mojo.internal.StructField('arg_start_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_end_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_FinishComposition_ParamsSpec, 'ash.ime.mojom.InputMethodHost_FinishComposition_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DeleteSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DeleteSurroundingText_Params', [
+      mojo.internal.StructField('arg_num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_ParamsSpec, 'ash.ime.mojom.InputMethodHost_ReplaceSurroundingText_Params', [
+      mojo.internal.StructField('arg_num_before_cursor', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_after_cursor', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_HandleAutocorrect_ParamsSpec, 'ash.ime.mojom.InputMethodHost_HandleAutocorrect_Params', [
+      mojo.internal.StructField('arg_autocorrect_span', 0, 0, mojo.internal.bindings.ash.ime.mojom.AutocorrectSpanSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DisplaySuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DisplaySuggestions_Params', [
+      mojo.internal.StructField('arg_suggestions', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.ime.mojom.SuggestionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsTextContextSpec, null, true, 10, undefined),
+    ],
+    [[0, 16], [10, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateCandidatesWindow_Params', [
+      mojo.internal.StructField('arg_window', 0, 0, mojo.internal.bindings.ash.ime.mojom.CandidatesWindowSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ParamsSpec, 'ash.ime.mojom.InputMethodHost_RequestSuggestions_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParamsSpec, 'ash.ime.mojom.InputMethodHost_RequestSuggestions_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionsResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_UpdateQuickSettings_ParamsSpec, 'ash.ime.mojom.InputMethodHost_UpdateQuickSettings_Params', [
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodQuickSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_RecordUkm_ParamsSpec, 'ash.ime.mojom.InputMethodHost_RecordUkm_Params', [
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ash.ime.mojom.UkmEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.ime.mojom.KoreanActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportKoreanSettings_Params', [
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.ash.ime.mojom.KoreanSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportSuggestionOpportunity_Params', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.ash.ime.mojom.SuggestionModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_ParamsSpec, 'ash.ime.mojom.InputMethodHost_DEPRECATED_ReportHistogramSample_Params', [
+      mojo.internal.StructField('arg_histogram', 0, 0, mojo.internal.bindings.ash.ime.mojom.BucketedHistogramSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -135,17 +135,6 @@ mojo.internal.bindings.media.mojom.RendererSpec = mojo.internal.bindings.media.m
 mojo.internal.bindings.media.mojom.RendererRemote = mojo.internal.bindings.media.mojom.RendererRemote || class {};
 
 // Interface: RendererController
-mojo.internal.Struct(
-    mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_Params', [
-      mojo.internal.StructField('arg_renderer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.cast_streaming.mojom.RendererControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,12 +247,14 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackController');
-          const result = this.impl.setPlaybackController(params.arg_renderer);
+          const result = this.impl.setPlaybackController(params.arg_arg_renderer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetPlaybackController FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setPlaybackController FAILED:', e));
           }
           break;
         }
@@ -279,4 +270,17 @@ mojo.internal.bindings.cast_streaming.mojom.RendererControllerReceiver = mojo.in
 
 mojo.internal.bindings.cast_streaming.mojom.RendererControllerPtr = mojo.internal.bindings.cast_streaming.mojom.RendererControllerRemote;
 mojo.internal.bindings.cast_streaming.mojom.RendererControllerRequest = mojo.internal.bindings.cast_streaming.mojom.RendererControllerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_Params', [
+      mojo.internal.StructField('arg_renderer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParamsSpec, 'cast_streaming.mojom.RendererController_SetPlaybackController_ResponseParams', [
+    ],
+    [[0, 8]]);
 

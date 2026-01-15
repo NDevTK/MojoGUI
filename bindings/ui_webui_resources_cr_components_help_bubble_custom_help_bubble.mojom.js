@@ -140,12 +140,6 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserAction = {
 };
 
 // Interface: CustomHelpBubbleHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,7 +252,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomHelpBubbleHandler');
-          const result = this.impl.createCustomHelpBubbleHandler(params.arg_handler);
+          const result = this.impl.createCustomHelpBubbleHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -276,12 +270,6 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactoryRe
 
 
 // Interface: CustomHelpBubbleHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -394,7 +382,7 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUserAction');
-          const result = this.impl.notifyUserAction(params.arg_action);
+          const result = this.impl.notifyUserAction(params.arg_arg_action);
           break;
         }
       }
@@ -409,4 +397,18 @@ mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerReceiver 
 
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerPtr = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote;
 mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRequest = mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandlerFactory_CreateCustomHelpBubbleHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_ParamsSpec, 'custom_help_bubble.mojom.CustomHelpBubbleHandler_NotifyUserAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.custom_help_bubble.mojom.CustomHelpBubbleUserActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

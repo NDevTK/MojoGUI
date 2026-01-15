@@ -140,48 +140,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = mojo.internal.bindings.mojo_base.mojom.BigBufferSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PdfBuilder
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_AddPage_Params', [
-      mojo.internal.StructField('arg_jpeg', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_AddPageInline_Params', [
-      mojo.internal.StructField('arg_jpeg', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_DeletePage_Params', [
-      mojo.internal.StructField('arg_page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_ResponseParams', [
-      mojo.internal.StructField('arg_pdf', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParams', [
-      mojo.internal.StructField('arg_pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -350,21 +308,21 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPage');
-          const result = this.impl.addPage(params.arg_jpeg, params.arg_page_index);
+          const result = this.impl.addPage(params.arg_arg_jpeg, params.arg_arg_page_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPageInline');
-          const result = this.impl.addPageInline(params.arg_jpeg, params.arg_page_index);
+          const result = this.impl.addPageInline(params.arg_arg_jpeg, params.arg_arg_page_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePage');
-          const result = this.impl.deletePage(params.arg_page_index);
+          const result = this.impl.deletePage(params.arg_arg_page_index);
           break;
         }
         case 3: {
@@ -375,8 +333,11 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Save FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pdf' in response) ? response.arg_arg_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] save FAILED:', e));
           }
           break;
         }
@@ -388,8 +349,11 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SaveInline FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pdf' in response) ? response.arg_arg_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] saveInline FAILED:', e));
           }
           break;
         }
@@ -405,4 +369,48 @@ mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderReceiver = mojo.internal.b
 
 mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderPtr = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRemote;
 mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderRequest = mojo.internal.bindings.ash.camera_app.mojom.PdfBuilderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPage_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_AddPage_Params', [
+      mojo.internal.StructField('arg_jpeg', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_AddPageInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_AddPageInline_Params', [
+      mojo.internal.StructField('arg_jpeg', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_DeletePage_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_DeletePage_Params', [
+      mojo.internal.StructField('arg_page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_Save_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_Save_ResponseParams', [
+      mojo.internal.StructField('arg_pdf', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParamsSpec, 'ash.camera_app.mojom.PdfBuilder_SaveInline_ResponseParams', [
+      mojo.internal.StructField('arg_pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

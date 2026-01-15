@@ -133,18 +133,6 @@ mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
 mojo.internal.bindings.wl.mojom.TransformUnionSpec = mojo.internal.bindings.wl.mojom.TransformUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ConfigTraitsTestService
-mojo.internal.Struct(
-    mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params', [
-      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.wl.mojom.ConfigTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,12 +245,15 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoTransform');
-          const result = this.impl.echoTransform(params.arg_t);
+          const result = this.impl.echoTransform(params.arg_arg_t);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoTransform FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoTransform FAILED:', e));
           }
           break;
         }
@@ -278,4 +269,18 @@ mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceReceiver = mojo.internal.
 
 mojo.internal.bindings.wl.mojom.ConfigTraitsTestServicePtr = mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceRemote;
 mojo.internal.bindings.wl.mojom.ConfigTraitsTestServiceRequest = mojo.internal.bindings.wl.mojom.ConfigTraitsTestServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_Params', [
+      mojo.internal.StructField('arg_t', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParamsSpec, 'wl.mojom.ConfigTraitsTestService_EchoTransform_ResponseParams', [
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.wl.mojom.TransformUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

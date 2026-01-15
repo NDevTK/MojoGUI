@@ -129,3 +129,5 @@ mojo.internal.bindings.mojo_base.mojom.TextDirection = {
   RIGHT_TO_LEFT: 1,
   LEFT_TO_RIGHT: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

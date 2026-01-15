@@ -255,51 +255,7 @@ mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResult = {
   kTransferInProgress: 3,
 };
 
-// Struct: PayloadPreview
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec, 'nearby_share.mojom.PayloadPreview', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_share_type', 12, 0, mojo.internal.bindings.nearby_share.mojom.ShareTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ShareTarget
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, 'nearby_share.mojom.ShareTarget', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_for_self_share', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_image_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payload_preview', 32, 0, mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: TransferMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec, 'nearby_share.mojom.TransferMetadata', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_original', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_final_status', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: ShareTargetListener
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params', [
-      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params', [
-      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -426,14 +382,14 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetDiscovered');
-          const result = this.impl.onShareTargetDiscovered(params.arg_share_target);
+          const result = this.impl.onShareTargetDiscovered(params.arg_arg_share_target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShareTargetLost');
-          const result = this.impl.onShareTargetLost(params.arg_share_target);
+          const result = this.impl.onShareTargetLost(params.arg_arg_share_target);
           break;
         }
       }
@@ -451,13 +407,6 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRequest = mojo.inte
 
 
 // Interface: TransferUpdateListener
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -570,7 +519,7 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
-          const result = this.impl.onTransferUpdate(params.arg_status, params.arg_token);
+          const result = this.impl.onTransferUpdate(params.arg_arg_status, params.arg_arg_token);
           break;
         }
       }
@@ -588,17 +537,6 @@ mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRequest = mojo.i
 
 
 // Interface: DiscoveryObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -732,7 +670,7 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartDiscoveryResult');
-          const result = this.impl.onStartDiscoveryResult(params.arg_success);
+          const result = this.impl.onStartDiscoveryResult(params.arg_arg_success);
           break;
         }
       }
@@ -750,59 +688,6 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRequest = mojo.intern
 
 
 // Interface: DiscoveryManager
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.StartDiscoveryResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params', [
-      mojo.internal.StructField('arg_share_target_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_update_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_confirmation_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParams', [
-      mojo.internal.StructField('arg_payload_preview', 0, 0, mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -971,19 +856,22 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDiscoveryObserver');
-          const result = this.impl.addDiscoveryObserver(params.arg_observer);
+          const result = this.impl.addDiscoveryObserver(params.arg_arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDiscovery');
-          const result = this.impl.startDiscovery(params.arg_listener);
+          const result = this.impl.startDiscovery(params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartDiscovery FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startDiscovery FAILED:', e));
           }
           break;
         }
@@ -995,8 +883,10 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StopDiscovery FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stopDiscovery FAILED:', e));
           }
           break;
         }
@@ -1004,12 +894,14 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectShareTarget');
-          const result = this.impl.selectShareTarget(params.arg_share_target_id);
+          const result = this.impl.selectShareTarget(params.arg_arg_share_target_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SelectShareTarget FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_transfer_update_listener', 'response.arg_arg_confirmation_manager']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] selectShareTarget FAILED:', e));
           }
           break;
         }
@@ -1021,8 +913,11 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPayloadPreview FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_payload_preview' in response) ? response.arg_arg_payload_preview : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPayloadPreview FAILED:', e));
           }
           break;
         }
@@ -1041,39 +936,6 @@ mojo.internal.bindings.nearby_share.mojom.DiscoveryManagerRequest = mojo.interna
 
 
 // Interface: ConfirmationManager
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1218,8 +1080,11 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Accept FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
           break;
         }
@@ -1231,8 +1096,11 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Reject FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] reject FAILED:', e));
           }
           break;
         }
@@ -1244,8 +1112,11 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }
@@ -1264,29 +1135,6 @@ mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRequest = mojo.inte
 
 
 // Interface: ReceiveObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_Params', [
-      mojo.internal.StructField('arg_in_high_visibility', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params', [
-      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.nearby_share.mojom.ReceiveObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1441,14 +1289,14 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHighVisibilityChanged');
-          const result = this.impl.onHighVisibilityChanged(params.arg_in_high_visibility);
+          const result = this.impl.onHighVisibilityChanged(params.arg_arg_in_high_visibility);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTransferUpdate');
-          const result = this.impl.onTransferUpdate(params.arg_share_target, params.arg_metadata);
+          const result = this.impl.onTransferUpdate(params.arg_arg_share_target, params.arg_arg_metadata);
           break;
         }
         case 2: {
@@ -1480,75 +1328,6 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRequest = mojo.internal
 
 
 // Interface: ReceiveManager
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec, 'nearby_share.mojom.ReceiveManager_AddReceiveObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParams', [
-      mojo.internal.StructField('arg_in_high_visibility', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_Params', [
-      mojo.internal.StructField('arg_share_target_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_Params', [
-      mojo.internal.StructField('arg_share_target_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.nearby_share.mojom.ReceiveManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1745,7 +1524,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiveObserver');
-          const result = this.impl.addReceiveObserver(params.arg_observer);
+          const result = this.impl.addReceiveObserver(params.arg_arg_observer);
           break;
         }
         case 1: {
@@ -1756,8 +1535,11 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsInHighVisibility FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_in_high_visibility' in response) ? response.arg_arg_in_high_visibility : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isInHighVisibility FAILED:', e));
           }
           break;
         }
@@ -1769,8 +1551,11 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RegisterForegroundReceiveSurface FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] registerForegroundReceiveSurface FAILED:', e));
           }
           break;
         }
@@ -1782,8 +1567,11 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UnregisterForegroundReceiveSurface FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unregisterForegroundReceiveSurface FAILED:', e));
           }
           break;
         }
@@ -1791,12 +1579,15 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.accept');
-          const result = this.impl.accept(params.arg_share_target_id);
+          const result = this.impl.accept(params.arg_arg_share_target_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Accept FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] accept FAILED:', e));
           }
           break;
         }
@@ -1804,12 +1595,15 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reject');
-          const result = this.impl.reject(params.arg_share_target_id);
+          const result = this.impl.reject(params.arg_arg_share_target_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Reject FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] reject FAILED:', e));
           }
           break;
         }
@@ -1817,7 +1611,7 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordFastInitiationNotificationUsage');
-          const result = this.impl.recordFastInitiationNotificationUsage(params.arg_success);
+          const result = this.impl.recordFastInitiationNotificationUsage(params.arg_arg_success);
           break;
         }
       }
@@ -1832,4 +1626,246 @@ mojo.internal.bindings.nearby_share.mojom.ReceiveManagerReceiver = mojo.internal
 
 mojo.internal.bindings.nearby_share.mojom.ReceiveManagerPtr = mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRemote;
 mojo.internal.bindings.nearby_share.mojom.ReceiveManagerRequest = mojo.internal.bindings.nearby_share.mojom.ReceiveManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PayloadPreview
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec, 'nearby_share.mojom.PayloadPreview', [
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_share_type', 12, 0, mojo.internal.bindings.nearby_share.mojom.ShareTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ShareTarget
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, 'nearby_share.mojom.ShareTarget', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_for_self_share', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payload_preview', 32, 0, mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: TransferMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec, 'nearby_share.mojom.TransferMetadata', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_original', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_final_status', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetDiscovered_Params', [
+      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ShareTargetListener_OnShareTargetLost_ParamsSpec, 'nearby_share.mojom.ShareTargetListener_OnShareTargetLost_Params', [
+      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.TransferUpdateListener_OnTransferUpdate_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.nearby_share.mojom.TransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnNearbyProcessStopped_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_ParamsSpec, 'nearby_share.mojom.DiscoveryObserver_OnStartDiscoveryResult_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_AddDiscoveryObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.DiscoveryObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ShareTargetListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StartDiscovery_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.StartDiscoveryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_StopDiscovery_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_Params', [
+      mojo.internal.StructField('arg_share_target_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_SelectShareTarget_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.SelectShareTargetResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transfer_update_listener', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby_share.mojom.TransferUpdateListenerRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_confirmation_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ConfirmationManagerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParamsSpec, 'nearby_share.mojom.DiscoveryManager_GetPayloadPreview_ResponseParams', [
+      mojo.internal.StructField('arg_payload_preview', 0, 0, mojo.internal.bindings.nearby_share.mojom.PayloadPreviewSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Accept_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Reject_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ConfirmationManager_Cancel_ResponseParamsSpec, 'nearby_share.mojom.ConfirmationManager_Cancel_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnHighVisibilityChanged_Params', [
+      mojo.internal.StructField('arg_in_high_visibility', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnTransferUpdate_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnTransferUpdate_Params', [
+      mojo.internal.StructField('arg_share_target', 0, 0, mojo.internal.bindings.nearby_share.mojom.ShareTargetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.nearby_share.mojom.TransferMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnNearbyProcessStopped_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_ParamsSpec, 'nearby_share.mojom.ReceiveObserver_OnStartAdvertisingFailure_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_AddReceiveObserver_ParamsSpec, 'nearby_share.mojom.ReceiveManager_AddReceiveObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.nearby_share.mojom.ReceiveObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_IsInHighVisibility_ResponseParams', [
+      mojo.internal.StructField('arg_in_high_visibility', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_RegisterForegroundReceiveSurface_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.nearby_share.mojom.RegisterReceiveSurfaceResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_UnregisterForegroundReceiveSurface_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_Params', [
+      mojo.internal.StructField('arg_share_target_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Accept_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_Accept_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_Params', [
+      mojo.internal.StructField('arg_share_target_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_Reject_ResponseParamsSpec, 'nearby_share.mojom.ReceiveManager_Reject_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_ParamsSpec, 'nearby_share.mojom.ReceiveManager_RecordFastInitiationNotificationUsage_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -136,12 +136,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.CloneableMessageSpec = mojo.internal.bindings.blink.mojom.CloneableMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: BroadcastChannelClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec, 'blink.mojom.BroadcastChannelClient_OnMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BroadcastChannelClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -254,7 +248,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_message);
+          const result = this.impl.onMessage(params.arg_arg_message);
           break;
         }
       }
@@ -272,14 +266,6 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelClientRequest = mojo.internal
 
 
 // Interface: BroadcastChannelProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec, 'blink.mojom.BroadcastChannelProvider_ConnectToChannel_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.BroadcastChannelProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -392,7 +378,7 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToChannel');
-          const result = this.impl.connectToChannel(params.arg_name, params.arg_client, params.arg_connection);
+          const result = this.impl.connectToChannel(params.arg_arg_name, params.arg_arg_client, params.arg_arg_connection);
           break;
         }
       }
@@ -407,4 +393,20 @@ mojo.internal.bindings.blink.mojom.BroadcastChannelProviderReceiver = mojo.inter
 
 mojo.internal.bindings.blink.mojom.BroadcastChannelProviderPtr = mojo.internal.bindings.blink.mojom.BroadcastChannelProviderRemote;
 mojo.internal.bindings.blink.mojom.BroadcastChannelProviderRequest = mojo.internal.bindings.blink.mojom.BroadcastChannelProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BroadcastChannelClient_OnMessage_ParamsSpec, 'blink.mojom.BroadcastChannelClient_OnMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.blink.mojom.CloneableMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BroadcastChannelProvider_ConnectToChannel_ParamsSpec, 'blink.mojom.BroadcastChannelProvider_ConnectToChannel_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.BroadcastChannelClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

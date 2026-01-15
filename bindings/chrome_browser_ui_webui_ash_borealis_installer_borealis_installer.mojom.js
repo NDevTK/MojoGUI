@@ -149,13 +149,6 @@ mojo.internal.bindings.borealis.mojom = mojo.internal.bindings.borealis.mojom ||
 mojo.internal.bindings.borealis.mojom.InstallResultSpec = mojo.internal.bindings.borealis.mojom.InstallResultSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.borealis_installer.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -268,7 +261,7 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -286,36 +279,6 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactoryRequest = 
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Install_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_ShutDown_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Launch_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_CancelInstall_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OnPageClosed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OpenStoragePage_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -551,24 +514,6 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRequest = mojo.in
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnProgressUpdate_Params', [
-      mojo.internal.StructField('arg_progress_fraction', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnInstallFinished_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.borealis.mojom.InstallResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec, 'ash.borealis_installer.mojom.Page_RequestClose_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.borealis_installer.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -709,14 +654,14 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgressUpdate');
-          const result = this.impl.onProgressUpdate(params.arg_progress_fraction, params.arg_label);
+          const result = this.impl.onProgressUpdate(params.arg_arg_progress_fraction, params.arg_arg_label);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInstallFinished');
-          const result = this.impl.onInstallFinished(params.arg_error);
+          const result = this.impl.onInstallFinished(params.arg_arg_error);
           break;
         }
         case 2: {
@@ -738,4 +683,61 @@ mojo.internal.bindings.ash.borealis_installer.mojom.PageReceiver = mojo.internal
 
 mojo.internal.bindings.ash.borealis_installer.mojom.PagePtr = mojo.internal.bindings.ash.borealis_installer.mojom.PageRemote;
 mojo.internal.bindings.ash.borealis_installer.mojom.PageRequest = mojo.internal.bindings.ash.borealis_installer.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.borealis_installer.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.borealis_installer.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.borealis_installer.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Install_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Install_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_ShutDown_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_ShutDown_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_Launch_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_Launch_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_CancelInstall_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_CancelInstall_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OnPageClosed_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OnPageClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.PageHandler_OpenStoragePage_ParamsSpec, 'ash.borealis_installer.mojom.PageHandler_OpenStoragePage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnProgressUpdate_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnProgressUpdate_Params', [
+      mojo.internal.StructField('arg_progress_fraction', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.Page_OnInstallFinished_ParamsSpec, 'ash.borealis_installer.mojom.Page_OnInstallFinished_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.borealis.mojom.InstallResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.borealis_installer.mojom.Page_RequestClose_ParamsSpec, 'ash.borealis_installer.mojom.Page_RequestClose_Params', [
+    ],
+    [[0, 8]]);
 

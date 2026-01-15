@@ -155,6 +155,8 @@ mojo.internal.bindings.network.mojom.IsolationInfoFrameAncestorRelation = {
   kCrossSite: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IsolationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IsolationInfoSpec, 'network.mojom.IsolationInfo', [

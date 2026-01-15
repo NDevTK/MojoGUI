@@ -125,6 +125,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.drivefs.mojom.DriveFsNotificationSpec = { $: {} };
 mojo.internal.bindings.drivefs.mojom.MirrorDownloadDeletedNotificationSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: DriveFsNotification
 mojo.internal.Union(
     mojo.internal.bindings.drivefs.mojom.DriveFsNotificationSpec, 'drivefs.mojom.DriveFsNotification', {

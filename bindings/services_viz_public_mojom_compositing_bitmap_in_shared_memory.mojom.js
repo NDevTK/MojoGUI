@@ -133,6 +133,8 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.ImageInfoSpec = mojo.internal.bindings.skia.mojom.ImageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BitmapInSharedMemory
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BitmapInSharedMemorySpec, 'viz.mojom.BitmapInSharedMemory', [

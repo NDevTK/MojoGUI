@@ -167,136 +167,7 @@ mojo.internal.bindings.font_service.mojom.RenderStyleSwitch = {
   NO_PREFERENCE: 2,
 };
 
-// Struct: TypefaceStyle
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec, 'font_service.mojom.TypefaceStyle', [
-      mojo.internal.StructField('arg_weight', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_slant', 4, 0, mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FontIdentity
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontIdentitySpec, 'font_service.mojom.FontIdentity', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ttc_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_filepath', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: FontRenderStyle
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec, 'font_service.mojom.FontRenderStyle', [
-      mojo.internal.StructField('arg_use_bitmaps', 0, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_autohint', 4, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_hinting', 8, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hint_style', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_use_antialias', 16, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_subpixel_rendering', 20, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_subpixel_positioning', 24, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: FontService
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec, 'font_service.mojom.FontService_MatchFamilyName_Params', [
-      mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFamilyName_ResponseParams', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_family_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 16, 0, mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec, 'font_service.mojom.FontService_OpenStream_Params', [
-      mojo.internal.StructField('arg_id_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec, 'font_service.mojom.FontService_OpenStream_ResponseParams', [
-      mojo.internal.StructField('arg_font_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_Params', [
-      mojo.internal.StructField('arg_character', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_ResponseParams', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_family_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_bold', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_italic', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_Params', [
-      mojo.internal.StructField('arg_family', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_italic', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_bold', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParams', [
-      mojo.internal.StructField('arg_font_render_style', 0, 0, mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec, 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_Params', [
-      mojo.internal.StructField('arg_postscript_name_or_full_font_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParams', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec, 'font_service.mojom.FontService_ListFamilies_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, 'font_service.mojom.FontService_ListFamilies_ResponseParams', [
-      mojo.internal.StructField('arg_families', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_Params', [
-      mojo.internal.StructField('arg_family', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_bold', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_italic', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_charset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fallback_family_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_ResponseParams', [
-      mojo.internal.StructField('arg_font_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.font_service.mojom.FontServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -493,12 +364,14 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFamilyName');
-          const result = this.impl.matchFamilyName(params.arg_family_name, params.arg_style);
+          const result = this.impl.matchFamilyName(params.arg_arg_family_name, params.arg_arg_style);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MatchFamilyName FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec.$.structSpec, ['response.arg_arg_identity', 'response.arg_arg_family_name', 'response.arg_arg_style']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] matchFamilyName FAILED:', e));
           }
           break;
         }
@@ -506,12 +379,15 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openStream');
-          const result = this.impl.openStream(params.arg_id_number);
+          const result = this.impl.openStream(params.arg_arg_id_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenStream FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_font_handle' in response) ? response.arg_arg_font_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openStream FAILED:', e));
           }
           break;
         }
@@ -519,12 +395,14 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fallbackFontForCharacter');
-          const result = this.impl.fallbackFontForCharacter(params.arg_character, params.arg_locale);
+          const result = this.impl.fallbackFontForCharacter(params.arg_arg_character, params.arg_arg_locale);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FallbackFontForCharacter FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec.$.structSpec, ['response.arg_arg_identity', 'response.arg_arg_family_name', 'response.arg_arg_is_bold', 'response.arg_arg_is_italic']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fallbackFontForCharacter FAILED:', e));
           }
           break;
         }
@@ -532,12 +410,15 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fontRenderStyleForStrike');
-          const result = this.impl.fontRenderStyleForStrike(params.arg_family, params.arg_size, params.arg_is_italic, params.arg_is_bold, params.arg_device_scale_factor);
+          const result = this.impl.fontRenderStyleForStrike(params.arg_arg_family, params.arg_arg_size, params.arg_arg_is_italic, params.arg_arg_is_bold, params.arg_arg_device_scale_factor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FontRenderStyleForStrike FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_font_render_style' in response) ? response.arg_arg_font_render_style : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fontRenderStyleForStrike FAILED:', e));
           }
           break;
         }
@@ -545,12 +426,15 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFontByPostscriptNameOrFullFontName');
-          const result = this.impl.matchFontByPostscriptNameOrFullFontName(params.arg_postscript_name_or_full_font_name);
+          const result = this.impl.matchFontByPostscriptNameOrFullFontName(params.arg_arg_postscript_name_or_full_font_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MatchFontByPostscriptNameOrFullFontName FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_identity' in response) ? response.arg_arg_identity : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] matchFontByPostscriptNameOrFullFontName FAILED:', e));
           }
           break;
         }
@@ -562,8 +446,11 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ListFamilies FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_families' in response) ? response.arg_arg_families : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] listFamilies FAILED:', e));
           }
           break;
         }
@@ -571,12 +458,15 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchFontWithFallback');
-          const result = this.impl.matchFontWithFallback(params.arg_family, params.arg_is_bold, params.arg_is_italic, params.arg_charset, params.arg_fallback_family_type);
+          const result = this.impl.matchFontWithFallback(params.arg_arg_family, params.arg_arg_is_bold, params.arg_arg_is_italic, params.arg_arg_charset, params.arg_arg_fallback_family_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MatchFontWithFallback FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_font_file_handle' in response) ? response.arg_arg_font_file_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] matchFontWithFallback FAILED:', e));
           }
           break;
         }
@@ -592,4 +482,135 @@ mojo.internal.bindings.font_service.mojom.FontServiceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.font_service.mojom.FontServicePtr = mojo.internal.bindings.font_service.mojom.FontServiceRemote;
 mojo.internal.bindings.font_service.mojom.FontServiceRequest = mojo.internal.bindings.font_service.mojom.FontServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TypefaceStyle
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec, 'font_service.mojom.TypefaceStyle', [
+      mojo.internal.StructField('arg_weight', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_slant', 4, 0, mojo.internal.bindings.font_service.mojom.TypefaceSlantSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FontIdentity
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontIdentitySpec, 'font_service.mojom.FontIdentity', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ttc_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_filepath', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: FontRenderStyle
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec, 'font_service.mojom.FontRenderStyle', [
+      mojo.internal.StructField('arg_use_bitmaps', 0, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_autohint', 4, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_hinting', 8, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hint_style', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_use_antialias', 16, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_subpixel_rendering', 20, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_subpixel_positioning', 24, 0, mojo.internal.bindings.font_service.mojom.RenderStyleSwitchSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ParamsSpec, 'font_service.mojom.FontService_MatchFamilyName_Params', [
+      mojo.internal.StructField('arg_family_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 8, 0, mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_MatchFamilyName_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFamilyName_ResponseParams', [
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_family_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 16, 0, mojo.internal.bindings.font_service.mojom.TypefaceStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ParamsSpec, 'font_service.mojom.FontService_OpenStream_Params', [
+      mojo.internal.StructField('arg_id_number', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_OpenStream_ResponseParamsSpec, 'font_service.mojom.FontService_OpenStream_ResponseParams', [
+      mojo.internal.StructField('arg_font_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_Params', [
+      mojo.internal.StructField('arg_character', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_FallbackFontForCharacter_ResponseParamsSpec, 'font_service.mojom.FontService_FallbackFontForCharacter_ResponseParams', [
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_family_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_bold', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_italic', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_Params', [
+      mojo.internal.StructField('arg_family', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_italic', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_bold', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParamsSpec, 'font_service.mojom.FontService_FontRenderStyleForStrike_ResponseParams', [
+      mojo.internal.StructField('arg_font_render_style', 0, 0, mojo.internal.bindings.font_service.mojom.FontRenderStyleSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ParamsSpec, 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_Params', [
+      mojo.internal.StructField('arg_postscript_name_or_full_font_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFontByPostscriptNameOrFullFontName_ResponseParams', [
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.font_service.mojom.FontIdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ParamsSpec, 'font_service.mojom.FontService_ListFamilies_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_ListFamilies_ResponseParamsSpec, 'font_service.mojom.FontService_ListFamilies_ResponseParams', [
+      mojo.internal.StructField('arg_families', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_Params', [
+      mojo.internal.StructField('arg_family', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_bold', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_italic', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_charset', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_family_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.font_service.mojom.FontService_MatchFontWithFallback_ResponseParamsSpec, 'font_service.mojom.FontService_MatchFontWithFallback_ResponseParams', [
+      mojo.internal.StructField('arg_font_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -141,29 +141,6 @@ mojo.internal.bindings.blink.mojom.DevicePostureType = {
 };
 
 // Interface: DevicePostureProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevicePostureClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.DevicePostureProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -304,12 +281,15 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addListenerAndGetCurrentPosture');
-          const result = this.impl.addListenerAndGetCurrentPosture(params.arg_client);
+          const result = this.impl.addListenerAndGetCurrentPosture(params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddListenerAndGetCurrentPosture FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_posture' in response) ? response.arg_arg_posture : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addListenerAndGetCurrentPosture FAILED:', e));
           }
           break;
         }
@@ -317,7 +297,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overrideDevicePostureForEmulation');
-          const result = this.impl.overrideDevicePostureForEmulation(params.arg_posture);
+          const result = this.impl.overrideDevicePostureForEmulation(params.arg_arg_posture);
           break;
         }
         case 2: {
@@ -342,12 +322,6 @@ mojo.internal.bindings.blink.mojom.DevicePostureProviderRequest = mojo.internal.
 
 
 // Interface: DevicePostureClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec, 'blink.mojom.DevicePostureClient_OnPostureChanged_Params', [
-      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DevicePostureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -460,7 +434,7 @@ mojo.internal.bindings.blink.mojom.DevicePostureClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPostureChanged');
-          const result = this.impl.onPostureChanged(params.arg_posture);
+          const result = this.impl.onPostureChanged(params.arg_arg_posture);
           break;
         }
       }
@@ -475,4 +449,35 @@ mojo.internal.bindings.blink.mojom.DevicePostureClientReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.DevicePostureClientPtr = mojo.internal.bindings.blink.mojom.DevicePostureClientRemote;
 mojo.internal.bindings.blink.mojom.DevicePostureClientRequest = mojo.internal.bindings.blink.mojom.DevicePostureClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.DevicePostureClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParamsSpec, 'blink.mojom.DevicePostureProvider_AddListenerAndGetCurrentPosture_ResponseParams', [
+      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_OverrideDevicePostureForEmulation_Params', [
+      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_ParamsSpec, 'blink.mojom.DevicePostureProvider_DisableDevicePostureOverrideForEmulation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevicePostureClient_OnPostureChanged_ParamsSpec, 'blink.mojom.DevicePostureClient_OnPostureChanged_Params', [
+      mojo.internal.StructField('arg_posture', 0, 0, mojo.internal.bindings.blink.mojom.DevicePostureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -129,3 +129,5 @@ mojo.internal.bindings.network.mojom.AddressFamily = {
   IPV4: 1,
   IPV6: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

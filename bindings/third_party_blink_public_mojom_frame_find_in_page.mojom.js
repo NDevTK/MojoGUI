@@ -156,44 +156,7 @@ mojo.internal.bindings.blink.mojom.FindMatchUpdateType = {
   kMoreUpdatesComing: 1,
 };
 
-// Struct: FindOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindOptionsSpec, 'blink.mojom.FindOptions', [
-      mojo.internal.StructField('arg_forward', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_match_case', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_new_session', 0, 2, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_find_match', 0, 3, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_force', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_run_synchronously_for_testing', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: FindInPage
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec, 'blink.mojom.FindInPage_Find_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_search_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.blink.mojom.FindOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec, 'blink.mojom.FindInPage_StopFinding_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.blink.mojom.StopFindActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec, 'blink.mojom.FindInPage_ClearActiveFindMatch_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec, 'blink.mojom.FindInPage_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FindInPageClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FindInPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -348,14 +311,14 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.find');
-          const result = this.impl.find(params.arg_request_id, params.arg_search_text, params.arg_options);
+          const result = this.impl.find(params.arg_arg_request_id, params.arg_arg_search_text, params.arg_arg_options);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFinding');
-          const result = this.impl.stopFinding(params.arg_action);
+          const result = this.impl.stopFinding(params.arg_arg_action);
           break;
         }
         case 2: {
@@ -369,7 +332,7 @@ mojo.internal.bindings.blink.mojom.FindInPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_client);
+          const result = this.impl.setClient(params.arg_arg_client);
           break;
         }
       }
@@ -387,23 +350,6 @@ mojo.internal.bindings.blink.mojom.FindInPageRequest = mojo.internal.bindings.bl
 
 
 // Interface: FindInPageClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec, 'blink.mojom.FindInPageClient_SetNumberOfMatches_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_of_matches', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_update_type', 8, 0, mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec, 'blink.mojom.FindInPageClient_SetActiveMatch_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active_match_ordinal', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active_match_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_update_type', 16, 0, mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.FindInPageClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -530,14 +476,14 @@ mojo.internal.bindings.blink.mojom.FindInPageClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNumberOfMatches');
-          const result = this.impl.setNumberOfMatches(params.arg_request_id, params.arg_number_of_matches, params.arg_update_type);
+          const result = this.impl.setNumberOfMatches(params.arg_arg_request_id, params.arg_arg_number_of_matches, params.arg_arg_update_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActiveMatch');
-          const result = this.impl.setActiveMatch(params.arg_request_id, params.arg_active_match_rect, params.arg_active_match_ordinal, params.arg_update_type);
+          const result = this.impl.setActiveMatch(params.arg_arg_request_id, params.arg_arg_active_match_rect, params.arg_arg_active_match_ordinal, params.arg_arg_update_type);
           break;
         }
       }
@@ -552,4 +498,60 @@ mojo.internal.bindings.blink.mojom.FindInPageClientReceiver = mojo.internal.bind
 
 mojo.internal.bindings.blink.mojom.FindInPageClientPtr = mojo.internal.bindings.blink.mojom.FindInPageClientRemote;
 mojo.internal.bindings.blink.mojom.FindInPageClientRequest = mojo.internal.bindings.blink.mojom.FindInPageClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FindOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindOptionsSpec, 'blink.mojom.FindOptions', [
+      mojo.internal.StructField('arg_forward', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_match_case', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_new_session', 0, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_find_match', 0, 3, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_force', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_run_synchronously_for_testing', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindInPage_Find_ParamsSpec, 'blink.mojom.FindInPage_Find_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_search_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.blink.mojom.FindOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindInPage_StopFinding_ParamsSpec, 'blink.mojom.FindInPage_StopFinding_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.blink.mojom.StopFindActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindInPage_ClearActiveFindMatch_ParamsSpec, 'blink.mojom.FindInPage_ClearActiveFindMatch_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindInPage_SetClient_ParamsSpec, 'blink.mojom.FindInPage_SetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FindInPageClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindInPageClient_SetNumberOfMatches_ParamsSpec, 'blink.mojom.FindInPageClient_SetNumberOfMatches_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_of_matches', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_update_type', 8, 0, mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FindInPageClient_SetActiveMatch_ParamsSpec, 'blink.mojom.FindInPageClient_SetActiveMatch_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_active_match_ordinal', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_active_match_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_update_type', 16, 0, mojo.internal.bindings.blink.mojom.FindMatchUpdateTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

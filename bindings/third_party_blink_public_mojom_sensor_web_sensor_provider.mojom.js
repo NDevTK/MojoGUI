@@ -140,19 +140,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.SensorTypeSpec = mojo.internal.bindings.device.mojom.SensorTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: WebSensorProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.WebSensorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,12 +252,14 @@ mojo.internal.bindings.blink.mojom.WebSensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSensor');
-          const result = this.impl.getSensor(params.arg_type);
+          const result = this.impl.getSensor(params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_init_params']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSensor FAILED:', e));
           }
           break;
         }
@@ -286,4 +275,19 @@ mojo.internal.bindings.blink.mojom.WebSensorProviderReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.WebSensorProviderPtr = mojo.internal.bindings.blink.mojom.WebSensorProviderRemote;
 mojo.internal.bindings.blink.mojom.WebSensorProviderRequest = mojo.internal.bindings.blink.mojom.WebSensorProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebSensorProvider_GetSensor_ResponseParamsSpec, 'blink.mojom.WebSensorProvider_GetSensor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

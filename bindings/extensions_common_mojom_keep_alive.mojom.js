@@ -232,3 +232,5 @@ mojo.internal.bindings.extensions.KeepAliveReceiver = mojo.internal.bindings.ext
 mojo.internal.bindings.extensions.KeepAlivePtr = mojo.internal.bindings.extensions.KeepAliveRemote;
 mojo.internal.bindings.extensions.KeepAliveRequest = mojo.internal.bindings.extensions.KeepAlivePendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

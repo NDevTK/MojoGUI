@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.UuidSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Uuid
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.UuidSpec, 'mojo_base.mojom.Uuid', [

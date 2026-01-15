@@ -156,184 +156,7 @@ mojo.internal.bindings.mojom.AutocompleteControllerType = {
   kMlDisabledDebug: 2,
 };
 
-// Struct: ACMatchClassification
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.ACMatchClassificationSpec, 'mojom.ACMatchClassification', [
-      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: Signals
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.SignalsSpec, 'mojom.Signals', [
-      mojo.internal.StructField('arg_typed_count_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_typed_count_$value', originalFieldName: 'arg_typed_count' }),
-      mojo.internal.StructField('arg_visit_count_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_visit_count_$value', originalFieldName: 'arg_visit_count' }),
-      mojo.internal.StructField('arg_elapsed_time_last_visit_secs_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_elapsed_time_last_visit_secs_$value', originalFieldName: 'arg_elapsed_time_last_visit_secs' }),
-      mojo.internal.StructField('arg_shortcut_visit_count_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_shortcut_visit_count_$value', originalFieldName: 'arg_shortcut_visit_count' }),
-      mojo.internal.StructField('arg_shortest_shortcut_len_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_shortest_shortcut_len_$value', originalFieldName: 'arg_shortest_shortcut_len' }),
-      mojo.internal.StructField('arg_elapsed_time_last_shortcut_visit_sec_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_elapsed_time_last_shortcut_visit_sec_$value', originalFieldName: 'arg_elapsed_time_last_shortcut_visit_sec' }),
-      mojo.internal.StructField('arg_is_host_only_$flag', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_host_only_$value', originalFieldName: 'arg_is_host_only' }),
-      mojo.internal.StructField('arg_is_host_only_$value', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_host_only_$flag', originalFieldName: 'arg_is_host_only' }),
-      mojo.internal.StructField('arg_num_bookmarks_of_url_$flag', 1, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_bookmarks_of_url_$value', originalFieldName: 'arg_num_bookmarks_of_url' }),
-      mojo.internal.StructField('arg_first_bookmark_title_match_position_$flag', 1, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_first_bookmark_title_match_position_$value', originalFieldName: 'arg_first_bookmark_title_match_position' }),
-      mojo.internal.StructField('arg_total_bookmark_title_match_length_$flag', 1, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_bookmark_title_match_length_$value', originalFieldName: 'arg_total_bookmark_title_match_length' }),
-      mojo.internal.StructField('arg_num_input_terms_matched_by_bookmark_title_$flag', 1, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_input_terms_matched_by_bookmark_title_$value', originalFieldName: 'arg_num_input_terms_matched_by_bookmark_title' }),
-      mojo.internal.StructField('arg_first_url_match_position_$flag', 1, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_first_url_match_position_$value', originalFieldName: 'arg_first_url_match_position' }),
-      mojo.internal.StructField('arg_total_url_match_length_$flag', 1, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_url_match_length_$value', originalFieldName: 'arg_total_url_match_length' }),
-      mojo.internal.StructField('arg_host_match_at_word_boundary_$flag', 1, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_host_match_at_word_boundary_$value', originalFieldName: 'arg_host_match_at_word_boundary' }),
-      mojo.internal.StructField('arg_host_match_at_word_boundary_$value', 1, 7, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_host_match_at_word_boundary_$flag', originalFieldName: 'arg_host_match_at_word_boundary' }),
-      mojo.internal.StructField('arg_total_host_match_length_$flag', 2, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_host_match_length_$value', originalFieldName: 'arg_total_host_match_length' }),
-      mojo.internal.StructField('arg_total_path_match_length_$flag', 2, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_path_match_length_$value', originalFieldName: 'arg_total_path_match_length' }),
-      mojo.internal.StructField('arg_total_query_or_ref_match_length_$flag', 2, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_query_or_ref_match_length_$value', originalFieldName: 'arg_total_query_or_ref_match_length' }),
-      mojo.internal.StructField('arg_total_title_match_length_$flag', 2, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_title_match_length_$value', originalFieldName: 'arg_total_title_match_length' }),
-      mojo.internal.StructField('arg_has_non_scheme_www_match_$flag', 2, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_has_non_scheme_www_match_$value', originalFieldName: 'arg_has_non_scheme_www_match' }),
-      mojo.internal.StructField('arg_has_non_scheme_www_match_$value', 2, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_has_non_scheme_www_match_$flag', originalFieldName: 'arg_has_non_scheme_www_match' }),
-      mojo.internal.StructField('arg_num_input_terms_matched_by_title_$flag', 2, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_input_terms_matched_by_title_$value', originalFieldName: 'arg_num_input_terms_matched_by_title' }),
-      mojo.internal.StructField('arg_num_input_terms_matched_by_url_$flag', 2, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_input_terms_matched_by_url_$value', originalFieldName: 'arg_num_input_terms_matched_by_url' }),
-      mojo.internal.StructField('arg_length_of_url_$flag', 3, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_length_of_url_$value', originalFieldName: 'arg_length_of_url' }),
-      mojo.internal.StructField('arg_site_engagement_$flag', 3, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_site_engagement_$value', originalFieldName: 'arg_site_engagement' }),
-      mojo.internal.StructField('arg_allowed_to_be_default_match_$flag', 3, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_allowed_to_be_default_match_$value', originalFieldName: 'arg_allowed_to_be_default_match' }),
-      mojo.internal.StructField('arg_allowed_to_be_default_match_$value', 3, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_allowed_to_be_default_match_$flag', originalFieldName: 'arg_allowed_to_be_default_match' }),
-      mojo.internal.StructField('arg_search_suggest_relevance_$flag', 3, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_search_suggest_relevance_$value', originalFieldName: 'arg_search_suggest_relevance' }),
-      mojo.internal.StructField('arg_is_search_suggest_entity_$flag', 3, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_search_suggest_entity_$value', originalFieldName: 'arg_is_search_suggest_entity' }),
-      mojo.internal.StructField('arg_is_search_suggest_entity_$value', 3, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_search_suggest_entity_$flag', originalFieldName: 'arg_is_search_suggest_entity' }),
-      mojo.internal.StructField('arg_is_verbatim_$flag', 3, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_verbatim_$value', originalFieldName: 'arg_is_verbatim' }),
-      mojo.internal.StructField('arg_typed_count_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_typed_count_$flag', originalFieldName: 'arg_typed_count' }),
-      mojo.internal.StructField('arg_visit_count_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_visit_count_$flag', originalFieldName: 'arg_visit_count' }),
-      mojo.internal.StructField('arg_shortcut_visit_count_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_shortcut_visit_count_$flag', originalFieldName: 'arg_shortcut_visit_count' }),
-      mojo.internal.StructField('arg_elapsed_time_last_visit_secs_$value', 16, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_elapsed_time_last_visit_secs_$flag', originalFieldName: 'arg_elapsed_time_last_visit_secs' }),
-      mojo.internal.StructField('arg_shortest_shortcut_len_$value', 24, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_shortest_shortcut_len_$flag', originalFieldName: 'arg_shortest_shortcut_len' }),
-      mojo.internal.StructField('arg_num_bookmarks_of_url_$value', 28, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_bookmarks_of_url_$flag', originalFieldName: 'arg_num_bookmarks_of_url' }),
-      mojo.internal.StructField('arg_elapsed_time_last_shortcut_visit_sec_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_elapsed_time_last_shortcut_visit_sec_$flag', originalFieldName: 'arg_elapsed_time_last_shortcut_visit_sec' }),
-      mojo.internal.StructField('arg_first_bookmark_title_match_position_$value', 40, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_first_bookmark_title_match_position_$flag', originalFieldName: 'arg_first_bookmark_title_match_position' }),
-      mojo.internal.StructField('arg_total_bookmark_title_match_length_$value', 44, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_bookmark_title_match_length_$flag', originalFieldName: 'arg_total_bookmark_title_match_length' }),
-      mojo.internal.StructField('arg_num_input_terms_matched_by_bookmark_title_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_input_terms_matched_by_bookmark_title_$flag', originalFieldName: 'arg_num_input_terms_matched_by_bookmark_title' }),
-      mojo.internal.StructField('arg_first_url_match_position_$value', 52, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_first_url_match_position_$flag', originalFieldName: 'arg_first_url_match_position' }),
-      mojo.internal.StructField('arg_total_url_match_length_$value', 56, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_url_match_length_$flag', originalFieldName: 'arg_total_url_match_length' }),
-      mojo.internal.StructField('arg_total_host_match_length_$value', 60, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_host_match_length_$flag', originalFieldName: 'arg_total_host_match_length' }),
-      mojo.internal.StructField('arg_total_path_match_length_$value', 64, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_path_match_length_$flag', originalFieldName: 'arg_total_path_match_length' }),
-      mojo.internal.StructField('arg_total_query_or_ref_match_length_$value', 68, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_query_or_ref_match_length_$flag', originalFieldName: 'arg_total_query_or_ref_match_length' }),
-      mojo.internal.StructField('arg_total_title_match_length_$value', 72, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_title_match_length_$flag', originalFieldName: 'arg_total_title_match_length' }),
-      mojo.internal.StructField('arg_num_input_terms_matched_by_title_$value', 76, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_input_terms_matched_by_title_$flag', originalFieldName: 'arg_num_input_terms_matched_by_title' }),
-      mojo.internal.StructField('arg_num_input_terms_matched_by_url_$value', 80, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_input_terms_matched_by_url_$flag', originalFieldName: 'arg_num_input_terms_matched_by_url' }),
-      mojo.internal.StructField('arg_length_of_url_$value', 84, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_length_of_url_$flag', originalFieldName: 'arg_length_of_url' }),
-      mojo.internal.StructField('arg_site_engagement_$value', 88, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_site_engagement_$flag', originalFieldName: 'arg_site_engagement' }),
-      mojo.internal.StructField('arg_search_suggest_relevance_$value', 92, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_search_suggest_relevance_$flag', originalFieldName: 'arg_search_suggest_relevance' }),
-      mojo.internal.StructField('arg_is_verbatim_$value', 96, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_verbatim_$flag', originalFieldName: 'arg_is_verbatim' }),
-      mojo.internal.StructField('arg_is_navsuggest_$flag', 96, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_navsuggest_$value', originalFieldName: 'arg_is_navsuggest' }),
-      mojo.internal.StructField('arg_is_navsuggest_$value', 96, 2, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_navsuggest_$flag', originalFieldName: 'arg_is_navsuggest' }),
-      mojo.internal.StructField('arg_is_search_suggest_tail_$flag', 96, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_search_suggest_tail_$value', originalFieldName: 'arg_is_search_suggest_tail' }),
-      mojo.internal.StructField('arg_is_search_suggest_tail_$value', 96, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_search_suggest_tail_$flag', originalFieldName: 'arg_is_search_suggest_tail' }),
-      mojo.internal.StructField('arg_is_answer_suggest_$flag', 96, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_answer_suggest_$value', originalFieldName: 'arg_is_answer_suggest' }),
-      mojo.internal.StructField('arg_is_answer_suggest_$value', 96, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_answer_suggest_$flag', originalFieldName: 'arg_is_answer_suggest' }),
-      mojo.internal.StructField('arg_is_calculator_suggest_$flag', 96, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_calculator_suggest_$value', originalFieldName: 'arg_is_calculator_suggest' }),
-      mojo.internal.StructField('arg_is_calculator_suggest_$value', 97, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_calculator_suggest_$flag', originalFieldName: 'arg_is_calculator_suggest' }),
-    ],
-    [[0, 112]]);
-
-// Struct: AutocompleteMatch
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.AutocompleteMatchSpec, 'mojom.AutocompleteMatch', [
-      mojo.internal.StructField('arg_provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_provider_done', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_deletable', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_contents_and_description', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_to_be_default_match', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_search_type', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_tab_match', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_starred', 8, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_from_previous', 8, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_into_edit', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_inline_autocompletion', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stripped_destination_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contents', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contents_class', 72, 0, mojo.internal.Array(mojo.internal.bindings.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_class', 88, 0, mojo.internal.Array(mojo.internal.bindings.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transition', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_aqs_type_subtypes', 120, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_associated_keyword', 128, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keyword', 136, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duplicates', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pedal_id', 148, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scoring_signals', 152, 0, mojo.internal.bindings.mojom.SignalsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_info', 160, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 176]]);
-
-// Struct: AutocompleteResultsForProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec, 'mojom.AutocompleteResultsForProvider', [
-      mojo.internal.StructField('arg_provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: OmniboxResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxResponseSpec, 'mojom.OmniboxResponse', [
-      mojo.internal.StructField('arg_cursor_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_time_since_omnibox_started_ms', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_done', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_typed_host', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_combined_results', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_results_by_provider', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: OmniboxPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec, 'mojom.OmniboxPageHandler_SetClientPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.OmniboxPageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec, 'mojom.OmniboxPageHandler_StartOmniboxQuery_Params', [
-      mojo.internal.StructField('arg_input_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reset_autocomplete_controller', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_zero_suggest', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prevent_inline_autocomplete', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prefer_keyword', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_cursor_position', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_current_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_classification', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec, 'mojom.OmniboxPageHandler_GetMlModelVersion_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec, 'mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParams', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec, 'mojom.OmniboxPageHandler_StartMl_Params', [
-      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.mojom.SignalsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec, 'mojom.OmniboxPageHandler_StartMl_ResponseParams', [
-      mojo.internal.StructField('arg_score', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.OmniboxPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -488,14 +311,14 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientPage');
-          const result = this.impl.setClientPage(params.arg_page);
+          const result = this.impl.setClientPage(params.arg_arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startOmniboxQuery');
-          const result = this.impl.startOmniboxQuery(params.arg_input_string, params.arg_reset_autocomplete_controller, params.arg_cursor_position, params.arg_zero_suggest, params.arg_prevent_inline_autocomplete, params.arg_prefer_keyword, params.arg_current_url, params.arg_page_classification);
+          const result = this.impl.startOmniboxQuery(params.arg_arg_input_string, params.arg_arg_reset_autocomplete_controller, params.arg_arg_cursor_position, params.arg_arg_zero_suggest, params.arg_arg_prevent_inline_autocomplete, params.arg_arg_prefer_keyword, params.arg_arg_current_url, params.arg_arg_page_classification);
           break;
         }
         case 2: {
@@ -506,8 +329,11 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMlModelVersion FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_version' in response) ? response.arg_arg_version : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMlModelVersion FAILED:', e));
           }
           break;
         }
@@ -515,12 +341,15 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startMl');
-          const result = this.impl.startMl(params.arg_signals);
+          const result = this.impl.startMl(params.arg_arg_signals);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartMl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_score' in response) ? response.arg_arg_score : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startMl FAILED:', e));
           }
           break;
         }
@@ -539,36 +368,6 @@ mojo.internal.bindings.mojom.OmniboxPageHandlerRequest = mojo.internal.bindings.
 
 
 // Interface: OmniboxPage
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteQuery_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteResponse_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.mojom.OmniboxResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewMlResponse_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec, 'mojom.OmniboxPage_HandleAnswerIconImageData_Params', [
-      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.mojom.OmniboxPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -723,28 +522,28 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteQuery');
-          const result = this.impl.handleNewAutocompleteQuery(params.arg_autocomplete_controller_type, params.arg_input_text);
+          const result = this.impl.handleNewAutocompleteQuery(params.arg_arg_autocomplete_controller_type, params.arg_arg_input_text);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleNewAutocompleteResponse');
-          const result = this.impl.handleNewAutocompleteResponse(params.arg_autocomplete_controller_type, params.arg_response);
+          const result = this.impl.handleNewAutocompleteResponse(params.arg_arg_autocomplete_controller_type, params.arg_arg_response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleNewMlResponse');
-          const result = this.impl.handleNewMlResponse(params.arg_autocomplete_controller_type, params.arg_input_text, params.arg_matches);
+          const result = this.impl.handleNewMlResponse(params.arg_arg_autocomplete_controller_type, params.arg_arg_input_text, params.arg_arg_matches);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAnswerIconImageData');
-          const result = this.impl.handleAnswerIconImageData(params.arg_autocomplete_controller_type, params.arg_image_url, params.arg_image_data);
+          const result = this.impl.handleAnswerIconImageData(params.arg_arg_autocomplete_controller_type, params.arg_arg_image_url, params.arg_arg_image_data);
           break;
         }
       }
@@ -759,4 +558,213 @@ mojo.internal.bindings.mojom.OmniboxPageReceiver = mojo.internal.bindings.mojom.
 
 mojo.internal.bindings.mojom.OmniboxPagePtr = mojo.internal.bindings.mojom.OmniboxPageRemote;
 mojo.internal.bindings.mojom.OmniboxPageRequest = mojo.internal.bindings.mojom.OmniboxPagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ACMatchClassification
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.ACMatchClassificationSpec, 'mojom.ACMatchClassification', [
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: Signals
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.SignalsSpec, 'mojom.Signals', [
+      mojo.internal.StructField('arg_typed_count_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_typed_count_$value', originalFieldName: 'arg_typed_count' }),
+      mojo.internal.StructField('arg_visit_count_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_visit_count_$value', originalFieldName: 'arg_visit_count' }),
+      mojo.internal.StructField('arg_elapsed_time_last_visit_secs_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_elapsed_time_last_visit_secs_$value', originalFieldName: 'arg_elapsed_time_last_visit_secs' }),
+      mojo.internal.StructField('arg_shortcut_visit_count_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_shortcut_visit_count_$value', originalFieldName: 'arg_shortcut_visit_count' }),
+      mojo.internal.StructField('arg_shortest_shortcut_len_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_shortest_shortcut_len_$value', originalFieldName: 'arg_shortest_shortcut_len' }),
+      mojo.internal.StructField('arg_elapsed_time_last_shortcut_visit_sec_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_elapsed_time_last_shortcut_visit_sec_$value', originalFieldName: 'arg_elapsed_time_last_shortcut_visit_sec' }),
+      mojo.internal.StructField('arg_is_host_only_$flag', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_host_only_$value', originalFieldName: 'arg_is_host_only' }),
+      mojo.internal.StructField('arg_is_host_only_$value', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_host_only_$flag', originalFieldName: 'arg_is_host_only' }),
+      mojo.internal.StructField('arg_num_bookmarks_of_url_$flag', 1, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_bookmarks_of_url_$value', originalFieldName: 'arg_num_bookmarks_of_url' }),
+      mojo.internal.StructField('arg_first_bookmark_title_match_position_$flag', 1, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_first_bookmark_title_match_position_$value', originalFieldName: 'arg_first_bookmark_title_match_position' }),
+      mojo.internal.StructField('arg_total_bookmark_title_match_length_$flag', 1, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_bookmark_title_match_length_$value', originalFieldName: 'arg_total_bookmark_title_match_length' }),
+      mojo.internal.StructField('arg_num_input_terms_matched_by_bookmark_title_$flag', 1, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_input_terms_matched_by_bookmark_title_$value', originalFieldName: 'arg_num_input_terms_matched_by_bookmark_title' }),
+      mojo.internal.StructField('arg_first_url_match_position_$flag', 1, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_first_url_match_position_$value', originalFieldName: 'arg_first_url_match_position' }),
+      mojo.internal.StructField('arg_total_url_match_length_$flag', 1, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_url_match_length_$value', originalFieldName: 'arg_total_url_match_length' }),
+      mojo.internal.StructField('arg_host_match_at_word_boundary_$flag', 1, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_host_match_at_word_boundary_$value', originalFieldName: 'arg_host_match_at_word_boundary' }),
+      mojo.internal.StructField('arg_host_match_at_word_boundary_$value', 1, 7, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_host_match_at_word_boundary_$flag', originalFieldName: 'arg_host_match_at_word_boundary' }),
+      mojo.internal.StructField('arg_total_host_match_length_$flag', 2, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_host_match_length_$value', originalFieldName: 'arg_total_host_match_length' }),
+      mojo.internal.StructField('arg_total_path_match_length_$flag', 2, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_path_match_length_$value', originalFieldName: 'arg_total_path_match_length' }),
+      mojo.internal.StructField('arg_total_query_or_ref_match_length_$flag', 2, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_query_or_ref_match_length_$value', originalFieldName: 'arg_total_query_or_ref_match_length' }),
+      mojo.internal.StructField('arg_total_title_match_length_$flag', 2, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_total_title_match_length_$value', originalFieldName: 'arg_total_title_match_length' }),
+      mojo.internal.StructField('arg_has_non_scheme_www_match_$flag', 2, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_has_non_scheme_www_match_$value', originalFieldName: 'arg_has_non_scheme_www_match' }),
+      mojo.internal.StructField('arg_has_non_scheme_www_match_$value', 2, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_has_non_scheme_www_match_$flag', originalFieldName: 'arg_has_non_scheme_www_match' }),
+      mojo.internal.StructField('arg_num_input_terms_matched_by_title_$flag', 2, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_input_terms_matched_by_title_$value', originalFieldName: 'arg_num_input_terms_matched_by_title' }),
+      mojo.internal.StructField('arg_num_input_terms_matched_by_url_$flag', 2, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_input_terms_matched_by_url_$value', originalFieldName: 'arg_num_input_terms_matched_by_url' }),
+      mojo.internal.StructField('arg_length_of_url_$flag', 3, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_length_of_url_$value', originalFieldName: 'arg_length_of_url' }),
+      mojo.internal.StructField('arg_site_engagement_$flag', 3, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_site_engagement_$value', originalFieldName: 'arg_site_engagement' }),
+      mojo.internal.StructField('arg_allowed_to_be_default_match_$flag', 3, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_allowed_to_be_default_match_$value', originalFieldName: 'arg_allowed_to_be_default_match' }),
+      mojo.internal.StructField('arg_allowed_to_be_default_match_$value', 3, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_allowed_to_be_default_match_$flag', originalFieldName: 'arg_allowed_to_be_default_match' }),
+      mojo.internal.StructField('arg_search_suggest_relevance_$flag', 3, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_search_suggest_relevance_$value', originalFieldName: 'arg_search_suggest_relevance' }),
+      mojo.internal.StructField('arg_is_search_suggest_entity_$flag', 3, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_search_suggest_entity_$value', originalFieldName: 'arg_is_search_suggest_entity' }),
+      mojo.internal.StructField('arg_is_search_suggest_entity_$value', 3, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_search_suggest_entity_$flag', originalFieldName: 'arg_is_search_suggest_entity' }),
+      mojo.internal.StructField('arg_is_verbatim_$flag', 3, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_verbatim_$value', originalFieldName: 'arg_is_verbatim' }),
+      mojo.internal.StructField('arg_typed_count_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_typed_count_$flag', originalFieldName: 'arg_typed_count' }),
+      mojo.internal.StructField('arg_visit_count_$value', 8, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_visit_count_$flag', originalFieldName: 'arg_visit_count' }),
+      mojo.internal.StructField('arg_shortcut_visit_count_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_shortcut_visit_count_$flag', originalFieldName: 'arg_shortcut_visit_count' }),
+      mojo.internal.StructField('arg_elapsed_time_last_visit_secs_$value', 16, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_elapsed_time_last_visit_secs_$flag', originalFieldName: 'arg_elapsed_time_last_visit_secs' }),
+      mojo.internal.StructField('arg_shortest_shortcut_len_$value', 24, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_shortest_shortcut_len_$flag', originalFieldName: 'arg_shortest_shortcut_len' }),
+      mojo.internal.StructField('arg_num_bookmarks_of_url_$value', 28, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_bookmarks_of_url_$flag', originalFieldName: 'arg_num_bookmarks_of_url' }),
+      mojo.internal.StructField('arg_elapsed_time_last_shortcut_visit_sec_$value', 32, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_elapsed_time_last_shortcut_visit_sec_$flag', originalFieldName: 'arg_elapsed_time_last_shortcut_visit_sec' }),
+      mojo.internal.StructField('arg_first_bookmark_title_match_position_$value', 40, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_first_bookmark_title_match_position_$flag', originalFieldName: 'arg_first_bookmark_title_match_position' }),
+      mojo.internal.StructField('arg_total_bookmark_title_match_length_$value', 44, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_bookmark_title_match_length_$flag', originalFieldName: 'arg_total_bookmark_title_match_length' }),
+      mojo.internal.StructField('arg_num_input_terms_matched_by_bookmark_title_$value', 48, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_input_terms_matched_by_bookmark_title_$flag', originalFieldName: 'arg_num_input_terms_matched_by_bookmark_title' }),
+      mojo.internal.StructField('arg_first_url_match_position_$value', 52, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_first_url_match_position_$flag', originalFieldName: 'arg_first_url_match_position' }),
+      mojo.internal.StructField('arg_total_url_match_length_$value', 56, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_url_match_length_$flag', originalFieldName: 'arg_total_url_match_length' }),
+      mojo.internal.StructField('arg_total_host_match_length_$value', 60, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_host_match_length_$flag', originalFieldName: 'arg_total_host_match_length' }),
+      mojo.internal.StructField('arg_total_path_match_length_$value', 64, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_path_match_length_$flag', originalFieldName: 'arg_total_path_match_length' }),
+      mojo.internal.StructField('arg_total_query_or_ref_match_length_$value', 68, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_query_or_ref_match_length_$flag', originalFieldName: 'arg_total_query_or_ref_match_length' }),
+      mojo.internal.StructField('arg_total_title_match_length_$value', 72, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_total_title_match_length_$flag', originalFieldName: 'arg_total_title_match_length' }),
+      mojo.internal.StructField('arg_num_input_terms_matched_by_title_$value', 76, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_input_terms_matched_by_title_$flag', originalFieldName: 'arg_num_input_terms_matched_by_title' }),
+      mojo.internal.StructField('arg_num_input_terms_matched_by_url_$value', 80, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_input_terms_matched_by_url_$flag', originalFieldName: 'arg_num_input_terms_matched_by_url' }),
+      mojo.internal.StructField('arg_length_of_url_$value', 84, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_length_of_url_$flag', originalFieldName: 'arg_length_of_url' }),
+      mojo.internal.StructField('arg_site_engagement_$value', 88, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_site_engagement_$flag', originalFieldName: 'arg_site_engagement' }),
+      mojo.internal.StructField('arg_search_suggest_relevance_$value', 92, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_search_suggest_relevance_$flag', originalFieldName: 'arg_search_suggest_relevance' }),
+      mojo.internal.StructField('arg_is_verbatim_$value', 96, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_verbatim_$flag', originalFieldName: 'arg_is_verbatim' }),
+      mojo.internal.StructField('arg_is_navsuggest_$flag', 96, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_navsuggest_$value', originalFieldName: 'arg_is_navsuggest' }),
+      mojo.internal.StructField('arg_is_navsuggest_$value', 96, 2, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_navsuggest_$flag', originalFieldName: 'arg_is_navsuggest' }),
+      mojo.internal.StructField('arg_is_search_suggest_tail_$flag', 96, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_search_suggest_tail_$value', originalFieldName: 'arg_is_search_suggest_tail' }),
+      mojo.internal.StructField('arg_is_search_suggest_tail_$value', 96, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_search_suggest_tail_$flag', originalFieldName: 'arg_is_search_suggest_tail' }),
+      mojo.internal.StructField('arg_is_answer_suggest_$flag', 96, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_answer_suggest_$value', originalFieldName: 'arg_is_answer_suggest' }),
+      mojo.internal.StructField('arg_is_answer_suggest_$value', 96, 6, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_answer_suggest_$flag', originalFieldName: 'arg_is_answer_suggest' }),
+      mojo.internal.StructField('arg_is_calculator_suggest_$flag', 96, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_calculator_suggest_$value', originalFieldName: 'arg_is_calculator_suggest' }),
+      mojo.internal.StructField('arg_is_calculator_suggest_$value', 97, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_calculator_suggest_$flag', originalFieldName: 'arg_is_calculator_suggest' }),
+    ],
+    [[0, 112]]);
+
+// Struct: AutocompleteMatch
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.AutocompleteMatchSpec, 'mojom.AutocompleteMatch', [
+      mojo.internal.StructField('arg_provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_provider_done', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_deletable', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_contents_and_description', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_to_be_default_match', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_search_type', 8, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_tab_match', 8, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_starred', 8, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_from_previous', 8, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_into_edit', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inline_autocompletion', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stripped_destination_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_class', 72, 0, mojo.internal.Array(mojo.internal.bindings.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_class', 88, 0, mojo.internal.Array(mojo.internal.bindings.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transition', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_aqs_type_subtypes', 120, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_associated_keyword', 128, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyword', 136, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duplicates', 144, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pedal_id', 148, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scoring_signals', 152, 0, mojo.internal.bindings.mojom.SignalsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_info', 160, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 176]]);
+
+// Struct: AutocompleteResultsForProvider
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec, 'mojom.AutocompleteResultsForProvider', [
+      mojo.internal.StructField('arg_provider_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: OmniboxResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxResponseSpec, 'mojom.OmniboxResponse', [
+      mojo.internal.StructField('arg_cursor_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_since_omnibox_started_ms', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_done', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_typed_host', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_combined_results', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results_by_provider', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteResultsForProviderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPageHandler_SetClientPage_ParamsSpec, 'mojom.OmniboxPageHandler_SetClientPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mojom.OmniboxPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPageHandler_StartOmniboxQuery_ParamsSpec, 'mojom.OmniboxPageHandler_StartOmniboxQuery_Params', [
+      mojo.internal.StructField('arg_input_string', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reset_autocomplete_controller', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_zero_suggest', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prevent_inline_autocomplete', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prefer_keyword', 8, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cursor_position', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_current_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_classification', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ParamsSpec, 'mojom.OmniboxPageHandler_GetMlModelVersion_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParamsSpec, 'mojom.OmniboxPageHandler_GetMlModelVersion_ResponseParams', [
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ParamsSpec, 'mojom.OmniboxPageHandler_StartMl_Params', [
+      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.mojom.SignalsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPageHandler_StartMl_ResponseParamsSpec, 'mojom.OmniboxPageHandler_StartMl_ResponseParams', [
+      mojo.internal.StructField('arg_score', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteQuery_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteQuery_Params', [
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPage_HandleNewAutocompleteResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewAutocompleteResponse_Params', [
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.mojom.OmniboxResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPage_HandleNewMlResponse_ParamsSpec, 'mojom.OmniboxPage_HandleNewMlResponse_Params', [
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.OmniboxPage_HandleAnswerIconImageData_ParamsSpec, 'mojom.OmniboxPage_HandleAnswerIconImageData_Params', [
+      mojo.internal.StructField('arg_autocomplete_controller_type', 0, 0, mojo.internal.bindings.mojom.AutocompleteControllerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

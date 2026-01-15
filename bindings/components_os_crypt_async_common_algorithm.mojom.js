@@ -128,3 +128,5 @@ mojo.internal.bindings.os_crypt_async.mojom.Algorithm = {
   kAES256GCM: 0,
   kAES128CBC: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

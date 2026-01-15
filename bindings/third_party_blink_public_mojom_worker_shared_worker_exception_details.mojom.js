@@ -136,6 +136,8 @@ mojo.internal.bindings.blink.mojom.SharedWorkerErrorType = {
   kRuntimeError: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SharedWorkerExceptionDetails
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.SharedWorkerExceptionDetailsSpec, 'blink.mojom.SharedWorkerExceptionDetails', [

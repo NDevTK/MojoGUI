@@ -132,3 +132,5 @@ mojo.internal.bindings.blink.mojom.HandwritingGestureResult = {
   kCancelled: 4,
   kFallback: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

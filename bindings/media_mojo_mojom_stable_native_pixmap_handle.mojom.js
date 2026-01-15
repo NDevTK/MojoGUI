@@ -125,6 +125,8 @@ mojo.internal.bindings.media.stable.mojom = mojo.internal.bindings.media.stable.
 mojo.internal.bindings.media.stable.mojom.NativePixmapPlaneSpec = { $: {} };
 mojo.internal.bindings.media.stable.mojom.NativePixmapHandleSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: NativePixmapPlane
 mojo.internal.Struct(
     mojo.internal.bindings.media.stable.mojom.NativePixmapPlaneSpec, 'media.stable.mojom.NativePixmapPlane', [

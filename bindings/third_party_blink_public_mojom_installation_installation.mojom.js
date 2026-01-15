@@ -127,11 +127,6 @@ mojo.internal.bindings.blink.mojom.InstallationService.$interfaceName = 'blink.m
 mojo.internal.bindings.blink.mojom.InstallationService_OnInstall_ParamsSpec = { $: {} };
 
 // Interface: InstallationService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InstallationService_OnInstall_ParamsSpec, 'blink.mojom.InstallationService_OnInstall_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.InstallationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.blink.mojom.InstallationServiceReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.InstallationServicePtr = mojo.internal.bindings.blink.mojom.InstallationServiceRemote;
 mojo.internal.bindings.blink.mojom.InstallationServiceRequest = mojo.internal.bindings.blink.mojom.InstallationServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InstallationService_OnInstall_ParamsSpec, 'blink.mojom.InstallationService_OnInstall_Params', [
+    ],
+    [[0, 8]]);
 

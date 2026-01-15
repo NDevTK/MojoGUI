@@ -390,3 +390,5 @@ mojo.internal.bindings.extensions.mojom.APIPermissionID = {
   kExperimentalActor: 262,
   kEnterpriseLogin: 263,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

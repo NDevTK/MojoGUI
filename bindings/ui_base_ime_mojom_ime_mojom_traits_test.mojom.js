@@ -133,18 +133,6 @@ mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.TextInputTypeSpec = mojo.internal.bindings.ui.mojom.TextInputTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: IMEStructTraitsTest
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ui.mojom.IMEStructTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,12 +245,15 @@ mojo.internal.bindings.ui.mojom.IMEStructTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoTextInputType');
-          const result = this.impl.echoTextInputType(params.arg_in);
+          const result = this.impl.echoTextInputType(params.arg_arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoTextInputType FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoTextInputType FAILED:', e));
           }
           break;
         }
@@ -278,4 +269,18 @@ mojo.internal.bindings.ui.mojom.IMEStructTraitsTestReceiver = mojo.internal.bind
 
 mojo.internal.bindings.ui.mojom.IMEStructTraitsTestPtr = mojo.internal.bindings.ui.mojom.IMEStructTraitsTestRemote;
 mojo.internal.bindings.ui.mojom.IMEStructTraitsTestRequest = mojo.internal.bindings.ui.mojom.IMEStructTraitsTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_Params', [
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParamsSpec, 'ui.mojom.IMEStructTraitsTest_EchoTextInputType_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.ui.mojom.TextInputTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

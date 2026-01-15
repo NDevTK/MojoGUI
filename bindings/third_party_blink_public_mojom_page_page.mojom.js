@@ -202,137 +202,7 @@ mojo.internal.bindings.blink.mojom.PagehideDispatch = {
   kDispatchedPersisted: 2,
 };
 
-// Struct: PageLifecycleState
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec, 'blink.mojom.PageLifecycleState', [
-      mojo.internal.StructField('arg_is_frozen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_in_back_forward_cache', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_eviction_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_visibility', 4, 0, mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pagehide_dispatch', 8, 0, mojo.internal.bindings.blink.mojom.PagehideDispatchSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PageRestoreParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec, 'blink.mojom.PageRestoreParams', [
-      mojo.internal.StructField('arg_navigation_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_history_list_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_current_history_list_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_view_transition_state', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ColorProviderColorMaps
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec, 'blink.mojom.ColorProviderColorMaps', [
-      mojo.internal.StructField('arg_light_colors_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.color.mojom.RendererColorIdSpec, mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dark_colors_map', 8, 0, mojo.internal.Map(mojo.internal.bindings.color.mojom.RendererColorIdSpec, mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_forced_colors_map', 16, 0, mojo.internal.Map(mojo.internal.bindings.color.mojom.RendererColorIdSpec, mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: PrerenderPageActivationParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec, 'blink.mojom.PrerenderPageActivationParams', [
-      mojo.internal.StructField('arg_was_user_activated', 0, 0, mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_activation_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_view_transition_state', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageBroadcast
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageLifecycleState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_restore_params', 8, 0, mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec, 'blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec, 'blink.mojom.PageBroadcast_AudioStateChanged_Params', [
-      mojo.internal.StructField('arg_is_audio_playing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec, 'blink.mojom.PageBroadcast_ActivatePrerenderedPage_Params', [
-      mojo.internal.StructField('arg_prerender_page_activation_params', 0, 0, mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec, 'blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateWebPreferences_Params', [
-      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.blink.mojom.WebPreferencesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateRendererPreferences_Params', [
-      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec, 'blink.mojom.PageBroadcast_SetHistoryIndexAndLength_Params', [
-      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_Params', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec, 'blink.mojom.PageBroadcast_CreateRemoteMainFrame_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_opener_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_replication_state', 24, 0, mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_loading', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_frame_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_metrics_token', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_remote_frame_interfaces', 56, 0, mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_main_frame_interfaces', 64, 0, mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec, null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec, 'blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_Params', [
-      mojo.internal.StructField('arg_browsing_context_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageAttributionSupport_Params', [
-      mojo.internal.StructField('arg_support', 0, 0, mojo.internal.bindings.network.mojom.AttributionSupportSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateColorProviders_Params', [
-      mojo.internal.StructField('arg_color_provider_colors', 0, 0, mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec, 'blink.mojom.PageBroadcast_SetSupportsDraggableRegions_Params', [
-      mojo.internal.StructField('arg_supports_draggable_regions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PageBroadcastPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -599,12 +469,14 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageLifecycleState');
-          const result = this.impl.setPageLifecycleState(params.arg_state, params.arg_page_restore_params);
+          const result = this.impl.setPageLifecycleState(params.arg_arg_state, params.arg_arg_page_restore_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetPageLifecycleState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setPageLifecycleState FAILED:', e));
           }
           break;
         }
@@ -612,19 +484,21 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.audioStateChanged');
-          const result = this.impl.audioStateChanged(params.arg_is_audio_playing);
+          const result = this.impl.audioStateChanged(params.arg_arg_is_audio_playing);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activatePrerenderedPage');
-          const result = this.impl.activatePrerenderedPage(params.arg_prerender_page_activation_params);
+          const result = this.impl.activatePrerenderedPage(params.arg_arg_prerender_page_activation_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ActivatePrerenderedPage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] activatePrerenderedPage FAILED:', e));
           }
           break;
         }
@@ -632,63 +506,63 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWebPreferences');
-          const result = this.impl.updateWebPreferences(params.arg_preferences);
+          const result = this.impl.updateWebPreferences(params.arg_arg_preferences);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRendererPreferences');
-          const result = this.impl.updateRendererPreferences(params.arg_preferences);
+          const result = this.impl.updateRendererPreferences(params.arg_arg_preferences);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHistoryIndexAndLength');
-          const result = this.impl.setHistoryIndexAndLength(params.arg_index, params.arg_length);
+          const result = this.impl.setHistoryIndexAndLength(params.arg_arg_index, params.arg_arg_length);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageBaseBackgroundColor');
-          const result = this.impl.setPageBaseBackgroundColor(params.arg_color);
+          const result = this.impl.setPageBaseBackgroundColor(params.arg_arg_color);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteMainFrame');
-          const result = this.impl.createRemoteMainFrame(params.arg_token, params.arg_opener_frame_token, params.arg_replication_state, params.arg_is_loading, params.arg_devtools_frame_token, params.arg_navigation_metrics_token, params.arg_remote_frame_interfaces, params.arg_remote_main_frame_interfaces);
+          const result = this.impl.createRemoteMainFrame(params.arg_arg_token, params.arg_arg_opener_frame_token, params.arg_arg_replication_state, params.arg_arg_is_loading, params.arg_arg_devtools_frame_token, params.arg_arg_navigation_metrics_token, params.arg_arg_remote_frame_interfaces, params.arg_arg_remote_main_frame_interfaces);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePageBrowsingContextGroup');
-          const result = this.impl.updatePageBrowsingContextGroup(params.arg_browsing_context_group_token);
+          const result = this.impl.updatePageBrowsingContextGroup(params.arg_arg_browsing_context_group_token);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageAttributionSupport');
-          const result = this.impl.setPageAttributionSupport(params.arg_support);
+          const result = this.impl.setPageAttributionSupport(params.arg_arg_support);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateColorProviders');
-          const result = this.impl.updateColorProviders(params.arg_color_provider_colors);
+          const result = this.impl.updateColorProviders(params.arg_arg_color_provider_colors);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSupportsDraggableRegions');
-          const result = this.impl.setSupportsDraggableRegions(params.arg_supports_draggable_regions);
+          const result = this.impl.setSupportsDraggableRegions(params.arg_arg_supports_draggable_regions);
           break;
         }
       }
@@ -703,4 +577,136 @@ mojo.internal.bindings.blink.mojom.PageBroadcastReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.PageBroadcastPtr = mojo.internal.bindings.blink.mojom.PageBroadcastRemote;
 mojo.internal.bindings.blink.mojom.PageBroadcastRequest = mojo.internal.bindings.blink.mojom.PageBroadcastPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PageLifecycleState
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec, 'blink.mojom.PageLifecycleState', [
+      mojo.internal.StructField('arg_is_frozen', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_in_back_forward_cache', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_eviction_enabled', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 4, 0, mojo.internal.bindings.blink.mojom.PageVisibilityStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pagehide_dispatch', 8, 0, mojo.internal.bindings.blink.mojom.PagehideDispatchSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PageRestoreParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec, 'blink.mojom.PageRestoreParams', [
+      mojo.internal.StructField('arg_navigation_start', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_history_list_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_current_history_list_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_view_transition_state', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ColorProviderColorMaps
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec, 'blink.mojom.ColorProviderColorMaps', [
+      mojo.internal.StructField('arg_light_colors_map', 0, 0, mojo.internal.Map(mojo.internal.bindings.color.mojom.RendererColorIdSpec, mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dark_colors_map', 8, 0, mojo.internal.Map(mojo.internal.bindings.color.mojom.RendererColorIdSpec, mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_forced_colors_map', 16, 0, mojo.internal.Map(mojo.internal.bindings.color.mojom.RendererColorIdSpec, mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: PrerenderPageActivationParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec, 'blink.mojom.PrerenderPageActivationParams', [
+      mojo.internal.StructField('arg_was_user_activated', 0, 0, mojo.internal.bindings.blink.mojom.WasActivatedOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_start', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_view_transition_state', 16, 0, mojo.internal.bindings.blink.mojom.ViewTransitionStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageLifecycleState_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.PageLifecycleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_restore_params', 8, 0, mojo.internal.bindings.blink.mojom.PageRestoreParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParamsSpec, 'blink.mojom.PageBroadcast_SetPageLifecycleState_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_AudioStateChanged_ParamsSpec, 'blink.mojom.PageBroadcast_AudioStateChanged_Params', [
+      mojo.internal.StructField('arg_is_audio_playing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ParamsSpec, 'blink.mojom.PageBroadcast_ActivatePrerenderedPage_Params', [
+      mojo.internal.StructField('arg_prerender_page_activation_params', 0, 0, mojo.internal.bindings.blink.mojom.PrerenderPageActivationParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParamsSpec, 'blink.mojom.PageBroadcast_ActivatePrerenderedPage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateWebPreferences_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateWebPreferences_Params', [
+      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.blink.mojom.WebPreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateRendererPreferences_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateRendererPreferences_Params', [
+      mojo.internal.StructField('arg_preferences', 0, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_SetHistoryIndexAndLength_ParamsSpec, 'blink.mojom.PageBroadcast_SetHistoryIndexAndLength_Params', [
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageBaseBackgroundColor_Params', [
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_CreateRemoteMainFrame_ParamsSpec, 'blink.mojom.PageBroadcast_CreateRemoteMainFrame_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.RemoteFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_opener_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_replication_state', 24, 0, mojo.internal.bindings.blink.mojom.FrameReplicationStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_loading', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_frame_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_metrics_token', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_remote_frame_interfaces', 56, 0, mojo.internal.bindings.blink.mojom.RemoteFrameInterfacesFromBrowserSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_main_frame_interfaces', 64, 0, mojo.internal.bindings.blink.mojom.RemoteMainFrameInterfacesSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_ParamsSpec, 'blink.mojom.PageBroadcast_UpdatePageBrowsingContextGroup_Params', [
+      mojo.internal.StructField('arg_browsing_context_group_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_SetPageAttributionSupport_ParamsSpec, 'blink.mojom.PageBroadcast_SetPageAttributionSupport_Params', [
+      mojo.internal.StructField('arg_support', 0, 0, mojo.internal.bindings.network.mojom.AttributionSupportSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_UpdateColorProviders_ParamsSpec, 'blink.mojom.PageBroadcast_UpdateColorProviders_Params', [
+      mojo.internal.StructField('arg_color_provider_colors', 0, 0, mojo.internal.bindings.blink.mojom.ColorProviderColorMapsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PageBroadcast_SetSupportsDraggableRegions_ParamsSpec, 'blink.mojom.PageBroadcast_SetSupportsDraggableRegions_Params', [
+      mojo.internal.StructField('arg_supports_draggable_regions', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

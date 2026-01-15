@@ -124,6 +124,8 @@ mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojo
 mojo.internal.bindings.extensions.mojom.URLPatternSpec = { $: {} };
 mojo.internal.bindings.extensions.mojom.URLPatternSetSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: URLPattern
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.URLPatternSpec, 'extensions.mojom.URLPattern', [

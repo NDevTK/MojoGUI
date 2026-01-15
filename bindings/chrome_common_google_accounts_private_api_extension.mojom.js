@@ -127,12 +127,6 @@ mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension.$interface
 mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec = { $: {} };
 
 // Interface: GoogleAccountsPrivateApiExtension
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec, 'chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_Params', [
-      mojo.internal.StructField('arg_consent_result', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConsentResult');
-          const result = this.impl.setConsentResult(params.arg_consent_result);
+          const result = this.impl.setConsentResult(params.arg_arg_consent_result);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionReceiver = 
 
 mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionPtr = mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionRemote;
 mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionRequest = mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtensionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_ParamsSpec, 'chrome.mojom.GoogleAccountsPrivateApiExtension_SetConsentResult_Params', [
+      mojo.internal.StructField('arg_consent_result', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

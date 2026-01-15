@@ -172,6 +172,8 @@ mojo.internal.bindings.network.mojom.OriginAgentClusterValue = {
   kFalse: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ParsedHeaders
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ParsedHeadersSpec, 'network.mojom.ParsedHeaders', [

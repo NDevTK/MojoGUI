@@ -144,38 +144,7 @@ mojo.internal.bindings.password_manager.mojom.Status = {
   kSemanticError: 2,
 };
 
-// Struct: CSVPasswordSequence
-mojo.internal.Struct(
-    mojo.internal.bindings.password_manager.mojom.CSVPasswordSequenceSpec, 'password_manager.mojom.CSVPasswordSequence', [
-      mojo.internal.StructField('arg_csv_passwords', 0, 0, mojo.internal.Array(mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: CSVPassword
-mojo.internal.Struct(
-    mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec, 'password_manager.mojom.CSVPassword', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.password_manager.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_note', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_invalid_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: CSVPasswordParser
-mojo.internal.Struct(
-    mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_Params', [
-      mojo.internal.StructField('arg_raw_csv', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParams', [
-      mojo.internal.StructField('arg_sequence', 0, 0, mojo.internal.bindings.password_manager.mojom.CSVPasswordSequenceSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,12 +257,15 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseCSV');
-          const result = this.impl.parseCSV(params.arg_raw_csv);
+          const result = this.impl.parseCSV(params.arg_arg_raw_csv);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseCSV FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_sequence' in response) ? response.arg_arg_sequence : response;
+              encoder.encodeStructInline(mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseCSV FAILED:', e));
           }
           break;
         }
@@ -309,4 +281,37 @@ mojo.internal.bindings.password_manager.mojom.CSVPasswordParserReceiver = mojo.i
 
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParserPtr = mojo.internal.bindings.password_manager.mojom.CSVPasswordParserRemote;
 mojo.internal.bindings.password_manager.mojom.CSVPasswordParserRequest = mojo.internal.bindings.password_manager.mojom.CSVPasswordParserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CSVPasswordSequence
+mojo.internal.Struct(
+    mojo.internal.bindings.password_manager.mojom.CSVPasswordSequenceSpec, 'password_manager.mojom.CSVPasswordSequence', [
+      mojo.internal.StructField('arg_csv_passwords', 0, 0, mojo.internal.Array(mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: CSVPassword
+mojo.internal.Struct(
+    mojo.internal.bindings.password_manager.mojom.CSVPasswordSpec, 'password_manager.mojom.CSVPassword', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.password_manager.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_username', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_note', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_Params', [
+      mojo.internal.StructField('arg_raw_csv', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParamsSpec, 'password_manager.mojom.CSVPasswordParser_ParseCSV_ResponseParams', [
+      mojo.internal.StructField('arg_sequence', 0, 0, mojo.internal.bindings.password_manager.mojom.CSVPasswordSequenceSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

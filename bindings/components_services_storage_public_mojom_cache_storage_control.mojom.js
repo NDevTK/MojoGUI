@@ -169,19 +169,6 @@ mojo.internal.bindings.storage.mojom.CacheStorageOwner = {
 };
 
 // Interface: CacheStorageObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheListChanged_Params', [
-      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheContentChanged_Params', [
-      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.storage.mojom.CacheStorageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,14 +295,14 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCacheListChanged');
-          const result = this.impl.onCacheListChanged(params.arg_bucket_locator);
+          const result = this.impl.onCacheListChanged(params.arg_arg_bucket_locator);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCacheContentChanged');
-          const result = this.impl.onCacheContentChanged(params.arg_bucket_locator, params.arg_cache_name);
+          const result = this.impl.onCacheContentChanged(params.arg_arg_bucket_locator, params.arg_arg_cache_name);
           break;
         }
       }
@@ -333,30 +320,6 @@ mojo.internal.bindings.storage.mojom.CacheStorageObserverRequest = mojo.internal
 
 
 // Interface: CacheStorageControl
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddReceiver_Params', [
-      mojo.internal.StructField('arg_cross_origin_embedder_policy', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coep_reporter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_document_isolation_policy', 16, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_reporter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_bucket_locator', 32, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner', 40, 0, mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 44, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.CacheStorageObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.CacheStorageControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.storage.mojom.CacheStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -497,21 +460,21 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
-          const result = this.impl.addReceiver(params.arg_cross_origin_embedder_policy, params.arg_coep_reporter, params.arg_document_isolation_policy, params.arg_dip_reporter, params.arg_bucket_locator, params.arg_owner, params.arg_receiver);
+          const result = this.impl.addReceiver(params.arg_arg_cross_origin_embedder_policy, params.arg_arg_coep_reporter, params.arg_arg_document_isolation_policy, params.arg_arg_dip_reporter, params.arg_arg_bucket_locator, params.arg_arg_owner, params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
-          const result = this.impl.applyPolicyUpdates(params.arg_policy_updates);
+          const result = this.impl.applyPolicyUpdates(params.arg_arg_policy_updates);
           break;
         }
       }
@@ -526,4 +489,43 @@ mojo.internal.bindings.storage.mojom.CacheStorageControlReceiver = mojo.internal
 
 mojo.internal.bindings.storage.mojom.CacheStorageControlPtr = mojo.internal.bindings.storage.mojom.CacheStorageControlRemote;
 mojo.internal.bindings.storage.mojom.CacheStorageControlRequest = mojo.internal.bindings.storage.mojom.CacheStorageControlPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheListChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheListChanged_Params', [
+      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.CacheStorageObserver_OnCacheContentChanged_ParamsSpec, 'storage.mojom.CacheStorageObserver_OnCacheContentChanged_Params', [
+      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.CacheStorageControl_AddReceiver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddReceiver_Params', [
+      mojo.internal.StructField('arg_cross_origin_embedder_policy', 0, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coep_reporter', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicyReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_document_isolation_policy', 16, 0, mojo.internal.bindings.network.mojom.DocumentIsolationPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dip_reporter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DocumentIsolationPolicyReporterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_bucket_locator', 32, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner', 40, 0, mojo.internal.bindings.storage.mojom.CacheStorageOwnerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 44, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.CacheStorageRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.CacheStorageControl_AddObserver_ParamsSpec, 'storage.mojom.CacheStorageControl_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.CacheStorageObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.CacheStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.CacheStorageControl_ApplyPolicyUpdates_Params', [
+      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

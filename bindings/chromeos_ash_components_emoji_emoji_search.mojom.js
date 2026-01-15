@@ -129,35 +129,7 @@ mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec = {
 mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec = { $: {} };
 
-// Struct: SearchResults
-mojo.internal.Struct(
-    mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, 'emoji_search.mojom.SearchResults', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: EmojiSearch
-mojo.internal.Struct(
-    mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language_codes', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParams', [
-      mojo.internal.StructField('arg_emoji_results', 0, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_symbol_results', 8, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_emoticon_results', 16, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec, 'emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_Params', [
-      mojo.internal.StructField('arg_language_codes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.emoji_search.mojom.EmojiSearchPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,12 +256,14 @@ mojo.internal.bindings.emoji_search.mojom.EmojiSearchReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.searchEmoji');
-          const result = this.impl.searchEmoji(params.arg_query, params.arg_language_codes);
+          const result = this.impl.searchEmoji(params.arg_arg_query, params.arg_arg_language_codes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SearchEmoji FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec.$.structSpec, ['response.arg_arg_emoji_results', 'response.arg_arg_symbol_results', 'response.arg_arg_emoticon_results']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] searchEmoji FAILED:', e));
           }
           break;
         }
@@ -297,7 +271,7 @@ mojo.internal.bindings.emoji_search.mojom.EmojiSearchReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadEmojiLanguages');
-          const result = this.impl.loadEmojiLanguages(params.arg_language_codes);
+          const result = this.impl.loadEmojiLanguages(params.arg_arg_language_codes);
           break;
         }
       }
@@ -312,4 +286,34 @@ mojo.internal.bindings.emoji_search.mojom.EmojiSearchReceiver = mojo.internal.bi
 
 mojo.internal.bindings.emoji_search.mojom.EmojiSearchPtr = mojo.internal.bindings.emoji_search.mojom.EmojiSearchRemote;
 mojo.internal.bindings.emoji_search.mojom.EmojiSearchRequest = mojo.internal.bindings.emoji_search.mojom.EmojiSearchPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SearchResults
+mojo.internal.Struct(
+    mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, 'emoji_search.mojom.SearchResults', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language_codes', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParamsSpec, 'emoji_search.mojom.EmojiSearch_SearchEmoji_ResponseParams', [
+      mojo.internal.StructField('arg_emoji_results', 0, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_symbol_results', 8, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_emoticon_results', 16, 0, mojo.internal.bindings.emoji_search.mojom.SearchResultsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_ParamsSpec, 'emoji_search.mojom.EmojiSearch_LoadEmojiLanguages_Params', [
+      mojo.internal.StructField('arg_language_codes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

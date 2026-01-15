@@ -162,3 +162,5 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerResponseError = {
   kDisallowedByCorp: 15,
   kRequestBodyUnusable: 16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

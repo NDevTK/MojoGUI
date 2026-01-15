@@ -142,6 +142,8 @@ mojo.internal.bindings.blink.mojom.FaviconIconType = {
   kTouchPrecomposedIcon: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FaviconURL
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FaviconURLSpec, 'blink.mojom.FaviconURL', [

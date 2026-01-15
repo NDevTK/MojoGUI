@@ -147,20 +147,6 @@ mojo.internal.bindings.chrome.mojom.IconSize = {
 };
 
 // Interface: UtilReadIcon
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_Params', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.chrome.mojom.IconSizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_ResponseParams', [
-      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.UtilReadIconPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,12 +259,15 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.readIcon');
-          const result = this.impl.readIcon(params.arg_file, params.arg_size, params.arg_scale);
+          const result = this.impl.readIcon(params.arg_arg_file, params.arg_arg_size, params.arg_arg_scale);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReadIcon FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_icon' in response) ? response.arg_arg_icon : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] readIcon FAILED:', e));
           }
           break;
         }
@@ -294,4 +283,20 @@ mojo.internal.bindings.chrome.mojom.UtilReadIconReceiver = mojo.internal.binding
 
 mojo.internal.bindings.chrome.mojom.UtilReadIconPtr = mojo.internal.bindings.chrome.mojom.UtilReadIconRemote;
 mojo.internal.bindings.chrome.mojom.UtilReadIconRequest = mojo.internal.bindings.chrome.mojom.UtilReadIconPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_Params', [
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.chrome.mojom.IconSizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scale', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilReadIcon_ReadIcon_ResponseParamsSpec, 'chrome.mojom.UtilReadIcon_ReadIcon_ResponseParams', [
+      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

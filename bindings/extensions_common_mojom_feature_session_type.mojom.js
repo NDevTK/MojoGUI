@@ -131,3 +131,5 @@ mojo.internal.bindings.extensions.mojom.FeatureSessionType = {
   kKiosk: 3,
   kAutolaunchedKiosk: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

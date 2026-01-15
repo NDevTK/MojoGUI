@@ -199,6 +199,8 @@ mojo.internal.bindings.remoting.mojom.LayoutKeyFunction = {
   kSearch: 63,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: KeyAction
 mojo.internal.Union(
     mojo.internal.bindings.remoting.mojom.KeyActionSpec, 'remoting.mojom.KeyAction', {

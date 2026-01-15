@@ -133,12 +133,6 @@ mojo.internal.bindings.device.mojom.GeolocationInternalsSpec = mojo.internal.bin
 mojo.internal.bindings.device.mojom.GeolocationInternalsRemote = mojo.internal.bindings.device.mojom.GeolocationInternalsRemote || class {};
 
 // Interface: LocationInternalsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec, 'mojom.LocationInternalsHandler_BindInternalsInterface_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationInternalsRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.LocationInternalsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.mojom.LocationInternalsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInternalsInterface');
-          const result = this.impl.bindInternalsInterface(params.arg_receiver);
+          const result = this.impl.bindInternalsInterface(params.arg_arg_receiver);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.mojom.LocationInternalsHandlerReceiver = mojo.internal.bi
 
 mojo.internal.bindings.mojom.LocationInternalsHandlerPtr = mojo.internal.bindings.mojom.LocationInternalsHandlerRemote;
 mojo.internal.bindings.mojom.LocationInternalsHandlerRequest = mojo.internal.bindings.mojom.LocationInternalsHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.LocationInternalsHandler_BindInternalsInterface_ParamsSpec, 'mojom.LocationInternalsHandler_BindInternalsInterface_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationInternalsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

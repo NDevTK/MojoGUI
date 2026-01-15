@@ -220,16 +220,6 @@ mojo.internal.bindings.viz.mojom.InputTargetClientSpec = mojo.internal.bindings.
 mojo.internal.bindings.viz.mojom.InputTargetClientRemote = mojo.internal.bindings.viz.mojom.InputTargetClientRemote || class {};
 
 // Interface: WidgetCompositor
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec, 'blink.mojom.WidgetCompositor_VisualStateRequest_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec, 'blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.WidgetCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -346,8 +336,10 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] VisualStateRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] visualStateRequest FAILED:', e));
           }
           break;
         }
@@ -366,64 +358,6 @@ mojo.internal.bindings.blink.mojom.WidgetCompositorRequest = mojo.internal.bindi
 
 
 // Interface: WidgetHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec, 'blink.mojom.WidgetHost_SetCursor_Params', [
-      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.bindings.ui.mojom.CursorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipUnderCursor_Params', [
-      mojo.internal.StructField('arg_tooltip_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction_hint', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_Params', [
-      mojo.internal.StructField('arg_tooltip_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction_hint', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec, 'blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec, 'blink.mojom.WidgetHost_TextInputStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ui.mojom.TextInputStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec, 'blink.mojom.WidgetHost_SelectionBoundsChanged_Params', [
-      mojo.internal.StructField('arg_anchor_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor_dir', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_dir', 12, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_anchor_first', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec, 'blink.mojom.WidgetHost_CreateFrameSink_Params', [
-      mojo.internal.StructField('arg_compositor_frame_sink_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_compositor_frame_sink_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_input_router_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec, 'blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_Params', [
-      mojo.internal.StructField('arg_render_frame_metadata_observer_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_frame_metadata_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.WidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -634,21 +568,21 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCursor');
-          const result = this.impl.setCursor(params.arg_cursor);
+          const result = this.impl.setCursor(params.arg_arg_cursor);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTooltipUnderCursor');
-          const result = this.impl.updateTooltipUnderCursor(params.arg_tooltip_text, params.arg_text_direction_hint);
+          const result = this.impl.updateTooltipUnderCursor(params.arg_arg_tooltip_text, params.arg_arg_text_direction_hint);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTooltipFromKeyboard');
-          const result = this.impl.updateTooltipFromKeyboard(params.arg_tooltip_text, params.arg_text_direction_hint, params.arg_bounds);
+          const result = this.impl.updateTooltipFromKeyboard(params.arg_arg_tooltip_text, params.arg_arg_text_direction_hint, params.arg_arg_bounds);
           break;
         }
         case 3: {
@@ -662,28 +596,28 @@ mojo.internal.bindings.blink.mojom.WidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.textInputStateChanged');
-          const result = this.impl.textInputStateChanged(params.arg_state);
+          const result = this.impl.textInputStateChanged(params.arg_arg_state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.selectionBoundsChanged');
-          const result = this.impl.selectionBoundsChanged(params.arg_anchor_rect, params.arg_anchor_dir, params.arg_focus_rect, params.arg_focus_dir, params.arg_bounding_box_rect, params.arg_is_anchor_first);
+          const result = this.impl.selectionBoundsChanged(params.arg_arg_anchor_rect, params.arg_arg_anchor_dir, params.arg_arg_focus_rect, params.arg_arg_focus_dir, params.arg_arg_bounding_box_rect, params.arg_arg_is_anchor_first);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrameSink');
-          const result = this.impl.createFrameSink(params.arg_compositor_frame_sink_receiver, params.arg_compositor_frame_sink_client, params.arg_render_input_router_client);
+          const result = this.impl.createFrameSink(params.arg_arg_compositor_frame_sink_receiver, params.arg_arg_compositor_frame_sink_client, params.arg_arg_render_input_router_client);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerRenderFrameMetadataObserver');
-          const result = this.impl.registerRenderFrameMetadataObserver(params.arg_render_frame_metadata_observer_client_receiver, params.arg_render_frame_metadata_observer);
+          const result = this.impl.registerRenderFrameMetadataObserver(params.arg_arg_render_frame_metadata_observer_client_receiver, params.arg_arg_render_frame_metadata_observer);
           break;
         }
       }
@@ -701,63 +635,6 @@ mojo.internal.bindings.blink.mojom.WidgetHostRequest = mojo.internal.bindings.bl
 
 
 // Interface: Widget
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec, 'blink.mojom.Widget_ForceRedraw_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec, 'blink.mojom.Widget_ForceRedraw_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec, 'blink.mojom.Widget_UpdateVisualProperties_Params', [
-      mojo.internal.StructField('arg_visual_properties', 0, 0, mojo.internal.bindings.blink.mojom.VisualPropertiesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec, 'blink.mojom.Widget_UpdateScreenRects_Params', [
-      mojo.internal.StructField('arg_widget_screen_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_window_screen_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec, 'blink.mojom.Widget_UpdateScreenRects_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec, 'blink.mojom.Widget_WasHidden_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
-      mojo.internal.StructField('arg_was_evicted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_record_tab_switch_time_request', 8, 0, mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec, 'blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_Params', [
-      mojo.internal.StructField('arg_visible_time_request', 0, 0, mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec, 'blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec, 'blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_Params', [
-      mojo.internal.StructField('arg_browser_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.WidgetPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -972,8 +849,10 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ForceRedraw FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] forceRedraw FAILED:', e));
           }
           break;
         }
@@ -981,19 +860,21 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVisualProperties');
-          const result = this.impl.updateVisualProperties(params.arg_visual_properties);
+          const result = this.impl.updateVisualProperties(params.arg_arg_visual_properties);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateScreenRects');
-          const result = this.impl.updateScreenRects(params.arg_widget_screen_rect, params.arg_window_screen_rect);
+          const result = this.impl.updateScreenRects(params.arg_arg_widget_screen_rect, params.arg_arg_window_screen_rect);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateScreenRects FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateScreenRects FAILED:', e));
           }
           break;
         }
@@ -1008,14 +889,14 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wasShown');
-          const result = this.impl.wasShown(params.arg_was_evicted, params.arg_record_tab_switch_time_request);
+          const result = this.impl.wasShown(params.arg_arg_was_evicted, params.arg_arg_record_tab_switch_time_request);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestSuccessfulPresentationTimeForNextFrame');
-          const result = this.impl.requestSuccessfulPresentationTimeForNextFrame(params.arg_visible_time_request);
+          const result = this.impl.requestSuccessfulPresentationTimeForNextFrame(params.arg_arg_visible_time_request);
           break;
         }
         case 6: {
@@ -1029,7 +910,7 @@ mojo.internal.bindings.blink.mojom.WidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupBrowserRenderInputRouterConnections');
-          const result = this.impl.setupBrowserRenderInputRouterConnections(params.arg_browser_client);
+          const result = this.impl.setupBrowserRenderInputRouterConnections(params.arg_arg_browser_client);
           break;
         }
       }
@@ -1047,27 +928,6 @@ mojo.internal.bindings.blink.mojom.WidgetRequest = mojo.internal.bindings.blink.
 
 
 // Interface: RenderInputRouterClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec, 'blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_from_viz', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec, 'blink.mojom.RenderInputRouterClient_ShowContextMenu_Params', [
-      mojo.internal.StructField('arg_source_type', 0, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec, 'blink.mojom.RenderInputRouterClient_BindInputTargetClient_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InputTargetClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.RenderInputRouterClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1208,21 +1068,21 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWidgetInputHandler');
-          const result = this.impl.getWidgetInputHandler(params.arg_request, params.arg_host, params.arg_from_viz);
+          const result = this.impl.getWidgetInputHandler(params.arg_arg_request, params.arg_arg_host, params.arg_arg_from_viz);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_source_type, params.arg_location);
+          const result = this.impl.showContextMenu(params.arg_arg_source_type, params.arg_arg_location);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputTargetClient');
-          const result = this.impl.bindInputTargetClient(params.arg_host);
+          const result = this.impl.bindInputTargetClient(params.arg_arg_host);
           break;
         }
       }
@@ -1237,4 +1097,152 @@ mojo.internal.bindings.blink.mojom.RenderInputRouterClientReceiver = mojo.intern
 
 mojo.internal.bindings.blink.mojom.RenderInputRouterClientPtr = mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote;
 mojo.internal.bindings.blink.mojom.RenderInputRouterClientRequest = mojo.internal.bindings.blink.mojom.RenderInputRouterClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ParamsSpec, 'blink.mojom.WidgetCompositor_VisualStateRequest_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParamsSpec, 'blink.mojom.WidgetCompositor_VisualStateRequest_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_SetCursor_ParamsSpec, 'blink.mojom.WidgetHost_SetCursor_Params', [
+      mojo.internal.StructField('arg_cursor', 0, 0, mojo.internal.bindings.ui.mojom.CursorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipUnderCursor_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipUnderCursor_Params', [
+      mojo.internal.StructField('arg_tooltip_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction_hint', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_ParamsSpec, 'blink.mojom.WidgetHost_UpdateTooltipFromKeyboard_Params', [
+      mojo.internal.StructField('arg_tooltip_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction_hint', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_ParamsSpec, 'blink.mojom.WidgetHost_ClearKeyboardTriggeredTooltip_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_TextInputStateChanged_ParamsSpec, 'blink.mojom.WidgetHost_TextInputStateChanged_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ui.mojom.TextInputStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_SelectionBoundsChanged_ParamsSpec, 'blink.mojom.WidgetHost_SelectionBoundsChanged_Params', [
+      mojo.internal.StructField('arg_anchor_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_dir', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_dir', 12, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box_rect', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_anchor_first', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_CreateFrameSink_ParamsSpec, 'blink.mojom.WidgetHost_CreateFrameSink_Params', [
+      mojo.internal.StructField('arg_compositor_frame_sink_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.CompositorFrameSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_compositor_frame_sink_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositorFrameSinkClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_input_router_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_ParamsSpec, 'blink.mojom.WidgetHost_RegisterRenderFrameMetadataObserver_Params', [
+      mojo.internal.StructField('arg_render_frame_metadata_observer_client_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_frame_metadata_observer', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cc.mojom.RenderFrameMetadataObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ParamsSpec, 'blink.mojom.Widget_ForceRedraw_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_ForceRedraw_ResponseParamsSpec, 'blink.mojom.Widget_ForceRedraw_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_UpdateVisualProperties_ParamsSpec, 'blink.mojom.Widget_UpdateVisualProperties_Params', [
+      mojo.internal.StructField('arg_visual_properties', 0, 0, mojo.internal.bindings.blink.mojom.VisualPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ParamsSpec, 'blink.mojom.Widget_UpdateScreenRects_Params', [
+      mojo.internal.StructField('arg_widget_screen_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_window_screen_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_UpdateScreenRects_ResponseParamsSpec, 'blink.mojom.Widget_UpdateScreenRects_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_WasHidden_ParamsSpec, 'blink.mojom.Widget_WasHidden_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_WasShown_ParamsSpec, 'blink.mojom.Widget_WasShown_Params', [
+      mojo.internal.StructField('arg_was_evicted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_record_tab_switch_time_request', 8, 0, mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_ParamsSpec, 'blink.mojom.Widget_RequestSuccessfulPresentationTimeForNextFrame_Params', [
+      mojo.internal.StructField('arg_visible_time_request', 0, 0, mojo.internal.bindings.blink.mojom.RecordContentToVisibleTimeRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_ParamsSpec, 'blink.mojom.Widget_CancelSuccessfulPresentationTimeRequest_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_ParamsSpec, 'blink.mojom.Widget_SetupBrowserRenderInputRouterConnections_Params', [
+      mojo.internal.StructField('arg_browser_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_ParamsSpec, 'blink.mojom.RenderInputRouterClient_GetWidgetInputHandler_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetInputHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WidgetInputHandlerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_viz', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderInputRouterClient_ShowContextMenu_ParamsSpec, 'blink.mojom.RenderInputRouterClient_ShowContextMenu_Params', [
+      mojo.internal.StructField('arg_source_type', 0, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderInputRouterClient_BindInputTargetClient_ParamsSpec, 'blink.mojom.RenderInputRouterClient_BindInputTargetClient_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InputTargetClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

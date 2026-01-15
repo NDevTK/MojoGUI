@@ -128,3 +128,5 @@ mojo.internal.bindings.ui.mojom.ColorMode = {
   kLight: 0,
   kDark: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -135,39 +135,7 @@ mojo.internal.bindings.enterprise_companion = mojo.internal.bindings.enterprise_
 mojo.internal.bindings.enterprise_companion.mojom = mojo.internal.bindings.enterprise_companion.mojom || {};
 mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec = mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: Status
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, 'enterprise_companion.mojom.Status', [
-      mojo.internal.StructField('arg_space', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: EnterpriseCompanion
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 1, undefined),
-    ],
-    [[0, 8], [1, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,8 +266,11 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Shutdown FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shutdown FAILED:', e));
           }
           break;
         }
@@ -307,12 +278,15 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchPolicies');
-          const result = this.impl.fetchPolicies(params.arg_reason);
+          const result = this.impl.fetchPolicies(params.arg_arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FetchPolicies FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetchPolicies FAILED:', e));
           }
           break;
         }
@@ -328,4 +302,38 @@ mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionReceiver = 
 
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionPtr = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRemote;
 mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionRequest = mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Status
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, 'enterprise_companion.mojom.Status', [
+      mojo.internal.StructField('arg_space', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_Shutdown_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReasonSpec, null, false, 1, undefined),
+    ],
+    [[0, 8], [1, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParamsSpec, 'enterprise_companion.mojom.EnterpriseCompanion_FetchPolicies_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.enterprise_companion.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

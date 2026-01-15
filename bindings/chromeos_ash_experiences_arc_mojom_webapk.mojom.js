@@ -150,63 +150,7 @@ mojo.internal.bindings.arc.mojom.WebApkInstallResult = {
   MinVersion: 10,
 };
 
-// Struct: WebShareTargetInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec, 'arc.mojom.WebShareTargetInfo', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_enctype', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_param_title', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_param_text', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_param_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_file_names', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_accepts', 56, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
-// Struct: WebApkInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WebApkInfoSpec, 'arc.mojom.WebApkInfo', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_apk_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shell_apk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_hash', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_share_info', 64, 0, mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 80]]);
-
 // Interface: WebApkInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_app_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.WebApkInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.WebApkInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -333,12 +277,15 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installWebApk');
-          const result = this.impl.installWebApk(params.arg_package_name, params.arg_version, params.arg_app_name, params.arg_token);
+          const result = this.impl.installWebApk(params.arg_arg_package_name, params.arg_arg_version, params.arg_arg_app_name, params.arg_arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InstallWebApk FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] installWebApk FAILED:', e));
           }
           break;
         }
@@ -346,12 +293,15 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWebApkInfo');
-          const result = this.impl.getWebApkInfo(params.arg_package_name);
+          const result = this.impl.getWebApkInfo(params.arg_arg_package_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetWebApkInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getWebApkInfo FAILED:', e));
           }
           break;
         }
@@ -367,4 +317,62 @@ mojo.internal.bindings.arc.mojom.WebApkInstanceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.arc.mojom.WebApkInstancePtr = mojo.internal.bindings.arc.mojom.WebApkInstanceRemote;
 mojo.internal.bindings.arc.mojom.WebApkInstanceRequest = mojo.internal.bindings.arc.mojom.WebApkInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WebShareTargetInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec, 'arc.mojom.WebShareTargetInfo', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_method', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_enctype', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_param_title', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_param_text', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_param_url', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_file_names', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_accepts', 56, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+
+// Struct: WebApkInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WebApkInfoSpec, 'arc.mojom.WebApkInfo', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_apk_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shell_apk_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_hash', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_share_info', 64, 0, mojo.internal.bindings.arc.mojom.WebShareTargetInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_app_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WebApkInstance_InstallWebApk_ResponseParamsSpec, 'arc.mojom.WebApkInstance_InstallWebApk_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.WebApkInstallResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParamsSpec, 'arc.mojom.WebApkInstance_GetWebApkInfo_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.WebApkInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

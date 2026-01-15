@@ -138,25 +138,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AcceptCHFrameObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accept_ch_frame', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_Clone_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.AcceptCHFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -283,12 +264,15 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAcceptCHFrameReceived');
-          const result = this.impl.onAcceptCHFrameReceived(params.arg_origin, params.arg_accept_ch_frame);
+          const result = this.impl.onAcceptCHFrameReceived(params.arg_arg_origin, params.arg_arg_accept_ch_frame);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnAcceptCHFrameReceived FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onAcceptCHFrameReceived FAILED:', e));
           }
           break;
         }
@@ -296,7 +280,7 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_listener);
+          const result = this.impl.clone(params.arg_arg_listener);
           break;
         }
       }
@@ -311,4 +295,25 @@ mojo.internal.bindings.network.mojom.AcceptCHFrameObserverReceiver = mojo.intern
 
 mojo.internal.bindings.network.mojom.AcceptCHFrameObserverPtr = mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemote;
 mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRequest = mojo.internal.bindings.network.mojom.AcceptCHFrameObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_Params', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accept_ch_frame', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebClientHintsTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParamsSpec, 'network.mojom.AcceptCHFrameObserver_OnAcceptCHFrameReceived_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.AcceptCHFrameObserver_Clone_ParamsSpec, 'network.mojom.AcceptCHFrameObserver_Clone_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.AcceptCHFrameObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

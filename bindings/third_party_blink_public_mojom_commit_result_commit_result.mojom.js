@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.CommitResult = {
   Aborted: 1,
   RestartCrossDocument: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

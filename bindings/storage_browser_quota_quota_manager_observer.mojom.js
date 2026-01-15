@@ -136,18 +136,6 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.storage.mojom.BucketLocatorSpec = mojo.internal.bindings.storage.mojom.BucketLocatorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: QuotaManagerObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params', [
-      mojo.internal.StructField('arg_bucket_info', 0, 0, mojo.internal.bindings.storage.mojom.BucketInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnDeleteBucket_Params', [
-      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.storage.mojom.QuotaManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,14 +262,14 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreateOrUpdateBucket');
-          const result = this.impl.onCreateOrUpdateBucket(params.arg_bucket_info);
+          const result = this.impl.onCreateOrUpdateBucket(params.arg_arg_bucket_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeleteBucket');
-          const result = this.impl.onDeleteBucket(params.arg_bucket_locator);
+          const result = this.impl.onDeleteBucket(params.arg_arg_bucket_locator);
           break;
         }
       }
@@ -296,4 +284,18 @@ mojo.internal.bindings.storage.mojom.QuotaManagerObserverReceiver = mojo.interna
 
 mojo.internal.bindings.storage.mojom.QuotaManagerObserverPtr = mojo.internal.bindings.storage.mojom.QuotaManagerObserverRemote;
 mojo.internal.bindings.storage.mojom.QuotaManagerObserverRequest = mojo.internal.bindings.storage.mojom.QuotaManagerObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnCreateOrUpdateBucket_Params', [
+      mojo.internal.StructField('arg_bucket_info', 0, 0, mojo.internal.bindings.storage.mojom.BucketInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.QuotaManagerObserver_OnDeleteBucket_ParamsSpec, 'storage.mojom.QuotaManagerObserver_OnDeleteBucket_Params', [
+      mojo.internal.StructField('arg_bucket_locator', 0, 0, mojo.internal.bindings.storage.mojom.BucketLocatorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

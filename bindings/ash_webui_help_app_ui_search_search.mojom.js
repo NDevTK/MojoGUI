@@ -143,37 +143,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: SearchResult
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec, 'ash.help_app.mojom.SearchResult', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_path_with_parameters', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: SearchConcept
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec, 'ash.help_app.mojom.SearchConcept', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tags', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tag_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_path_with_parameters', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_locale', 48, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: SearchResultsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec, 'ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -304,36 +274,6 @@ mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverRequest = mojo.in
 
 
 // Interface: SearchHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_Params', [
-      mojo.internal.StructField('arg_concepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Observe_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.help_app.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,12 +414,15 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
-          const result = this.impl.search(params.arg_query, params.arg_max_num_results);
+          const result = this.impl.search(params.arg_arg_query, params.arg_arg_max_num_results);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Search FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
           break;
         }
@@ -487,12 +430,14 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_concepts);
+          const result = this.impl.update(params.arg_arg_concepts);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Update FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] update FAILED:', e));
           }
           break;
         }
@@ -500,7 +445,7 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observe');
-          const result = this.impl.observe(params.arg_observer);
+          const result = this.impl.observe(params.arg_arg_observer);
           break;
         }
       }
@@ -515,4 +460,66 @@ mojo.internal.bindings.ash.help_app.mojom.SearchHandlerReceiver = mojo.internal.
 
 mojo.internal.bindings.ash.help_app.mojom.SearchHandlerPtr = mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRemote;
 mojo.internal.bindings.ash.help_app.mojom.SearchHandlerRequest = mojo.internal.bindings.ash.help_app.mojom.SearchHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SearchResult
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec, 'ash.help_app.mojom.SearchResult', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_path_with_parameters', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance_score', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: SearchConcept
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec, 'ash.help_app.mojom.SearchConcept', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_main_category', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tags', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tag_locale', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_path_with_parameters', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 48, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_ParamsSpec, 'ash.help_app.mojom.SearchResultsObserver_OnSearchResultAvailabilityChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Search_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_Params', [
+      mojo.internal.StructField('arg_concepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.help_app.mojom.SearchConceptSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Update_ResponseParamsSpec, 'ash.help_app.mojom.SearchHandler_Update_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.help_app.mojom.SearchHandler_Observe_ParamsSpec, 'ash.help_app.mojom.SearchHandler_Observe_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.help_app.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -129,3 +129,5 @@ mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlot = {
   kUser: 0,
   kSystem: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

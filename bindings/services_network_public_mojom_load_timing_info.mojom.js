@@ -133,6 +133,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: LoadTimingInfoConnectTiming
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LoadTimingInfoConnectTimingSpec, 'network.mojom.LoadTimingInfoConnectTiming', [

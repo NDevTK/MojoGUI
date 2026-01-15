@@ -258,358 +258,7 @@ mojo.internal.bindings.searchbox.mojom.SelectionLineState = {
   kFocusedButtonRemoveSuggestion: 4,
 };
 
-// Union: SearchContextAttachment
-mojo.internal.Union(
-    mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, 'searchbox.mojom.SearchContextAttachment', {
-      'arg_file_attachment': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec,
-        'nullable': false,
-      },
-      'arg_tab_attachment': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: ACMatchClassification
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, 'searchbox.mojom.ACMatchClassification', [
-      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_style', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: Action
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.ActionSpec, 'searchbox.mojom.Action', [
-      mojo.internal.StructField('arg_hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_contents', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_a11y_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: SuggestionAnswer
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec, 'searchbox.mojom.SuggestionAnswer', [
-      mojo.internal.StructField('arg_first_line', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_second_line', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AutocompleteMatch
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec, 'searchbox.mojom.AutocompleteMatch', [
-      mojo.internal.StructField('arg_is_hidden', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_to_be_default_match', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_weather_answer_suggestion_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_weather_answer_suggestion_$value', originalFieldName: 'arg_is_weather_answer_suggestion' }),
-      mojo.internal.StructField('arg_is_weather_answer_suggestion_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_weather_answer_suggestion_$flag', originalFieldName: 'arg_is_weather_answer_suggestion' }),
-      mojo.internal.StructField('arg_is_noncanned_aim_suggestion', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_rich_suggestion', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_search_type', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enterprise_search_aggregator_people_type', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_contents_and_description', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_deletion', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_instant_keyword', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_a11y_label', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_actions', 16, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ActionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer', 24, 0, mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_contents', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contents_class', 40, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_class', 56, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_url', 64, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_inline_autocompletion', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_into_edit', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_path', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 96, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_dominant_color', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_url', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 120, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remove_button_a11y_label', 128, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tail_suggest_common_prefix', 136, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_keyword_chip_hint', 144, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keyword_chip_a11y', 152, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 168]]);
-
-// Struct: TabInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.TabInfoSpec, 'searchbox.mojom.TabInfo', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_show_in_current_tab_chip', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_in_previous_tab_chip', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: FileAttachment
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec, 'searchbox.mojom.FileAttachment', [
-      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_data_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: TabAttachment
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec, 'searchbox.mojom.TabAttachment', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SearchContext
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.SearchContextSpec, 'searchbox.mojom.SearchContext', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attachments', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool_mode', 16, 0, mojo.internal.bindings.searchbox.mojom.ToolModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SelectedFileInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, 'searchbox.mojom.SelectedFileInfo', [
-      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_data_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_deletable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: SuggestionGroup
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec, 'searchbox.mojom.SuggestionGroup', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_render_type', 8, 0, mojo.internal.bindings.searchbox.mojom.RenderTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_side_type', 12, 0, mojo.internal.bindings.searchbox.mojom.SideTypeSpec, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AutocompleteResult
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, 'searchbox.mojom.AutocompleteResult', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_groups_map', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_smart_compose_inline_hint', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: OmniboxPopupSelection
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, 'searchbox.mojom.OmniboxPopupSelection', [
-      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action_index', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: PlaceholderConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec, 'searchbox.mojom.PlaceholderConfig', [
-      mojo.internal.StructField('arg_texts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_change_text_animation_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fade_text_animation_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec, 'searchbox.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec, 'searchbox.mojom.PageHandler_OnFocusChanged_Params', [
-      mojo.internal.StructField('arg_focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_QueryAutocomplete_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prevent_inline_autocomplete', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_StopAutocomplete_Params', [
-      mojo.internal.StructField('arg_clear_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenAutocompleteMatch_Params', [
-      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_are_matches_showing', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_alt_key', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl_key', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_key', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shift_key', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_button', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec, 'searchbox.mojom.PageHandler_OnNavigationLikely_Params', [
-      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_predictor', 4, 0, mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteAutocompleteMatch_Params', [
-      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec, 'searchbox.mojom.PageHandler_ActivateKeyword_Params', [
-      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mouse_event', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_match_selection_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'searchbox.mojom.PageHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec, 'searchbox.mojom.PageHandler_ExecuteAction_Params', [
-      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action_index', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_button', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_alt_key', 3, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl_key', 3, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_key', 3, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shift_key', 3, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_match_selection_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec, 'searchbox.mojom.PageHandler_OnThumbnailRemoved_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParams', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_ResponseParams', [
-      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.TabInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_ResponseParams', [
-      mojo.internal.StructField('arg_preview_data_url', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionStarted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionAbandoned_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_Params', [
-      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_delay_upload', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteContext_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_from_automatic_chip', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec, 'searchbox.mojom.PageHandler_ClearFiles_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec, 'searchbox.mojom.PageHandler_SubmitQuery_Params', [
-      mojo.internal.StructField('arg_query_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_button', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_alt_key', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl_key', 9, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_key', 9, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shift_key', 9, 3, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenLensSearch_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.searchbox.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1016,70 +665,70 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_page);
+          const result = this.impl.setPage(params.arg_arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFocusChanged');
-          const result = this.impl.onFocusChanged(params.arg_focused);
+          const result = this.impl.onFocusChanged(params.arg_arg_focused);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryAutocomplete');
-          const result = this.impl.queryAutocomplete(params.arg_input, params.arg_prevent_inline_autocomplete);
+          const result = this.impl.queryAutocomplete(params.arg_arg_input, params.arg_arg_prevent_inline_autocomplete);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopAutocomplete');
-          const result = this.impl.stopAutocomplete(params.arg_clear_result);
+          const result = this.impl.stopAutocomplete(params.arg_arg_clear_result);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAutocompleteMatch');
-          const result = this.impl.openAutocompleteMatch(params.arg_line, params.arg_url, params.arg_are_matches_showing, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
+          const result = this.impl.openAutocompleteMatch(params.arg_arg_line, params.arg_arg_url, params.arg_arg_are_matches_showing, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNavigationLikely');
-          const result = this.impl.onNavigationLikely(params.arg_line, params.arg_url, params.arg_navigation_predictor);
+          const result = this.impl.onNavigationLikely(params.arg_arg_line, params.arg_arg_url, params.arg_arg_navigation_predictor);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAutocompleteMatch');
-          const result = this.impl.deleteAutocompleteMatch(params.arg_line, params.arg_url);
+          const result = this.impl.deleteAutocompleteMatch(params.arg_arg_line, params.arg_arg_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateKeyword');
-          const result = this.impl.activateKeyword(params.arg_line, params.arg_url, params.arg_match_selection_timestamp, params.arg_is_mouse_event);
+          const result = this.impl.activateKeyword(params.arg_arg_line, params.arg_arg_url, params.arg_arg_match_selection_timestamp, params.arg_arg_is_mouse_event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_point);
+          const result = this.impl.showContextMenu(params.arg_arg_point);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeAction');
-          const result = this.impl.executeAction(params.arg_line, params.arg_action_index, params.arg_url, params.arg_match_selection_timestamp, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
+          const result = this.impl.executeAction(params.arg_arg_line, params.arg_arg_action_index, params.arg_arg_url, params.arg_arg_match_selection_timestamp, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
           break;
         }
         case 10: {
@@ -1097,8 +746,11 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPlaceholderConfig FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_config' in response) ? response.arg_arg_config : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPlaceholderConfig FAILED:', e));
           }
           break;
         }
@@ -1110,8 +762,11 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetRecentTabs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_tabs' in response) ? response.arg_arg_tabs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getRecentTabs FAILED:', e));
           }
           break;
         }
@@ -1119,12 +774,15 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getTabPreview');
-          const result = this.impl.getTabPreview(params.arg_tab_id);
+          const result = this.impl.getTabPreview(params.arg_arg_tab_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTabPreview FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_preview_data_url' in response) ? response.arg_arg_preview_data_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getTabPreview FAILED:', e));
           }
           break;
         }
@@ -1146,12 +804,15 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
-          const result = this.impl.addFileContext(params.arg_file_info, params.arg_file_bytes);
+          const result = this.impl.addFileContext(params.arg_arg_file_info, params.arg_arg_file_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddFileContext FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addFileContext FAILED:', e));
           }
           break;
         }
@@ -1159,12 +820,15 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTabContext');
-          const result = this.impl.addTabContext(params.arg_tab_id, params.arg_delay_upload);
+          const result = this.impl.addTabContext(params.arg_arg_tab_id, params.arg_arg_delay_upload);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddTabContext FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addTabContext FAILED:', e));
           }
           break;
         }
@@ -1172,7 +836,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteContext');
-          const result = this.impl.deleteContext(params.arg_token, params.arg_from_automatic_chip);
+          const result = this.impl.deleteContext(params.arg_arg_token, params.arg_arg_from_automatic_chip);
           break;
         }
         case 19: {
@@ -1186,7 +850,7 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitQuery');
-          const result = this.impl.submitQuery(params.arg_query_text, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
+          const result = this.impl.submitQuery(params.arg_arg_query_text, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
           break;
         }
         case 21: {
@@ -1211,93 +875,6 @@ mojo.internal.bindings.searchbox.mojom.PageHandlerRequest = mojo.internal.bindin
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec, 'searchbox.mojom.Page_AutocompleteResultChanged_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec, 'searchbox.mojom.Page_UpdateSelection_Params', [
-      mojo.internal.StructField('arg_old_selection', 0, 0, mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection', 8, 0, mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec, 'searchbox.mojom.Page_SetKeywordSelected_Params', [
-      mojo.internal.StructField('arg_is_keyword_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec, 'searchbox.mojom.Page_OnShow_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec, 'searchbox.mojom.Page_SetInputText_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec, 'searchbox.mojom.Page_SetThumbnail_Params', [
-      mojo.internal.StructField('arg_thumbnail_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_deletable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec, 'searchbox.mojom.Page_OnContextualInputStatusChanged_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_type', 12, 0, mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec, 'searchbox.mojom.Page_OnTabStripChanged_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec, 'searchbox.mojom.Page_AddFileContext_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_info', 8, 0, mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec, 'searchbox.mojom.Page_UpdateAutoSuggestedTabContext_Params', [
-      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.searchbox.mojom.TabInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateLensSearchEligibility_Params', [
-      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec, 'searchbox.mojom.Page_UpdateContentSharingPolicy_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateAimEligibility_Params', [
-      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec, 'searchbox.mojom.Page_OnShowAiModePrefChanged_Params', [
-      mojo.internal.StructField('arg_canShow', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.searchbox.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1592,21 +1169,21 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.autocompleteResultChanged');
-          const result = this.impl.autocompleteResultChanged(params.arg_result);
+          const result = this.impl.autocompleteResultChanged(params.arg_arg_result);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSelection');
-          const result = this.impl.updateSelection(params.arg_old_selection, params.arg_selection);
+          const result = this.impl.updateSelection(params.arg_arg_old_selection, params.arg_arg_selection);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setKeywordSelected');
-          const result = this.impl.setKeywordSelected(params.arg_is_keyword_selected);
+          const result = this.impl.setKeywordSelected(params.arg_arg_is_keyword_selected);
           break;
         }
         case 3: {
@@ -1620,21 +1197,21 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputText');
-          const result = this.impl.setInputText(params.arg_input);
+          const result = this.impl.setInputText(params.arg_arg_input);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThumbnail');
-          const result = this.impl.setThumbnail(params.arg_thumbnail_url, params.arg_is_deletable);
+          const result = this.impl.setThumbnail(params.arg_arg_thumbnail_url, params.arg_arg_is_deletable);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextualInputStatusChanged');
-          const result = this.impl.onContextualInputStatusChanged(params.arg_token, params.arg_status, params.arg_error_type);
+          const result = this.impl.onContextualInputStatusChanged(params.arg_arg_token, params.arg_arg_status, params.arg_arg_error_type);
           break;
         }
         case 7: {
@@ -1648,42 +1225,42 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addFileContext');
-          const result = this.impl.addFileContext(params.arg_token, params.arg_file_info);
+          const result = this.impl.addFileContext(params.arg_arg_token, params.arg_arg_file_info);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAutoSuggestedTabContext');
-          const result = this.impl.updateAutoSuggestedTabContext(params.arg_tab);
+          const result = this.impl.updateAutoSuggestedTabContext(params.arg_arg_tab);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateLensSearchEligibility');
-          const result = this.impl.updateLensSearchEligibility(params.arg_eligible);
+          const result = this.impl.updateLensSearchEligibility(params.arg_arg_eligible);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateContentSharingPolicy');
-          const result = this.impl.updateContentSharingPolicy(params.arg_enabled);
+          const result = this.impl.updateContentSharingPolicy(params.arg_arg_enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAimEligibility');
-          const result = this.impl.updateAimEligibility(params.arg_eligible);
+          const result = this.impl.updateAimEligibility(params.arg_arg_eligible);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShowAiModePrefChanged');
-          const result = this.impl.onShowAiModePrefChanged(params.arg_canShow);
+          const result = this.impl.onShowAiModePrefChanged(params.arg_arg_canShow);
           break;
         }
       }
@@ -1698,4 +1275,444 @@ mojo.internal.bindings.searchbox.mojom.PageReceiver = mojo.internal.bindings.sea
 
 mojo.internal.bindings.searchbox.mojom.PagePtr = mojo.internal.bindings.searchbox.mojom.PageRemote;
 mojo.internal.bindings.searchbox.mojom.PageRequest = mojo.internal.bindings.searchbox.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SearchContextAttachment
+mojo.internal.Union(
+    mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, 'searchbox.mojom.SearchContextAttachment', {
+      'arg_file_attachment': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec,
+        'nullable': false,
+      },
+      'arg_tab_attachment': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: ACMatchClassification
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, 'searchbox.mojom.ACMatchClassification', [
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_style', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: Action
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.ActionSpec, 'searchbox.mojom.Action', [
+      mojo.internal.StructField('arg_hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_contents', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_a11y_label', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: SuggestionAnswer
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec, 'searchbox.mojom.SuggestionAnswer', [
+      mojo.internal.StructField('arg_first_line', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_second_line', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AutocompleteMatch
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec, 'searchbox.mojom.AutocompleteMatch', [
+      mojo.internal.StructField('arg_is_hidden', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_to_be_default_match', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_weather_answer_suggestion_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_is_weather_answer_suggestion_$value', originalFieldName: 'arg_is_weather_answer_suggestion' }),
+      mojo.internal.StructField('arg_is_weather_answer_suggestion_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_is_weather_answer_suggestion_$flag', originalFieldName: 'arg_is_weather_answer_suggestion' }),
+      mojo.internal.StructField('arg_is_noncanned_aim_suggestion', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_rich_suggestion', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_search_type', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enterprise_search_aggregator_people_type', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_contents_and_description', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_deletion', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_instant_keyword', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_group_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_a11y_label', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 16, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer', 24, 0, mojo.internal.bindings.searchbox.mojom.SuggestionAnswerSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_contents', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_class', 40, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_class', 56, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.ACMatchClassificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_url', 64, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inline_autocompletion', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_into_edit', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_path', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 96, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_dominant_color', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 120, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remove_button_a11y_label', 128, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tail_suggest_common_prefix', 136, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keyword_chip_hint', 144, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keyword_chip_a11y', 152, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 168]]);
+
+// Struct: TabInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.TabInfoSpec, 'searchbox.mojom.TabInfo', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_show_in_current_tab_chip', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_in_previous_tab_chip', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: FileAttachment
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.FileAttachmentSpec, 'searchbox.mojom.FileAttachment', [
+      mojo.internal.StructField('arg_uuid', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_data_url', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: TabAttachment
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.TabAttachmentSpec, 'searchbox.mojom.TabAttachment', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SearchContext
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.SearchContextSpec, 'searchbox.mojom.SearchContext', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attachments', 8, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.SearchContextAttachmentSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_mode', 16, 0, mojo.internal.bindings.searchbox.mojom.ToolModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SelectedFileInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, 'searchbox.mojom.SelectedFileInfo', [
+      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_data_url', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_deletable', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: SuggestionGroup
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec, 'searchbox.mojom.SuggestionGroup', [
+      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_render_type', 8, 0, mojo.internal.bindings.searchbox.mojom.RenderTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_side_type', 12, 0, mojo.internal.bindings.searchbox.mojom.SideTypeSpec, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AutocompleteResult
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, 'searchbox.mojom.AutocompleteResult', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_groups_map', 8, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.searchbox.mojom.SuggestionGroupSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_matches', 16, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.AutocompleteMatchSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_smart_compose_inline_hint', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: OmniboxPopupSelection
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, 'searchbox.mojom.OmniboxPopupSelection', [
+      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action_index', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 4, 0, mojo.internal.bindings.searchbox.mojom.SelectionLineStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: PlaceholderConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec, 'searchbox.mojom.PlaceholderConfig', [
+      mojo.internal.StructField('arg_texts', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_change_text_animation_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fade_text_animation_duration', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_SetPage_ParamsSpec, 'searchbox.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.searchbox.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnFocusChanged_ParamsSpec, 'searchbox.mojom.PageHandler_OnFocusChanged_Params', [
+      mojo.internal.StructField('arg_focused', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_QueryAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_QueryAutocomplete_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prevent_inline_autocomplete', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_StopAutocomplete_ParamsSpec, 'searchbox.mojom.PageHandler_StopAutocomplete_Params', [
+      mojo.internal.StructField('arg_clear_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OpenAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenAutocompleteMatch_Params', [
+      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_are_matches_showing', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnNavigationLikely_ParamsSpec, 'searchbox.mojom.PageHandler_OnNavigationLikely_Params', [
+      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_predictor', 4, 0, mojo.internal.bindings.omnibox.mojom.NavigationPredictorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteAutocompleteMatch_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteAutocompleteMatch_Params', [
+      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ActivateKeyword_ParamsSpec, 'searchbox.mojom.PageHandler_ActivateKeyword_Params', [
+      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mouse_event', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_selection_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'searchbox.mojom.PageHandler_ShowContextMenu_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ExecuteAction_ParamsSpec, 'searchbox.mojom.PageHandler_ExecuteAction_Params', [
+      mojo.internal.StructField('arg_line', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action_index', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 3, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 3, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 3, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 3, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_selection_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OnThumbnailRemoved_ParamsSpec, 'searchbox.mojom.PageHandler_OnThumbnailRemoved_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetPlaceholderConfig_ResponseParams', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.searchbox.mojom.PlaceholderConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetRecentTabs_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetRecentTabs_ResponseParams', [
+      mojo.internal.StructField('arg_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.searchbox.mojom.TabInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_GetTabPreview_ResponseParamsSpec, 'searchbox.mojom.PageHandler_GetTabPreview_ResponseParams', [
+      mojo.internal.StructField('arg_preview_data_url', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionStarted_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionStarted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_NotifySessionAbandoned_ParamsSpec, 'searchbox.mojom.PageHandler_NotifySessionAbandoned_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_Params', [
+      mojo.internal.StructField('arg_file_info', 0, 0, mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_bytes', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddFileContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddFileContext_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_delay_upload', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_AddTabContext_ResponseParamsSpec, 'searchbox.mojom.PageHandler_AddTabContext_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_DeleteContext_ParamsSpec, 'searchbox.mojom.PageHandler_DeleteContext_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_automatic_chip', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_ClearFiles_ParamsSpec, 'searchbox.mojom.PageHandler_ClearFiles_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_SubmitQuery_ParamsSpec, 'searchbox.mojom.PageHandler_SubmitQuery_Params', [
+      mojo.internal.StructField('arg_query_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 9, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 9, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 9, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 9, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.PageHandler_OpenLensSearch_ParamsSpec, 'searchbox.mojom.PageHandler_OpenLensSearch_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_AutocompleteResultChanged_ParamsSpec, 'searchbox.mojom.Page_AutocompleteResultChanged_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.searchbox.mojom.AutocompleteResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateSelection_ParamsSpec, 'searchbox.mojom.Page_UpdateSelection_Params', [
+      mojo.internal.StructField('arg_old_selection', 0, 0, mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection', 8, 0, mojo.internal.bindings.searchbox.mojom.OmniboxPopupSelectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_SetKeywordSelected_ParamsSpec, 'searchbox.mojom.Page_SetKeywordSelected_Params', [
+      mojo.internal.StructField('arg_is_keyword_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_OnShow_ParamsSpec, 'searchbox.mojom.Page_OnShow_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_SetInputText_ParamsSpec, 'searchbox.mojom.Page_SetInputText_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_SetThumbnail_ParamsSpec, 'searchbox.mojom.Page_SetThumbnail_Params', [
+      mojo.internal.StructField('arg_thumbnail_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_deletable', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_OnContextualInputStatusChanged_ParamsSpec, 'searchbox.mojom.Page_OnContextualInputStatusChanged_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.composebox_query.mojom.FileUploadStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_type', 12, 0, mojo.internal.bindings.composebox_query.mojom.FileUploadErrorTypeSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_OnTabStripChanged_ParamsSpec, 'searchbox.mojom.Page_OnTabStripChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_AddFileContext_ParamsSpec, 'searchbox.mojom.Page_AddFileContext_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_info', 8, 0, mojo.internal.bindings.searchbox.mojom.SelectedFileInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateAutoSuggestedTabContext_ParamsSpec, 'searchbox.mojom.Page_UpdateAutoSuggestedTabContext_Params', [
+      mojo.internal.StructField('arg_tab', 0, 0, mojo.internal.bindings.searchbox.mojom.TabInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateLensSearchEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateLensSearchEligibility_Params', [
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateContentSharingPolicy_ParamsSpec, 'searchbox.mojom.Page_UpdateContentSharingPolicy_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_UpdateAimEligibility_ParamsSpec, 'searchbox.mojom.Page_UpdateAimEligibility_Params', [
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.searchbox.mojom.Page_OnShowAiModePrefChanged_ParamsSpec, 'searchbox.mojom.Page_OnShowAiModePrefChanged_Params', [
+      mojo.internal.StructField('arg_canShow', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -191,11 +191,6 @@ mojo.internal.bindings.ash.screens_common.mojom.GesturePages = {
 };
 
 // Interface: AiIntroPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -326,12 +321,6 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandlerRequest = mojo
 
 
 // Interface: AiIntroPage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec, 'ash.screens_common.mojom.AiIntroPage_SetAutoTransition_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.AiIntroPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -444,7 +433,7 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoTransition');
-          const result = this.impl.setAutoTransition(params.arg_value);
+          const result = this.impl.setAutoTransition(params.arg_arg_value);
           break;
         }
       }
@@ -462,11 +451,6 @@ mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageRequest = mojo.intern
 
 
 // Interface: AppDownloadingPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec, 'ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -597,18 +581,6 @@ mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandlerRequest
 
 
 // Interface: DrivePinningPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_Params', [
-      mojo.internal.StructField('arg_enable_drive_pinning', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_Params', [
-      mojo.internal.StructField('arg_enable_drive_pinning', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -735,14 +707,14 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReturnClicked');
-          const result = this.impl.onReturnClicked(params.arg_enable_drive_pinning);
+          const result = this.impl.onReturnClicked(params.arg_arg_enable_drive_pinning);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
-          const result = this.impl.onNextClicked(params.arg_enable_drive_pinning);
+          const result = this.impl.onNextClicked(params.arg_arg_enable_drive_pinning);
           break;
         }
       }
@@ -760,13 +732,6 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandlerRequest =
 
 
 // Interface: DrivePinningPage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_Params', [
-      mojo.internal.StructField('arg_required_space', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_free_space', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -879,7 +844,7 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRequiredSpaceInfo');
-          const result = this.impl.setRequiredSpaceInfo(params.arg_required_space, params.arg_free_space);
+          const result = this.impl.setRequiredSpaceInfo(params.arg_arg_required_space, params.arg_arg_free_space);
           break;
         }
       }
@@ -897,11 +862,6 @@ mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageRequest = mojo.i
 
 
 // Interface: FjordStationSetupPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec, 'ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1032,17 +992,6 @@ mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandlerRequ
 
 
 // Interface: GaiaInfoPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params', [
-      mojo.internal.StructField('arg_user_flow', 0, 0, mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1176,7 +1125,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNextClicked');
-          const result = this.impl.onNextClicked(params.arg_user_flow);
+          const result = this.impl.onNextClicked(params.arg_arg_user_flow);
           break;
         }
       }
@@ -1194,11 +1143,6 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandlerRequest = moj
 
 
 // Interface: GaiaInfoPage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1329,22 +1273,6 @@ mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageRequest = mojo.inter
 
 
 // Interface: GestureNavigationPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1485,7 +1413,7 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPageChange');
-          const result = this.impl.onPageChange(params.arg_page);
+          const result = this.impl.onPageChange(params.arg_arg_page);
           break;
         }
         case 1: {
@@ -1517,16 +1445,6 @@ mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandlerRequ
 
 
 // Interface: GeminiIntroPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1675,4 +1593,88 @@ mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerReceiver =
 
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerPtr = mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRemote;
 mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerRequest = mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.AiIntroPageHandler_OnNextClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.AiIntroPage_SetAutoTransition_ParamsSpec, 'ash.screens_common.mojom.AiIntroPage_SetAutoTransition_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_ParamsSpec, 'ash.screens_common.mojom.AppDownloadingPageHandler_OnContinueClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPageHandler_OnReturnClicked_Params', [
+      mojo.internal.StructField('arg_enable_drive_pinning', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPageHandler_OnNextClicked_Params', [
+      mojo.internal.StructField('arg_enable_drive_pinning', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_ParamsSpec, 'ash.screens_common.mojom.DrivePinningPage_SetRequiredSpaceInfo_Params', [
+      mojo.internal.StructField('arg_required_space', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_free_space', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_ParamsSpec, 'ash.screens_common.mojom.FjordStationSetupPageHandler_OnSetupComplete_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnBackClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPageHandler_OnNextClicked_Params', [
+      mojo.internal.StructField('arg_user_flow', 0, 0, mojo.internal.bindings.ash.screens_common.mojom.UserCreationFlowTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_ParamsSpec, 'ash.screens_common.mojom.GaiaInfoPage_SetQuickStartVisible_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnPageChange_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.ash.screens_common.mojom.GesturePagesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnSkipClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_ParamsSpec, 'ash.screens_common.mojom.GestureNavigationPageHandler_OnExitClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnBackClicked_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_ParamsSpec, 'ash.screens_common.mojom.GeminiIntroPageHandler_OnNextClicked_Params', [
+    ],
+    [[0, 8]]);
 

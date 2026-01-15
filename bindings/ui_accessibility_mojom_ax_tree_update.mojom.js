@@ -143,6 +143,8 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.EventIntentSpec = mojo.internal.bindings.ax.mojom.EventIntentSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXTreeUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, 'ax.mojom.AXTreeUpdate', [

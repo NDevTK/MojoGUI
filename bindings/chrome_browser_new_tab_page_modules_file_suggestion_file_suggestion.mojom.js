@@ -137,6 +137,8 @@ mojo.internal.bindings.file_suggestion.mojom.RecommendationType = {
   kTrending: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: File
 mojo.internal.Struct(
     mojo.internal.bindings.file_suggestion.mojom.FileSpec, 'file_suggestion.mojom.File', [

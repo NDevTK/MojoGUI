@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.PreferredColorScheme = {
   kDark: 0,
   kLight: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

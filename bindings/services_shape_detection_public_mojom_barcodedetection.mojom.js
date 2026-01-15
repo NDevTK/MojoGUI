@@ -160,29 +160,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeFormat = {
   UPC_E: 13,
 };
 
-// Struct: BarcodeDetectionResult
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec, 'shape_detection.mojom.BarcodeDetectionResult', [
-      mojo.internal.StructField('arg_raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_corner_points', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: BarcodeDetection
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_Params', [
-      mojo.internal.StructField('arg_bitmap_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -295,12 +273,15 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detect');
-          const result = this.impl.detect(params.arg_bitmap_data);
+          const result = this.impl.detect(params.arg_arg_bitmap_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Detect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] detect FAILED:', e));
           }
           break;
         }
@@ -316,4 +297,28 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionReceiver = mojo.int
 
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionPtr = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote;
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRequest = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BarcodeDetectionResult
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec, 'shape_detection.mojom.BarcodeDetectionResult', [
+      mojo.internal.StructField('arg_raw_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 16, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_corner_points', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_Params', [
+      mojo.internal.StructField('arg_bitmap_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetection_Detect_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

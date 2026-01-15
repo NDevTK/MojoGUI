@@ -130,3 +130,5 @@ mojo.internal.bindings.ui.mojom.ModalType = {
   kChild: 2,
   kSystem: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -131,19 +131,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionSpec = { $ : {} };
 mojo.internal.bindings.blink.mojom.OomIntervention.$interfaceName = 'blink.mojom.OomIntervention';
 mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec = { $: {} };
 
-// Struct: DetectionArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DetectionArgsSpec, 'blink.mojom.DetectionArgs', [
-      mojo.internal.StructField('arg_private_footprint_threshold', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: OomInterventionHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec, 'blink.mojom.OomInterventionHost_OnHighMemoryUsage_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.OomInterventionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,16 +262,6 @@ mojo.internal.bindings.blink.mojom.OomInterventionHostRequest = mojo.internal.bi
 
 
 // Interface: OomIntervention
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.OomInterventionHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_detection_args', 8, 0, mojo.internal.bindings.blink.mojom.DetectionArgsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_purge_v8_memory_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.OomInterventionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -396,7 +374,7 @@ mojo.internal.bindings.blink.mojom.OomInterventionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDetection');
-          const result = this.impl.startDetection(params.arg_host, params.arg_detection_args, params.arg_renderer_pause_enabled, params.arg_navigate_ads_enabled, params.arg_purge_v8_memory_enabled);
+          const result = this.impl.startDetection(params.arg_arg_host, params.arg_arg_detection_args, params.arg_arg_renderer_pause_enabled, params.arg_arg_navigate_ads_enabled, params.arg_arg_purge_v8_memory_enabled);
           break;
         }
       }
@@ -411,4 +389,28 @@ mojo.internal.bindings.blink.mojom.OomInterventionReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.OomInterventionPtr = mojo.internal.bindings.blink.mojom.OomInterventionRemote;
 mojo.internal.bindings.blink.mojom.OomInterventionRequest = mojo.internal.bindings.blink.mojom.OomInterventionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DetectionArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DetectionArgsSpec, 'blink.mojom.DetectionArgs', [
+      mojo.internal.StructField('arg_private_footprint_threshold', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OomInterventionHost_OnHighMemoryUsage_ParamsSpec, 'blink.mojom.OomInterventionHost_OnHighMemoryUsage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OomIntervention_StartDetection_ParamsSpec, 'blink.mojom.OomIntervention_StartDetection_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.OomInterventionHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_detection_args', 8, 0, mojo.internal.bindings.blink.mojom.DetectionArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_pause_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_navigate_ads_enabled', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_purge_v8_memory_enabled', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

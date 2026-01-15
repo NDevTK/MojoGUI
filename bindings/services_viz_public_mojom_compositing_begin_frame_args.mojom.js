@@ -143,6 +143,8 @@ mojo.internal.bindings.viz.mojom.BeginFrameArgsType = {
   MISSED: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BeginFrameId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.BeginFrameIdSpec, 'viz.mojom.BeginFrameId', [

@@ -204,139 +204,7 @@ mojo.internal.bindings.content.mojom.InputEventPattern = {
   kEveryOtherVsync: 3,
 };
 
-// Struct: SyntheticSmoothDrag
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec, 'content.mojom.SyntheticSmoothDrag', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_speed_in_pixels_s', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_start_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_distances', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_vsync_offset_ms', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_pattern', 28, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: SyntheticSmoothScroll
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec, 'content.mojom.SyntheticSmoothScroll', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prevent_fling', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_distances', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_speed_in_pixels_s', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fling_velocity_x', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fling_velocity_y', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_granularity', 36, 0, mojo.internal.bindings.ui.mojom.ScrollGranularitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vsync_offset_ms', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_pattern', 48, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec, null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: SyntheticPinch
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticPinchSpec, 'content.mojom.SyntheticPinch', [
-      mojo.internal.StructField('arg_scale_factor', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_pointer_speed_in_pixels_s', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vsync_offset_ms', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_event_pattern', 20, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SyntheticTap
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticTapSpec, 'content.mojom.SyntheticTap', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SyntheticPointerActionParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec, 'content.mojom.SyntheticPointerActionParams', [
-      mojo.internal.StructField('arg_pointer_action_type', 0, 0, mojo.internal.bindings.content.mojom.PointerActionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pointer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_button', 16, 0, mojo.internal.bindings.content.mojom.SyntheticButtonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_modifiers', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_rotation_angle', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_force', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tangential_pressure', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt_x', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt_y', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
-// Struct: SyntheticPointerAction
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec, 'content.mojom.SyntheticPointerAction', [
-      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec, false), false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: InputInjector
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_Params', [
-      mojo.internal.StructField('arg_drag', 0, 0, mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params', [
-      mojo.internal.StructField('arg_scroll', 0, 0, mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_Params', [
-      mojo.internal.StructField('arg_pinch', 0, 0, mojo.internal.bindings.content.mojom.SyntheticPinchSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_Params', [
-      mojo.internal.StructField('arg_tap', 0, 0, mojo.internal.bindings.content.mojom.SyntheticTapSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params', [
-      mojo.internal.StructField('arg_pointer_action', 0, 0, mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.InputInjectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -505,12 +373,14 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothDrag');
-          const result = this.impl.queueSyntheticSmoothDrag(params.arg_drag);
+          const result = this.impl.queueSyntheticSmoothDrag(params.arg_arg_drag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticSmoothDrag FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticSmoothDrag FAILED:', e));
           }
           break;
         }
@@ -518,12 +388,14 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticSmoothScroll');
-          const result = this.impl.queueSyntheticSmoothScroll(params.arg_scroll);
+          const result = this.impl.queueSyntheticSmoothScroll(params.arg_arg_scroll);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticSmoothScroll FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticSmoothScroll FAILED:', e));
           }
           break;
         }
@@ -531,12 +403,14 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPinch');
-          const result = this.impl.queueSyntheticPinch(params.arg_pinch);
+          const result = this.impl.queueSyntheticPinch(params.arg_arg_pinch);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticPinch FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticPinch FAILED:', e));
           }
           break;
         }
@@ -544,12 +418,14 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticTap');
-          const result = this.impl.queueSyntheticTap(params.arg_tap);
+          const result = this.impl.queueSyntheticTap(params.arg_arg_tap);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticTap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticTap FAILED:', e));
           }
           break;
         }
@@ -557,12 +433,14 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queueSyntheticPointerAction');
-          const result = this.impl.queueSyntheticPointerAction(params.arg_pointer_action);
+          const result = this.impl.queueSyntheticPointerAction(params.arg_arg_pointer_action);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueueSyntheticPointerAction FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queueSyntheticPointerAction FAILED:', e));
           }
           break;
         }
@@ -578,4 +456,138 @@ mojo.internal.bindings.content.mojom.InputInjectorReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.content.mojom.InputInjectorPtr = mojo.internal.bindings.content.mojom.InputInjectorRemote;
 mojo.internal.bindings.content.mojom.InputInjectorRequest = mojo.internal.bindings.content.mojom.InputInjectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SyntheticSmoothDrag
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec, 'content.mojom.SyntheticSmoothDrag', [
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_speed_in_pixels_s', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_start_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_distances', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_vsync_offset_ms', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_pattern', 28, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: SyntheticSmoothScroll
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec, 'content.mojom.SyntheticSmoothScroll', [
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prevent_fling', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_distances', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.Vector2dFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_speed_in_pixels_s', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fling_velocity_x', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fling_velocity_y', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_granularity', 36, 0, mojo.internal.bindings.ui.mojom.ScrollGranularitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vsync_offset_ms', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_pattern', 48, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: SyntheticPinch
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticPinchSpec, 'content.mojom.SyntheticPinch', [
+      mojo.internal.StructField('arg_scale_factor', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_pointer_speed_in_pixels_s', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vsync_offset_ms', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_event_pattern', 20, 0, mojo.internal.bindings.content.mojom.InputEventPatternSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SyntheticTap
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticTapSpec, 'content.mojom.SyntheticTap', [
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SyntheticPointerActionParams
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec, 'content.mojom.SyntheticPointerActionParams', [
+      mojo.internal.StructField('arg_pointer_action_type', 0, 0, mojo.internal.bindings.content.mojom.PointerActionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button', 16, 0, mojo.internal.bindings.content.mojom.SyntheticButtonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_modifiers', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation_angle', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_force', 36, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tangential_pressure', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt_x', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt_y', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 56, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 64, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+
+// Struct: SyntheticPointerAction
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec, 'content.mojom.SyntheticPointerAction', [
+      mojo.internal.StructField('arg_gesture_source_type', 0, 0, mojo.internal.bindings.content.mojom.GestureSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticPointerActionParamsSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_Params', [
+      mojo.internal.StructField('arg_drag', 0, 0, mojo.internal.bindings.content.mojom.SyntheticSmoothDragSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothDrag_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_Params', [
+      mojo.internal.StructField('arg_scroll', 0, 0, mojo.internal.bindings.content.mojom.SyntheticSmoothScrollSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticSmoothScroll_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_Params', [
+      mojo.internal.StructField('arg_pinch', 0, 0, mojo.internal.bindings.content.mojom.SyntheticPinchSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPinch_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPinch_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_Params', [
+      mojo.internal.StructField('arg_tap', 0, 0, mojo.internal.bindings.content.mojom.SyntheticTapSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticTap_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticTap_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_Params', [
+      mojo.internal.StructField('arg_pointer_action', 0, 0, mojo.internal.bindings.content.mojom.SyntheticPointerActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParamsSpec, 'content.mojom.InputInjector_QueueSyntheticPointerAction_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -131,3 +131,5 @@ mojo.internal.bindings.gfx.mojom.OverlayPriorityHint = {
   kHardwareProtection: 3,
   kVideo: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

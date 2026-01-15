@@ -145,6 +145,8 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessStatus = {
   kFileError: 10,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FileSystemAccessError
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, 'blink.mojom.FileSystemAccessError', [

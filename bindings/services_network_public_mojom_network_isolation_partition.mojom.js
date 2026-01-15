@@ -129,3 +129,5 @@ mojo.internal.bindings.network.mojom.NetworkIsolationPartition = {
   kProtectedAudienceSellerWorklet: 1,
   kFedCmUncredentialedRequests: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

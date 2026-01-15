@@ -130,6 +130,8 @@ mojo.internal.bindings.variations.mojom.GoogleWebVisibility = {
   FIRST_PARTY: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VariationsHeaders
 mojo.internal.Struct(
     mojo.internal.bindings.variations.mojom.VariationsHeadersSpec, 'variations.mojom.VariationsHeaders', [

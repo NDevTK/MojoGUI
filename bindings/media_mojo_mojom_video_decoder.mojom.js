@@ -199,61 +199,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: Cdm
-mojo.internal.Union(
-    mojo.internal.bindings.media.mojom.CdmSpec, 'media.mojom.Cdm', {
-      'arg_cdm_id': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec,
-        'nullable': false,
-      },
-      'arg_cdm_context': {
-        'ordinal': 1,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemote),
-        'nullable': false,
-      },
-    });
-
-// Struct: OverlayInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: SupportedVideoDecoderConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, 'media.mojom.SupportedVideoDecoderConfig', [
-      mojo.internal.StructField('arg_profile_min', 0, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile_max', 4, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size_min', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size_max', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_encrypted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_require_encrypted', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: CommandBufferId
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CommandBufferIdSpec, 'media.mojom.CommandBufferId', [
-      mojo.internal.StructField('arg_channel_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: OverlayInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
-    ],
-    [[0, 8]]);
-
 // Interface: VideoFrameHandleReleaser
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec, 'media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_Params', [
-      mojo.internal.StructField('arg_release_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_export_result', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -366,7 +312,7 @@ mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseVideoFrame');
-          const result = this.impl.releaseVideoFrame(params.arg_release_token, params.arg_release_export_result);
+          const result = this.impl.releaseVideoFrame(params.arg_arg_release_token, params.arg_arg_release_export_result);
           break;
         }
       }
@@ -384,75 +330,6 @@ mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRequest = mojo.intern
 
 
 // Interface: VideoDecoder
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParams', [
-      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder_type', 8, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Construct_ParamsSpec, 'media.mojom.VideoDecoder_Construct_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_log', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_command_buffer_id', 32, 0, mojo.internal.bindings.media.mojom.CommandBufferIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_target_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ParamsSpec, 'media.mojom.VideoDecoder_Initialize_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_low_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm', 16, 0, mojo.internal.bindings.media.mojom.CdmSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'media.mojom.VideoDecoder_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecoderStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_needs_transcryption', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_max_decode_requests', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder_type', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ParamsSpec, 'media.mojom.VideoDecoder_Decode_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec, 'media.mojom.VideoDecoder_Decode_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecoderStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ParamsSpec, 'media.mojom.VideoDecoder_Reset_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec, 'media.mojom.VideoDecoder_Reset_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec, 'media.mojom.VideoDecoder_OnOverlayInfoChanged_Params', [
-      mojo.internal.StructField('arg_overlay_info', 0, 0, mojo.internal.bindings.media.mojom.OverlayInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.VideoDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -639,8 +516,10 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSupportedConfigs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec.$.structSpec, ['response.arg_arg_supported_configs', 'response.arg_arg_decoder_type']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedConfigs FAILED:', e));
           }
           break;
         }
@@ -648,19 +527,21 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_Construct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.construct');
-          const result = this.impl.construct(params.arg_client, params.arg_media_log, params.arg_video_frame_handle_releaser, params.arg_decoder_buffer_pipe, params.arg_command_buffer_id, params.arg_target_color_space);
+          const result = this.impl.construct(params.arg_arg_client, params.arg_arg_media_log, params.arg_arg_video_frame_handle_releaser, params.arg_arg_decoder_buffer_pipe, params.arg_arg_command_buffer_id, params.arg_arg_target_color_space);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_config, params.arg_low_delay, params.arg_cdm);
+          const result = this.impl.initialize(params.arg_arg_config, params.arg_arg_low_delay, params.arg_arg_cdm);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_needs_bitstream_conversion', 'response.arg_arg_max_decode_requests', 'response.arg_arg_decoder_type', 'response.arg_arg_needs_transcryption']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -668,12 +549,15 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decode');
-          const result = this.impl.decode(params.arg_buffer);
+          const result = this.impl.decode(params.arg_arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Decode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decode FAILED:', e));
           }
           break;
         }
@@ -685,8 +569,10 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Reset FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] reset FAILED:', e));
           }
           break;
         }
@@ -694,7 +580,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onOverlayInfoChanged');
-          const result = this.impl.onOverlayInfoChanged(params.arg_overlay_info);
+          const result = this.impl.onOverlayInfoChanged(params.arg_arg_overlay_info);
           break;
         }
       }
@@ -712,25 +598,6 @@ mojo.internal.bindings.media.mojom.VideoDecoderRequest = mojo.internal.bindings.
 
 
 // Interface: VideoDecoderClient
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'media.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_read_without_stalling', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_release_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec, 'media.mojom.VideoDecoderClient_OnWaiting_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.WaitingReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec, 'media.mojom.VideoDecoderClient_RequestOverlayInfo_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.media.mojom.VideoDecoderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -871,14 +738,14 @@ mojo.internal.bindings.media.mojom.VideoDecoderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoFrameDecoded');
-          const result = this.impl.onVideoFrameDecoded(params.arg_frame, params.arg_can_read_without_stalling, params.arg_release_token);
+          const result = this.impl.onVideoFrameDecoded(params.arg_arg_frame, params.arg_arg_can_read_without_stalling, params.arg_arg_release_token);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWaiting');
-          const result = this.impl.onWaiting(params.arg_reason);
+          const result = this.impl.onWaiting(params.arg_arg_reason);
           break;
         }
         case 2: {
@@ -900,4 +767,148 @@ mojo.internal.bindings.media.mojom.VideoDecoderClientReceiver = mojo.internal.bi
 
 mojo.internal.bindings.media.mojom.VideoDecoderClientPtr = mojo.internal.bindings.media.mojom.VideoDecoderClientRemote;
 mojo.internal.bindings.media.mojom.VideoDecoderClientRequest = mojo.internal.bindings.media.mojom.VideoDecoderClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: Cdm
+mojo.internal.Union(
+    mojo.internal.bindings.media.mojom.CdmSpec, 'media.mojom.Cdm', {
+      'arg_cdm_id': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec,
+        'nullable': false,
+      },
+      'arg_cdm_context': {
+        'ordinal': 1,
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.CdmContextForOOPVDRemote),
+        'nullable': false,
+      },
+    });
+
+// Struct: OverlayInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: SupportedVideoDecoderConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, 'media.mojom.SupportedVideoDecoderConfig', [
+      mojo.internal.StructField('arg_profile_min', 0, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_max', 4, 0, mojo.internal.bindings.gpu.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size_min', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size_max', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_encrypted', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_require_encrypted', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: CommandBufferId
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CommandBufferIdSpec, 'media.mojom.CommandBufferId', [
+      mojo.internal.StructField('arg_channel_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_route_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: OverlayInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.OverlayInfoSpec, 'media.mojom.OverlayInfo', [
+    ],
+    [[0, 8]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_ParamsSpec, 'media.mojom.VideoFrameHandleReleaser_ReleaseVideoFrame_Params', [
+      mojo.internal.StructField('arg_release_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_export_result', 8, 0, mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParamsSpec, 'media.mojom.VideoDecoder_GetSupportedConfigs_ResponseParams', [
+      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder_type', 8, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Construct_ParamsSpec, 'media.mojom.VideoDecoder_Construct_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_log', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_frame_handle_releaser', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoFrameHandleReleaserRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder_buffer_pipe', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_command_buffer_id', 32, 0, mojo.internal.bindings.media.mojom.CommandBufferIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_target_color_space', 40, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ParamsSpec, 'media.mojom.VideoDecoder_Initialize_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_low_delay', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm', 16, 0, mojo.internal.bindings.media.mojom.CdmSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Initialize_ResponseParamsSpec, 'media.mojom.VideoDecoder_Initialize_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecoderStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_bitstream_conversion', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_needs_transcryption', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_decode_requests', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder_type', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ParamsSpec, 'media.mojom.VideoDecoder_Decode_Params', [
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Decode_ResponseParamsSpec, 'media.mojom.VideoDecoder_Decode_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.DecoderStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ParamsSpec, 'media.mojom.VideoDecoder_Reset_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_Reset_ResponseParamsSpec, 'media.mojom.VideoDecoder_Reset_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoder_OnOverlayInfoChanged_ParamsSpec, 'media.mojom.VideoDecoder_OnOverlayInfoChanged_Params', [
+      mojo.internal.StructField('arg_overlay_info', 0, 0, mojo.internal.bindings.media.mojom.OverlayInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoderClient_OnVideoFrameDecoded_ParamsSpec, 'media.mojom.VideoDecoderClient_OnVideoFrameDecoded_Params', [
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_read_without_stalling', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_release_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoderClient_OnWaiting_ParamsSpec, 'media.mojom.VideoDecoderClient_OnWaiting_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.media.mojom.WaitingReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoderClient_RequestOverlayInfo_ParamsSpec, 'media.mojom.VideoDecoderClient_RequestOverlayInfo_Params', [
+    ],
+    [[0, 8]]);
 

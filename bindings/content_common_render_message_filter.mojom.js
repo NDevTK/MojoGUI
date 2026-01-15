@@ -143,39 +143,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: FrameRoutingInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, 'content.mojom.FrameRoutingInfo', [
-      mojo.internal.StructField('arg_routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_frame_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_token', 24, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: RenderMessageFilter
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [
-      mojo.internal.StructField('arg_info_array', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.RenderMessageFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -306,8 +274,11 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GenerateSingleFrameRoutingInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] generateSingleFrameRoutingInfo FAILED:', e));
           }
           break;
         }
@@ -319,8 +290,11 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GenerateFrameRoutingInfos FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info_array' in response) ? response.arg_arg_info_array : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] generateFrameRoutingInfos FAILED:', e));
           }
           break;
         }
@@ -336,4 +310,38 @@ mojo.internal.bindings.content.mojom.RenderMessageFilterReceiver = mojo.internal
 
 mojo.internal.bindings.content.mojom.RenderMessageFilterPtr = mojo.internal.bindings.content.mojom.RenderMessageFilterRemote;
 mojo.internal.bindings.content.mojom.RenderMessageFilterRequest = mojo.internal.bindings.content.mojom.RenderMessageFilterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FrameRoutingInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, 'content.mojom.FrameRoutingInfo', [
+      mojo.internal.StructField('arg_routing_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_frame_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_token', 24, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateSingleFrameRoutingInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParamsSpec, 'content.mojom.RenderMessageFilter_GenerateFrameRoutingInfos_ResponseParams', [
+      mojo.internal.StructField('arg_info_array', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.FrameRoutingInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

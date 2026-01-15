@@ -129,3 +129,5 @@ mojo.internal.bindings.web_app.mojom.UserDisplayMode = {
   kStandalone: 1,
   kTabbed: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

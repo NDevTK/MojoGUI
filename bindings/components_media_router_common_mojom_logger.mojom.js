@@ -139,45 +139,6 @@ mojo.internal.bindings.media_router.mojom.LogCategory = {
 };
 
 // Interface: Logger
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec, 'media_router.mojom.Logger_LogInfo_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.media_router.mojom.LogCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec, 'media_router.mojom.Logger_LogWarning_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.media_router.mojom.LogCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec, 'media_router.mojom.Logger_LogError_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.media_router.mojom.LogCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec, 'media_router.mojom.Logger_BindReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.LoggerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media_router.mojom.LoggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -332,28 +293,28 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logInfo');
-          const result = this.impl.logInfo(params.arg_category, params.arg_component, params.arg_message, params.arg_sink_id, params.arg_media_source, params.arg_session_id);
+          const result = this.impl.logInfo(params.arg_arg_category, params.arg_arg_component, params.arg_arg_message, params.arg_arg_sink_id, params.arg_arg_media_source, params.arg_arg_session_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logWarning');
-          const result = this.impl.logWarning(params.arg_category, params.arg_component, params.arg_message, params.arg_sink_id, params.arg_media_source, params.arg_session_id);
+          const result = this.impl.logWarning(params.arg_arg_category, params.arg_arg_component, params.arg_arg_message, params.arg_arg_sink_id, params.arg_arg_media_source, params.arg_arg_session_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logError');
-          const result = this.impl.logError(params.arg_category, params.arg_component, params.arg_message, params.arg_sink_id, params.arg_media_source, params.arg_session_id);
+          const result = this.impl.logError(params.arg_arg_category, params.arg_arg_component, params.arg_arg_message, params.arg_arg_sink_id, params.arg_arg_media_source, params.arg_arg_session_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
-          const result = this.impl.bindReceiver(params.arg_receiver);
+          const result = this.impl.bindReceiver(params.arg_arg_receiver);
           break;
         }
       }
@@ -368,4 +329,45 @@ mojo.internal.bindings.media_router.mojom.LoggerReceiver = mojo.internal.binding
 
 mojo.internal.bindings.media_router.mojom.LoggerPtr = mojo.internal.bindings.media_router.mojom.LoggerRemote;
 mojo.internal.bindings.media_router.mojom.LoggerRequest = mojo.internal.bindings.media_router.mojom.LoggerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Logger_LogInfo_ParamsSpec, 'media_router.mojom.Logger_LogInfo_Params', [
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Logger_LogWarning_ParamsSpec, 'media_router.mojom.Logger_LogWarning_Params', [
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Logger_LogError_ParamsSpec, 'media_router.mojom.Logger_LogError_Params', [
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.media_router.mojom.LogCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_component', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sink_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_source', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Logger_BindReceiver_ParamsSpec, 'media_router.mojom.Logger_BindReceiver_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.LoggerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

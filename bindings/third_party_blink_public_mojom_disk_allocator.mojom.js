@@ -133,12 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DiskAllocator
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec, 'blink.mojom.DiskAllocator_ProvideTemporaryFile_Params', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DiskAllocatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.blink.mojom.DiskAllocatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provideTemporaryFile');
-          const result = this.impl.provideTemporaryFile(params.arg_file);
+          const result = this.impl.provideTemporaryFile(params.arg_arg_file);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.blink.mojom.DiskAllocatorReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.DiskAllocatorPtr = mojo.internal.bindings.blink.mojom.DiskAllocatorRemote;
 mojo.internal.bindings.blink.mojom.DiskAllocatorRequest = mojo.internal.bindings.blink.mojom.DiskAllocatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DiskAllocator_ProvideTemporaryFile_ParamsSpec, 'blink.mojom.DiskAllocator_ProvideTemporaryFile_Params', [
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

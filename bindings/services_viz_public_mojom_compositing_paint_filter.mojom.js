@@ -123,6 +123,8 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.PaintFilterSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PaintFilter
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.PaintFilterSpec, 'viz.mojom.PaintFilter', [

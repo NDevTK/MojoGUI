@@ -167,6 +167,8 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec = mojo.internal.bindings.ui.mojom.ScrollEventPhaseSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: GestureDataDetails
 mojo.internal.Union(
     mojo.internal.bindings.ui.mojom.GestureDataDetailsSpec, 'ui.mojom.GestureDataDetails', {

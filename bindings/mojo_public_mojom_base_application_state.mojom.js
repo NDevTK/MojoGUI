@@ -131,3 +131,5 @@ mojo.internal.bindings.mojo_base.mojom.ApplicationState = {
   HAS_STOPPED_ACTIVITIES: 3,
   HAS_DESTROYED_ACTIVITIES: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

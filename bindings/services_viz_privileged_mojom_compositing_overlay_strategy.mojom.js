@@ -130,3 +130,5 @@ mojo.internal.bindings.viz.mojom.OverlayStrategy = {
   kUnderlay: 2,
   kUnderlayCast: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

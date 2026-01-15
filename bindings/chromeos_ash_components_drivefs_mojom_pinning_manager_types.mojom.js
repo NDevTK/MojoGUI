@@ -138,3 +138,5 @@ mojo.internal.bindings.drivefs.pinning_manager_types.mojom.Stage = {
   kCannotListFiles: 9,
   kCannotEnableDocsOffline: 10,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

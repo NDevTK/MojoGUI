@@ -234,3 +234,5 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionReceiver =
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionPtr = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote;
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRequest = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionPendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.DelegatedCapability = {
   kFullscreenRequest: 2,
   kDisplayCaptureRequest: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -169,6 +169,8 @@ mojo.internal.bindings.network.mojom.CorsError = {
   kLocalNetworkAccessPermissionDenied: 24,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CorsErrorStatus
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CorsErrorStatusSpec, 'network.mojom.CorsErrorStatus', [

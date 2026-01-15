@@ -133,17 +133,6 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec = mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DelegatedInkPointRenderer
-mojo.internal.Struct(
-    mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -270,7 +259,7 @@ mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeDelegatedInkPoint');
-          const result = this.impl.storeDelegatedInkPoint(params.arg_point);
+          const result = this.impl.storeDelegatedInkPoint(params.arg_arg_point);
           break;
         }
         case 1: {
@@ -292,4 +281,17 @@ mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererReceiver = mojo.intern
 
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererPtr = mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererRemote;
 mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererRequest = mojo.internal.bindings.gfx.mojom.DelegatedInkPointRendererPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_StoreDelegatedInkPoint_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_ParamsSpec, 'gfx.mojom.DelegatedInkPointRenderer_ResetPrediction_Params', [
+    ],
+    [[0, 8]]);
 

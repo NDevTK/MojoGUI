@@ -150,6 +150,8 @@ mojo.internal.bindings.mojo.interface_control.kRunMessageId = 0xFFFFFFFF;
 
 mojo.internal.bindings.mojo.interface_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: RunInput
 mojo.internal.Union(
     mojo.internal.bindings.mojo.interface_control.RunInputSpec, 'mojo.interface_control.RunInput', {

@@ -147,38 +147,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: Impression
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ImpressionSpec, 'blink.mojom.Impression', [
-      mojo.internal.StructField('arg_attribution_src_token', 0, 0, mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_empty_attribution_src_tag', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: AttributionHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterDataHost_Params', [
-      mojo.internal.StructField('arg_data_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_registration_eligibility', 4, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_for_background_requests', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_reporting_origins', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterNavigationDataHost_Params', [
-      mojo.internal.StructField('arg_data_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_attribution_src_token', 8, 0, mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec, 'blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_Params', [
-      mojo.internal.StructField('arg_attribution_src_token', 0, 0, mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_registrations', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.AttributionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -319,21 +288,21 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerDataHost');
-          const result = this.impl.registerDataHost(params.arg_data_host, params.arg_registration_eligibility, params.arg_is_for_background_requests, params.arg_reporting_origins);
+          const result = this.impl.registerDataHost(params.arg_arg_data_host, params.arg_arg_registration_eligibility, params.arg_arg_is_for_background_requests, params.arg_arg_reporting_origins);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerNavigationDataHost');
-          const result = this.impl.registerNavigationDataHost(params.arg_data_host, params.arg_attribution_src_token);
+          const result = this.impl.registerNavigationDataHost(params.arg_arg_data_host, params.arg_arg_attribution_src_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyNavigationWithBackgroundRegistrationsWillStart');
-          const result = this.impl.notifyNavigationWithBackgroundRegistrationsWillStart(params.arg_attribution_src_token, params.arg_expected_registrations);
+          const result = this.impl.notifyNavigationWithBackgroundRegistrationsWillStart(params.arg_arg_attribution_src_token, params.arg_arg_expected_registrations);
           break;
         }
       }
@@ -348,4 +317,37 @@ mojo.internal.bindings.blink.mojom.AttributionHostReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.AttributionHostPtr = mojo.internal.bindings.blink.mojom.AttributionHostRemote;
 mojo.internal.bindings.blink.mojom.AttributionHostRequest = mojo.internal.bindings.blink.mojom.AttributionHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Impression
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ImpressionSpec, 'blink.mojom.Impression', [
+      mojo.internal.StructField('arg_attribution_src_token', 0, 0, mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_empty_attribution_src_tag', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AttributionHost_RegisterDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterDataHost_Params', [
+      mojo.internal.StructField('arg_data_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_registration_eligibility', 4, 0, mojo.internal.bindings.attribution_reporting.mojom.RegistrationEligibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_for_background_requests', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reporting_origins', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.OriginSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AttributionHost_RegisterNavigationDataHost_ParamsSpec, 'blink.mojom.AttributionHost_RegisterNavigationDataHost_Params', [
+      mojo.internal.StructField('arg_data_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.attribution_reporting.mojom.DataHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_attribution_src_token', 8, 0, mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_ParamsSpec, 'blink.mojom.AttributionHost_NotifyNavigationWithBackgroundRegistrationsWillStart_Params', [
+      mojo.internal.StructField('arg_attribution_src_token', 0, 0, mojo.internal.bindings.blink.mojom.AttributionSrcTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_registrations', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

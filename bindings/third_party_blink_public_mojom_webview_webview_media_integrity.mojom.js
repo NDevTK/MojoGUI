@@ -150,35 +150,7 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCode = {
   kTokenProviderInvalid: 4,
 };
 
-// Union: WebViewMediaIntegrityTokenResponse
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityTokenResponseSpec, 'blink.mojom.WebViewMediaIntegrityTokenResponse', {
-      'arg_error_code': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec,
-        'nullable': false,
-      },
-      'arg_token': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
 // Interface: WebViewMediaIntegrityService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_Params', [
-      mojo.internal.StructField('arg_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cloud_project_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,12 +263,15 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIntegrityProvider');
-          const result = this.impl.getIntegrityProvider(params.arg_provider_receiver, params.arg_cloud_project_number);
+          const result = this.impl.getIntegrityProvider(params.arg_arg_provider_receiver, params.arg_arg_cloud_project_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetIntegrityProvider FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getIntegrityProvider FAILED:', e));
           }
           break;
         }
@@ -315,18 +290,6 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityServiceRequest = mojo.in
 
 
 // Interface: WebViewMediaIntegrityProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_Params', [
-      mojo.internal.StructField('arg_content_binding', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityTokenResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -439,12 +402,15 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestToken');
-          const result = this.impl.requestToken(params.arg_content_binding);
+          const result = this.impl.requestToken(params.arg_arg_content_binding);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestToken FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestToken FAILED:', e));
           }
           break;
         }
@@ -460,4 +426,46 @@ mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderPtr = mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRemote;
 mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRequest = mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: WebViewMediaIntegrityTokenResponse
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityTokenResponseSpec, 'blink.mojom.WebViewMediaIntegrityTokenResponse', {
+      'arg_error_code': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec,
+        'nullable': false,
+      },
+      'arg_token': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_Params', [
+      mojo.internal.StructField('arg_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cloud_project_number', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityService_GetIntegrityProvider_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityErrorCodeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_Params', [
+      mojo.internal.StructField('arg_content_binding', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParamsSpec, 'blink.mojom.WebViewMediaIntegrityProvider_RequestToken_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.blink.mojom.WebViewMediaIntegrityTokenResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

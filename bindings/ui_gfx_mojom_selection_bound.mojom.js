@@ -139,6 +139,8 @@ mojo.internal.bindings.gfx.mojom.SelectionBoundType = {
   LAST: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SelectionBound
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.SelectionBoundSpec, 'gfx.mojom.SelectionBound', [

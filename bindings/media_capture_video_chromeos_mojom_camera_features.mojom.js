@@ -134,6 +134,8 @@ mojo.internal.bindings.cros.mojom.PortraitModeSegResult = {
   kUnknown: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Camera3StreamEffect
 mojo.internal.Union(
     mojo.internal.bindings.cros.mojom.Camera3StreamEffectSpec, 'cros.mojom.Camera3StreamEffect', {

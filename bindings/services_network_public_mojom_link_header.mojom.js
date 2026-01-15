@@ -160,6 +160,8 @@ mojo.internal.bindings.network.mojom.CrossOriginAttribute = {
   kUseCredentials: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: LinkHeader
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LinkHeaderSpec, 'network.mojom.LinkHeader', [

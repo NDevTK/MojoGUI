@@ -137,3 +137,5 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionErrorCode = {
   kNoMatch: 9,
   MinVersion: 9,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

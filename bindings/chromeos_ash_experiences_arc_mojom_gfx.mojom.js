@@ -125,6 +125,8 @@ mojo.internal.bindings.arc.mojom.RectSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.RangeSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.SizeSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Rect
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.RectSpec, 'arc.mojom.Rect', [

@@ -160,6 +160,8 @@ mojo.internal.bindings.ash.multidevice.mojom.SoftwareFeatureState = {
   kEnabled: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BeaconSeed
 mojo.internal.Struct(
     mojo.internal.bindings.ash.multidevice.mojom.BeaconSeedSpec, 'ash.multidevice.mojom.BeaconSeed', [

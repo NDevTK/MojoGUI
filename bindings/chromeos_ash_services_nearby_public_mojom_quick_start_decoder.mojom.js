@@ -140,19 +140,6 @@ mojo.internal.bindings.ash.quick_start.mojom = mojo.internal.bindings.ash.quick_
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec = mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: QuickStartDecoder
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,12 +252,14 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeQuickStartMessage');
-          const result = this.impl.decodeQuickStartMessage(params.arg_data);
+          const result = this.impl.decodeQuickStartMessage(params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecodeQuickStartMessage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decodeQuickStartMessage FAILED:', e));
           }
           break;
         }
@@ -286,4 +275,19 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderReceiver = mojo.in
 
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderPtr = mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemote;
 mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRequest = mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParamsSpec, 'ash.quick_start.mojom.QuickStartDecoder_DecodeQuickStartMessage_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderErrorSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 

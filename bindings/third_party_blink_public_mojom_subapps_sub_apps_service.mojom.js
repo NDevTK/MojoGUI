@@ -143,82 +143,7 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceResultCode = {
   kFailure: 1,
 };
 
-// Struct: SubAppsServiceAddParameters
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec, 'blink.mojom.SubAppsServiceAddParameters', [
-      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_install_url_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SubAppsServiceAddResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec, 'blink.mojom.SubAppsServiceAddResult', [
-      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SubAppsServiceListResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sub_apps_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SubAppsServiceListResultEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, 'blink.mojom.SubAppsServiceListResultEntry', [
-      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SubAppsServiceRemoveResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec, 'blink.mojom.SubAppsServiceRemoveResult', [
-      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: SubAppsService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec, 'blink.mojom.SubAppsService_Add_Params', [
-      mojo.internal.StructField('arg_sub_apps_to_add', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec, 'blink.mojom.SubAppsService_Add_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec, 'blink.mojom.SubAppsService_List_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec, 'blink.mojom.SubAppsService_List_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec, 'blink.mojom.SubAppsService_Remove_Params', [
-      mojo.internal.StructField('arg_manifest_id_paths', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec, 'blink.mojom.SubAppsService_Remove_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.SubAppsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -359,12 +284,15 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
-          const result = this.impl.add(params.arg_sub_apps_to_add);
+          const result = this.impl.add(params.arg_arg_sub_apps_to_add);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Add FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] add FAILED:', e));
           }
           break;
         }
@@ -376,8 +304,11 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] List FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] list FAILED:', e));
           }
           break;
         }
@@ -385,12 +316,15 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.remove');
-          const result = this.impl.remove(params.arg_manifest_id_paths);
+          const result = this.impl.remove(params.arg_arg_manifest_id_paths);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Remove FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] remove FAILED:', e));
           }
           break;
         }
@@ -406,4 +340,81 @@ mojo.internal.bindings.blink.mojom.SubAppsServiceReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.blink.mojom.SubAppsServicePtr = mojo.internal.bindings.blink.mojom.SubAppsServiceRemote;
 mojo.internal.bindings.blink.mojom.SubAppsServiceRequest = mojo.internal.bindings.blink.mojom.SubAppsServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SubAppsServiceAddParameters
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec, 'blink.mojom.SubAppsServiceAddParameters', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_install_url_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SubAppsServiceAddResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec, 'blink.mojom.SubAppsServiceAddResult', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SubAppsServiceListResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec, 'blink.mojom.SubAppsServiceListResult', [
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_apps_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SubAppsServiceListResultEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsServiceListResultEntrySpec, 'blink.mojom.SubAppsServiceListResultEntry', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SubAppsServiceRemoveResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec, 'blink.mojom.SubAppsServiceRemoveResult', [
+      mojo.internal.StructField('arg_manifest_id_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_code', 8, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsService_Add_ParamsSpec, 'blink.mojom.SubAppsService_Add_Params', [
+      mojo.internal.StructField('arg_sub_apps_to_add', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceAddParametersSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsService_Add_ResponseParamsSpec, 'blink.mojom.SubAppsService_Add_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceAddResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsService_List_ParamsSpec, 'blink.mojom.SubAppsService_List_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsService_List_ResponseParamsSpec, 'blink.mojom.SubAppsService_List_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.SubAppsServiceListResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ParamsSpec, 'blink.mojom.SubAppsService_Remove_Params', [
+      mojo.internal.StructField('arg_manifest_id_paths', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubAppsService_Remove_ResponseParamsSpec, 'blink.mojom.SubAppsService_Remove_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SubAppsServiceRemoveResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

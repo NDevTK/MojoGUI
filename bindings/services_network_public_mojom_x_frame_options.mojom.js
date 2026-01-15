@@ -132,3 +132,5 @@ mojo.internal.bindings.network.mojom.XFrameOptionsValue = {
   kInvalid: 4,
   kConflict: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

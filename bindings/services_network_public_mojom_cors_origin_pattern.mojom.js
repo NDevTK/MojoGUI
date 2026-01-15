@@ -156,6 +156,8 @@ mojo.internal.bindings.network.mojom.CorsOriginAccessMatchPriority = {
   kMaxPriority: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CorsOriginPattern
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CorsOriginPatternSpec, 'network.mojom.CorsOriginPattern', [

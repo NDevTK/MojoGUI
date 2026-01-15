@@ -136,3 +136,5 @@ mojo.internal.bindings.gfx.mojom.OverlayTransform = {
   OVERLAY_TRANSFORM_FLIP_VERTICAL_CLOCKWISE_270: 8,
   OVERLAY_TRANSFORM_LAST: 8,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

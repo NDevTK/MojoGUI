@@ -132,6 +132,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.CredentialsModeSpec = mojo.internal.bindings.network.mojom.CredentialsModeSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WorkerOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WorkerOptionsSpec, 'blink.mojom.WorkerOptions', [

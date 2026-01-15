@@ -152,40 +152,6 @@ mojo.internal.bindings.media.mojom.Status = {
 };
 
 // Interface: DemuxerStream
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec, 'media.mojom.DemuxerStream_Initialize_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec, 'media.mojom.DemuxerStream_Read_Params', [
-      mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec, 'media.mojom.DemuxerStream_Read_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_batch_buffers', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.DecoderBufferSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec, 'media.mojom.DemuxerStream_EnableBitstreamConverter_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.media.mojom.DemuxerStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -330,8 +296,10 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Initialize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_type', 'response.arg_arg_pipe', 'response.arg_arg_audio_config', 'response.arg_arg_video_config']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] initialize FAILED:', e));
           }
           break;
         }
@@ -339,12 +307,14 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_count);
+          const result = this.impl.read(params.arg_arg_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_batch_buffers', 'response.arg_arg_audio_config', 'response.arg_arg_video_config']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -367,4 +337,40 @@ mojo.internal.bindings.media.mojom.DemuxerStreamReceiver = mojo.internal.binding
 
 mojo.internal.bindings.media.mojom.DemuxerStreamPtr = mojo.internal.bindings.media.mojom.DemuxerStreamRemote;
 mojo.internal.bindings.media.mojom.DemuxerStreamRequest = mojo.internal.bindings.media.mojom.DemuxerStreamPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ParamsSpec, 'media.mojom.DemuxerStream_Initialize_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.DemuxerStream_Initialize_ResponseParamsSpec, 'media.mojom.DemuxerStream_Initialize_ResponseParams', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.media.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.DemuxerStream_Read_ParamsSpec, 'media.mojom.DemuxerStream_Read_Params', [
+      mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.DemuxerStream_Read_ResponseParamsSpec, 'media.mojom.DemuxerStream_Read_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_batch_buffers', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.DecoderBufferSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_config', 16, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_config', 24, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.DemuxerStream_EnableBitstreamConverter_ParamsSpec, 'media.mojom.DemuxerStream_EnableBitstreamConverter_Params', [
+    ],
+    [[0, 8]]);
 

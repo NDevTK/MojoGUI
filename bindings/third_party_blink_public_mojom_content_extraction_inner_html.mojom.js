@@ -128,17 +128,6 @@ mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec = { $:
 mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec = { $: {} };
 
 // Interface: InnerHtmlAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParams', [
-      mojo.internal.StructField('arg_inner_html', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.InnerHtmlAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,8 +244,11 @@ mojo.internal.bindings.blink.mojom.InnerHtmlAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInnerHtml FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_inner_html' in response) ? response.arg_arg_inner_html : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInnerHtml FAILED:', e));
           }
           break;
         }
@@ -272,4 +264,17 @@ mojo.internal.bindings.blink.mojom.InnerHtmlAgentReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.blink.mojom.InnerHtmlAgentPtr = mojo.internal.bindings.blink.mojom.InnerHtmlAgentRemote;
 mojo.internal.bindings.blink.mojom.InnerHtmlAgentRequest = mojo.internal.bindings.blink.mojom.InnerHtmlAgentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParamsSpec, 'blink.mojom.InnerHtmlAgent_GetInnerHtml_ResponseParams', [
+      mojo.internal.StructField('arg_inner_html', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -162,67 +162,6 @@ mojo.internal.bindings.content.mojom.LcTypeStrings = {
 };
 
 // Interface: SandboxSupport
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_Params', [
-      mojo.internal.StructField('arg_locale', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_language', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_defaults', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParams', [
-      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_first_day_of_week', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_Params', [
-      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_ResponseParams', [
-      mojo.internal.StructField('arg_digit_substitution', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_negnumber', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_digits', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decimal', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_thousand', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_negative_sign', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec, 'content.mojom.SandboxSupport_LocaleString_Params', [
-      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.content.mojom.LcTypeStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleString_ResponseParams', [
-      mojo.internal.StructField('arg_str', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_Params', [
-      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_collection', 8, 0, mojo.internal.bindings.content.mojom.LcTypeStringsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_ResponseParams', [
-      mojo.internal.StructField('arg_strings', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.SandboxSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -377,12 +316,14 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lcidAndFirstDayOfWeek');
-          const result = this.impl.lcidAndFirstDayOfWeek(params.arg_locale, params.arg_default_language, params.arg_defaults);
+          const result = this.impl.lcidAndFirstDayOfWeek(params.arg_arg_locale, params.arg_arg_default_language, params.arg_arg_defaults);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LcidAndFirstDayOfWeek FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec.$.structSpec, ['response.arg_arg_lcid', 'response.arg_arg_first_day_of_week']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] lcidAndFirstDayOfWeek FAILED:', e));
           }
           break;
         }
@@ -390,12 +331,14 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.digitsAndSigns');
-          const result = this.impl.digitsAndSigns(params.arg_lcid, params.arg_defaults);
+          const result = this.impl.digitsAndSigns(params.arg_arg_lcid, params.arg_arg_defaults);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DigitsAndSigns FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec.$.structSpec, ['response.arg_arg_digit_substitution', 'response.arg_arg_digits', 'response.arg_arg_decimal', 'response.arg_arg_thousand', 'response.arg_arg_negative_sign', 'response.arg_arg_negnumber']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] digitsAndSigns FAILED:', e));
           }
           break;
         }
@@ -403,12 +346,15 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.localeString');
-          const result = this.impl.localeString(params.arg_lcid, params.arg_defaults, params.arg_type);
+          const result = this.impl.localeString(params.arg_arg_lcid, params.arg_arg_defaults, params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LocaleString FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_str' in response) ? response.arg_arg_str : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] localeString FAILED:', e));
           }
           break;
         }
@@ -416,12 +362,15 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.localeStrings');
-          const result = this.impl.localeStrings(params.arg_lcid, params.arg_defaults, params.arg_collection);
+          const result = this.impl.localeStrings(params.arg_arg_lcid, params.arg_arg_defaults, params.arg_arg_collection);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LocaleStrings FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_strings' in response) ? response.arg_arg_strings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] localeStrings FAILED:', e));
           }
           break;
         }
@@ -437,4 +386,67 @@ mojo.internal.bindings.content.mojom.SandboxSupportReceiver = mojo.internal.bind
 
 mojo.internal.bindings.content.mojom.SandboxSupportPtr = mojo.internal.bindings.content.mojom.SandboxSupportRemote;
 mojo.internal.bindings.content.mojom.SandboxSupportRequest = mojo.internal.bindings.content.mojom.SandboxSupportPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_Params', [
+      mojo.internal.StructField('arg_locale', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_language', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_defaults', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParamsSpec, 'content.mojom.SandboxSupport_LcidAndFirstDayOfWeek_ResponseParams', [
+      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_first_day_of_week', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_Params', [
+      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_DigitsAndSigns_ResponseParamsSpec, 'content.mojom.SandboxSupport_DigitsAndSigns_ResponseParams', [
+      mojo.internal.StructField('arg_digit_substitution', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_negnumber', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_digits', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decimal', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_thousand', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_negative_sign', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ParamsSpec, 'content.mojom.SandboxSupport_LocaleString_Params', [
+      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.content.mojom.LcTypeStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleString_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleString_ResponseParams', [
+      mojo.internal.StructField('arg_str', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_Params', [
+      mojo.internal.StructField('arg_lcid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_defaults', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_collection', 8, 0, mojo.internal.bindings.content.mojom.LcTypeStringsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SandboxSupport_LocaleStrings_ResponseParamsSpec, 'content.mojom.SandboxSupport_LocaleStrings_ResponseParams', [
+      mojo.internal.StructField('arg_strings', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

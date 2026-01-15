@@ -128,3 +128,5 @@ mojo.internal.bindings.extensions.mojom.CSSOrigin = {
   kAuthor: 0,
   kUser: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

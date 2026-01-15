@@ -199,67 +199,7 @@ mojo.internal.bindings.network.mojom.EcnMarking = {
   kCe: 3,
 };
 
-// Struct: P2PHostAndIPEndPoint
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
-    ],
-    [[0, 8]]);
-
-// Struct: P2PPacketInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, 'network.mojom.P2PPacketInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: P2PPortRange
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PPortRangeSpec, 'network.mojom.P2PPortRange', [
-    ],
-    [[0, 8]]);
-
-// Struct: P2PSendPacketMetrics
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, 'network.mojom.P2PSendPacketMetrics', [
-    ],
-    [[0, 8]]);
-
-// Struct: P2PHostAndIPEndPoint
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
-      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.OpaqueStruct, 2, false, 0, undefined),
-      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.OpaqueStruct, 3, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: P2PReceivedPacket
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec, 'network.mojom.P2PReceivedPacket', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ecn', 24, 0, mojo.internal.bindings.network.mojom.EcnMarkingSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: P2PSendPacket
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSendPacketSpec, 'network.mojom.P2PSendPacket', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packet_info', 8, 0, mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: P2PNetworkNotificationClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec, 'network.mojom.P2PNetworkNotificationClient_NetworkListChanged_Params', [
-      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.NetworkInterfaceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_ipv4_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_ipv6_local_address', 16, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -372,7 +312,7 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.networkListChanged');
-          const result = this.impl.networkListChanged(params.arg_networks, params.arg_default_ipv4_local_address, params.arg_default_ipv6_local_address);
+          const result = this.impl.networkListChanged(params.arg_arg_networks, params.arg_arg_default_ipv4_local_address, params.arg_arg_default_ipv6_local_address);
           break;
         }
       }
@@ -390,39 +330,6 @@ mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRequest = mojo.
 
 
 // Interface: P2PSocketManager
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec, 'network.mojom.P2PSocketManager_StartNetworkNotifications_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec, 'network.mojom.P2PSocketManager_GetHostAddress_Params', [
-      mojo.internal.StructField('arg_host_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_address_family', 8, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_enable_mdns', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec, 'network.mojom.P2PSocketManager_GetHostAddress_ResponseParams', [
-      mojo.internal.StructField('arg_addresses', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPAddressSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec, 'network.mojom.P2PSocketManager_CreateSocket_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.P2PSocketTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_socket', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_range', 16, 0, mojo.internal.bindings.network.mojom.P2PPortRangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_address', 24, 0, mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 mojo.internal.bindings.network.mojom.P2PSocketManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -563,19 +470,22 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNetworkNotifications');
-          const result = this.impl.startNetworkNotifications(params.arg_client);
+          const result = this.impl.startNetworkNotifications(params.arg_arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHostAddress');
-          const result = this.impl.getHostAddress(params.arg_host_name, params.arg_address_family, params.arg_enable_mdns);
+          const result = this.impl.getHostAddress(params.arg_arg_host_name, params.arg_arg_address_family, params.arg_arg_enable_mdns);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHostAddress FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_addresses' in response) ? response.arg_arg_addresses : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHostAddress FAILED:', e));
           }
           break;
         }
@@ -583,7 +493,7 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSocket');
-          const result = this.impl.createSocket(params.arg_type, params.arg_local_address, params.arg_port_range, params.arg_remote_address, params.arg_traffic_annotation, params.arg_devtools_token, params.arg_client, params.arg_socket);
+          const result = this.impl.createSocket(params.arg_arg_type, params.arg_arg_local_address, params.arg_arg_port_range, params.arg_arg_remote_address, params.arg_arg_traffic_annotation, params.arg_arg_devtools_token, params.arg_arg_client, params.arg_arg_socket);
           break;
         }
       }
@@ -601,26 +511,6 @@ mojo.internal.bindings.network.mojom.P2PSocketManagerRequest = mojo.internal.bin
 
 
 // Interface: P2PSocket
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec, 'network.mojom.P2PSocket_Send_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packet_info', 8, 0, mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec, 'network.mojom.P2PSocket_SendBatch_Params', [
-      mojo.internal.StructField('arg_packet_batch', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PSendPacketSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec, 'network.mojom.P2PSocket_SetOption_Params', [
-      mojo.internal.StructField('arg_option', 0, 0, mojo.internal.bindings.network.mojom.P2PSocketOptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.P2PSocketPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -761,21 +651,21 @@ mojo.internal.bindings.network.mojom.P2PSocketReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.send');
-          const result = this.impl.send(params.arg_data, params.arg_packet_info);
+          const result = this.impl.send(params.arg_arg_data, params.arg_arg_packet_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBatch');
-          const result = this.impl.sendBatch(params.arg_packet_batch);
+          const result = this.impl.sendBatch(params.arg_arg_packet_batch);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOption');
-          const result = this.impl.setOption(params.arg_option, params.arg_value);
+          const result = this.impl.setOption(params.arg_arg_option, params.arg_arg_value);
           break;
         }
       }
@@ -793,31 +683,6 @@ mojo.internal.bindings.network.mojom.P2PSocketRequest = mojo.internal.bindings.n
 
 
 // Interface: P2PSocketClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec, 'network.mojom.P2PSocketClient_SocketCreated_Params', [
-      mojo.internal.StructField('arg_local_address', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec, 'network.mojom.P2PSocketClient_SendComplete_Params', [
-      mojo.internal.StructField('arg_send_metrics', 0, 0, mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec, 'network.mojom.P2PSocketClient_SendBatchComplete_Params', [
-      mojo.internal.StructField('arg_send_metrics_batch', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec, 'network.mojom.P2PSocketClient_DataReceived_Params', [
-      mojo.internal.StructField('arg_packets', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.P2PSocketClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -972,28 +837,28 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.socketCreated');
-          const result = this.impl.socketCreated(params.arg_local_address, params.arg_remote_address);
+          const result = this.impl.socketCreated(params.arg_arg_local_address, params.arg_arg_remote_address);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendComplete');
-          const result = this.impl.sendComplete(params.arg_send_metrics);
+          const result = this.impl.sendComplete(params.arg_arg_send_metrics);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendBatchComplete');
-          const result = this.impl.sendBatchComplete(params.arg_send_metrics_batch);
+          const result = this.impl.sendBatchComplete(params.arg_arg_send_metrics_batch);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dataReceived');
-          const result = this.impl.dataReceived(params.arg_packets);
+          const result = this.impl.dataReceived(params.arg_arg_packets);
           break;
         }
       }
@@ -1008,4 +873,144 @@ mojo.internal.bindings.network.mojom.P2PSocketClientReceiver = mojo.internal.bin
 
 mojo.internal.bindings.network.mojom.P2PSocketClientPtr = mojo.internal.bindings.network.mojom.P2PSocketClientRemote;
 mojo.internal.bindings.network.mojom.P2PSocketClientRequest = mojo.internal.bindings.network.mojom.P2PSocketClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: P2PHostAndIPEndPoint
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PPacketInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, 'network.mojom.P2PPacketInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PPortRange
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PPortRangeSpec, 'network.mojom.P2PPortRange', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PSendPacketMetrics
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, 'network.mojom.P2PSendPacketMetrics', [
+    ],
+    [[0, 8]]);
+
+// Struct: P2PHostAndIPEndPoint
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, 'network.mojom.P2PHostAndIPEndPoint', [
+      mojo.internal.StructField('arg_val', 0, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 8, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 16, 0, mojo.internal.OpaqueStruct, 2, false, 0, undefined),
+      mojo.internal.StructField('arg_val', 24, 0, mojo.internal.OpaqueStruct, 3, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: P2PReceivedPacket
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec, 'network.mojom.P2PReceivedPacket', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ecn', 24, 0, mojo.internal.bindings.network.mojom.EcnMarkingSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: P2PSendPacket
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSendPacketSpec, 'network.mojom.P2PSendPacket', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_info', 8, 0, mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PNetworkNotificationClient_NetworkListChanged_ParamsSpec, 'network.mojom.P2PNetworkNotificationClient_NetworkListChanged_Params', [
+      mojo.internal.StructField('arg_networks', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.NetworkInterfaceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_ipv4_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_ipv6_local_address', 16, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketManager_StartNetworkNotifications_ParamsSpec, 'network.mojom.P2PSocketManager_StartNetworkNotifications_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PNetworkNotificationClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ParamsSpec, 'network.mojom.P2PSocketManager_GetHostAddress_Params', [
+      mojo.internal.StructField('arg_host_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_address_family', 8, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_enable_mdns', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketManager_GetHostAddress_ResponseParamsSpec, 'network.mojom.P2PSocketManager_GetHostAddress_ResponseParams', [
+      mojo.internal.StructField('arg_addresses', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPAddressSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketManager_CreateSocket_ParamsSpec, 'network.mojom.P2PSocketManager_CreateSocket_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.P2PSocketTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_socket', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.P2PSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_range', 16, 0, mojo.internal.bindings.network.mojom.P2PPortRangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_address', 24, 0, mojo.internal.bindings.network.mojom.P2PHostAndIPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traffic_annotation', 32, 0, mojo.internal.bindings.network.mojom.MutableNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_token', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 48, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.P2PSocketClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocket_Send_ParamsSpec, 'network.mojom.P2PSocket_Send_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_info', 8, 0, mojo.internal.bindings.network.mojom.P2PPacketInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocket_SendBatch_ParamsSpec, 'network.mojom.P2PSocket_SendBatch_Params', [
+      mojo.internal.StructField('arg_packet_batch', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PSendPacketSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocket_SetOption_ParamsSpec, 'network.mojom.P2PSocket_SetOption_Params', [
+      mojo.internal.StructField('arg_option', 0, 0, mojo.internal.bindings.network.mojom.P2PSocketOptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketClient_SocketCreated_ParamsSpec, 'network.mojom.P2PSocketClient_SocketCreated_Params', [
+      mojo.internal.StructField('arg_local_address', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketClient_SendComplete_ParamsSpec, 'network.mojom.P2PSocketClient_SendComplete_Params', [
+      mojo.internal.StructField('arg_send_metrics', 0, 0, mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketClient_SendBatchComplete_ParamsSpec, 'network.mojom.P2PSocketClient_SendBatchComplete_Params', [
+      mojo.internal.StructField('arg_send_metrics_batch', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PSendPacketMetricsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PSocketClient_DataReceived_ParamsSpec, 'network.mojom.P2PSocketClient_DataReceived_Params', [
+      mojo.internal.StructField('arg_packets', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.P2PReceivedPacketSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

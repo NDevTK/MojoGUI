@@ -141,3 +141,5 @@ mojo.internal.bindings.cc.mojom.LayerType = {
   kVideo: 13,
   kViewTransitionContent: 14,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

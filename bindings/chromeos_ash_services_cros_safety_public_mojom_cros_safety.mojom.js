@@ -169,33 +169,6 @@ mojo.internal.bindings.ash.cros_safety.mojom.SafetyRuleset = {
 };
 
 // Interface: CloudSafetySession
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_image', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -322,12 +295,15 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
-          const result = this.impl.classifyTextSafety(params.arg_rules, params.arg_text);
+          const result = this.impl.classifyTextSafety(params.arg_arg_rules, params.arg_arg_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClassifyTextSafety FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
           break;
         }
@@ -335,12 +311,15 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
-          const result = this.impl.classifyImageSafety(params.arg_rules, params.arg_prompt, params.arg_image);
+          const result = this.impl.classifyImageSafety(params.arg_arg_rules, params.arg_arg_prompt, params.arg_arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClassifyImageSafety FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
           break;
         }
@@ -359,32 +338,6 @@ mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRequest = mojo.in
 
 
 // Interface: OnDeviceSafetySession
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParams', [
-      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -511,12 +464,15 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyTextSafety');
-          const result = this.impl.classifyTextSafety(params.arg_rules, params.arg_text);
+          const result = this.impl.classifyTextSafety(params.arg_arg_rules, params.arg_arg_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClassifyTextSafety FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] classifyTextSafety FAILED:', e));
           }
           break;
         }
@@ -524,12 +480,15 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.classifyImageSafety');
-          const result = this.impl.classifyImageSafety(params.arg_rules, params.arg_image);
+          const result = this.impl.classifyImageSafety(params.arg_arg_rules, params.arg_arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClassifyImageSafety FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_verdict' in response) ? response.arg_arg_verdict : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] classifyImageSafety FAILED:', e));
           }
           break;
         }
@@ -545,4 +504,59 @@ mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionReceiver = moj
 
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPtr = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote;
 mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRequest = mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_Params', [
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyTextSafety_ResponseParams', [
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_Params', [
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prompt', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_image', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.CloudSafetySession_ClassifyImageSafety_ResponseParams', [
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_Params', [
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyTextSafety_ResponseParams', [
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_Params', [
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyRulesetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParamsSpec, 'ash.cros_safety.mojom.OnDeviceSafetySession_ClassifyImageSafety_ResponseParams', [
+      mojo.internal.StructField('arg_verdict', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.SafetyClassifierVerdictSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

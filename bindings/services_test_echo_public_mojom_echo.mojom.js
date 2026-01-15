@@ -159,67 +159,6 @@ mojo.internal.bindings.echo.mojom.LoadStatus = {
 };
 
 // Interface: EchoService
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec, 'echo.mojom.EchoService_EchoString_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec, 'echo.mojom.EchoService_EchoString_ResponseParams', [
-      mojo.internal.StructField('arg_echoed_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec, 'echo.mojom.EchoService_EchoStringToSharedMemory_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec, 'echo.mojom.EchoService_Quit_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec, 'echo.mojom.EchoService_Crash_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec, 'echo.mojom.EchoService_DelayLoad_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec, 'echo.mojom.EchoService_LoadNativeLibrary_Params', [
-      mojo.internal.StructField('arg_library', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_call_winmm_delayload', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec, 'echo.mojom.EchoService_LoadNativeLibrary_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.echo.mojom.LoadStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_Params', [
-      mojo.internal.StructField('arg_encryptor', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_ResponseParams', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.echo.mojom.EchoServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -416,12 +355,15 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoString');
-          const result = this.impl.echoString(params.arg_input);
+          const result = this.impl.echoString(params.arg_arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoString FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_echoed_input' in response) ? response.arg_arg_echoed_input : response;
+              encoder.encodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoString FAILED:', e));
           }
           break;
         }
@@ -429,7 +371,7 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoStringToSharedMemory');
-          const result = this.impl.echoStringToSharedMemory(params.arg_input, params.arg_region);
+          const result = this.impl.echoStringToSharedMemory(params.arg_arg_input, params.arg_arg_region);
           break;
         }
         case 2: {
@@ -457,12 +399,14 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadNativeLibrary');
-          const result = this.impl.loadNativeLibrary(params.arg_library, params.arg_call_winmm_delayload);
+          const result = this.impl.loadNativeLibrary(params.arg_arg_library, params.arg_arg_call_winmm_delayload);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LoadNativeLibrary FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_error_code']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] loadNativeLibrary FAILED:', e));
           }
           break;
         }
@@ -470,12 +414,15 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptEncrypt');
-          const result = this.impl.decryptEncrypt(params.arg_encryptor, params.arg_input);
+          const result = this.impl.decryptEncrypt(params.arg_arg_encryptor, params.arg_arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecryptEncrypt FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decryptEncrypt FAILED:', e));
           }
           break;
         }
@@ -491,4 +438,67 @@ mojo.internal.bindings.echo.mojom.EchoServiceReceiver = mojo.internal.bindings.e
 
 mojo.internal.bindings.echo.mojom.EchoServicePtr = mojo.internal.bindings.echo.mojom.EchoServiceRemote;
 mojo.internal.bindings.echo.mojom.EchoServiceRequest = mojo.internal.bindings.echo.mojom.EchoServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_EchoString_ParamsSpec, 'echo.mojom.EchoService_EchoString_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_EchoString_ResponseParamsSpec, 'echo.mojom.EchoService_EchoString_ResponseParams', [
+      mojo.internal.StructField('arg_echoed_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_EchoStringToSharedMemory_ParamsSpec, 'echo.mojom.EchoService_EchoStringToSharedMemory_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_Quit_ParamsSpec, 'echo.mojom.EchoService_Quit_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_Crash_ParamsSpec, 'echo.mojom.EchoService_Crash_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_DelayLoad_ParamsSpec, 'echo.mojom.EchoService_DelayLoad_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ParamsSpec, 'echo.mojom.EchoService_LoadNativeLibrary_Params', [
+      mojo.internal.StructField('arg_library', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_call_winmm_delayload', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_LoadNativeLibrary_ResponseParamsSpec, 'echo.mojom.EchoService_LoadNativeLibrary_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.echo.mojom.LoadStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_Params', [
+      mojo.internal.StructField('arg_encryptor', 0, 0, mojo.internal.bindings.os_crypt_async.mojom.EncryptorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.echo.mojom.EchoService_DecryptEncrypt_ResponseParamsSpec, 'echo.mojom.EchoService_DecryptEncrypt_ResponseParams', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

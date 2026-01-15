@@ -148,24 +148,6 @@ mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = mojo.internal.bi
 mojo.internal.bindings.printing.mojom.kPrintingServiceSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kUtility;
 
 // Interface: PrintingService
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfNupConverter_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfNupConverterRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToPwgRasterConverter_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToEmfConverterFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.printing.mojom.PrintingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -306,21 +288,21 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfNupConverter');
-          const result = this.impl.bindPdfNupConverter(params.arg_receiver);
+          const result = this.impl.bindPdfNupConverter(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToPwgRasterConverter');
-          const result = this.impl.bindPdfToPwgRasterConverter(params.arg_receiver);
+          const result = this.impl.bindPdfToPwgRasterConverter(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPdfToEmfConverterFactory');
-          const result = this.impl.bindPdfToEmfConverterFactory(params.arg_receiver);
+          const result = this.impl.bindPdfToEmfConverterFactory(params.arg_arg_receiver);
           break;
         }
       }
@@ -335,4 +317,24 @@ mojo.internal.bindings.printing.mojom.PrintingServiceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.printing.mojom.PrintingServicePtr = mojo.internal.bindings.printing.mojom.PrintingServiceRemote;
 mojo.internal.bindings.printing.mojom.PrintingServiceRequest = mojo.internal.bindings.printing.mojom.PrintingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfNupConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfNupConverter_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfNupConverterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToPwgRasterConverter_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToPwgRasterConverter_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintingService_BindPdfToEmfConverterFactory_ParamsSpec, 'printing.mojom.PrintingService_BindPdfToEmfConverterFactory_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.printing.mojom.PdfToEmfConverterFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

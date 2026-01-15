@@ -138,33 +138,7 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoCodecProfileSpec = mojo.internal.bindings.media.mojom.VideoCodecProfileSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: WebrtcPredictionFeatures
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
-      mojo.internal.StructField('arg_is_decode_stats', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_hardware_accelerated', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 4, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: WebrtcVideoStats
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.WebrtcVideoStatsSpec, 'media.mojom.WebrtcVideoStats', [
-      mojo.internal.StructField('arg_frames_processed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_key_frames_processed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_p99_processing_time_ms', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: WebrtcVideoPerfRecorder
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec, 'media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_stats', 8, 0, mojo.internal.bindings.media.mojom.WebrtcVideoStatsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +251,7 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRecord');
-          const result = this.impl.updateRecord(params.arg_features, params.arg_video_stats);
+          const result = this.impl.updateRecord(params.arg_arg_features, params.arg_arg_video_stats);
           break;
         }
       }
@@ -295,19 +269,6 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorderRequest = mojo.interna
 
 
 // Interface: WebrtcVideoPerfHistory
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frames_per_second', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParams', [
-      mojo.internal.StructField('arg_is_smooth', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,12 +381,15 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPerfInfo');
-          const result = this.impl.getPerfInfo(params.arg_features, params.arg_frames_per_second);
+          const result = this.impl.getPerfInfo(params.arg_arg_features, params.arg_arg_frames_per_second);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPerfInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_smooth' in response) ? response.arg_arg_is_smooth : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPerfInfo FAILED:', e));
           }
           break;
         }
@@ -441,4 +405,45 @@ mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryReceiver = mojo.interna
 
 mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryPtr = mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryRemote;
 mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryRequest = mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WebrtcPredictionFeatures
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, 'media.mojom.WebrtcPredictionFeatures', [
+      mojo.internal.StructField('arg_is_decode_stats', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_hardware_accelerated', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 4, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_pixels', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: WebrtcVideoStats
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.WebrtcVideoStatsSpec, 'media.mojom.WebrtcVideoStats', [
+      mojo.internal.StructField('arg_frames_processed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_key_frames_processed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_p99_processing_time_ms', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_ParamsSpec, 'media.mojom.WebrtcVideoPerfRecorder_UpdateRecord_Params', [
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_stats', 8, 0, mojo.internal.bindings.media.mojom.WebrtcVideoStatsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_Params', [
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.WebrtcPredictionFeaturesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frames_per_second', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParamsSpec, 'media.mojom.WebrtcVideoPerfHistory_GetPerfInfo_ResponseParams', [
+      mojo.internal.StructField('arg_is_smooth', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

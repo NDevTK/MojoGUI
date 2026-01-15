@@ -132,6 +132,8 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec = mojo.internal.bindings.blink.mojom.ExecutionContextTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BucketClientInfo
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BucketClientInfoSpec, 'storage.mojom.BucketClientInfo', [

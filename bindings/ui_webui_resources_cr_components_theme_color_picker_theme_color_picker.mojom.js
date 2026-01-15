@@ -153,45 +153,7 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec = mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: Theme
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec, 'theme_color_picker.mojom.Theme', [
-      mojo.internal.StructField('arg_has_background_image', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_third_party_theme', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dark_mode', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_colors_managed_by_policy', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_grey_baseline', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_follow_device_theme', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_seed_color_hue', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_background_image_main_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_seed_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_foreground_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color_picker_icon_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_color_variant', 48, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: ChromeColor
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec, 'theme_color_picker.mojom.ChromeColor', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_seed', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_foreground', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_base', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_variant', 40, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: ThemeColorPickerHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -304,7 +266,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createThemeColorPickerHandler');
-          const result = this.impl.createThemeColorPickerHandler(params.arg_handler, params.arg_client);
+          const result = this.impl.createThemeColorPickerHandler(params.arg_arg_handler, params.arg_arg_client);
           break;
         }
       }
@@ -322,51 +284,6 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactoryRe
 
 
 // Interface: ThemeColorPickerHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_Params', [
-      mojo.internal.StructField('arg_is_dark_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParams', [
-      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.Array(mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_Params', [
-      mojo.internal.StructField('arg_seed_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_variant', 8, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_Params', [
-      mojo.internal.StructField('arg_hue', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -563,12 +480,15 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getChromeColors');
-          const result = this.impl.getChromeColors(params.arg_is_dark_mode);
+          const result = this.impl.getChromeColors(params.arg_arg_is_dark_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetChromeColors FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_colors' in response) ? response.arg_arg_colors : response;
+              encoder.encodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getChromeColors FAILED:', e));
           }
           break;
         }
@@ -597,14 +517,14 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeedColor');
-          const result = this.impl.setSeedColor(params.arg_seed_color, params.arg_variant);
+          const result = this.impl.setSeedColor(params.arg_arg_seed_color, params.arg_arg_variant);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSeedColorFromHue');
-          const result = this.impl.setSeedColorFromHue(params.arg_hue);
+          const result = this.impl.setSeedColorFromHue(params.arg_arg_hue);
           break;
         }
         case 6: {
@@ -629,12 +549,6 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRequest =
 
 
 // Interface: ThemeColorPickerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -747,7 +661,7 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_theme);
+          const result = this.impl.setTheme(params.arg_arg_theme);
           break;
         }
       }
@@ -762,4 +676,95 @@ mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientReceiver =
 
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientPtr = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote;
 mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRequest = mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Theme
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec, 'theme_color_picker.mojom.Theme', [
+      mojo.internal.StructField('arg_has_background_image', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_third_party_theme', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dark_mode', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_colors_managed_by_policy', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_grey_baseline', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_follow_device_theme', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_seed_color_hue', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_background_image_main_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_seed_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_foreground_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color_picker_icon_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_color_variant', 48, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: ChromeColor
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec, 'theme_color_picker.mojom.ChromeColor', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_seed', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_foreground', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_variant', 40, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandlerFactory_CreateThemeColorPickerHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_Params', [
+      mojo.internal.StructField('arg_is_dark_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_GetChromeColors_ResponseParams', [
+      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.Array(mojo.internal.bindings.theme_color_picker.mojom.ChromeColorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_UpdateTheme_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetDefaultColor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetGreyDefaultColor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColor_Params', [
+      mojo.internal.StructField('arg_seed_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_variant', 8, 0, mojo.internal.bindings.ui.mojom.BrowserColorVariantSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_SetSeedColorFromHue_Params', [
+      mojo.internal.StructField('arg_hue', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerHandler_RemoveBackgroundImage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_ParamsSpec, 'theme_color_picker.mojom.ThemeColorPickerClient_SetTheme_Params', [
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.theme_color_picker.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -141,16 +141,6 @@ mojo.internal.bindings.content.mojom.MojoContextProvider.$interfaceName = 'conte
 mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec = { $: {} };
 
 // Interface: TestInterfaceForDefer
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.TestInterfaceForDeferPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,8 +257,10 @@ mojo.internal.bindings.content.mojom.TestInterfaceForDeferReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Ping FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
           break;
         }
@@ -614,11 +606,6 @@ mojo.internal.bindings.content.mojom.TestInterfaceForUnexpectedRequest = mojo.in
 
 
 // Interface: MojoContextProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec, 'content.mojom.MojoContextProvider_GrantAll_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.MojoContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -746,4 +733,21 @@ mojo.internal.bindings.content.mojom.MojoContextProviderReceiver = mojo.internal
 
 mojo.internal.bindings.content.mojom.MojoContextProviderPtr = mojo.internal.bindings.content.mojom.MojoContextProviderRemote;
 mojo.internal.bindings.content.mojom.MojoContextProviderRequest = mojo.internal.bindings.content.mojom.MojoContextProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.TestInterfaceForDefer_Ping_ResponseParamsSpec, 'content.mojom.TestInterfaceForDefer_Ping_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MojoContextProvider_GrantAll_ParamsSpec, 'content.mojom.MojoContextProvider_GrantAll_Params', [
+    ],
+    [[0, 8]]);
 

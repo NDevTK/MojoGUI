@@ -123,6 +123,8 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
 mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SurfaceHandle
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SurfaceHandleSpec, 'gpu.mojom.SurfaceHandle', [

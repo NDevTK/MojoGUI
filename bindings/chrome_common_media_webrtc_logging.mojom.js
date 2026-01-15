@@ -139,26 +139,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: WebRtcLoggingMessage
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec, 'chrome.mojom.WebRtcLoggingMessage', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: WebRtcLoggingClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnAddMessages_Params', [
-      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnStopped_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,7 +266,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAddMessages');
-          const result = this.impl.onAddMessages(params.arg_messages);
+          const result = this.impl.onAddMessages(params.arg_arg_messages);
           break;
         }
         case 1: {
@@ -310,17 +291,6 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRequest = mojo.internal.b
 
 
 // Interface: WebRtcLoggingAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Start_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Stop_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -447,7 +417,7 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_client);
+          const result = this.impl.start(params.arg_arg_client);
           break;
         }
         case 1: {
@@ -469,4 +439,36 @@ mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentReceiver = mojo.internal.b
 
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentPtr = mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRemote;
 mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentRequest = mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WebRtcLoggingMessage
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec, 'chrome.mojom.WebRtcLoggingMessage', [
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnAddMessages_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnAddMessages_Params', [
+      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.WebRtcLoggingMessageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.WebRtcLoggingClient_OnStopped_ParamsSpec, 'chrome.mojom.WebRtcLoggingClient_OnStopped_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Start_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Start_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.WebRtcLoggingClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.WebRtcLoggingAgent_Stop_ParamsSpec, 'chrome.mojom.WebRtcLoggingAgent_Stop_Params', [
+    ],
+    [[0, 8]]);
 

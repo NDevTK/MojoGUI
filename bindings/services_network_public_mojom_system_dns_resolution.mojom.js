@@ -136,23 +136,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.AddressListSpec = mojo.internal.bindings.network.mojom.AddressListSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SystemDnsResolver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [
-      mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_addr_family', 8, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_network', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_ResponseParams', [
-      mojo.internal.StructField('arg_addr_list', 0, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_os_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.network.mojom.SystemDnsResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,12 +248,14 @@ mojo.internal.bindings.network.mojom.SystemDnsResolverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolve');
-          const result = this.impl.resolve(params.arg_hostname, params.arg_addr_family, params.arg_flags, params.arg_network);
+          const result = this.impl.resolve(params.arg_arg_hostname, params.arg_arg_addr_family, params.arg_arg_flags, params.arg_arg_network);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Resolve FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec.$.structSpec, ['response.arg_arg_addr_list', 'response.arg_arg_os_error', 'response.arg_arg_net_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] resolve FAILED:', e));
           }
           break;
         }
@@ -286,4 +271,23 @@ mojo.internal.bindings.network.mojom.SystemDnsResolverReceiver = mojo.internal.b
 
 mojo.internal.bindings.network.mojom.SystemDnsResolverPtr = mojo.internal.bindings.network.mojom.SystemDnsResolverRemote;
 mojo.internal.bindings.network.mojom.SystemDnsResolverRequest = mojo.internal.bindings.network.mojom.SystemDnsResolverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_Params', [
+      mojo.internal.StructField('arg_hostname', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_addr_family', 8, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_network', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SystemDnsResolver_Resolve_ResponseParamsSpec, 'network.mojom.SystemDnsResolver_Resolve_ResponseParams', [
+      mojo.internal.StructField('arg_addr_list', 0, 0, mojo.internal.bindings.network.mojom.AddressListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_os_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.PolicyDisposition = {
   kEnforce: 0,
   kReport: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

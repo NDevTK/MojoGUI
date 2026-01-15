@@ -257,166 +257,7 @@ mojo.internal.bindings.printing.mojom.PrintFailureReason = {
   kPrintingInProgress: 2,
 };
 
-// Struct: PreviewIds
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PreviewIdsSpec, 'printing.mojom.PreviewIds', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_ui_id', 4, 0, mojo.internal.Int32, -1, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: RequestPrintPreviewParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec, 'printing.mojom.RequestPrintPreviewParams', [
-      mojo.internal.StructField('arg_is_from_arc', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_modifiable', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_webnode_only', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_selection', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_only', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: PrintFrameContentParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec, 'printing.mojom.PrintFrameContentParams', [
-      mojo.internal.StructField('arg_printable_area', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: OptionsFromDocumentParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.OptionsFromDocumentParamsSpec, 'printing.mojom.OptionsFromDocumentParams', [
-      mojo.internal.StructField('arg_is_scaling_disabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_copies', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_duplex', 8, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DidPrintContentParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, 'printing.mojom.DidPrintContentParams', [
-      mojo.internal.StructField('arg_metafile_data_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subframe_content_info', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DidStartPreviewParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.DidStartPreviewParamsSpec, 'printing.mojom.DidStartPreviewParams', [
-      mojo.internal.StructField('arg_page_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pages_per_sheet', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pages_to_render', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fit_to_page_scaling', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: DidPreviewPageParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec, 'printing.mojom.DidPreviewPageParams', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_document_cookie', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DidPreviewDocumentParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec, 'printing.mojom.DidPreviewDocumentParams', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_pages_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PrintParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintParamsSpec, 'printing.mojom.PrintParams', [
-      mojo.internal.StructField('arg_page_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printable_area', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_margin_top', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_margin_left', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_page_orientation', 32, 0, mojo.internal.bindings.printing.mojom.PageOrientationSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_document_cookie', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scale_factor', 48, 0, mojo.internal.Double, 1.0, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_only', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_first_request', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_print_to_pdf', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_display_header_footer', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_rasterize_pdf', 56, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_print_backgrounds', 56, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_prefer_css_page_size', 56, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_generate_tagged_pdf_$flag', 56, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_generate_tagged_pdf_$value', originalFieldName: 'arg_generate_tagged_pdf' }),
-      mojo.internal.StructField('arg_generate_tagged_pdf_$value', 57, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_generate_tagged_pdf_$flag', originalFieldName: 'arg_generate_tagged_pdf' }),
-      mojo.internal.StructField('arg_preview_ui_id', 60, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_preview_request_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_print_scaling_option', 68, 0, mojo.internal.bindings.printing.mojom.PrintScalingOptionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_template', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_footer_template', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rasterize_pdf_dpi', 104, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_printed_doc_type', 108, 0, mojo.internal.bindings.printing.mojom.SkiaDocumentTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pages_per_sheet', 112, 0, mojo.internal.Uint32, 1, false, 0, undefined),
-      mojo.internal.StructField('arg_generate_document_outline', 116, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec, 0, false, 0, undefined),
-    ],
-    [[0, 128]]);
-
-// Struct: PrintPagesParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, 'printing.mojom.PrintPagesParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pages', 8, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PageRangeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DidPrintDocumentParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, 'printing.mojom.DidPrintDocumentParams', [
-      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_page_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_area', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_offsets', 32, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: ScriptedPrintParams
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.ScriptedPrintParamsSpec, 'printing.mojom.ScriptedPrintParams', [
-      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_pages_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_scripted', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_margin_type', 12, 0, mojo.internal.bindings.printing.mojom.MarginTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PrintWithParamsResultData
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintWithParamsResultDataSpec, 'printing.mojom.PrintWithParamsResultData', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accessibility_tree', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_generate_document_outline', 16, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PrintRenderer
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec, 'printing.mojom.PrintRenderer_CreatePreviewDocument_Params', [
-      mojo.internal.StructField('arg_job_settings', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec, 'printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParams', [
-      mojo.internal.StructField('arg_preview_document_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.printing.mojom.PrintRendererPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -529,12 +370,15 @@ mojo.internal.bindings.printing.mojom.PrintRendererReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPreviewDocument');
-          const result = this.impl.createPreviewDocument(params.arg_job_settings);
+          const result = this.impl.createPreviewDocument(params.arg_arg_job_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreatePreviewDocument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_preview_document_region' in response) ? response.arg_arg_preview_document_region : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createPreviewDocument FAILED:', e));
           }
           break;
         }
@@ -553,72 +397,6 @@ mojo.internal.bindings.printing.mojom.PrintRendererRequest = mojo.internal.bindi
 
 
 // Interface: PrintPreviewUI
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec, 'printing.mojom.PrintPreviewUI_SetOptionsFromDocument_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.OptionsFromDocumentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_Params', [
-      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidPreviewPage_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec, 'printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec, 'printing.mojom.PrintPreviewUI_PrintPreviewFailed_Params', [
-      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec, 'printing.mojom.PrintPreviewUI_PrintPreviewCancelled_Params', [
-      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec, 'printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_Params', [
-      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_Params', [
-      mojo.internal.StructField('arg_page_layout_in_points', 0, 0, mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_printable_area_in_points', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_all_pages_have_custom_size', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_all_pages_have_custom_orientation', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidStartPreview_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidStartPreviewParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.printing.mojom.PrintPreviewUIPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -843,63 +621,63 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOptionsFromDocument');
-          const result = this.impl.setOptionsFromDocument(params.arg_params, params.arg_request_id);
+          const result = this.impl.setOptionsFromDocument(params.arg_arg_params, params.arg_arg_request_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didPrepareDocumentForPreview');
-          const result = this.impl.didPrepareDocumentForPreview(params.arg_document_cookie, params.arg_request_id);
+          const result = this.impl.didPrepareDocumentForPreview(params.arg_arg_document_cookie, params.arg_arg_request_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didPreviewPage');
-          const result = this.impl.didPreviewPage(params.arg_params, params.arg_request_id);
+          const result = this.impl.didPreviewPage(params.arg_arg_params, params.arg_arg_request_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.metafileReadyForPrinting');
-          const result = this.impl.metafileReadyForPrinting(params.arg_params, params.arg_request_id);
+          const result = this.impl.metafileReadyForPrinting(params.arg_arg_params, params.arg_arg_request_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreviewFailed');
-          const result = this.impl.printPreviewFailed(params.arg_document_cookie, params.arg_request_id);
+          const result = this.impl.printPreviewFailed(params.arg_arg_document_cookie, params.arg_arg_request_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreviewCancelled');
-          const result = this.impl.printPreviewCancelled(params.arg_document_cookie, params.arg_request_id);
+          const result = this.impl.printPreviewCancelled(params.arg_arg_document_cookie, params.arg_arg_request_id);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printerSettingsInvalid');
-          const result = this.impl.printerSettingsInvalid(params.arg_document_cookie, params.arg_request_id);
+          const result = this.impl.printerSettingsInvalid(params.arg_arg_document_cookie, params.arg_arg_request_id);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGetDefaultPageLayout');
-          const result = this.impl.didGetDefaultPageLayout(params.arg_page_layout_in_points, params.arg_printable_area_in_points, params.arg_all_pages_have_custom_size, params.arg_all_pages_have_custom_orientation, params.arg_request_id);
+          const result = this.impl.didGetDefaultPageLayout(params.arg_arg_page_layout_in_points, params.arg_arg_printable_area_in_points, params.arg_arg_all_pages_have_custom_size, params.arg_arg_all_pages_have_custom_orientation, params.arg_arg_request_id);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didStartPreview');
-          const result = this.impl.didStartPreview(params.arg_params, params.arg_request_id);
+          const result = this.impl.didStartPreview(params.arg_arg_params, params.arg_arg_request_id);
           break;
         }
       }
@@ -917,75 +695,6 @@ mojo.internal.bindings.printing.mojom.PrintPreviewUIRequest = mojo.internal.bind
 
 
 // Interface: PrintRenderFrame
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintRequestedPages_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintWithParams_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintForSystemDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_InitiatePrintPreview_Params', [
-      mojo.internal.StructField('arg_print_renderer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintRendererRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec, 'printing.mojom.PrintRenderFrame_SetPrintPreviewUI_Params', [
-      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintPreviewUIRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintPreview_Params', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec, 'printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParams', [
-      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec, 'printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintingDone_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.printing.mojom.PrintRenderFramePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1245,7 +954,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printWithParams');
-          const result = this.impl.printWithParams(params.arg_params);
+          const result = this.impl.printWithParams(params.arg_arg_params);
           break;
         }
         case 2: {
@@ -1259,21 +968,21 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiatePrintPreview');
-          const result = this.impl.initiatePrintPreview(params.arg_print_renderer, params.arg_has_selection);
+          const result = this.impl.initiatePrintPreview(params.arg_arg_print_renderer, params.arg_arg_has_selection);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPrintPreviewUI');
-          const result = this.impl.setPrintPreviewUI(params.arg_preview);
+          const result = this.impl.setPrintPreviewUI(params.arg_arg_preview);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printPreview');
-          const result = this.impl.printPreview(params.arg_settings);
+          const result = this.impl.printPreview(params.arg_arg_settings);
           break;
         }
         case 6: {
@@ -1287,12 +996,14 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printFrameContent');
-          const result = this.impl.printFrameContent(params.arg_params);
+          const result = this.impl.printFrameContent(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PrintFrameContent FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec.$.structSpec, ['response.arg_arg_document_cookie', 'response.arg_arg_params']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] printFrameContent FAILED:', e));
           }
           break;
         }
@@ -1307,7 +1018,7 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printingDone');
-          const result = this.impl.printingDone(params.arg_success);
+          const result = this.impl.printingDone(params.arg_arg_success);
           break;
         }
         case 10: {
@@ -1332,125 +1043,6 @@ mojo.internal.bindings.printing.mojom.PrintRenderFrameRequest = mojo.internal.bi
 
 
 // Interface: PrintManagerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec, 'printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_Params', [
-      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_number_pages', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParams', [
-      mojo.internal.StructField('arg_default_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec, 'printing.mojom.PrintManagerHost_DidShowPrintDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec, 'printing.mojom.PrintManagerHost_DidPrintDocument_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParams', [
-      mojo.internal.StructField('arg_completed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec, 'printing.mojom.PrintManagerHost_IsPrintingEnabled_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParams', [
-      mojo.internal.StructField('arg_printing_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec, 'printing.mojom.PrintManagerHost_ScriptedPrint_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.ScriptedPrintParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParams', [
-      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec, 'printing.mojom.PrintManagerHost_PrintingFailed_Params', [
-      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.printing.mojom.PrintFailureReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec, 'printing.mojom.PrintManagerHost_UpdatePrintSettings_Params', [
-      mojo.internal.StructField('arg_job_settings', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParams', [
-      mojo.internal.StructField('arg_current_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_Params', [
-      mojo.internal.StructField('arg_is_modifiable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_RequestPrintPreview_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec, 'printing.mojom.PrintManagerHost_CheckForCancel_Params', [
-      mojo.internal.StructField('arg_preview_ui_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_CheckForCancel_ResponseParams', [
-      mojo.internal.StructField('arg_cancel', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec, 'printing.mojom.PrintManagerHost_SetAccessibilityTree_Params', [
-      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_accessibility_tree', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.printing.mojom.PrintManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1731,7 +1323,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGetPrintedPagesCount');
-          const result = this.impl.didGetPrintedPagesCount(params.arg_cookie, params.arg_number_pages);
+          const result = this.impl.didGetPrintedPagesCount(params.arg_arg_cookie, params.arg_arg_number_pages);
           break;
         }
         case 1: {
@@ -1742,8 +1334,11 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDefaultPrintSettings FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_default_settings' in response) ? response.arg_arg_default_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultPrintSettings FAILED:', e));
           }
           break;
         }
@@ -1758,12 +1353,15 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didPrintDocument');
-          const result = this.impl.didPrintDocument(params.arg_params);
+          const result = this.impl.didPrintDocument(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DidPrintDocument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_completed' in response) ? response.arg_arg_completed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] didPrintDocument FAILED:', e));
           }
           break;
         }
@@ -1775,8 +1373,11 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsPrintingEnabled FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_printing_enabled' in response) ? response.arg_arg_printing_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isPrintingEnabled FAILED:', e));
           }
           break;
         }
@@ -1784,12 +1385,15 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scriptedPrint');
-          const result = this.impl.scriptedPrint(params.arg_params);
+          const result = this.impl.scriptedPrint(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ScriptedPrint FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_settings' in response) ? response.arg_arg_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] scriptedPrint FAILED:', e));
           }
           break;
         }
@@ -1797,19 +1401,22 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.printingFailed');
-          const result = this.impl.printingFailed(params.arg_cookie, params.arg_reason);
+          const result = this.impl.printingFailed(params.arg_arg_cookie, params.arg_arg_reason);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePrintSettings');
-          const result = this.impl.updatePrintSettings(params.arg_job_settings);
+          const result = this.impl.updatePrintSettings(params.arg_arg_job_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdatePrintSettings FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_current_settings' in response) ? response.arg_arg_current_settings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updatePrintSettings FAILED:', e));
           }
           break;
         }
@@ -1821,8 +1428,10 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetupScriptedPrintPreview FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setupScriptedPrintPreview FAILED:', e));
           }
           break;
         }
@@ -1830,26 +1439,29 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showScriptedPrintPreview');
-          const result = this.impl.showScriptedPrintPreview(params.arg_is_modifiable);
+          const result = this.impl.showScriptedPrintPreview(params.arg_arg_is_modifiable);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPrintPreview');
-          const result = this.impl.requestPrintPreview(params.arg_params);
+          const result = this.impl.requestPrintPreview(params.arg_arg_params);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkForCancel');
-          const result = this.impl.checkForCancel(params.arg_preview_ui_id, params.arg_request_id);
+          const result = this.impl.checkForCancel(params.arg_arg_preview_ui_id, params.arg_arg_request_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckForCancel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_cancel' in response) ? response.arg_arg_cancel : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkForCancel FAILED:', e));
           }
           break;
         }
@@ -1857,7 +1469,7 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccessibilityTree');
-          const result = this.impl.setAccessibilityTree(params.arg_cookie, params.arg_accessibility_tree);
+          const result = this.impl.setAccessibilityTree(params.arg_arg_cookie, params.arg_arg_accessibility_tree);
           break;
         }
       }
@@ -1872,4 +1484,419 @@ mojo.internal.bindings.printing.mojom.PrintManagerHostReceiver = mojo.internal.b
 
 mojo.internal.bindings.printing.mojom.PrintManagerHostPtr = mojo.internal.bindings.printing.mojom.PrintManagerHostRemote;
 mojo.internal.bindings.printing.mojom.PrintManagerHostRequest = mojo.internal.bindings.printing.mojom.PrintManagerHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PreviewIds
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PreviewIdsSpec, 'printing.mojom.PreviewIds', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_ui_id', 4, 0, mojo.internal.Int32, -1, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: RequestPrintPreviewParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec, 'printing.mojom.RequestPrintPreviewParams', [
+      mojo.internal.StructField('arg_is_from_arc', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_modifiable', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_webnode_only', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_selection', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_only', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: PrintFrameContentParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec, 'printing.mojom.PrintFrameContentParams', [
+      mojo.internal.StructField('arg_printable_area', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: OptionsFromDocumentParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.OptionsFromDocumentParamsSpec, 'printing.mojom.OptionsFromDocumentParams', [
+      mojo.internal.StructField('arg_is_scaling_disabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_copies', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_duplex', 8, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DidPrintContentParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, 'printing.mojom.DidPrintContentParams', [
+      mojo.internal.StructField('arg_metafile_data_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subframe_content_info', 8, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DidStartPreviewParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.DidStartPreviewParamsSpec, 'printing.mojom.DidStartPreviewParams', [
+      mojo.internal.StructField('arg_page_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pages_per_sheet', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pages_to_render', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fit_to_page_scaling', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: DidPreviewPageParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec, 'printing.mojom.DidPreviewPageParams', [
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_document_cookie', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DidPreviewDocumentParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec, 'printing.mojom.DidPreviewDocumentParams', [
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_pages_count', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PrintParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintParamsSpec, 'printing.mojom.PrintParams', [
+      mojo.internal.StructField('arg_page_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printable_area', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_margin_top', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_margin_left', 28, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_orientation', 32, 0, mojo.internal.bindings.printing.mojom.PageOrientationSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_document_cookie', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scale_factor', 48, 0, mojo.internal.Double, 1.0, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_only', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_first_request', 56, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_print_to_pdf', 56, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_display_header_footer', 56, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rasterize_pdf', 56, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_print_backgrounds', 56, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_prefer_css_page_size', 56, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_generate_tagged_pdf_$flag', 56, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_generate_tagged_pdf_$value', originalFieldName: 'arg_generate_tagged_pdf' }),
+      mojo.internal.StructField('arg_generate_tagged_pdf_$value', 57, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_generate_tagged_pdf_$flag', originalFieldName: 'arg_generate_tagged_pdf' }),
+      mojo.internal.StructField('arg_preview_ui_id', 60, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_preview_request_id', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_print_scaling_option', 68, 0, mojo.internal.bindings.printing.mojom.PrintScalingOptionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_template', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_footer_template', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rasterize_pdf_dpi', 104, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_printed_doc_type', 108, 0, mojo.internal.bindings.printing.mojom.SkiaDocumentTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pages_per_sheet', 112, 0, mojo.internal.Uint32, 1, false, 0, undefined),
+      mojo.internal.StructField('arg_generate_document_outline', 116, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec, 0, false, 0, undefined),
+    ],
+    [[0, 128]]);
+
+// Struct: PrintPagesParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, 'printing.mojom.PrintPagesParams', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pages', 8, 0, mojo.internal.Array(mojo.internal.bindings.printing.mojom.PageRangeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DidPrintDocumentParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, 'printing.mojom.DidPrintDocumentParams', [
+      mojo.internal.StructField('arg_content', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_cookie', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_area', 24, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_offsets', 32, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: ScriptedPrintParams
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.ScriptedPrintParamsSpec, 'printing.mojom.ScriptedPrintParams', [
+      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_pages_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_scripted', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_margin_type', 12, 0, mojo.internal.bindings.printing.mojom.MarginTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PrintWithParamsResultData
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintWithParamsResultDataSpec, 'printing.mojom.PrintWithParamsResultData', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_tree', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_generate_document_outline', 16, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ParamsSpec, 'printing.mojom.PrintRenderer_CreatePreviewDocument_Params', [
+      mojo.internal.StructField('arg_job_settings', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParamsSpec, 'printing.mojom.PrintRenderer_CreatePreviewDocument_ResponseParams', [
+      mojo.internal.StructField('arg_preview_document_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_SetOptionsFromDocument_ParamsSpec, 'printing.mojom.PrintPreviewUI_SetOptionsFromDocument_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.OptionsFromDocumentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidPrepareDocumentForPreview_Params', [
+      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidPreviewPage_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidPreviewPage_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPreviewPageParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_ParamsSpec, 'printing.mojom.PrintPreviewUI_MetafileReadyForPrinting_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPreviewDocumentParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewFailed_ParamsSpec, 'printing.mojom.PrintPreviewUI_PrintPreviewFailed_Params', [
+      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrintPreviewCancelled_ParamsSpec, 'printing.mojom.PrintPreviewUI_PrintPreviewCancelled_Params', [
+      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_ParamsSpec, 'printing.mojom.PrintPreviewUI_PrinterSettingsInvalid_Params', [
+      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidGetDefaultPageLayout_Params', [
+      mojo.internal.StructField('arg_page_layout_in_points', 0, 0, mojo.internal.bindings.printing.mojom.PageSizeMarginsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_printable_area_in_points', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_all_pages_have_custom_size', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_all_pages_have_custom_orientation', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintPreviewUI_DidStartPreview_ParamsSpec, 'printing.mojom.PrintPreviewUI_DidStartPreview_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidStartPreviewParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintRequestedPages_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintRequestedPages_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintWithParams_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintWithParams_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintForSystemDialog_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintForSystemDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_InitiatePrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_InitiatePrintPreview_Params', [
+      mojo.internal.StructField('arg_print_renderer', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintRendererRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_has_selection', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_SetPrintPreviewUI_ParamsSpec, 'printing.mojom.PrintRenderFrame_SetPrintPreviewUI_Params', [
+      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.printing.mojom.PrintPreviewUIRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintPreview_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintPreview_Params', [
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_ParamsSpec, 'printing.mojom.PrintRenderFrame_OnPrintPreviewDialogClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.PrintFrameContentParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParamsSpec, 'printing.mojom.PrintRenderFrame_PrintFrameContent_ResponseParams', [
+      mojo.internal.StructField('arg_document_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.printing.mojom.DidPrintContentParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_ParamsSpec, 'printing.mojom.PrintRenderFrame_ConnectToPdfRenderer_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintingDone_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintingDone_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_ParamsSpec, 'printing.mojom.PrintRenderFrame_PrintNodeUnderContextMenu_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_ParamsSpec, 'printing.mojom.PrintManagerHost_DidGetPrintedPagesCount_Params', [
+      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_number_pages', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_GetDefaultPrintSettings_ResponseParams', [
+      mojo.internal.StructField('arg_default_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidShowPrintDialog_ParamsSpec, 'printing.mojom.PrintManagerHost_DidShowPrintDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ParamsSpec, 'printing.mojom.PrintManagerHost_DidPrintDocument_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.DidPrintDocumentParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_DidPrintDocument_ResponseParams', [
+      mojo.internal.StructField('arg_completed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ParamsSpec, 'printing.mojom.PrintManagerHost_IsPrintingEnabled_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_IsPrintingEnabled_ResponseParams', [
+      mojo.internal.StructField('arg_printing_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ParamsSpec, 'printing.mojom.PrintManagerHost_ScriptedPrint_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.ScriptedPrintParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_ScriptedPrint_ResponseParams', [
+      mojo.internal.StructField('arg_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_PrintingFailed_ParamsSpec, 'printing.mojom.PrintManagerHost_PrintingFailed_Params', [
+      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.printing.mojom.PrintFailureReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ParamsSpec, 'printing.mojom.PrintManagerHost_UpdatePrintSettings_Params', [
+      mojo.internal.StructField('arg_job_settings', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_UpdatePrintSettings_ResponseParams', [
+      mojo.internal.StructField('arg_current_settings', 0, 0, mojo.internal.bindings.printing.mojom.PrintPagesParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_SetupScriptedPrintPreview_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_ShowScriptedPrintPreview_Params', [
+      mojo.internal.StructField('arg_is_modifiable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_RequestPrintPreview_ParamsSpec, 'printing.mojom.PrintManagerHost_RequestPrintPreview_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.printing.mojom.RequestPrintPreviewParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ParamsSpec, 'printing.mojom.PrintManagerHost_CheckForCancel_Params', [
+      mojo.internal.StructField('arg_preview_ui_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_CheckForCancel_ResponseParamsSpec, 'printing.mojom.PrintManagerHost_CheckForCancel_ResponseParams', [
+      mojo.internal.StructField('arg_cancel', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintManagerHost_SetAccessibilityTree_ParamsSpec, 'printing.mojom.PrintManagerHost_SetAccessibilityTree_Params', [
+      mojo.internal.StructField('arg_cookie', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_accessibility_tree', 8, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

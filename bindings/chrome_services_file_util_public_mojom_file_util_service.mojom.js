@@ -140,24 +140,6 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorSpec = mojo.internal.bind
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote = mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote || class {};
 
 // Interface: FileUtilService
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec, 'chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec, 'chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec, 'chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.FileUtilServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,21 +280,21 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSafeArchiveAnalyzer');
-          const result = this.impl.bindSafeArchiveAnalyzer(params.arg_receiver);
+          const result = this.impl.bindSafeArchiveAnalyzer(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarFileExtractor');
-          const result = this.impl.bindSingleFileTarFileExtractor(params.arg_receiver);
+          const result = this.impl.bindSingleFileTarFileExtractor(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSingleFileTarXzFileExtractor');
-          const result = this.impl.bindSingleFileTarXzFileExtractor(params.arg_receiver);
+          const result = this.impl.bindSingleFileTarXzFileExtractor(params.arg_arg_receiver);
           break;
         }
       }
@@ -327,4 +309,24 @@ mojo.internal.bindings.chrome.mojom.FileUtilServiceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.chrome.mojom.FileUtilServicePtr = mojo.internal.bindings.chrome.mojom.FileUtilServiceRemote;
 mojo.internal.bindings.chrome.mojom.FileUtilServiceRequest = mojo.internal.bindings.chrome.mojom.FileUtilServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_ParamsSpec, 'chrome.mojom.FileUtilService_BindSafeArchiveAnalyzer_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SafeArchiveAnalyzerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_ParamsSpec, 'chrome.mojom.FileUtilService_BindSingleFileTarFileExtractor_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_ParamsSpec, 'chrome.mojom.FileUtilService_BindSingleFileTarXzFileExtractor_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SingleFileExtractorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

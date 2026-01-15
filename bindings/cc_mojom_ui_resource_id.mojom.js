@@ -123,6 +123,8 @@ mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
 mojo.internal.bindings.cc.mojom.UIResourceIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UIResourceId
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.UIResourceIdSpec, 'cc.mojom.UIResourceId', [

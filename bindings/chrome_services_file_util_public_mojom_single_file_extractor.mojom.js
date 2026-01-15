@@ -145,20 +145,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SingleFileExtractor
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_Params', [
-      mojo.internal.StructField('arg_src_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dst_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.file_util.mojom.ExtractionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,12 +257,15 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extract');
-          const result = this.impl.extract(params.arg_src_file, params.arg_dst_file, params.arg_listener);
+          const result = this.impl.extract(params.arg_arg_src_file, params.arg_arg_dst_file, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Extract FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extract FAILED:', e));
           }
           break;
         }
@@ -295,13 +284,6 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorRequest = mojo.internal.b
 
 
 // Interface: SingleFileExtractorListener
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec, 'chrome.mojom.SingleFileExtractorListener_OnProgress_Params', [
-      mojo.internal.StructField('arg_total_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_progress_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -414,7 +396,7 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_total_bytes, params.arg_progress_bytes);
+          const result = this.impl.onProgress(params.arg_arg_total_bytes, params.arg_arg_progress_bytes);
           break;
         }
       }
@@ -429,4 +411,27 @@ mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerReceiver = mojo.i
 
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerPtr = mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemote;
 mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRequest = mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_Params', [
+      mojo.internal.StructField('arg_src_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dst_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.SingleFileExtractorListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SingleFileExtractor_Extract_ResponseParamsSpec, 'chrome.mojom.SingleFileExtractor_Extract_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chrome.file_util.mojom.ExtractionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SingleFileExtractorListener_OnProgress_ParamsSpec, 'chrome.mojom.SingleFileExtractorListener_OnProgress_Params', [
+      mojo.internal.StructField('arg_total_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_progress_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -289,300 +289,7 @@ mojo.internal.bindings.device.mojom.UsbTransferStatus = {
   PERMISSION_DENIED: 8,
 };
 
-// Union: UsbOpenDeviceResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec, 'device.mojom.UsbOpenDeviceResult', {
-      'arg_success': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.UsbOpenDeviceSuccessSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.UsbOpenDeviceErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: UsbEndpointInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbEndpointInfoSpec, 'device.mojom.UsbEndpointInfo', [
-      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_polling_interval', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_direction', 4, 0, mojo.internal.bindings.device.mojom.UsbTransferDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.device.mojom.UsbTransferTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packet_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_synchronization_type', 16, 0, mojo.internal.bindings.device.mojom.UsbSynchronizationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usage_type', 20, 0, mojo.internal.bindings.device.mojom.UsbUsageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: UsbAlternateInterfaceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbAlternateInterfaceInfoSpec, 'device.mojom.UsbAlternateInterfaceInfo', [
-      mojo.internal.StructField('arg_alternate_setting', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_class_code', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subclass_code', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_code', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_endpoints', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbEndpointInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: UsbInterfaceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbInterfaceInfoSpec, 'device.mojom.UsbInterfaceInfo', [
-      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_first_interface', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_alternates', 4, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbAlternateInterfaceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: UsbConfigurationInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbConfigurationInfoSpec, 'device.mojom.UsbConfigurationInfo', [
-      mojo.internal.StructField('arg_configuration_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_self_powered', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_wakeup', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum_power', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_configuration_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_interfaces', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbInterfaceInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: UsbDeviceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, 'device.mojom.UsbDeviceInfo', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usb_version_major', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_usb_version_minor', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_usb_version_subminor', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_class_code', 11, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subclass_code', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol_code', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 14, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bus_number', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_port_number', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_version_major', 26, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_version_minor', 27, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_version_subminor', 28, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active_configuration', 29, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_webusb_landing_page', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_configurations', 64, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbConfigurationInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
-// Struct: UsbControlTransferParams
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, 'device.mojom.UsbControlTransferParams', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.UsbControlTransferTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_recipient', 4, 0, mojo.internal.bindings.device.mojom.UsbControlTransferRecipientSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_kSecurityKeyAOAModel', 16, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: UsbIsochronousPacket
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbIsochronousPacketSpec, 'device.mojom.UsbIsochronousPacket', [
-      mojo.internal.StructField('arg_length', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_transferred_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: UsbDevice
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_Open_ParamsSpec, 'device.mojom.UsbDevice_Open_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec, 'device.mojom.UsbDevice_Open_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_Close_ParamsSpec, 'device.mojom.UsbDevice_Close_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec, 'device.mojom.UsbDevice_Close_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ParamsSpec, 'device.mojom.UsbDevice_SetConfiguration_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec, 'device.mojom.UsbDevice_SetConfiguration_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ParamsSpec, 'device.mojom.UsbDevice_ClaimInterface_Params', [
-      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec, 'device.mojom.UsbDevice_ClaimInterface_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbClaimInterfaceResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ParamsSpec, 'device.mojom.UsbDevice_ReleaseInterface_Params', [
-      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec, 'device.mojom.UsbDevice_ReleaseInterface_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec, 'device.mojom.UsbDevice_SetInterfaceAlternateSetting_Params', [
-      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_alternate_setting', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec, 'device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_Reset_ParamsSpec, 'device.mojom.UsbDevice_Reset_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec, 'device.mojom.UsbDevice_Reset_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ParamsSpec, 'device.mojom.UsbDevice_ClearHalt_Params', [
-      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoint_number', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec, 'device.mojom.UsbDevice_ClearHalt_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ParamsSpec, 'device.mojom.UsbDevice_ControlTransferIn_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec, 'device.mojom.UsbDevice_ControlTransferIn_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ParamsSpec, 'device.mojom.UsbDevice_ControlTransferOut_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec, 'device.mojom.UsbDevice_ControlTransferOut_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ParamsSpec, 'device.mojom.UsbDevice_GenericTransferIn_Params', [
-      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec, 'device.mojom.UsbDevice_GenericTransferIn_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ParamsSpec, 'device.mojom.UsbDevice_GenericTransferOut_Params', [
-      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec, 'device.mojom.UsbDevice_GenericTransferOut_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferIn_Params', [
-      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_packet_lengths', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferIn_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packets', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbIsochronousPacketSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferOut_Params', [
-      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packet_lengths', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferOut_ResponseParams', [
-      mojo.internal.StructField('arg_packets', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbIsochronousPacketSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.UsbDevicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -881,8 +588,11 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Open FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
           break;
         }
@@ -894,8 +604,10 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -903,12 +615,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setConfiguration');
-          const result = this.impl.setConfiguration(params.arg_value);
+          const result = this.impl.setConfiguration(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetConfiguration FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setConfiguration FAILED:', e));
           }
           break;
         }
@@ -916,12 +631,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.claimInterface');
-          const result = this.impl.claimInterface(params.arg_interface_number);
+          const result = this.impl.claimInterface(params.arg_arg_interface_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClaimInterface FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] claimInterface FAILED:', e));
           }
           break;
         }
@@ -929,12 +647,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.releaseInterface');
-          const result = this.impl.releaseInterface(params.arg_interface_number);
+          const result = this.impl.releaseInterface(params.arg_arg_interface_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReleaseInterface FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] releaseInterface FAILED:', e));
           }
           break;
         }
@@ -942,12 +663,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInterfaceAlternateSetting');
-          const result = this.impl.setInterfaceAlternateSetting(params.arg_interface_number, params.arg_alternate_setting);
+          const result = this.impl.setInterfaceAlternateSetting(params.arg_arg_interface_number, params.arg_arg_alternate_setting);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetInterfaceAlternateSetting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setInterfaceAlternateSetting FAILED:', e));
           }
           break;
         }
@@ -959,8 +683,11 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Reset FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] reset FAILED:', e));
           }
           break;
         }
@@ -968,12 +695,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearHalt');
-          const result = this.impl.clearHalt(params.arg_direction, params.arg_endpoint_number);
+          const result = this.impl.clearHalt(params.arg_arg_direction, params.arg_arg_endpoint_number);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClearHalt FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] clearHalt FAILED:', e));
           }
           break;
         }
@@ -981,12 +711,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.controlTransferIn');
-          const result = this.impl.controlTransferIn(params.arg_params, params.arg_length, params.arg_timeout);
+          const result = this.impl.controlTransferIn(params.arg_arg_params, params.arg_arg_length, params.arg_arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ControlTransferIn FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] controlTransferIn FAILED:', e));
           }
           break;
         }
@@ -994,12 +726,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.controlTransferOut');
-          const result = this.impl.controlTransferOut(params.arg_params, params.arg_data, params.arg_timeout);
+          const result = this.impl.controlTransferOut(params.arg_arg_params, params.arg_arg_data, params.arg_arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ControlTransferOut FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] controlTransferOut FAILED:', e));
           }
           break;
         }
@@ -1007,12 +742,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.genericTransferIn');
-          const result = this.impl.genericTransferIn(params.arg_endpoint_number, params.arg_length, params.arg_timeout);
+          const result = this.impl.genericTransferIn(params.arg_arg_endpoint_number, params.arg_arg_length, params.arg_arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GenericTransferIn FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] genericTransferIn FAILED:', e));
           }
           break;
         }
@@ -1020,12 +757,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.genericTransferOut');
-          const result = this.impl.genericTransferOut(params.arg_endpoint_number, params.arg_data, params.arg_timeout);
+          const result = this.impl.genericTransferOut(params.arg_arg_endpoint_number, params.arg_arg_data, params.arg_arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GenericTransferOut FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] genericTransferOut FAILED:', e));
           }
           break;
         }
@@ -1033,12 +773,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isochronousTransferIn');
-          const result = this.impl.isochronousTransferIn(params.arg_endpoint_number, params.arg_packet_lengths, params.arg_timeout);
+          const result = this.impl.isochronousTransferIn(params.arg_arg_endpoint_number, params.arg_arg_packet_lengths, params.arg_arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsochronousTransferIn FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec.$.structSpec, ['response.arg_arg_data', 'response.arg_arg_packets']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isochronousTransferIn FAILED:', e));
           }
           break;
         }
@@ -1046,12 +788,15 @@ mojo.internal.bindings.device.mojom.UsbDeviceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isochronousTransferOut');
-          const result = this.impl.isochronousTransferOut(params.arg_endpoint_number, params.arg_data, params.arg_packet_lengths, params.arg_timeout);
+          const result = this.impl.isochronousTransferOut(params.arg_arg_endpoint_number, params.arg_arg_data, params.arg_arg_packet_lengths, params.arg_arg_timeout);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsochronousTransferOut FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_packets' in response) ? response.arg_arg_packets : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isochronousTransferOut FAILED:', e));
           }
           break;
         }
@@ -1070,16 +815,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceRequest = mojo.internal.bindings.de
 
 
 // Interface: UsbDeviceClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec, 'device.mojom.UsbDeviceClient_OnDeviceOpened_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec, 'device.mojom.UsbDeviceClient_OnDeviceClosed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.UsbDeviceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1228,4 +963,309 @@ mojo.internal.bindings.device.mojom.UsbDeviceClientReceiver = mojo.internal.bind
 
 mojo.internal.bindings.device.mojom.UsbDeviceClientPtr = mojo.internal.bindings.device.mojom.UsbDeviceClientRemote;
 mojo.internal.bindings.device.mojom.UsbDeviceClientRequest = mojo.internal.bindings.device.mojom.UsbDeviceClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: UsbOpenDeviceResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec, 'device.mojom.UsbOpenDeviceResult', {
+      'arg_success': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.device.mojom.UsbOpenDeviceSuccessSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.UsbOpenDeviceErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: UsbEndpointInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbEndpointInfoSpec, 'device.mojom.UsbEndpointInfo', [
+      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_polling_interval', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 4, 0, mojo.internal.bindings.device.mojom.UsbTransferDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.device.mojom.UsbTransferTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_synchronization_type', 16, 0, mojo.internal.bindings.device.mojom.UsbSynchronizationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usage_type', 20, 0, mojo.internal.bindings.device.mojom.UsbUsageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: UsbAlternateInterfaceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbAlternateInterfaceInfoSpec, 'device.mojom.UsbAlternateInterfaceInfo', [
+      mojo.internal.StructField('arg_alternate_setting', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_class_code', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subclass_code', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_code', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_endpoints', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbEndpointInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: UsbInterfaceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbInterfaceInfoSpec, 'device.mojom.UsbInterfaceInfo', [
+      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_first_interface', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alternates', 4, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbAlternateInterfaceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: UsbConfigurationInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbConfigurationInfoSpec, 'device.mojom.UsbConfigurationInfo', [
+      mojo.internal.StructField('arg_configuration_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_self_powered', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_wakeup', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum_power', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_configuration_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_interfaces', 16, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbInterfaceInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra_data', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: UsbDeviceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, 'device.mojom.UsbDeviceInfo', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usb_version_major', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_usb_version_minor', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_usb_version_subminor', 10, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_class_code', 11, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subclass_code', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol_code', 13, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 14, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bus_number', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_port_number', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 24, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_version_major', 26, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_version_minor', 27, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_version_subminor', 28, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_active_configuration', 29, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_name', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 48, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_webusb_landing_page', 56, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_configurations', 64, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbConfigurationInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+
+// Struct: UsbControlTransferParams
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, 'device.mojom.UsbControlTransferParams', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.UsbControlTransferTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_recipient', 4, 0, mojo.internal.bindings.device.mojom.UsbControlTransferRecipientSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 10, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_kSecurityKeyAOAModel', 16, 0, mojo.internal.OpaqueStruct, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: UsbIsochronousPacket
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbIsochronousPacketSpec, 'device.mojom.UsbIsochronousPacket', [
+      mojo.internal.StructField('arg_length', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_transferred_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_Open_ParamsSpec, 'device.mojom.UsbDevice_Open_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_Open_ResponseParamsSpec, 'device.mojom.UsbDevice_Open_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbOpenDeviceResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_Close_ParamsSpec, 'device.mojom.UsbDevice_Close_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_Close_ResponseParamsSpec, 'device.mojom.UsbDevice_Close_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ParamsSpec, 'device.mojom.UsbDevice_SetConfiguration_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_SetConfiguration_ResponseParamsSpec, 'device.mojom.UsbDevice_SetConfiguration_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ParamsSpec, 'device.mojom.UsbDevice_ClaimInterface_Params', [
+      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ClaimInterface_ResponseParamsSpec, 'device.mojom.UsbDevice_ClaimInterface_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UsbClaimInterfaceResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ParamsSpec, 'device.mojom.UsbDevice_ReleaseInterface_Params', [
+      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ReleaseInterface_ResponseParamsSpec, 'device.mojom.UsbDevice_ReleaseInterface_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ParamsSpec, 'device.mojom.UsbDevice_SetInterfaceAlternateSetting_Params', [
+      mojo.internal.StructField('arg_interface_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alternate_setting', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParamsSpec, 'device.mojom.UsbDevice_SetInterfaceAlternateSetting_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_Reset_ParamsSpec, 'device.mojom.UsbDevice_Reset_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_Reset_ResponseParamsSpec, 'device.mojom.UsbDevice_Reset_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ParamsSpec, 'device.mojom.UsbDevice_ClearHalt_Params', [
+      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoint_number', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ClearHalt_ResponseParamsSpec, 'device.mojom.UsbDevice_ClearHalt_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ParamsSpec, 'device.mojom.UsbDevice_ControlTransferIn_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferIn_ResponseParamsSpec, 'device.mojom.UsbDevice_ControlTransferIn_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ParamsSpec, 'device.mojom.UsbDevice_ControlTransferOut_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.device.mojom.UsbControlTransferParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_ControlTransferOut_ResponseParamsSpec, 'device.mojom.UsbDevice_ControlTransferOut_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ParamsSpec, 'device.mojom.UsbDevice_GenericTransferIn_Params', [
+      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferIn_ResponseParamsSpec, 'device.mojom.UsbDevice_GenericTransferIn_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ParamsSpec, 'device.mojom.UsbDevice_GenericTransferOut_Params', [
+      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_GenericTransferOut_ResponseParamsSpec, 'device.mojom.UsbDevice_GenericTransferOut_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.UsbTransferStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferIn_Params', [
+      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_lengths', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferIn_ResponseParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferIn_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packets', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbIsochronousPacketSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferOut_Params', [
+      mojo.internal.StructField('arg_endpoint_number', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_lengths', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDevice_IsochronousTransferOut_ResponseParamsSpec, 'device.mojom.UsbDevice_IsochronousTransferOut_ResponseParams', [
+      mojo.internal.StructField('arg_packets', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.UsbIsochronousPacketSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceOpened_ParamsSpec, 'device.mojom.UsbDeviceClient_OnDeviceOpened_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceClient_OnDeviceClosed_ParamsSpec, 'device.mojom.UsbDeviceClient_OnDeviceClosed_Params', [
+    ],
+    [[0, 8]]);
 

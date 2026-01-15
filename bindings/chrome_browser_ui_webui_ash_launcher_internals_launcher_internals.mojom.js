@@ -131,27 +131,7 @@ mojo.internal.bindings.launcher_internals.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.launcher_internals.mojom.Page.$interfaceName = 'launcher_internals.mojom.Page';
 mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec = { $: {} };
 
-// Struct: Result
-mojo.internal.Struct(
-    mojo.internal.bindings.launcher_internals.mojom.ResultSpec, 'launcher_internals.mojom.Result', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metrics_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_score', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ranker_scores', 56, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Double, false), null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.launcher_internals.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -264,7 +244,7 @@ mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page);
+          const result = this.impl.createPageHandler(params.arg_arg_page);
           break;
         }
       }
@@ -282,14 +262,6 @@ mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactoryRequest = mojo
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec, 'launcher_internals.mojom.Page_UpdateResults_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keywords', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_results', 16, 0, mojo.internal.Array(mojo.internal.bindings.launcher_internals.mojom.ResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.launcher_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -402,7 +374,7 @@ mojo.internal.bindings.launcher_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateResults');
-          const result = this.impl.updateResults(params.arg_query, params.arg_keywords, params.arg_results);
+          const result = this.impl.updateResults(params.arg_arg_query, params.arg_arg_keywords, params.arg_arg_results);
           break;
         }
       }
@@ -417,4 +389,34 @@ mojo.internal.bindings.launcher_internals.mojom.PageReceiver = mojo.internal.bin
 
 mojo.internal.bindings.launcher_internals.mojom.PagePtr = mojo.internal.bindings.launcher_internals.mojom.PageRemote;
 mojo.internal.bindings.launcher_internals.mojom.PageRequest = mojo.internal.bindings.launcher_internals.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Result
+mojo.internal.Struct(
+    mojo.internal.bindings.launcher_internals.mojom.ResultSpec, 'launcher_internals.mojom.Result', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metrics_type', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ranker_scores', 56, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'launcher_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.launcher_internals.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.launcher_internals.mojom.Page_UpdateResults_ParamsSpec, 'launcher_internals.mojom.Page_UpdateResults_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keywords', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_results', 16, 0, mojo.internal.Array(mojo.internal.bindings.launcher_internals.mojom.ResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

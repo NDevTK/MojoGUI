@@ -133,19 +133,6 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.PredictionFeaturesSpec = mojo.internal.bindings.media.mojom.PredictionFeaturesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VideoDecodePerfHistory
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParams', [
-      mojo.internal.StructField('arg_is_smooth', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_power_efficient', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,12 +245,14 @@ mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPerfInfo');
-          const result = this.impl.getPerfInfo(params.arg_features);
+          const result = this.impl.getPerfInfo(params.arg_arg_features);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPerfInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_smooth', 'response.arg_arg_is_power_efficient']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPerfInfo FAILED:', e));
           }
           break;
         }
@@ -279,4 +268,19 @@ mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryReceiver = mojo.interna
 
 mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryPtr = mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryRemote;
 mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryRequest = mojo.internal.bindings.media.mojom.VideoDecodePerfHistoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_Params', [
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParamsSpec, 'media.mojom.VideoDecodePerfHistory_GetPerfInfo_ResponseParams', [
+      mojo.internal.StructField('arg_is_smooth', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_power_efficient', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

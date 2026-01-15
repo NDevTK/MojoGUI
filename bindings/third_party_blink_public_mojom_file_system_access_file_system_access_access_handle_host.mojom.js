@@ -128,16 +128,6 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_Params
 mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessAccessHandleHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec, 'blink.mojom.FileSystemAccessAccessHandleHost_Close_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec, 'blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -254,8 +244,10 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -271,4 +263,16 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostReceiver = mo
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostPtr = mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostRemote;
 mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostRequest = mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ParamsSpec, 'blink.mojom.FileSystemAccessAccessHandleHost_Close_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParamsSpec, 'blink.mojom.FileSystemAccessAccessHandleHost_Close_ResponseParams', [
+    ],
+    [[0, 8]]);
 

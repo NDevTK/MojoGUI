@@ -156,20 +156,6 @@ mojo.internal.bindings.chromecast.mojom.SideSwipeOrigin = {
 };
 
 // Interface: SettingsClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec, 'chromecast.mojom.SettingsClient_HandleSideSwipe_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 4, 0, mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_touch_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec, 'chromecast.mojom.SettingsClient_SendPlatformInfo_Params', [
-      mojo.internal.StructField('arg_platform_info_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.SettingsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,14 +282,14 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleSideSwipe');
-          const result = this.impl.handleSideSwipe(params.arg_event, params.arg_origin, params.arg_touch_location);
+          const result = this.impl.handleSideSwipe(params.arg_arg_event, params.arg_arg_origin, params.arg_arg_touch_location);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendPlatformInfo');
-          const result = this.impl.sendPlatformInfo(params.arg_platform_info_json);
+          const result = this.impl.sendPlatformInfo(params.arg_arg_platform_info_json);
           break;
         }
       }
@@ -321,18 +307,6 @@ mojo.internal.bindings.chromecast.mojom.SettingsClientRequest = mojo.internal.bi
 
 
 // Interface: SettingsPlatform
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec, 'chromecast.mojom.SettingsPlatform_Connect_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.SettingsClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec, 'chromecast.mojom.SettingsPlatform_RequestVisible_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.SettingsPlatformPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -459,14 +433,14 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_client);
+          const result = this.impl.connect(params.arg_arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVisible');
-          const result = this.impl.requestVisible(params.arg_visible);
+          const result = this.impl.requestVisible(params.arg_arg_visible);
           break;
         }
       }
@@ -481,4 +455,32 @@ mojo.internal.bindings.chromecast.mojom.SettingsPlatformReceiver = mojo.internal
 
 mojo.internal.bindings.chromecast.mojom.SettingsPlatformPtr = mojo.internal.bindings.chromecast.mojom.SettingsPlatformRemote;
 mojo.internal.bindings.chromecast.mojom.SettingsPlatformRequest = mojo.internal.bindings.chromecast.mojom.SettingsPlatformPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.SettingsClient_HandleSideSwipe_ParamsSpec, 'chromecast.mojom.SettingsClient_HandleSideSwipe_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromecast.mojom.SideSwipeEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 4, 0, mojo.internal.bindings.chromecast.mojom.SideSwipeOriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_touch_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.SettingsClient_SendPlatformInfo_ParamsSpec, 'chromecast.mojom.SettingsClient_SendPlatformInfo_Params', [
+      mojo.internal.StructField('arg_platform_info_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.SettingsPlatform_Connect_ParamsSpec, 'chromecast.mojom.SettingsPlatform_Connect_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.SettingsClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.SettingsPlatform_RequestVisible_ParamsSpec, 'chromecast.mojom.SettingsPlatform_RequestVisible_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

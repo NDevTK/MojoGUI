@@ -144,41 +144,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ImageDownloader
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_favicon', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_bypass_cache', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_max_bitmap_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_ResponseParams', [
-      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_image_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_Params', [
-      mojo.internal.StructField('arg_ax_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_bitmap_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bypass_cache', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParams', [
-      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_image_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.ImageDownloaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,12 +270,14 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImage');
-          const result = this.impl.downloadImage(params.arg_url, params.arg_is_favicon, params.arg_preferred_size, params.arg_max_bitmap_size, params.arg_bypass_cache);
+          const result = this.impl.downloadImage(params.arg_arg_url, params.arg_arg_is_favicon, params.arg_arg_preferred_size, params.arg_arg_max_bitmap_size, params.arg_arg_bypass_cache);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DownloadImage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_http_status_code', 'response.arg_arg_images', 'response.arg_arg_original_image_sizes']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] downloadImage FAILED:', e));
           }
           break;
         }
@@ -318,12 +285,14 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImageFromAxNode');
-          const result = this.impl.downloadImageFromAxNode(params.arg_ax_node_id, params.arg_preferred_size, params.arg_max_bitmap_size, params.arg_bypass_cache);
+          const result = this.impl.downloadImageFromAxNode(params.arg_arg_ax_node_id, params.arg_arg_preferred_size, params.arg_arg_max_bitmap_size, params.arg_arg_bypass_cache);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DownloadImageFromAxNode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_http_status_code', 'response.arg_arg_images', 'response.arg_arg_original_image_sizes']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] downloadImageFromAxNode FAILED:', e));
           }
           break;
         }
@@ -339,4 +308,41 @@ mojo.internal.bindings.blink.mojom.ImageDownloaderReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.ImageDownloaderPtr = mojo.internal.bindings.blink.mojom.ImageDownloaderRemote;
 mojo.internal.bindings.blink.mojom.ImageDownloaderRequest = mojo.internal.bindings.blink.mojom.ImageDownloaderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_favicon', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bypass_cache', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_bitmap_size', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImage_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImage_ResponseParams', [
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_image_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_Params', [
+      mojo.internal.StructField('arg_ax_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_bitmap_size', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bypass_cache', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParamsSpec, 'blink.mojom.ImageDownloader_DownloadImageFromAxNode_ResponseParams', [
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_images', 8, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_image_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

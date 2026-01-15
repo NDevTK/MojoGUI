@@ -148,6 +148,8 @@ mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveType = {
   kRelease: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CompositorFrameTransitionDirectiveSharedElement
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorFrameTransitionDirectiveSharedElementSpec, 'viz.mojom.CompositorFrameTransitionDirectiveSharedElement', [

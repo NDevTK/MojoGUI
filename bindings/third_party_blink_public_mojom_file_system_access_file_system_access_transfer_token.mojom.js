@@ -135,23 +135,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FileSystemAccessTransferToken
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParams', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_Clone_Params', [
-      mojo.internal.StructField('arg_token_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -282,8 +265,11 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInternalID FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_id' in response) ? response.arg_arg_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInternalID FAILED:', e));
           }
           break;
         }
@@ -291,7 +277,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_token_clone);
+          const result = this.impl.clone(params.arg_arg_token_clone);
           break;
         }
       }
@@ -306,4 +292,23 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPtr = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote;
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRequest = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_GetInternalID_ResponseParams', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessTransferToken_Clone_ParamsSpec, 'blink.mojom.FileSystemAccessTransferToken_Clone_Params', [
+      mojo.internal.StructField('arg_token_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

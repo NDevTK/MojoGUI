@@ -133,70 +133,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseP
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec = { $: {} };
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec = { $: {} };
 
-// Struct: ExtensionData
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec, 'chromeos.cfm.mojom.ExtensionData', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hashed_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: ProcessMemoryInformation
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec, 'chromeos.cfm.mojom.ProcessMemoryInformation', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_processes', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_process_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_num_open_fds', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_open_fds_soft_limit', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_titles', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_private_memory_footprint_kb', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extension_info', 64, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
-// Struct: ProcessData
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec, 'chromeos.cfm.mojom.ProcessData', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_process_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_processes', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: CfmBrowser
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetVariationsData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParams', [
-      mojo.internal.StructField('arg_field_trial_parameters', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field_trial_states', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled_features', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_disabled_features', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParams', [
-      mojo.internal.StructField('arg_process_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_memory_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -327,8 +264,10 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetVariationsData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_field_trial_parameters', 'response.arg_arg_field_trial_states', 'response.arg_arg_enabled_features', 'response.arg_arg_disabled_features']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getVariationsData FAILED:', e));
           }
           break;
         }
@@ -340,8 +279,10 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMemoryDetails FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_process_data', 'response.arg_arg_gpu_memory_size']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMemoryDetails FAILED:', e));
           }
           break;
         }
@@ -357,4 +298,69 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserReceiver = mojo.internal.bin
 
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserPtr = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRemote;
 mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserRequest = mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ExtensionData
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec, 'chromeos.cfm.mojom.ExtensionData', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hashed_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: ProcessMemoryInformation
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec, 'chromeos.cfm.mojom.ProcessMemoryInformation', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_processes', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_type', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_num_open_fds', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_open_fds_soft_limit', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_titles', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_private_memory_footprint_kb', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_info', 64, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ExtensionDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+
+// Struct: ProcessData
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec, 'chromeos.cfm.mojom.ProcessData', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_processes', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ProcessMemoryInformationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetVariationsData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetVariationsData_ResponseParams', [
+      mojo.internal.StructField('arg_field_trial_parameters', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_trial_states', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled_features', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disabled_features', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmBrowser_GetMemoryDetails_ResponseParams', [
+      mojo.internal.StructField('arg_process_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cfm.mojom.ProcessDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_memory_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

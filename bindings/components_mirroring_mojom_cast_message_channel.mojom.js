@@ -131,21 +131,7 @@ mojo.internal.bindings.mirroring.mojom.kRemotingNamespace = "urn:x-cast:com.goog
 
 mojo.internal.bindings.mirroring.mojom.kWebRtcNamespace = "urn:x-cast:com.google.cast.webrtc";
 
-// Struct: CastMessage
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.CastMessageSpec, 'mirroring.mojom.CastMessage', [
-      mojo.internal.StructField('arg_message_namespace', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_json_format_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: CastMessageChannel
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec, 'mirroring.mojom.CastMessageChannel_OnMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mirroring.mojom.CastMessageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mirroring.mojom.CastMessageChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,7 +244,7 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_message);
+          const result = this.impl.onMessage(params.arg_arg_message);
           break;
         }
       }
@@ -273,4 +259,20 @@ mojo.internal.bindings.mirroring.mojom.CastMessageChannelReceiver = mojo.interna
 
 mojo.internal.bindings.mirroring.mojom.CastMessageChannelPtr = mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote;
 mojo.internal.bindings.mirroring.mojom.CastMessageChannelRequest = mojo.internal.bindings.mirroring.mojom.CastMessageChannelPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CastMessage
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.CastMessageSpec, 'mirroring.mojom.CastMessage', [
+      mojo.internal.StructField('arg_message_namespace', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_json_format_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.CastMessageChannel_OnMessage_ParamsSpec, 'mirroring.mojom.CastMessageChannel_OnMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mirroring.mojom.CastMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

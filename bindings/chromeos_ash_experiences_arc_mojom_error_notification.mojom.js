@@ -149,30 +149,7 @@ mojo.internal.bindings.arc.mojom.ErrorType = {
   ANR: 1,
 };
 
-// Struct: ErrorDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorDetailsSpec, 'arc.mojom.ErrorDetails', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.arc.mojom.ErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buttonLabels', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ErrorNotificationHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.arc.mojom.ErrorDetailsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParams', [
-      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.ErrorNotificationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,12 +262,15 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendErrorDetails');
-          const result = this.impl.sendErrorDetails(params.arg_details, params.arg_action_handler);
+          const result = this.impl.sendErrorDetails(params.arg_arg_details, params.arg_arg_action_handler);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendErrorDetails FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_item' in response) ? response.arg_arg_item : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendErrorDetails FAILED:', e));
           }
           break;
         }
@@ -309,17 +289,6 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationHostRequest = mojo.internal.bi
 
 
 // Interface: ErrorNotificationInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.ErrorNotificationInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -432,12 +401,14 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -456,11 +427,6 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationInstanceRequest = mojo.interna
 
 
 // Interface: ErrorNotificationItem
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec, 'arc.mojom.ErrorNotificationItem_CloseErrorNotification_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.ErrorNotificationItemPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -591,17 +557,6 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationItemRequest = mojo.internal.bi
 
 
 // Interface: ErrorNotificationActionHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec, 'arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_Params', [
-      mojo.internal.StructField('arg_buttonIndex', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec, 'arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -728,7 +683,7 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNotificationButtonClicked');
-          const result = this.impl.onNotificationButtonClicked(params.arg_buttonIndex);
+          const result = this.impl.onNotificationButtonClicked(params.arg_arg_buttonIndex);
           break;
         }
         case 1: {
@@ -750,4 +705,56 @@ mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerReceiver = mojo.i
 
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerPtr = mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemote;
 mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRequest = mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ErrorDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorDetailsSpec, 'arc.mojom.ErrorDetails', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.arc.mojom.ErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buttonLabels', 24, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_Params', [
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.bindings.arc.mojom.ErrorDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParamsSpec, 'arc.mojom.ErrorNotificationHost_SendErrorDetails_ResponseParams', [
+      mojo.internal.StructField('arg_item', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationItemRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ErrorNotificationHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationInstance_Init_ResponseParamsSpec, 'arc.mojom.ErrorNotificationInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationItem_CloseErrorNotification_ParamsSpec, 'arc.mojom.ErrorNotificationItem_CloseErrorNotification_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_ParamsSpec, 'arc.mojom.ErrorNotificationActionHandler_OnNotificationButtonClicked_Params', [
+      mojo.internal.StructField('arg_buttonIndex', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_ParamsSpec, 'arc.mojom.ErrorNotificationActionHandler_OnNotificationClosed_Params', [
+    ],
+    [[0, 8]]);
 

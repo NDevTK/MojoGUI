@@ -475,6 +475,1829 @@ mojo.internal.bindings.device.mojom.XRVisibilityState = {
   HIDDEN: 3,
 };
 
+// Interface: VRService
+mojo.internal.bindings.device.mojom.VRServicePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.VRServiceRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.VRService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.VRServicePendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  setClient(arg_client) {
+    return this.$.setClient(arg_client);
+  }
+  requestSession(arg_options) {
+    return this.$.requestSession(arg_options);
+  }
+  supportsSession(arg_options) {
+    return this.$.supportsSession(arg_options);
+  }
+  exitPresent() {
+    return this.$.exitPresent();
+  }
+  setFramesThrottled(arg_throttled) {
+    return this.$.setFramesThrottled(arg_throttled);
+  }
+  makeXrCompatible() {
+    return this.$.makeXrCompatible();
+  }
+};
+
+mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  setClient(arg_client) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec,
+      null,
+      [arg_client],
+      false);
+  }
+
+  requestSession(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec,
+      mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  supportsSession(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec,
+      mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  exitPresent() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.device.mojom.VRService_ExitPresent_ParamsSpec,
+      mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  setFramesThrottled(arg_throttled) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec,
+      null,
+      [arg_throttled],
+      false);
+  }
+
+  makeXrCompatible() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ParamsSpec,
+      mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.VRService.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.VRServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.VRService',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRService', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setClient');
+          const result = this.impl.setClient(params.arg_arg_client);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestSession');
+          const result = this.impl.requestSession(params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestSession FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.supportsSession');
+          const result = this.impl.supportsSession(params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_supports_session' in response) ? response.arg_arg_supports_session : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] supportsSession FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_ExitPresent_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.exitPresent');
+          const result = this.impl.exitPresent();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] exitPresent FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setFramesThrottled');
+          const result = this.impl.setFramesThrottled(params.arg_arg_throttled);
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.makeXrCompatible');
+          const result = this.impl.makeXrCompatible();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_xr_compatible_result' in response) ? response.arg_arg_xr_compatible_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] makeXrCompatible FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.VRServiceReceiver = mojo.internal.bindings.device.mojom.VRServiceReceiver;
+
+mojo.internal.bindings.device.mojom.VRServicePtr = mojo.internal.bindings.device.mojom.VRServiceRemote;
+mojo.internal.bindings.device.mojom.VRServiceRequest = mojo.internal.bindings.device.mojom.VRServicePendingReceiver;
+
+
+// Interface: XRSessionMetricsRecorder
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XRSessionMetricsRecorder';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  reportFeatureUsed(arg_feature) {
+    return this.$.reportFeatureUsed(arg_feature);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionMetricsRecorder', [
+      { explicit: null },
+    ]);
+  }
+
+  reportFeatureUsed(arg_feature) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
+      null,
+      [arg_feature],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XRSessionMetricsRecorder',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionMetricsRecorder', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.reportFeatureUsed');
+          const result = this.impl.reportFeatureUsed(params.arg_arg_feature);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver = mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver;
+
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPtr = mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemote;
+mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRequest = mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPendingReceiver;
+
+
+// Interface: VRServiceClient
+mojo.internal.bindings.device.mojom.VRServiceClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.VRServiceClientRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.VRServiceClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.VRServiceClientPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.VRServiceClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onDeviceChanged() {
+    return this.$.onDeviceChanged();
+  }
+};
+
+mojo.internal.bindings.device.mojom.VRServiceClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRServiceClient', [
+      { explicit: null },
+    ]);
+  }
+
+  onDeviceChanged() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.VRServiceClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.VRServiceClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.VRServiceClient',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.VRServiceClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRServiceClient', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
+          const result = this.impl.onDeviceChanged();
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.VRServiceClientReceiver = mojo.internal.bindings.device.mojom.VRServiceClientReceiver;
+
+mojo.internal.bindings.device.mojom.VRServiceClientPtr = mojo.internal.bindings.device.mojom.VRServiceClientRemote;
+mojo.internal.bindings.device.mojom.VRServiceClientRequest = mojo.internal.bindings.device.mojom.VRServiceClientPendingReceiver;
+
+
+// Interface: XREnvironmentIntegrationProvider
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XREnvironmentIntegrationProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  subscribeToHitTest(arg_native_origin_information, arg_entity_types, arg_ray) {
+    return this.$.subscribeToHitTest(arg_native_origin_information, arg_entity_types, arg_ray);
+  }
+  subscribeToHitTestForTransientInput(arg_profile_name, arg_entity_types, arg_ray) {
+    return this.$.subscribeToHitTestForTransientInput(arg_profile_name, arg_entity_types, arg_ray);
+  }
+  unsubscribeFromHitTest(arg_subscription_id) {
+    return this.$.unsubscribeFromHitTest(arg_subscription_id);
+  }
+  createAnchor(arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id) {
+    return this.$.createAnchor(arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id);
+  }
+  detachAnchor(arg_anchor_id) {
+    return this.$.detachAnchor(arg_anchor_id);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XREnvironmentIntegrationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  subscribeToHitTest(arg_native_origin_information, arg_entity_types, arg_ray) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
+      [arg_native_origin_information, arg_entity_types, arg_ray],
+      false);
+  }
+
+  subscribeToHitTestForTransientInput(arg_profile_name, arg_entity_types, arg_ray) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
+      [arg_profile_name, arg_entity_types, arg_ray],
+      false);
+  }
+
+  unsubscribeFromHitTest(arg_subscription_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
+      null,
+      [arg_subscription_id],
+      false);
+  }
+
+  createAnchor(arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
+      [arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id],
+      false);
+  }
+
+  detachAnchor(arg_anchor_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
+      null,
+      [arg_anchor_id],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XREnvironmentIntegrationProvider',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XREnvironmentIntegrationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToHitTest');
+          const result = this.impl.subscribeToHitTest(params.arg_arg_native_origin_information, params.arg_arg_entity_types, params.arg_arg_ray);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_subscription_id' in response) ? response.arg_arg_subscription_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToHitTest FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.subscribeToHitTestForTransientInput');
+          const result = this.impl.subscribeToHitTestForTransientInput(params.arg_arg_profile_name, params.arg_arg_entity_types, params.arg_arg_ray);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_subscription_id' in response) ? response.arg_arg_subscription_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToHitTestForTransientInput FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.unsubscribeFromHitTest');
+          const result = this.impl.unsubscribeFromHitTest(params.arg_arg_subscription_id);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createAnchor');
+          const result = this.impl.createAnchor(params.arg_arg_native_origin_information, params.arg_arg_native_origin_from_anchor, params.arg_arg_plane_id);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_anchor_id' in response) ? response.arg_arg_anchor_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createAnchor FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.detachAnchor');
+          const result = this.impl.detachAnchor(params.arg_arg_anchor_id);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver;
+
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPtr = mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote;
+mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRequest = mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver;
+
+
+// Interface: XRFrameDataProvider
+mojo.internal.bindings.device.mojom.XRFrameDataProviderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XRFrameDataProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XRFrameDataProviderPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  getFrameData(arg_options) {
+    return this.$.getFrameData(arg_options);
+  }
+  getEnvironmentIntegrationProvider(arg_environment_provider) {
+    return this.$.getEnvironmentIntegrationProvider(arg_environment_provider);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRFrameDataProvider', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  getFrameData(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
+      mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  getEnvironmentIntegrationProvider(arg_environment_provider) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
+      null,
+      [arg_environment_provider],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XRFrameDataProvider.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XRFrameDataProvider',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRFrameDataProvider', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getFrameData');
+          const result = this.impl.getFrameData(params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_frame_data' in response) ? response.arg_arg_frame_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFrameData FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getEnvironmentIntegrationProvider');
+          const result = this.impl.getEnvironmentIntegrationProvider(params.arg_arg_environment_provider);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver;
+
+mojo.internal.bindings.device.mojom.XRFrameDataProviderPtr = mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote;
+mojo.internal.bindings.device.mojom.XRFrameDataProviderRequest = mojo.internal.bindings.device.mojom.XRFrameDataProviderPendingReceiver;
+
+
+// Interface: XRPresentationProvider
+mojo.internal.bindings.device.mojom.XRPresentationProviderPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationProviderRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XRPresentationProvider';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XRPresentationProviderPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  updateLayerBounds(arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size) {
+    return this.$.updateLayerBounds(arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size);
+  }
+  submitFrameMissing(arg_frame_id, arg_sync_token) {
+    return this.$.submitFrameMissing(arg_frame_id, arg_sync_token);
+  }
+  submitFrame(arg_frame_id, arg_time_waited) {
+    return this.$.submitFrame(arg_frame_id, arg_time_waited);
+  }
+  submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token) {
+    return this.$.submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token);
+  }
+  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited) {
+    return this.$.submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  updateLayerBounds(arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
+      null,
+      [arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size],
+      false);
+  }
+
+  submitFrameMissing(arg_frame_id, arg_sync_token) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
+      null,
+      [arg_frame_id, arg_sync_token],
+      false);
+  }
+
+  submitFrame(arg_frame_id, arg_time_waited) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
+      null,
+      [arg_frame_id, arg_time_waited],
+      false);
+  }
+
+  submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
+      null,
+      [arg_frame_id, arg_texture, arg_sync_token],
+      false);
+  }
+
+  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
+      null,
+      [arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationProvider.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XRPresentationProviderRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XRPresentationProvider',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationProvider', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateLayerBounds');
+          const result = this.impl.updateLayerBounds(params.arg_arg_frame_id, params.arg_arg_left_bounds, params.arg_arg_right_bounds, params.arg_arg_source_size);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.submitFrameMissing');
+          const result = this.impl.submitFrameMissing(params.arg_arg_frame_id, params.arg_arg_sync_token);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.submitFrame');
+          const result = this.impl.submitFrame(params.arg_arg_frame_id, params.arg_arg_time_waited);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.submitFrameWithTextureHandle');
+          const result = this.impl.submitFrameWithTextureHandle(params.arg_arg_frame_id, params.arg_arg_texture, params.arg_arg_sync_token);
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.submitFrameDrawnIntoTexture');
+          const result = this.impl.submitFrameDrawnIntoTexture(params.arg_arg_frame_id, params.arg_arg_layer_ids, params.arg_arg_sync_token, params.arg_arg_time_waited);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver = mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver;
+
+mojo.internal.bindings.device.mojom.XRPresentationProviderPtr = mojo.internal.bindings.device.mojom.XRPresentationProviderRemote;
+mojo.internal.bindings.device.mojom.XRPresentationProviderRequest = mojo.internal.bindings.device.mojom.XRPresentationProviderPendingReceiver;
+
+
+// Interface: XRPresentationClient
+mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationClientRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XRPresentationClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onSubmitFrameTransferred(arg_success) {
+    return this.$.onSubmitFrameTransferred(arg_success);
+  }
+  onSubmitFrameRendered() {
+    return this.$.onSubmitFrameRendered();
+  }
+  onSubmitFrameGpuFence(arg_gpu_fence_handle) {
+    return this.$.onSubmitFrameGpuFence(arg_gpu_fence_handle);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  onSubmitFrameTransferred(arg_success) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
+      null,
+      [arg_success],
+      false);
+  }
+
+  onSubmitFrameRendered() {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  onSubmitFrameGpuFence(arg_gpu_fence_handle) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
+      null,
+      [arg_gpu_fence_handle],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XRPresentationClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XRPresentationClient',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationClient', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSubmitFrameTransferred');
+          const result = this.impl.onSubmitFrameTransferred(params.arg_arg_success);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSubmitFrameRendered');
+          const result = this.impl.onSubmitFrameRendered();
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onSubmitFrameGpuFence');
+          const result = this.impl.onSubmitFrameGpuFence(params.arg_arg_gpu_fence_handle);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = mojo.internal.bindings.device.mojom.XRPresentationClientReceiver;
+
+mojo.internal.bindings.device.mojom.XRPresentationClientPtr = mojo.internal.bindings.device.mojom.XRPresentationClientRemote;
+mojo.internal.bindings.device.mojom.XRPresentationClientRequest = mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver;
+
+
+// Interface: XRSessionClient
+mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRSessionClientRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XRSessionClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onExitPresent() {
+    return this.$.onExitPresent();
+  }
+  onVisibilityStateChanged(arg_visibility_state) {
+    return this.$.onVisibilityStateChanged(arg_visibility_state);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionClient', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  onExitPresent() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+  onVisibilityStateChanged(arg_visibility_state) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
+      null,
+      [arg_visibility_state],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XRSessionClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XRSessionClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XRSessionClient',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XRSessionClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionClient', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onExitPresent');
+          const result = this.impl.onExitPresent();
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onVisibilityStateChanged');
+          const result = this.impl.onVisibilityStateChanged(params.arg_arg_visibility_state);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRSessionClientReceiver = mojo.internal.bindings.device.mojom.XRSessionClientReceiver;
+
+mojo.internal.bindings.device.mojom.XRSessionClientPtr = mojo.internal.bindings.device.mojom.XRSessionClientRemote;
+mojo.internal.bindings.device.mojom.XRSessionClientRequest = mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver;
+
+
+// Interface: XRLayerManager
+mojo.internal.bindings.device.mojom.XRLayerManagerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRLayerManagerRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.XRLayerManager';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.XRLayerManagerPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  createCompositionLayer(arg_create_data) {
+    return this.$.createCompositionLayer(arg_create_data);
+  }
+  destroyCompositionLayer(arg_layer_id) {
+    return this.$.destroyCompositionLayer(arg_layer_id);
+  }
+  updateCompositionLayer(arg_layer_id, arg_update_data) {
+    return this.$.updateCompositionLayer(arg_layer_id, arg_update_data);
+  }
+  setEnabledCompositionLayers(arg_layer_ids) {
+    return this.$.setEnabledCompositionLayers(arg_layer_ids);
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRLayerManager', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  createCompositionLayer(arg_create_data) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
+      mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
+      [arg_create_data],
+      false);
+  }
+
+  destroyCompositionLayer(arg_layer_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
+      null,
+      [arg_layer_id],
+      false);
+  }
+
+  updateCompositionLayer(arg_layer_id, arg_update_data) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
+      null,
+      [arg_layer_id, arg_update_data],
+      false);
+  }
+
+  setEnabledCompositionLayers(arg_layer_ids) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
+      null,
+      [arg_layer_ids],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.XRLayerManager.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.XRLayerManagerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.XRLayerManager',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRLayerManager', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.createCompositionLayer');
+          const result = this.impl.createCompositionLayer(params.arg_arg_create_data);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createCompositionLayer FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.destroyCompositionLayer');
+          const result = this.impl.destroyCompositionLayer(params.arg_arg_layer_id);
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.updateCompositionLayer');
+          const result = this.impl.updateCompositionLayer(params.arg_arg_layer_id, params.arg_arg_update_data);
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setEnabledCompositionLayers');
+          const result = this.impl.setEnabledCompositionLayers(params.arg_arg_layer_ids);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = mojo.internal.bindings.device.mojom.XRLayerManagerReceiver;
+
+mojo.internal.bindings.device.mojom.XRLayerManagerPtr = mojo.internal.bindings.device.mojom.XRLayerManagerRemote;
+mojo.internal.bindings.device.mojom.XRLayerManagerRequest = mojo.internal.bindings.device.mojom.XRLayerManagerPendingReceiver;
+
+
+// Interface: WebXrInternalsRendererListener
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemote = class {
+  static get $interfaceName() {
+    return 'device.mojom.WebXrInternalsRendererListener';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onFrameData(arg_xrframe_statistics) {
+    return this.$.onFrameData(arg_xrframe_statistics);
+  }
+  onConsoleLog(arg_xrlogging_statistics) {
+    return this.$.onConsoleLog(arg_xrlogging_statistics);
+  }
+};
+
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.WebXrInternalsRendererListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  onFrameData(arg_xrframe_statistics) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
+      null,
+      [arg_xrframe_statistics],
+      false);
+  }
+
+  onConsoleLog(arg_xrlogging_statistics) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
+      null,
+      [arg_xrlogging_statistics],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener.getRemote = function() {
+  let remote = new mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'device.mojom.WebXrInternalsRendererListener',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.WebXrInternalsRendererListener', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onFrameData');
+          const result = this.impl.onFrameData(params.arg_arg_xrframe_statistics);
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onConsoleLog');
+          const result = this.impl.onConsoleLog(params.arg_arg_xrlogging_statistics);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver = mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver;
+
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPtr = mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemote;
+mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRequest = mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: XRNativeOriginInformation
 mojo.internal.Union(
     mojo.internal.bindings.device.mojom.XRNativeOriginInformationSpec, 'device.mojom.XRNativeOriginInformation', {
@@ -1072,8 +2895,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_stage_parameters_id', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
     ],
     [[0, 16]]);
-
-// Interface: VRService
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec, 'device.mojom.VRService_SetClient_Params', [
       mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.VRServiceClientRemote), null, false, 0, undefined),
@@ -1131,536 +2952,17 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.VRServicePendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.VRServiceRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.VRService';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.VRServicePendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  setClient(arg_client) {
-    return this.$.setClient(arg_client);
-  }
-  requestSession(arg_options) {
-    return this.$.requestSession(arg_options);
-  }
-  supportsSession(arg_options) {
-    return this.$.supportsSession(arg_options);
-  }
-  exitPresent() {
-    return this.$.exitPresent();
-  }
-  setFramesThrottled(arg_throttled) {
-    return this.$.setFramesThrottled(arg_throttled);
-  }
-  makeXrCompatible() {
-    return this.$.makeXrCompatible();
-  }
-};
-
-mojo.internal.bindings.device.mojom.VRServiceRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRService', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  setClient(arg_client) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec,
-      null,
-      [arg_client],
-      false);
-  }
-
-  requestSession(arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec,
-      mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec,
-      [arg_options],
-      false);
-  }
-
-  supportsSession(arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec,
-      mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec,
-      [arg_options],
-      false);
-  }
-
-  exitPresent() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.device.mojom.VRService_ExitPresent_ParamsSpec,
-      mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  setFramesThrottled(arg_throttled) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec,
-      null,
-      [arg_throttled],
-      false);
-  }
-
-  makeXrCompatible() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ParamsSpec,
-      mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.VRService.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.VRServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.VRService',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.VRServiceReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRService', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SetClient_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_client);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_RequestSession_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestSession');
-          const result = this.impl.requestSession(params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_RequestSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestSession FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SupportsSession_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.supportsSession');
-          const result = this.impl.supportsSession(params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_SupportsSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SupportsSession FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_ExitPresent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.exitPresent');
-          const result = this.impl.exitPresent();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_ExitPresent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExitPresent FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_SetFramesThrottled_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setFramesThrottled');
-          const result = this.impl.setFramesThrottled(params.arg_throttled);
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.makeXrCompatible');
-          const result = this.impl.makeXrCompatible();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VRService_MakeXrCompatible_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MakeXrCompatible FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.VRServiceReceiver = mojo.internal.bindings.device.mojom.VRServiceReceiver;
-
-mojo.internal.bindings.device.mojom.VRServicePtr = mojo.internal.bindings.device.mojom.VRServiceRemote;
-mojo.internal.bindings.device.mojom.VRServiceRequest = mojo.internal.bindings.device.mojom.VRServicePendingReceiver;
-
-
-// Interface: XRSessionMetricsRecorder
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec, 'device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_Params', [
       mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.device.mojom.XRSessionFeatureSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XRSessionMetricsRecorder';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  reportFeatureUsed(arg_feature) {
-    return this.$.reportFeatureUsed(arg_feature);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionMetricsRecorder', [
-      { explicit: null },
-    ]);
-  }
-
-  reportFeatureUsed(arg_feature) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec,
-      null,
-      [arg_feature],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XRSessionMetricsRecorder',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionMetricsRecorder', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionMetricsRecorder_ReportFeatureUsed_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.reportFeatureUsed');
-          const result = this.impl.reportFeatureUsed(params.arg_feature);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver = mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderReceiver;
-
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPtr = mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRemote;
-mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderRequest = mojo.internal.bindings.device.mojom.XRSessionMetricsRecorderPendingReceiver;
-
-
-// Interface: VRServiceClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec, 'device.mojom.VRServiceClient_OnDeviceChanged_Params', [
     ],
     [[0, 8]]);
 
-mojo.internal.bindings.device.mojom.VRServiceClientPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.VRServiceClientRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.VRServiceClient';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.VRServiceClientPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.VRServiceClientRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onDeviceChanged() {
-    return this.$.onDeviceChanged();
-  }
-};
-
-mojo.internal.bindings.device.mojom.VRServiceClientRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRServiceClient', [
-      { explicit: null },
-    ]);
-  }
-
-  onDeviceChanged() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.VRServiceClient.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.VRServiceClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.VRServiceClient',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.VRServiceClientReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.VRServiceClient', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VRServiceClient_OnDeviceChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
-          const result = this.impl.onDeviceChanged();
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.VRServiceClientReceiver = mojo.internal.bindings.device.mojom.VRServiceClientReceiver;
-
-mojo.internal.bindings.device.mojom.VRServiceClientPtr = mojo.internal.bindings.device.mojom.VRServiceClientRemote;
-mojo.internal.bindings.device.mojom.VRServiceClientRequest = mojo.internal.bindings.device.mojom.VRServiceClientPendingReceiver;
-
-
-// Interface: XREnvironmentIntegrationProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec, 'device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_Params', [
       mojo.internal.StructField('arg_native_origin_information', 0, 0, mojo.internal.bindings.device.mojom.XRNativeOriginInformationSpec, null, false, 0, undefined),
@@ -1715,238 +3017,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XREnvironmentIntegrationProvider';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  subscribeToHitTest(arg_native_origin_information, arg_entity_types, arg_ray) {
-    return this.$.subscribeToHitTest(arg_native_origin_information, arg_entity_types, arg_ray);
-  }
-  subscribeToHitTestForTransientInput(arg_profile_name, arg_entity_types, arg_ray) {
-    return this.$.subscribeToHitTestForTransientInput(arg_profile_name, arg_entity_types, arg_ray);
-  }
-  unsubscribeFromHitTest(arg_subscription_id) {
-    return this.$.unsubscribeFromHitTest(arg_subscription_id);
-  }
-  createAnchor(arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id) {
-    return this.$.createAnchor(arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id);
-  }
-  detachAnchor(arg_anchor_id) {
-    return this.$.detachAnchor(arg_anchor_id);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XREnvironmentIntegrationProvider', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  subscribeToHitTest(arg_native_origin_information, arg_entity_types, arg_ray) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec,
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec,
-      [arg_native_origin_information, arg_entity_types, arg_ray],
-      false);
-  }
-
-  subscribeToHitTestForTransientInput(arg_profile_name, arg_entity_types, arg_ray) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec,
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec,
-      [arg_profile_name, arg_entity_types, arg_ray],
-      false);
-  }
-
-  unsubscribeFromHitTest(arg_subscription_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec,
-      null,
-      [arg_subscription_id],
-      false);
-  }
-
-  createAnchor(arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec,
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec,
-      [arg_native_origin_information, arg_native_origin_from_anchor, arg_plane_id],
-      false);
-  }
-
-  detachAnchor(arg_anchor_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec,
-      null,
-      [arg_anchor_id],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XREnvironmentIntegrationProvider',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XREnvironmentIntegrationProvider', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.subscribeToHitTest');
-          const result = this.impl.subscribeToHitTest(params.arg_native_origin_information, params.arg_entity_types, params.arg_ray);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SubscribeToHitTest FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.subscribeToHitTestForTransientInput');
-          const result = this.impl.subscribeToHitTestForTransientInput(params.arg_profile_name, params.arg_entity_types, params.arg_ray);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_SubscribeToHitTestForTransientInput_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SubscribeToHitTestForTransientInput FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_UnsubscribeFromHitTest_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.unsubscribeFromHitTest');
-          const result = this.impl.unsubscribeFromHitTest(params.arg_subscription_id);
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createAnchor');
-          const result = this.impl.createAnchor(params.arg_native_origin_information, params.arg_native_origin_from_anchor, params.arg_plane_id);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_CreateAnchor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateAnchor FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProvider_DetachAnchor_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.detachAnchor');
-          const result = this.impl.detachAnchor(params.arg_anchor_id);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver = mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderReceiver;
-
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPtr = mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRemote;
-mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderRequest = mojo.internal.bindings.device.mojom.XREnvironmentIntegrationProviderPendingReceiver;
-
-
-// Interface: XRFrameDataProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec, 'device.mojom.XRFrameDataProvider_GetFrameData_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.device.mojom.XRFrameDataRequestOptionsSpec, null, true, 0, undefined),
@@ -1965,163 +3035,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.XRFrameDataProviderPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XRFrameDataProvider';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XRFrameDataProviderPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  getFrameData(arg_options) {
-    return this.$.getFrameData(arg_options);
-  }
-  getEnvironmentIntegrationProvider(arg_environment_provider) {
-    return this.$.getEnvironmentIntegrationProvider(arg_environment_provider);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRFrameDataProviderRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRFrameDataProvider', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  getFrameData(arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec,
-      mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec,
-      [arg_options],
-      false);
-  }
-
-  getEnvironmentIntegrationProvider(arg_environment_provider) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec,
-      null,
-      [arg_environment_provider],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XRFrameDataProvider.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XRFrameDataProvider',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRFrameDataProvider', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getFrameData');
-          const result = this.impl.getFrameData(params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetFrameData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFrameData FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRFrameDataProvider_GetEnvironmentIntegrationProvider_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getEnvironmentIntegrationProvider');
-          const result = this.impl.getEnvironmentIntegrationProvider(params.arg_environment_provider);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver = mojo.internal.bindings.device.mojom.XRFrameDataProviderReceiver;
-
-mojo.internal.bindings.device.mojom.XRFrameDataProviderPtr = mojo.internal.bindings.device.mojom.XRFrameDataProviderRemote;
-mojo.internal.bindings.device.mojom.XRFrameDataProviderRequest = mojo.internal.bindings.device.mojom.XRFrameDataProviderPendingReceiver;
-
-
-// Interface: XRPresentationProvider
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec, 'device.mojom.XRPresentationProvider_UpdateLayerBounds_Params', [
       mojo.internal.StructField('arg_frame_id', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
@@ -2162,220 +3075,6 @@ mojo.internal.Struct(
     ],
     [[0, 40]]);
 
-mojo.internal.bindings.device.mojom.XRPresentationProviderPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationProviderRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XRPresentationProvider';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XRPresentationProviderPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  updateLayerBounds(arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size) {
-    return this.$.updateLayerBounds(arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size);
-  }
-  submitFrameMissing(arg_frame_id, arg_sync_token) {
-    return this.$.submitFrameMissing(arg_frame_id, arg_sync_token);
-  }
-  submitFrame(arg_frame_id, arg_time_waited) {
-    return this.$.submitFrame(arg_frame_id, arg_time_waited);
-  }
-  submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token) {
-    return this.$.submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token);
-  }
-  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited) {
-    return this.$.submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationProviderRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationProvider', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  updateLayerBounds(arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec,
-      null,
-      [arg_frame_id, arg_left_bounds, arg_right_bounds, arg_source_size],
-      false);
-  }
-
-  submitFrameMissing(arg_frame_id, arg_sync_token) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec,
-      null,
-      [arg_frame_id, arg_sync_token],
-      false);
-  }
-
-  submitFrame(arg_frame_id, arg_time_waited) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec,
-      null,
-      [arg_frame_id, arg_time_waited],
-      false);
-  }
-
-  submitFrameWithTextureHandle(arg_frame_id, arg_texture, arg_sync_token) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec,
-      null,
-      [arg_frame_id, arg_texture, arg_sync_token],
-      false);
-  }
-
-  submitFrameDrawnIntoTexture(arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec,
-      null,
-      [arg_frame_id, arg_layer_ids, arg_sync_token, arg_time_waited],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationProvider.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XRPresentationProviderRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XRPresentationProvider',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationProvider', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_UpdateLayerBounds_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateLayerBounds');
-          const result = this.impl.updateLayerBounds(params.arg_frame_id, params.arg_left_bounds, params.arg_right_bounds, params.arg_source_size);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameMissing_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.submitFrameMissing');
-          const result = this.impl.submitFrameMissing(params.arg_frame_id, params.arg_sync_token);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrame_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.submitFrame');
-          const result = this.impl.submitFrame(params.arg_frame_id, params.arg_time_waited);
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameWithTextureHandle_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.submitFrameWithTextureHandle');
-          const result = this.impl.submitFrameWithTextureHandle(params.arg_frame_id, params.arg_texture, params.arg_sync_token);
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationProvider_SubmitFrameDrawnIntoTexture_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.submitFrameDrawnIntoTexture');
-          const result = this.impl.submitFrameDrawnIntoTexture(params.arg_frame_id, params.arg_layer_ids, params.arg_sync_token, params.arg_time_waited);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver = mojo.internal.bindings.device.mojom.XRPresentationProviderReceiver;
-
-mojo.internal.bindings.device.mojom.XRPresentationProviderPtr = mojo.internal.bindings.device.mojom.XRPresentationProviderRemote;
-mojo.internal.bindings.device.mojom.XRPresentationProviderRequest = mojo.internal.bindings.device.mojom.XRPresentationProviderPendingReceiver;
-
-
-// Interface: XRPresentationClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec, 'device.mojom.XRPresentationClient_OnSubmitFrameTransferred_Params', [
       mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -2393,178 +3092,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationClientRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XRPresentationClient';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onSubmitFrameTransferred(arg_success) {
-    return this.$.onSubmitFrameTransferred(arg_success);
-  }
-  onSubmitFrameRendered() {
-    return this.$.onSubmitFrameRendered();
-  }
-  onSubmitFrameGpuFence(arg_gpu_fence_handle) {
-    return this.$.onSubmitFrameGpuFence(arg_gpu_fence_handle);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationClientRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationClient', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  onSubmitFrameTransferred(arg_success) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec,
-      null,
-      [arg_success],
-      false);
-  }
-
-  onSubmitFrameRendered() {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  onSubmitFrameGpuFence(arg_gpu_fence_handle) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec,
-      null,
-      [arg_gpu_fence_handle],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationClient.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XRPresentationClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XRPresentationClient',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRPresentationClient', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameTransferred_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onSubmitFrameTransferred');
-          const result = this.impl.onSubmitFrameTransferred(params.arg_success);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameRendered_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onSubmitFrameRendered');
-          const result = this.impl.onSubmitFrameRendered();
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRPresentationClient_OnSubmitFrameGpuFence_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onSubmitFrameGpuFence');
-          const result = this.impl.onSubmitFrameGpuFence(params.arg_gpu_fence_handle);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRPresentationClientReceiver = mojo.internal.bindings.device.mojom.XRPresentationClientReceiver;
-
-mojo.internal.bindings.device.mojom.XRPresentationClientPtr = mojo.internal.bindings.device.mojom.XRPresentationClientRemote;
-mojo.internal.bindings.device.mojom.XRPresentationClientRequest = mojo.internal.bindings.device.mojom.XRPresentationClientPendingReceiver;
-
-
-// Interface: XRSessionClient
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec, 'device.mojom.XRSessionClient_OnExitPresent_Params', [
     ],
@@ -2576,157 +3103,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRSessionClientRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XRSessionClient';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onExitPresent() {
-    return this.$.onExitPresent();
-  }
-  onVisibilityStateChanged(arg_visibility_state) {
-    return this.$.onVisibilityStateChanged(arg_visibility_state);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRSessionClientRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionClient', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  onExitPresent() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-  onVisibilityStateChanged(arg_visibility_state) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec,
-      null,
-      [arg_visibility_state],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XRSessionClient.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XRSessionClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XRSessionClient',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XRSessionClientReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRSessionClient', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionClient_OnExitPresent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onExitPresent');
-          const result = this.impl.onExitPresent();
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRSessionClient_OnVisibilityStateChanged_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onVisibilityStateChanged');
-          const result = this.impl.onVisibilityStateChanged(params.arg_visibility_state);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRSessionClientReceiver = mojo.internal.bindings.device.mojom.XRSessionClientReceiver;
-
-mojo.internal.bindings.device.mojom.XRSessionClientPtr = mojo.internal.bindings.device.mojom.XRSessionClientRemote;
-mojo.internal.bindings.device.mojom.XRSessionClientRequest = mojo.internal.bindings.device.mojom.XRSessionClientPendingReceiver;
-
-
-// Interface: XRLayerManager
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec, 'device.mojom.XRLayerManager_CreateCompositionLayer_Params', [
       mojo.internal.StructField('arg_create_data', 0, 0, mojo.internal.bindings.device.mojom.XRCompositionLayerDataSpec, null, false, 0, undefined),
@@ -2758,205 +3134,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.device.mojom.XRLayerManagerPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRLayerManagerRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.XRLayerManager';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.XRLayerManagerPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  createCompositionLayer(arg_create_data) {
-    return this.$.createCompositionLayer(arg_create_data);
-  }
-  destroyCompositionLayer(arg_layer_id) {
-    return this.$.destroyCompositionLayer(arg_layer_id);
-  }
-  updateCompositionLayer(arg_layer_id, arg_update_data) {
-    return this.$.updateCompositionLayer(arg_layer_id, arg_update_data);
-  }
-  setEnabledCompositionLayers(arg_layer_ids) {
-    return this.$.setEnabledCompositionLayers(arg_layer_ids);
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRLayerManagerRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRLayerManager', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  createCompositionLayer(arg_create_data) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec,
-      mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec,
-      [arg_create_data],
-      false);
-  }
-
-  destroyCompositionLayer(arg_layer_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec,
-      null,
-      [arg_layer_id],
-      false);
-  }
-
-  updateCompositionLayer(arg_layer_id, arg_update_data) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec,
-      null,
-      [arg_layer_id, arg_update_data],
-      false);
-  }
-
-  setEnabledCompositionLayers(arg_layer_ids) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec,
-      null,
-      [arg_layer_ids],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.XRLayerManager.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.XRLayerManagerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.XRLayerManager',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.XRLayerManager', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.createCompositionLayer');
-          const result = this.impl.createCompositionLayer(params.arg_create_data);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.XRLayerManager_CreateCompositionLayer_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateCompositionLayer FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_DestroyCompositionLayer_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.destroyCompositionLayer');
-          const result = this.impl.destroyCompositionLayer(params.arg_layer_id);
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_UpdateCompositionLayer_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.updateCompositionLayer');
-          const result = this.impl.updateCompositionLayer(params.arg_layer_id, params.arg_update_data);
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.XRLayerManager_SetEnabledCompositionLayers_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setEnabledCompositionLayers');
-          const result = this.impl.setEnabledCompositionLayers(params.arg_layer_ids);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.XRLayerManagerReceiver = mojo.internal.bindings.device.mojom.XRLayerManagerReceiver;
-
-mojo.internal.bindings.device.mojom.XRLayerManagerPtr = mojo.internal.bindings.device.mojom.XRLayerManagerRemote;
-mojo.internal.bindings.device.mojom.XRLayerManagerRequest = mojo.internal.bindings.device.mojom.XRLayerManagerPendingReceiver;
-
-
-// Interface: WebXrInternalsRendererListener
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec, 'device.mojom.WebXrInternalsRendererListener_OnFrameData_Params', [
       mojo.internal.StructField('arg_xrframe_statistics', 0, 0, mojo.internal.bindings.device.mojom.XrFrameStatisticsSpec, null, false, 0, undefined),
@@ -2968,153 +3145,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_xrlogging_statistics', 0, 0, mojo.internal.bindings.device.mojom.XrLogMessageSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemote = class {
-  static get $interfaceName() {
-    return 'device.mojom.WebXrInternalsRendererListener';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onFrameData(arg_xrframe_statistics) {
-    return this.$.onFrameData(arg_xrframe_statistics);
-  }
-  onConsoleLog(arg_xrlogging_statistics) {
-    return this.$.onConsoleLog(arg_xrlogging_statistics);
-  }
-};
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('device.mojom.WebXrInternalsRendererListener', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  onFrameData(arg_xrframe_statistics) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec,
-      null,
-      [arg_xrframe_statistics],
-      false);
-  }
-
-  onConsoleLog(arg_xrlogging_statistics) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec,
-      null,
-      [arg_xrlogging_statistics],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener.getRemote = function() {
-  let remote = new mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'device.mojom.WebXrInternalsRendererListener',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('device.mojom.WebXrInternalsRendererListener', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnFrameData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onFrameData');
-          const result = this.impl.onFrameData(params.arg_xrframe_statistics);
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.WebXrInternalsRendererListener_OnConsoleLog_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onConsoleLog');
-          const result = this.impl.onConsoleLog(params.arg_xrlogging_statistics);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver = mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerReceiver;
-
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPtr = mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRemote;
-mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerRequest = mojo.internal.bindings.device.mojom.WebXrInternalsRendererListenerPendingReceiver;
 

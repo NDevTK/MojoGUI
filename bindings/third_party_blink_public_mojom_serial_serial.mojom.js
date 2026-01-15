@@ -162,86 +162,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: SerialPortInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, 'blink.mojom.SerialPortInfo', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usb_vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_usb_vendor_id', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_usb_product_id', 10, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_connected', 10, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_usb_product_id', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SerialPortFilter
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialPortFilterSpec, 'blink.mojom.SerialPortFilter', [
-      mojo.internal.StructField('arg_vendor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_vendor_id', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_product_id', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 6, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: SerialService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec, 'blink.mojom.SerialService_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SerialServiceClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec, 'blink.mojom.SerialService_GetPorts_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec, 'blink.mojom.SerialService_GetPorts_ResponseParams', [
-      mojo.internal.StructField('arg_ports', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec, 'blink.mojom.SerialService_RequestPort_Params', [
-      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortFilterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.UUIDSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec, 'blink.mojom.SerialService_RequestPort_ResponseParams', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec, 'blink.mojom.SerialService_OpenPort_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec, 'blink.mojom.SerialService_OpenPort_ResponseParams', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec, 'blink.mojom.SerialService_ForgetPort_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec, 'blink.mojom.SerialService_ForgetPort_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.SerialServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -410,7 +331,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_client);
+          const result = this.impl.setClient(params.arg_arg_client);
           break;
         }
         case 1: {
@@ -421,8 +342,11 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPorts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ports' in response) ? response.arg_arg_ports : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPorts FAILED:', e));
           }
           break;
         }
@@ -430,12 +354,15 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
-          const result = this.impl.requestPort(params.arg_filters, params.arg_allowed_bluetooth_service_class_ids);
+          const result = this.impl.requestPort(params.arg_arg_filters, params.arg_arg_allowed_bluetooth_service_class_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestPort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_port' in response) ? response.arg_arg_port : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestPort FAILED:', e));
           }
           break;
         }
@@ -443,12 +370,15 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPort');
-          const result = this.impl.openPort(params.arg_token, params.arg_options, params.arg_client);
+          const result = this.impl.openPort(params.arg_arg_token, params.arg_arg_options, params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenPort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_port' in response) ? response.arg_arg_port : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openPort FAILED:', e));
           }
           break;
         }
@@ -456,12 +386,14 @@ mojo.internal.bindings.blink.mojom.SerialServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forgetPort');
-          const result = this.impl.forgetPort(params.arg_token);
+          const result = this.impl.forgetPort(params.arg_arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ForgetPort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] forgetPort FAILED:', e));
           }
           break;
         }
@@ -480,12 +412,6 @@ mojo.internal.bindings.blink.mojom.SerialServiceRequest = mojo.internal.bindings
 
 
 // Interface: SerialServiceClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec, 'blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_Params', [
-      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.SerialServiceClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -598,7 +524,7 @@ mojo.internal.bindings.blink.mojom.SerialServiceClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
-          const result = this.impl.onPortConnectedStateChanged(params.arg_port_info);
+          const result = this.impl.onPortConnectedStateChanged(params.arg_arg_port_info);
           break;
         }
       }
@@ -613,4 +539,91 @@ mojo.internal.bindings.blink.mojom.SerialServiceClientReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.SerialServiceClientPtr = mojo.internal.bindings.blink.mojom.SerialServiceClientRemote;
 mojo.internal.bindings.blink.mojom.SerialServiceClientRequest = mojo.internal.bindings.blink.mojom.SerialServiceClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SerialPortInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, 'blink.mojom.SerialPortInfo', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usb_vendor_id', 8, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_usb_vendor_id', 10, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_usb_product_id', 10, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connected', 10, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_usb_product_id', 12, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 16, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SerialPortFilter
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialPortFilterSpec, 'blink.mojom.SerialPortFilter', [
+      mojo.internal.StructField('arg_vendor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_vendor_id', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_product_id', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 6, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 8, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_SetClient_ParamsSpec, 'blink.mojom.SerialService_SetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.SerialServiceClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ParamsSpec, 'blink.mojom.SerialService_GetPorts_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_GetPorts_ResponseParamsSpec, 'blink.mojom.SerialService_GetPorts_ResponseParams', [
+      mojo.internal.StructField('arg_ports', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ParamsSpec, 'blink.mojom.SerialService_RequestPort_Params', [
+      mojo.internal.StructField('arg_filters', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SerialPortFilterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_bluetooth_service_class_ids', 8, 0, mojo.internal.Array(mojo.internal.bindings.bluetooth.mojom.UUIDSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_RequestPort_ResponseParamsSpec, 'blink.mojom.SerialService_RequestPort_ResponseParams', [
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ParamsSpec, 'blink.mojom.SerialService_OpenPort_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_OpenPort_ResponseParamsSpec, 'blink.mojom.SerialService_OpenPort_ResponseParams', [
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ParamsSpec, 'blink.mojom.SerialService_ForgetPort_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialService_ForgetPort_ResponseParamsSpec, 'blink.mojom.SerialService_ForgetPort_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_ParamsSpec, 'blink.mojom.SerialServiceClient_OnPortConnectedStateChanged_Params', [
+      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.blink.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

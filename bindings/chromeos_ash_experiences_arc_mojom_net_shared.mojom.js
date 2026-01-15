@@ -131,3 +131,5 @@ mojo.internal.bindings.arc.mojom.SecurityType = {
   WPA_PSK: 3,
   WPA_EAP: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -150,63 +150,7 @@ mojo.internal.bindings.ntp_promo.mojom.ShowNtpPromosResult = {
   kNotShownDueToPolicy: 2,
 };
 
-// Struct: PromosShown
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec, 'ntp_promo.mojom.PromosShown', [
-      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_completed', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Promo
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.PromoSpec, 'ntp_promo.mojom.Promo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_button_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: NtpPromoHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_RequestPromos_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromosShown_Params', [
-      mojo.internal.StructField('arg_eligible_shown', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_completed_shown', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_Params', [
-      mojo.internal.StructField('arg_promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_DisableSetupList_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -410,14 +354,14 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromosShown');
-          const result = this.impl.onPromosShown(params.arg_eligible_shown, params.arg_completed_shown);
+          const result = this.impl.onPromosShown(params.arg_arg_eligible_shown, params.arg_arg_completed_shown);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPromoClicked');
-          const result = this.impl.onPromoClicked(params.arg_promo_id);
+          const result = this.impl.onPromoClicked(params.arg_arg_promo_id);
           break;
         }
         case 3: {
@@ -463,13 +407,6 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRequest = mojo.internal.bi
 
 
 // Interface: NtpPromoClient
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params', [
-      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_completed', 8, 0, mojo.internal.Array(mojo.internal.bindings.ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -582,7 +519,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPromos');
-          const result = this.impl.setPromos(params.arg_eligible, params.arg_completed);
+          const result = this.impl.setPromos(params.arg_arg_eligible, params.arg_arg_completed);
           break;
         }
       }
@@ -600,13 +537,6 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRequest = mojo.internal.bin
 
 
 // Interface: NtpPromoHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -719,7 +649,7 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNtpPromoHandler');
-          const result = this.impl.createNtpPromoHandler(params.arg_client, params.arg_handler);
+          const result = this.impl.createNtpPromoHandler(params.arg_arg_client, params.arg_arg_handler);
           break;
         }
       }
@@ -734,4 +664,76 @@ mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryReceiver = mojo.int
 
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryPtr = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryRemote;
 mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryRequest = mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PromosShown
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.PromosShownSpec, 'ntp_promo.mojom.PromosShown', [
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_completed', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Promo
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.PromoSpec, 'ntp_promo.mojom.Promo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_RequestPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_RequestPromos_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromosShown_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromosShown_Params', [
+      mojo.internal.StructField('arg_eligible_shown', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_completed_shown', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_OnPromoClicked_Params', [
+      mojo.internal.StructField('arg_promo_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_SnoozeSetupList_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UnsnoozeSetupList_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_DisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_DisableSetupList_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandler_UndisableSetupList_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoClient_SetPromos_ParamsSpec, 'ntp_promo.mojom.NtpPromoClient_SetPromos_Params', [
+      mojo.internal.StructField('arg_eligible', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_completed', 8, 0, mojo.internal.Array(mojo.internal.bindings.ntp_promo.mojom.PromoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_ParamsSpec, 'ntp_promo.mojom.NtpPromoHandlerFactory_CreateNtpPromoHandler_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ntp_promo.mojom.NtpPromoClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ntp_promo.mojom.NtpPromoHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -165,6 +165,8 @@ mojo.internal.bindings.viz.mojom.CopyOutputResultError = {
   kEmbeddingTokenChanged: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CopyOutputResult
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CopyOutputResultSpec, 'viz.mojom.CopyOutputResult', [

@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.WasActivatedOption = {
   kYes: 1,
   kNo: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

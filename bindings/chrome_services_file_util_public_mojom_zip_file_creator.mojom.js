@@ -146,20 +146,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ZipListener
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec, 'chrome.mojom.ZipListener_OnProgress_Params', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_files', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_directories', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec, 'chrome.mojom.ZipListener_OnFinished_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.ZipListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,14 +272,14 @@ mojo.internal.bindings.chrome.mojom.ZipListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_bytes, params.arg_files, params.arg_directories);
+          const result = this.impl.onProgress(params.arg_arg_bytes, params.arg_arg_files, params.arg_arg_directories);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFinished');
-          const result = this.impl.onFinished(params.arg_success);
+          const result = this.impl.onFinished(params.arg_arg_success);
           break;
         }
       }
@@ -311,15 +297,6 @@ mojo.internal.bindings.chrome.mojom.ZipListenerRequest = mojo.internal.bindings.
 
 
 // Interface: ZipFileCreator
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec, 'chrome.mojom.ZipFileCreator_CreateZipFile_Params', [
-      mojo.internal.StructField('arg_src_dir', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_zip_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.chrome.mojom.ZipFileCreatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -432,7 +409,7 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createZipFile');
-          const result = this.impl.createZipFile(params.arg_src_dir, params.arg_relative_paths, params.arg_zip_file, params.arg_listener);
+          const result = this.impl.createZipFile(params.arg_arg_src_dir, params.arg_arg_relative_paths, params.arg_arg_zip_file, params.arg_arg_listener);
           break;
         }
       }
@@ -447,4 +424,29 @@ mojo.internal.bindings.chrome.mojom.ZipFileCreatorReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.chrome.mojom.ZipFileCreatorPtr = mojo.internal.bindings.chrome.mojom.ZipFileCreatorRemote;
 mojo.internal.bindings.chrome.mojom.ZipFileCreatorRequest = mojo.internal.bindings.chrome.mojom.ZipFileCreatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ZipListener_OnProgress_ParamsSpec, 'chrome.mojom.ZipListener_OnProgress_Params', [
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_directories', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ZipListener_OnFinished_ParamsSpec, 'chrome.mojom.ZipListener_OnFinished_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ZipFileCreator_CreateZipFile_ParamsSpec, 'chrome.mojom.ZipFileCreator_CreateZipFile_Params', [
+      mojo.internal.StructField('arg_src_dir', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.filesystem.mojom.DirectoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_paths', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_zip_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.ZipListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

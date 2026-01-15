@@ -137,13 +137,6 @@ mojo.internal.bindings.history_clusters_internals.mojom.Page.$interfaceName = 'h
 mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec = { $: {} };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,7 +249,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_page_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_page_handler);
           break;
         }
       }
@@ -274,22 +267,6 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactoryReques
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParams', [
-      mojo.internal.StructField('arg_context_clusters_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,8 +397,11 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetContextClustersJson FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_context_clusters_json' in response) ? response.arg_arg_context_clusters_json : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getContextClustersJson FAILED:', e));
           }
           break;
         }
@@ -447,12 +427,6 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRequest = moj
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'history_clusters_internals.mojom.Page_OnLogMessageAdded_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.history_clusters_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -565,7 +539,7 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_arg_message);
           break;
         }
       }
@@ -580,4 +554,35 @@ mojo.internal.bindings.history_clusters_internals.mojom.PageReceiver = mojo.inte
 
 mojo.internal.bindings.history_clusters_internals.mojom.PagePtr = mojo.internal.bindings.history_clusters_internals.mojom.PageRemote;
 mojo.internal.bindings.history_clusters_internals.mojom.PageRequest = mojo.internal.bindings.history_clusters_internals.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'history_clusters_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_clusters_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_clusters_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParamsSpec, 'history_clusters_internals.mojom.PageHandler_GetContextClustersJson_ResponseParams', [
+      mojo.internal.StructField('arg_context_clusters_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_ParamsSpec, 'history_clusters_internals.mojom.PageHandler_PrintKeywordBagStateToLogMessages_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_clusters_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'history_clusters_internals.mojom.Page_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

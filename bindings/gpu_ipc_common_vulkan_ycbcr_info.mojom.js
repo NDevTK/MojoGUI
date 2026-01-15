@@ -123,6 +123,8 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
 mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VulkanYCbCrInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VulkanYCbCrInfoSpec, 'gpu.mojom.VulkanYCbCrInfo', [

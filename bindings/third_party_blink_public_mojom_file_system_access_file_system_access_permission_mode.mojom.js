@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionMode = {
   kReadWrite: 1,
   kWrite: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

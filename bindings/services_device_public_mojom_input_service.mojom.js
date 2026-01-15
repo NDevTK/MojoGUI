@@ -152,37 +152,7 @@ mojo.internal.bindings.device.mojom.InputDeviceType = {
   TYPE_UNKNOWN: 3,
 };
 
-// Struct: InputDeviceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, 'device.mojom.InputDeviceInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsystem', 16, 0, mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 20, 0, mojo.internal.bindings.device.mojom.InputDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_accelerometer', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_joystick', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_key', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_keyboard', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mouse', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_tablet', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_touchpad', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_touchscreen', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: InputDeviceManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceAdded_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceRemoved_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.InputDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -309,14 +279,14 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceAdded');
-          const result = this.impl.inputDeviceAdded(params.arg_device_info);
+          const result = this.impl.inputDeviceAdded(params.arg_arg_device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inputDeviceRemoved');
-          const result = this.impl.inputDeviceRemoved(params.arg_id);
+          const result = this.impl.inputDeviceRemoved(params.arg_arg_id);
           break;
         }
       }
@@ -334,29 +304,6 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerClientRequest = mojo.inter
 
 
 // Interface: InputDeviceManager
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.InputDeviceManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -483,12 +430,15 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
-          const result = this.impl.getDevicesAndSetClient(params.arg_client);
+          const result = this.impl.getDevicesAndSetClient(params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDevicesAndSetClient FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDevicesAndSetClient FAILED:', e));
           }
           break;
         }
@@ -500,8 +450,11 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDevices FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
           break;
         }
@@ -517,4 +470,59 @@ mojo.internal.bindings.device.mojom.InputDeviceManagerReceiver = mojo.internal.b
 
 mojo.internal.bindings.device.mojom.InputDeviceManagerPtr = mojo.internal.bindings.device.mojom.InputDeviceManagerRemote;
 mojo.internal.bindings.device.mojom.InputDeviceManagerRequest = mojo.internal.bindings.device.mojom.InputDeviceManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: InputDeviceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, 'device.mojom.InputDeviceInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subsystem', 16, 0, mojo.internal.bindings.device.mojom.InputDeviceSubsystemSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 20, 0, mojo.internal.bindings.device.mojom.InputDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_accelerometer', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_joystick', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_key', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_keyboard', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mouse', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_tablet', 24, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_touchpad', 24, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_touchscreen', 24, 7, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceAdded_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceAdded_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceManagerClient_InputDeviceRemoved_ParamsSpec, 'device.mojom.InputDeviceManagerClient_InputDeviceRemoved_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.InputDeviceManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevicesAndSetClient_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.InputDeviceManager_GetDevices_ResponseParamsSpec, 'device.mojom.InputDeviceManager_GetDevices_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.InputDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

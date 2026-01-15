@@ -198,152 +198,7 @@ mojo.internal.bindings.discards.mojom.CanFreeze = {
   NO: 2,
 };
 
-// Struct: TabDiscardsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec, 'discards.mojom.TabDiscardsInfo', [
-      mojo.internal.StructField('arg_tab_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visibility', 16, 0, mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_loading_state', 20, 0, mojo.internal.bindings.mojom.LifecycleUnitLoadingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.mojom.LifecycleUnitStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_discard', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_auto_discardable', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_focus', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_cannot_discard_reasons', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_freeze', 40, 0, mojo.internal.bindings.discards.mojom.CanFreezeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_discard_count', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cannot_freeze_reasons', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_discard_reason', 56, 0, mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_utility_rank', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_seconds', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_site_engagement_score', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_state_change_time', 80, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 96]]);
-
-// Struct: PageInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.PageInfoSpec, 'discards.mojom.PageInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_main_frame_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_opener_frame_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_embedder_frame_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_description_json', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: FrameInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.FrameInfoSpec, 'discards.mojom.FrameInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_frame_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_process_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_description_json', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: ProcessInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.ProcessInfoSpec, 'discards.mojom.ProcessInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_private_footprint_kb', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_description_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: WorkerInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.WorkerInfoSpec, 'discards.mojom.WorkerInfo', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_process_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_client_frame_ids', 24, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_worker_ids', 32, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_worker_ids', 40, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_description_json', 48, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: FavIconInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.FavIconInfoSpec, 'discards.mojom.FavIconInfo', [
-      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: DetailsProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec, 'discards.mojom.DetailsProvider_SetAutoDiscardable_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_auto_discardable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec, 'discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec, 'discards.mojom.DetailsProvider_FreezeById_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec, 'discards.mojom.DetailsProvider_LoadById_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec, 'discards.mojom.DetailsProvider_Discard_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec, 'discards.mojom.DetailsProvider_Discard_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec, 'discards.mojom.DetailsProvider_ToggleBatterySaverMode_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec, 'discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.discards.mojom.DetailsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -558,8 +413,11 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTabDiscardsInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_infos' in response) ? response.arg_arg_infos : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getTabDiscardsInfo FAILED:', e));
           }
           break;
         }
@@ -567,12 +425,14 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAutoDiscardable');
-          const result = this.impl.setAutoDiscardable(params.arg_tab_id, params.arg_is_auto_discardable);
+          const result = this.impl.setAutoDiscardable(params.arg_arg_tab_id, params.arg_arg_is_auto_discardable);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetAutoDiscardable FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setAutoDiscardable FAILED:', e));
           }
           break;
         }
@@ -580,12 +440,14 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.discardById');
-          const result = this.impl.discardById(params.arg_tab_id, params.arg_reason);
+          const result = this.impl.discardById(params.arg_arg_tab_id, params.arg_arg_reason);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DiscardById FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] discardById FAILED:', e));
           }
           break;
         }
@@ -593,14 +455,14 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.freezeById');
-          const result = this.impl.freezeById(params.arg_tab_id);
+          const result = this.impl.freezeById(params.arg_arg_tab_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadById');
-          const result = this.impl.loadById(params.arg_tab_id);
+          const result = this.impl.loadById(params.arg_arg_tab_id);
           break;
         }
         case 5: {
@@ -611,8 +473,10 @@ mojo.internal.bindings.discards.mojom.DetailsProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Discard FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] discard FAILED:', e));
           }
           break;
         }
@@ -645,66 +509,6 @@ mojo.internal.bindings.discards.mojom.DetailsProviderRequest = mojo.internal.bin
 
 
 // Interface: GraphChangeStream
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameCreated_Params', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.discards.mojom.FrameInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_PageCreated_Params', [
-      mojo.internal.StructField('arg_pages', 0, 0, mojo.internal.bindings.discards.mojom.PageInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessCreated_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.discards.mojom.ProcessInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerCreated_Params', [
-      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.discards.mojom.WorkerInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameChanged_Params', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.discards.mojom.FrameInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_PageChanged_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.discards.mojom.PageInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessChanged_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.discards.mojom.ProcessInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerChanged_Params', [
-      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.discards.mojom.WorkerInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec, 'discards.mojom.GraphChangeStream_FavIconDataAvailable_Params', [
-      mojo.internal.StructField('arg_favicon', 0, 0, mojo.internal.bindings.discards.mojom.FavIconInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec, 'discards.mojom.GraphChangeStream_NodeDeleted_Params', [
-      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.discards.mojom.GraphChangeStreamPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -943,70 +747,70 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameCreated');
-          const result = this.impl.frameCreated(params.arg_frame);
+          const result = this.impl.frameCreated(params.arg_arg_frame);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageCreated');
-          const result = this.impl.pageCreated(params.arg_pages);
+          const result = this.impl.pageCreated(params.arg_arg_pages);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processCreated');
-          const result = this.impl.processCreated(params.arg_process);
+          const result = this.impl.processCreated(params.arg_arg_process);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workerCreated');
-          const result = this.impl.workerCreated(params.arg_worker);
+          const result = this.impl.workerCreated(params.arg_arg_worker);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.frameChanged');
-          const result = this.impl.frameChanged(params.arg_frame);
+          const result = this.impl.frameChanged(params.arg_arg_frame);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageChanged');
-          const result = this.impl.pageChanged(params.arg_page);
+          const result = this.impl.pageChanged(params.arg_arg_page);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processChanged');
-          const result = this.impl.processChanged(params.arg_process);
+          const result = this.impl.processChanged(params.arg_arg_process);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.workerChanged');
-          const result = this.impl.workerChanged(params.arg_worker);
+          const result = this.impl.workerChanged(params.arg_arg_worker);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.favIconDataAvailable');
-          const result = this.impl.favIconDataAvailable(params.arg_favicon);
+          const result = this.impl.favIconDataAvailable(params.arg_arg_favicon);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.nodeDeleted');
-          const result = this.impl.nodeDeleted(params.arg_node_id);
+          const result = this.impl.nodeDeleted(params.arg_arg_node_id);
           break;
         }
       }
@@ -1024,24 +828,6 @@ mojo.internal.bindings.discards.mojom.GraphChangeStreamRequest = mojo.internal.b
 
 
 // Interface: GraphDump
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec, 'discards.mojom.GraphDump_SubscribeToChanges_Params', [
-      mojo.internal.StructField('arg_change_subscriber', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discards.mojom.GraphChangeStreamRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec, 'discards.mojom.GraphDump_RequestNodeDescriptions_Params', [
-      mojo.internal.StructField('arg_node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec, 'discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParams', [
-      mojo.internal.StructField('arg_node_descriptions_json', 0, 0, mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.discards.mojom.GraphDumpPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1168,19 +954,22 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToChanges');
-          const result = this.impl.subscribeToChanges(params.arg_change_subscriber);
+          const result = this.impl.subscribeToChanges(params.arg_arg_change_subscriber);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestNodeDescriptions');
-          const result = this.impl.requestNodeDescriptions(params.arg_node_ids);
+          const result = this.impl.requestNodeDescriptions(params.arg_arg_node_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestNodeDescriptions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_node_descriptions_json' in response) ? response.arg_arg_node_descriptions_json : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestNodeDescriptions FAILED:', e));
           }
           break;
         }
@@ -1196,4 +985,229 @@ mojo.internal.bindings.discards.mojom.GraphDumpReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.discards.mojom.GraphDumpPtr = mojo.internal.bindings.discards.mojom.GraphDumpRemote;
 mojo.internal.bindings.discards.mojom.GraphDumpRequest = mojo.internal.bindings.discards.mojom.GraphDumpPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TabDiscardsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec, 'discards.mojom.TabDiscardsInfo', [
+      mojo.internal.StructField('arg_tab_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visibility', 16, 0, mojo.internal.bindings.discards.mojom.LifecycleUnitVisibilitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_loading_state', 20, 0, mojo.internal.bindings.mojom.LifecycleUnitLoadingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.mojom.LifecycleUnitStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_discard', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_auto_discardable', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_focus', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cannot_discard_reasons', 32, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_freeze', 40, 0, mojo.internal.bindings.discards.mojom.CanFreezeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_discard_count', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cannot_freeze_reasons', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_discard_reason', 56, 0, mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_utility_rank', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_seconds', 64, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 68, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_site_engagement_score', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_state_change_time', 80, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 96]]);
+
+// Struct: PageInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.PageInfoSpec, 'discards.mojom.PageInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_main_frame_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_opener_frame_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_embedder_frame_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description_json', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: FrameInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.FrameInfoSpec, 'discards.mojom.FrameInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_frame_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process_id', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description_json', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: ProcessInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.ProcessInfoSpec, 'discards.mojom.ProcessInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_private_footprint_kb', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: WorkerInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.WorkerInfoSpec, 'discards.mojom.WorkerInfo', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client_frame_ids', 24, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_worker_ids', 32, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_worker_ids', 40, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_description_json', 48, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: FavIconInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.FavIconInfoSpec, 'discards.mojom.FavIconInfo', [
+      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParamsSpec, 'discards.mojom.DetailsProvider_GetTabDiscardsInfo_ResponseParams', [
+      mojo.internal.StructField('arg_infos', 0, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.TabDiscardsInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ParamsSpec, 'discards.mojom.DetailsProvider_SetAutoDiscardable_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_auto_discardable', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParamsSpec, 'discards.mojom.DetailsProvider_SetAutoDiscardable_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.mojom.LifecycleUnitDiscardReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_DiscardById_ResponseParamsSpec, 'discards.mojom.DetailsProvider_DiscardById_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_FreezeById_ParamsSpec, 'discards.mojom.DetailsProvider_FreezeById_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_LoadById_ParamsSpec, 'discards.mojom.DetailsProvider_LoadById_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ParamsSpec, 'discards.mojom.DetailsProvider_Discard_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_Discard_ResponseParamsSpec, 'discards.mojom.DetailsProvider_Discard_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_ToggleBatterySaverMode_ParamsSpec, 'discards.mojom.DetailsProvider_ToggleBatterySaverMode_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_ParamsSpec, 'discards.mojom.DetailsProvider_RefreshPerformanceTabCpuMeasurements_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameCreated_Params', [
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.discards.mojom.FrameInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_PageCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_PageCreated_Params', [
+      mojo.internal.StructField('arg_pages', 0, 0, mojo.internal.bindings.discards.mojom.PageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessCreated_Params', [
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.discards.mojom.ProcessInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerCreated_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerCreated_Params', [
+      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.discards.mojom.WorkerInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_FrameChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_FrameChanged_Params', [
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.discards.mojom.FrameInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_PageChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_PageChanged_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.discards.mojom.PageInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_ProcessChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_ProcessChanged_Params', [
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.bindings.discards.mojom.ProcessInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_WorkerChanged_ParamsSpec, 'discards.mojom.GraphChangeStream_WorkerChanged_Params', [
+      mojo.internal.StructField('arg_worker', 0, 0, mojo.internal.bindings.discards.mojom.WorkerInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_FavIconDataAvailable_ParamsSpec, 'discards.mojom.GraphChangeStream_FavIconDataAvailable_Params', [
+      mojo.internal.StructField('arg_favicon', 0, 0, mojo.internal.bindings.discards.mojom.FavIconInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphChangeStream_NodeDeleted_ParamsSpec, 'discards.mojom.GraphChangeStream_NodeDeleted_Params', [
+      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphDump_SubscribeToChanges_ParamsSpec, 'discards.mojom.GraphDump_SubscribeToChanges_Params', [
+      mojo.internal.StructField('arg_change_subscriber', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discards.mojom.GraphChangeStreamRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ParamsSpec, 'discards.mojom.GraphDump_RequestNodeDescriptions_Params', [
+      mojo.internal.StructField('arg_node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParamsSpec, 'discards.mojom.GraphDump_RequestNodeDescriptions_ResponseParams', [
+      mojo.internal.StructField('arg_node_descriptions_json', 0, 0, mojo.internal.Map(mojo.internal.Int64, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

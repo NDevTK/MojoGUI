@@ -166,37 +166,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: HitTestResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.HitTestResponseSpec, 'blink.mojom.HitTestResponse', [
-      mojo.internal.StructField('arg_stitched_child_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_frame_token', 16, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_frame_transformed_point', 32, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hit_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: RenderAccessibilityHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_Params', [
-      mojo.internal.StructField('arg_events_and_updates', 0, 0, mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_and_scroll_updates', 8, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reset_token', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_Params', [
-      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reset_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.RenderAccessibilityHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -323,12 +293,14 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAXEvents');
-          const result = this.impl.handleAXEvents(params.arg_events_and_updates, params.arg_location_and_scroll_updates, params.arg_reset_token);
+          const result = this.impl.handleAXEvents(params.arg_arg_events_and_updates, params.arg_arg_location_and_scroll_updates, params.arg_arg_reset_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HandleAXEvents FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] handleAXEvents FAILED:', e));
           }
           break;
         }
@@ -336,7 +308,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleAXLocationChanges');
-          const result = this.impl.handleAXLocationChanges(params.arg_changes, params.arg_reset_token);
+          const result = this.impl.handleAXLocationChanges(params.arg_arg_changes, params.arg_arg_reset_token);
           break;
         }
       }
@@ -354,44 +326,6 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityHostRequest = mojo.interna
 
 
 // Interface: RenderAccessibility
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec, 'blink.mojom.RenderAccessibility_SetMode_Params', [
-      mojo.internal.StructField('arg_ax_mode', 0, 0, mojo.internal.bindings.ax.mojom.AXModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reset_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec, 'blink.mojom.RenderAccessibility_FatalError_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_to_fire', 8, 0, mojo.internal.bindings.ax.mojom.EventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_ResponseParams', [
-      mojo.internal.StructField('arg_hit_test_response', 0, 0, mojo.internal.bindings.blink.mojom.HitTestResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec, 'blink.mojom.RenderAccessibility_PerformAction_Params', [
-      mojo.internal.StructField('arg_action_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec, 'blink.mojom.RenderAccessibility_Reset_Params', [
-      mojo.internal.StructField('arg_reset_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.RenderAccessibilityPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -560,7 +494,7 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMode');
-          const result = this.impl.setMode(params.arg_ax_mode, params.arg_reset_token);
+          const result = this.impl.setMode(params.arg_arg_ax_mode, params.arg_arg_reset_token);
           break;
         }
         case 1: {
@@ -574,12 +508,15 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hitTest');
-          const result = this.impl.hitTest(params.arg_point, params.arg_event_to_fire, params.arg_request_id);
+          const result = this.impl.hitTest(params.arg_arg_point, params.arg_arg_event_to_fire, params.arg_arg_request_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HitTest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_hit_test_response' in response) ? response.arg_arg_hit_test_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hitTest FAILED:', e));
           }
           break;
         }
@@ -587,14 +524,14 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performAction');
-          const result = this.impl.performAction(params.arg_action_data);
+          const result = this.impl.performAction(params.arg_arg_action_data);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reset');
-          const result = this.impl.reset(params.arg_reset_token);
+          const result = this.impl.reset(params.arg_arg_reset_token);
           break;
         }
       }
@@ -609,4 +546,74 @@ mojo.internal.bindings.blink.mojom.RenderAccessibilityReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.RenderAccessibilityPtr = mojo.internal.bindings.blink.mojom.RenderAccessibilityRemote;
 mojo.internal.bindings.blink.mojom.RenderAccessibilityRequest = mojo.internal.bindings.blink.mojom.RenderAccessibilityPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: HitTestResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.HitTestResponseSpec, 'blink.mojom.HitTestResponse', [
+      mojo.internal.StructField('arg_stitched_child_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_frame_token', 16, 0, mojo.internal.bindings.blink.mojom.FrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_frame_transformed_point', 32, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hit_node_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_Params', [
+      mojo.internal.StructField('arg_events_and_updates', 0, 0, mojo.internal.bindings.ax.mojom.AXUpdatesAndEventsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_and_scroll_updates', 8, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reset_token', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXEvents_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_ParamsSpec, 'blink.mojom.RenderAccessibilityHost_HandleAXLocationChanges_Params', [
+      mojo.internal.StructField('arg_changes', 0, 0, mojo.internal.bindings.ax.mojom.AXLocationAndScrollUpdatesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reset_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibility_SetMode_ParamsSpec, 'blink.mojom.RenderAccessibility_SetMode_Params', [
+      mojo.internal.StructField('arg_ax_mode', 0, 0, mojo.internal.bindings.ax.mojom.AXModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reset_token', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibility_FatalError_ParamsSpec, 'blink.mojom.RenderAccessibility_FatalError_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_to_fire', 8, 0, mojo.internal.bindings.ax.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibility_HitTest_ResponseParamsSpec, 'blink.mojom.RenderAccessibility_HitTest_ResponseParams', [
+      mojo.internal.StructField('arg_hit_test_response', 0, 0, mojo.internal.bindings.blink.mojom.HitTestResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibility_PerformAction_ParamsSpec, 'blink.mojom.RenderAccessibility_PerformAction_Params', [
+      mojo.internal.StructField('arg_action_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RenderAccessibility_Reset_ParamsSpec, 'blink.mojom.RenderAccessibility_Reset_Params', [
+      mojo.internal.StructField('arg_reset_token', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

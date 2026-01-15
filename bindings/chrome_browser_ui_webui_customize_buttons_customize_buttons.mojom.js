@@ -150,13 +150,6 @@ mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTrigger = {
 };
 
 // Interface: CustomizeButtonsHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,7 +262,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeButtonsHandler');
-          const result = this.impl.createCustomizeButtonsHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createCustomizeButtonsHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -287,24 +280,6 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactoryReq
 
 
 // Interface: CustomizeButtonsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_section', 4, 0, mojo.internal.bindings.side_panel.mojom.CustomizeChromeSectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_trigger', 8, 0, mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -459,7 +434,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCustomizeChromeSidePanelVisible');
-          const result = this.impl.setCustomizeChromeSidePanelVisible(params.arg_visible, params.arg_section, params.arg_trigger);
+          const result = this.impl.setCustomizeChromeSidePanelVisible(params.arg_arg_visible, params.arg_arg_section, params.arg_arg_trigger);
           break;
         }
       }
@@ -477,12 +452,6 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRequest = 
 
 
 // Interface: CustomizeButtonsDocument
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -595,7 +564,7 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCustomizeChromeSidePanelVisibility');
-          const result = this.impl.setCustomizeChromeSidePanelVisibility(params.arg_visible);
+          const result = this.impl.setCustomizeChromeSidePanelVisibility(params.arg_arg_visible);
           break;
         }
       }
@@ -610,4 +579,37 @@ mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentReceiver 
 
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentPtr = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemote;
 mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRequest = mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandlerFactory_CreateCustomizeButtonsHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocumentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementCustomizeChromeButtonOpenCount_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_IncrementWallpaperSearchButtonShownCount_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsHandler_SetCustomizeChromeSidePanelVisible_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_section', 4, 0, mojo.internal.bindings.side_panel.mojom.CustomizeChromeSectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_trigger', 8, 0, mojo.internal.bindings.customize_buttons.mojom.SidePanelOpenTriggerSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_ParamsSpec, 'customize_buttons.mojom.CustomizeButtonsDocument_SetCustomizeChromeSidePanelVisibility_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

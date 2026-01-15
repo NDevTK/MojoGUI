@@ -138,19 +138,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DevToolsFrontend
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_Params', [
-      mojo.internal.StructField('arg_api_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsFrontendHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_Params', [
-      mojo.internal.StructField('arg_extension_api', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DevToolsFrontendPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,14 +264,14 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupDevToolsFrontend');
-          const result = this.impl.setupDevToolsFrontend(params.arg_api_script, params.arg_host);
+          const result = this.impl.setupDevToolsFrontend(params.arg_arg_api_script, params.arg_arg_host);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setupDevToolsExtensionAPI');
-          const result = this.impl.setupDevToolsExtensionAPI(params.arg_extension_api);
+          const result = this.impl.setupDevToolsExtensionAPI(params.arg_arg_extension_api);
           break;
         }
       }
@@ -302,12 +289,6 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendRequest = mojo.internal.bindi
 
 
 // Interface: DevToolsFrontendHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec, 'blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DevToolsFrontendHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,7 +401,7 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchEmbedderMessage');
-          const result = this.impl.dispatchEmbedderMessage(params.arg_message);
+          const result = this.impl.dispatchEmbedderMessage(params.arg_arg_message);
           break;
         }
       }
@@ -435,4 +416,25 @@ mojo.internal.bindings.blink.mojom.DevToolsFrontendHostReceiver = mojo.internal.
 
 mojo.internal.bindings.blink.mojom.DevToolsFrontendHostPtr = mojo.internal.bindings.blink.mojom.DevToolsFrontendHostRemote;
 mojo.internal.bindings.blink.mojom.DevToolsFrontendHostRequest = mojo.internal.bindings.blink.mojom.DevToolsFrontendHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsFrontend_Params', [
+      mojo.internal.StructField('arg_api_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.DevToolsFrontendHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_ParamsSpec, 'blink.mojom.DevToolsFrontend_SetupDevToolsExtensionAPI_Params', [
+      mojo.internal.StructField('arg_extension_api', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_ParamsSpec, 'blink.mojom.DevToolsFrontendHost_DispatchEmbedderMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -167,30 +167,7 @@ mojo.internal.bindings.service_manager.mojom.BindInterfacePriority = {
   kBestEffort: 1,
 };
 
-// Struct: Identity
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.IdentitySpec, 'service_manager.mojom.Identity', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instance_group', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instance_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_globally_unique_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ServiceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.ServiceInfoSpec, 'service_manager.mojom.ServiceInfo', [
-      mojo.internal.StructField('arg_sandbox_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ProcessMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec, 'service_manager.mojom.ProcessMetadata_SetPID_Params', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.service_manager.mojom.ProcessMetadataPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,7 +280,7 @@ mojo.internal.bindings.service_manager.mojom.ProcessMetadataReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPID');
-          const result = this.impl.setPID(params.arg_pid);
+          const result = this.impl.setPID(params.arg_arg_pid);
           break;
         }
       }
@@ -321,67 +298,6 @@ mojo.internal.bindings.service_manager.mojom.ProcessMetadataRequest = mojo.inter
 
 
 // Interface: Connector
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ParamsSpec, 'service_manager.mojom.Connector_BindInterface_Params', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 24, 0, mojo.internal.bindings.service_manager.mojom.BindInterfacePrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, 'service_manager.mojom.Connector_BindInterface_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ParamsSpec, 'service_manager.mojom.Connector_QueryService_Params', [
-      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec, 'service_manager.mojom.Connector_QueryService_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ParamsSpec, 'service_manager.mojom.Connector_WarmService_Params', [
-      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec, 'service_manager.mojom.Connector_WarmService_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_Params', [
-      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.Connector_Clone_ParamsSpec, 'service_manager.mojom.Connector_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.service_manager.mojom.ConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -550,12 +466,14 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInterface');
-          const result = this.impl.bindInterface(params.arg_filter, params.arg_interface_name, params.arg_interface_pipe, params.arg_priority);
+          const result = this.impl.bindInterface(params.arg_arg_filter, params.arg_arg_interface_name, params.arg_arg_interface_pipe, params.arg_arg_priority);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] BindInterface FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_identity']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] bindInterface FAILED:', e));
           }
           break;
         }
@@ -563,12 +481,15 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryService');
-          const result = this.impl.queryService(params.arg_service_name);
+          const result = this.impl.queryService(params.arg_arg_service_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryService FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryService FAILED:', e));
           }
           break;
         }
@@ -576,12 +497,14 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.warmService');
-          const result = this.impl.warmService(params.arg_filter);
+          const result = this.impl.warmService(params.arg_arg_filter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] WarmService FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_identity']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] warmService FAILED:', e));
           }
           break;
         }
@@ -589,12 +512,15 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerServiceInstance');
-          const result = this.impl.registerServiceInstance(params.arg_identity, params.arg_service, params.arg_metadata_receiver);
+          const result = this.impl.registerServiceInstance(params.arg_arg_identity, params.arg_arg_service, params.arg_arg_metadata_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RegisterServiceInstance FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] registerServiceInstance FAILED:', e));
           }
           break;
         }
@@ -602,7 +528,7 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.Connector_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_receiver);
+          const result = this.impl.clone(params.arg_arg_receiver);
           break;
         }
       }
@@ -617,4 +543,90 @@ mojo.internal.bindings.service_manager.mojom.ConnectorReceiver = mojo.internal.b
 
 mojo.internal.bindings.service_manager.mojom.ConnectorPtr = mojo.internal.bindings.service_manager.mojom.ConnectorRemote;
 mojo.internal.bindings.service_manager.mojom.ConnectorRequest = mojo.internal.bindings.service_manager.mojom.ConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Identity
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.IdentitySpec, 'service_manager.mojom.Identity', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_group', 8, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_globally_unique_id', 24, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ServiceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.ServiceInfoSpec, 'service_manager.mojom.ServiceInfo', [
+      mojo.internal.StructField('arg_sandbox_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.ProcessMetadata_SetPID_ParamsSpec, 'service_manager.mojom.ProcessMetadata_SetPID_Params', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ParamsSpec, 'service_manager.mojom.Connector_BindInterface_Params', [
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 24, 0, mojo.internal.bindings.service_manager.mojom.BindInterfacePrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_BindInterface_ResponseParamsSpec, 'service_manager.mojom.Connector_BindInterface_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ParamsSpec, 'service_manager.mojom.Connector_QueryService_Params', [
+      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_QueryService_ResponseParamsSpec, 'service_manager.mojom.Connector_QueryService_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ParamsSpec, 'service_manager.mojom.Connector_WarmService_Params', [
+      mojo.internal.StructField('arg_filter', 0, 0, mojo.internal.bindings.service_manager.mojom.ServiceFilterSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_WarmService_ResponseParamsSpec, 'service_manager.mojom.Connector_WarmService_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_Params', [
+      mojo.internal.StructField('arg_identity', 0, 0, mojo.internal.bindings.service_manager.mojom.IdentitySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ProcessMetadataRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_RegisterServiceInstance_ResponseParamsSpec, 'service_manager.mojom.Connector_RegisterServiceInstance_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.service_manager.mojom.ConnectResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.Connector_Clone_ParamsSpec, 'service_manager.mojom.Connector_Clone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.service_manager.mojom.ConnectorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

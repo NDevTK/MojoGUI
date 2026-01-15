@@ -138,17 +138,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AecDumpAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec, 'blink.mojom.AecDumpAgent_Start_Params', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec, 'blink.mojom.AecDumpAgent_Stop_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.AecDumpAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,7 +264,7 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_file);
+          const result = this.impl.start(params.arg_arg_file);
           break;
         }
         case 1: {
@@ -300,12 +289,6 @@ mojo.internal.bindings.blink.mojom.AecDumpAgentRequest = mojo.internal.bindings.
 
 
 // Interface: AecDumpManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec, 'blink.mojom.AecDumpManager_Add_Params', [
-      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AecDumpAgentRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.AecDumpManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -418,7 +401,7 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
-          const result = this.impl.add(params.arg_agent);
+          const result = this.impl.add(params.arg_arg_agent);
           break;
         }
       }
@@ -433,4 +416,23 @@ mojo.internal.bindings.blink.mojom.AecDumpManagerReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.blink.mojom.AecDumpManagerPtr = mojo.internal.bindings.blink.mojom.AecDumpManagerRemote;
 mojo.internal.bindings.blink.mojom.AecDumpManagerRequest = mojo.internal.bindings.blink.mojom.AecDumpManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AecDumpAgent_Start_ParamsSpec, 'blink.mojom.AecDumpAgent_Start_Params', [
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AecDumpAgent_Stop_ParamsSpec, 'blink.mojom.AecDumpAgent_Stop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AecDumpManager_Add_ParamsSpec, 'blink.mojom.AecDumpManager_Add_Params', [
+      mojo.internal.StructField('arg_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.AecDumpAgentRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

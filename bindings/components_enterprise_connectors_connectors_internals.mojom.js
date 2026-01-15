@@ -183,154 +183,7 @@ mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailure = {
   INVALID_INSTALLATION: 4,
 };
 
-// Union: KeyUploadStatus
-mojo.internal.Union(
-    mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec, 'connectors_internals.mojom.KeyUploadStatus', {
-      'arg_sync_key_response_code': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec,
-        'nullable': false,
-      },
-      'arg_upload_client_error': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
-// Struct: Int32Value
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec, 'connectors_internals.mojom.Int32Value', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: LoadedKeyInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, 'connectors_internals.mojom.LoadedKeyInfo', [
-      mojo.internal.StructField('arg_trust_level', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_type', 4, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encoded_spki_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_upload_status', 16, 0, mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_ssl_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: KeyInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec, 'connectors_internals.mojom.KeyInfo', [
-      mojo.internal.StructField('arg_is_key_manager_initialized', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permanent_failure', 4, 0, mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ConsentMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec, 'connectors_internals.mojom.ConsentMetadata', [
-      mojo.internal.StructField('arg_can_collect_signals', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_consent_received', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: DeviceTrustState
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec, 'connectors_internals.mojom.DeviceTrustState', [
-      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_enabled_levels', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_info', 16, 0, mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signals_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_consent_metadata', 32, 0, mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: CertificateMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec, 'connectors_internals.mojom.CertificateMetadata', [
-      mojo.internal.StructField('arg_serial_number', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fingerprint', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_date_string', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expiration_date_string', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subject_display_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_issuer_display_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: ClientIdentity
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, 'connectors_internals.mojom.ClientIdentity', [
-      mojo.internal.StructField('arg_identity_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_certificate_metadata', 16, 0, mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ClientCertificateState
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec, 'connectors_internals.mojom.ClientCertificateState', [
-      mojo.internal.StructField('arg_policy_enabled_levels', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_managed_profile_identity', 8, 0, mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_managed_browser_identity', 16, 0, mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SignalsReportingState
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec, 'connectors_internals.mojom.SignalsReportingState', [
-      mojo.internal.StructField('arg_error_info', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status_report_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_signals_report_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_collect_all_fields', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_last_upload_attempt_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_upload_success_timestamp', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_signals_upload_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec, 'connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.connectors_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -489,8 +342,11 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDeviceTrustState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceTrustState FAILED:', e));
           }
           break;
         }
@@ -502,8 +358,10 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteDeviceTrustKey FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deleteDeviceTrustKey FAILED:', e));
           }
           break;
         }
@@ -515,8 +373,11 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetClientCertificateState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getClientCertificateState FAILED:', e));
           }
           break;
         }
@@ -528,8 +389,11 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSignalsReportingState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSignalsReportingState FAILED:', e));
           }
           break;
         }
@@ -545,4 +409,153 @@ mojo.internal.bindings.connectors_internals.mojom.PageHandlerReceiver = mojo.int
 
 mojo.internal.bindings.connectors_internals.mojom.PageHandlerPtr = mojo.internal.bindings.connectors_internals.mojom.PageHandlerRemote;
 mojo.internal.bindings.connectors_internals.mojom.PageHandlerRequest = mojo.internal.bindings.connectors_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: KeyUploadStatus
+mojo.internal.Union(
+    mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec, 'connectors_internals.mojom.KeyUploadStatus', {
+      'arg_sync_key_response_code': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec,
+        'nullable': false,
+      },
+      'arg_upload_client_error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+
+// Struct: Int32Value
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.Int32ValueSpec, 'connectors_internals.mojom.Int32Value', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: LoadedKeyInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, 'connectors_internals.mojom.LoadedKeyInfo', [
+      mojo.internal.StructField('arg_trust_level', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTrustLevelSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_type', 4, 0, mojo.internal.bindings.connectors_internals.mojom.KeyTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encoded_spki_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_upload_status', 16, 0, mojo.internal.bindings.connectors_internals.mojom.KeyUploadStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_has_ssl_key', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: KeyInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec, 'connectors_internals.mojom.KeyInfo', [
+      mojo.internal.StructField('arg_is_key_manager_initialized', 0, 0, mojo.internal.bindings.connectors_internals.mojom.KeyManagerInitializedValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permanent_failure', 4, 0, mojo.internal.bindings.connectors_internals.mojom.KeyManagerPermanentFailureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ConsentMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec, 'connectors_internals.mojom.ConsentMetadata', [
+      mojo.internal.StructField('arg_can_collect_signals', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_consent_received', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: DeviceTrustState
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec, 'connectors_internals.mojom.DeviceTrustState', [
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_enabled_levels', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_info', 16, 0, mojo.internal.bindings.connectors_internals.mojom.KeyInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signals_json', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_consent_metadata', 32, 0, mojo.internal.bindings.connectors_internals.mojom.ConsentMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: CertificateMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec, 'connectors_internals.mojom.CertificateMetadata', [
+      mojo.internal.StructField('arg_serial_number', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fingerprint', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_date_string', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiration_date_string', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subject_display_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_issuer_display_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: ClientIdentity
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, 'connectors_internals.mojom.ClientIdentity', [
+      mojo.internal.StructField('arg_identity_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_loaded_key_info', 8, 0, mojo.internal.bindings.connectors_internals.mojom.LoadedKeyInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_certificate_metadata', 16, 0, mojo.internal.bindings.connectors_internals.mojom.CertificateMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ClientCertificateState
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec, 'connectors_internals.mojom.ClientCertificateState', [
+      mojo.internal.StructField('arg_policy_enabled_levels', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_managed_profile_identity', 8, 0, mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_managed_browser_identity', 16, 0, mojo.internal.bindings.connectors_internals.mojom.ClientIdentitySpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SignalsReportingState
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec, 'connectors_internals.mojom.SignalsReportingState', [
+      mojo.internal.StructField('arg_error_info', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status_report_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_signals_report_enabled', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_collect_all_fields', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_last_upload_attempt_timestamp', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_upload_success_timestamp', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_signals_upload_config', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetDeviceTrustState_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.DeviceTrustStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ParamsSpec, 'connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_DeleteDeviceTrustKey_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetClientCertificateState_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.ClientCertificateStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParamsSpec, 'connectors_internals.mojom.PageHandler_GetSignalsReportingState_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.connectors_internals.mojom.SignalsReportingStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

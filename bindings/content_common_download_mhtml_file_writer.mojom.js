@@ -154,47 +154,7 @@ mojo.internal.bindings.content.mojom.MhtmlSaveStatus = {
   kStreamingError: 7,
 };
 
-// Union: MhtmlOutputHandle
-mojo.internal.Union(
-    mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec, 'content.mojom.MhtmlOutputHandle', {
-      'arg_file_handle': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec,
-        'nullable': false,
-      },
-      'arg_producer_handle': {
-        'ordinal': 1,
-        'type': mojo.internal.OpaqueStruct,
-        'nullable': false,
-      },
-    });
-
-// Struct: SerializeAsMHTMLParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec, 'content.mojom.SerializeAsMHTMLParams', [
-      mojo.internal.StructField('arg_mhtml_boundary_marker', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mhtml_binary_encoding', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mhtml_popup_overlay_removal', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_digests_of_uris_to_skip', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_handle', 32, 0, mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: MhtmlFileWriter
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.MhtmlFileWriterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -307,12 +267,14 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serializeAsMHTML');
-          const result = this.impl.serializeAsMHTML(params.arg_params);
+          const result = this.impl.serializeAsMHTML(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SerializeAsMHTML FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_digests_of_uris_to_skip']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] serializeAsMHTML FAILED:', e));
           }
           break;
         }
@@ -328,4 +290,46 @@ mojo.internal.bindings.content.mojom.MhtmlFileWriterReceiver = mojo.internal.bin
 
 mojo.internal.bindings.content.mojom.MhtmlFileWriterPtr = mojo.internal.bindings.content.mojom.MhtmlFileWriterRemote;
 mojo.internal.bindings.content.mojom.MhtmlFileWriterRequest = mojo.internal.bindings.content.mojom.MhtmlFileWriterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: MhtmlOutputHandle
+mojo.internal.Union(
+    mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec, 'content.mojom.MhtmlOutputHandle', {
+      'arg_file_handle': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.FileSpec,
+        'nullable': false,
+      },
+      'arg_producer_handle': {
+        'ordinal': 1,
+        'type': mojo.internal.OpaqueStruct,
+        'nullable': false,
+      },
+    });
+
+// Struct: SerializeAsMHTMLParams
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec, 'content.mojom.SerializeAsMHTMLParams', [
+      mojo.internal.StructField('arg_mhtml_boundary_marker', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mhtml_binary_encoding', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mhtml_popup_overlay_removal', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_digests_of_uris_to_skip', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_handle', 32, 0, mojo.internal.bindings.content.mojom.MhtmlOutputHandleSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.SerializeAsMHTMLParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParamsSpec, 'content.mojom.MhtmlFileWriter_SerializeAsMHTML_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.content.mojom.MhtmlSaveStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_digests_of_uris_to_skip', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

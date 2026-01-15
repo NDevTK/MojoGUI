@@ -142,6 +142,8 @@ mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojom.SyncTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SharedImageExportResult
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SharedImageExportResultSpec, 'gpu.mojom.SharedImageExportResult', [

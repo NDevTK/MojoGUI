@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.EmptySpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Empty
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.EmptySpec, 'mojo_base.mojom.Empty', [

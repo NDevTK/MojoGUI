@@ -145,28 +145,7 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: Theme
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec, 'new_tab_page_third_party.mojom.Theme', [
-      mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dark', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_custom_background', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_background', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_tiling', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_position', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_most_visited', 48, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -279,7 +258,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -297,11 +276,6 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactoryRequest 
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandler_UpdateTheme_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -432,12 +406,6 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRequest = mojo.
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec, 'new_tab_page_third_party.mojom.Page_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.new_tab_page_third_party.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -550,7 +518,7 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_theme);
+          const result = this.impl.setTheme(params.arg_arg_theme);
           break;
         }
       }
@@ -565,4 +533,38 @@ mojo.internal.bindings.new_tab_page_third_party.mojom.PageReceiver = mojo.intern
 
 mojo.internal.bindings.new_tab_page_third_party.mojom.PagePtr = mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemote;
 mojo.internal.bindings.new_tab_page_third_party.mojom.PageRequest = mojo.internal.bindings.new_tab_page_third_party.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Theme
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec, 'new_tab_page_third_party.mojom.Theme', [
+      mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dark', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_custom_background', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_background', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_tiling', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_position', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_most_visited', 48, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page_third_party.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page_third_party.mojom.PageHandler_UpdateTheme_ParamsSpec, 'new_tab_page_third_party.mojom.PageHandler_UpdateTheme_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page_third_party.mojom.Page_SetTheme_ParamsSpec, 'new_tab_page_third_party.mojom.Page_SetTheme_Params', [
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.new_tab_page_third_party.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

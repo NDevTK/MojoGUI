@@ -170,98 +170,6 @@ mojo.internal.bindings.media.mojom.StreamType = {
 };
 
 // Interface: Decryptor
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec, 'media.mojom.Decryptor_Initialize_Params', [
-      mojo.internal.StructField('arg_audio_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypt_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypted_pipe', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec, 'media.mojom.Decryptor_Decrypt_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec, 'media.mojom.Decryptor_Decrypt_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec, 'media.mojom.Decryptor_CancelDecrypt_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeAudioDecoder_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec, 'media.mojom.Decryptor_InitializeAudioDecoder_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeVideoDecoder_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec, 'media.mojom.Decryptor_InitializeVideoDecoder_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_Params', [
-      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_buffers', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioBufferSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_Params', [
-      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_frame', 8, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_releaser', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec, 'media.mojom.Decryptor_ResetDecoder_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec, 'media.mojom.Decryptor_DeinitializeDecoder_Params', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.DecryptorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -486,19 +394,21 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_audio_pipe, params.arg_video_pipe, params.arg_decrypt_pipe, params.arg_decrypted_pipe);
+          const result = this.impl.initialize(params.arg_arg_audio_pipe, params.arg_arg_video_pipe, params.arg_arg_decrypt_pipe, params.arg_arg_decrypted_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
-          const result = this.impl.decrypt(params.arg_stream_type, params.arg_encrypted);
+          const result = this.impl.decrypt(params.arg_arg_stream_type, params.arg_arg_encrypted);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Decrypt FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_buffer']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decrypt FAILED:', e));
           }
           break;
         }
@@ -506,19 +416,22 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelDecrypt');
-          const result = this.impl.cancelDecrypt(params.arg_stream_type);
+          const result = this.impl.cancelDecrypt(params.arg_arg_stream_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeAudioDecoder');
-          const result = this.impl.initializeAudioDecoder(params.arg_config);
+          const result = this.impl.initializeAudioDecoder(params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InitializeAudioDecoder FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] initializeAudioDecoder FAILED:', e));
           }
           break;
         }
@@ -526,12 +439,15 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeVideoDecoder');
-          const result = this.impl.initializeVideoDecoder(params.arg_config);
+          const result = this.impl.initializeVideoDecoder(params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InitializeVideoDecoder FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] initializeVideoDecoder FAILED:', e));
           }
           break;
         }
@@ -539,12 +455,14 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptAndDecodeAudio');
-          const result = this.impl.decryptAndDecodeAudio(params.arg_encrypted);
+          const result = this.impl.decryptAndDecodeAudio(params.arg_arg_encrypted);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecryptAndDecodeAudio FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_audio_buffers']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decryptAndDecodeAudio FAILED:', e));
           }
           break;
         }
@@ -552,12 +470,14 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptAndDecodeVideo');
-          const result = this.impl.decryptAndDecodeVideo(params.arg_encrypted);
+          const result = this.impl.decryptAndDecodeVideo(params.arg_arg_encrypted);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecryptAndDecodeVideo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_video_frame', 'response.arg_arg_releaser']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decryptAndDecodeVideo FAILED:', e));
           }
           break;
         }
@@ -565,14 +485,14 @@ mojo.internal.bindings.media.mojom.DecryptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetDecoder');
-          const result = this.impl.resetDecoder(params.arg_stream_type);
+          const result = this.impl.resetDecoder(params.arg_arg_stream_type);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deinitializeDecoder');
-          const result = this.impl.deinitializeDecoder(params.arg_stream_type);
+          const result = this.impl.deinitializeDecoder(params.arg_arg_stream_type);
           break;
         }
       }
@@ -696,4 +616,98 @@ mojo.internal.bindings.media.mojom.FrameResourceReleaserReceiver = mojo.internal
 
 mojo.internal.bindings.media.mojom.FrameResourceReleaserPtr = mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote;
 mojo.internal.bindings.media.mojom.FrameResourceReleaserRequest = mojo.internal.bindings.media.mojom.FrameResourceReleaserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_Initialize_ParamsSpec, 'media.mojom.Decryptor_Initialize_Params', [
+      mojo.internal.StructField('arg_audio_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypt_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypted_pipe', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ParamsSpec, 'media.mojom.Decryptor_Decrypt_Params', [
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_Decrypt_ResponseParamsSpec, 'media.mojom.Decryptor_Decrypt_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_CancelDecrypt_ParamsSpec, 'media.mojom.Decryptor_CancelDecrypt_Params', [
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeAudioDecoder_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.AudioDecoderConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_InitializeAudioDecoder_ResponseParamsSpec, 'media.mojom.Decryptor_InitializeAudioDecoder_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ParamsSpec, 'media.mojom.Decryptor_InitializeVideoDecoder_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_InitializeVideoDecoder_ResponseParamsSpec, 'media.mojom.Decryptor_InitializeVideoDecoder_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_Params', [
+      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeAudio_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_buffers', 8, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioBufferSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_Params', [
+      mojo.internal.StructField('arg_encrypted', 0, 0, mojo.internal.bindings.media.mojom.DecoderBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParamsSpec, 'media.mojom.Decryptor_DecryptAndDecodeVideo_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_frame', 8, 0, mojo.internal.bindings.media.mojom.VideoFrameSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_releaser', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameResourceReleaserRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_ResetDecoder_ParamsSpec, 'media.mojom.Decryptor_ResetDecoder_Params', [
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Decryptor_DeinitializeDecoder_ParamsSpec, 'media.mojom.Decryptor_DeinitializeDecoder_Params', [
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.media.mojom.StreamTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -135,6 +135,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AggregatedHitTestRegion
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.AggregatedHitTestRegionSpec, 'viz.mojom.AggregatedHitTestRegion', [

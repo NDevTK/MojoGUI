@@ -133,12 +133,6 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec = { $: {} };
 
 // Interface: UntrustedPageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -269,17 +263,6 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactoryRequest = 
 
 
 // Interface: UntrustedPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_Params', [
-      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,7 +396,7 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchApp');
-          const result = this.impl.launchApp(params.arg_app_id);
+          const result = this.impl.launchApp(params.arg_arg_app_id);
           break;
         }
       }
@@ -428,4 +411,23 @@ mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerReceiver = mojo.i
 
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerPtr = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemote;
 mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRequest = mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_ToggleFullscreen_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_ParamsSpec, 'ash.mojom.demo_mode.UntrustedPageHandler_LaunchApp_Params', [
+      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

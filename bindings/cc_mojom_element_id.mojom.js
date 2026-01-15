@@ -123,6 +123,8 @@ mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
 mojo.internal.bindings.cc.mojom.ElementIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ElementId
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.ElementIdSpec, 'cc.mojom.ElementId', [

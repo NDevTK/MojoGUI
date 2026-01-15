@@ -150,6 +150,8 @@ mojo.internal.bindings.network.mojom.ServiceWorkerStatus = {
   kWarmedUp: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ServiceWorkerRouterInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ServiceWorkerRouterInfoSpec, 'network.mojom.ServiceWorkerRouterInfo', [

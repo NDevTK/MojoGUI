@@ -148,6 +148,8 @@ mojo.internal.bindings.performance_manager.mojom.Mode = {
   kEager: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WebMemoryAttribution
 mojo.internal.Struct(
     mojo.internal.bindings.performance_manager.mojom.WebMemoryAttributionSpec, 'performance_manager.mojom.WebMemoryAttribution', [

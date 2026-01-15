@@ -128,3 +128,5 @@ mojo.internal.bindings.contextual_tasks.mojom.TabSelectionMode = {
   kEmbeddingsMatch: 0,
   kMultiSignalScoring: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

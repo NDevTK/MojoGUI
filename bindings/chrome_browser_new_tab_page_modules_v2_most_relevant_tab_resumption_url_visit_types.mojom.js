@@ -166,6 +166,8 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.VisitSource = {
   kHistory: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Decoration
 mojo.internal.Struct(
     mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.DecorationSpec, 'ntp.most_relevant_tab_resumption.mojom.Decoration', [

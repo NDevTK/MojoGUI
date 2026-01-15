@@ -130,3 +130,5 @@ mojo.internal.bindings.gfx.mojom.OverlayType = {
   kSingleOnTop: 2,
   kFullScreen: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

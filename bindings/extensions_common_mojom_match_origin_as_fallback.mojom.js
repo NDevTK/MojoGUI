@@ -129,3 +129,5 @@ mojo.internal.bindings.extensions.mojom.MatchOriginAsFallbackBehavior = {
   kMatchForAboutSchemeAndClimbTree: 1,
   kAlways: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

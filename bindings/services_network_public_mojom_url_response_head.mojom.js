@@ -207,6 +207,8 @@ mojo.internal.bindings.network.mojom.NavigationDeliveryType = {
   kNavigationalPrefetch: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: URLResponseHead
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.URLResponseHeadSpec, 'network.mojom.URLResponseHead', [

@@ -133,6 +133,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ContentCaptureData
 mojo.internal.Struct(
     mojo.internal.bindings.content_capture.mojom.ContentCaptureDataSpec, 'content_capture.mojom.ContentCaptureData', [

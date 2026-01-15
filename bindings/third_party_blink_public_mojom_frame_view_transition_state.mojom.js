@@ -167,6 +167,8 @@ mojo.internal.bindings.blink.mojom.ViewTransitionElementBoxSizing = {
   kContentBox: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ViewTransitionElementLayeredBoxProperties
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewTransitionElementLayeredBoxPropertiesSpec, 'blink.mojom.ViewTransitionElementLayeredBoxProperties', [

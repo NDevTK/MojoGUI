@@ -134,21 +134,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: Feature
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec, 'chromecast.shell.mojom.Feature', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: FeatureManager
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec, 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,7 +247,7 @@ mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configureFeatures');
-          const result = this.impl.configureFeatures(params.arg_features);
+          const result = this.impl.configureFeatures(params.arg_arg_features);
           break;
         }
       }
@@ -276,4 +262,20 @@ mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerReceiver = mojo.inte
 
 mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerPtr = mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerRemote;
 mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerRequest = mojo.internal.bindings.chromecast.shell.mojom.FeatureManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Feature
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec, 'chromecast.shell.mojom.Feature', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.shell.mojom.FeatureManager_ConfigureFeatures_ParamsSpec, 'chromecast.shell.mojom.FeatureManager_ConfigureFeatures_Params', [
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.shell.mojom.FeatureSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

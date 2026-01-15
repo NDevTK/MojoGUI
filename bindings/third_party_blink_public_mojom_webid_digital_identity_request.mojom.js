@@ -150,56 +150,7 @@ mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatus = {
   kErrorInvalidJson: 6,
 };
 
-// Struct: DigitalCredentialGetRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec, 'blink.mojom.DigitalCredentialGetRequest', [
-      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DigitalCredentialCreateRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec, 'blink.mojom.DigitalCredentialCreateRequest', [
-      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: DigitalIdentityRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_Params', [
-      mojo.internal.StructField('arg_digital_credential_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_Params', [
-      mojo.internal.StructField('arg_digital_credential_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Abort_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -340,12 +291,14 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_digital_credential_requests);
+          const result = this.impl.get(params.arg_arg_digital_credential_requests);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_protocol', 'response.arg_arg_token']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
           break;
         }
@@ -353,12 +306,14 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_digital_credential_requests);
+          const result = this.impl.create(params.arg_arg_digital_credential_requests);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Create FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_protocol', 'response.arg_arg_token']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
           break;
         }
@@ -381,4 +336,55 @@ mojo.internal.bindings.blink.mojom.DigitalIdentityRequestReceiver = mojo.interna
 
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequestPtr = mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRemote;
 mojo.internal.bindings.blink.mojom.DigitalIdentityRequestRequest = mojo.internal.bindings.blink.mojom.DigitalIdentityRequestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DigitalCredentialGetRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec, 'blink.mojom.DigitalCredentialGetRequest', [
+      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DigitalCredentialCreateRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec, 'blink.mojom.DigitalCredentialCreateRequest', [
+      mojo.internal.StructField('arg_protocol', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_Params', [
+      mojo.internal.StructField('arg_digital_credential_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DigitalCredentialGetRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Get_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Get_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_Params', [
+      mojo.internal.StructField('arg_digital_credential_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.DigitalCredentialCreateRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Create_ResponseParamsSpec, 'blink.mojom.DigitalIdentityRequest_Create_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.RequestDigitalIdentityStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protocol', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DigitalIdentityRequest_Abort_ParamsSpec, 'blink.mojom.DigitalIdentityRequest_Abort_Params', [
+    ],
+    [[0, 8]]);
 

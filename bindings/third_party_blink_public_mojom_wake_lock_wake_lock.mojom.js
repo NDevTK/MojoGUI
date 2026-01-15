@@ -140,15 +140,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.WakeLockTypeSpec = mojo.internal.bindings.device.mojom.WakeLockTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: WakeLockService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WakeLockService_GetWakeLock_ParamsSpec, 'blink.mojom.WakeLockService_GetWakeLock_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wake_lock', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.WakeLockRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.WakeLockServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,7 +252,7 @@ mojo.internal.bindings.blink.mojom.WakeLockServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WakeLockService_GetWakeLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getWakeLock');
-          const result = this.impl.getWakeLock(params.arg_type, params.arg_reason, params.arg_description, params.arg_wake_lock);
+          const result = this.impl.getWakeLock(params.arg_arg_type, params.arg_arg_reason, params.arg_arg_description, params.arg_arg_wake_lock);
           break;
         }
       }
@@ -276,4 +267,15 @@ mojo.internal.bindings.blink.mojom.WakeLockServiceReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.WakeLockServicePtr = mojo.internal.bindings.blink.mojom.WakeLockServiceRemote;
 mojo.internal.bindings.blink.mojom.WakeLockServiceRequest = mojo.internal.bindings.blink.mojom.WakeLockServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WakeLockService_GetWakeLock_ParamsSpec, 'blink.mojom.WakeLockService_GetWakeLock_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.WakeLockTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.device.mojom.WakeLockReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wake_lock', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.WakeLockRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

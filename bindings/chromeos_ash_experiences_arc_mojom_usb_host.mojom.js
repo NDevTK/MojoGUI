@@ -145,46 +145,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec = mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: UsbHostHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec, 'arc.mojom.UsbHostHost_OpenDevice_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pkg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec, 'arc.mojom.UsbHostHost_OpenDevice_ResponseParams', [
-      mojo.internal.StructField('arg_usb_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParams', [
-      mojo.internal.StructField('arg_device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec, 'arc.mojom.UsbHostHost_RequestPermission_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pkg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interactive', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec, 'arc.mojom.UsbHostHost_RequestPermission_ResponseParams', [
-      mojo.internal.StructField('arg_authorized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.UsbHostHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,12 +285,15 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
-          const result = this.impl.openDevice(params.arg_guid, params.arg_pkg_name);
+          const result = this.impl.openDevice(params.arg_arg_guid, params.arg_arg_pkg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenDevice FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_usb_fd' in response) ? response.arg_arg_usb_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }
           break;
         }
@@ -338,12 +301,14 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDeviceInfo');
-          const result = this.impl.getDeviceInfo(params.arg_guid);
+          const result = this.impl.getDeviceInfo(params.arg_arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDeviceInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_device_name', 'response.arg_arg_info']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDeviceInfo FAILED:', e));
           }
           break;
         }
@@ -351,12 +316,15 @@ mojo.internal.bindings.arc.mojom.UsbHostHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPermission');
-          const result = this.impl.requestPermission(params.arg_guid, params.arg_pkg_name, params.arg_interactive);
+          const result = this.impl.requestPermission(params.arg_arg_guid, params.arg_arg_pkg_name, params.arg_arg_interactive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestPermission FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_authorized' in response) ? response.arg_arg_authorized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestPermission FAILED:', e));
           }
           break;
         }
@@ -375,31 +343,6 @@ mojo.internal.bindings.arc.mojom.UsbHostHostRequest = mojo.internal.bindings.arc
 
 
 // Interface: UsbHostInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec, 'arc.mojom.UsbHostInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.UsbHostHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec, 'arc.mojom.UsbHostInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceAdded_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
-    ],
-    [[0, 16], [2, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
-    ],
-    [[0, 16], [2, 24]]);
-
 mojo.internal.bindings.arc.mojom.UsbHostInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -540,12 +483,14 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -553,14 +498,14 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
-          const result = this.impl.onDeviceAdded(params.arg_guid, params.arg_event_receiver_packages);
+          const result = this.impl.onDeviceAdded(params.arg_arg_guid, params.arg_arg_event_receiver_packages);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
-          const result = this.impl.onDeviceRemoved(params.arg_guid, params.arg_event_receiver_packages);
+          const result = this.impl.onDeviceRemoved(params.arg_arg_guid, params.arg_arg_event_receiver_packages);
           break;
         }
       }
@@ -575,4 +520,71 @@ mojo.internal.bindings.arc.mojom.UsbHostInstanceReceiver = mojo.internal.binding
 
 mojo.internal.bindings.arc.mojom.UsbHostInstancePtr = mojo.internal.bindings.arc.mojom.UsbHostInstanceRemote;
 mojo.internal.bindings.arc.mojom.UsbHostInstanceRequest = mojo.internal.bindings.arc.mojom.UsbHostInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ParamsSpec, 'arc.mojom.UsbHostHost_OpenDevice_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pkg_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostHost_OpenDevice_ResponseParamsSpec, 'arc.mojom.UsbHostHost_OpenDevice_ResponseParams', [
+      mojo.internal.StructField('arg_usb_fd', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParamsSpec, 'arc.mojom.UsbHostHost_GetDeviceInfo_ResponseParams', [
+      mojo.internal.StructField('arg_device_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ParamsSpec, 'arc.mojom.UsbHostHost_RequestPermission_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pkg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interactive', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostHost_RequestPermission_ResponseParamsSpec, 'arc.mojom.UsbHostHost_RequestPermission_ResponseParams', [
+      mojo.internal.StructField('arg_authorized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ParamsSpec, 'arc.mojom.UsbHostInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.UsbHostHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostInstance_Init_ResponseParamsSpec, 'arc.mojom.UsbHostInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceAdded_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceAdded_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.UsbHostInstance_OnDeviceRemoved_ParamsSpec, 'arc.mojom.UsbHostInstance_OnDeviceRemoved_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_receiver_packages', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 2, undefined),
+    ],
+    [[0, 16], [2, 24]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.syncer.mojom = mojo.internal.bindings.syncer.mojom || {};
 
 mojo.internal.bindings.syncer.mojom.StringOrdinalSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: StringOrdinal
 mojo.internal.Struct(
     mojo.internal.bindings.syncer.mojom.StringOrdinalSpec, 'syncer.mojom.StringOrdinal', [

@@ -145,22 +145,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RendererAudioOutputStreamFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Params', [
-      mojo.internal.StructField('arg_stream_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_params', 8, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_matched_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,12 +257,14 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDeviceAuthorization');
-          const result = this.impl.requestDeviceAuthorization(params.arg_stream_provider_receiver, params.arg_session_id, params.arg_device_id);
+          const result = this.impl.requestDeviceAuthorization(params.arg_arg_stream_provider_receiver, params.arg_arg_session_id, params.arg_arg_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestDeviceAuthorization FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec.$.structSpec, ['response.arg_arg_state', 'response.arg_arg_output_params', 'response.arg_arg_matched_device_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestDeviceAuthorization FAILED:', e));
           }
           break;
         }
@@ -294,4 +280,22 @@ mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryReceiver = mo
 
 mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryPtr = mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryRemote;
 mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryRequest = mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_Params', [
+      mojo.internal.StructField('arg_stream_provider_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParamsSpec, 'blink.mojom.RendererAudioOutputStreamFactory_RequestDeviceAuthorization_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.OutputDeviceStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_params', 8, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_matched_device_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

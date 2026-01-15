@@ -243,105 +243,7 @@ mojo.internal.bindings.device.mojom.SerialPortType = {
   BLUETOOTH_CLASSIC_RFCOMM: 1,
 };
 
-// Struct: SerialPortInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortInfoSpec, 'device.mojom.SerialPortInfo', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.device.mojom.SerialPortTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 20, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_vendor_id', 22, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_product_id', 22, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_connected', 22, 2, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_alternate_path', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_usb_driver_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_instance_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bluetooth_service_class_id', 56, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 72, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 88]]);
-
-// Struct: SerialConnectionOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, 'device.mojom.SerialConnectionOptions', [
-      mojo.internal.StructField('arg_bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data_bits', 4, 0, mojo.internal.bindings.device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_parity_bit', 8, 0, mojo.internal.bindings.device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stop_bits', 12, 0, mojo.internal.bindings.device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_cts_flow_control', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SerialConnectionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialConnectionInfoSpec, 'device.mojom.SerialConnectionInfo', [
-      mojo.internal.StructField('arg_bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data_bits', 4, 0, mojo.internal.bindings.device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_parity_bit', 8, 0, mojo.internal.bindings.device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stop_bits', 12, 0, mojo.internal.bindings.device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SerialHostControlSignals
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialHostControlSignalsSpec, 'device.mojom.SerialHostControlSignals', [
-      mojo.internal.StructField('arg_dtr', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_dtr', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_rts', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_rts', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_brk', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_brk', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SerialPortControlSignals
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortControlSignalsSpec, 'device.mojom.SerialPortControlSignals', [
-      mojo.internal.StructField('arg_dcd', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_cts', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ri', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_dsr', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SerialPortManager
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec, 'device.mojom.SerialPortManager_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortManagerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec, 'device.mojom.SerialPortManager_GetDevices_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, 'device.mojom.SerialPortManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec, 'device.mojom.SerialPortManager_OpenPort_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_alternate_path', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_watcher', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, 'device.mojom.SerialPortManager_OpenPort_ResponseParams', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.SerialPortManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -482,7 +384,7 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_client);
+          const result = this.impl.setClient(params.arg_arg_client);
           break;
         }
         case 1: {
@@ -493,8 +395,11 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDevices FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
           break;
         }
@@ -502,12 +407,15 @@ mojo.internal.bindings.device.mojom.SerialPortManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openPort');
-          const result = this.impl.openPort(params.arg_token, params.arg_use_alternate_path, params.arg_options, params.arg_client, params.arg_watcher);
+          const result = this.impl.openPort(params.arg_arg_token, params.arg_arg_use_alternate_path, params.arg_arg_options, params.arg_arg_client, params.arg_arg_watcher);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenPort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_port' in response) ? response.arg_arg_port : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openPort FAILED:', e));
           }
           break;
         }
@@ -526,24 +434,6 @@ mojo.internal.bindings.device.mojom.SerialPortManagerRequest = mojo.internal.bin
 
 
 // Interface: SerialPortManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortAdded_Params', [
-      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortRemoved_Params', [
-      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_Params', [
-      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.SerialPortManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -684,21 +574,21 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortAdded');
-          const result = this.impl.onPortAdded(params.arg_port_info);
+          const result = this.impl.onPortAdded(params.arg_arg_port_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortRemoved');
-          const result = this.impl.onPortRemoved(params.arg_port_info);
+          const result = this.impl.onPortRemoved(params.arg_arg_port_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPortConnectedStateChanged');
-          const result = this.impl.onPortConnectedStateChanged(params.arg_port_info);
+          const result = this.impl.onPortConnectedStateChanged(params.arg_arg_port_info);
           break;
         }
       }
@@ -716,96 +606,6 @@ mojo.internal.bindings.device.mojom.SerialPortManagerClientRequest = mojo.intern
 
 
 // Interface: SerialPort
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec, 'device.mojom.SerialPort_StartWriting_Params', [
-      mojo.internal.StructField('arg_consumer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec, 'device.mojom.SerialPort_StartReading_Params', [
-      mojo.internal.StructField('arg_producer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec, 'device.mojom.SerialPort_Flush_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.device.mojom.SerialPortFlushModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec, 'device.mojom.SerialPort_Flush_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_Drain_ParamsSpec, 'device.mojom.SerialPort_Drain_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec, 'device.mojom.SerialPort_Drain_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ParamsSpec, 'device.mojom.SerialPort_GetControlSignals_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, 'device.mojom.SerialPort_GetControlSignals_ResponseParams', [
-      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.device.mojom.SerialPortControlSignalsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec, 'device.mojom.SerialPort_SetControlSignals_Params', [
-      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.device.mojom.SerialHostControlSignalsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec, 'device.mojom.SerialPort_SetControlSignals_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec, 'device.mojom.SerialPort_ConfigurePort_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec, 'device.mojom.SerialPort_ConfigurePort_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ParamsSpec, 'device.mojom.SerialPort_GetPortInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, 'device.mojom.SerialPort_GetPortInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.device.mojom.SerialConnectionInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec, 'device.mojom.SerialPort_Close_Params', [
-      mojo.internal.StructField('arg_flush', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec, 'device.mojom.SerialPort_Close_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.SerialPortPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1030,26 +830,28 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startWriting');
-          const result = this.impl.startWriting(params.arg_consumer);
+          const result = this.impl.startWriting(params.arg_arg_consumer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReading');
-          const result = this.impl.startReading(params.arg_producer);
+          const result = this.impl.startReading(params.arg_arg_producer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.flush');
-          const result = this.impl.flush(params.arg_mode);
+          const result = this.impl.flush(params.arg_arg_mode);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Flush FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] flush FAILED:', e));
           }
           break;
         }
@@ -1061,8 +863,10 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Drain FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] drain FAILED:', e));
           }
           break;
         }
@@ -1074,8 +878,11 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetControlSignals FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_signals' in response) ? response.arg_arg_signals : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getControlSignals FAILED:', e));
           }
           break;
         }
@@ -1083,12 +890,15 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setControlSignals');
-          const result = this.impl.setControlSignals(params.arg_signals);
+          const result = this.impl.setControlSignals(params.arg_arg_signals);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetControlSignals FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setControlSignals FAILED:', e));
           }
           break;
         }
@@ -1096,12 +906,15 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configurePort');
-          const result = this.impl.configurePort(params.arg_options);
+          const result = this.impl.configurePort(params.arg_arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ConfigurePort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] configurePort FAILED:', e));
           }
           break;
         }
@@ -1113,8 +926,11 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPortInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPortInfo FAILED:', e));
           }
           break;
         }
@@ -1122,12 +938,14 @@ mojo.internal.bindings.device.mojom.SerialPortReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
-          const result = this.impl.close(params.arg_flush);
+          const result = this.impl.close(params.arg_arg_flush);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Close FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] close FAILED:', e));
           }
           break;
         }
@@ -1146,18 +964,6 @@ mojo.internal.bindings.device.mojom.SerialPortRequest = mojo.internal.bindings.d
 
 
 // Interface: SerialPortClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec, 'device.mojom.SerialPortClient_OnReadError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.SerialReceiveErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec, 'device.mojom.SerialPortClient_OnSendError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.SerialSendErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.SerialPortClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1284,14 +1090,14 @@ mojo.internal.bindings.device.mojom.SerialPortClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReadError');
-          const result = this.impl.onReadError(params.arg_error);
+          const result = this.impl.onReadError(params.arg_arg_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSendError');
-          const result = this.impl.onSendError(params.arg_error);
+          const result = this.impl.onSendError(params.arg_arg_error);
           break;
         }
       }
@@ -1415,4 +1221,224 @@ mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherReceiver = mojo.i
 
 mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherPtr = mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote;
 mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRequest = mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SerialPortInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortInfoSpec, 'device.mojom.SerialPortInfo', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.device.mojom.SerialPortTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 20, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_vendor_id', 22, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_product_id', 22, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_connected', 22, 2, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_alternate_path', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_usb_driver_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_instance_id', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 48, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bluetooth_service_class_id', 56, 0, mojo.internal.bindings.bluetooth.mojom.UUIDSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 72, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 88]]);
+
+// Struct: SerialConnectionOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, 'device.mojom.SerialConnectionOptions', [
+      mojo.internal.StructField('arg_bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data_bits', 4, 0, mojo.internal.bindings.device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parity_bit', 8, 0, mojo.internal.bindings.device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stop_bits', 12, 0, mojo.internal.bindings.device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_cts_flow_control', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SerialConnectionInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialConnectionInfoSpec, 'device.mojom.SerialConnectionInfo', [
+      mojo.internal.StructField('arg_bitrate', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data_bits', 4, 0, mojo.internal.bindings.device.mojom.SerialDataBitsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parity_bit', 8, 0, mojo.internal.bindings.device.mojom.SerialParityBitSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stop_bits', 12, 0, mojo.internal.bindings.device.mojom.SerialStopBitsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cts_flow_control', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SerialHostControlSignals
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialHostControlSignalsSpec, 'device.mojom.SerialHostControlSignals', [
+      mojo.internal.StructField('arg_dtr', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_dtr', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rts', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_rts', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_brk', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_brk', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SerialPortControlSignals
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortControlSignalsSpec, 'device.mojom.SerialPortControlSignals', [
+      mojo.internal.StructField('arg_dcd', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_cts', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ri', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_dsr', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManager_SetClient_ParamsSpec, 'device.mojom.SerialPortManager_SetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ParamsSpec, 'device.mojom.SerialPortManager_GetDevices_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManager_GetDevices_ResponseParamsSpec, 'device.mojom.SerialPortManager_GetDevices_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.SerialPortInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ParamsSpec, 'device.mojom.SerialPortManager_OpenPort_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_alternate_path', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_watcher', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortConnectionWatcherRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManager_OpenPort_ResponseParamsSpec, 'device.mojom.SerialPortManager_OpenPort_ResponseParams', [
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SerialPortRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortAdded_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortAdded_Params', [
+      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortRemoved_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortRemoved_Params', [
+      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_ParamsSpec, 'device.mojom.SerialPortManagerClient_OnPortConnectedStateChanged_Params', [
+      mojo.internal.StructField('arg_port_info', 0, 0, mojo.internal.bindings.device.mojom.SerialPortInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_StartWriting_ParamsSpec, 'device.mojom.SerialPort_StartWriting_Params', [
+      mojo.internal.StructField('arg_consumer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_StartReading_ParamsSpec, 'device.mojom.SerialPort_StartReading_Params', [
+      mojo.internal.StructField('arg_producer', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_Flush_ParamsSpec, 'device.mojom.SerialPort_Flush_Params', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.device.mojom.SerialPortFlushModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_Flush_ResponseParamsSpec, 'device.mojom.SerialPort_Flush_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_Drain_ParamsSpec, 'device.mojom.SerialPort_Drain_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_Drain_ResponseParamsSpec, 'device.mojom.SerialPort_Drain_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ParamsSpec, 'device.mojom.SerialPort_GetControlSignals_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_GetControlSignals_ResponseParamsSpec, 'device.mojom.SerialPort_GetControlSignals_ResponseParams', [
+      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.device.mojom.SerialPortControlSignalsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ParamsSpec, 'device.mojom.SerialPort_SetControlSignals_Params', [
+      mojo.internal.StructField('arg_signals', 0, 0, mojo.internal.bindings.device.mojom.SerialHostControlSignalsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_SetControlSignals_ResponseParamsSpec, 'device.mojom.SerialPort_SetControlSignals_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ParamsSpec, 'device.mojom.SerialPort_ConfigurePort_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.device.mojom.SerialConnectionOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_ConfigurePort_ResponseParamsSpec, 'device.mojom.SerialPort_ConfigurePort_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ParamsSpec, 'device.mojom.SerialPort_GetPortInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_GetPortInfo_ResponseParamsSpec, 'device.mojom.SerialPort_GetPortInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.device.mojom.SerialConnectionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_Close_ParamsSpec, 'device.mojom.SerialPort_Close_Params', [
+      mojo.internal.StructField('arg_flush', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPort_Close_ResponseParamsSpec, 'device.mojom.SerialPort_Close_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortClient_OnReadError_ParamsSpec, 'device.mojom.SerialPortClient_OnReadError_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.SerialReceiveErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SerialPortClient_OnSendError_ParamsSpec, 'device.mojom.SerialPortClient_OnSendError_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.device.mojom.SerialSendErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

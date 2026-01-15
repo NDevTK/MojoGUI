@@ -131,16 +131,6 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SSLVersionSpec = mojo.internal.bindings.network.mojom.SSLVersionSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: TLSClientSocketOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [
-      mojo.internal.StructField('arg_version_min', 0, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_max', 4, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_send_ssl_info', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unsafely_skip_cert_verification', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: TLSClientSocket
 mojo.internal.bindings.network.mojom.TLSClientSocketPendingReceiver = class {
   constructor(handle) {
@@ -249,3 +239,15 @@ mojo.internal.bindings.network.mojom.TLSClientSocketReceiver = mojo.internal.bin
 mojo.internal.bindings.network.mojom.TLSClientSocketPtr = mojo.internal.bindings.network.mojom.TLSClientSocketRemote;
 mojo.internal.bindings.network.mojom.TLSClientSocketRequest = mojo.internal.bindings.network.mojom.TLSClientSocketPendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TLSClientSocketOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.TLSClientSocketOptionsSpec, 'network.mojom.TLSClientSocketOptions', [
+      mojo.internal.StructField('arg_version_min', 0, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_max', 4, 0, mojo.internal.bindings.network.mojom.SSLVersionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_send_ssl_info', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unsafely_skip_cert_verification', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);

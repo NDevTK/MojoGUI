@@ -294,6 +294,576 @@ mojo.internal.bindings.blink.mojom.WebPrintError = {
   kUserPermissionDenied: 3,
 };
 
+// Interface: WebPrintJobStateObserver
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.WebPrintJobStateObserver';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  onWebPrintJobUpdate(arg_update) {
+    return this.$.onWebPrintJobUpdate(arg_update);
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobStateObserver', [
+      { explicit: null },
+    ]);
+  }
+
+  onWebPrintJobUpdate(arg_update) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec,
+      null,
+      [arg_update],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.WebPrintJobStateObserver',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobStateObserver', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.onWebPrintJobUpdate');
+          const result = this.impl.onWebPrintJobUpdate(params.arg_arg_update);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver;
+
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPtr = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote;
+mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRequest = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver;
+
+
+// Interface: WebPrintJobController
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.WebPrintJobController';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.blink.mojom.WebPrintJobControllerPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  cancel() {
+    return this.$.cancel();
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobController', [
+      { explicit: null },
+    ]);
+  }
+
+  cancel() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobController.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.WebPrintJobController',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobController', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
+          const result = this.impl.cancel();
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver = mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver;
+
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerPtr = mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote;
+mojo.internal.bindings.blink.mojom.WebPrintJobControllerRequest = mojo.internal.bindings.blink.mojom.WebPrintJobControllerPendingReceiver;
+
+
+// Interface: WebPrinter
+mojo.internal.bindings.blink.mojom.WebPrinterPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrinterRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.WebPrinter';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.blink.mojom.WebPrinterPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  fetchAttributes() {
+    return this.$.fetchAttributes();
+  }
+  print(arg_document, arg_attributes) {
+    return this.$.print(arg_document, arg_attributes);
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrinter', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  fetchAttributes() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  print(arg_document, arg_attributes) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec,
+      [arg_document, arg_attributes],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.blink.mojom.WebPrinter.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.WebPrinterRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.WebPrinter',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrinter', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.fetchAttributes');
+          const result = this.impl.fetchAttributes();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetchAttributes FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.print');
+          const result = this.impl.print(params.arg_arg_document, params.arg_arg_attributes);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] print FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrinterReceiver = mojo.internal.bindings.blink.mojom.WebPrinterReceiver;
+
+mojo.internal.bindings.blink.mojom.WebPrinterPtr = mojo.internal.bindings.blink.mojom.WebPrinterRemote;
+mojo.internal.bindings.blink.mojom.WebPrinterRequest = mojo.internal.bindings.blink.mojom.WebPrinterPendingReceiver;
+
+
+// Interface: WebPrintingService
+mojo.internal.bindings.blink.mojom.WebPrintingServicePendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.WebPrintingService';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.blink.mojom.WebPrintingServicePendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  getPrinters() {
+    return this.$.getPrinters();
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintingService', [
+      { explicit: null },
+    ]);
+  }
+
+  getPrinters() {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintingService.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.WebPrintingService',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintingService', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getPrinters');
+          const result = this.impl.getPrinters();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPrinters FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver;
+
+mojo.internal.bindings.blink.mojom.WebPrintingServicePtr = mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote;
+mojo.internal.bindings.blink.mojom.WebPrintingServiceRequest = mojo.internal.bindings.blink.mojom.WebPrintingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: WebPrintingMediaSizeDimension
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.WebPrintingMediaSizeDimensionSpec, 'blink.mojom.WebPrintingMediaSizeDimension', {
@@ -455,279 +1025,17 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_controller', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote), null, false, 0, undefined),
     ],
     [[0, 32]]);
-
-// Interface: WebPrintJobStateObserver
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec, 'blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_Params', [
       mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.blink.mojom.WebPrintJobUpdateSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote = class {
-  static get $interfaceName() {
-    return 'blink.mojom.WebPrintJobStateObserver';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  onWebPrintJobUpdate(arg_update) {
-    return this.$.onWebPrintJobUpdate(arg_update);
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobStateObserver', [
-      { explicit: null },
-    ]);
-  }
-
-  onWebPrintJobUpdate(arg_update) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec,
-      null,
-      [arg_update],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver.getRemote = function() {
-  let remote = new mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'blink.mojom.WebPrintJobStateObserver',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobStateObserver', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobStateObserver_OnWebPrintJobUpdate_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.onWebPrintJobUpdate');
-          const result = this.impl.onWebPrintJobUpdate(params.arg_update);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverReceiver;
-
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPtr = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRemote;
-mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverRequest = mojo.internal.bindings.blink.mojom.WebPrintJobStateObserverPendingReceiver;
-
-
-// Interface: WebPrintJobController
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec, 'blink.mojom.WebPrintJobController_Cancel_Params', [
     ],
     [[0, 8]]);
 
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote = class {
-  static get $interfaceName() {
-    return 'blink.mojom.WebPrintJobController';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.blink.mojom.WebPrintJobControllerPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  cancel() {
-    return this.$.cancel();
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobController', [
-      { explicit: null },
-    ]);
-  }
-
-  cancel() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobController.getRemote = function() {
-  let remote = new mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'blink.mojom.WebPrintJobController',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintJobController', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintJobController_Cancel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel();
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver = mojo.internal.bindings.blink.mojom.WebPrintJobControllerReceiver;
-
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerPtr = mojo.internal.bindings.blink.mojom.WebPrintJobControllerRemote;
-mojo.internal.bindings.blink.mojom.WebPrintJobControllerRequest = mojo.internal.bindings.blink.mojom.WebPrintJobControllerPendingReceiver;
-
-
-// Interface: WebPrinter
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec, 'blink.mojom.WebPrinter_FetchAttributes_Params', [
     ],
@@ -752,169 +1060,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.bindings.blink.mojom.WebPrinterPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrinterRemote = class {
-  static get $interfaceName() {
-    return 'blink.mojom.WebPrinter';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.blink.mojom.WebPrinterPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  fetchAttributes() {
-    return this.$.fetchAttributes();
-  }
-  print(arg_document, arg_attributes) {
-    return this.$.print(arg_document, arg_attributes);
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrinterRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrinter', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  fetchAttributes() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  print(arg_document, arg_attributes) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec,
-      [arg_document, arg_attributes],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.blink.mojom.WebPrinter.getRemote = function() {
-  let remote = new mojo.internal.bindings.blink.mojom.WebPrinterRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'blink.mojom.WebPrinter',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.blink.mojom.WebPrinterReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrinter', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.fetchAttributes');
-          const result = this.impl.fetchAttributes();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebPrinter_FetchAttributes_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FetchAttributes FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrinter_Print_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.print');
-          const result = this.impl.print(params.arg_document, params.arg_attributes);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebPrinter_Print_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Print FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrinterReceiver = mojo.internal.bindings.blink.mojom.WebPrinterReceiver;
-
-mojo.internal.bindings.blink.mojom.WebPrinterPtr = mojo.internal.bindings.blink.mojom.WebPrinterRemote;
-mojo.internal.bindings.blink.mojom.WebPrinterRequest = mojo.internal.bindings.blink.mojom.WebPrinterPendingReceiver;
-
-
-// Interface: WebPrintingService
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec, 'blink.mojom.WebPrintingService_GetPrinters_Params', [
     ],
@@ -925,138 +1070,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.GetPrintersResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.bindings.blink.mojom.WebPrintingServicePendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote = class {
-  static get $interfaceName() {
-    return 'blink.mojom.WebPrintingService';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.blink.mojom.WebPrintingServicePendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  getPrinters() {
-    return this.$.getPrinters();
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintingServiceRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintingService', [
-      { explicit: null },
-    ]);
-  }
-
-  getPrinters() {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintingService.getRemote = function() {
-  let remote = new mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'blink.mojom.WebPrintingService',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.WebPrintingService', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getPrinters');
-          const result = this.impl.getPrinters();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebPrintingService_GetPrinters_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPrinters FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver = mojo.internal.bindings.blink.mojom.WebPrintingServiceReceiver;
-
-mojo.internal.bindings.blink.mojom.WebPrintingServicePtr = mojo.internal.bindings.blink.mojom.WebPrintingServiceRemote;
-mojo.internal.bindings.blink.mojom.WebPrintingServiceRequest = mojo.internal.bindings.blink.mojom.WebPrintingServicePendingReceiver;
 

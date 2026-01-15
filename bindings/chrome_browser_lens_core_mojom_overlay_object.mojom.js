@@ -128,6 +128,8 @@ mojo.internal.bindings.lens = mojo.internal.bindings.lens || {};
 mojo.internal.bindings.lens.mojom = mojo.internal.bindings.lens.mojom || {};
 mojo.internal.bindings.lens.mojom.GeometrySpec = mojo.internal.bindings.lens.mojom.GeometrySpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OverlayObject
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.OverlayObjectSpec, 'lens.mojom.OverlayObject', [

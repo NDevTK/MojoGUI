@@ -165,32 +165,7 @@ mojo.internal.bindings.search.mojom.OmniboxFocusState = {
 mojo.internal.bindings.search.mojom.OmniboxFocusChangeReason = {
 };
 
-// Struct: InstantMostVisitedInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: NtpTheme
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.NtpThemeSpec, 'search.mojom.NtpTheme', [
-    ],
-    [[0, 8]]);
-
-// Struct: InstantMostVisitedInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
-    ],
-    [[0, 8]]);
-
 // Interface: EmbeddedSearchConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
-      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,7 +278,7 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_embedded_search, params.arg_client);
+          const result = this.impl.connect(params.arg_arg_embedded_search, params.arg_arg_client);
           break;
         }
       }
@@ -321,33 +296,6 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchConnectorRequest = mojo.intern
 
 
 // Interface: EmbeddedSearch
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec, 'search.mojom.EmbeddedSearch_FocusOmnibox_Params', [
-      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_focus', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec, 'search.mojom.EmbeddedSearch_DeleteMostVisitedItem_Params', [
-      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_Params', [
-      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_Params', [
-      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.search.mojom.EmbeddedSearchPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -502,28 +450,28 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusOmnibox');
-          const result = this.impl.focusOmnibox(params.arg_page_seq_no, params.arg_focus);
+          const result = this.impl.focusOmnibox(params.arg_arg_page_seq_no, params.arg_arg_focus);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedItem');
-          const result = this.impl.deleteMostVisitedItem(params.arg_page_seq_no, params.arg_url);
+          const result = this.impl.deleteMostVisitedItem(params.arg_arg_page_seq_no, params.arg_arg_url);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoAllMostVisitedDeletions');
-          const result = this.impl.undoAllMostVisitedDeletions(params.arg_page_seq_no);
+          const result = this.impl.undoAllMostVisitedDeletions(params.arg_arg_page_seq_no);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedDeletion');
-          const result = this.impl.undoMostVisitedDeletion(params.arg_page_seq_no, params.arg_url);
+          const result = this.impl.undoMostVisitedDeletion(params.arg_arg_page_seq_no, params.arg_arg_url);
           break;
         }
       }
@@ -541,37 +489,6 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchRequest = mojo.internal.bindin
 
 
 // Interface: EmbeddedSearchClient
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec, 'search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_Params', [
-      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_FocusChanged_Params', [
-      mojo.internal.StructField('arg_new_focus_state', 0, 0, mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_Params', [
-      mojo.internal.StructField('arg_most_visited_info', 0, 0, mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec, 'search.mojom.EmbeddedSearchClient_SetInputInProgress_Params', [
-      mojo.internal.StructField('arg_input_in_progress', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_ThemeChanged_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.search.mojom.NtpThemeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.search.mojom.EmbeddedSearchClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -740,35 +657,35 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPageSequenceNumber');
-          const result = this.impl.setPageSequenceNumber(params.arg_page_seq_no);
+          const result = this.impl.setPageSequenceNumber(params.arg_arg_page_seq_no);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusChanged');
-          const result = this.impl.focusChanged(params.arg_new_focus_state, params.arg_reason);
+          const result = this.impl.focusChanged(params.arg_arg_new_focus_state, params.arg_arg_reason);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mostVisitedInfoChanged');
-          const result = this.impl.mostVisitedInfoChanged(params.arg_most_visited_info);
+          const result = this.impl.mostVisitedInfoChanged(params.arg_arg_most_visited_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputInProgress');
-          const result = this.impl.setInputInProgress(params.arg_input_in_progress);
+          const result = this.impl.setInputInProgress(params.arg_arg_input_in_progress);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.themeChanged');
-          const result = this.impl.themeChanged(params.arg_theme);
+          const result = this.impl.themeChanged(params.arg_arg_theme);
           break;
         }
       }
@@ -783,4 +700,89 @@ mojo.internal.bindings.search.mojom.EmbeddedSearchClientReceiver = mojo.internal
 
 mojo.internal.bindings.search.mojom.EmbeddedSearchClientPtr = mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemote;
 mojo.internal.bindings.search.mojom.EmbeddedSearchClientRequest = mojo.internal.bindings.search.mojom.EmbeddedSearchClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: InstantMostVisitedInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: NtpTheme
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.NtpThemeSpec, 'search.mojom.NtpTheme', [
+    ],
+    [[0, 8]]);
+
+// Struct: InstantMostVisitedInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, 'search.mojom.InstantMostVisitedInfo', [
+    ],
+    [[0, 8]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearchConnector_Connect_ParamsSpec, 'search.mojom.EmbeddedSearchConnector_Connect_Params', [
+      mojo.internal.StructField('arg_embedded_search', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.search.mojom.EmbeddedSearchRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.search.mojom.EmbeddedSearchClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearch_FocusOmnibox_ParamsSpec, 'search.mojom.EmbeddedSearch_FocusOmnibox_Params', [
+      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearch_DeleteMostVisitedItem_ParamsSpec, 'search.mojom.EmbeddedSearch_DeleteMostVisitedItem_Params', [
+      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoAllMostVisitedDeletions_Params', [
+      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_ParamsSpec, 'search.mojom.EmbeddedSearch_UndoMostVisitedDeletion_Params', [
+      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_ParamsSpec, 'search.mojom.EmbeddedSearchClient_SetPageSequenceNumber_Params', [
+      mojo.internal.StructField('arg_page_seq_no', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_FocusChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_FocusChanged_Params', [
+      mojo.internal.StructField('arg_new_focus_state', 0, 0, mojo.internal.bindings.search.mojom.OmniboxFocusStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.search.mojom.OmniboxFocusChangeReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_MostVisitedInfoChanged_Params', [
+      mojo.internal.StructField('arg_most_visited_info', 0, 0, mojo.internal.bindings.search.mojom.InstantMostVisitedInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_SetInputInProgress_ParamsSpec, 'search.mojom.EmbeddedSearchClient_SetInputInProgress_Params', [
+      mojo.internal.StructField('arg_input_in_progress', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.search.mojom.EmbeddedSearchClient_ThemeChanged_ParamsSpec, 'search.mojom.EmbeddedSearchClient_ThemeChanged_Params', [
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.search.mojom.NtpThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

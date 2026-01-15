@@ -138,54 +138,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: TestDeviceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.TestDeviceInfoSpec, 'device.mojom.TestDeviceInfo', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_landing_page', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: UsbDeviceManagerTest
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_landing_page', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.TestDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -326,12 +279,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceForTesting');
-          const result = this.impl.addDeviceForTesting(params.arg_name, params.arg_serial_number, params.arg_landing_page);
+          const result = this.impl.addDeviceForTesting(params.arg_arg_name, params.arg_arg_serial_number, params.arg_arg_landing_page);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddDeviceForTesting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_message']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addDeviceForTesting FAILED:', e));
           }
           break;
         }
@@ -339,12 +294,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeDeviceForTesting');
-          const result = this.impl.removeDeviceForTesting(params.arg_guid);
+          const result = this.impl.removeDeviceForTesting(params.arg_arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveDeviceForTesting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeDeviceForTesting FAILED:', e));
           }
           break;
         }
@@ -356,8 +313,11 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTestDevices FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getTestDevices FAILED:', e));
           }
           break;
         }
@@ -373,4 +333,53 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestReceiver = mojo.internal
 
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestPtr = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote;
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRequest = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TestDeviceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.TestDeviceInfoSpec, 'device.mojom.TestDeviceInfo', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_landing_page', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_landing_page', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_AddDeviceForTesting_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_RemoveDeviceForTesting_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParamsSpec, 'device.mojom.UsbDeviceManagerTest_GetTestDevices_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.TestDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

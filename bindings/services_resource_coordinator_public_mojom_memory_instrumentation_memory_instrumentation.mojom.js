@@ -258,6 +258,808 @@ mojo.internal.bindings.memory_instrumentation.mojom.RequestOutcome = {
   kInProcessMemoryDumpFailed: 9,
 };
 
+// Interface: ClientProcess
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote = class {
+  static get $interfaceName() {
+    return 'memory_instrumentation.mojom.ClientProcess';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  requestChromeMemoryDump(arg_args) {
+    return this.$.requestChromeMemoryDump(arg_args);
+  }
+  requestOSMemoryDump(arg_option, arg_flags, arg_pids) {
+    return this.$.requestOSMemoryDump(arg_option, arg_flags, arg_pids);
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.ClientProcess', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  requestChromeMemoryDump(arg_args) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
+      [arg_args],
+      false);
+  }
+
+  requestOSMemoryDump(arg_option, arg_flags, arg_pids) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
+      [arg_option, arg_flags, arg_pids],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess.getRemote = function() {
+  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'memory_instrumentation.mojom.ClientProcess',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.ClientProcess', [
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
+          const result = this.impl.requestChromeMemoryDump(params.arg_arg_args);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_dump_id', 'response.arg_arg_raw_process_memory_dump']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestChromeMemoryDump FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
+          const result = this.impl.requestOSMemoryDump(params.arg_arg_option, params.arg_arg_flags, params.arg_arg_pids);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_dumps']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestOSMemoryDump FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver;
+
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPtr = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote;
+mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRequest = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPendingReceiver;
+
+
+// Interface: HeapProfiler
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote = class {
+  static get $interfaceName() {
+    return 'memory_instrumentation.mojom.HeapProfiler';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  dumpProcessesForTracing(arg_strip_path_from_mapped_files, arg_write_proto) {
+    return this.$.dumpProcessesForTracing(arg_strip_path_from_mapped_files, arg_write_proto);
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfiler', [
+      { explicit: null },
+    ]);
+  }
+
+  dumpProcessesForTracing(arg_strip_path_from_mapped_files, arg_write_proto) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
+      [arg_strip_path_from_mapped_files, arg_write_proto],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler.getRemote = function() {
+  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'memory_instrumentation.mojom.HeapProfiler',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfiler', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
+          const result = this.impl.dumpProcessesForTracing(params.arg_arg_strip_path_from_mapped_files, params.arg_arg_write_proto);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dumpProcessesForTracing FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver;
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPtr = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote;
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRequest = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPendingReceiver;
+
+
+// Interface: HeapProfilerHelper
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote = class {
+  static get $interfaceName() {
+    return 'memory_instrumentation.mojom.HeapProfilerHelper';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  getVmRegionsForHeapProfiler(arg_pids) {
+    return this.$.getVmRegionsForHeapProfiler(arg_pids);
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfilerHelper', [
+      { explicit: null },
+    ]);
+  }
+
+  getVmRegionsForHeapProfiler(arg_pids) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
+      [arg_pids],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper.getRemote = function() {
+  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'memory_instrumentation.mojom.HeapProfilerHelper',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfilerHelper', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
+          const result = this.impl.getVmRegionsForHeapProfiler(params.arg_arg_pids);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_vm_regions' in response) ? response.arg_arg_vm_regions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getVmRegionsForHeapProfiler FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver;
+
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPtr = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote;
+mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRequest = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver;
+
+
+// Interface: Coordinator
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote = class {
+  static get $interfaceName() {
+    return 'memory_instrumentation.mojom.Coordinator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  requestGlobalMemoryDump(arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names) {
+    return this.$.requestGlobalMemoryDump(arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names);
+  }
+  requestGlobalMemoryDumpForPid(arg_pid, arg_allocator_dump_names) {
+    return this.$.requestGlobalMemoryDumpForPid(arg_pid, arg_allocator_dump_names);
+  }
+  requestPrivateMemoryFootprint(arg_pid) {
+    return this.$.requestPrivateMemoryFootprint(arg_pid);
+  }
+  requestGlobalMemoryDumpAndAppendToTrace(arg_dump_type, arg_level_of_detail, arg_determinism) {
+    return this.$.requestGlobalMemoryDumpAndAppendToTrace(arg_dump_type, arg_level_of_detail, arg_determinism);
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.Coordinator', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  requestGlobalMemoryDump(arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
+      [arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names],
+      false);
+  }
+
+  requestGlobalMemoryDumpForPid(arg_pid, arg_allocator_dump_names) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
+      [arg_pid, arg_allocator_dump_names],
+      false);
+  }
+
+  requestPrivateMemoryFootprint(arg_pid) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
+      [arg_pid],
+      false);
+  }
+
+  requestGlobalMemoryDumpAndAppendToTrace(arg_dump_type, arg_level_of_detail, arg_determinism) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
+      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
+      [arg_dump_type, arg_level_of_detail, arg_determinism],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.Coordinator.getRemote = function() {
+  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'memory_instrumentation.mojom.Coordinator',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.Coordinator', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
+          const result = this.impl.requestGlobalMemoryDump(params.arg_arg_dump_type, params.arg_arg_level_of_detail, params.arg_arg_determinism, params.arg_arg_allocator_dump_names);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_global_memory_dump']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDump FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
+          const result = this.impl.requestGlobalMemoryDumpForPid(params.arg_arg_pid, params.arg_arg_allocator_dump_names);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_global_memory_dump']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDumpForPid FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
+          const result = this.impl.requestPrivateMemoryFootprint(params.arg_arg_pid);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_global_memory_dump']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestPrivateMemoryFootprint FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
+          const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.arg_arg_dump_type, params.arg_arg_level_of_detail, params.arg_arg_determinism);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec.$.structSpec, ['response.arg_arg_outcome', 'response.arg_arg_dump_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestGlobalMemoryDumpAndAppendToTrace FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver;
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPtr = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote;
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRequest = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver;
+
+
+// Interface: CoordinatorConnector
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote = class {
+  static get $interfaceName() {
+    return 'memory_instrumentation.mojom.CoordinatorConnector';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  registerCoordinatorClient(arg_receiver, arg_client_process) {
+    return this.$.registerCoordinatorClient(arg_receiver, arg_client_process);
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.CoordinatorConnector', [
+      { explicit: null },
+    ]);
+  }
+
+  registerCoordinatorClient(arg_receiver, arg_client_process) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
+      null,
+      [arg_receiver, arg_client_process],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector.getRemote = function() {
+  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'memory_instrumentation.mojom.CoordinatorConnector',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.CoordinatorConnector', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
+          const result = this.impl.registerCoordinatorClient(params.arg_arg_receiver, params.arg_arg_client_process);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver;
+
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPtr = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote;
+mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRequest = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: RawAllocatorDumpEntryValue
 mojo.internal.Union(
     mojo.internal.bindings.memory_instrumentation.mojom.RawAllocatorDumpEntryValueSpec, 'memory_instrumentation.mojom.RawAllocatorDumpEntryValue', {
@@ -432,8 +1234,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_json', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-// Interface: ClientProcess
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec, 'memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_Params', [
       mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.memory_instrumentation.mojom.RequestArgsSpec, null, false, 0, undefined),
@@ -463,169 +1263,6 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote = class {
-  static get $interfaceName() {
-    return 'memory_instrumentation.mojom.ClientProcess';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  requestChromeMemoryDump(arg_args) {
-    return this.$.requestChromeMemoryDump(arg_args);
-  }
-  requestOSMemoryDump(arg_option, arg_flags, arg_pids) {
-    return this.$.requestOSMemoryDump(arg_option, arg_flags, arg_pids);
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.ClientProcess', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  requestChromeMemoryDump(arg_args) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec,
-      [arg_args],
-      false);
-  }
-
-  requestOSMemoryDump(arg_option, arg_flags, arg_pids) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec,
-      [arg_option, arg_flags, arg_pids],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess.getRemote = function() {
-  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'memory_instrumentation.mojom.ClientProcess',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.ClientProcess', [
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestChromeMemoryDump');
-          const result = this.impl.requestChromeMemoryDump(params.arg_args);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestChromeMemoryDump_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestChromeMemoryDump FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestOSMemoryDump');
-          const result = this.impl.requestOSMemoryDump(params.arg_option, params.arg_flags, params.arg_pids);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.ClientProcess_RequestOSMemoryDump_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestOSMemoryDump FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessReceiver;
-
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPtr = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote;
-mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRequest = mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessPendingReceiver;
-
-
-// Interface: HeapProfiler
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec, 'memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_Params', [
       mojo.internal.StructField('arg_strip_path_from_mapped_files', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
@@ -639,142 +1276,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote = class {
-  static get $interfaceName() {
-    return 'memory_instrumentation.mojom.HeapProfiler';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  dumpProcessesForTracing(arg_strip_path_from_mapped_files, arg_write_proto) {
-    return this.$.dumpProcessesForTracing(arg_strip_path_from_mapped_files, arg_write_proto);
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfiler', [
-      { explicit: null },
-    ]);
-  }
-
-  dumpProcessesForTracing(arg_strip_path_from_mapped_files, arg_write_proto) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec,
-      [arg_strip_path_from_mapped_files, arg_write_proto],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler.getRemote = function() {
-  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'memory_instrumentation.mojom.HeapProfiler',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfiler', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.dumpProcessesForTracing');
-          const result = this.impl.dumpProcessesForTracing(params.arg_strip_path_from_mapped_files, params.arg_write_proto);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfiler_DumpProcessesForTracing_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DumpProcessesForTracing FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerReceiver;
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPtr = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRemote;
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerRequest = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerPendingReceiver;
-
-
-// Interface: HeapProfilerHelper
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec, 'memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_Params', [
       mojo.internal.StructField('arg_pids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
@@ -787,142 +1288,6 @@ mojo.internal.Struct(
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote = class {
-  static get $interfaceName() {
-    return 'memory_instrumentation.mojom.HeapProfilerHelper';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  getVmRegionsForHeapProfiler(arg_pids) {
-    return this.$.getVmRegionsForHeapProfiler(arg_pids);
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfilerHelper', [
-      { explicit: null },
-    ]);
-  }
-
-  getVmRegionsForHeapProfiler(arg_pids) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec,
-      [arg_pids],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper.getRemote = function() {
-  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'memory_instrumentation.mojom.HeapProfilerHelper',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.HeapProfilerHelper', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getVmRegionsForHeapProfiler');
-          const result = this.impl.getVmRegionsForHeapProfiler(params.arg_pids);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelper_GetVmRegionsForHeapProfiler_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetVmRegionsForHeapProfiler FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperReceiver;
-
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPtr = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRemote;
-mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperRequest = mojo.internal.bindings.memory_instrumentation.mojom.HeapProfilerHelperPendingReceiver;
-
-
-// Interface: Coordinator
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec, 'memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_Params', [
       mojo.internal.StructField('arg_dump_type', 0, 0, mojo.internal.bindings.memory_instrumentation.mojom.DumpTypeSpec, null, false, 0, undefined),
@@ -981,355 +1346,10 @@ mojo.internal.Struct(
     ],
     [[0, 24]]);
 
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote = class {
-  static get $interfaceName() {
-    return 'memory_instrumentation.mojom.Coordinator';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  requestGlobalMemoryDump(arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names) {
-    return this.$.requestGlobalMemoryDump(arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names);
-  }
-  requestGlobalMemoryDumpForPid(arg_pid, arg_allocator_dump_names) {
-    return this.$.requestGlobalMemoryDumpForPid(arg_pid, arg_allocator_dump_names);
-  }
-  requestPrivateMemoryFootprint(arg_pid) {
-    return this.$.requestPrivateMemoryFootprint(arg_pid);
-  }
-  requestGlobalMemoryDumpAndAppendToTrace(arg_dump_type, arg_level_of_detail, arg_determinism) {
-    return this.$.requestGlobalMemoryDumpAndAppendToTrace(arg_dump_type, arg_level_of_detail, arg_determinism);
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.Coordinator', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  requestGlobalMemoryDump(arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec,
-      [arg_dump_type, arg_level_of_detail, arg_determinism, arg_allocator_dump_names],
-      false);
-  }
-
-  requestGlobalMemoryDumpForPid(arg_pid, arg_allocator_dump_names) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec,
-      [arg_pid, arg_allocator_dump_names],
-      false);
-  }
-
-  requestPrivateMemoryFootprint(arg_pid) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec,
-      [arg_pid],
-      false);
-  }
-
-  requestGlobalMemoryDumpAndAppendToTrace(arg_dump_type, arg_level_of_detail, arg_determinism) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec,
-      mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec,
-      [arg_dump_type, arg_level_of_detail, arg_determinism],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.Coordinator.getRemote = function() {
-  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'memory_instrumentation.mojom.Coordinator',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.Coordinator', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDump');
-          const result = this.impl.requestGlobalMemoryDump(params.arg_dump_type, params.arg_level_of_detail, params.arg_determinism, params.arg_allocator_dump_names);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDump_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestGlobalMemoryDump FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpForPid');
-          const result = this.impl.requestGlobalMemoryDumpForPid(params.arg_pid, params.arg_allocator_dump_names);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpForPid_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestGlobalMemoryDumpForPid FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestPrivateMemoryFootprint');
-          const result = this.impl.requestPrivateMemoryFootprint(params.arg_pid);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestPrivateMemoryFootprint_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestPrivateMemoryFootprint FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.requestGlobalMemoryDumpAndAppendToTrace');
-          const result = this.impl.requestGlobalMemoryDumpAndAppendToTrace(params.arg_dump_type, params.arg_level_of_detail, params.arg_determinism);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.memory_instrumentation.mojom.Coordinator_RequestGlobalMemoryDumpAndAppendToTrace_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestGlobalMemoryDumpAndAppendToTrace FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorReceiver;
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPtr = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote;
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRequest = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorPendingReceiver;
-
-
-// Interface: CoordinatorConnector
 mojo.internal.Struct(
     mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec, 'memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_Params', [
       mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorRemote), null, false, 0, undefined),
       mojo.internal.StructField('arg_client_process', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.memory_instrumentation.mojom.ClientProcessRemote), null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote = class {
-  static get $interfaceName() {
-    return 'memory_instrumentation.mojom.CoordinatorConnector';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  registerCoordinatorClient(arg_receiver, arg_client_process) {
-    return this.$.registerCoordinatorClient(arg_receiver, arg_client_process);
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.CoordinatorConnector', [
-      { explicit: null },
-    ]);
-  }
-
-  registerCoordinatorClient(arg_receiver, arg_client_process) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec,
-      null,
-      [arg_receiver, arg_client_process],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector.getRemote = function() {
-  let remote = new mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'memory_instrumentation.mojom.CoordinatorConnector',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('memory_instrumentation.mojom.CoordinatorConnector', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnector_RegisterCoordinatorClient_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.registerCoordinatorClient');
-          const result = this.impl.registerCoordinatorClient(params.arg_receiver, params.arg_client_process);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorReceiver;
-
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPtr = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRemote;
-mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorRequest = mojo.internal.bindings.memory_instrumentation.mojom.CoordinatorConnectorPendingReceiver;
 

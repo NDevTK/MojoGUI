@@ -129,3 +129,5 @@ mojo.internal.bindings.viz.mojom.VerticalScrollDirection = {
   kDown: 1,
   kUp: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

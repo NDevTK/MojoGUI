@@ -136,13 +136,6 @@ mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_dete
 mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec = mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FaceDetectionProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec, 'shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,7 +248,7 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFaceDetection');
-          const result = this.impl.createFaceDetection(params.arg_receiver, params.arg_options);
+          const result = this.impl.createFaceDetection(params.arg_arg_receiver, params.arg_arg_options);
           break;
         }
       }
@@ -270,4 +263,13 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderReceiver = moj
 
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderPtr = mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemote;
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRequest = mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_ParamsSpec, 'shape_detection.mojom.FaceDetectionProvider_CreateFaceDetection_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

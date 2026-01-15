@@ -196,162 +196,7 @@ mojo.internal.bindings.blink.mojom.WellKnownDirectory = {
   kDirVideos: 5,
 };
 
-// Union: TypeSpecificFilePickerOptionsUnion
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, 'blink.mojom.TypeSpecificFilePickerOptionsUnion', {
-      'arg_open_file_picker_options': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec,
-        'nullable': false,
-      },
-      'arg_save_file_picker_options': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec,
-        'nullable': false,
-      },
-      'arg_directory_picker_options': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: FilePickerStartInOptionsUnion
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, 'blink.mojom.FilePickerStartInOptionsUnion', {
-      'arg_well_known_directory': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.WellKnownDirectorySpec,
-        'nullable': false,
-      },
-      'arg_directory_token': {
-        'ordinal': 1,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote),
-        'nullable': false,
-      },
-    });
-
-// Struct: ChooseFileSystemEntryAcceptsOption
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, 'blink.mojom.ChooseFileSystemEntryAcceptsOption', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_types', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: AcceptsTypesInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, 'blink.mojom.AcceptsTypesInfo', [
-      mojo.internal.StructField('arg_accepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_accepts_all', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: OpenFilePickerOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec, 'blink.mojom.OpenFilePickerOptions', [
-      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_select_multiple_files', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SaveFilePickerOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec, 'blink.mojom.SaveFilePickerOptions', [
-      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggested_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DirectoryPickerOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec, 'blink.mojom.DirectoryPickerOptions', [
-      mojo.internal.StructField('arg_permission_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FilePickerOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, 'blink.mojom.FilePickerOptions', [
-      mojo.internal.StructField('arg_type_specific_options', 0, 0, mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_starting_directory_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_in_options', 24, 0, mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: FileSystemAccessManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_Params', [
-      mojo.internal.StructField('arg_directory_path_components', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec, 'blink.mojom.FileSystemAccessManager_ChooseEntries_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec, 'blink.mojom.FileSystemAccessManager_BindObserverHost_Params', [
-      mojo.internal.StructField('arg_observer_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FileSystemAccessManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -552,8 +397,10 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSandboxedFileSystem FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSandboxedFileSystem FAILED:', e));
           }
           break;
         }
@@ -561,12 +408,14 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSandboxedFileSystemForDevtools');
-          const result = this.impl.getSandboxedFileSystemForDevtools(params.arg_directory_path_components);
+          const result = this.impl.getSandboxedFileSystemForDevtools(params.arg_arg_directory_path_components);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSandboxedFileSystemForDevtools FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_directory']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSandboxedFileSystemForDevtools FAILED:', e));
           }
           break;
         }
@@ -574,12 +423,14 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.chooseEntries');
-          const result = this.impl.chooseEntries(params.arg_options);
+          const result = this.impl.chooseEntries(params.arg_arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ChooseEntries FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_entries']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] chooseEntries FAILED:', e));
           }
           break;
         }
@@ -587,26 +438,28 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileHandleFromToken');
-          const result = this.impl.getFileHandleFromToken(params.arg_token, params.arg_file_handle);
+          const result = this.impl.getFileHandleFromToken(params.arg_arg_token, params.arg_arg_file_handle);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDirectoryHandleFromToken');
-          const result = this.impl.getDirectoryHandleFromToken(params.arg_token, params.arg_directory_handle);
+          const result = this.impl.getDirectoryHandleFromToken(params.arg_arg_token, params.arg_arg_directory_handle);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getEntryFromDataTransferToken');
-          const result = this.impl.getEntryFromDataTransferToken(params.arg_token);
+          const result = this.impl.getEntryFromDataTransferToken(params.arg_arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetEntryFromDataTransferToken FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_entry']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getEntryFromDataTransferToken FAILED:', e));
           }
           break;
         }
@@ -614,7 +467,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindObserverHost');
-          const result = this.impl.bindObserverHost(params.arg_observer_host);
+          const result = this.impl.bindObserverHost(params.arg_arg_observer_host);
           break;
         }
       }
@@ -629,4 +482,161 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessManagerReceiver = mojo.intern
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessManagerPtr = mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRemote;
 mojo.internal.bindings.blink.mojom.FileSystemAccessManagerRequest = mojo.internal.bindings.blink.mojom.FileSystemAccessManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: TypeSpecificFilePickerOptionsUnion
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, 'blink.mojom.TypeSpecificFilePickerOptionsUnion', {
+      'arg_open_file_picker_options': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec,
+        'nullable': false,
+      },
+      'arg_save_file_picker_options': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec,
+        'nullable': false,
+      },
+      'arg_directory_picker_options': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: FilePickerStartInOptionsUnion
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, 'blink.mojom.FilePickerStartInOptionsUnion', {
+      'arg_well_known_directory': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.WellKnownDirectorySpec,
+        'nullable': false,
+      },
+      'arg_directory_token': {
+        'ordinal': 1,
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote),
+        'nullable': false,
+      },
+    });
+
+// Struct: ChooseFileSystemEntryAcceptsOption
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, 'blink.mojom.ChooseFileSystemEntryAcceptsOption', [
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_types', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: AcceptsTypesInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, 'blink.mojom.AcceptsTypesInfo', [
+      mojo.internal.StructField('arg_accepts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ChooseFileSystemEntryAcceptsOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_accepts_all', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: OpenFilePickerOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OpenFilePickerOptionsSpec, 'blink.mojom.OpenFilePickerOptions', [
+      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_select_multiple_files', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SaveFilePickerOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SaveFilePickerOptionsSpec, 'blink.mojom.SaveFilePickerOptions', [
+      mojo.internal.StructField('arg_accepts_types_info', 0, 0, mojo.internal.bindings.blink.mojom.AcceptsTypesInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggested_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DirectoryPickerOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectoryPickerOptionsSpec, 'blink.mojom.DirectoryPickerOptions', [
+      mojo.internal.StructField('arg_permission_mode', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessPermissionModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FilePickerOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, 'blink.mojom.FilePickerOptions', [
+      mojo.internal.StructField('arg_type_specific_options', 0, 0, mojo.internal.bindings.blink.mojom.TypeSpecificFilePickerOptionsUnionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_starting_directory_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_in_options', 24, 0, mojo.internal.bindings.blink.mojom.FilePickerStartInOptionsUnionSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystem_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_Params', [
+      mojo.internal.StructField('arg_directory_path_components', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetSandboxedFileSystemForDevtools_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ParamsSpec, 'blink.mojom.FileSystemAccessManager_ChooseEntries_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.FilePickerOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_ChooseEntries_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entries', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetFileHandleFromToken_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessFileHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetDirectoryHandleFromToken_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory_handle', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessDirectoryHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ParamsSpec, 'blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessDataTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParamsSpec, 'blink.mojom.FileSystemAccessManager_GetEntryFromDataTransferToken_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entry', 8, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessManager_BindObserverHost_ParamsSpec, 'blink.mojom.FileSystemAccessManager_BindObserverHost_Params', [
+      mojo.internal.StructField('arg_observer_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

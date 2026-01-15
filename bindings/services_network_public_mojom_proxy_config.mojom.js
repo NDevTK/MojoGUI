@@ -164,6 +164,8 @@ mojo.internal.bindings.network.mojom.IpProtectionProxyBypassPolicy = {
   kExclusionList: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ProxyHostMatchingRules
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ProxyHostMatchingRulesSpec, 'network.mojom.ProxyHostMatchingRules', [

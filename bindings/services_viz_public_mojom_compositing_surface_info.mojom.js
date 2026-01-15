@@ -132,6 +132,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.SurfaceIdSpec = mojo.internal.bindings.viz.mojom.SurfaceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SurfaceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.SurfaceInfoSpec, 'viz.mojom.SurfaceInfo', [

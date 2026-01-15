@@ -169,3 +169,5 @@ mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationError = {
   kAggregatableNamedBudgetsKeyTooLong: 50,
   kAggregatableNamedBudgetsValueInvalid: 51,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

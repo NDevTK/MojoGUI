@@ -132,3 +132,5 @@ mojo.internal.bindings.network.mojom.SourceType = {
   kNone: 4,
   kUnknown: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

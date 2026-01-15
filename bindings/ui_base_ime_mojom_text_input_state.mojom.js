@@ -155,6 +155,8 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.VirtualKeyboardVisibilityRequestSpec = mojo.internal.bindings.ui.mojom.VirtualKeyboardVisibilityRequestSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ImeTextSpanInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ImeTextSpanInfoSpec, 'ui.mojom.ImeTextSpanInfo', [

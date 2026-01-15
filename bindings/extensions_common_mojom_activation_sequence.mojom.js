@@ -123,6 +123,8 @@ mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojo
 
 mojo.internal.bindings.extensions.mojom.ActivationSequenceSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ActivationSequence
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ActivationSequenceSpec, 'extensions.mojom.ActivationSequence', [

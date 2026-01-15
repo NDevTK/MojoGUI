@@ -133,13 +133,6 @@ mojo.internal.bindings.proxy_resolver.mojom = mojo.internal.bindings.proxy_resol
 mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec = mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ProxyLookupClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec, 'network.mojom.ProxyLookupClient_OnProxyLookupComplete_Params', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy_info', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.network.mojom.ProxyLookupClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.network.mojom.ProxyLookupClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProxyLookupComplete');
-          const result = this.impl.onProxyLookupComplete(params.arg_net_error, params.arg_proxy_info);
+          const result = this.impl.onProxyLookupComplete(params.arg_arg_net_error, params.arg_arg_proxy_info);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.network.mojom.ProxyLookupClientReceiver = mojo.internal.b
 
 mojo.internal.bindings.network.mojom.ProxyLookupClientPtr = mojo.internal.bindings.network.mojom.ProxyLookupClientRemote;
 mojo.internal.bindings.network.mojom.ProxyLookupClientRequest = mojo.internal.bindings.network.mojom.ProxyLookupClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ProxyLookupClient_OnProxyLookupComplete_ParamsSpec, 'network.mojom.ProxyLookupClient_OnProxyLookupComplete_Params', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_info', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.SHA256HashValueSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SHA256HashValue
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SHA256HashValueSpec, 'network.mojom.SHA256HashValue', [

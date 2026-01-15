@@ -156,34 +156,6 @@ mojo.internal.bindings.patch.mojom.ZucchiniStatus = {
 };
 
 // Interface: FilePatcher
-mojo.internal.Struct(
-    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_Params', [
-      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_Params', [
-      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.patch.mojom.ZucchiniStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.patch.mojom.FilePatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -310,12 +282,15 @@ mojo.internal.bindings.patch.mojom.FilePatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.patchFilePuffPatch');
-          const result = this.impl.patchFilePuffPatch(params.arg_input_file, params.arg_patch_file, params.arg_output_file);
+          const result = this.impl.patchFilePuffPatch(params.arg_arg_input_file, params.arg_arg_patch_file, params.arg_arg_output_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PatchFilePuffPatch FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] patchFilePuffPatch FAILED:', e));
           }
           break;
         }
@@ -323,12 +298,15 @@ mojo.internal.bindings.patch.mojom.FilePatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.patchFileZucchini');
-          const result = this.impl.patchFileZucchini(params.arg_input_file, params.arg_patch_file, params.arg_output_file);
+          const result = this.impl.patchFileZucchini(params.arg_arg_input_file, params.arg_arg_patch_file, params.arg_arg_output_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PatchFileZucchini FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] patchFileZucchini FAILED:', e));
           }
           break;
         }
@@ -344,4 +322,34 @@ mojo.internal.bindings.patch.mojom.FilePatcherReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.patch.mojom.FilePatcherPtr = mojo.internal.bindings.patch.mojom.FilePatcherRemote;
 mojo.internal.bindings.patch.mojom.FilePatcherRequest = mojo.internal.bindings.patch.mojom.FilePatcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_Params', [
+      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFilePuffPatch_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_Params', [
+      mojo.internal.StructField('arg_input_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_patch_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 16, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.patch.mojom.FilePatcher_PatchFileZucchini_ResponseParamsSpec, 'patch.mojom.FilePatcher_PatchFileZucchini_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.patch.mojom.ZucchiniStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

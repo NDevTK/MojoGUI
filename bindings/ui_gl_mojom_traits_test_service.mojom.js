@@ -138,30 +138,6 @@ mojo.internal.bindings.gl.mojom = mojo.internal.bindings.gl.mojom || {};
 mojo.internal.bindings.gl.mojom.GpuPreferenceSpec = mojo.internal.bindings.gl.mojom.GpuPreferenceSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: TraitsTestService
-mojo.internal.Struct(
-    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_Params', [
-      mojo.internal.StructField('arg_g', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params', [
-      mojo.internal.StructField('arg_impl', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.gl.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,12 +264,15 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoGpuPreference');
-          const result = this.impl.echoGpuPreference(params.arg_g);
+          const result = this.impl.echoGpuPreference(params.arg_arg_g);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoGpuPreference FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoGpuPreference FAILED:', e));
           }
           break;
         }
@@ -301,12 +280,15 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoGLImplementationParts');
-          const result = this.impl.echoGLImplementationParts(params.arg_impl);
+          const result = this.impl.echoGLImplementationParts(params.arg_arg_impl);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoGLImplementationParts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoGLImplementationParts FAILED:', e));
           }
           break;
         }
@@ -322,4 +304,30 @@ mojo.internal.bindings.gl.mojom.TraitsTestServiceReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.gl.mojom.TraitsTestServicePtr = mojo.internal.bindings.gl.mojom.TraitsTestServiceRemote;
 mojo.internal.bindings.gl.mojom.TraitsTestServiceRequest = mojo.internal.bindings.gl.mojom.TraitsTestServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_Params', [
+      mojo.internal.StructField('arg_g', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGpuPreference_ResponseParams', [
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GpuPreferenceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_Params', [
+      mojo.internal.StructField('arg_impl', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParamsSpec, 'gl.mojom.TraitsTestService_EchoGLImplementationParts_ResponseParams', [
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

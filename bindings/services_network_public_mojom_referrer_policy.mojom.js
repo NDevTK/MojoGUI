@@ -148,3 +148,5 @@ mojo.internal.bindings.network.mojom.URLRequestReferrerPolicy = {
   kOriginClearOnTransitionFromSecureToInsecure: 6,
   kNoReferrer: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

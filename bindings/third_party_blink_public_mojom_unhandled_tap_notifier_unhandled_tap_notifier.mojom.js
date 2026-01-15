@@ -133,20 +133,7 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: UnhandledTapInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec, 'blink.mojom.UnhandledTapInfo', [
-      mojo.internal.StructField('arg_tapped_position_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: UnhandledTapNotifier
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec, 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params', [
-      mojo.internal.StructField('arg_unhandled_tap_info', 0, 0, mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.UnhandledTapNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,7 +246,7 @@ mojo.internal.bindings.blink.mojom.UnhandledTapNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showUnhandledTapUIIfNeeded');
-          const result = this.impl.showUnhandledTapUIIfNeeded(params.arg_unhandled_tap_info);
+          const result = this.impl.showUnhandledTapUIIfNeeded(params.arg_arg_unhandled_tap_info);
           break;
         }
       }
@@ -274,4 +261,19 @@ mojo.internal.bindings.blink.mojom.UnhandledTapNotifierReceiver = mojo.internal.
 
 mojo.internal.bindings.blink.mojom.UnhandledTapNotifierPtr = mojo.internal.bindings.blink.mojom.UnhandledTapNotifierRemote;
 mojo.internal.bindings.blink.mojom.UnhandledTapNotifierRequest = mojo.internal.bindings.blink.mojom.UnhandledTapNotifierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: UnhandledTapInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec, 'blink.mojom.UnhandledTapInfo', [
+      mojo.internal.StructField('arg_tapped_position_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_ParamsSpec, 'blink.mojom.UnhandledTapNotifier_ShowUnhandledTapUIIfNeeded_Params', [
+      mojo.internal.StructField('arg_unhandled_tap_info', 0, 0, mojo.internal.bindings.blink.mojom.UnhandledTapInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

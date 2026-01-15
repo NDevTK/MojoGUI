@@ -161,66 +161,7 @@ mojo.internal.bindings.ax.mojom.FocusRingStackingOrder = {
   kBelowAccessibilityBubbles: 1,
 };
 
-// Struct: FocusRingInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.FocusRingInfoSpec, 'ax.mojom.FocusRingInfo', [
-      mojo.internal.StructField('arg_rects', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ax.mojom.FocusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stacking_order', 12, 0, mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_secondary_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: UserInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec, 'ax.mojom.UserInterface_DarkenScreen_Params', [
-      mojo.internal.StructField('arg_darken', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec, 'ax.mojom.UserInterface_OpenSettingsSubpage_Params', [
-      mojo.internal.StructField('arg_subpage', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec, 'ax.mojom.UserInterface_ShowConfirmationDialog_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cancelName', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec, 'ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParams', [
-      mojo.internal.StructField('arg_confirmed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec, 'ax.mojom.UserInterface_SetFocusRings_Params', [
-      mojo.internal.StructField('arg_focus_rings', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.FocusRingInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_at_type', 8, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec, 'ax.mojom.UserInterface_SetHighlights_Params', [
-      mojo.internal.StructField('arg_rects', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec, 'ax.mojom.UserInterface_SetVirtualKeyboardVisible_Params', [
-      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ax.mojom.UserInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -403,26 +344,29 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.darkenScreen');
-          const result = this.impl.darkenScreen(params.arg_darken);
+          const result = this.impl.darkenScreen(params.arg_arg_darken);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openSettingsSubpage');
-          const result = this.impl.openSettingsSubpage(params.arg_subpage);
+          const result = this.impl.openSettingsSubpage(params.arg_arg_subpage);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showConfirmationDialog');
-          const result = this.impl.showConfirmationDialog(params.arg_title, params.arg_description, params.arg_cancelName);
+          const result = this.impl.showConfirmationDialog(params.arg_arg_title, params.arg_arg_description, params.arg_arg_cancelName);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShowConfirmationDialog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_confirmed' in response) ? response.arg_arg_confirmed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] showConfirmationDialog FAILED:', e));
           }
           break;
         }
@@ -430,21 +374,21 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFocusRings');
-          const result = this.impl.setFocusRings(params.arg_focus_rings, params.arg_at_type);
+          const result = this.impl.setFocusRings(params.arg_arg_focus_rings, params.arg_arg_at_type);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHighlights');
-          const result = this.impl.setHighlights(params.arg_rects, params.arg_color);
+          const result = this.impl.setHighlights(params.arg_arg_rects, params.arg_arg_color);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVirtualKeyboardVisible');
-          const result = this.impl.setVirtualKeyboardVisible(params.arg_is_visible);
+          const result = this.impl.setVirtualKeyboardVisible(params.arg_arg_is_visible);
           break;
         }
       }
@@ -459,4 +403,65 @@ mojo.internal.bindings.ax.mojom.UserInterfaceReceiver = mojo.internal.bindings.a
 
 mojo.internal.bindings.ax.mojom.UserInterfacePtr = mojo.internal.bindings.ax.mojom.UserInterfaceRemote;
 mojo.internal.bindings.ax.mojom.UserInterfaceRequest = mojo.internal.bindings.ax.mojom.UserInterfacePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FocusRingInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.FocusRingInfoSpec, 'ax.mojom.FocusRingInfo', [
+      mojo.internal.StructField('arg_rects', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.ax.mojom.FocusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stacking_order', 12, 0, mojo.internal.bindings.ax.mojom.FocusRingStackingOrderSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_secondary_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 32, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_id', 40, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_DarkenScreen_ParamsSpec, 'ax.mojom.UserInterface_DarkenScreen_Params', [
+      mojo.internal.StructField('arg_darken', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_OpenSettingsSubpage_ParamsSpec, 'ax.mojom.UserInterface_OpenSettingsSubpage_Params', [
+      mojo.internal.StructField('arg_subpage', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ParamsSpec, 'ax.mojom.UserInterface_ShowConfirmationDialog_Params', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cancelName', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParamsSpec, 'ax.mojom.UserInterface_ShowConfirmationDialog_ResponseParams', [
+      mojo.internal.StructField('arg_confirmed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_SetFocusRings_ParamsSpec, 'ax.mojom.UserInterface_SetFocusRings_Params', [
+      mojo.internal.StructField('arg_focus_rings', 0, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.FocusRingInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_at_type', 8, 0, mojo.internal.bindings.ax.mojom.AssistiveTechnologyTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_SetHighlights_ParamsSpec, 'ax.mojom.UserInterface_SetHighlights_Params', [
+      mojo.internal.StructField('arg_rects', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.UserInterface_SetVirtualKeyboardVisible_ParamsSpec, 'ax.mojom.UserInterface_SetVirtualKeyboardVisible_Params', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

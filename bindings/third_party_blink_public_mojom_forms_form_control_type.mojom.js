@@ -157,3 +157,5 @@ mojo.internal.bindings.blink.mojom.FormControlType = {
   kSelectMultiple: 29,
   kTextArea: 30,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

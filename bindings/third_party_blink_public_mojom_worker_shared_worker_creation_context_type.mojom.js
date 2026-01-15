@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.SharedWorkerCreationContextType = {
   kNonsecure: 0,
   kSecure: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

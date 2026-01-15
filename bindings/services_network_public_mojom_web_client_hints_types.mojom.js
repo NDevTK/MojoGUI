@@ -153,3 +153,5 @@ mojo.internal.bindings.network.mojom.WebClientHintsType = {
   kUAFormFactors: 29,
   kPrefersReducedTransparency: 30,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

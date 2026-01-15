@@ -175,66 +175,7 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: RenderInputRouterConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec, 'input.mojom.RenderInputRouterConfig', [
-      mojo.internal.StructField('arg_rir_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_grouping_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_enable_zoom', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: TouchTransferState
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.TouchTransferStateSpec, 'input.mojom.TouchTransferState', [
-      mojo.internal.StructField('arg_down_time_ms', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_root_widget_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_contents_y_offset_pix', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dip_scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_would_have_handled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_down_event', 32, 0, mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: RenderInputRouterDelegate
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.input.mojom.TouchTransferStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params', [
-      mojo.internal.StructField('arg_force_enable_zoom', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_Params', [
-      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Params', [
-      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_Params', [
-      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_hidden', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ResetGestureDetection_Params', [
-      mojo.internal.StructField('arg_root_widget_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -417,42 +358,42 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateOnTouchTransfer');
-          const result = this.impl.stateOnTouchTransfer(params.arg_state);
+          const result = this.impl.stateOnTouchTransfer(params.arg_arg_state);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forceEnableZoomStateChanged');
-          const result = this.impl.forceEnableZoomStateChanged(params.arg_force_enable_zoom, params.arg_frame_sink_id);
+          const result = this.impl.forceEnableZoomStateChanged(params.arg_arg_force_enable_zoom, params.arg_arg_frame_sink_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopFlingingOnViz');
-          const result = this.impl.stopFlingingOnViz(params.arg_frame_sink_id);
+          const result = this.impl.stopFlingingOnViz(params.arg_arg_frame_sink_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restartInputEventAckTimeoutIfNecessary');
-          const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.arg_frame_sink_id);
+          const result = this.impl.restartInputEventAckTimeoutIfNecessary(params.arg_arg_frame_sink_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyVisibilityChanged');
-          const result = this.impl.notifyVisibilityChanged(params.arg_frame_sink_id, params.arg_is_hidden);
+          const result = this.impl.notifyVisibilityChanged(params.arg_arg_frame_sink_id, params.arg_arg_is_hidden);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetGestureDetection');
-          const result = this.impl.resetGestureDetection(params.arg_root_widget_frame_sink_id);
+          const result = this.impl.resetGestureDetection(params.arg_arg_root_widget_frame_sink_id);
           break;
         }
       }
@@ -470,39 +411,6 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateRequest = mojo.inter
 
 
 // Interface: RenderInputRouterDelegateClient
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dispatched_to_renderer', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Params', [
-      mojo.internal.StructField('arg_ack_source', 0, 0, mojo.internal.bindings.blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ack_result', 4, 0, mojo.internal.bindings.blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 8, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_Params', [
-      mojo.internal.StructField('arg_overscroll', 0, 0, mojo.internal.bindings.blink.mojom.DidOverscrollParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params', [
-      mojo.internal.StructField('arg_is_responsive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ack_timeout_ts', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -671,14 +579,14 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEvent');
-          const result = this.impl.notifyObserversOfInputEvent(params.arg_event, params.arg_dispatched_to_renderer);
+          const result = this.impl.notifyObserversOfInputEvent(params.arg_arg_event, params.arg_arg_dispatched_to_renderer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyObserversOfInputEventAcks');
-          const result = this.impl.notifyObserversOfInputEventAcks(params.arg_ack_source, params.arg_ack_result, params.arg_event);
+          const result = this.impl.notifyObserversOfInputEventAcks(params.arg_arg_ack_source, params.arg_arg_ack_result, params.arg_arg_event);
           break;
         }
         case 2: {
@@ -692,14 +600,14 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stateOnOverscrollTransfer');
-          const result = this.impl.stateOnOverscrollTransfer(params.arg_overscroll);
+          const result = this.impl.stateOnOverscrollTransfer(params.arg_arg_overscroll);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.rendererInputResponsivenessChanged');
-          const result = this.impl.rendererInputResponsivenessChanged(params.arg_is_responsive, params.arg_ack_timeout_ts);
+          const result = this.impl.rendererInputResponsivenessChanged(params.arg_arg_is_responsive, params.arg_arg_ack_timeout_ts);
           break;
         }
       }
@@ -714,4 +622,98 @@ mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientReceiver = moj
 
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientPtr = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRemote;
 mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientRequest = mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: RenderInputRouterConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterConfigSpec, 'input.mojom.RenderInputRouterConfig', [
+      mojo.internal.StructField('arg_rir_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.RenderInputRouterClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_grouping_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_force_enable_zoom', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: TouchTransferState
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.TouchTransferStateSpec, 'input.mojom.TouchTransferState', [
+      mojo.internal.StructField('arg_down_time_ms', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_root_widget_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_contents_y_offset_pix', 16, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dip_scale', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_would_have_handled', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_down_event', 32, 0, mojo.internal.bindings.ui.mojom.CachedMotionEventAndroidSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StateOnTouchTransfer_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.input.mojom.TouchTransferStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ForceEnableZoomStateChanged_Params', [
+      mojo.internal.StructField('arg_force_enable_zoom', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_id', 8, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_StopFlingingOnViz_Params', [
+      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_RestartInputEventAckTimeoutIfNecessary_Params', [
+      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_NotifyVisibilityChanged_Params', [
+      mojo.internal.StructField('arg_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_hidden', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegate_ResetGestureDetection_ParamsSpec, 'input.mojom.RenderInputRouterDelegate_ResetGestureDetection_Params', [
+      mojo.internal.StructField('arg_root_widget_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dispatched_to_renderer', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_NotifyObserversOfInputEventAcks_Params', [
+      mojo.internal.StructField('arg_ack_source', 0, 0, mojo.internal.bindings.blink.mojom.InputEventResultSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ack_result', 4, 0, mojo.internal.bindings.blink.mojom.InputEventResultStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 8, 0, mojo.internal.bindings.blink.mojom.EventSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_OnInvalidInputEventSource_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_StateOnOverscrollTransfer_Params', [
+      mojo.internal.StructField('arg_overscroll', 0, 0, mojo.internal.bindings.blink.mojom.DidOverscrollParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_ParamsSpec, 'input.mojom.RenderInputRouterDelegateClient_RendererInputResponsivenessChanged_Params', [
+      mojo.internal.StructField('arg_is_responsive', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ack_timeout_ts', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

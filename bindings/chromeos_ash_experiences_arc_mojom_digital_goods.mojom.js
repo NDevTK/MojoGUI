@@ -162,105 +162,7 @@ mojo.internal.bindings.arc.mojom.PurchaseState = {
   kPending: 2,
 };
 
-// Struct: PurchaseDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, 'arc.mojom.PurchaseDetails', [
-      mojo.internal.StructField('arg_item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_acknowledged', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_will_auto_renew', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_state', 20, 0, mojo.internal.bindings.arc.mojom.PurchaseStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: DigitalGoodsInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_item_ids', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_item_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_make_available_again', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_reference_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_reference_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_purchase_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_ResponseParams', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.DigitalGoodsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -443,12 +345,14 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDetails');
-          const result = this.impl.getDetails(params.arg_package_name, params.arg_scope, params.arg_item_ids);
+          const result = this.impl.getDetails(params.arg_arg_package_name, params.arg_arg_scope, params.arg_arg_item_ids);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDetails FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_item_details_list']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDetails FAILED:', e));
           }
           break;
         }
@@ -456,12 +360,15 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acknowledge');
-          const result = this.impl.acknowledge(params.arg_package_name, params.arg_scope, params.arg_purchase_token, params.arg_make_available_again);
+          const result = this.impl.acknowledge(params.arg_arg_package_name, params.arg_arg_scope, params.arg_arg_purchase_token, params.arg_arg_make_available_again);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Acknowledge FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] acknowledge FAILED:', e));
           }
           break;
         }
@@ -469,12 +376,14 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedListPurchases');
-          const result = this.impl.deprecatedListPurchases(params.arg_package_name, params.arg_scope);
+          const result = this.impl.deprecatedListPurchases(params.arg_arg_package_name, params.arg_arg_scope);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeprecatedListPurchases FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_details_list']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deprecatedListPurchases FAILED:', e));
           }
           break;
         }
@@ -482,12 +391,14 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listPurchases');
-          const result = this.impl.listPurchases(params.arg_package_name, params.arg_scope);
+          const result = this.impl.listPurchases(params.arg_arg_package_name, params.arg_arg_scope);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ListPurchases FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_reference_list']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] listPurchases FAILED:', e));
           }
           break;
         }
@@ -495,12 +406,14 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.listPurchaseHistory');
-          const result = this.impl.listPurchaseHistory(params.arg_package_name, params.arg_scope);
+          const result = this.impl.listPurchaseHistory(params.arg_arg_package_name, params.arg_arg_scope);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ListPurchaseHistory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_code', 'response.arg_arg_purchase_reference_list']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] listPurchaseHistory FAILED:', e));
           }
           break;
         }
@@ -508,12 +421,15 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.consume');
-          const result = this.impl.consume(params.arg_package_name, params.arg_scope, params.arg_purchase_token);
+          const result = this.impl.consume(params.arg_arg_package_name, params.arg_arg_scope, params.arg_arg_purchase_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Consume FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_code' in response) ? response.arg_arg_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] consume FAILED:', e));
           }
           break;
         }
@@ -529,4 +445,104 @@ mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.arc.mojom.DigitalGoodsInstancePtr = mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRemote;
 mojo.internal.bindings.arc.mojom.DigitalGoodsInstanceRequest = mojo.internal.bindings.arc.mojom.DigitalGoodsInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PurchaseDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, 'arc.mojom.PurchaseDetails', [
+      mojo.internal.StructField('arg_item_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_acknowledged', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_will_auto_renew', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_state', 20, 0, mojo.internal.bindings.arc.mojom.PurchaseStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item_ids', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_GetDetails_ResponseParams', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_item_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.ItemDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_make_available_again', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Acknowledge_ResponseParams', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_DeprecatedListPurchases_ResponseParams', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_details_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PurchaseDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchases_ResponseParams', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_reference_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_ListPurchaseHistory_ResponseParams', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_reference_list', 8, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PurchaseReferenceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_purchase_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DigitalGoodsInstance_Consume_ResponseParamsSpec, 'arc.mojom.DigitalGoodsInstance_Consume_ResponseParams', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.payments.mojom.BillingResponseCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

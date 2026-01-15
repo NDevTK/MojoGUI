@@ -176,41 +176,7 @@ mojo.internal.bindings.blink.mojom.SpeculationInjectionType = {
   kAutoSpeculationRules: 3,
 };
 
-// Struct: SpeculationCandidate
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.SpeculationActionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_requires_anonymous_client_ip_when_cross_origin', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_form_submission', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_browsing_context_name_hint', 24, 0, mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_eagerness', 28, 0, mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_no_vary_search_hint', 32, 0, mojo.internal.bindings.network.mojom.NoVarySearchSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_injection_type', 40, 0, mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tags', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: SpeculationHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec, 'blink.mojom.SpeculationHost_UpdateSpeculationCandidates_Params', [
-      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_cross_origin_prerender_iframes', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec, 'blink.mojom.SpeculationHost_OnLCPPredicted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec, 'blink.mojom.SpeculationHost_InitiatePreview_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.SpeculationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -351,7 +317,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSpeculationCandidates');
-          const result = this.impl.updateSpeculationCandidates(params.arg_candidates, params.arg_enable_cross_origin_prerender_iframes);
+          const result = this.impl.updateSpeculationCandidates(params.arg_arg_candidates, params.arg_arg_enable_cross_origin_prerender_iframes);
           break;
         }
         case 1: {
@@ -365,7 +331,7 @@ mojo.internal.bindings.blink.mojom.SpeculationHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initiatePreview');
-          const result = this.impl.initiatePreview(params.arg_url);
+          const result = this.impl.initiatePreview(params.arg_arg_url);
           break;
         }
       }
@@ -380,4 +346,40 @@ mojo.internal.bindings.blink.mojom.SpeculationHostReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.SpeculationHostPtr = mojo.internal.bindings.blink.mojom.SpeculationHostRemote;
 mojo.internal.bindings.blink.mojom.SpeculationHostRequest = mojo.internal.bindings.blink.mojom.SpeculationHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SpeculationCandidate
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec, 'blink.mojom.SpeculationCandidate', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.SpeculationActionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_requires_anonymous_client_ip_when_cross_origin', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_form_submission', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer', 16, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_browsing_context_name_hint', 24, 0, mojo.internal.bindings.blink.mojom.SpeculationTargetHintSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_eagerness', 28, 0, mojo.internal.bindings.blink.mojom.SpeculationEagernessSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_no_vary_search_hint', 32, 0, mojo.internal.bindings.network.mojom.NoVarySearchSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_injection_type', 40, 0, mojo.internal.bindings.blink.mojom.SpeculationInjectionTypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tags', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SpeculationHost_UpdateSpeculationCandidates_ParamsSpec, 'blink.mojom.SpeculationHost_UpdateSpeculationCandidates_Params', [
+      mojo.internal.StructField('arg_candidates', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SpeculationCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_cross_origin_prerender_iframes', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SpeculationHost_OnLCPPredicted_ParamsSpec, 'blink.mojom.SpeculationHost_OnLCPPredicted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SpeculationHost_InitiatePreview_ParamsSpec, 'blink.mojom.SpeculationHost_InitiatePreview_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

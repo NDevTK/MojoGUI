@@ -145,3 +145,5 @@ mojo.internal.bindings.attribution_reporting.mojom.EventLevelResult = {
   kReportWindowNotStarted: 17,
   kNoMatchingTriggerData: 18,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

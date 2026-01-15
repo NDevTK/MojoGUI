@@ -129,6 +129,8 @@ mojo.internal.bindings.service_manager.mojom.kSystemInstanceGroupHigh = 0xE90E5C
 
 mojo.internal.bindings.service_manager.mojom.kSystemInstanceGroupLow = 0x82B0A84F50CF8D84;
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Constants_UnusedStruct_Internal
 mojo.internal.Struct(
     mojo.internal.bindings.service_manager.mojom.Constants_UnusedStruct_InternalSpec, 'service_manager.mojom.Constants_UnusedStruct_Internal', [

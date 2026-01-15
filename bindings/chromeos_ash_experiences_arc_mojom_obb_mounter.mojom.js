@@ -135,32 +135,6 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec = { $: {} };
 
 // Interface: ObbMounterHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec, 'arc.mojom.ObbMounterHost_MountObb_Params', [
-      mojo.internal.StructField('arg_obb_file', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner_gid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec, 'arc.mojom.ObbMounterHost_MountObb_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec, 'arc.mojom.ObbMounterHost_UnmountObb_Params', [
-      mojo.internal.StructField('arg_target_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec, 'arc.mojom.ObbMounterHost_UnmountObb_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.ObbMounterHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,12 +261,15 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mountObb');
-          const result = this.impl.mountObb(params.arg_obb_file, params.arg_target_path, params.arg_owner_gid);
+          const result = this.impl.mountObb(params.arg_arg_obb_file, params.arg_arg_target_path, params.arg_arg_owner_gid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MountObb FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] mountObb FAILED:', e));
           }
           break;
         }
@@ -300,12 +277,15 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unmountObb');
-          const result = this.impl.unmountObb(params.arg_target_path);
+          const result = this.impl.unmountObb(params.arg_arg_target_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UnmountObb FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unmountObb FAILED:', e));
           }
           break;
         }
@@ -324,17 +304,6 @@ mojo.internal.bindings.arc.mojom.ObbMounterHostRequest = mojo.internal.bindings.
 
 
 // Interface: ObbMounterInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec, 'arc.mojom.ObbMounterInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ObbMounterHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec, 'arc.mojom.ObbMounterInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.ObbMounterInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -447,12 +416,14 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -468,4 +439,43 @@ mojo.internal.bindings.arc.mojom.ObbMounterInstanceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.arc.mojom.ObbMounterInstancePtr = mojo.internal.bindings.arc.mojom.ObbMounterInstanceRemote;
 mojo.internal.bindings.arc.mojom.ObbMounterInstanceRequest = mojo.internal.bindings.arc.mojom.ObbMounterInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ParamsSpec, 'arc.mojom.ObbMounterHost_MountObb_Params', [
+      mojo.internal.StructField('arg_obb_file', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_path', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner_gid', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ObbMounterHost_MountObb_ResponseParamsSpec, 'arc.mojom.ObbMounterHost_MountObb_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ParamsSpec, 'arc.mojom.ObbMounterHost_UnmountObb_Params', [
+      mojo.internal.StructField('arg_target_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ObbMounterHost_UnmountObb_ResponseParamsSpec, 'arc.mojom.ObbMounterHost_UnmountObb_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ParamsSpec, 'arc.mojom.ObbMounterInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ObbMounterHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ObbMounterInstance_Init_ResponseParamsSpec, 'arc.mojom.ObbMounterInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -158,6 +158,8 @@ mojo.internal.bindings.printing.mojom.AdvancedCapabilityType = {
   kInteger: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PrinterBasicInfo
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PrinterBasicInfoSpec, 'printing.mojom.PrinterBasicInfo', [

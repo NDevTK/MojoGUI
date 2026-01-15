@@ -127,24 +127,7 @@ mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceSpec = { $ : {} 
 mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService.$interfaceName = 'blink.mojom.BrowsingTopicsDocumentService';
 mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec = { $: {} };
 
-// Struct: EpochTopic
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EpochTopicSpec, 'blink.mojom.EpochTopic', [
-      mojo.internal.StructField('arg_topic', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_taxonomy_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: BrowsingTopicsDocumentService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec, 'blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_Params', [
-      mojo.internal.StructField('arg_observe', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,7 +240,7 @@ mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowsingTopics');
-          const result = this.impl.getBrowsingTopics(params.arg_observe);
+          const result = this.impl.getBrowsingTopics(params.arg_arg_observe);
           break;
         }
       }
@@ -272,4 +255,23 @@ mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServicePtr = mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceRemote;
 mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServiceRequest = mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: EpochTopic
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EpochTopicSpec, 'blink.mojom.EpochTopic', [
+      mojo.internal.StructField('arg_topic', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_version', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_taxonomy_version', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_ParamsSpec, 'blink.mojom.BrowsingTopicsDocumentService_GetBrowsingTopics_Params', [
+      mojo.internal.StructField('arg_observe', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

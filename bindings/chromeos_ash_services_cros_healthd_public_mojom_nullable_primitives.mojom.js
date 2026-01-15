@@ -129,6 +129,8 @@ mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint32Spec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint64Spec = { $: {} };
 mojo.internal.bindings.ash.cros_healthd.mojom.NullableDoubleSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: NullableUint8
 mojo.internal.Struct(
     mojo.internal.bindings.ash.cros_healthd.mojom.NullableUint8Spec, 'ash.cros_healthd.mojom.NullableUint8', [

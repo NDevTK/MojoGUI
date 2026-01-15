@@ -133,3 +133,5 @@ mojo.internal.bindings.blink.mojom.RendererEvictionReason = {
   kBroadcastChannelOnMessage: 5,
   kSharedWorkerMessage: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

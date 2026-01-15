@@ -163,47 +163,7 @@ mojo.internal.bindings.translate.mojom.TranslateError = {
   TRANSLATE_ERROR_MAX: 11,
 };
 
-// Struct: LanguageDetectionDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec, 'translate.mojom.LanguageDetectionDetails', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_adopted_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_notranslate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_run_lang_detection', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_model_reliable', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_model_reliability_score', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_detected_language', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_html_root_language', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contents', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_detection_model_version', 64, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
 // Interface: TranslateAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_Params', [
-      mojo.internal.StructField('arg_translate_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_ResponseParams', [
-      mojo.internal.StructField('arg_cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.translate.mojom.TranslateErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_translated_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec, 'translate.mojom.TranslateAgent_RevertTranslation_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.translate.mojom.TranslateAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -330,12 +290,14 @@ mojo.internal.bindings.translate.mojom.TranslateAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateFrame');
-          const result = this.impl.translateFrame(params.arg_translate_script, params.arg_source_lang, params.arg_target_lang);
+          const result = this.impl.translateFrame(params.arg_arg_translate_script, params.arg_arg_source_lang, params.arg_arg_target_lang);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TranslateFrame FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cancelled', 'response.arg_arg_original_lang', 'response.arg_arg_translated_lang', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] translateFrame FAILED:', e));
           }
           break;
         }
@@ -361,14 +323,6 @@ mojo.internal.bindings.translate.mojom.TranslateAgentRequest = mojo.internal.bin
 
 
 // Interface: ContentTranslateDriver
-mojo.internal.Struct(
-    mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec, 'translate.mojom.ContentTranslateDriver_RegisterPage_Params', [
-      mojo.internal.StructField('arg_translate_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.translate.mojom.TranslateAgentRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_translation_critiera_met', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.translate.mojom.ContentTranslateDriverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -481,7 +435,7 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPage');
-          const result = this.impl.registerPage(params.arg_translate_agent, params.arg_details, params.arg_translation_critiera_met);
+          const result = this.impl.registerPage(params.arg_arg_translate_agent, params.arg_arg_details, params.arg_arg_translation_critiera_met);
           break;
         }
       }
@@ -496,4 +450,54 @@ mojo.internal.bindings.translate.mojom.ContentTranslateDriverReceiver = mojo.int
 
 mojo.internal.bindings.translate.mojom.ContentTranslateDriverPtr = mojo.internal.bindings.translate.mojom.ContentTranslateDriverRemote;
 mojo.internal.bindings.translate.mojom.ContentTranslateDriverRequest = mojo.internal.bindings.translate.mojom.ContentTranslateDriverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: LanguageDetectionDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec, 'translate.mojom.LanguageDetectionDetails', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_adopted_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_notranslate', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_run_lang_detection', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_model_reliable', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_model_reliability_score', 20, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_detected_language', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_html_root_language', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contents', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_detection_model_version', 64, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_Params', [
+      mojo.internal.StructField('arg_translate_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.translate.mojom.TranslateAgent_TranslateFrame_ResponseParamsSpec, 'translate.mojom.TranslateAgent_TranslateFrame_ResponseParams', [
+      mojo.internal.StructField('arg_cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 4, 0, mojo.internal.bindings.translate.mojom.TranslateErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_lang', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_translated_lang', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.translate.mojom.TranslateAgent_RevertTranslation_ParamsSpec, 'translate.mojom.TranslateAgent_RevertTranslation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.translate.mojom.ContentTranslateDriver_RegisterPage_ParamsSpec, 'translate.mojom.ContentTranslateDriver_RegisterPage_Params', [
+      mojo.internal.StructField('arg_translate_agent', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.translate.mojom.TranslateAgentRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.translate.mojom.LanguageDetectionDetailsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_translation_critiera_met', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

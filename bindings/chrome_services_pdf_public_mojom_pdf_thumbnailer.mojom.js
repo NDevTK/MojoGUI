@@ -147,36 +147,7 @@ mojo.internal.bindings.pdf.mojom.kMaxWidthPixels = 512;
 
 mojo.internal.bindings.pdf.mojom.kMaxHeightPixels = 512;
 
-// Struct: ThumbParams
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.ThumbParamsSpec, 'pdf.mojom.ThumbParams', [
-      mojo.internal.StructField('arg_size_px', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dpi', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stretch', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_aspect', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PdfThumbnailer
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.pdf.mojom.ThumbParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParams', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec, 'pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_Params', [
-      mojo.internal.StructField('arg_use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.pdf.mojom.PdfThumbnailerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,12 +274,15 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getThumbnail');
-          const result = this.impl.getThumbnail(params.arg_params, params.arg_pdf_region);
+          const result = this.impl.getThumbnail(params.arg_arg_params, params.arg_arg_pdf_region);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetThumbnail FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_bitmap' in response) ? response.arg_arg_bitmap : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getThumbnail FAILED:', e));
           }
           break;
         }
@@ -316,7 +290,7 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
           break;
         }
       }
@@ -331,4 +305,35 @@ mojo.internal.bindings.pdf.mojom.PdfThumbnailerReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.pdf.mojom.PdfThumbnailerPtr = mojo.internal.bindings.pdf.mojom.PdfThumbnailerRemote;
 mojo.internal.bindings.pdf.mojom.PdfThumbnailerRequest = mojo.internal.bindings.pdf.mojom.PdfThumbnailerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ThumbParams
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.ThumbParamsSpec, 'pdf.mojom.ThumbParams', [
+      mojo.internal.StructField('arg_size_px', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dpi', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stretch', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_aspect', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.pdf.mojom.ThumbParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParamsSpec, 'pdf.mojom.PdfThumbnailer_GetThumbnail_ResponseParams', [
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_ParamsSpec, 'pdf.mojom.PdfThumbnailer_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('arg_use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

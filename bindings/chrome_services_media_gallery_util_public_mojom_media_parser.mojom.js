@@ -169,109 +169,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: VideoFrameData
-mojo.internal.Union(
-    mojo.internal.bindings.chrome.mojom.VideoFrameDataSpec, 'chrome.mojom.VideoFrameData', {
-      'arg_encoded_data': {
-        'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.Uint8, false),
-        'nullable': false,
-      },
-      'arg_decoded_frame': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.media.mojom.VideoFrameSpec,
-        'nullable': true,
-      },
-    });
-
-// Struct: ExtractVideoFrameResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ExtractVideoFrameResultSpec, 'chrome.mojom.ExtractVideoFrameResult', [
-      mojo.internal.StructField('arg_frame_data', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: MediaStreamInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec, 'chrome.mojom.MediaStreamInfo', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_properties', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MediaMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaMetadataSpec, 'chrome.mojom.MediaMetadata', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 8, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 12, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 16, 0, mojo.internal.Double, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_rotation', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_disc', 28, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_album', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artist', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_comment', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_copyright', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_genre', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_track', 88, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_raw_tags', 96, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 112]]);
-
-// Struct: AttachedImage
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AttachedImageSpec, 'chrome.mojom.AttachedImage', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MediaParser
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_Params', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_get_attached_images', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_media_data_source', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_parse_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.chrome.mojom.MediaMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attached_images', 16, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.AttachedImageSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec, 'chrome.mojom.MediaParser_CheckMediaFile_Params', [
-      mojo.internal.StructField('arg_decode_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec, 'chrome.mojom.MediaParser_CheckMediaFile_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec, 'chrome.mojom.MediaParser_GetCpuInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec, 'chrome.mojom.MediaParser_GetCpuInfo_ResponseParams', [
-      mojo.internal.StructField('arg_libyuv_cpu_flags', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ffmpeg_cpu_flags', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chrome.mojom.MediaParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,12 +310,14 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMediaMetadata');
-          const result = this.impl.parseMediaMetadata(params.arg_mime_type, params.arg_total_size, params.arg_get_attached_images, params.arg_media_data_source);
+          const result = this.impl.parseMediaMetadata(params.arg_arg_mime_type, params.arg_arg_total_size, params.arg_arg_get_attached_images, params.arg_arg_media_data_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseMediaMetadata FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec.$.structSpec, ['response.arg_arg_parse_success', 'response.arg_arg_metadata', 'response.arg_arg_attached_images']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseMediaMetadata FAILED:', e));
           }
           break;
         }
@@ -425,12 +325,15 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.checkMediaFile');
-          const result = this.impl.checkMediaFile(params.arg_decode_time, params.arg_file);
+          const result = this.impl.checkMediaFile(params.arg_arg_decode_time, params.arg_arg_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CheckMediaFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] checkMediaFile FAILED:', e));
           }
           break;
         }
@@ -442,8 +345,10 @@ mojo.internal.bindings.chrome.mojom.MediaParserReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCpuInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_libyuv_cpu_flags', 'response.arg_arg_ffmpeg_cpu_flags']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCpuInfo FAILED:', e));
           }
           break;
         }
@@ -462,19 +367,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserRequest = mojo.internal.bindings.
 
 
 // Interface: MediaParserFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec, 'chrome.mojom.MediaParserFactory_CreateMediaParser_Params', [
-      mojo.internal.StructField('arg_libyuv_cpu_flags', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_libavutil_cpu_flags', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, 'chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParams', [
-      mojo.internal.StructField('arg_media_parser', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaParserRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.MediaParserFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -587,12 +479,15 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMediaParser');
-          const result = this.impl.createMediaParser(params.arg_libyuv_cpu_flags, params.arg_libavutil_cpu_flags);
+          const result = this.impl.createMediaParser(params.arg_arg_libyuv_cpu_flags, params.arg_arg_libavutil_cpu_flags);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateMediaParser FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_media_parser' in response) ? response.arg_arg_media_parser : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createMediaParser FAILED:', e));
           }
           break;
         }
@@ -611,19 +506,6 @@ mojo.internal.bindings.chrome.mojom.MediaParserFactoryRequest = mojo.internal.bi
 
 
 // Interface: MediaDataSource
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec, 'chrome.mojom.MediaDataSource_Read_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec, 'chrome.mojom.MediaDataSource_Read_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.MediaDataSourcePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -736,12 +618,15 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.read');
-          const result = this.impl.read(params.arg_position, params.arg_length);
+          const result = this.impl.read(params.arg_arg_position, params.arg_arg_length);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -757,4 +642,134 @@ mojo.internal.bindings.chrome.mojom.MediaDataSourceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.chrome.mojom.MediaDataSourcePtr = mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote;
 mojo.internal.bindings.chrome.mojom.MediaDataSourceRequest = mojo.internal.bindings.chrome.mojom.MediaDataSourcePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: VideoFrameData
+mojo.internal.Union(
+    mojo.internal.bindings.chrome.mojom.VideoFrameDataSpec, 'chrome.mojom.VideoFrameData', {
+      'arg_encoded_data': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.Uint8, false),
+        'nullable': false,
+      },
+      'arg_decoded_frame': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.media.mojom.VideoFrameSpec,
+        'nullable': true,
+      },
+    });
+
+// Struct: ExtractVideoFrameResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ExtractVideoFrameResultSpec, 'chrome.mojom.ExtractVideoFrameResult', [
+      mojo.internal.StructField('arg_frame_data', 0, 0, mojo.internal.bindings.media.mojom.VideoFrameDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.VideoDecoderConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: MediaStreamInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec, 'chrome.mojom.MediaStreamInfo', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_properties', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MediaMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaMetadataSpec, 'chrome.mojom.MediaMetadata', [
+      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 8, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 12, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 16, 0, mojo.internal.Double, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_rotation', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_disc', 28, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_album', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artist', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_comment', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_copyright', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_genre', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_track', 88, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_tags', 96, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.MediaStreamInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 112]]);
+
+// Struct: AttachedImage
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AttachedImageSpec, 'chrome.mojom.AttachedImage', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_Params', [
+      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_get_attached_images', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_media_data_source', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaDataSourceRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParamsSpec, 'chrome.mojom.MediaParser_ParseMediaMetadata_ResponseParams', [
+      mojo.internal.StructField('arg_parse_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.chrome.mojom.MediaMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attached_images', 16, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.AttachedImageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ParamsSpec, 'chrome.mojom.MediaParser_CheckMediaFile_Params', [
+      mojo.internal.StructField('arg_decode_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParser_CheckMediaFile_ResponseParamsSpec, 'chrome.mojom.MediaParser_CheckMediaFile_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ParamsSpec, 'chrome.mojom.MediaParser_GetCpuInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParser_GetCpuInfo_ResponseParamsSpec, 'chrome.mojom.MediaParser_GetCpuInfo_ResponseParams', [
+      mojo.internal.StructField('arg_libyuv_cpu_flags', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ffmpeg_cpu_flags', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ParamsSpec, 'chrome.mojom.MediaParserFactory_CreateMediaParser_Params', [
+      mojo.internal.StructField('arg_libyuv_cpu_flags', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_libavutil_cpu_flags', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParamsSpec, 'chrome.mojom.MediaParserFactory_CreateMediaParser_ResponseParams', [
+      mojo.internal.StructField('arg_media_parser', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chrome.mojom.MediaParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ParamsSpec, 'chrome.mojom.MediaDataSource_Read_Params', [
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.MediaDataSource_Read_ResponseParamsSpec, 'chrome.mojom.MediaDataSource_Read_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

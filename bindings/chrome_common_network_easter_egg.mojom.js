@@ -130,28 +130,6 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec 
 mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec = { $: {} };
 
 // Interface: NetworkEasterEgg
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParams', [
-      mojo.internal.StructField('arg_high_score', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_UpdateHighScore_Params', [
-      mojo.internal.StructField('arg_high_score', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_ResetHighScore_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.NetworkEasterEggPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,8 +274,11 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHighScore FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_high_score' in response) ? response.arg_arg_high_score : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHighScore FAILED:', e));
           }
           break;
         }
@@ -305,7 +286,7 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateHighScore');
-          const result = this.impl.updateHighScore(params.arg_high_score);
+          const result = this.impl.updateHighScore(params.arg_arg_high_score);
           break;
         }
         case 2: {
@@ -327,4 +308,28 @@ mojo.internal.bindings.chrome.mojom.NetworkEasterEggReceiver = mojo.internal.bin
 
 mojo.internal.bindings.chrome.mojom.NetworkEasterEggPtr = mojo.internal.bindings.chrome.mojom.NetworkEasterEggRemote;
 mojo.internal.bindings.chrome.mojom.NetworkEasterEggRequest = mojo.internal.bindings.chrome.mojom.NetworkEasterEggPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParamsSpec, 'chrome.mojom.NetworkEasterEgg_GetHighScore_ResponseParams', [
+      mojo.internal.StructField('arg_high_score', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_UpdateHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_UpdateHighScore_Params', [
+      mojo.internal.StructField('arg_high_score', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkEasterEgg_ResetHighScore_ParamsSpec, 'chrome.mojom.NetworkEasterEgg_ResetHighScore_Params', [
+    ],
+    [[0, 8]]);
 

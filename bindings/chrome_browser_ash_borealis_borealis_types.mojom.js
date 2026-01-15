@@ -140,3 +140,5 @@ mojo.internal.bindings.borealis.mojom.InstallResult = {
   kStartupFailed: 12,
   kMainAppNotPresent: 13,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

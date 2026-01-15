@@ -133,13 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ServiceConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec, 'chromecast.mojom.ServiceConnector_Connect_Params', [
-      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.mojom.ServiceConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.chromecast.mojom.ServiceConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_service_name, params.arg_receiver);
+          const result = this.impl.connect(params.arg_arg_service_name, params.arg_arg_receiver);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.chromecast.mojom.ServiceConnectorReceiver = mojo.internal
 
 mojo.internal.bindings.chromecast.mojom.ServiceConnectorPtr = mojo.internal.bindings.chromecast.mojom.ServiceConnectorRemote;
 mojo.internal.bindings.chromecast.mojom.ServiceConnectorRequest = mojo.internal.bindings.chromecast.mojom.ServiceConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ServiceConnector_Connect_ParamsSpec, 'chromecast.mojom.ServiceConnector_Connect_Params', [
+      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

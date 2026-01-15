@@ -134,13 +134,6 @@ mojo.internal.bindings.ash.mojom.HidWarningDialogSource = {
 };
 
 // Interface: HidPreservingBluetoothStateController
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec, 'ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,7 +246,7 @@ mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.tryToSetBluetoothEnabledState');
-          const result = this.impl.tryToSetBluetoothEnabledState(params.arg_enabled, params.arg_source);
+          const result = this.impl.tryToSetBluetoothEnabledState(params.arg_arg_enabled, params.arg_arg_source);
           break;
         }
       }
@@ -268,4 +261,13 @@ mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerReceiver =
 
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerPtr = mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerRemote;
 mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerRequest = mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateControllerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_ParamsSpec, 'ash.mojom.HidPreservingBluetoothStateController_TryToSetBluetoothEnabledState_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 4, 0, mojo.internal.bindings.ash.mojom.HidWarningDialogSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

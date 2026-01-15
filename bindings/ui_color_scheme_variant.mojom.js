@@ -130,3 +130,5 @@ mojo.internal.bindings.color.mojom.SchemeVariant = {
   kVibrant: 2,
   kExpressive: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

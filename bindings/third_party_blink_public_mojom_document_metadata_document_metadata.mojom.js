@@ -138,27 +138,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: WebPage
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebPageSpec, 'blink.mojom.WebPage', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.mojom.EntitySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: DocumentMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_ResponseParams', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.blink.mojom.WebPageSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DocumentMetadataPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,8 +255,11 @@ mojo.internal.bindings.blink.mojom.DocumentMetadataReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetEntities FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_page' in response) ? response.arg_arg_page : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getEntities FAILED:', e));
           }
           break;
         }
@@ -292,4 +275,26 @@ mojo.internal.bindings.blink.mojom.DocumentMetadataReceiver = mojo.internal.bind
 
 mojo.internal.bindings.blink.mojom.DocumentMetadataPtr = mojo.internal.bindings.blink.mojom.DocumentMetadataRemote;
 mojo.internal.bindings.blink.mojom.DocumentMetadataRequest = mojo.internal.bindings.blink.mojom.DocumentMetadataPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WebPage
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebPageSpec, 'blink.mojom.WebPage', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.schema_org.mojom.EntitySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DocumentMetadata_GetEntities_ResponseParamsSpec, 'blink.mojom.DocumentMetadata_GetEntities_ResponseParams', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.blink.mojom.WebPageSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

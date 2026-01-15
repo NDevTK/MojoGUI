@@ -131,3 +131,5 @@ mojo.internal.bindings.gpu.mojom.GpuPeakMemoryAllocationSource = {
   SHARED_IMAGE_STUB: 3,
   SKIA: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

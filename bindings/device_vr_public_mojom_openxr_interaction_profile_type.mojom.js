@@ -138,3 +138,5 @@ mojo.internal.bindings.device.mojom.OpenXrInteractionProfileType = {
   kMetaHandAim: 10,
   kInvalid: 11,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -200,163 +200,7 @@ mojo.internal.bindings.chrome.mojom.ShortcutOperation = {
   kUpdateExisting: 2,
 };
 
-// Struct: FileFilterSpec
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec, 'chrome.mojom.FileFilterSpec', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extension_spec', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: InspectionResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.InspectionResultSpec, 'chrome.mojom.InspectionResult', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_basename', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_certificate_type', 40, 0, mojo.internal.bindings.chrome.mojom.CertificateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_certificate_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_certificate_subject', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
-// Struct: AntiVirusProduct
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec, 'chrome.mojom.AntiVirusProduct', [
-      mojo.internal.StructField('arg_product_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name_hash', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_version_hash', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: TpmIdentifier
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec, 'chrome.mojom.TpmIdentifier', [
-      mojo.internal.StructField('arg_manufacturer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer_version_info', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tpm_specific_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ClsId
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ClsIdSpec, 'chrome.mojom.ClsId', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ShortcutProperties
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec, 'chrome.mojom.ShortcutProperties', [
-      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_working_dir', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_arguments', 16, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_index', 40, 0, mojo.internal.Int32, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_app_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_toast_activator_clsid', 56, 0, mojo.internal.bindings.chrome.mojom.ClsIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: UtilWin
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec, 'chrome.mojom.UtilWin_IsPinnedToTaskbar_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec, 'chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParams', [
-      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_pinned_to_taskbar', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec, 'chrome.mojom.UtilWin_UnpinShortcuts_Params', [
-      mojo.internal.StructField('arg_shortcut_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec, 'chrome.mojom.UtilWin_UnpinShortcuts_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec, 'chrome.mojom.UtilWin_CreateOrUpdateShortcuts_Params', [
-      mojo.internal.StructField('arg_shortcut_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 16, 0, mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec, 'chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParams', [
-      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type_index', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_default_extension', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParams', [
-      mojo.internal.StructField('arg_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec, 'chrome.mojom.UtilWin_InspectModule_Params', [
-      mojo.internal.StructField('arg_module_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec, 'chrome.mojom.UtilWin_InspectModule_ResponseParams', [
-      mojo.internal.StructField('arg_inspection_result', 0, 0, mojo.internal.bindings.chrome.mojom.InspectionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec, 'chrome.mojom.UtilWin_GetAntiVirusProducts_Params', [
-      mojo.internal.StructField('arg_report_full_names', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec, 'chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParams', [
-      mojo.internal.StructField('arg_av_products', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec, 'chrome.mojom.UtilWin_GetTpmIdentifier_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec, 'chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParams', [
-      mojo.internal.StructField('arg_tpm_identifier', 0, 0, mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.UtilWinPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -557,8 +401,10 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsPinnedToTaskbar FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec.$.structSpec, ['response.arg_arg_succeeded', 'response.arg_arg_is_pinned_to_taskbar']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isPinnedToTaskbar FAILED:', e));
           }
           break;
         }
@@ -566,12 +412,14 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unpinShortcuts');
-          const result = this.impl.unpinShortcuts(params.arg_shortcut_paths);
+          const result = this.impl.unpinShortcuts(params.arg_arg_shortcut_paths);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UnpinShortcuts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unpinShortcuts FAILED:', e));
           }
           break;
         }
@@ -579,12 +427,15 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOrUpdateShortcuts');
-          const result = this.impl.createOrUpdateShortcuts(params.arg_shortcut_paths, params.arg_properties, params.arg_operation);
+          const result = this.impl.createOrUpdateShortcuts(params.arg_arg_shortcut_paths, params.arg_arg_properties, params.arg_arg_operation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateOrUpdateShortcuts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_succeeded' in response) ? response.arg_arg_succeeded : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createOrUpdateShortcuts FAILED:', e));
           }
           break;
         }
@@ -592,12 +443,14 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callExecuteSelectFile');
-          const result = this.impl.callExecuteSelectFile(params.arg_type, params.arg_owner, params.arg_title, params.arg_default_path, params.arg_filter, params.arg_file_type_index, params.arg_default_extension);
+          const result = this.impl.callExecuteSelectFile(params.arg_arg_type, params.arg_arg_owner, params.arg_arg_title, params.arg_arg_default_path, params.arg_arg_filter, params.arg_arg_file_type_index, params.arg_arg_default_extension);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CallExecuteSelectFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec.$.structSpec, ['response.arg_arg_paths', 'response.arg_arg_file_type_index']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] callExecuteSelectFile FAILED:', e));
           }
           break;
         }
@@ -605,12 +458,15 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.inspectModule');
-          const result = this.impl.inspectModule(params.arg_module_path);
+          const result = this.impl.inspectModule(params.arg_arg_module_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InspectModule FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_inspection_result' in response) ? response.arg_arg_inspection_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] inspectModule FAILED:', e));
           }
           break;
         }
@@ -618,12 +474,15 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAntiVirusProducts');
-          const result = this.impl.getAntiVirusProducts(params.arg_report_full_names);
+          const result = this.impl.getAntiVirusProducts(params.arg_arg_report_full_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAntiVirusProducts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_av_products' in response) ? response.arg_arg_av_products : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAntiVirusProducts FAILED:', e));
           }
           break;
         }
@@ -635,8 +494,11 @@ mojo.internal.bindings.chrome.mojom.UtilWinReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTpmIdentifier FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_tpm_identifier' in response) ? response.arg_arg_tpm_identifier : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getTpmIdentifier FAILED:', e));
           }
           break;
         }
@@ -655,16 +517,6 @@ mojo.internal.bindings.chrome.mojom.UtilWinRequest = mojo.internal.bindings.chro
 
 
 // Interface: ProcessorMetrics
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec, 'chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec, 'chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.ProcessorMetricsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -781,8 +633,10 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RecordProcessorMetrics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] recordProcessorMetrics FAILED:', e));
           }
           break;
         }
@@ -798,4 +652,172 @@ mojo.internal.bindings.chrome.mojom.ProcessorMetricsReceiver = mojo.internal.bin
 
 mojo.internal.bindings.chrome.mojom.ProcessorMetricsPtr = mojo.internal.bindings.chrome.mojom.ProcessorMetricsRemote;
 mojo.internal.bindings.chrome.mojom.ProcessorMetricsRequest = mojo.internal.bindings.chrome.mojom.ProcessorMetricsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FileFilterSpec
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec, 'chrome.mojom.FileFilterSpec', [
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_spec', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: InspectionResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.InspectionResultSpec, 'chrome.mojom.InspectionResult', [
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_basename', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_type', 40, 0, mojo.internal.bindings.chrome.mojom.CertificateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_path', 48, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_certificate_subject', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+
+// Struct: AntiVirusProduct
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec, 'chrome.mojom.AntiVirusProduct', [
+      mojo.internal.StructField('arg_product_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name_hash', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_version_hash', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 24, 0, mojo.internal.bindings.chrome.mojom.AntiVirusProductStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: TpmIdentifier
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec, 'chrome.mojom.TpmIdentifier', [
+      mojo.internal.StructField('arg_manufacturer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer_version_info', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tpm_specific_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ClsId
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ClsIdSpec, 'chrome.mojom.ClsId', [
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ShortcutProperties
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec, 'chrome.mojom.ShortcutProperties', [
+      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_working_dir', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_arguments', 16, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 24, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_index', 40, 0, mojo.internal.Int32, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_app_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.WStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_toast_activator_clsid', 56, 0, mojo.internal.bindings.chrome.mojom.ClsIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ParamsSpec, 'chrome.mojom.UtilWin_IsPinnedToTaskbar_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParamsSpec, 'chrome.mojom.UtilWin_IsPinnedToTaskbar_ResponseParams', [
+      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_pinned_to_taskbar', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ParamsSpec, 'chrome.mojom.UtilWin_UnpinShortcuts_Params', [
+      mojo.internal.StructField('arg_shortcut_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_UnpinShortcuts_ResponseParamsSpec, 'chrome.mojom.UtilWin_UnpinShortcuts_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ParamsSpec, 'chrome.mojom.UtilWin_CreateOrUpdateShortcuts_Params', [
+      mojo.internal.StructField('arg_shortcut_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_properties', 8, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ShortcutPropertiesSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 16, 0, mojo.internal.bindings.chrome.mojom.ShortcutOperationSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParamsSpec, 'chrome.mojom.UtilWin_CreateOrUpdateShortcuts_ResponseParams', [
+      mojo.internal.StructField('arg_succeeded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.chrome.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.FileFilterSpecSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type_index', 32, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_default_extension', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParamsSpec, 'chrome.mojom.UtilWin_CallExecuteSelectFile_ResponseParams', [
+      mojo.internal.StructField('arg_paths', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type_index', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ParamsSpec, 'chrome.mojom.UtilWin_InspectModule_Params', [
+      mojo.internal.StructField('arg_module_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_InspectModule_ResponseParamsSpec, 'chrome.mojom.UtilWin_InspectModule_ResponseParams', [
+      mojo.internal.StructField('arg_inspection_result', 0, 0, mojo.internal.bindings.chrome.mojom.InspectionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ParamsSpec, 'chrome.mojom.UtilWin_GetAntiVirusProducts_Params', [
+      mojo.internal.StructField('arg_report_full_names', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParamsSpec, 'chrome.mojom.UtilWin_GetAntiVirusProducts_ResponseParams', [
+      mojo.internal.StructField('arg_av_products', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.AntiVirusProductSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ParamsSpec, 'chrome.mojom.UtilWin_GetTpmIdentifier_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParamsSpec, 'chrome.mojom.UtilWin_GetTpmIdentifier_ResponseParams', [
+      mojo.internal.StructField('arg_tpm_identifier', 0, 0, mojo.internal.bindings.chrome.mojom.TpmIdentifierSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ParamsSpec, 'chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParamsSpec, 'chrome.mojom.ProcessorMetrics_RecordProcessorMetrics_ResponseParams', [
+    ],
+    [[0, 8]]);
 

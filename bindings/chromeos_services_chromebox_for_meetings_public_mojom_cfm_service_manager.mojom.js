@@ -259,32 +259,6 @@ mojo.internal.bindings.chromeos.cfm.mojom.DisconnectReasonRequest = mojo.interna
 
 
 // Interface: CfmServiceContext
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_Params', [
-      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_adaptor_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_Params', [
-      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -411,12 +385,15 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.provideAdaptor');
-          const result = this.impl.provideAdaptor(params.arg_interface_name, params.arg_adaptor_remote);
+          const result = this.impl.provideAdaptor(params.arg_arg_interface_name, params.arg_arg_adaptor_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ProvideAdaptor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] provideAdaptor FAILED:', e));
           }
           break;
         }
@@ -424,12 +401,15 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestBindService');
-          const result = this.impl.requestBindService(params.arg_interface_name, params.arg_receiver_pipe);
+          const result = this.impl.requestBindService(params.arg_arg_interface_name, params.arg_arg_receiver_pipe);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestBindService FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestBindService FAILED:', e));
           }
           break;
         }
@@ -448,12 +428,6 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContextRequest = mojo.intern
 
 
 // Interface: CfmServiceAdaptor
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_Params', [
-      mojo.internal.StructField('arg_receiver_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -566,7 +540,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBindService');
-          const result = this.impl.onBindService(params.arg_receiver_pipe);
+          const result = this.impl.onBindService(params.arg_arg_receiver_pipe);
           break;
         }
       }
@@ -581,4 +555,38 @@ mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorReceiver = mojo.inter
 
 mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorPtr = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorRemote;
 mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorRequest = mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_Params', [
+      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_adaptor_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptorRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_ProvideAdaptor_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_Params', [
+      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParamsSpec, 'chromeos.cfm.mojom.CfmServiceContext_RequestBindService_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_ParamsSpec, 'chromeos.cfm.mojom.CfmServiceAdaptor_OnBindService_Params', [
+      mojo.internal.StructField('arg_receiver_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

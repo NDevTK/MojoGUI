@@ -154,14 +154,6 @@ mojo.internal.bindings.arc.mojom.TimedCloudDpcOp = {
 };
 
 // Interface: EnterpriseReportingHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec, 'arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_Params', [
-      mojo.internal.StructField('arg_time_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.EnterpriseReportingHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,7 +266,7 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCloudDpcOperationTime');
-          const result = this.impl.reportCloudDpcOperationTime(params.arg_time_ms, params.arg_op, params.arg_success);
+          const result = this.impl.reportCloudDpcOperationTime(params.arg_arg_time_ms, params.arg_arg_op, params.arg_arg_success);
           break;
         }
       }
@@ -292,29 +284,6 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRequest = mojo.internal.
 
 
 // Interface: EnterpriseReportingInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec, 'arc.mojom.EnterpriseReportingInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec, 'arc.mojom.EnterpriseReportingInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec, 'arc.mojom.EnterpriseReportingInstance_GetStatus_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec, 'arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_droid_guard_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,12 +410,14 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -458,8 +429,10 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStatus FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_droid_guard_info']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStatus FAILED:', e));
           }
           break;
         }
@@ -475,4 +448,37 @@ mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceReceiver = mojo.inte
 
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstancePtr = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRemote;
 mojo.internal.bindings.arc.mojom.EnterpriseReportingInstanceRequest = mojo.internal.bindings.arc.mojom.EnterpriseReportingInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_ParamsSpec, 'arc.mojom.EnterpriseReportingHost_ReportCloudDpcOperationTime_Params', [
+      mojo.internal.StructField('arg_time_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_op', 8, 0, mojo.internal.bindings.arc.mojom.TimedCloudDpcOpSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ParamsSpec, 'arc.mojom.EnterpriseReportingInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.EnterpriseReportingHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_Init_ResponseParamsSpec, 'arc.mojom.EnterpriseReportingInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ParamsSpec, 'arc.mojom.EnterpriseReportingInstance_GetStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParamsSpec, 'arc.mojom.EnterpriseReportingInstance_GetStatus_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_droid_guard_info', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

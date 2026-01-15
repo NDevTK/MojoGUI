@@ -148,37 +148,7 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogType = {
   kSaveAsFile: 5,
 };
 
-// Struct: SelectFileTypeInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec, 'remote_cocoa.mojom.SelectFileTypeInfo', [
-      mojo.internal.StructField('arg_extensions', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extension_description_overrides', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_all_files', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_extension_visible', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: SelectFileDialog
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_type_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_types', 24, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_default_extension', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_ResponseParams', [
-      mojo.internal.StructField('arg_was_cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_files', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_tags', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,12 +261,14 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.show');
-          const result = this.impl.show(params.arg_type, params.arg_title, params.arg_file_path, params.arg_file_types, params.arg_file_type_index, params.arg_default_extension);
+          const result = this.impl.show(params.arg_arg_type, params.arg_arg_title, params.arg_arg_file_path, params.arg_arg_file_types, params.arg_arg_file_type_index, params.arg_arg_default_extension);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Show FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec.$.structSpec, ['response.arg_arg_was_cancelled', 'response.arg_arg_files', 'response.arg_arg_index', 'response.arg_arg_file_tags']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] show FAILED:', e));
           }
           break;
         }
@@ -312,4 +284,36 @@ mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogReceiver = mojo.intern
 
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogPtr = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRemote;
 mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogRequest = mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SelectFileTypeInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec, 'remote_cocoa.mojom.SelectFileTypeInfo', [
+      mojo.internal.StructField('arg_extensions', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.String, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extension_description_overrides', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_all_files', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_extension_visible', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialogTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_type_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_types', 24, 0, mojo.internal.bindings.remote_cocoa.mojom.SelectFileTypeInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_default_extension', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.SelectFileDialog_Show_ResponseParamsSpec, 'remote_cocoa.mojom.SelectFileDialog_Show_ResponseParams', [
+      mojo.internal.StructField('arg_was_cancelled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_tags', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

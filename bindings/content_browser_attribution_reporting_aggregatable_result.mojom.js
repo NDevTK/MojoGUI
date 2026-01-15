@@ -141,3 +141,5 @@ mojo.internal.bindings.attribution_reporting.mojom.AggregatableResult = {
   kExcessiveReports: 13,
   kInsufficientNamedBudget: 14,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

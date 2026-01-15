@@ -139,27 +139,7 @@ mojo.internal.bindings.tracing.mojom.kTracingSandbox = mojo.internal.bindings.sa
 
 mojo.internal.bindings.tracing.mojom.kTracingSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
-// Struct: ClientInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ClientInfoSpec, 'tracing.mojom.ClientInfo', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_process', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: TracingService
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec, 'tracing.mojom.TracingService_Initialize_Params', [
-      mojo.internal.StructField('arg_clients', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ClientInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec, 'tracing.mojom.TracingService_AddClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.tracing.mojom.ClientInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.tracing.mojom.TracingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,14 +266,14 @@ mojo.internal.bindings.tracing.mojom.TracingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_clients);
+          const result = this.impl.initialize(params.arg_arg_clients);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_client);
+          const result = this.impl.addClient(params.arg_arg_client);
           break;
         }
       }
@@ -308,4 +288,26 @@ mojo.internal.bindings.tracing.mojom.TracingServiceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.tracing.mojom.TracingServicePtr = mojo.internal.bindings.tracing.mojom.TracingServiceRemote;
 mojo.internal.bindings.tracing.mojom.TracingServiceRequest = mojo.internal.bindings.tracing.mojom.TracingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ClientInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ClientInfoSpec, 'tracing.mojom.ClientInfo', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.TracedProcessRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingService_Initialize_ParamsSpec, 'tracing.mojom.TracingService_Initialize_Params', [
+      mojo.internal.StructField('arg_clients', 0, 0, mojo.internal.Array(mojo.internal.bindings.tracing.mojom.ClientInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracingService_AddClient_ParamsSpec, 'tracing.mojom.TracingService_AddClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.bindings.tracing.mojom.ClientInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

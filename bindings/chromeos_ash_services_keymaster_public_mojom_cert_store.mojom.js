@@ -141,46 +141,7 @@ mojo.internal.bindings.arc.keymaster = mojo.internal.bindings.arc.keymaster || {
 mojo.internal.bindings.arc.keymaster.mojom = mojo.internal.bindings.arc.keymaster.mojom || {};
 mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec = mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: KeyData
-mojo.internal.Union(
-    mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, 'arc.keymaster.mojom.KeyData', {
-      'arg_chaps_key_data': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.arc.keymaster.mojom.ChapsKeyDataSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: ChapsKeyData
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.keymaster.mojom.ChapsKeyDataSpec, 'arc.keymaster.mojom.ChapsKeyData', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_slot', 16, 0, mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec, null, false, 1, undefined),
-    ],
-    [[0, 24], [1, 32]]);
-
-// Struct: ChromeOsKey
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.keymaster.mojom.ChromeOsKeySpec, 'arc.keymaster.mojom.ChromeOsKey', [
-      mojo.internal.StructField('arg_base64_subject_public_key_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: CertStoreInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec, 'arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_Params', [
-      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.keymaster.mojom.ChromeOsKeySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec, 'arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,12 +254,15 @@ mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePlaceholderKeys');
-          const result = this.impl.updatePlaceholderKeys(params.arg_keys);
+          const result = this.impl.updatePlaceholderKeys(params.arg_arg_keys);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdatePlaceholderKeys FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updatePlaceholderKeys FAILED:', e));
           }
           break;
         }
@@ -314,4 +278,45 @@ mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstanceReceiver = mojo.inte
 
 mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstancePtr = mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstanceRemote;
 mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstanceRequest = mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: KeyData
+mojo.internal.Union(
+    mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, 'arc.keymaster.mojom.KeyData', {
+      'arg_chaps_key_data': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.arc.keymaster.mojom.ChapsKeyDataSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: ChapsKeyData
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.keymaster.mojom.ChapsKeyDataSpec, 'arc.keymaster.mojom.ChapsKeyData', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_slot', 16, 0, mojo.internal.bindings.arc.keymanagement.mojom.ChapsSlotSpec, null, false, 1, undefined),
+    ],
+    [[0, 24], [1, 32]]);
+
+// Struct: ChromeOsKey
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.keymaster.mojom.ChromeOsKeySpec, 'arc.keymaster.mojom.ChromeOsKey', [
+      mojo.internal.StructField('arg_base64_subject_public_key_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.bindings.arc.keymaster.mojom.KeyDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ParamsSpec, 'arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_Params', [
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.keymaster.mojom.ChromeOsKeySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParamsSpec, 'arc.keymaster.mojom.CertStoreInstance_UpdatePlaceholderKeys_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

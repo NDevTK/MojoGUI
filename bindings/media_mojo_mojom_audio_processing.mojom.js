@@ -131,53 +131,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec = 
 mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec = { $: {} };
 
-// Struct: AudioProcessingStats
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec, 'media.mojom.AudioProcessingStats', [
-      mojo.internal.StructField('arg_has_echo_return_loss', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_echo_return_loss_enhancement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_return_loss', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_echo_return_loss_enhancement', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: AudioProcessingSettings
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec, 'media.mojom.AudioProcessingSettings', [
-      mojo.internal.StructField('arg_echo_cancellation', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_noise_suppression', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_automatic_gain_control', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_multi_channel_capture_processing', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_loopback_aec_reference', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: AudioProcessingConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, 'media.mojom.AudioProcessingConfig', [
-      mojo.internal.StructField('arg_controls_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioProcessorControlsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: AudioProcessorControls
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_ResponseParams', [
-      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec, 'media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_Params', [
-      mojo.internal.StructField('arg_num_preferred_channels', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AudioProcessorControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,8 +262,11 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStats FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_stats' in response) ? response.arg_arg_stats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStats FAILED:', e));
           }
           break;
         }
@@ -317,7 +274,7 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPreferredNumCaptureChannels');
-          const result = this.impl.setPreferredNumCaptureChannels(params.arg_num_preferred_channels);
+          const result = this.impl.setPreferredNumCaptureChannels(params.arg_arg_num_preferred_channels);
           break;
         }
       }
@@ -332,4 +289,52 @@ mojo.internal.bindings.media.mojom.AudioProcessorControlsReceiver = mojo.interna
 
 mojo.internal.bindings.media.mojom.AudioProcessorControlsPtr = mojo.internal.bindings.media.mojom.AudioProcessorControlsRemote;
 mojo.internal.bindings.media.mojom.AudioProcessorControlsRequest = mojo.internal.bindings.media.mojom.AudioProcessorControlsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AudioProcessingStats
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec, 'media.mojom.AudioProcessingStats', [
+      mojo.internal.StructField('arg_has_echo_return_loss', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_echo_return_loss_enhancement', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_return_loss', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_echo_return_loss_enhancement', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: AudioProcessingSettings
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec, 'media.mojom.AudioProcessingSettings', [
+      mojo.internal.StructField('arg_echo_cancellation', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_noise_suppression', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_automatic_gain_control', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_multi_channel_capture_processing', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_loopback_aec_reference', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AudioProcessingConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, 'media.mojom.AudioProcessingConfig', [
+      mojo.internal.StructField('arg_controls_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioProcessorControlsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.AudioProcessingSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioProcessorControls_GetStats_ResponseParamsSpec, 'media.mojom.AudioProcessorControls_GetStats_ResponseParams', [
+      mojo.internal.StructField('arg_stats', 0, 0, mojo.internal.bindings.media.mojom.AudioProcessingStatsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_ParamsSpec, 'media.mojom.AudioProcessorControls_SetPreferredNumCaptureChannels_Params', [
+      mojo.internal.StructField('arg_num_preferred_channels', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -153,66 +153,6 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec = mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: LocalStorageControl
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec, 'storage.mojom.LocalStorageControl_BindStorageArea_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_CleanUpStorage_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec, 'storage.mojom.LocalStorageControl_Flush_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec, 'storage.mojom.LocalStorageControl_PurgeMemory_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.LocalStorageControl_ApplyPolicyUpdates_Params', [
-      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec, 'storage.mojom.LocalStorageControl_ForceKeepSessionState_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.storage.mojom.LocalStorageControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -423,7 +363,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStorageArea');
-          const result = this.impl.bindStorageArea(params.arg_storage_key, params.arg_receiver);
+          const result = this.impl.bindStorageArea(params.arg_arg_storage_key, params.arg_arg_receiver);
           break;
         }
         case 1: {
@@ -434,8 +374,11 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetUsage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getUsage FAILED:', e));
           }
           break;
         }
@@ -443,12 +386,14 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteStorage');
-          const result = this.impl.deleteStorage(params.arg_storage_key);
+          const result = this.impl.deleteStorage(params.arg_arg_storage_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteStorage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deleteStorage FAILED:', e));
           }
           break;
         }
@@ -460,8 +405,10 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CleanUpStorage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cleanUpStorage FAILED:', e));
           }
           break;
         }
@@ -483,7 +430,7 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyPolicyUpdates');
-          const result = this.impl.applyPolicyUpdates(params.arg_policy_updates);
+          const result = this.impl.applyPolicyUpdates(params.arg_arg_policy_updates);
           break;
         }
         case 7: {
@@ -505,4 +452,66 @@ mojo.internal.bindings.storage.mojom.LocalStorageControlReceiver = mojo.internal
 
 mojo.internal.bindings.storage.mojom.LocalStorageControlPtr = mojo.internal.bindings.storage.mojom.LocalStorageControlRemote;
 mojo.internal.bindings.storage.mojom.LocalStorageControlRequest = mojo.internal.bindings.storage.mojom.LocalStorageControlPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_BindStorageArea_ParamsSpec, 'storage.mojom.LocalStorageControl_BindStorageArea_Params', [
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_GetUsage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_GetUsage_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StorageUsageInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_Params', [
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_DeleteStorage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_DeleteStorage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ParamsSpec, 'storage.mojom.LocalStorageControl_CleanUpStorage_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParamsSpec, 'storage.mojom.LocalStorageControl_CleanUpStorage_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_Flush_ParamsSpec, 'storage.mojom.LocalStorageControl_Flush_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_PurgeMemory_ParamsSpec, 'storage.mojom.LocalStorageControl_PurgeMemory_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_ApplyPolicyUpdates_ParamsSpec, 'storage.mojom.LocalStorageControl_ApplyPolicyUpdates_Params', [
+      mojo.internal.StructField('arg_policy_updates', 0, 0, mojo.internal.Array(mojo.internal.bindings.storage.mojom.StoragePolicyUpdateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.LocalStorageControl_ForceKeepSessionState_ParamsSpec, 'storage.mojom.LocalStorageControl_ForceKeepSessionState_Params', [
+    ],
+    [[0, 8]]);
 

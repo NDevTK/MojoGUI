@@ -132,12 +132,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec = mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: ServiceWorkerRunningStatusCallback
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec, 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStatusChanged');
-          const result = this.impl.onStatusChanged(params.arg_status);
+          const result = this.impl.onStatusChanged(params.arg_arg_status);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackReceiver = 
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackPtr = mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRemote;
 mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackRequest = mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallbackPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_ParamsSpec, 'blink.mojom.ServiceWorkerRunningStatusCallback_OnStatusChanged_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerEmbeddedWorkerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -178,6 +178,8 @@ mojo.internal.bindings.cros.mojom.InferenceBackend = {
   kAuto: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: EffectsConfig
 mojo.internal.Struct(
     mojo.internal.bindings.cros.mojom.EffectsConfigSpec, 'cros.mojom.EffectsConfig', [

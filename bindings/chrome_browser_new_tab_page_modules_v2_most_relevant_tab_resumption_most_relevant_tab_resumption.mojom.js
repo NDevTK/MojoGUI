@@ -150,49 +150,6 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActio
 };
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParams', [
-      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_Params', [
-      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_Params', [
-      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_Params', [
-      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_Params', [
-      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_request_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -379,8 +336,11 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetURLVisits FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_url_visits' in response) ? response.arg_arg_url_visits : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getURLVisits FAILED:', e));
           }
           break;
         }
@@ -388,35 +348,35 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissModule');
-          const result = this.impl.dismissModule(params.arg_url_visits);
+          const result = this.impl.dismissModule(params.arg_arg_url_visits);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dismissURLVisit');
-          const result = this.impl.dismissURLVisit(params.arg_url_visit);
+          const result = this.impl.dismissURLVisit(params.arg_arg_url_visit);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreModule');
-          const result = this.impl.restoreModule(params.arg_url_visits);
+          const result = this.impl.restoreModule(params.arg_arg_url_visits);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreURLVisit');
-          const result = this.impl.restoreURLVisit(params.arg_url_visit);
+          const result = this.impl.restoreURLVisit(params.arg_arg_url_visit);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordAction');
-          const result = this.impl.recordAction(params.arg_action, params.arg_url_key, params.arg_visit_request_id);
+          const result = this.impl.recordAction(params.arg_arg_action, params.arg_arg_url_key, params.arg_arg_visit_request_id);
           break;
         }
       }
@@ -431,4 +391,49 @@ mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerReceive
 
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerPtr = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRemote;
 mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerRequest = mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_GetURLVisits_ResponseParams', [
+      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissModule_Params', [
+      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_DismissURLVisit_Params', [
+      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreModule_Params', [
+      mojo.internal.StructField('arg_url_visits', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RestoreURLVisit_Params', [
+      mojo.internal.StructField('arg_url_visit', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.URLVisitSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_ParamsSpec, 'ntp.most_relevant_tab_resumption.mojom.PageHandler_RecordAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ntp.most_relevant_tab_resumption.mojom.ScoredURLUserActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_request_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

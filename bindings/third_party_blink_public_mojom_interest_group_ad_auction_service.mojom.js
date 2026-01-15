@@ -224,99 +224,7 @@ mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutField = {
   kPerBuyerCumulativeTimeouts: 1,
 };
 
-// Union: AuctionAdConfigAuctionId
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, 'blink.mojom.AuctionAdConfigAuctionId', {
-      'arg_main_auction': {
-        'ordinal': 0,
-        'type': mojo.internal.Uint32,
-        'nullable': false,
-      },
-      'arg_component_auction': {
-        'ordinal': 1,
-        'type': mojo.internal.Uint32,
-        'nullable': false,
-      },
-    });
-
 // Interface: AbortableAdAuction
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedPromiseParam_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_json_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_per_buyer_signals', 16, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.String, false), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buyer', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_json_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buyer_timeouts', 24, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_per_buyer_currencies', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direct_from_seller_signals', 16, 0, mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_direct_from_seller_signals_header_ad_slot', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_render_url_replacements', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_Params', [
-      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AbortableAdAuction_Abort_ParamsSpec, 'blink.mojom.AbortableAdAuction_Abort_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.AbortableAdAuctionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -569,70 +477,70 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedPromiseParam');
-          const result = this.impl.resolvedPromiseParam(params.arg_auction, params.arg_field, params.arg_json_value);
+          const result = this.impl.resolvedPromiseParam(params.arg_arg_auction, params.arg_arg_field, params.arg_arg_json_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedPerBuyerSignalsPromise');
-          const result = this.impl.resolvedPerBuyerSignalsPromise(params.arg_auction, params.arg_per_buyer_signals);
+          const result = this.impl.resolvedPerBuyerSignalsPromise(params.arg_arg_auction, params.arg_arg_per_buyer_signals);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedBuyerTkvSignalsPromise');
-          const result = this.impl.resolvedBuyerTkvSignalsPromise(params.arg_auction, params.arg_buyer, params.arg_json_value);
+          const result = this.impl.resolvedBuyerTkvSignalsPromise(params.arg_arg_auction, params.arg_arg_buyer, params.arg_arg_json_value);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedBuyerTimeoutsPromise');
-          const result = this.impl.resolvedBuyerTimeoutsPromise(params.arg_auction, params.arg_field, params.arg_buyer_timeouts);
+          const result = this.impl.resolvedBuyerTimeoutsPromise(params.arg_arg_auction, params.arg_arg_field, params.arg_arg_buyer_timeouts);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedBuyerCurrenciesPromise');
-          const result = this.impl.resolvedBuyerCurrenciesPromise(params.arg_auction, params.arg_per_buyer_currencies);
+          const result = this.impl.resolvedBuyerCurrenciesPromise(params.arg_arg_auction, params.arg_arg_per_buyer_currencies);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedDirectFromSellerSignalsPromise');
-          const result = this.impl.resolvedDirectFromSellerSignalsPromise(params.arg_auction, params.arg_direct_from_seller_signals);
+          const result = this.impl.resolvedDirectFromSellerSignalsPromise(params.arg_arg_auction, params.arg_arg_direct_from_seller_signals);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedDirectFromSellerSignalsHeaderAdSlotPromise');
-          const result = this.impl.resolvedDirectFromSellerSignalsHeaderAdSlotPromise(params.arg_auction, params.arg_direct_from_seller_signals_header_ad_slot);
+          const result = this.impl.resolvedDirectFromSellerSignalsHeaderAdSlotPromise(params.arg_arg_auction, params.arg_arg_direct_from_seller_signals_header_ad_slot);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedDeprecatedRenderURLReplacementsPromise');
-          const result = this.impl.resolvedDeprecatedRenderURLReplacementsPromise(params.arg_auction, params.arg_deprecated_render_url_replacements);
+          const result = this.impl.resolvedDeprecatedRenderURLReplacementsPromise(params.arg_arg_auction, params.arg_arg_deprecated_render_url_replacements);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedAuctionAdResponsePromise');
-          const result = this.impl.resolvedAuctionAdResponsePromise(params.arg_auction, params.arg_result);
+          const result = this.impl.resolvedAuctionAdResponsePromise(params.arg_arg_auction, params.arg_arg_result);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolvedAdditionalBids');
-          const result = this.impl.resolvedAdditionalBids(params.arg_auction);
+          const result = this.impl.resolvedAdditionalBids(params.arg_arg_auction);
           break;
         }
         case 10: {
@@ -657,132 +565,6 @@ mojo.internal.bindings.blink.mojom.AbortableAdAuctionRequest = mojo.internal.bin
 
 
 // Interface: AdAuctionService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec, 'blink.mojom.AdAuctionService_CreateAdRequest_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.AdRequestConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec, 'blink.mojom.AdAuctionService_CreateAdRequest_ResponseParams', [
-      mojo.internal.StructField('arg_ads_guid', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec, 'blink.mojom.AdAuctionService_FinalizeAd_Params', [
-      mojo.internal.StructField('arg_ads_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec, 'blink.mojom.AdAuctionService_FinalizeAd_ResponseParams', [
-      mojo.internal.StructField('arg_ad_display_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_abort_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_ResponseParams', [
-      mojo.internal.StructField('arg_aborted_by_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec, 'blink.mojom.AdAuctionService_JoinInterestGroup_Params', [
-      mojo.internal.StructField('arg_group', 0, 0, mojo.internal.bindings.blink.mojom.InterestGroupSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec, 'blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParams', [
-      mojo.internal.StructField('arg_failed_well_known_check', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroup_Params', [
-      mojo.internal.StructField('arg_owner', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParams', [
-      mojo.internal.StructField('arg_failed_well_known_check', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec, 'blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_Params', [
-      mojo.internal.StructField('arg_owner', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interest_groups_to_keep', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec, 'blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParams', [
-      mojo.internal.StructField('arg_failed_well_known_check', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec, 'blink.mojom.AdAuctionService_UpdateAdInterestGroups_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_Params', [
-      mojo.internal.StructField('arg_uuid_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_reports', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParams', [
-      mojo.internal.StructField('arg_decoded_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedReplaceInURN_Params', [
-      mojo.internal.StructField('arg_uuid_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_replacements', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec, 'blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_Params', [
-      mojo.internal.StructField('arg_sellers', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.bindings.url.mojom.OriginSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec, 'blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParams', [
-      mojo.internal.StructField('arg_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.AdAuctionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1035,12 +817,15 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAdRequest');
-          const result = this.impl.createAdRequest(params.arg_config);
+          const result = this.impl.createAdRequest(params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateAdRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ads_guid' in response) ? response.arg_arg_ads_guid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createAdRequest FAILED:', e));
           }
           break;
         }
@@ -1048,12 +833,15 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finalizeAd');
-          const result = this.impl.finalizeAd(params.arg_ads_guid, params.arg_config);
+          const result = this.impl.finalizeAd(params.arg_arg_ads_guid, params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FinalizeAd FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ad_display_url' in response) ? response.arg_arg_ad_display_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] finalizeAd FAILED:', e));
           }
           break;
         }
@@ -1061,12 +849,14 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAdAuction');
-          const result = this.impl.runAdAuction(params.arg_config, params.arg_abort_receiver);
+          const result = this.impl.runAdAuction(params.arg_arg_config, params.arg_arg_abort_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunAdAuction FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec.$.structSpec, ['response.arg_arg_aborted_by_script', 'response.arg_arg_config']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runAdAuction FAILED:', e));
           }
           break;
         }
@@ -1074,12 +864,15 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.joinInterestGroup');
-          const result = this.impl.joinInterestGroup(params.arg_group);
+          const result = this.impl.joinInterestGroup(params.arg_arg_group);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] JoinInterestGroup FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_failed_well_known_check' in response) ? response.arg_arg_failed_well_known_check : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] joinInterestGroup FAILED:', e));
           }
           break;
         }
@@ -1087,12 +880,15 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.leaveInterestGroup');
-          const result = this.impl.leaveInterestGroup(params.arg_owner, params.arg_name);
+          const result = this.impl.leaveInterestGroup(params.arg_arg_owner, params.arg_arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LeaveInterestGroup FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_failed_well_known_check' in response) ? response.arg_arg_failed_well_known_check : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] leaveInterestGroup FAILED:', e));
           }
           break;
         }
@@ -1107,12 +903,15 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearOriginJoinedInterestGroups');
-          const result = this.impl.clearOriginJoinedInterestGroups(params.arg_owner, params.arg_interest_groups_to_keep);
+          const result = this.impl.clearOriginJoinedInterestGroups(params.arg_arg_owner, params.arg_arg_interest_groups_to_keep);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClearOriginJoinedInterestGroups FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_failed_well_known_check' in response) ? response.arg_arg_failed_well_known_check : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] clearOriginJoinedInterestGroups FAILED:', e));
           }
           break;
         }
@@ -1127,12 +926,15 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedGetURLFromURN');
-          const result = this.impl.deprecatedGetURLFromURN(params.arg_uuid_url, params.arg_send_reports);
+          const result = this.impl.deprecatedGetURLFromURN(params.arg_arg_uuid_url, params.arg_arg_send_reports);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeprecatedGetURLFromURN FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_decoded_url' in response) ? response.arg_arg_decoded_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deprecatedGetURLFromURN FAILED:', e));
           }
           break;
         }
@@ -1140,12 +942,14 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deprecatedReplaceInURN');
-          const result = this.impl.deprecatedReplaceInURN(params.arg_uuid_url, params.arg_replacements);
+          const result = this.impl.deprecatedReplaceInURN(params.arg_arg_uuid_url, params.arg_arg_replacements);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeprecatedReplaceInURN FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deprecatedReplaceInURN FAILED:', e));
           }
           break;
         }
@@ -1153,12 +957,14 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterestGroupAdAuctionData');
-          const result = this.impl.getInterestGroupAdAuctionData(params.arg_sellers, params.arg_config);
+          const result = this.impl.getInterestGroupAdAuctionData(params.arg_arg_sellers, params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInterestGroupAdAuctionData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_requests', 'response.arg_arg_request_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInterestGroupAdAuctionData FAILED:', e));
           }
           break;
         }
@@ -1174,4 +980,224 @@ mojo.internal.bindings.blink.mojom.AdAuctionServiceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.blink.mojom.AdAuctionServicePtr = mojo.internal.bindings.blink.mojom.AdAuctionServiceRemote;
 mojo.internal.bindings.blink.mojom.AdAuctionServiceRequest = mojo.internal.bindings.blink.mojom.AdAuctionServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: AuctionAdConfigAuctionId
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, 'blink.mojom.AuctionAdConfigAuctionId', {
+      'arg_main_auction': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint32,
+        'nullable': false,
+      },
+      'arg_component_auction': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint32,
+        'nullable': false,
+      },
+    });
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPromiseParam_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedPromiseParam_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_json_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedPerBuyerSignalsPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_per_buyer_signals', 16, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.String, false), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerTkvSignalsPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buyer', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_json_value', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerTimeoutsPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutFieldSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buyer_timeouts', 24, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerTimeoutsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedBuyerCurrenciesPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_per_buyer_currencies', 16, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigBuyerCurrenciesSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direct_from_seller_signals', 16, 0, mojo.internal.bindings.blink.mojom.DirectFromSellerSignalsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedDirectFromSellerSignalsHeaderAdSlotPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_direct_from_seller_signals_header_ad_slot', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedDeprecatedRenderURLReplacementsPromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_render_url_replacements', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedAuctionAdResponsePromise_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_ParamsSpec, 'blink.mojom.AbortableAdAuction_ResolvedAdditionalBids_Params', [
+      mojo.internal.StructField('arg_auction', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigAuctionIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AbortableAdAuction_Abort_ParamsSpec, 'blink.mojom.AbortableAdAuction_Abort_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ParamsSpec, 'blink.mojom.AdAuctionService_CreateAdRequest_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.AdRequestConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_CreateAdRequest_ResponseParamsSpec, 'blink.mojom.AdAuctionService_CreateAdRequest_ResponseParams', [
+      mojo.internal.StructField('arg_ads_guid', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ParamsSpec, 'blink.mojom.AdAuctionService_FinalizeAd_Params', [
+      mojo.internal.StructField('arg_ads_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_FinalizeAd_ResponseParamsSpec, 'blink.mojom.AdAuctionService_FinalizeAd_ResponseParams', [
+      mojo.internal.StructField('arg_ad_display_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.blink.mojom.AuctionAdConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_abort_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.AbortableAdAuctionRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_RunAdAuction_ResponseParamsSpec, 'blink.mojom.AdAuctionService_RunAdAuction_ResponseParams', [
+      mojo.internal.StructField('arg_aborted_by_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.FencedFrameConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ParamsSpec, 'blink.mojom.AdAuctionService_JoinInterestGroup_Params', [
+      mojo.internal.StructField('arg_group', 0, 0, mojo.internal.bindings.blink.mojom.InterestGroupSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParamsSpec, 'blink.mojom.AdAuctionService_JoinInterestGroup_ResponseParams', [
+      mojo.internal.StructField('arg_failed_well_known_check', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroup_Params', [
+      mojo.internal.StructField('arg_owner', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroup_ResponseParams', [
+      mojo.internal.StructField('arg_failed_well_known_check', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_ParamsSpec, 'blink.mojom.AdAuctionService_LeaveInterestGroupForDocument_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ParamsSpec, 'blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_Params', [
+      mojo.internal.StructField('arg_owner', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interest_groups_to_keep', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParamsSpec, 'blink.mojom.AdAuctionService_ClearOriginJoinedInterestGroups_ResponseParams', [
+      mojo.internal.StructField('arg_failed_well_known_check', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_UpdateAdInterestGroups_ParamsSpec, 'blink.mojom.AdAuctionService_UpdateAdInterestGroups_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_Params', [
+      mojo.internal.StructField('arg_uuid_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_reports', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedGetURLFromURN_ResponseParams', [
+      mojo.internal.StructField('arg_decoded_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedReplaceInURN_Params', [
+      mojo.internal.StructField('arg_uuid_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_replacements', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdKeywordReplacementSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParamsSpec, 'blink.mojom.AdAuctionService_DeprecatedReplaceInURN_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ParamsSpec, 'blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_Params', [
+      mojo.internal.StructField('arg_sellers', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.bindings.url.mojom.OriginSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_config', 8, 0, mojo.internal.bindings.blink.mojom.AuctionDataConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParamsSpec, 'blink.mojom.AdAuctionService_GetInterestGroupAdAuctionData_ResponseParams', [
+      mojo.internal.StructField('arg_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AdAuctionPerSellerRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

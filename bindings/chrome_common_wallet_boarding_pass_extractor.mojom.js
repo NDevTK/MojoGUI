@@ -128,17 +128,6 @@ mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_Pa
 mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec = { $: {} };
 
 // Interface: BoardingPassExtractor
-mojo.internal.Struct(
-    mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec, 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec, 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParams', [
-      mojo.internal.StructField('arg_boarding_passes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.wallet.mojom.BoardingPassExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,8 +244,11 @@ mojo.internal.bindings.wallet.mojom.BoardingPassExtractorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractBoardingPass FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_boarding_passes' in response) ? response.arg_arg_boarding_passes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extractBoardingPass FAILED:', e));
           }
           break;
         }
@@ -272,4 +264,17 @@ mojo.internal.bindings.wallet.mojom.BoardingPassExtractorReceiver = mojo.interna
 
 mojo.internal.bindings.wallet.mojom.BoardingPassExtractorPtr = mojo.internal.bindings.wallet.mojom.BoardingPassExtractorRemote;
 mojo.internal.bindings.wallet.mojom.BoardingPassExtractorRequest = mojo.internal.bindings.wallet.mojom.BoardingPassExtractorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ParamsSpec, 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParamsSpec, 'wallet.mojom.BoardingPassExtractor_ExtractBoardingPass_ResponseParams', [
+      mojo.internal.StructField('arg_boarding_passes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

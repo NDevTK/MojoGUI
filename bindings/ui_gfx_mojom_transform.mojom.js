@@ -132,6 +132,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.TransformDataSpec = mojo.internal.bindings.gfx.mojom.TransformDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: TransformData
 mojo.internal.Union(
     mojo.internal.bindings.gfx.mojom.TransformDataSpec, 'gfx.mojom.TransformData', {

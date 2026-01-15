@@ -151,12 +151,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec = mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MessageCallback
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec, 'chromecast.mojom.MessageCallback_OnMessage_Params', [
-      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.MessageCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,7 +263,7 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_list);
+          const result = this.impl.onMessage(params.arg_arg_list);
           break;
         }
       }
@@ -287,20 +281,6 @@ mojo.internal.bindings.chromecast.mojom.MessageCallbackRequest = mojo.internal.b
 
 
 // Interface: WebUi
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec, 'chromecast.mojom.WebUi_RegisterMessageCallback_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cb', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.MessageCallbackRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec, 'chromecast.mojom.WebUi_CallJavascriptFunction_Params', [
-      mojo.internal.StructField('arg_function', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.mojom.WebUiPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -427,14 +407,14 @@ mojo.internal.bindings.chromecast.mojom.WebUiReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerMessageCallback');
-          const result = this.impl.registerMessageCallback(params.arg_message, params.arg_cb);
+          const result = this.impl.registerMessageCallback(params.arg_arg_message, params.arg_arg_cb);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.callJavascriptFunction');
-          const result = this.impl.callJavascriptFunction(params.arg_function, params.arg_args);
+          const result = this.impl.callJavascriptFunction(params.arg_arg_function, params.arg_arg_args);
           break;
         }
       }
@@ -452,18 +432,6 @@ mojo.internal.bindings.chromecast.mojom.WebUiRequest = mojo.internal.bindings.ch
 
 
 // Interface: Resources
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_ResponseParams', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.ResourcesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -576,12 +544,15 @@ mojo.internal.bindings.chromecast.mojom.ResourcesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestResourceBytes');
-          const result = this.impl.requestResourceBytes(params.arg_path);
+          const result = this.impl.requestResourceBytes(params.arg_arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestResourceBytes FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_bytes' in response) ? response.arg_arg_bytes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestResourceBytes FAILED:', e));
           }
           break;
         }
@@ -600,21 +571,6 @@ mojo.internal.bindings.chromecast.mojom.ResourcesRequest = mojo.internal.binding
 
 
 // Interface: WebUiClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateController_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_web_ui', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateResources_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.mojom.WebUiClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -741,14 +697,14 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createController');
-          const result = this.impl.createController(params.arg_host, params.arg_web_ui, params.arg_resources);
+          const result = this.impl.createController(params.arg_arg_host, params.arg_arg_web_ui, params.arg_arg_resources);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResources');
-          const result = this.impl.createResources(params.arg_host, params.arg_resources);
+          const result = this.impl.createResources(params.arg_arg_host, params.arg_arg_resources);
           break;
         }
       }
@@ -763,4 +719,53 @@ mojo.internal.bindings.chromecast.mojom.WebUiClientReceiver = mojo.internal.bind
 
 mojo.internal.bindings.chromecast.mojom.WebUiClientPtr = mojo.internal.bindings.chromecast.mojom.WebUiClientRemote;
 mojo.internal.bindings.chromecast.mojom.WebUiClientRequest = mojo.internal.bindings.chromecast.mojom.WebUiClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.MessageCallback_OnMessage_ParamsSpec, 'chromecast.mojom.MessageCallback_OnMessage_Params', [
+      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.WebUi_RegisterMessageCallback_ParamsSpec, 'chromecast.mojom.WebUi_RegisterMessageCallback_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cb', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.MessageCallbackRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.WebUi_CallJavascriptFunction_ParamsSpec, 'chromecast.mojom.WebUi_CallJavascriptFunction_Params', [
+      mojo.internal.StructField('arg_function', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.Resources_RequestResourceBytes_ResponseParamsSpec, 'chromecast.mojom.Resources_RequestResourceBytes_ResponseParams', [
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.bindings.mojo_base.mojom.RefCountedMemorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateController_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateController_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_web_ui', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.WebUiRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.WebUiClient_CreateResources_ParamsSpec, 'chromecast.mojom.WebUiClient_CreateResources_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resources', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.ResourcesRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

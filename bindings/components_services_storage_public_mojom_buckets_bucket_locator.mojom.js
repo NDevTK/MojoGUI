@@ -132,6 +132,8 @@ mojo.internal.bindings.storage = mojo.internal.bindings.storage || {};
 mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {};
 mojo.internal.bindings.storage.mojom.BucketIdSpec = mojo.internal.bindings.storage.mojom.BucketIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BucketLocator
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BucketLocatorSpec, 'storage.mojom.BucketLocator', [

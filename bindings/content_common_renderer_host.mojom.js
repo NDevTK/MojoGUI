@@ -132,41 +132,6 @@ mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec = { $
 mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec = { $: {} };
 
 // Interface: RendererHost
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_ResponseParams', [
-      mojo.internal.StructField('arg_histogram_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec, 'content.mojom.RendererHost_SuddenTerminationAllowedChanged_Params', [
-      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec, 'content.mojom.RendererHost_RecordUserMetricsAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_ResponseParams', [
-      mojo.internal.StructField('arg_has_gpu_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.RendererHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -321,12 +286,15 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getBrowserHistogram');
-          const result = this.impl.getBrowserHistogram(params.arg_name);
+          const result = this.impl.getBrowserHistogram(params.arg_arg_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBrowserHistogram FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_histogram_json' in response) ? response.arg_arg_histogram_json : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBrowserHistogram FAILED:', e));
           }
           break;
         }
@@ -334,14 +302,14 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suddenTerminationAllowedChanged');
-          const result = this.impl.suddenTerminationAllowedChanged(params.arg_allowed);
+          const result = this.impl.suddenTerminationAllowedChanged(params.arg_arg_allowed);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordUserMetricsAction');
-          const result = this.impl.recordUserMetricsAction(params.arg_action);
+          const result = this.impl.recordUserMetricsAction(params.arg_arg_action);
           break;
         }
         case 3: {
@@ -352,8 +320,11 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HasGpuProcess FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_has_gpu_process' in response) ? response.arg_arg_has_gpu_process : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hasGpuProcess FAILED:', e));
           }
           break;
         }
@@ -369,4 +340,41 @@ mojo.internal.bindings.content.mojom.RendererHostReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.content.mojom.RendererHostPtr = mojo.internal.bindings.content.mojom.RendererHostRemote;
 mojo.internal.bindings.content.mojom.RendererHostRequest = mojo.internal.bindings.content.mojom.RendererHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererHost_GetBrowserHistogram_ResponseParamsSpec, 'content.mojom.RendererHost_GetBrowserHistogram_ResponseParams', [
+      mojo.internal.StructField('arg_histogram_json', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererHost_SuddenTerminationAllowedChanged_ParamsSpec, 'content.mojom.RendererHost_SuddenTerminationAllowedChanged_Params', [
+      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererHost_RecordUserMetricsAction_ParamsSpec, 'content.mojom.RendererHost_RecordUserMetricsAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererHost_HasGpuProcess_ResponseParamsSpec, 'content.mojom.RendererHost_HasGpuProcess_ResponseParams', [
+      mojo.internal.StructField('arg_has_gpu_process', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -124,6 +124,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FileSpec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: File
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.FileSpec, 'mojo_base.mojom.File', [

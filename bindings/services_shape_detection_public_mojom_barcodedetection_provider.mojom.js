@@ -138,32 +138,7 @@ mojo.internal.bindings.shape_detection = mojo.internal.bindings.shape_detection 
 mojo.internal.bindings.shape_detection.mojom = mojo.internal.bindings.shape_detection.mojom || {};
 mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec = mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: BarcodeDetectorOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, 'shape_detection.mojom.BarcodeDetectorOptions', [
-      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: BarcodeDetectionProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParams', [
-      mojo.internal.StructField('arg_supported_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,7 +265,7 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBarcodeDetection');
-          const result = this.impl.createBarcodeDetection(params.arg_receiver, params.arg_options);
+          const result = this.impl.createBarcodeDetection(params.arg_arg_receiver, params.arg_arg_options);
           break;
         }
         case 1: {
@@ -301,8 +276,11 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EnumerateSupportedFormats FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_supported_formats' in response) ? response.arg_arg_supported_formats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] enumerateSupportedFormats FAILED:', e));
           }
           break;
         }
@@ -318,4 +296,31 @@ mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderReceiver = 
 
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderPtr = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemote;
 mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRequest = mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BarcodeDetectorOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, 'shape_detection.mojom.BarcodeDetectorOptions', [
+      mojo.internal.StructField('arg_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_ParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_CreateBarcodeDetection_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.shape_detection.mojom.BarcodeDetectorOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParamsSpec, 'shape_detection.mojom.BarcodeDetectionProvider_EnumerateSupportedFormats_ResponseParams', [
+      mojo.internal.StructField('arg_supported_formats', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.BarcodeFormatSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

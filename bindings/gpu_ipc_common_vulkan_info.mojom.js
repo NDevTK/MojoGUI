@@ -141,6 +141,8 @@ mojo.internal.bindings.gpu = mojo.internal.bindings.gpu || {};
 mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec = mojo.internal.bindings.gpu.mojom.VkQueueFamilyPropertiesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VulkanPhysicalDeviceInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VulkanPhysicalDeviceInfoSpec, 'gpu.mojom.VulkanPhysicalDeviceInfo', [

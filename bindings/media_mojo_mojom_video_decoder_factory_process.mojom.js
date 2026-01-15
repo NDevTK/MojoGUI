@@ -143,14 +143,6 @@ mojo.internal.bindings.viz.mojom.GpuSpec = mojo.internal.bindings.viz.mojom.GpuS
 mojo.internal.bindings.viz.mojom.GpuRemote = mojo.internal.bindings.viz.mojom.GpuRemote || class {};
 
 // Interface: VideoDecoderFactoryProcess
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec, 'media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Params', [
-      mojo.internal.StructField('arg_gpu_feature_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_remote', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,7 +255,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeVideoDecoderFactory');
-          const result = this.impl.initializeVideoDecoderFactory(params.arg_gpu_feature_info, params.arg_receiver, params.arg_gpu_remote);
+          const result = this.impl.initializeVideoDecoderFactory(params.arg_arg_gpu_feature_info, params.arg_arg_receiver, params.arg_arg_gpu_remote);
           break;
         }
       }
@@ -278,4 +270,14 @@ mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessReceiver = mojo.int
 
 mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessPtr = mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessRemote;
 mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessRequest = mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcessPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_ParamsSpec, 'media.mojom.VideoDecoderFactoryProcess_InitializeVideoDecoderFactory_Params', [
+      mojo.internal.StructField('arg_gpu_feature_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_remote', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 

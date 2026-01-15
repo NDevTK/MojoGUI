@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.TaskAttributionIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TaskAttributionId
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TaskAttributionIdSpec, 'blink.mojom.TaskAttributionId', [

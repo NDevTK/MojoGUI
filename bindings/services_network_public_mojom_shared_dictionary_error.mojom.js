@@ -152,3 +152,5 @@ mojo.internal.bindings.network.mojom.SharedDictionaryError = {
   kWriteErrorTooLongIdField: 24,
   kWriteErrorUnsupportedType: 25,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -159,12 +159,6 @@ mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = mojo.internal.
 mojo.internal.bindings.video_capture.mojom.kVideoCaptureSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kNoSandbox;
 
 // Interface: AcceleratorFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec, 'video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +271,7 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createJpegDecodeAccelerator');
-          const result = this.impl.createJpegDecodeAccelerator(params.arg_jda);
+          const result = this.impl.createJpegDecodeAccelerator(params.arg_arg_jda);
           break;
         }
       }
@@ -295,24 +289,6 @@ mojo.internal.bindings.video_capture.mojom.AcceleratorFactoryRequest = mojo.inte
 
 
 // Interface: VideoCaptureService
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec, 'video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec, 'video_capture.mojom.VideoCaptureService_BindControlsForTesting_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.TestingControlsRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec, 'video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_Params', [
-      mojo.internal.StructField('arg_luid', 0, 0, mojo.internal.bindings.gpu.mojom.LuidSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.video_capture.mojom.VideoCaptureServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -453,21 +429,21 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoSourceProvider');
-          const result = this.impl.connectToVideoSourceProvider(params.arg_receiver);
+          const result = this.impl.connectToVideoSourceProvider(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindControlsForTesting');
-          const result = this.impl.bindControlsForTesting(params.arg_receiver);
+          const result = this.impl.bindControlsForTesting(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGpuInfoUpdate');
-          const result = this.impl.onGpuInfoUpdate(params.arg_luid);
+          const result = this.impl.onGpuInfoUpdate(params.arg_arg_luid);
           break;
         }
       }
@@ -482,4 +458,30 @@ mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceReceiver = mojo.in
 
 mojo.internal.bindings.video_capture.mojom.VideoCaptureServicePtr = mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRemote;
 mojo.internal.bindings.video_capture.mojom.VideoCaptureServiceRequest = mojo.internal.bindings.video_capture.mojom.VideoCaptureServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_ParamsSpec, 'video_capture.mojom.AcceleratorFactory_CreateJpegDecodeAccelerator_Params', [
+      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_ParamsSpec, 'video_capture.mojom.VideoCaptureService_ConnectToVideoSourceProvider_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoCaptureService_BindControlsForTesting_ParamsSpec, 'video_capture.mojom.VideoCaptureService_BindControlsForTesting_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.TestingControlsRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_ParamsSpec, 'video_capture.mojom.VideoCaptureService_OnGpuInfoUpdate_Params', [
+      mojo.internal.StructField('arg_luid', 0, 0, mojo.internal.bindings.gpu.mojom.LuidSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

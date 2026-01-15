@@ -183,74 +183,7 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.VizDebugOutputSpec = mojo.internal.bindings.viz.mojom.VizDebugOutputSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.viz.mojom.VizDebugOutputRemote = mojo.internal.bindings.viz.mojom.VizDebugOutputRemote || class {};
 
-// Struct: FrameSinkManagerParams
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec, 'viz.mojom.FrameSinkManagerParams', [
-      mojo.internal.StructField('arg_restart_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_use_activation_deadline', 4, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 4, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_manager', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_sink_manager_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_renderer_settings', 24, 0, mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: GpuServiceCreationParams
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec, 'viz.mojom.GpuServiceCreationParams', [
-      mojo.internal.StructField('arg_supports_overlays', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: VizMain
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec, 'viz.mojom.VizMain_CreateFrameSinkManager_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec, 'viz.mojom.VizMain_CreateGpuService_Params', [
-      mojo.internal.StructField('arg_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_logging', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuLoggingRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_discardable_memory_manager', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_shader_cache_shm_count', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec, 'viz.mojom.VizMain_SetRenderParams_Params', [
-      mojo.internal.StructField('arg_subpixel_rendering', 0, 0, mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_contrast', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text_gamma', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec, 'viz.mojom.VizMain_CreateInfoCollectionGpuService_Params', [
-      mojo.internal.StructField('arg_info_collection_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec, 'viz.mojom.VizMain_StartDebugStream_Params', [
-      mojo.internal.StructField('arg_viz_debug', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.VizDebugOutputRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec, 'viz.mojom.VizMain_FilterDebugStream_Params', [
-      mojo.internal.StructField('arg_filterData', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec, 'viz.mojom.VizMain_StopDebugStream_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.viz.mojom.VizMainPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -447,42 +380,42 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrameSinkManager');
-          const result = this.impl.createFrameSinkManager(params.arg_params);
+          const result = this.impl.createFrameSinkManager(params.arg_arg_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGpuService');
-          const result = this.impl.createGpuService(params.arg_gpu_service, params.arg_gpu_host, params.arg_gpu_logging, params.arg_discardable_memory_manager, params.arg_use_shader_cache_shm_count, params.arg_params);
+          const result = this.impl.createGpuService(params.arg_arg_gpu_service, params.arg_arg_gpu_host, params.arg_arg_gpu_logging, params.arg_arg_discardable_memory_manager, params.arg_arg_use_shader_cache_shm_count, params.arg_arg_params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRenderParams');
-          const result = this.impl.setRenderParams(params.arg_subpixel_rendering, params.arg_text_contrast, params.arg_text_gamma);
+          const result = this.impl.setRenderParams(params.arg_arg_subpixel_rendering, params.arg_arg_text_contrast, params.arg_arg_text_gamma);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInfoCollectionGpuService');
-          const result = this.impl.createInfoCollectionGpuService(params.arg_info_collection_gpu_service);
+          const result = this.impl.createInfoCollectionGpuService(params.arg_arg_info_collection_gpu_service);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDebugStream');
-          const result = this.impl.startDebugStream(params.arg_viz_debug);
+          const result = this.impl.startDebugStream(params.arg_arg_viz_debug);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filterDebugStream');
-          const result = this.impl.filterDebugStream(params.arg_filterData);
+          const result = this.impl.filterDebugStream(params.arg_arg_filterData);
           break;
         }
         case 6: {
@@ -504,4 +437,73 @@ mojo.internal.bindings.viz.mojom.VizMainReceiver = mojo.internal.bindings.viz.mo
 
 mojo.internal.bindings.viz.mojom.VizMainPtr = mojo.internal.bindings.viz.mojom.VizMainRemote;
 mojo.internal.bindings.viz.mojom.VizMainRequest = mojo.internal.bindings.viz.mojom.VizMainPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FrameSinkManagerParams
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec, 'viz.mojom.FrameSinkManagerParams', [
+      mojo.internal.StructField('arg_restart_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_use_activation_deadline', 4, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_activation_deadline_in_frames', 8, 0, mojo.internal.Uint32, 4, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_manager', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.FrameSinkManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_sink_manager_client', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.FrameSinkManagerClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_renderer_settings', 24, 0, mojo.internal.bindings.viz.mojom.DebugRendererSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: GpuServiceCreationParams
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec, 'viz.mojom.GpuServiceCreationParams', [
+      mojo.internal.StructField('arg_supports_overlays', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_CreateFrameSinkManager_ParamsSpec, 'viz.mojom.VizMain_CreateFrameSinkManager_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkManagerParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_CreateGpuService_ParamsSpec, 'viz.mojom.VizMain_CreateGpuService_Params', [
+      mojo.internal.StructField('arg_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.GpuServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_logging', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.GpuLoggingRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_discardable_memory_manager', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.discardable_memory.mojom.DiscardableSharedMemoryManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_shader_cache_shm_count', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.viz.mojom.GpuServiceCreationParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_SetRenderParams_ParamsSpec, 'viz.mojom.VizMain_SetRenderParams_Params', [
+      mojo.internal.StructField('arg_subpixel_rendering', 0, 0, mojo.internal.bindings.gfx.mojom.SubpixelRenderingSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_contrast', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text_gamma', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_CreateInfoCollectionGpuService_ParamsSpec, 'viz.mojom.VizMain_CreateInfoCollectionGpuService_Params', [
+      mojo.internal.StructField('arg_info_collection_gpu_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.viz.mojom.InfoCollectionGpuServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_StartDebugStream_ParamsSpec, 'viz.mojom.VizMain_StartDebugStream_Params', [
+      mojo.internal.StructField('arg_viz_debug', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.VizDebugOutputRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_FilterDebugStream_ParamsSpec, 'viz.mojom.VizMain_FilterDebugStream_Params', [
+      mojo.internal.StructField('arg_filterData', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VizMain_StopDebugStream_ParamsSpec, 'viz.mojom.VizMain_StopDebugStream_Params', [
+    ],
+    [[0, 8]]);
 

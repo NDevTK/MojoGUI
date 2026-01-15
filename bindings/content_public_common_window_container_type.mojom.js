@@ -129,3 +129,5 @@ mojo.internal.bindings.content.mojom.WindowContainerType = {
   BACKGROUND: 1,
   PERSISTENT: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

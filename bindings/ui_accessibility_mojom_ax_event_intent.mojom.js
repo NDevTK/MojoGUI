@@ -137,6 +137,8 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.TextBoundarySpec = mojo.internal.bindings.ax.mojom.TextBoundarySpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: EventIntent
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.EventIntentSpec, 'ax.mojom.EventIntent', [

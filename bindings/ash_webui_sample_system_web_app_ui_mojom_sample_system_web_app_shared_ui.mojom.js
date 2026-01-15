@@ -133,12 +133,6 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChil
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec = { $: {} };
 
 // Interface: ChildUntrustedPage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec, 'ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_Params', [
-      mojo.internal.StructField('arg_task', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomethingForParent');
-          const result = this.impl.doSomethingForParent(params.arg_task);
+          const result = this.impl.doSomethingForParent(params.arg_arg_task);
           break;
         }
       }
@@ -269,18 +263,6 @@ mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRequest = mojo.int
 
 
 // Interface: ParentTrustedPage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec, 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_Params', [
-      mojo.internal.StructField('arg_task', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec, 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParams', [
-      mojo.internal.StructField('arg_resp', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -393,12 +375,15 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.doSomethingForChild');
-          const result = this.impl.doSomethingForChild(params.arg_task);
+          const result = this.impl.doSomethingForChild(params.arg_arg_task);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DoSomethingForChild FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_resp' in response) ? response.arg_arg_resp : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] doSomethingForChild FAILED:', e));
           }
           break;
         }
@@ -414,4 +399,24 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageReceiver = mojo.int
 
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePtr = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote;
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRequest = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_ParamsSpec, 'ash.mojom.sample_swa.ChildUntrustedPage_DoSomethingForParent_Params', [
+      mojo.internal.StructField('arg_task', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ParamsSpec, 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_Params', [
+      mojo.internal.StructField('arg_task', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParamsSpec, 'ash.mojom.sample_swa.ParentTrustedPage_DoSomethingForChild_ResponseParams', [
+      mojo.internal.StructField('arg_resp', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

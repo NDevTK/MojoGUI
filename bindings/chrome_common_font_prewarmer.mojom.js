@@ -132,12 +132,6 @@ mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyN
 mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec = { $: {} };
 
 // Interface: FontPrewarmer
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec, 'chrome.mojom.FontPrewarmer_PrewarmFonts_Params', [
-      mojo.internal.StructField('arg_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.FontPrewarmerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.chrome.mojom.FontPrewarmerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prewarmFonts');
-          const result = this.impl.prewarmFonts(params.arg_font_names);
+          const result = this.impl.prewarmFonts(params.arg_arg_font_names);
           break;
         }
       }
@@ -268,17 +262,6 @@ mojo.internal.bindings.chrome.mojom.FontPrewarmerRequest = mojo.internal.binding
 
 
 // Interface: RenderFrameFontFamilyAccessor
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParams', [
-      mojo.internal.StructField('arg_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -395,8 +378,11 @@ mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFontFamilyNames FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_font_names' in response) ? response.arg_arg_font_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFontFamilyNames FAILED:', e));
           }
           break;
         }
@@ -412,4 +398,23 @@ mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorReceiver = mojo
 
 mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPtr = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRemote;
 mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorRequest = mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FontPrewarmer_PrewarmFonts_ParamsSpec, 'chrome.mojom.FontPrewarmer_PrewarmFonts_Params', [
+      mojo.internal.StructField('arg_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParamsSpec, 'chrome.mojom.RenderFrameFontFamilyAccessor_GetFontFamilyNames_ResponseParams', [
+      mojo.internal.StructField('arg_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

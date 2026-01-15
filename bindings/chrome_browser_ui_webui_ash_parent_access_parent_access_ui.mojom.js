@@ -189,132 +189,7 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResult = {
   kError: 4,
 };
 
-// Union: FlowTypeParams
-mojo.internal.Union(
-    mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, 'parent_access_ui.mojom.FlowTypeParams', {
-      'arg_web_approvals_params': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec,
-        'nullable': false,
-      },
-      'arg_extension_approvals_params': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: ParentAccessServerMessage
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec, 'parent_access_ui.mojom.ParentAccessServerMessage', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ParentAccessParams
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, 'parent_access_ui.mojom.ParentAccessParams', [
-      mojo.internal.StructField('arg_flow_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_disabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_flow_type_params', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: WebApprovalsParams
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec, 'parent_access_ui.mojom.WebApprovalsParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_favicon_png_bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ExtensionApprovalsParams
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec, 'parent_access_ui.mojom.ExtensionApprovalsParams', [
-      mojo.internal.StructField('arg_extension_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_png_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_display_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions', 24, 0, mojo.internal.Array(mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ExtensionPermission
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec, 'parent_access_ui.mojom.ExtensionPermission', [
-      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ParentAccessUiHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Params', [
-      mojo.internal.StructField('arg_encoded_parent_access_callback_proto', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParams', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -501,8 +376,10 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOauthToken FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_oauth_token']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOauthToken FAILED:', e));
           }
           break;
         }
@@ -510,12 +387,15 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessCallbackReceived');
-          const result = this.impl.onParentAccessCallbackReceived(params.arg_encoded_parent_access_callback_proto);
+          const result = this.impl.onParentAccessCallbackReceived(params.arg_arg_encoded_parent_access_callback_proto);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnParentAccessCallbackReceived FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_message' in response) ? response.arg_arg_message : response;
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onParentAccessCallbackReceived FAILED:', e));
           }
           break;
         }
@@ -527,8 +407,11 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetParentAccessParams FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_params' in response) ? response.arg_arg_params : response;
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getParentAccessParams FAILED:', e));
           }
           break;
         }
@@ -540,8 +423,11 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetParentAccessUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getParentAccessUrl FAILED:', e));
           }
           break;
         }
@@ -549,12 +435,14 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onParentAccessDone');
-          const result = this.impl.onParentAccessDone(params.arg_result);
+          const result = this.impl.onParentAccessDone(params.arg_arg_result);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnParentAccessDone FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onParentAccessDone FAILED:', e));
           }
           break;
         }
@@ -566,8 +454,10 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnBeforeScreenDone FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onBeforeScreenDone FAILED:', e));
           }
           break;
         }
@@ -583,4 +473,131 @@ mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerReceiver = mo
 
 mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerPtr = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRemote;
 mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerRequest = mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: FlowTypeParams
+mojo.internal.Union(
+    mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, 'parent_access_ui.mojom.FlowTypeParams', {
+      'arg_web_approvals_params': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec,
+        'nullable': false,
+      },
+      'arg_extension_approvals_params': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: ParentAccessServerMessage
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec, 'parent_access_ui.mojom.ParentAccessServerMessage', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ParentAccessParams
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, 'parent_access_ui.mojom.ParentAccessParams', [
+      mojo.internal.StructField('arg_flow_type', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_disabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flow_type_params', 8, 0, mojo.internal.bindings.parent_access_ui.mojom.FlowTypeParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: WebApprovalsParams
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.WebApprovalsParamsSpec, 'parent_access_ui.mojom.WebApprovalsParams', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_favicon_png_bytes', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ExtensionApprovalsParams
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ExtensionApprovalsParamsSpec, 'parent_access_ui.mojom.ExtensionApprovalsParams', [
+      mojo.internal.StructField('arg_extension_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_png_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_display_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions', 24, 0, mojo.internal.Array(mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ExtensionPermission
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ExtensionPermissionSpec, 'parent_access_ui.mojom.ExtensionPermission', [
+      mojo.internal.StructField('arg_permission', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetOauthToken_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.GetOauthTokenStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_Params', [
+      mojo.internal.StructField('arg_encoded_parent_access_callback_proto', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessCallbackReceived_ResponseParams', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessServerMessageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessParams_ResponseParams', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_GetParentAccessUrl_ResponseParams', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.parent_access_ui.mojom.ParentAccessResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnParentAccessDone_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParamsSpec, 'parent_access_ui.mojom.ParentAccessUiHandler_OnBeforeScreenDone_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 
 mojo.internal.bindings.url.mojom.SchemeHostPortSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SchemeHostPort
 mojo.internal.Struct(
     mojo.internal.bindings.url.mojom.SchemeHostPortSpec, 'url.mojom.SchemeHostPort', [

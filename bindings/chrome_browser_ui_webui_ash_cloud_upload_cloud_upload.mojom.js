@@ -200,97 +200,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.OperationType = {
   kCopy: 1,
 };
 
-// Union: DialogSpecificArgs
-mojo.internal.Union(
-    mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, 'ash.cloud_upload.mojom.DialogSpecificArgs', {
-      'arg_file_handler_dialog_args': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec,
-        'nullable': false,
-      },
-      'arg_one_drive_setup_dialog_args': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec,
-        'nullable': false,
-      },
-      'arg_move_confirmation_one_drive_dialog_args': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec,
-        'nullable': false,
-      },
-      'arg_move_confirmation_google_drive_dialog_args': {
-        'ordinal': 3,
-        'type': mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec,
-        'nullable': false,
-      },
-      'arg_connect_to_one_drive_dialog_args': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: DialogTask
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec, 'ash.cloud_upload.mojom.DialogTask', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: OneDriveSetupDialogArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec, 'ash.cloud_upload.mojom.OneDriveSetupDialogArgs', [
-      mojo.internal.StructField('arg_set_office_as_default_handler', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: MoveConfirmationOneDriveDialogArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs', [
-      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: MoveConfirmationGoogleDriveDialogArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs', [
-      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ConnectToOneDriveDialogArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.ConnectToOneDriveDialogArgs', [
-    ],
-    [[0, 8]]);
-
-// Struct: FileHandlerDialogArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec, 'ash.cloud_upload.mojom.FileHandlerDialogArgs', [
-      mojo.internal.StructField('arg_local_tasks', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_google_workspace_task', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_microsoft_office_task', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DialogArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec, 'ash.cloud_upload.mojom.DialogArgs', [
-      mojo.internal.StructField('arg_file_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dialog_specific_args', 8, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -403,7 +313,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -421,140 +331,6 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactoryRequest = mojo.i
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParams', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParams', [
-      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParams', [
-      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParams', [
-      mojo.internal.StructField('arg_mounted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.UserActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_Params', [
-      mojo.internal.StructField('arg_task_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParams', [
-      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_Params', [
-      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams', [
-      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_Params', [
-      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParams', [
-      mojo.internal.StructField('arg_move_confirmation_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParams', [
-      mojo.internal.StructField('arg_move_confirmation_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RecordCancel_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -867,8 +643,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDialogArgs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_args' in response) ? response.arg_arg_args : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDialogArgs FAILED:', e));
           }
           break;
         }
@@ -880,8 +659,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsOfficeWebAppInstalled FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_installed' in response) ? response.arg_arg_installed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isOfficeWebAppInstalled FAILED:', e));
           }
           break;
         }
@@ -893,8 +675,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InstallOfficeWebApp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_installed' in response) ? response.arg_arg_installed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] installOfficeWebApp FAILED:', e));
           }
           break;
         }
@@ -906,8 +691,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsODFSMounted FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_mounted' in response) ? response.arg_arg_mounted : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isODFSMounted FAILED:', e));
           }
           break;
         }
@@ -919,8 +707,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SignInToOneDrive FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] signInToOneDrive FAILED:', e));
           }
           break;
         }
@@ -928,14 +719,14 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.respondWithUserActionAndClose');
-          const result = this.impl.respondWithUserActionAndClose(params.arg_response);
+          const result = this.impl.respondWithUserActionAndClose(params.arg_arg_response);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.respondWithLocalTaskAndClose');
-          const result = this.impl.respondWithLocalTaskAndClose(params.arg_task_position);
+          const result = this.impl.respondWithLocalTaskAndClose(params.arg_arg_task_position);
           break;
         }
         case 7: {
@@ -953,8 +744,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAlwaysMoveOfficeFilesToDrive FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_always_move' in response) ? response.arg_arg_always_move : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAlwaysMoveOfficeFilesToDrive FAILED:', e));
           }
           break;
         }
@@ -962,7 +756,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToDrive');
-          const result = this.impl.setAlwaysMoveOfficeFilesToDrive(params.arg_always_move);
+          const result = this.impl.setAlwaysMoveOfficeFilesToDrive(params.arg_arg_always_move);
           break;
         }
         case 10: {
@@ -973,8 +767,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAlwaysMoveOfficeFilesToOneDrive FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_always_move' in response) ? response.arg_arg_always_move : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAlwaysMoveOfficeFilesToOneDrive FAILED:', e));
           }
           break;
         }
@@ -982,7 +779,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysMoveOfficeFilesToOneDrive');
-          const result = this.impl.setAlwaysMoveOfficeFilesToOneDrive(params.arg_always_move);
+          const result = this.impl.setAlwaysMoveOfficeFilesToOneDrive(params.arg_arg_always_move);
           break;
         }
         case 12: {
@@ -993,8 +790,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOfficeMoveConfirmationShownForDrive FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_move_confirmation_shown' in response) ? response.arg_arg_move_confirmation_shown : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOfficeMoveConfirmationShownForDrive FAILED:', e));
           }
           break;
         }
@@ -1006,8 +806,11 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOfficeMoveConfirmationShownForOneDrive FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_move_confirmation_shown' in response) ? response.arg_arg_move_confirmation_shown : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOfficeMoveConfirmationShownForOneDrive FAILED:', e));
           }
           break;
         }
@@ -1015,7 +818,7 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordCancel');
-          const result = this.impl.recordCancel(params.arg_page);
+          const result = this.impl.recordCancel(params.arg_arg_page);
           break;
         }
       }
@@ -1030,4 +833,230 @@ mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerReceiver = mojo.interna
 
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerPtr = mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemote;
 mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRequest = mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: DialogSpecificArgs
+mojo.internal.Union(
+    mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, 'ash.cloud_upload.mojom.DialogSpecificArgs', {
+      'arg_file_handler_dialog_args': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec,
+        'nullable': false,
+      },
+      'arg_one_drive_setup_dialog_args': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec,
+        'nullable': false,
+      },
+      'arg_move_confirmation_one_drive_dialog_args': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec,
+        'nullable': false,
+      },
+      'arg_move_confirmation_google_drive_dialog_args': {
+        'ordinal': 3,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec,
+        'nullable': false,
+      },
+      'arg_connect_to_one_drive_dialog_args': {
+        'ordinal': 4,
+        'type': mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: DialogTask
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec, 'ash.cloud_upload.mojom.DialogTask', [
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: OneDriveSetupDialogArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.OneDriveSetupDialogArgsSpec, 'ash.cloud_upload.mojom.OneDriveSetupDialogArgs', [
+      mojo.internal.StructField('arg_set_office_as_default_handler', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: MoveConfirmationOneDriveDialogArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationOneDriveDialogArgs', [
+      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: MoveConfirmationGoogleDriveDialogArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgsSpec, 'ash.cloud_upload.mojom.MoveConfirmationGoogleDriveDialogArgs', [
+      mojo.internal.StructField('arg_operation_type', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.OperationTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ConnectToOneDriveDialogArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.ConnectToOneDriveDialogArgsSpec, 'ash.cloud_upload.mojom.ConnectToOneDriveDialogArgs', [
+    ],
+    [[0, 8]]);
+
+// Struct: FileHandlerDialogArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.FileHandlerDialogArgsSpec, 'ash.cloud_upload.mojom.FileHandlerDialogArgs', [
+      mojo.internal.StructField('arg_local_tasks', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.cloud_upload.mojom.DialogTaskSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_show_google_workspace_task', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_microsoft_office_task', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DialogArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec, 'ash.cloud_upload.mojom.DialogArgs', [
+      mojo.internal.StructField('arg_file_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dialog_specific_args', 8, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogSpecificArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cloud_upload.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetDialogArgs_ResponseParams', [
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.DialogArgsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsOfficeWebAppInstalled_ResponseParams', [
+      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_InstallOfficeWebApp_ResponseParams', [
+      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_IsODFSMounted_ResponseParams', [
+      mojo.internal.StructField('arg_mounted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SignInToOneDrive_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithUserActionAndClose_Params', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.UserActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RespondWithLocalTaskAndClose_Params', [
+      mojo.internal.StructField('arg_task_position', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetOfficeAsDefaultHandler_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToDrive_ResponseParams', [
+      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToDrive_Params', [
+      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetAlwaysMoveOfficeFilesToOneDrive_ResponseParams', [
+      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_SetAlwaysMoveOfficeFilesToOneDrive_Params', [
+      mojo.internal.StructField('arg_always_move', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForDrive_ResponseParams', [
+      mojo.internal.StructField('arg_move_confirmation_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParamsSpec, 'ash.cloud_upload.mojom.PageHandler_GetOfficeMoveConfirmationShownForOneDrive_ResponseParams', [
+      mojo.internal.StructField('arg_move_confirmation_shown', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cloud_upload.mojom.PageHandler_RecordCancel_ParamsSpec, 'ash.cloud_upload.mojom.PageHandler_RecordCancel_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.bindings.ash.cloud_upload.mojom.MetricsRecordedSetupPageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

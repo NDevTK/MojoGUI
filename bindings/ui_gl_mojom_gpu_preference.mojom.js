@@ -130,3 +130,5 @@ mojo.internal.bindings.gl.mojom.GpuPreference = {
   kLowPower: 2,
   kHighPerformance: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

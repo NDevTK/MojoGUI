@@ -159,24 +159,7 @@ mojo.internal.bindings.browser_command.mojom.Command = {
   kOpenAutofillSettings: 20,
 };
 
-// Struct: ClickInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.browser_command.mojom.ClickInfoSpec, 'browser_command.mojom.ClickInfo', [
-      mojo.internal.StructField('arg_middle_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_alt_key', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl_key', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_key', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shift_key', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: CommandHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec, 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser_command.mojom.CommandHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -289,7 +272,7 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBrowserCommandHandler');
-          const result = this.impl.createBrowserCommandHandler(params.arg_handler);
+          const result = this.impl.createBrowserCommandHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -307,31 +290,6 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerFactoryRequest = mojo
 
 
 // Interface: CommandHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_Params', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.browser_command.mojom.CommandSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParams', [
-      mojo.internal.StructField('arg_can_execute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_Params', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.browser_command.mojom.CommandSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_click_info', 8, 0, mojo.internal.bindings.browser_command.mojom.ClickInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParams', [
-      mojo.internal.StructField('arg_command_executed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.browser_command.mojom.CommandHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -458,12 +416,15 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.canExecuteCommand');
-          const result = this.impl.canExecuteCommand(params.arg_command_id);
+          const result = this.impl.canExecuteCommand(params.arg_arg_command_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CanExecuteCommand FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_can_execute' in response) ? response.arg_arg_can_execute : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] canExecuteCommand FAILED:', e));
           }
           break;
         }
@@ -471,12 +432,15 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeCommand');
-          const result = this.impl.executeCommand(params.arg_command_id, params.arg_click_info);
+          const result = this.impl.executeCommand(params.arg_arg_command_id, params.arg_arg_click_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExecuteCommand FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_command_executed' in response) ? response.arg_arg_command_executed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] executeCommand FAILED:', e));
           }
           break;
         }
@@ -492,4 +456,48 @@ mojo.internal.bindings.browser_command.mojom.CommandHandlerReceiver = mojo.inter
 
 mojo.internal.bindings.browser_command.mojom.CommandHandlerPtr = mojo.internal.bindings.browser_command.mojom.CommandHandlerRemote;
 mojo.internal.bindings.browser_command.mojom.CommandHandlerRequest = mojo.internal.bindings.browser_command.mojom.CommandHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ClickInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_command.mojom.ClickInfoSpec, 'browser_command.mojom.ClickInfo', [
+      mojo.internal.StructField('arg_middle_button', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_ParamsSpec, 'browser_command.mojom.CommandHandlerFactory_CreateBrowserCommandHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.browser_command.mojom.CommandHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_Params', [
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.browser_command.mojom.CommandSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParamsSpec, 'browser_command.mojom.CommandHandler_CanExecuteCommand_ResponseParams', [
+      mojo.internal.StructField('arg_can_execute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_Params', [
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.bindings.browser_command.mojom.CommandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_click_info', 8, 0, mojo.internal.bindings.browser_command.mojom.ClickInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParamsSpec, 'browser_command.mojom.CommandHandler_ExecuteCommand_ResponseParams', [
+      mojo.internal.StructField('arg_command_executed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

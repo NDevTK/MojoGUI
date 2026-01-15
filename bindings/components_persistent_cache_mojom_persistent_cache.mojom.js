@@ -136,6 +136,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PendingReadOnlyBackend
 mojo.internal.Struct(
     mojo.internal.bindings.persistent_cache.mojom.PendingReadOnlyBackendSpec, 'persistent_cache.mojom.PendingReadOnlyBackend', [

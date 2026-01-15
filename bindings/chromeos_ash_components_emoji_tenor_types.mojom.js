@@ -143,6 +143,8 @@ mojo.internal.bindings.tenor.mojom.Status = {
   kHttpError: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GifUrls
 mojo.internal.Struct(
     mojo.internal.bindings.tenor.mojom.GifUrlsSpec, 'tenor.mojom.GifUrls', [

@@ -138,30 +138,6 @@ mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {
 mojo.internal.bindings.sharing.mojom.FrameSpec = mojo.internal.bindings.sharing.mojom.FrameSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: NearbySharingDecoder
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParams', [
-      mojo.internal.StructField('arg_advertisement', 0, 0, mojo.internal.bindings.sharing.mojom.AdvertisementSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParams', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.sharing.mojom.FrameSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.sharing.mojom.NearbySharingDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,12 +264,15 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeAdvertisement');
-          const result = this.impl.decodeAdvertisement(params.arg_data);
+          const result = this.impl.decodeAdvertisement(params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecodeAdvertisement FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_advertisement' in response) ? response.arg_arg_advertisement : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decodeAdvertisement FAILED:', e));
           }
           break;
         }
@@ -301,12 +280,15 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeFrame');
-          const result = this.impl.decodeFrame(params.arg_data);
+          const result = this.impl.decodeFrame(params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecodeFrame FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_frame' in response) ? response.arg_arg_frame : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decodeFrame FAILED:', e));
           }
           break;
         }
@@ -322,4 +304,30 @@ mojo.internal.bindings.sharing.mojom.NearbySharingDecoderReceiver = mojo.interna
 
 mojo.internal.bindings.sharing.mojom.NearbySharingDecoderPtr = mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemote;
 mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRequest = mojo.internal.bindings.sharing.mojom.NearbySharingDecoderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeAdvertisement_ResponseParams', [
+      mojo.internal.StructField('arg_advertisement', 0, 0, mojo.internal.bindings.sharing.mojom.AdvertisementSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParamsSpec, 'sharing.mojom.NearbySharingDecoder_DecodeFrame_ResponseParams', [
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.sharing.mojom.FrameSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -142,3 +142,5 @@ mojo.internal.bindings.blink.mojom.InputEventResultState = {
   kSetNonBlocking: 5,
   kSetNonBlockingDueToFling: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

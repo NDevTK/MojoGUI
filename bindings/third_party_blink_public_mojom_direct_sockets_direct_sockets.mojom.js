@@ -173,130 +173,7 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.UDPSocketListenerSpec = mojo.internal.bindings.network.mojom.UDPSocketListenerSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.UDPSocketListenerRemote = mojo.internal.bindings.network.mojom.UDPSocketListenerRemote || class {};
 
-// Struct: DirectTCPSocketOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec, 'blink.mojom.DirectTCPSocketOptions', [
-      mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_buffer_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_buffer_size_$value', originalFieldName: 'arg_send_buffer_size' }),
-      mojo.internal.StructField('arg_receive_buffer_size_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_receive_buffer_size_$value', originalFieldName: 'arg_receive_buffer_size' }),
-      mojo.internal.StructField('arg_no_delay', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_send_buffer_size_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_buffer_size_$flag', originalFieldName: 'arg_send_buffer_size' }),
-      mojo.internal.StructField('arg_receive_buffer_size_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_receive_buffer_size_$flag', originalFieldName: 'arg_receive_buffer_size' }),
-      mojo.internal.StructField('arg_dns_query_type', 20, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_options', 24, 0, mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: DirectConnectedUDPSocketOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec, 'blink.mojom.DirectConnectedUDPSocketOptions', [
-      mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_buffer_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_buffer_size_$value', originalFieldName: 'arg_send_buffer_size' }),
-      mojo.internal.StructField('arg_receive_buffer_size_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_receive_buffer_size_$value', originalFieldName: 'arg_receive_buffer_size' }),
-      mojo.internal.StructField('arg_multicast_time_to_live_$flag', 8, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_time_to_live_$value', originalFieldName: 'arg_multicast_time_to_live' }),
-      mojo.internal.StructField('arg_multicast_loopback_$flag', 8, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_loopback_$value', originalFieldName: 'arg_multicast_loopback' }),
-      mojo.internal.StructField('arg_multicast_loopback_$value', 8, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_loopback_$flag', originalFieldName: 'arg_multicast_loopback' }),
-      mojo.internal.StructField('arg_multicast_time_to_live_$value', 9, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_time_to_live_$flag', originalFieldName: 'arg_multicast_time_to_live' }),
-      mojo.internal.StructField('arg_send_buffer_size_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_buffer_size_$flag', originalFieldName: 'arg_send_buffer_size' }),
-      mojo.internal.StructField('arg_receive_buffer_size_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_receive_buffer_size_$flag', originalFieldName: 'arg_receive_buffer_size' }),
-      mojo.internal.StructField('arg_dns_query_type', 20, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DirectBoundUDPSocketOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec, 'blink.mojom.DirectBoundUDPSocketOptions', [
-      mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_buffer_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_buffer_size_$value', originalFieldName: 'arg_send_buffer_size' }),
-      mojo.internal.StructField('arg_receive_buffer_size_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_receive_buffer_size_$value', originalFieldName: 'arg_receive_buffer_size' }),
-      mojo.internal.StructField('arg_ipv6_only_$flag', 8, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_ipv6_only_$value', originalFieldName: 'arg_ipv6_only' }),
-      mojo.internal.StructField('arg_ipv6_only_$value', 8, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_ipv6_only_$flag', originalFieldName: 'arg_ipv6_only' }),
-      mojo.internal.StructField('arg_multicast_allow_address_sharing_$flag', 8, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_allow_address_sharing_$value', originalFieldName: 'arg_multicast_allow_address_sharing' }),
-      mojo.internal.StructField('arg_multicast_allow_address_sharing_$value', 8, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_allow_address_sharing_$flag', originalFieldName: 'arg_multicast_allow_address_sharing' }),
-      mojo.internal.StructField('arg_multicast_time_to_live_$flag', 8, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_time_to_live_$value', originalFieldName: 'arg_multicast_time_to_live' }),
-      mojo.internal.StructField('arg_multicast_loopback_$flag', 8, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_loopback_$value', originalFieldName: 'arg_multicast_loopback' }),
-      mojo.internal.StructField('arg_multicast_time_to_live_$value', 9, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_time_to_live_$flag', originalFieldName: 'arg_multicast_time_to_live' }),
-      mojo.internal.StructField('arg_multicast_loopback_$value', 10, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_loopback_$flag', originalFieldName: 'arg_multicast_loopback' }),
-      mojo.internal.StructField('arg_send_buffer_size_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_buffer_size_$flag', originalFieldName: 'arg_send_buffer_size' }),
-      mojo.internal.StructField('arg_receive_buffer_size_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_receive_buffer_size_$flag', originalFieldName: 'arg_receive_buffer_size' }),
-    ],
-    [[0, 32]]);
-
-// Struct: DirectTCPServerSocketOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec, 'blink.mojom.DirectTCPServerSocketOptions', [
-      mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ipv6_only_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_ipv6_only_$value', originalFieldName: 'arg_ipv6_only' }),
-      mojo.internal.StructField('arg_ipv6_only_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_ipv6_only_$flag', originalFieldName: 'arg_ipv6_only' }),
-      mojo.internal.StructField('arg_backlog_$flag', 8, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_backlog_$value', originalFieldName: 'arg_backlog' }),
-      mojo.internal.StructField('arg_backlog_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_backlog_$flag', originalFieldName: 'arg_backlog' }),
-    ],
-    [[0, 24]]);
-
 // Interface: DirectSocketsService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPSocket_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.UDPSocketListenerRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenBoundUDPSocket_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.UDPSocketListenerRemote), null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPServerSocket_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.DirectSocketsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -451,12 +328,14 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTCPSocket');
-          const result = this.impl.openTCPSocket(params.arg_options, params.arg_receiver, params.arg_observer);
+          const result = this.impl.openTCPSocket(params.arg_arg_options, params.arg_arg_receiver, params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenTCPSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr', 'response.arg_arg_receive_stream', 'response.arg_arg_send_stream']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openTCPSocket FAILED:', e));
           }
           break;
         }
@@ -464,12 +343,14 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openConnectedUDPSocket');
-          const result = this.impl.openConnectedUDPSocket(params.arg_options, params.arg_receiver, params.arg_listener);
+          const result = this.impl.openConnectedUDPSocket(params.arg_arg_options, params.arg_arg_receiver, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenConnectedUDPSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr', 'response.arg_arg_peer_addr']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openConnectedUDPSocket FAILED:', e));
           }
           break;
         }
@@ -477,12 +358,14 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openBoundUDPSocket');
-          const result = this.impl.openBoundUDPSocket(params.arg_options, params.arg_receiver, params.arg_listener);
+          const result = this.impl.openBoundUDPSocket(params.arg_arg_options, params.arg_arg_receiver, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenBoundUDPSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openBoundUDPSocket FAILED:', e));
           }
           break;
         }
@@ -490,12 +373,14 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openTCPServerSocket');
-          const result = this.impl.openTCPServerSocket(params.arg_options, params.arg_receiver);
+          const result = this.impl.openTCPServerSocket(params.arg_arg_options, params.arg_arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenTCPServerSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_local_addr']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openTCPServerSocket FAILED:', e));
           }
           break;
         }
@@ -511,4 +396,129 @@ mojo.internal.bindings.blink.mojom.DirectSocketsServiceReceiver = mojo.internal.
 
 mojo.internal.bindings.blink.mojom.DirectSocketsServicePtr = mojo.internal.bindings.blink.mojom.DirectSocketsServiceRemote;
 mojo.internal.bindings.blink.mojom.DirectSocketsServiceRequest = mojo.internal.bindings.blink.mojom.DirectSocketsServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DirectTCPSocketOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec, 'blink.mojom.DirectTCPSocketOptions', [
+      mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_buffer_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_buffer_size_$value', originalFieldName: 'arg_send_buffer_size' }),
+      mojo.internal.StructField('arg_receive_buffer_size_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_receive_buffer_size_$value', originalFieldName: 'arg_receive_buffer_size' }),
+      mojo.internal.StructField('arg_no_delay', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_send_buffer_size_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_buffer_size_$flag', originalFieldName: 'arg_send_buffer_size' }),
+      mojo.internal.StructField('arg_receive_buffer_size_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_receive_buffer_size_$flag', originalFieldName: 'arg_receive_buffer_size' }),
+      mojo.internal.StructField('arg_dns_query_type', 20, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_options', 24, 0, mojo.internal.bindings.network.mojom.TCPKeepAliveOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: DirectConnectedUDPSocketOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec, 'blink.mojom.DirectConnectedUDPSocketOptions', [
+      mojo.internal.StructField('arg_remote_addr', 0, 0, mojo.internal.bindings.network.mojom.HostPortPairSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_buffer_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_buffer_size_$value', originalFieldName: 'arg_send_buffer_size' }),
+      mojo.internal.StructField('arg_receive_buffer_size_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_receive_buffer_size_$value', originalFieldName: 'arg_receive_buffer_size' }),
+      mojo.internal.StructField('arg_multicast_time_to_live_$flag', 8, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_time_to_live_$value', originalFieldName: 'arg_multicast_time_to_live' }),
+      mojo.internal.StructField('arg_multicast_loopback_$flag', 8, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_loopback_$value', originalFieldName: 'arg_multicast_loopback' }),
+      mojo.internal.StructField('arg_multicast_loopback_$value', 8, 4, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_loopback_$flag', originalFieldName: 'arg_multicast_loopback' }),
+      mojo.internal.StructField('arg_multicast_time_to_live_$value', 9, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_time_to_live_$flag', originalFieldName: 'arg_multicast_time_to_live' }),
+      mojo.internal.StructField('arg_send_buffer_size_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_buffer_size_$flag', originalFieldName: 'arg_send_buffer_size' }),
+      mojo.internal.StructField('arg_receive_buffer_size_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_receive_buffer_size_$flag', originalFieldName: 'arg_receive_buffer_size' }),
+      mojo.internal.StructField('arg_dns_query_type', 20, 0, mojo.internal.bindings.network.mojom.DnsQueryTypeSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DirectBoundUDPSocketOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec, 'blink.mojom.DirectBoundUDPSocketOptions', [
+      mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_buffer_size_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_send_buffer_size_$value', originalFieldName: 'arg_send_buffer_size' }),
+      mojo.internal.StructField('arg_receive_buffer_size_$flag', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_receive_buffer_size_$value', originalFieldName: 'arg_receive_buffer_size' }),
+      mojo.internal.StructField('arg_ipv6_only_$flag', 8, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_ipv6_only_$value', originalFieldName: 'arg_ipv6_only' }),
+      mojo.internal.StructField('arg_ipv6_only_$value', 8, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_ipv6_only_$flag', originalFieldName: 'arg_ipv6_only' }),
+      mojo.internal.StructField('arg_multicast_allow_address_sharing_$flag', 8, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_allow_address_sharing_$value', originalFieldName: 'arg_multicast_allow_address_sharing' }),
+      mojo.internal.StructField('arg_multicast_allow_address_sharing_$value', 8, 5, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_allow_address_sharing_$flag', originalFieldName: 'arg_multicast_allow_address_sharing' }),
+      mojo.internal.StructField('arg_multicast_time_to_live_$flag', 8, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_time_to_live_$value', originalFieldName: 'arg_multicast_time_to_live' }),
+      mojo.internal.StructField('arg_multicast_loopback_$flag', 8, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_multicast_loopback_$value', originalFieldName: 'arg_multicast_loopback' }),
+      mojo.internal.StructField('arg_multicast_time_to_live_$value', 9, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_time_to_live_$flag', originalFieldName: 'arg_multicast_time_to_live' }),
+      mojo.internal.StructField('arg_multicast_loopback_$value', 10, 0, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_multicast_loopback_$flag', originalFieldName: 'arg_multicast_loopback' }),
+      mojo.internal.StructField('arg_send_buffer_size_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_send_buffer_size_$flag', originalFieldName: 'arg_send_buffer_size' }),
+      mojo.internal.StructField('arg_receive_buffer_size_$value', 16, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_receive_buffer_size_$flag', originalFieldName: 'arg_receive_buffer_size' }),
+    ],
+    [[0, 32]]);
+
+// Struct: DirectTCPServerSocketOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec, 'blink.mojom.DirectTCPServerSocketOptions', [
+      mojo.internal.StructField('arg_local_addr', 0, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ipv6_only_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_ipv6_only_$value', originalFieldName: 'arg_ipv6_only' }),
+      mojo.internal.StructField('arg_ipv6_only_$value', 8, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_ipv6_only_$flag', originalFieldName: 'arg_ipv6_only' }),
+      mojo.internal.StructField('arg_backlog_$flag', 8, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_backlog_$value', originalFieldName: 'arg_backlog' }),
+      mojo.internal.StructField('arg_backlog_$value', 12, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_backlog_$flag', originalFieldName: 'arg_backlog' }),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPSocket_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectTCPSocketOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPConnectedSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.SocketObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPSocket_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receive_stream', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_send_stream', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectConnectedUDPSocketOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.UDPSocketListenerRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenConnectedUDPSocket_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_peer_addr', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenBoundUDPSocket_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectBoundUDPSocketOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.RestrictedUDPSocketRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.UDPSocketListenerRemote), null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenBoundUDPSocket_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPServerSocket_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.DirectTCPServerSocketOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.TCPServerSocketRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParamsSpec, 'blink.mojom.DirectSocketsService_OpenTCPServerSocket_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_local_addr', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

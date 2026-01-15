@@ -135,3 +135,5 @@ mojo.internal.bindings.blink.mojom.DisplayMode = {
   kBorderless: 7,
   kPictureInPicture: 8,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

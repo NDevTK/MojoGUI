@@ -137,54 +137,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.IPAddressSpec = mojo.internal.bindings.network.mojom.IPAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: CIDR
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CIDRSpec, 'cert_verifier.mojom.CIDR', [
-      mojo.internal.StructField('arg_ip', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mask', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: CertWithConstraints
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, 'cert_verifier.mojom.CertWithConstraints', [
-      mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_permitted_dns_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_permitted_cidrs', 16, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CIDRSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: AdditionalCertificates
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, 'cert_verifier.mojom.AdditionalCertificates', [
-      mojo.internal.StructField('arg_all_certificates', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchors', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchors_with_enforced_constraints', 16, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchors_with_additional_constraints', 24, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_anchors_and_leafs', 32, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_leafs', 40, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_distrusted_spkis', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_system_trust_store', 56, 0, mojo.internal.Bool, true, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: CertVerifierServiceUpdater
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Params', [
-      mojo.internal.StructField('arg_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -311,7 +264,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateAdditionalCertificates');
-          const result = this.impl.updateAdditionalCertificates(params.arg_certificates);
+          const result = this.impl.updateAdditionalCertificates(params.arg_arg_certificates);
           break;
         }
         case 1: {
@@ -322,8 +275,10 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] WaitUntilNextUpdateForTesting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] waitUntilNextUpdateForTesting FAILED:', e));
           }
           break;
         }
@@ -339,4 +294,53 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterReceiver = 
 
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPtr = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote;
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRequest = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CIDR
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CIDRSpec, 'cert_verifier.mojom.CIDR', [
+      mojo.internal.StructField('arg_ip', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mask', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CertWithConstraints
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, 'cert_verifier.mojom.CertWithConstraints', [
+      mojo.internal.StructField('arg_certificate', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permitted_dns_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_permitted_cidrs', 16, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CIDRSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: AdditionalCertificates
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, 'cert_verifier.mojom.AdditionalCertificates', [
+      mojo.internal.StructField('arg_all_certificates', 0, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchors', 8, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchors_with_enforced_constraints', 16, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchors_with_additional_constraints', 24, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_anchors_and_leafs', 32, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_leafs', 40, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.CertWithConstraintsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_distrusted_spkis', 48, 0, mojo.internal.Array(mojo.internal.Array(mojo.internal.Uint8, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_system_trust_store', 56, 0, mojo.internal.Bool, true, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_UpdateAdditionalCertificates_Params', [
+      mojo.internal.StructField('arg_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceUpdater_WaitUntilNextUpdateForTesting_ResponseParams', [
+    ],
+    [[0, 8]]);
 

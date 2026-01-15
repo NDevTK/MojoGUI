@@ -172,6 +172,8 @@ mojo.internal.bindings.media.mojom.RemotingSinkVideoCapability = {
   CODEC_AV1: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: RemotingSinkMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.RemotingSinkMetadataSpec, 'media.mojom.RemotingSinkMetadata', [

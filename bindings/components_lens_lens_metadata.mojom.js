@@ -152,6 +152,8 @@ mojo.internal.bindings.lens.mojom.Phase = {
   ENCODE_END: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: LatencyLog
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.LatencyLogSpec, 'lens.mojom.LatencyLog', [

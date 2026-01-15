@@ -133,12 +133,6 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaLogRecordSpec = mojo.internal.bindings.media.mojom.MediaLogRecordSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MediaInternalLogRecords
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec, 'content.mojom.MediaInternalLogRecords_Log_Params', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MediaLogRecordSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.MediaInternalLogRecordsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.content.mojom.MediaInternalLogRecordsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.log');
-          const result = this.impl.log(params.arg_events);
+          const result = this.impl.log(params.arg_arg_events);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.content.mojom.MediaInternalLogRecordsReceiver = mojo.inte
 
 mojo.internal.bindings.content.mojom.MediaInternalLogRecordsPtr = mojo.internal.bindings.content.mojom.MediaInternalLogRecordsRemote;
 mojo.internal.bindings.content.mojom.MediaInternalLogRecordsRequest = mojo.internal.bindings.content.mojom.MediaInternalLogRecordsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MediaInternalLogRecords_Log_ParamsSpec, 'content.mojom.MediaInternalLogRecords_Log_Params', [
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MediaLogRecordSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

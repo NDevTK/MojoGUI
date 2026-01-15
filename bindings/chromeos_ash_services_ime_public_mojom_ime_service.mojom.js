@@ -168,33 +168,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: InputEngineManager
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_Params', [
-      mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_to_engine_request', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_from_engine', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_extra', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec, 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_Params', [
-      mojo.internal.StructField('arg_connection_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec, 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.ime.mojom.InputEngineManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -321,12 +294,15 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToImeEngine');
-          const result = this.impl.connectToImeEngine(params.arg_ime_spec, params.arg_to_engine_request, params.arg_from_engine, params.arg_extra);
+          const result = this.impl.connectToImeEngine(params.arg_arg_ime_spec, params.arg_arg_to_engine_request, params.arg_arg_from_engine, params.arg_arg_extra);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ConnectToImeEngine FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connectToImeEngine FAILED:', e));
           }
           break;
         }
@@ -334,12 +310,15 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializeConnectionFactory');
-          const result = this.impl.initializeConnectionFactory(params.arg_connection_factory);
+          const result = this.impl.initializeConnectionFactory(params.arg_arg_connection_factory);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InitializeConnectionFactory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] initializeConnectionFactory FAILED:', e));
           }
           break;
         }
@@ -358,19 +337,6 @@ mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRequest = mojo.internal.b
 
 
 // Interface: PlatformAccessProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParams', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -483,12 +449,15 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadImeFileTo');
-          const result = this.impl.downloadImeFileTo(params.arg_url, params.arg_file_path);
+          const result = this.impl.downloadImeFileTo(params.arg_arg_url, params.arg_arg_file_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DownloadImeFileTo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_file_path' in response) ? response.arg_arg_file_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] downloadImeFileTo FAILED:', e));
           }
           break;
         }
@@ -507,24 +476,6 @@ mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRequest = mojo.intern
 
 
 // Interface: ImeService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec, 'ash.ime.mojom.ImeService_SetPlatformAccessProvider_Params', [
-      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputEngineManager_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputMethodUserDataService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.ime.mojom.ImeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -665,21 +616,21 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlatformAccessProvider');
-          const result = this.impl.setPlatformAccessProvider(params.arg_provider);
+          const result = this.impl.setPlatformAccessProvider(params.arg_arg_provider);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputEngineManager');
-          const result = this.impl.bindInputEngineManager(params.arg_receiver);
+          const result = this.impl.bindInputEngineManager(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInputMethodUserDataService');
-          const result = this.impl.bindInputMethodUserDataService(params.arg_receiver);
+          const result = this.impl.bindInputMethodUserDataService(params.arg_arg_receiver);
           break;
         }
       }
@@ -694,4 +645,64 @@ mojo.internal.bindings.ash.ime.mojom.ImeServiceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.ash.ime.mojom.ImeServicePtr = mojo.internal.bindings.ash.ime.mojom.ImeServiceRemote;
 mojo.internal.bindings.ash.ime.mojom.ImeServiceRequest = mojo.internal.bindings.ash.ime.mojom.ImeServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_Params', [
+      mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_to_engine_request', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_from_engine', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_extra', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParamsSpec, 'ash.ime.mojom.InputEngineManager_ConnectToImeEngine_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ParamsSpec, 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_Params', [
+      mojo.internal.StructField('arg_connection_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParamsSpec, 'ash.ime.mojom.InputEngineManager_InitializeConnectionFactory_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParamsSpec, 'ash.ime.mojom.PlatformAccessProvider_DownloadImeFileTo_ResponseParams', [
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ImeService_SetPlatformAccessProvider_ParamsSpec, 'ash.ime.mojom.ImeService_SetPlatformAccessProvider_Params', [
+      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.ime.mojom.PlatformAccessProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputEngineManager_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputEngineManager_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputEngineManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ImeService_BindInputMethodUserDataService_ParamsSpec, 'ash.ime.mojom.ImeService_BindInputMethodUserDataService_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputMethodUserDataServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

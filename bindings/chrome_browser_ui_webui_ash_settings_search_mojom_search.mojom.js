@@ -185,48 +185,7 @@ mojo.internal.bindings.ash.settings.mojom.ParentResultBehavior = {
   kDoNotIncludeParentResults: 1,
 };
 
-// Union: SearchResultIdentifier
-mojo.internal.Union(
-    mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec, 'ash.settings.mojom.SearchResultIdentifier', {
-      'arg_section': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.settings.mojom.SectionSpec,
-        'nullable': false,
-      },
-      'arg_subpage': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.chromeos.settings.mojom.SubpageSpec,
-        'nullable': false,
-      },
-      'arg_setting': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.chromeos.settings.mojom.SettingSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: SearchResult
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.SearchResultSpec, 'ash.settings.mojom.SearchResult', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_canonical_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_path_with_parameters', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_rank', 28, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_was_generated_from_text_match', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 52, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 56, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
 // Interface: SearchResultsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec, 'ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -357,26 +316,6 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRequest = mojo.in
 
 
 // Interface: SearchHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec, 'ash.settings.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_result_behavior', 12, 0, mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.settings.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.SearchResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec, 'ash.settings.mojom.SearchHandler_Observe_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -503,12 +442,15 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
-          const result = this.impl.search(params.arg_query, params.arg_max_num_results, params.arg_parent_result_behavior);
+          const result = this.impl.search(params.arg_arg_query, params.arg_arg_max_num_results, params.arg_arg_parent_result_behavior);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Search FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
           break;
         }
@@ -516,7 +458,7 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observe');
-          const result = this.impl.observe(params.arg_observer);
+          const result = this.impl.observe(params.arg_arg_observer);
           break;
         }
       }
@@ -531,4 +473,67 @@ mojo.internal.bindings.ash.settings.mojom.SearchHandlerReceiver = mojo.internal.
 
 mojo.internal.bindings.ash.settings.mojom.SearchHandlerPtr = mojo.internal.bindings.ash.settings.mojom.SearchHandlerRemote;
 mojo.internal.bindings.ash.settings.mojom.SearchHandlerRequest = mojo.internal.bindings.ash.settings.mojom.SearchHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SearchResultIdentifier
+mojo.internal.Union(
+    mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec, 'ash.settings.mojom.SearchResultIdentifier', {
+      'arg_section': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.chromeos.settings.mojom.SectionSpec,
+        'nullable': false,
+      },
+      'arg_subpage': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.chromeos.settings.mojom.SubpageSpec,
+        'nullable': false,
+      },
+      'arg_setting': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.chromeos.settings.mojom.SettingSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: SearchResult
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.SearchResultSpec, 'ash.settings.mojom.SearchResult', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_canonical_text', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_path_with_parameters', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIconSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_rank', 28, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultDefaultRankSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance_score', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_settings_page_hierarchy', 40, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_was_generated_from_text_match', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 52, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 56, 0, mojo.internal.bindings.ash.settings.mojom.SearchResultIdentifierSpec, null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_ParamsSpec, 'ash.settings.mojom.SearchResultsObserver_OnSearchResultsChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ParamsSpec, 'ash.settings.mojom.SearchHandler_Search_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_result_behavior', 12, 0, mojo.internal.bindings.ash.settings.mojom.ParentResultBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.settings.mojom.SearchHandler_Search_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.settings.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.mojom.SearchHandler_Observe_ParamsSpec, 'ash.settings.mojom.SearchHandler_Observe_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.mojom.SearchResultsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -129,3 +129,5 @@ mojo.internal.bindings.webnn.mojom.Device = {
   kGpu: 1,
   kNpu: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

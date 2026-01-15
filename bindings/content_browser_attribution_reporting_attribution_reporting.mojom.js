@@ -145,3 +145,5 @@ mojo.internal.bindings.attribution_reporting.mojom.OsRegistrationResult = {
   kProhibitedByBrowserPolicy: 3,
   kRejectedByOs: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

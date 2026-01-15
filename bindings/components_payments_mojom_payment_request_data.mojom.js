@@ -127,6 +127,8 @@ mojo.internal.bindings.payments.mojom.PaymentValidationErrorsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.PayerErrorsSpec = { $: {} };
 mojo.internal.bindings.payments.mojom.AddressErrorsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PaymentAddress
 mojo.internal.Struct(
     mojo.internal.bindings.payments.mojom.PaymentAddressSpec, 'payments.mojom.PaymentAddress', [

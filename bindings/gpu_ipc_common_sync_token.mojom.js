@@ -135,6 +135,8 @@ mojo.internal.bindings.gpu.mojom.CommandBufferNamespace = {
   WEBNN_CONTEXT_INTERFACE: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SyncToken
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SyncTokenSpec, 'gpu.mojom.SyncToken', [

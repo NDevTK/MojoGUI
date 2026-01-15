@@ -302,158 +302,7 @@ mojo.internal.bindings.blink.mojom.WindowAudioPreference = {
   kExclude: 2,
 };
 
-// Union: StreamSelectionInfo
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.StreamSelectionInfoSpec, 'blink.mojom.StreamSelectionInfo', {
-      'arg_search_only_by_device_id': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.SearchOnlyByDeviceIdSpec,
-        'nullable': false,
-      },
-      'arg_search_by_session_id': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.SearchBySessionIdSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: SearchOnlyByDeviceId
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SearchOnlyByDeviceIdSpec, 'blink.mojom.SearchOnlyByDeviceId', [
-    ],
-    [[0, 8]]);
-
-// Struct: SearchBySessionId
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SearchBySessionIdSpec, 'blink.mojom.SearchBySessionId', [
-      mojo.internal.StructField('arg_session_id_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: MediaStreamDevice
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, 'blink.mojom.MediaStreamDevice', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_facing', 4, 0, mojo.internal.bindings.media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_matched_output_device_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input', 48, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_display_media_info', 64, 0, mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec, null, true, 0, undefined),
-    ],
-    [[0, 80]]);
-
-// Struct: TrackControls
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TrackControlsSpec, 'blink.mojom.TrackControls', [
-      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: StreamControls
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.StreamControlsSpec, 'blink.mojom.StreamControls', [
-      mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.bindings.blink.mojom.TrackControlsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_video', 8, 0, mojo.internal.bindings.blink.mojom.TrackControlsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hotword_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_local_echo', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_suppress_local_audio_playback', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_restrict_own_audio', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_exclude_system_audio', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_exclude_self_browser_surface', 16, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_pan_tilt_zoom_permission', 16, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_request_all_screens', 16, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_dynamic_surface_switching_requested', 17, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_exclude_monitor_type_surfaces', 17, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_window_audio_preference', 20, 0, mojo.internal.bindings.blink.mojom.WindowAudioPreferenceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_preferred_display_surface', 24, 0, mojo.internal.bindings.blink.mojom.PreferredDisplaySurfaceSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: GetOpenDeviceResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.GetOpenDeviceResponseSpec, 'blink.mojom.GetOpenDeviceResponse', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pan_tilt_zoom_allowed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: CapturedWheelAction
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CapturedWheelActionSpec, 'blink.mojom.CapturedWheelAction', [
-      mojo.internal.StructField('arg_relative_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_relative_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_wheel_delta_x', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_wheel_delta_y', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: StreamDevices
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.StreamDevicesSpec, 'blink.mojom.StreamDevices', [
-      mojo.internal.StructField('arg_audio_device', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_video_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: StreamDevicesSet
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.StreamDevicesSetSpec, 'blink.mojom.StreamDevicesSet', [
-      mojo.internal.StructField('arg_stream_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.StreamDevicesSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: MediaStreamDeviceObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_old_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_device', 16, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_state', 16, 0, mojo.internal.bindings.blink.mojom.MediaStreamStateChangeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_zoom_level', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -636,42 +485,42 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceStopped');
-          const result = this.impl.onDeviceStopped(params.arg_label, params.arg_device);
+          const result = this.impl.onDeviceStopped(params.arg_arg_label, params.arg_arg_device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceChanged');
-          const result = this.impl.onDeviceChanged(params.arg_label, params.arg_old_device, params.arg_new_device);
+          const result = this.impl.onDeviceChanged(params.arg_arg_label, params.arg_arg_old_device, params.arg_arg_new_device);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRequestStateChange');
-          const result = this.impl.onDeviceRequestStateChange(params.arg_label, params.arg_device, params.arg_new_state);
+          const result = this.impl.onDeviceRequestStateChange(params.arg_arg_label, params.arg_arg_device, params.arg_arg_new_state);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceCaptureConfigurationChange');
-          const result = this.impl.onDeviceCaptureConfigurationChange(params.arg_label, params.arg_device);
+          const result = this.impl.onDeviceCaptureConfigurationChange(params.arg_arg_label, params.arg_arg_device);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceCaptureHandleChange');
-          const result = this.impl.onDeviceCaptureHandleChange(params.arg_label, params.arg_device);
+          const result = this.impl.onDeviceCaptureHandleChange(params.arg_arg_label, params.arg_arg_device);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onZoomLevelChange');
-          const result = this.impl.onZoomLevelChange(params.arg_label, params.arg_device, params.arg_zoom_level);
+          const result = this.impl.onZoomLevelChange(params.arg_arg_label, params.arg_arg_device, params.arg_arg_zoom_level);
           break;
         }
       }
@@ -689,149 +538,6 @@ mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserverRequest = mojo.inter
 
 
 // Interface: MediaStreamDispatcherHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_user_gesture', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_controls', 8, 0, mojo.internal.bindings.blink.mojom.StreamControlsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_stream_selection_info', 16, 0, mojo.internal.bindings.blink.mojom.StreamSelectionInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pan_tilt_zoom_allowed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_devices', 16, 0, mojo.internal.bindings.blink.mojom.StreamDevicesSetSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_CancelRequest_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_Params', [
-      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device', 16, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_CloseDevice_Params', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_secure', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sub_capture_target_version', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sub_capture_target', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_SendWheel_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.CapturedWheelActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.ZoomLevelActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CapturedSurfaceControlResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CapturedSurfaceControlResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_Params', [
-      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.blink.mojom.GetOpenDeviceResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transfer_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParams', [
-      mojo.internal.StructField('arg_device_found', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1112,12 +818,14 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateStreams');
-          const result = this.impl.generateStreams(params.arg_request_id, params.arg_controls, params.arg_user_gesture, params.arg_audio_stream_selection_info);
+          const result = this.impl.generateStreams(params.arg_arg_request_id, params.arg_arg_controls, params.arg_arg_user_gesture, params.arg_arg_audio_stream_selection_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GenerateStreams FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_label', 'response.arg_arg_stream_devices', 'response.arg_arg_pan_tilt_zoom_allowed']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] generateStreams FAILED:', e));
           }
           break;
         }
@@ -1125,33 +833,35 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.focusCapturedSurface');
-          const result = this.impl.focusCapturedSurface(params.arg_label, params.arg_focus);
+          const result = this.impl.focusCapturedSurface(params.arg_arg_label, params.arg_arg_focus);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cancelRequest');
-          const result = this.impl.cancelRequest(params.arg_request_id);
+          const result = this.impl.cancelRequest(params.arg_arg_request_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopStreamDevice');
-          const result = this.impl.stopStreamDevice(params.arg_device_id, params.arg_session_id);
+          const result = this.impl.stopStreamDevice(params.arg_arg_device_id, params.arg_arg_session_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
-          const result = this.impl.openDevice(params.arg_request_id, params.arg_device_id, params.arg_type);
+          const result = this.impl.openDevice(params.arg_arg_request_id, params.arg_arg_device_id, params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenDevice FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_label', 'response.arg_arg_device']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }
           break;
         }
@@ -1159,26 +869,29 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDevice');
-          const result = this.impl.closeDevice(params.arg_label);
+          const result = this.impl.closeDevice(params.arg_arg_label);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCapturingLinkSecured');
-          const result = this.impl.setCapturingLinkSecured(params.arg_session_id, params.arg_type, params.arg_is_secure);
+          const result = this.impl.setCapturingLinkSecured(params.arg_arg_session_id, params.arg_arg_type, params.arg_arg_is_secure);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applySubCaptureTarget');
-          const result = this.impl.applySubCaptureTarget(params.arg_session_id, params.arg_type, params.arg_sub_capture_target, params.arg_sub_capture_target_version);
+          const result = this.impl.applySubCaptureTarget(params.arg_arg_session_id, params.arg_arg_type, params.arg_arg_sub_capture_target, params.arg_arg_sub_capture_target_version);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ApplySubCaptureTarget FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] applySubCaptureTarget FAILED:', e));
           }
           break;
         }
@@ -1186,19 +899,22 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendWheel');
-          const result = this.impl.sendWheel(params.arg_session_id, params.arg_action);
+          const result = this.impl.sendWheel(params.arg_arg_session_id, params.arg_arg_action);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateZoomLevel');
-          const result = this.impl.updateZoomLevel(params.arg_session_id, params.arg_action);
+          const result = this.impl.updateZoomLevel(params.arg_arg_session_id, params.arg_arg_action);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateZoomLevel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateZoomLevel FAILED:', e));
           }
           break;
         }
@@ -1206,12 +922,15 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCapturedSurfaceControlPermission');
-          const result = this.impl.requestCapturedSurfaceControlPermission(params.arg_session_id);
+          const result = this.impl.requestCapturedSurfaceControlPermission(params.arg_arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestCapturedSurfaceControlPermission FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestCapturedSurfaceControlPermission FAILED:', e));
           }
           break;
         }
@@ -1219,12 +938,14 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOpenDevice');
-          const result = this.impl.getOpenDevice(params.arg_request_id, params.arg_session_id, params.arg_transfer_id);
+          const result = this.impl.getOpenDevice(params.arg_arg_request_id, params.arg_arg_session_id, params.arg_arg_transfer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOpenDevice FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_response']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOpenDevice FAILED:', e));
           }
           break;
         }
@@ -1232,12 +953,15 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.keepDeviceAliveForTransfer');
-          const result = this.impl.keepDeviceAliveForTransfer(params.arg_session_id, params.arg_transfer_id);
+          const result = this.impl.keepDeviceAliveForTransfer(params.arg_arg_session_id, params.arg_arg_transfer_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] KeepDeviceAliveForTransfer FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_device_found' in response) ? response.arg_arg_device_found : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] keepDeviceAliveForTransfer FAILED:', e));
           }
           break;
         }
@@ -1256,20 +980,6 @@ mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHostRequest = mojo.inter
 
 
 // Interface: MediaStreamTrackMetricsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec, 'blink.mojom.MediaStreamTrackMetricsHost_AddTrack_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_audio', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_remote', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec, 'blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1396,14 +1106,14 @@ mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTrack');
-          const result = this.impl.addTrack(params.arg_id, params.arg_is_audio, params.arg_is_remote);
+          const result = this.impl.addTrack(params.arg_arg_id, params.arg_arg_is_audio, params.arg_arg_is_remote);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeTrack');
-          const result = this.impl.removeTrack(params.arg_id);
+          const result = this.impl.removeTrack(params.arg_arg_id);
           break;
         }
       }
@@ -1418,4 +1128,314 @@ mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostReceiver = mojo.in
 
 mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostPtr = mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostRemote;
 mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostRequest = mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: StreamSelectionInfo
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.StreamSelectionInfoSpec, 'blink.mojom.StreamSelectionInfo', {
+      'arg_search_only_by_device_id': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.SearchOnlyByDeviceIdSpec,
+        'nullable': false,
+      },
+      'arg_search_by_session_id': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.SearchBySessionIdSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: SearchOnlyByDeviceId
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SearchOnlyByDeviceIdSpec, 'blink.mojom.SearchOnlyByDeviceId', [
+    ],
+    [[0, 8]]);
+
+// Struct: SearchBySessionId
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SearchBySessionIdSpec, 'blink.mojom.SearchBySessionId', [
+      mojo.internal.StructField('arg_session_id_map', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: MediaStreamDevice
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, 'blink.mojom.MediaStreamDevice', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_facing', 4, 0, mojo.internal.bindings.media.mojom.VideoFacingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_id', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_matched_output_device_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input', 48, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 56, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_display_media_info', 64, 0, mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
+
+// Struct: TrackControls
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TrackControlsSpec, 'blink.mojom.TrackControls', [
+      mojo.internal.StructField('arg_stream_type', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_ids', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: StreamControls
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.StreamControlsSpec, 'blink.mojom.StreamControls', [
+      mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.bindings.blink.mojom.TrackControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_video', 8, 0, mojo.internal.bindings.blink.mojom.TrackControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hotword_enabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_local_echo', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suppress_local_audio_playback', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_restrict_own_audio', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exclude_system_audio', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exclude_self_browser_surface', 16, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_pan_tilt_zoom_permission', 16, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_request_all_screens', 16, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_dynamic_surface_switching_requested', 17, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exclude_monitor_type_surfaces', 17, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_window_audio_preference', 20, 0, mojo.internal.bindings.blink.mojom.WindowAudioPreferenceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_preferred_display_surface', 24, 0, mojo.internal.bindings.blink.mojom.PreferredDisplaySurfaceSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: GetOpenDeviceResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.GetOpenDeviceResponseSpec, 'blink.mojom.GetOpenDeviceResponse', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pan_tilt_zoom_allowed', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: CapturedWheelAction
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CapturedWheelActionSpec, 'blink.mojom.CapturedWheelAction', [
+      mojo.internal.StructField('arg_relative_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_relative_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_wheel_delta_x', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_wheel_delta_y', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: StreamDevices
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.StreamDevicesSpec, 'blink.mojom.StreamDevices', [
+      mojo.internal.StructField('arg_audio_device', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_video_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: StreamDevicesSet
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.StreamDevicesSetSpec, 'blink.mojom.StreamDevicesSet', [
+      mojo.internal.StructField('arg_stream_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.StreamDevicesSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceStopped_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceChanged_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_old_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_device', 16, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceRequestStateChange_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_state', 16, 0, mojo.internal.bindings.blink.mojom.MediaStreamStateChangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureConfigurationChange_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnDeviceCaptureHandleChange_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_ParamsSpec, 'blink.mojom.MediaStreamDeviceObserver_OnZoomLevelChange_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_zoom_level', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_user_gesture', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_controls', 8, 0, mojo.internal.bindings.blink.mojom.StreamControlsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_stream_selection_info', 16, 0, mojo.internal.bindings.blink.mojom.StreamSelectionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GenerateStreams_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pan_tilt_zoom_allowed', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_devices', 16, 0, mojo.internal.bindings.blink.mojom.StreamDevicesSetSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_FocusCapturedSurface_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CancelRequest_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_CancelRequest_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_StopStreamDevice_Params', [
+      mojo.internal.StructField('arg_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_OpenDevice_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device', 16, 0, mojo.internal.bindings.blink.mojom.MediaStreamDeviceSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_CloseDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_CloseDevice_Params', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_SetCapturingLinkSecured_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.MediaStreamTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_secure', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.media.mojom.SubCaptureTargetTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_capture_target_version', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sub_capture_target', 16, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_ApplySubCaptureTarget_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.media.mojom.ApplySubCaptureTargetResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_SendWheel_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_SendWheel_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.CapturedWheelActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 8, 0, mojo.internal.bindings.blink.mojom.ZoomLevelActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_UpdateZoomLevel_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CapturedSurfaceControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_RequestCapturedSurfaceControlPermission_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.CapturedSurfaceControlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_Params', [
+      mojo.internal.StructField('arg_request_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transfer_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_GetOpenDevice_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.MediaStreamRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.bindings.blink.mojom.GetOpenDeviceResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transfer_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParamsSpec, 'blink.mojom.MediaStreamDispatcherHost_KeepDeviceAliveForTransfer_ResponseParams', [
+      mojo.internal.StructField('arg_device_found', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_AddTrack_ParamsSpec, 'blink.mojom.MediaStreamTrackMetricsHost_AddTrack_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_audio', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_remote', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_ParamsSpec, 'blink.mojom.MediaStreamTrackMetricsHost_RemoveTrack_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -151,60 +151,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: RequestManifestError
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec, 'blink.mojom.RequestManifestError', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ManifestManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest', 16, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestAndErrors_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parsed_manifest', 8, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_info', 16, 0, mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_Params', [
-      mojo.internal.StructField('arg_document_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manifest_content', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_ResponseParams', [
-      mojo.internal.StructField('arg_parsed_manifest', 0, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ManifestManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -363,8 +310,10 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestManifest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_url', 'response.arg_arg_manifest']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestManifest FAILED:', e));
           }
           break;
         }
@@ -383,8 +332,10 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestManifestDebugInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_url', 'response.arg_arg_parsed_manifest', 'response.arg_arg_debug_info']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestManifestDebugInfo FAILED:', e));
           }
           break;
         }
@@ -392,12 +343,15 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseManifestFromString');
-          const result = this.impl.parseManifestFromString(params.arg_document_url, params.arg_manifest_url, params.arg_manifest_content);
+          const result = this.impl.parseManifestFromString(params.arg_arg_document_url, params.arg_arg_manifest_url, params.arg_arg_manifest_content);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseManifestFromString FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_parsed_manifest' in response) ? response.arg_arg_parsed_manifest : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseManifestFromString FAILED:', e));
           }
           break;
         }
@@ -413,4 +367,59 @@ mojo.internal.bindings.blink.mojom.ManifestManagerReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.ManifestManagerPtr = mojo.internal.bindings.blink.mojom.ManifestManagerRemote;
 mojo.internal.bindings.blink.mojom.ManifestManagerRequest = mojo.internal.bindings.blink.mojom.ManifestManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: RequestManifestError
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RequestManifestErrorSpec, 'blink.mojom.RequestManifestError', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestErrorSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifest_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.ManifestRequestResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest', 16, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestAndErrors_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestAndErrors_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParamsSpec, 'blink.mojom.ManifestManager_RequestManifestDebugInfo_ResponseParams', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parsed_manifest', 8, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_info', 16, 0, mojo.internal.bindings.blink.mojom.ManifestDebugInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_Params', [
+      mojo.internal.StructField('arg_document_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manifest_content', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestManager_ParseManifestFromString_ResponseParamsSpec, 'blink.mojom.ManifestManager_ParseManifestFromString_ResponseParams', [
+      mojo.internal.StructField('arg_parsed_manifest', 0, 0, mojo.internal.bindings.blink.mojom.ManifestSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

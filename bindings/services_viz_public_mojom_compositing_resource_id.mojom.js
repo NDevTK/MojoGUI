@@ -123,6 +123,8 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.ResourceIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ResourceId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ResourceIdSpec, 'viz.mojom.ResourceId', [

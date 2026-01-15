@@ -134,13 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: QueryableDataStore
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec, 'chromecast.shell.mojom.QueryableDataStore_Set_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,7 +246,7 @@ mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.set');
-          const result = this.impl.set(params.arg_key, params.arg_value);
+          const result = this.impl.set(params.arg_arg_key, params.arg_arg_value);
           break;
         }
       }
@@ -268,4 +261,13 @@ mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreReceiver = mojo.
 
 mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStorePtr = mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreRemote;
 mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStoreRequest = mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStorePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.shell.mojom.QueryableDataStore_Set_ParamsSpec, 'chromecast.shell.mojom.QueryableDataStore_Set_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

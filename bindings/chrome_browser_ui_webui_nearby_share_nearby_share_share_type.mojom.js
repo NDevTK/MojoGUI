@@ -140,3 +140,5 @@ mojo.internal.bindings.nearby_share.mojom.ShareType = {
   kUnknownFile: 12,
   kWifiCredentials: 13,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

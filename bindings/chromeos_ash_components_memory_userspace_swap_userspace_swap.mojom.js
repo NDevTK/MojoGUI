@@ -135,29 +135,7 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec = {
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec = { $: {} };
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec = { $: {} };
 
-// Struct: MemoryRegion
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, 'userspace_swap.mojom.MemoryRegion', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: UserspaceSwapInitialization
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_Params', [
-      mojo.internal.StructField('arg_uffd_error', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mmap_error', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_area', 24, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -270,12 +248,14 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferUserfaultFD');
-          const result = this.impl.transferUserfaultFD(params.arg_uffd_error, params.arg_uffd_handle, params.arg_mmap_error, params.arg_swap_area);
+          const result = this.impl.transferUserfaultFD(params.arg_arg_uffd_error, params.arg_arg_uffd_handle, params.arg_arg_mmap_error, params.arg_arg_swap_area);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TransferUserfaultFD FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] transferUserfaultFD FAILED:', e));
           }
           break;
         }
@@ -294,31 +274,6 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitializationRequest =
 
 
 // Interface: UserspaceSwap
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_Params', [
-      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dest', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MapArea_Params', [
-      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_Params', [
-      mojo.internal.StructField('arg_max_superpages', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParams', [
-      mojo.internal.StructField('arg_superpages', 0, 0, mojo.internal.Array(mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -459,26 +414,29 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.movePTEsLeavingMapping');
-          const result = this.impl.movePTEsLeavingMapping(params.arg_src, params.arg_dest);
+          const result = this.impl.movePTEsLeavingMapping(params.arg_arg_src, params.arg_arg_dest);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mapArea');
-          const result = this.impl.mapArea(params.arg_area);
+          const result = this.impl.mapArea(params.arg_arg_area);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPartitionAllocSuperPagesUsed');
-          const result = this.impl.getPartitionAllocSuperPagesUsed(params.arg_max_superpages);
+          const result = this.impl.getPartitionAllocSuperPagesUsed(params.arg_arg_max_superpages);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPartitionAllocSuperPagesUsed FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_superpages' in response) ? response.arg_arg_superpages : response;
+              encoder.encodeStructInline(mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPartitionAllocSuperPagesUsed FAILED:', e));
           }
           break;
         }
@@ -494,4 +452,53 @@ mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapReceiver = mojo.interna
 
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapPtr = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRemote;
 mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapRequest = mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MemoryRegion
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, 'userspace_swap.mojom.MemoryRegion', [
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_Params', [
+      mojo.internal.StructField('arg_uffd_error', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uffd_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mmap_error', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_area', 24, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwapInitialization_TransferUserfaultFD_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MovePTEsLeavingMapping_Params', [
+      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dest', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_MapArea_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_MapArea_Params', [
+      mojo.internal.StructField('arg_area', 0, 0, mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ParamsSpec, 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_Params', [
+      mojo.internal.StructField('arg_max_superpages', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParamsSpec, 'userspace_swap.mojom.UserspaceSwap_GetPartitionAllocSuperPagesUsed_ResponseParams', [
+      mojo.internal.StructField('arg_superpages', 0, 0, mojo.internal.Array(mojo.internal.bindings.userspace_swap.mojom.MemoryRegionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

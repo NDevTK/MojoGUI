@@ -162,42 +162,7 @@ mojo.internal.bindings.blink.mojom.AISummarizerLength = {
   kLong: 2,
 };
 
-// Struct: AISummarizerCreateOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec, 'blink.mojom.AISummarizerCreateOptions', [
-      mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 12, 0, mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_context_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_language', 40, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: AISummarizer
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec, 'blink.mojom.AISummarizer_Summarize_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_ResponseParams', [
-      mojo.internal.StructField('arg_number_of_tokens_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_number_of_tokens_$value', originalFieldName: 'arg_number_of_tokens' }),
-      mojo.internal.StructField('arg_number_of_tokens_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_number_of_tokens_$flag', originalFieldName: 'arg_number_of_tokens' }),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -324,19 +289,22 @@ mojo.internal.bindings.blink.mojom.AISummarizerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.summarize');
-          const result = this.impl.summarize(params.arg_input, params.arg_context, params.arg_pending_responder);
+          const result = this.impl.summarize(params.arg_arg_input, params.arg_arg_context, params.arg_arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.measureUsage');
-          const result = this.impl.measureUsage(params.arg_input, params.arg_context);
+          const result = this.impl.measureUsage(params.arg_arg_input, params.arg_arg_context);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MeasureUsage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_number_of_tokens' in response) ? response.arg_arg_number_of_tokens : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] measureUsage FAILED:', e));
           }
           break;
         }
@@ -352,4 +320,41 @@ mojo.internal.bindings.blink.mojom.AISummarizerReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.blink.mojom.AISummarizerPtr = mojo.internal.bindings.blink.mojom.AISummarizerRemote;
 mojo.internal.bindings.blink.mojom.AISummarizerRequest = mojo.internal.bindings.blink.mojom.AISummarizerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AISummarizerCreateOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AISummarizerCreateOptionsSpec, 'blink.mojom.AISummarizerCreateOptions', [
+      mojo.internal.StructField('arg_shared_context', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.blink.mojom.AISummarizerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 12, 0, mojo.internal.bindings.blink.mojom.AISummarizerFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.bindings.blink.mojom.AISummarizerLengthSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 24, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_context_languages', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_language', 40, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AISummarizer_Summarize_ParamsSpec, 'blink.mojom.AISummarizer_Summarize_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AISummarizer_MeasureUsage_ResponseParamsSpec, 'blink.mojom.AISummarizer_MeasureUsage_ResponseParams', [
+      mojo.internal.StructField('arg_number_of_tokens_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_number_of_tokens_$value', originalFieldName: 'arg_number_of_tokens' }),
+      mojo.internal.StructField('arg_number_of_tokens_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_number_of_tokens_$flag', originalFieldName: 'arg_number_of_tokens' }),
+    ],
+    [[0, 16]]);
 

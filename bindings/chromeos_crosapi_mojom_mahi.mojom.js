@@ -157,6 +157,8 @@ mojo.internal.bindings.crosapi.mojom.MahiContextMenuActionType = {
   kSummaryOfSelection: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: MahiPageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.MahiPageInfoSpec, 'crosapi.mojom.MahiPageInfo', [

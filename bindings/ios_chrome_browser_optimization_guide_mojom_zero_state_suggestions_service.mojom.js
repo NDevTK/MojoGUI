@@ -137,33 +137,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: ZeroStateSuggestionsResponseResult
-mojo.internal.Union(
-    mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec, 'ai.mojom.ZeroStateSuggestionsResponseResult', {
-      'arg_response': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
 // Interface: ZeroStateSuggestionsService
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,8 +254,11 @@ mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FetchZeroStateSuggestions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetchZeroStateSuggestions FAILED:', e));
           }
           break;
         }
@@ -297,4 +274,32 @@ mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceReceiver = mojo.inter
 
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServicePtr = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceRemote;
 mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServiceRequest = mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: ZeroStateSuggestionsResponseResult
+mojo.internal.Union(
+    mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec, 'ai.mojom.ZeroStateSuggestionsResponseResult', {
+      'arg_response': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParamsSpec, 'ai.mojom.ZeroStateSuggestionsService_FetchZeroStateSuggestions_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ai.mojom.ZeroStateSuggestionsResponseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

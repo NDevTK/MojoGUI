@@ -144,6 +144,8 @@ mojo.internal.bindings.media.mojom.CursorCaptureType = {
   MOTION: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DisplayMediaInformation
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.DisplayMediaInformationSpec, 'media.mojom.DisplayMediaInformation', [

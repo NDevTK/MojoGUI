@@ -152,3 +152,5 @@ mojo.internal.bindings.ash.camera_app.mojom.WifiEapPhase2Method = {
   kMschapv2: 5,
   kPap: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

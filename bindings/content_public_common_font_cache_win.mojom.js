@@ -135,22 +135,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.LOGFONTSpec = mojo.internal.bindings.mojo_base.mojom.LOGFONTSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FontCacheWin
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_Params', [
-      mojo.internal.StructField('arg_log_font', 0, 0, mojo.internal.bindings.mojo_base.mojom.LOGFONTSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec, 'content.mojom.FontCacheWin_ReleaseCachedFonts_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.FontCacheWinPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,12 +261,14 @@ mojo.internal.bindings.content.mojom.FontCacheWinReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preCacheFont');
-          const result = this.impl.preCacheFont(params.arg_log_font);
+          const result = this.impl.preCacheFont(params.arg_arg_log_font);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PreCacheFont FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] preCacheFont FAILED:', e));
           }
           break;
         }
@@ -305,4 +291,22 @@ mojo.internal.bindings.content.mojom.FontCacheWinReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.content.mojom.FontCacheWinPtr = mojo.internal.bindings.content.mojom.FontCacheWinRemote;
 mojo.internal.bindings.content.mojom.FontCacheWinRequest = mojo.internal.bindings.content.mojom.FontCacheWinPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_Params', [
+      mojo.internal.StructField('arg_log_font', 0, 0, mojo.internal.bindings.mojo_base.mojom.LOGFONTSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FontCacheWin_PreCacheFont_ResponseParamsSpec, 'content.mojom.FontCacheWin_PreCacheFont_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FontCacheWin_ReleaseCachedFonts_ParamsSpec, 'content.mojom.FontCacheWin_ReleaseCachedFonts_Params', [
+    ],
+    [[0, 8]]);
 

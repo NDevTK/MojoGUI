@@ -161,6 +161,8 @@ mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderError = {
   kUnableToReadAsBase64: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: QuickStartMessage
 mojo.internal.Union(
     mojo.internal.bindings.ash.quick_start.mojom.QuickStartMessageSpec, 'ash.quick_start.mojom.QuickStartMessage', {

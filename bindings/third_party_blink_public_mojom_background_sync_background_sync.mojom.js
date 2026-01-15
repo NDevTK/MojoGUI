@@ -175,57 +175,7 @@ mojo.internal.bindings.blink.mojom.BackgroundSyncType = {
   PERIODIC: 1,
 };
 
-// Struct: SyncRegistrationOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, 'blink.mojom.SyncRegistrationOptions', [
-      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.String, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min_interval', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: BackgroundSyncRegistrationInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec, 'blink.mojom.BackgroundSyncRegistrationInfo', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sync_type', 16, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: OneShotBackgroundSyncService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_Params', [
-      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -366,12 +316,14 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_options, params.arg_service_worker_registration_id);
+          const result = this.impl.register(params.arg_arg_options, params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_options']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -379,19 +331,21 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didResolveRegistration');
-          const result = this.impl.didResolveRegistration(params.arg_registration_info);
+          const result = this.impl.didResolveRegistration(params.arg_arg_registration_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistrations');
-          const result = this.impl.getRegistrations(params.arg_service_worker_registration_id);
+          const result = this.impl.getRegistrations(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetRegistrations FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_registrations']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
           break;
         }
@@ -410,46 +364,6 @@ mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncServiceRequest = mojo.in
 
 
 // Interface: PeriodicBackgroundSyncService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Unregister_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParams', [
-      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -590,12 +504,14 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_options, params.arg_service_worker_registration_id);
+          const result = this.impl.register(params.arg_arg_options, params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_options']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -603,12 +519,15 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unregister');
-          const result = this.impl.unregister(params.arg_service_worker_registration_id, params.arg_tag);
+          const result = this.impl.unregister(params.arg_arg_service_worker_registration_id, params.arg_arg_tag);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Unregister FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_err' in response) ? response.arg_arg_err : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unregister FAILED:', e));
           }
           break;
         }
@@ -616,12 +535,14 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRegistrations');
-          const result = this.impl.getRegistrations(params.arg_service_worker_registration_id);
+          const result = this.impl.getRegistrations(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetRegistrations FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec.$.structSpec, ['response.arg_arg_err', 'response.arg_arg_registrations']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getRegistrations FAILED:', e));
           }
           break;
         }
@@ -637,4 +558,96 @@ mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServicePtr = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRemote;
 mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServiceRequest = mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SyncRegistrationOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, 'blink.mojom.SyncRegistrationOptions', [
+      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.String, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_interval', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: BackgroundSyncRegistrationInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec, 'blink.mojom.BackgroundSyncRegistrationInfo', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sync_type', 16, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_Register_ResponseParams', [
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_DidResolveRegistration_Params', [
+      mojo.internal.StructField('arg_registration_info', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncRegistrationInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.OneShotBackgroundSyncService_GetRegistrations_ResponseParams', [
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_registration_id', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Register_ResponseParams', [
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Unregister_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tag', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_Unregister_ResponseParams', [
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParamsSpec, 'blink.mojom.PeriodicBackgroundSyncService_GetRegistrations_ResponseParams', [
+      mojo.internal.StructField('arg_err', 0, 0, mojo.internal.bindings.blink.mojom.BackgroundSyncErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_registrations', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.SyncRegistrationOptionsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

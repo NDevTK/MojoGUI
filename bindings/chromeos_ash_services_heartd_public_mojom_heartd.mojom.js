@@ -169,45 +169,7 @@ mojo.internal.bindings.ash.heartd.mojom.ActionType = {
   kSyncData: 4,
 };
 
-// Struct: HeartbeatServiceArgument
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, 'ash.heartd.mojom.HeartbeatServiceArgument', [
-      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.heartd.mojom.ActionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_verification_window_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Action
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
-      mojo.internal.StructField('arg_failure_count', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 4, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: HeartdControl
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableForceRebootAction_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.heartd.mojom.HeartdControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -362,12 +324,15 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runAction');
-          const result = this.impl.runAction(params.arg_action);
+          const result = this.impl.runAction(params.arg_arg_action);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RunAction FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] runAction FAILED:', e));
           }
           break;
         }
@@ -386,20 +351,6 @@ mojo.internal.bindings.ash.heartd.mojom.HeartdControlRequest = mojo.internal.bin
 
 
 // Interface: HeartbeatService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.heartd.mojom.HeartbeatServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -512,12 +463,15 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_name, params.arg_argument, params.arg_receiver);
+          const result = this.impl.register(params.arg_arg_name, params.arg_arg_argument, params.arg_arg_receiver);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Register FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] register FAILED:', e));
           }
           break;
         }
@@ -536,27 +490,6 @@ mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceRequest = mojo.internal.
 
 
 // Interface: Pacemaker
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.heartd.mojom.PacemakerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -687,8 +620,11 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendHeartbeat FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendHeartbeat FAILED:', e));
           }
           break;
         }
@@ -700,8 +636,10 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StopMonitor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stopMonitor FAILED:', e));
           }
           break;
         }
@@ -717,4 +655,79 @@ mojo.internal.bindings.ash.heartd.mojom.PacemakerReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.ash.heartd.mojom.PacemakerPtr = mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote;
 mojo.internal.bindings.ash.heartd.mojom.PacemakerRequest = mojo.internal.bindings.ash.heartd.mojom.PacemakerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: HeartbeatServiceArgument
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, 'ash.heartd.mojom.HeartbeatServiceArgument', [
+      mojo.internal.StructField('arg_actions', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.heartd.mojom.ActionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_verification_window_seconds', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Action
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.ActionSpec, 'ash.heartd.mojom.Action', [
+      mojo.internal.StructField('arg_failure_count', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 4, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableNormalRebootAction_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_EnableForceRebootAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_EnableForceRebootAction_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ActionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartdControl_RunAction_ResponseParamsSpec, 'ash.heartd.mojom.HeartdControl_RunAction_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.ash.heartd.mojom.ServiceNameSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.heartd.mojom.PacemakerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_argument', 8, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatServiceArgumentSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.HeartbeatService_Register_ResponseParamsSpec, 'ash.heartd.mojom.HeartbeatService_Register_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_SendHeartbeat_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.heartd.mojom.HeartbeatResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParamsSpec, 'ash.heartd.mojom.Pacemaker_StopMonitor_ResponseParams', [
+    ],
+    [[0, 8]]);
 

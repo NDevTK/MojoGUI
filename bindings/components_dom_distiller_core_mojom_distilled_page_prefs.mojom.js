@@ -138,3 +138,5 @@ mojo.internal.bindings.dom_distiller.mojom.FontFamily = {
   kMonospace: 2,
   kLexend: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

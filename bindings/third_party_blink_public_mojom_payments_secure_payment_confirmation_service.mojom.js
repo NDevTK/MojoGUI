@@ -164,45 +164,6 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnum 
 };
 
 // Interface: SecurePaymentConfirmationService
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParams', [
-      mojo.internal.StructField('arg_availability', 0, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_Params', [
-      mojo.internal.StructField('arg_credential_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_rp_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_id', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.PublicKeyCredentialCreationOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.blink.mojom.MakeCredentialAuthenticatorResponseSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_dom_exception_details', 16, 0, mojo.internal.bindings.blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -347,8 +308,11 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SecurePaymentConfirmationAvailability FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_availability' in response) ? response.arg_arg_availability : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] securePaymentConfirmationAvailability FAILED:', e));
           }
           break;
         }
@@ -356,12 +320,15 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storePaymentCredential');
-          const result = this.impl.storePaymentCredential(params.arg_credential_id, params.arg_rp_id, params.arg_user_id);
+          const result = this.impl.storePaymentCredential(params.arg_arg_credential_id, params.arg_arg_rp_id, params.arg_arg_user_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StorePaymentCredential FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] storePaymentCredential FAILED:', e));
           }
           break;
         }
@@ -369,12 +336,14 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makePaymentCredential');
-          const result = this.impl.makePaymentCredential(params.arg_options);
+          const result = this.impl.makePaymentCredential(params.arg_arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MakePaymentCredential FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_credential', 'response.arg_arg_dom_exception_details']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] makePaymentCredential FAILED:', e));
           }
           break;
         }
@@ -390,4 +359,45 @@ mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceReceiver =
 
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServicePtr = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRemote;
 mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServiceRequest = mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_SecurePaymentConfirmationAvailability_ResponseParams', [
+      mojo.internal.StructField('arg_availability', 0, 0, mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationAvailabilityEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_Params', [
+      mojo.internal.StructField('arg_credential_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_rp_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_id', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_StorePaymentCredential_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentCredentialStorageStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.PublicKeyCredentialCreationOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParamsSpec, 'payments.mojom.SecurePaymentConfirmationService_MakePaymentCredential_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.AuthenticatorStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.blink.mojom.MakeCredentialAuthenticatorResponseSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_dom_exception_details', 16, 0, mojo.internal.bindings.blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 

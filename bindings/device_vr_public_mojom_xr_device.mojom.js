@@ -132,3 +132,5 @@ mojo.internal.bindings.device.mojom.XRDeviceId = {
   EnableIf: 2,
   EnableIf: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

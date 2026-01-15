@@ -131,3 +131,5 @@ mojo.internal.bindings.blink.mojom.MHTMLLoadResult = {
   kInvalidArchive: 3,
   kMissingMainResource: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

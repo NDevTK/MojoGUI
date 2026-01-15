@@ -131,3 +131,5 @@ mojo.internal.bindings.ui.mojom.MetaKey = {
   kExternalMeta: 3,
   kCommand: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

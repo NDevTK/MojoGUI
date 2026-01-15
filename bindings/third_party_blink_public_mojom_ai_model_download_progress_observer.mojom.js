@@ -127,13 +127,6 @@ mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver.$interfaceName 
 mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec = { $: {} };
 
 // Interface: ModelDownloadProgressObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec, 'blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_Params', [
-      mojo.internal.StructField('arg_downloaded_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,7 +239,7 @@ mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadProgressUpdate');
-          const result = this.impl.onDownloadProgressUpdate(params.arg_downloaded_bytes, params.arg_total_bytes);
+          const result = this.impl.onDownloadProgressUpdate(params.arg_arg_downloaded_bytes, params.arg_arg_total_bytes);
           break;
         }
       }
@@ -261,4 +254,13 @@ mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverPtr = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRemote;
 mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverRequest = mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_ParamsSpec, 'blink.mojom.ModelDownloadProgressObserver_OnDownloadProgressUpdate_Params', [
+      mojo.internal.StructField('arg_downloaded_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_bytes', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

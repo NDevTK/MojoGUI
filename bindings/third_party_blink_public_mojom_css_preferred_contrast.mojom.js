@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.PreferredContrast = {
   kNoPreference: 2,
   kCustom: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

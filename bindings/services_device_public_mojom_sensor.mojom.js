@@ -162,67 +162,7 @@ mojo.internal.bindings.device.mojom.ReportingMode = {
   CONTINUOUS: 1,
 };
 
-// Struct: SensorReadingRaw
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorReadingRawSpec, 'device.mojom.SensorReadingRaw', [
-      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SensorConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorConfigurationSpec, 'device.mojom.SensorConfiguration', [
-      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: Sensor
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_ResponseParams', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec, 'device.mojom.Sensor_AddConfiguration_Params', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_AddConfiguration_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec, 'device.mojom.Sensor_RemoveConfiguration_Params', [
-      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec, 'device.mojom.Sensor_Suspend_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec, 'device.mojom.Sensor_Resume_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec, 'device.mojom.Sensor_ConfigureReadingChangeNotifications_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.SensorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -409,8 +349,11 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDefaultConfiguration FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_configuration' in response) ? response.arg_arg_configuration : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDefaultConfiguration FAILED:', e));
           }
           break;
         }
@@ -418,12 +361,15 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addConfiguration');
-          const result = this.impl.addConfiguration(params.arg_configuration);
+          const result = this.impl.addConfiguration(params.arg_arg_configuration);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddConfiguration FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addConfiguration FAILED:', e));
           }
           break;
         }
@@ -431,7 +377,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeConfiguration');
-          const result = this.impl.removeConfiguration(params.arg_configuration);
+          const result = this.impl.removeConfiguration(params.arg_arg_configuration);
           break;
         }
         case 3: {
@@ -452,7 +398,7 @@ mojo.internal.bindings.device.mojom.SensorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.configureReadingChangeNotifications');
-          const result = this.impl.configureReadingChangeNotifications(params.arg_enabled);
+          const result = this.impl.configureReadingChangeNotifications(params.arg_arg_enabled);
           break;
         }
       }
@@ -470,16 +416,6 @@ mojo.internal.bindings.device.mojom.SensorRequest = mojo.internal.bindings.devic
 
 
 // Interface: SensorClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec, 'device.mojom.SensorClient_RaiseError_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec, 'device.mojom.SensorClient_SensorReadingChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.SensorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -628,4 +564,76 @@ mojo.internal.bindings.device.mojom.SensorClientReceiver = mojo.internal.binding
 
 mojo.internal.bindings.device.mojom.SensorClientPtr = mojo.internal.bindings.device.mojom.SensorClientRemote;
 mojo.internal.bindings.device.mojom.SensorClientRequest = mojo.internal.bindings.device.mojom.SensorClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SensorReadingRaw
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorReadingRawSpec, 'device.mojom.SensorReadingRaw', [
+      mojo.internal.StructField('arg_timestamp', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_values', 8, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SensorConfiguration
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorConfigurationSpec, 'device.mojom.SensorConfiguration', [
+      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_GetDefaultConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_GetDefaultConfiguration_ResponseParams', [
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ParamsSpec, 'device.mojom.Sensor_AddConfiguration_Params', [
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_AddConfiguration_ResponseParamsSpec, 'device.mojom.Sensor_AddConfiguration_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_RemoveConfiguration_ParamsSpec, 'device.mojom.Sensor_RemoveConfiguration_Params', [
+      mojo.internal.StructField('arg_configuration', 0, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_Suspend_ParamsSpec, 'device.mojom.Sensor_Suspend_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_Resume_ParamsSpec, 'device.mojom.Sensor_Resume_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Sensor_ConfigureReadingChangeNotifications_ParamsSpec, 'device.mojom.Sensor_ConfigureReadingChangeNotifications_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorClient_RaiseError_ParamsSpec, 'device.mojom.SensorClient_RaiseError_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorClient_SensorReadingChanged_ParamsSpec, 'device.mojom.SensorClient_SensorReadingChanged_Params', [
+    ],
+    [[0, 8]]);
 

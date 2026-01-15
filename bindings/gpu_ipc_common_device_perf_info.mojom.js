@@ -148,6 +148,8 @@ mojo.internal.bindings.gpu.mojom.HasDiscreteGpu = {
   kYes: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DevicePerfInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.DevicePerfInfoSpec, 'gpu.mojom.DevicePerfInfo', [

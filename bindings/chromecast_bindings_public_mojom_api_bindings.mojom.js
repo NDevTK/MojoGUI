@@ -135,32 +135,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ApiBinding
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ApiBindingSpec, 'chromecast.mojom.ApiBinding', [
-      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ApiBindings
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_ResponseParams', [
-      mojo.internal.StructField('arg_bindings', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.mojom.ApiBindingSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec, 'chromecast.mojom.ApiBindings_Connect_Params', [
-      mojo.internal.StructField('arg_port_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.mojom.ApiBindingsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,8 +266,11 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAll FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_bindings' in response) ? response.arg_arg_bindings : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAll FAILED:', e));
           }
           break;
         }
@@ -300,7 +278,7 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_port_name, params.arg_port);
+          const result = this.impl.connect(params.arg_arg_port_name, params.arg_arg_port);
           break;
         }
       }
@@ -315,4 +293,31 @@ mojo.internal.bindings.chromecast.mojom.ApiBindingsReceiver = mojo.internal.bind
 
 mojo.internal.bindings.chromecast.mojom.ApiBindingsPtr = mojo.internal.bindings.chromecast.mojom.ApiBindingsRemote;
 mojo.internal.bindings.chromecast.mojom.ApiBindingsRequest = mojo.internal.bindings.chromecast.mojom.ApiBindingsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ApiBinding
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ApiBindingSpec, 'chromecast.mojom.ApiBinding', [
+      mojo.internal.StructField('arg_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ApiBindings_GetAll_ResponseParamsSpec, 'chromecast.mojom.ApiBindings_GetAll_ResponseParams', [
+      mojo.internal.StructField('arg_bindings', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromecast.mojom.ApiBindingSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ApiBindings_Connect_ParamsSpec, 'chromecast.mojom.ApiBindings_Connect_Params', [
+      mojo.internal.StructField('arg_port_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

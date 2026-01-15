@@ -129,6 +129,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec = mojo.internal.bindings.network.mojom.SharedDictionaryIsolationKeySpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SharedDictionaryUsageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SharedDictionaryUsageInfoSpec, 'network.mojom.SharedDictionaryUsageInfo', [

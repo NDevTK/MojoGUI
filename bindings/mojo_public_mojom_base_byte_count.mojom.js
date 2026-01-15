@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.ByteCountSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ByteCount
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ByteCountSpec, 'mojo_base.mojom.ByteCount', [

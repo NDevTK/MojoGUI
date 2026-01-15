@@ -126,6 +126,8 @@ mojo.internal.bindings.remoting.mojom.FloatSpec = { $: {} };
 mojo.internal.bindings.remoting.mojom.Int32Spec = { $: {} };
 mojo.internal.bindings.remoting.mojom.UInt32Spec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Bool
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.BoolSpec, 'remoting.mojom.Bool', [

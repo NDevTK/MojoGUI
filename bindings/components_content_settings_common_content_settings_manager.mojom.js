@@ -158,35 +158,6 @@ mojo.internal.bindings.content_settings.mojom.StorageType = {
 };
 
 // Interface: ContentSettingsManager
-mojo.internal.Struct(
-    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_Clone_Params', [
-      mojo.internal.StructField('arg_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage_type', 8, 0, mojo.internal.bindings.content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_site_for_cookies', 24, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_frame_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParams', [
-      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_OnContentBlocked_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -327,19 +298,22 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_clone);
+          const result = this.impl.clone(params.arg_arg_clone);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allowStorageAccess');
-          const result = this.impl.allowStorageAccess(params.arg_frame_token, params.arg_storage_type, params.arg_origin, params.arg_site_for_cookies, params.arg_top_frame_origin);
+          const result = this.impl.allowStorageAccess(params.arg_arg_frame_token, params.arg_arg_storage_type, params.arg_arg_origin, params.arg_arg_site_for_cookies, params.arg_arg_top_frame_origin);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AllowStorageAccess FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_allowed' in response) ? response.arg_arg_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] allowStorageAccess FAILED:', e));
           }
           break;
         }
@@ -347,7 +321,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContentBlocked');
-          const result = this.impl.onContentBlocked(params.arg_frame_token, params.arg_type);
+          const result = this.impl.onContentBlocked(params.arg_arg_frame_token, params.arg_arg_type);
           break;
         }
       }
@@ -362,4 +336,35 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerReceiver = m
 
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerPtr = mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote;
 mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRequest = mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_Clone_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_Clone_Params', [
+      mojo.internal.StructField('arg_clone', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.content_settings.mojom.ContentSettingsManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage_type', 8, 0, mojo.internal.bindings.content_settings.mojom.StorageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_for_cookies', 24, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_frame_origin', 32, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParamsSpec, 'content_settings.mojom.ContentSettingsManager_AllowStorageAccess_ResponseParams', [
+      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_settings.mojom.ContentSettingsManager_OnContentBlocked_ParamsSpec, 'content_settings.mojom.ContentSettingsManager_OnContentBlocked_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.content_settings.mojom.ContentSettingsTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

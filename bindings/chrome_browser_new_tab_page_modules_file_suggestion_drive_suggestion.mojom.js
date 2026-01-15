@@ -135,27 +135,6 @@ mojo.internal.bindings.file_suggestion.mojom = mojo.internal.bindings.file_sugge
 mojo.internal.bindings.file_suggestion.mojom.FileSpec = mojo.internal.bindings.file_suggestion.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DriveSuggestionHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParams', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_DismissModule_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -300,8 +279,11 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFiles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_files' in response) ? response.arg_arg_files : response;
+              encoder.encodeStructInline(mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFiles FAILED:', e));
           }
           break;
         }
@@ -331,4 +313,27 @@ mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerReceiver = mo
 
 mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerPtr = mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRemote;
 mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerRequest = mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_GetFiles_ResponseParams', [
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.file_suggestion.mojom.FileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_DismissModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_DismissModule_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_ParamsSpec, 'file_suggestion.mojom.DriveSuggestionHandler_RestoreModule_Params', [
+    ],
+    [[0, 8]]);
 

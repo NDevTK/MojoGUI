@@ -256,24 +256,6 @@ mojo.internal.bindings.arc.mojom.PrintSessionHostRequest = mojo.internal.binding
 
 
 // Interface: PrintSessionInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec, 'arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParams', [
-      mojo.internal.StructField('arg_preview_document', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
-      mojo.internal.StructField('arg_data_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.PrintSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -407,12 +389,14 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPreviewDocument');
-          const result = this.impl.createPreviewDocument(params.arg_request);
+          const result = this.impl.createPreviewDocument(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreatePreviewDocument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec.$.structSpec, ['response.arg_arg_preview_document', 'response.arg_arg_data_size']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createPreviewDocument FAILED:', e));
           }
           break;
         }
@@ -431,20 +415,6 @@ mojo.internal.bindings.arc.mojom.PrintSessionInstanceRequest = mojo.internal.bin
 
 
 // Interface: PrintSpoolerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_Params', [
-      mojo.internal.StructField('arg_scoped_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_instance', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParams', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionHostRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.PrintSpoolerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -557,12 +527,15 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startPrintInCustomTab');
-          const result = this.impl.startPrintInCustomTab(params.arg_scoped_handle, params.arg_task_id, params.arg_instance);
+          const result = this.impl.startPrintInCustomTab(params.arg_arg_scoped_handle, params.arg_arg_task_id, params.arg_arg_instance);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartPrintInCustomTab FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_host' in response) ? response.arg_arg_host : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startPrintInCustomTab FAILED:', e));
           }
           break;
         }
@@ -581,17 +554,6 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerHostRequest = mojo.internal.binding
 
 
 // Interface: PrintSpoolerInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -704,12 +666,14 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -725,4 +689,49 @@ mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstancePtr = mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceRemote;
 mojo.internal.bindings.arc.mojom.PrintSpoolerInstanceRequest = mojo.internal.bindings.arc.mojom.PrintSpoolerInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_ParamsSpec, 'arc.mojom.PrintSessionInstance_OnPrintPreviewClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.PrintDocumentRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParamsSpec, 'arc.mojom.PrintSessionInstance_CreatePreviewDocument_ResponseParams', [
+      mojo.internal.StructField('arg_preview_document', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_data_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_Params', [
+      mojo.internal.StructField('arg_scoped_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_instance', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParamsSpec, 'arc.mojom.PrintSpoolerHost_StartPrintInCustomTab_ResponseParams', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSessionHostRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrintSpoolerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrintSpoolerInstance_Init_ResponseParamsSpec, 'arc.mojom.PrintSpoolerInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

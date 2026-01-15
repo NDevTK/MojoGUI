@@ -124,6 +124,8 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.ANGLEFeatureSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.GpuExtraInfoSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ANGLEFeature
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.ANGLEFeatureSpec, 'gfx.mojom.ANGLEFeature', [

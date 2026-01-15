@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.NavigationBlockedReason = {
   kRedirectWithNoUserGesture: 0,
   kRedirectWithNoUserGestureSandbox: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

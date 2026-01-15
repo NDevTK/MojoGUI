@@ -134,23 +134,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.GeopositionResultSpec = mojo.internal.bindings.device.mojom.GeopositionResultSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Geolocation
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec, 'device.mojom.Geolocation_SetHighAccuracyHint_Params', [
-      mojo.internal.StructField('arg_high_accuracy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.GeopositionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.GeolocationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +260,7 @@ mojo.internal.bindings.device.mojom.GeolocationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHighAccuracyHint');
-          const result = this.impl.setHighAccuracyHint(params.arg_high_accuracy);
+          const result = this.impl.setHighAccuracyHint(params.arg_arg_high_accuracy);
           break;
         }
         case 1: {
@@ -288,8 +271,11 @@ mojo.internal.bindings.device.mojom.GeolocationReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryNextPosition FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryNextPosition FAILED:', e));
           }
           break;
         }
@@ -305,4 +291,23 @@ mojo.internal.bindings.device.mojom.GeolocationReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.device.mojom.GeolocationPtr = mojo.internal.bindings.device.mojom.GeolocationRemote;
 mojo.internal.bindings.device.mojom.GeolocationRequest = mojo.internal.bindings.device.mojom.GeolocationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Geolocation_SetHighAccuracyHint_ParamsSpec, 'device.mojom.Geolocation_SetHighAccuracyHint_Params', [
+      mojo.internal.StructField('arg_high_accuracy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.Geolocation_QueryNextPosition_ResponseParamsSpec, 'device.mojom.Geolocation_QueryNextPosition_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.GeopositionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -136,3 +136,5 @@ mojo.internal.bindings.network.mojom.EffectiveConnectionType = {
 // Enum: CTPolicyCompliance
 mojo.internal.bindings.network.mojom.CTPolicyCompliance = {
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

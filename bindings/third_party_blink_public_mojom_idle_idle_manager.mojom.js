@@ -147,22 +147,7 @@ mojo.internal.bindings.blink.mojom.IdleManagerError = {
   kPermissionDisabled: 1,
 };
 
-// Struct: IdleState
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.IdleStateSpec, 'blink.mojom.IdleState', [
-      mojo.internal.StructField('arg_idle_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_screen_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: IdleMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec, 'blink.mojom.IdleMonitor_Update_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_overridden_by_devtools', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.IdleMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,7 +260,7 @@ mojo.internal.bindings.blink.mojom.IdleMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.update');
-          const result = this.impl.update(params.arg_state, params.arg_is_overridden_by_devtools);
+          const result = this.impl.update(params.arg_arg_state, params.arg_arg_is_overridden_by_devtools);
           break;
         }
       }
@@ -293,19 +278,6 @@ mojo.internal.bindings.blink.mojom.IdleMonitorRequest = mojo.internal.bindings.b
 
 
 // Interface: IdleManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec, 'blink.mojom.IdleManager_AddMonitor_Params', [
-      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.IdleMonitorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, 'blink.mojom.IdleManager_AddMonitor_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.IdleManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -418,12 +390,14 @@ mojo.internal.bindings.blink.mojom.IdleManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMonitor');
-          const result = this.impl.addMonitor(params.arg_monitor);
+          const result = this.impl.addMonitor(params.arg_arg_monitor);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddMonitor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_state']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addMonitor FAILED:', e));
           }
           break;
         }
@@ -439,4 +413,34 @@ mojo.internal.bindings.blink.mojom.IdleManagerReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.blink.mojom.IdleManagerPtr = mojo.internal.bindings.blink.mojom.IdleManagerRemote;
 mojo.internal.bindings.blink.mojom.IdleManagerRequest = mojo.internal.bindings.blink.mojom.IdleManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: IdleState
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.IdleStateSpec, 'blink.mojom.IdleState', [
+      mojo.internal.StructField('arg_idle_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_screen_locked', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.IdleMonitor_Update_ParamsSpec, 'blink.mojom.IdleMonitor_Update_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_overridden_by_devtools', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ParamsSpec, 'blink.mojom.IdleManager_AddMonitor_Params', [
+      mojo.internal.StructField('arg_monitor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.IdleMonitorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.IdleManager_AddMonitor_ResponseParamsSpec, 'blink.mojom.IdleManager_AddMonitor_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.IdleManagerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.blink.mojom.IdleStateSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

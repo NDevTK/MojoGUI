@@ -131,3 +131,5 @@ mojo.internal.bindings.blink.mojom.V8CacheOptions = {
   kCodeWithoutHeatCheck: 3,
   kFullCodeWithoutHeatCheck: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

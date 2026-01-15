@@ -133,12 +133,6 @@ mojo.internal.bindings.cros.mojom.CameraModuleSpec = mojo.internal.bindings.cros
 mojo.internal.bindings.cros.mojom.CameraModuleRemote = mojo.internal.bindings.cros.mojom.CameraModuleRemote || class {};
 
 // Interface: CameraHalClient
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec, 'cros.mojom.CameraHalClient_SetUpChannel_Params', [
-      mojo.internal.StructField('arg_camera_module', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.CameraHalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.cros.mojom.CameraHalClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpChannel');
-          const result = this.impl.setUpChannel(params.arg_camera_module);
+          const result = this.impl.setUpChannel(params.arg_arg_camera_module);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.cros.mojom.CameraHalClientReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.cros.mojom.CameraHalClientPtr = mojo.internal.bindings.cros.mojom.CameraHalClientRemote;
 mojo.internal.bindings.cros.mojom.CameraHalClientRequest = mojo.internal.bindings.cros.mojom.CameraHalClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CameraHalClient_SetUpChannel_ParamsSpec, 'cros.mojom.CameraHalClient_SetUpChannel_Params', [
+      mojo.internal.StructField('arg_camera_module', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CameraModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

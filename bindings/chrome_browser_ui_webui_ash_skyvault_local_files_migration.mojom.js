@@ -154,22 +154,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.TimeUnit = {
   kHours: 1,
 };
 
-// Struct: TimeUnitAndValue
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, 'policy.local_user_files.mojom.TimeUnitAndValue', [
-      mojo.internal.StructField('arg_unit', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.policy.local_user_files.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -282,7 +267,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -300,29 +285,6 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactoryRequest =
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParams', [
-      mojo.internal.StructField('arg_cloud_provider', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remaining_time', 8, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_date_and_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_Close_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -467,8 +429,10 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInitialDialogInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cloud_provider', 'response.arg_arg_remaining_time', 'response.arg_arg_start_date_and_time']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInitialDialogInfo FAILED:', e));
           }
           break;
         }
@@ -501,12 +465,6 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRequest = mojo.i
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec, 'policy.local_user_files.mojom.Page_UpdateRemainingTime_Params', [
-      mojo.internal.StructField('arg_remaining_time', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.policy.local_user_files.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -619,7 +577,7 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRemainingTime');
-          const result = this.impl.updateRemainingTime(params.arg_remaining_time);
+          const result = this.impl.updateRemainingTime(params.arg_arg_remaining_time);
           break;
         }
       }
@@ -634,4 +592,50 @@ mojo.internal.bindings.policy.local_user_files.mojom.PageReceiver = mojo.interna
 
 mojo.internal.bindings.policy.local_user_files.mojom.PagePtr = mojo.internal.bindings.policy.local_user_files.mojom.PageRemote;
 mojo.internal.bindings.policy.local_user_files.mojom.PageRequest = mojo.internal.bindings.policy.local_user_files.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TimeUnitAndValue
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, 'policy.local_user_files.mojom.TimeUnitAndValue', [
+      mojo.internal.StructField('arg_unit', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'policy.local_user_files.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.policy.local_user_files.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.policy.local_user_files.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParamsSpec, 'policy.local_user_files.mojom.PageHandler_GetInitialDialogInfo_ResponseParams', [
+      mojo.internal.StructField('arg_cloud_provider', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.CloudProviderSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remaining_time', 8, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_date_and_time', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_UploadOrDeleteNow_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.PageHandler_Close_ParamsSpec, 'policy.local_user_files.mojom.PageHandler_Close_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.policy.local_user_files.mojom.Page_UpdateRemainingTime_ParamsSpec, 'policy.local_user_files.mojom.Page_UpdateRemainingTime_Params', [
+      mojo.internal.StructField('arg_remaining_time', 0, 0, mojo.internal.bindings.policy.local_user_files.mojom.TimeUnitAndValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

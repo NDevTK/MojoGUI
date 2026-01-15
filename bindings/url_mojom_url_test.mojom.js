@@ -138,30 +138,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: UrlTest
-mojo.internal.Struct(
-    mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec, 'url.mojom.UrlTest_BounceUrl_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec, 'url.mojom.UrlTest_BounceUrl_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec, 'url.mojom.UrlTest_BounceOrigin_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec, 'url.mojom.UrlTest_BounceOrigin_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.url.mojom.UrlTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,12 +264,15 @@ mojo.internal.bindings.url.mojom.UrlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bounceUrl');
-          const result = this.impl.bounceUrl(params.arg_in);
+          const result = this.impl.bounceUrl(params.arg_arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] BounceUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] bounceUrl FAILED:', e));
           }
           break;
         }
@@ -301,12 +280,15 @@ mojo.internal.bindings.url.mojom.UrlTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bounceOrigin');
-          const result = this.impl.bounceOrigin(params.arg_in);
+          const result = this.impl.bounceOrigin(params.arg_arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] BounceOrigin FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] bounceOrigin FAILED:', e));
           }
           break;
         }
@@ -322,4 +304,30 @@ mojo.internal.bindings.url.mojom.UrlTestReceiver = mojo.internal.bindings.url.mo
 
 mojo.internal.bindings.url.mojom.UrlTestPtr = mojo.internal.bindings.url.mojom.UrlTestRemote;
 mojo.internal.bindings.url.mojom.UrlTestRequest = mojo.internal.bindings.url.mojom.UrlTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ParamsSpec, 'url.mojom.UrlTest_BounceUrl_Params', [
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.url.mojom.UrlTest_BounceUrl_ResponseParamsSpec, 'url.mojom.UrlTest_BounceUrl_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ParamsSpec, 'url.mojom.UrlTest_BounceOrigin_Params', [
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.url.mojom.UrlTest_BounceOrigin_ResponseParamsSpec, 'url.mojom.UrlTest_BounceOrigin_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

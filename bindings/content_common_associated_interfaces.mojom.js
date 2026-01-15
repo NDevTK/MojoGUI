@@ -137,13 +137,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RouteProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RouteProvider_GetRoute_ParamsSpec, 'content.mojom.RouteProvider_GetRoute_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.RouteProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,7 +249,7 @@ mojo.internal.bindings.content.mojom.RouteProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RouteProvider_GetRoute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRoute');
-          const result = this.impl.getRoute(params.arg_frame_token, params.arg_receiver);
+          const result = this.impl.getRoute(params.arg_arg_frame_token, params.arg_arg_receiver);
           break;
         }
       }
@@ -271,4 +264,13 @@ mojo.internal.bindings.content.mojom.RouteProviderReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.content.mojom.RouteProviderPtr = mojo.internal.bindings.content.mojom.RouteProviderRemote;
 mojo.internal.bindings.content.mojom.RouteProviderRequest = mojo.internal.bindings.content.mojom.RouteProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RouteProvider_GetRoute_ParamsSpec, 'content.mojom.RouteProvider_GetRoute_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.AssociatedInterfaceProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

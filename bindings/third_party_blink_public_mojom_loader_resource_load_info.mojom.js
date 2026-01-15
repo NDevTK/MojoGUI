@@ -180,6 +180,8 @@ mojo.internal.bindings.blink.mojom.ResourceType = {
   kJson: 21,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CommonNetworkInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CommonNetworkInfoSpec, 'blink.mojom.CommonNetworkInfo', [

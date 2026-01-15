@@ -127,11 +127,6 @@ mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandler.$interfaceName 
 mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec = { $: {} };
 
 // Interface: FullscreenVideoElementHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec, 'blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerReceiver = mojo.
 
 mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerPtr = mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerRemote;
 mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerRequest = mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_ParamsSpec, 'blink.mojom.FullscreenVideoElementHandler_RequestFullscreenVideoElement_Params', [
+    ],
+    [[0, 8]]);
 

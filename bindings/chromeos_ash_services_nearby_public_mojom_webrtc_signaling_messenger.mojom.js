@@ -146,27 +146,7 @@ mojo.internal.bindings.sharing.mojom.LocationStandardFormat = {
   ISO_3166_1_ALPHA_2: 2,
 };
 
-// Struct: LocationHint
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.LocationHintSpec, 'sharing.mojom.LocationHint', [
-      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: IncomingMessagesListener
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec, 'sharing.mojom.IncomingMessagesListener_OnMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec, 'sharing.mojom.IncomingMessagesListener_OnComplete_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,14 +273,14 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessage');
-          const result = this.impl.onMessage(params.arg_message);
+          const result = this.impl.onMessage(params.arg_arg_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_success);
+          const result = this.impl.onComplete(params.arg_arg_success);
           break;
         }
       }
@@ -318,11 +298,6 @@ mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRequest = mojo.inte
 
 
 // Interface: ReceiveMessagesSession
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec, 'sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -453,36 +428,6 @@ mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRequest = mojo.intern
 
 
 // Interface: WebRtcSignalingMessenger
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params', [
-      mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_peer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_hint', 16, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params', [
-      mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location_hint', 8, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_session', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -609,12 +554,15 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_self_id, params.arg_peer_id, params.arg_location_hint, params.arg_message);
+          const result = this.impl.sendMessage(params.arg_arg_self_id, params.arg_arg_peer_id, params.arg_arg_location_hint, params.arg_arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendMessage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendMessage FAILED:', e));
           }
           break;
         }
@@ -622,12 +570,14 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReceivingMessages');
-          const result = this.impl.startReceivingMessages(params.arg_self_id, params.arg_location_hint, params.arg_listener);
+          const result = this.impl.startReceivingMessages(params.arg_arg_self_id, params.arg_arg_location_hint, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartReceivingMessages FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_session']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startReceivingMessages FAILED:', e));
           }
           break;
         }
@@ -643,4 +593,61 @@ mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerReceiver = mojo.int
 
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerPtr = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRemote;
 mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerRequest = mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessengerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: LocationHint
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.LocationHintSpec, 'sharing.mojom.LocationHint', [
+      mojo.internal.StructField('arg_location', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 8, 0, mojo.internal.bindings.sharing.mojom.LocationStandardFormatSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnMessage_ParamsSpec, 'sharing.mojom.IncomingMessagesListener_OnMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.IncomingMessagesListener_OnComplete_ParamsSpec, 'sharing.mojom.IncomingMessagesListener_OnComplete_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_ParamsSpec, 'sharing.mojom.ReceiveMessagesSession_StopReceivingMessages_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_Params', [
+      mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_peer_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_hint', 16, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_SendMessage_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_Params', [
+      mojo.internal.StructField('arg_self_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location_hint', 8, 0, mojo.internal.bindings.sharing.mojom.LocationHintSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.IncomingMessagesListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParamsSpec, 'sharing.mojom.WebRtcSignalingMessenger_StartReceivingMessages_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.ReceiveMessagesSessionRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ProcessId
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, 'mojo_base.mojom.ProcessId', [

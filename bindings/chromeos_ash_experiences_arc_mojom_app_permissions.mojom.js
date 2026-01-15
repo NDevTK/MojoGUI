@@ -147,31 +147,7 @@ mojo.internal.bindings.arc.mojom.AppPermissionGroup = {
   LOCATION: 2,
 };
 
-// Struct: PermissionState
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PermissionStateSpec, 'arc.mojom.PermissionState', [
-      mojo.internal.StructField('arg_granted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_one_time', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.String, null, true, 1, undefined),
-    ],
-    [[0, 16], [1, 24], [2, 16]]);
-
 // Interface: AppPermissionsInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_GrantPermission_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_RevokePermission_Params', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.AppPermissionsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,14 +274,14 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.grantPermission');
-          const result = this.impl.grantPermission(params.arg_package_name, params.arg_permission);
+          const result = this.impl.grantPermission(params.arg_arg_package_name, params.arg_arg_permission);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.revokePermission');
-          const result = this.impl.revokePermission(params.arg_package_name, params.arg_permission);
+          const result = this.impl.revokePermission(params.arg_arg_package_name, params.arg_arg_permission);
           break;
         }
       }
@@ -320,4 +296,30 @@ mojo.internal.bindings.arc.mojom.AppPermissionsInstanceReceiver = mojo.internal.
 
 mojo.internal.bindings.arc.mojom.AppPermissionsInstancePtr = mojo.internal.bindings.arc.mojom.AppPermissionsInstanceRemote;
 mojo.internal.bindings.arc.mojom.AppPermissionsInstanceRequest = mojo.internal.bindings.arc.mojom.AppPermissionsInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PermissionState
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PermissionStateSpec, 'arc.mojom.PermissionState', [
+      mojo.internal.StructField('arg_granted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_one_time', 0, 2, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.String, null, true, 1, undefined),
+    ],
+    [[0, 16], [1, 24], [2, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppPermissionsInstance_GrantPermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_GrantPermission_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppPermissionsInstance_RevokePermission_ParamsSpec, 'arc.mojom.AppPermissionsInstance_RevokePermission_Params', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permission', 8, 0, mojo.internal.bindings.arc.mojom.AppPermissionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

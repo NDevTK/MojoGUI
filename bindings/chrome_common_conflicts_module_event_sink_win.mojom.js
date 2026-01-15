@@ -126,12 +126,6 @@ mojo.internal.bindings.mojom.ModuleEventSink.$interfaceName = 'mojom.ModuleEvent
 mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec = { $: {} };
 
 // Interface: ModuleEventSink
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec, 'mojom.ModuleEventSink_OnModuleEvents_Params', [
-      mojo.internal.StructField('arg_module_load_addresses', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.ModuleEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -244,7 +238,7 @@ mojo.internal.bindings.mojom.ModuleEventSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModuleEvents');
-          const result = this.impl.onModuleEvents(params.arg_module_load_addresses);
+          const result = this.impl.onModuleEvents(params.arg_arg_module_load_addresses);
           break;
         }
       }
@@ -259,4 +253,12 @@ mojo.internal.bindings.mojom.ModuleEventSinkReceiver = mojo.internal.bindings.mo
 
 mojo.internal.bindings.mojom.ModuleEventSinkPtr = mojo.internal.bindings.mojom.ModuleEventSinkRemote;
 mojo.internal.bindings.mojom.ModuleEventSinkRequest = mojo.internal.bindings.mojom.ModuleEventSinkPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.ModuleEventSink_OnModuleEvents_ParamsSpec, 'mojom.ModuleEventSink_OnModuleEvents_Params', [
+      mojo.internal.StructField('arg_module_load_addresses', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

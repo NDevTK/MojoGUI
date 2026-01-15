@@ -148,13 +148,6 @@ mojo.internal.bindings.video_capture.mojom.VideoSourceProviderSpec = mojo.intern
 mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote = mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote || class {};
 
 // Interface: MediaPerceptionService
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,7 +260,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getController');
-          const result = this.impl.getController(params.arg_receiver, params.arg_client);
+          const result = this.impl.getController(params.arg_arg_receiver, params.arg_arg_client);
           break;
         }
       }
@@ -285,12 +278,6 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionServiceReq
 
 
 // Interface: MediaPerceptionController
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -403,7 +390,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activateMediaPerception');
-          const result = this.impl.activateMediaPerception(params.arg_receiver);
+          const result = this.impl.activateMediaPerception(params.arg_arg_receiver);
           break;
         }
       }
@@ -421,12 +408,6 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
 
 
 // Interface: MediaPerceptionControllerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -539,7 +520,7 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToVideoCaptureService');
-          const result = this.impl.connectToVideoCaptureService(params.arg_receiver);
+          const result = this.impl.connectToVideoCaptureService(params.arg_arg_receiver);
           break;
         }
       }
@@ -554,4 +535,25 @@ mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController
 
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPtr = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote;
 mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRequest = mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionService_GetController_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionService_GetController_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionController_ActivateMediaPerception_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_ParamsSpec, 'chromeos.media_perception.mojom.MediaPerceptionControllerClient_ConnectToVideoCaptureService_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.video_capture.mojom.VideoSourceProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -129,6 +129,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec = mojo.internal.bindings.gfx.mojom.PresentationFeedbackSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WaylandPresentationInfo
 mojo.internal.Struct(
     mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, 'wl.mojom.WaylandPresentationInfo', [

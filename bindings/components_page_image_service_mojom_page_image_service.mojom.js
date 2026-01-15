@@ -147,36 +147,7 @@ mojo.internal.bindings.page_image_service.mojom.ClientId = {
   HistoryEmbeddings: 6,
 };
 
-// Struct: Options
-mojo.internal.Struct(
-    mojo.internal.bindings.page_image_service.mojom.OptionsSpec, 'page_image_service.mojom.Options', [
-      mojo.internal.StructField('arg_suggest_images', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_optimization_guide_images', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ImageResult
-mojo.internal.Struct(
-    mojo.internal.bindings.page_image_service.mojom.ImageResultSpec, 'page_image_service.mojom.ImageResult', [
-      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: PageImageServiceHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.bindings.page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.page_image_service.mojom.ImageResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -289,12 +260,15 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPageImageUrl');
-          const result = this.impl.getPageImageUrl(params.arg_client_id, params.arg_page_url, params.arg_options);
+          const result = this.impl.getPageImageUrl(params.arg_arg_client_id, params.arg_arg_page_url, params.arg_arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPageImageUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPageImageUrl FAILED:', e));
           }
           break;
         }
@@ -310,4 +284,35 @@ mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerReceiver 
 
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerPtr = mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerRemote;
 mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerRequest = mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Options
+mojo.internal.Struct(
+    mojo.internal.bindings.page_image_service.mojom.OptionsSpec, 'page_image_service.mojom.Options', [
+      mojo.internal.StructField('arg_suggest_images', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_optimization_guide_images', 0, 1, mojo.internal.Bool, true, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ImageResult
+mojo.internal.Struct(
+    mojo.internal.bindings.page_image_service.mojom.ImageResultSpec, 'page_image_service.mojom.ImageResult', [
+      mojo.internal.StructField('arg_image_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_Params', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.bindings.page_image_service.mojom.ClientIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.page_image_service.mojom.OptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParamsSpec, 'page_image_service.mojom.PageImageServiceHandler_GetPageImageUrl_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.page_image_service.mojom.ImageResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

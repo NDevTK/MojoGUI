@@ -1134,3 +1134,5 @@ mojo.internal.bindings.ax.mojom.AriaNotificationPriority = {
   kNormal: 0,
   kHigh: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

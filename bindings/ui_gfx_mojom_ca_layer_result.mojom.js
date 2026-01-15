@@ -146,3 +146,5 @@ mojo.internal.bindings.gfx.mojom.CALayerResult = {
   kCALayerFailedOverlayDisabled: 32,
   kCALayerFailedVideoCaptureEnabled: 33,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

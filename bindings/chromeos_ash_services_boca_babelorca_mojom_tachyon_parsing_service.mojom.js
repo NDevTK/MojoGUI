@@ -140,52 +140,7 @@ mojo.internal.bindings.ash.babelorca.mojom.ParsingState = {
   kClosed: 2,
 };
 
-// Struct: TranscriptPart
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec, 'ash.babelorca.mojom.TranscriptPart', [
-      mojo.internal.StructField('arg_transcript_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text_index', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_final', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: BabelOrcaMessage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec, 'ash.babelorca.mojom.BabelOrcaMessage', [
-      mojo.internal.StructField('arg_sender_email', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_timestamp_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_order', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_previous_transcript', 32, 0, mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_current_transcript', 40, 0, mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: StreamStatus
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec, 'ash.babelorca.mojom.StreamStatus', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: TachyonParsingService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_Params', [
-      mojo.internal.StructField('arg_stream_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_messages', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_status', 16, 0, mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,12 +253,14 @@ mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parse');
-          const result = this.impl.parse(params.arg_stream_data);
+          const result = this.impl.parse(params.arg_arg_stream_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Parse FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec.$.structSpec, ['response.arg_arg_state', 'response.arg_arg_messages', 'response.arg_arg_stream_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }
           break;
         }
@@ -319,4 +276,51 @@ mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceReceiver = mojo.
 
 mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServicePtr = mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceRemote;
 mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServiceRequest = mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TranscriptPart
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec, 'ash.babelorca.mojom.TranscriptPart', [
+      mojo.internal.StructField('arg_transcript_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text_index', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_final', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: BabelOrcaMessage
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec, 'ash.babelorca.mojom.BabelOrcaMessage', [
+      mojo.internal.StructField('arg_sender_email', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_init_timestamp_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_order', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_previous_transcript', 32, 0, mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_current_transcript', 40, 0, mojo.internal.bindings.ash.babelorca.mojom.TranscriptPartSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: StreamStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec, 'ash.babelorca.mojom.StreamStatus', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_Params', [
+      mojo.internal.StructField('arg_stream_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParamsSpec, 'ash.babelorca.mojom.TachyonParsingService_Parse_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.ash.babelorca.mojom.ParsingStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_messages', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.babelorca.mojom.BabelOrcaMessageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_status', 16, 0, mojo.internal.bindings.ash.babelorca.mojom.StreamStatusSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 

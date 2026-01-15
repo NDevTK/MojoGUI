@@ -152,12 +152,6 @@ mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClicked = {
 };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -270,7 +264,7 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -288,12 +282,6 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactoryRequest = mojo.i
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec, 'zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_Params', [
-      mojo.internal.StructField('arg_link', 0, 0, mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -406,7 +394,7 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchWebStoreLink');
-          const result = this.impl.launchWebStoreLink(params.arg_link);
+          const result = this.impl.launchWebStoreLink(params.arg_arg_link);
           break;
         }
       }
@@ -421,4 +409,18 @@ mojo.internal.bindings.zero_state_promo.mojom.PageHandlerReceiver = mojo.interna
 
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerPtr = mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRemote;
 mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRequest = mojo.internal.bindings.zero_state_promo.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'zero_state_promo.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.zero_state_promo.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_ParamsSpec, 'zero_state_promo.mojom.PageHandler_LaunchWebStoreLink_Params', [
+      mojo.internal.StructField('arg_link', 0, 0, mojo.internal.bindings.zero_state_promo.mojom.WebStoreLinkClickedSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

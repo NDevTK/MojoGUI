@@ -128,17 +128,6 @@ mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_Param
 mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec = { $: {} };
 
 // Interface: WebTestBluetoothFakeAdapterSetter
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_Params', [
-      mojo.internal.StructField('arg_adapter_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,12 +240,14 @@ mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.set');
-          const result = this.impl.set(params.arg_adapter_name);
+          const result = this.impl.set(params.arg_arg_adapter_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Set FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] set FAILED:', e));
           }
           break;
         }
@@ -272,4 +263,17 @@ mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterReceiver =
 
 mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterPtr = mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterRemote;
 mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterRequest = mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_Params', [
+      mojo.internal.StructField('arg_adapter_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParamsSpec, 'content.mojom.WebTestBluetoothFakeAdapterSetter_Set_ResponseParams', [
+    ],
+    [[0, 8]]);
 

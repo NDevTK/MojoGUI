@@ -154,63 +154,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestError = {
   kRequestOverride: 4,
 };
 
-// Union: TtsResponse
-mojo.internal.Union(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec, 'ash.enhanced_network_tts.mojom.TtsResponse', {
-      'arg_error_code': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec,
-        'nullable': false,
-      },
-      'arg_data': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: TtsRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec, 'ash.enhanced_network_tts.mojom.TtsRequest', [
-      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_voice', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_lang', 24, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: TimingInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec, 'ash.enhanced_network_tts.mojom.TimingInfo', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_time_offset', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: TtsData
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec, 'ash.enhanced_network_tts.mojom.TtsData', [
-      mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_data', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: EnhancedNetworkTts
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -323,12 +267,15 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAudioData');
-          const result = this.impl.getAudioData(params.arg_request);
+          const result = this.impl.getAudioData(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAudioData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAudioData FAILED:', e));
           }
           break;
         }
@@ -347,12 +294,6 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTtsRequest 
 
 
 // Interface: AudioDataObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec, 'ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -465,7 +406,7 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAudioDataReceived');
-          const result = this.impl.onAudioDataReceived(params.arg_response);
+          const result = this.impl.onAudioDataReceived(params.arg_arg_response);
           break;
         }
       }
@@ -480,4 +421,68 @@ mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverReceiver 
 
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverPtr = mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemote;
 mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRequest = mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: TtsResponse
+mojo.internal.Union(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec, 'ash.enhanced_network_tts.mojom.TtsResponse', {
+      'arg_error_code': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestErrorSpec,
+        'nullable': false,
+      },
+      'arg_data': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: TtsRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec, 'ash.enhanced_network_tts.mojom.TtsRequest', [
+      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rate', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_voice', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_lang', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: TimingInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec, 'ash.enhanced_network_tts.mojom.TimingInfo', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_offset', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: TtsData
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsDataSpec, 'ash.enhanced_network_tts.mojom.TtsData', [
+      mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.enhanced_network_tts.mojom.TimingInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_data', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParamsSpec, 'ash.enhanced_network_tts.mojom.EnhancedNetworkTts_GetAudioData_ResponseParams', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_ParamsSpec, 'ash.enhanced_network_tts.mojom.AudioDataObserver_OnAudioDataReceived_Params', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.enhanced_network_tts.mojom.TtsResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

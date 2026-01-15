@@ -144,19 +144,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.PressureSourceSpec = mojo.internal.bindings.device.mojom.PressureSourceSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: WebPressureManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec, 'blink.mojom.WebPressureManager_AddClient_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.WebPressureManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,12 +256,15 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_source, params.arg_client);
+          const result = this.impl.addClient(params.arg_arg_source, params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddClient FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addClient FAILED:', e));
           }
           break;
         }
@@ -293,12 +283,6 @@ mojo.internal.bindings.blink.mojom.WebPressureManagerRequest = mojo.internal.bin
 
 
 // Interface: WebPressureClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec, 'blink.mojom.WebPressureClient_OnPressureUpdated_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.WebPressureClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -411,7 +395,7 @@ mojo.internal.bindings.blink.mojom.WebPressureClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPressureUpdated');
-          const result = this.impl.onPressureUpdated(params.arg_update);
+          const result = this.impl.onPressureUpdated(params.arg_arg_update);
           break;
         }
       }
@@ -426,4 +410,25 @@ mojo.internal.bindings.blink.mojom.WebPressureClientReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.WebPressureClientPtr = mojo.internal.bindings.blink.mojom.WebPressureClientRemote;
 mojo.internal.bindings.blink.mojom.WebPressureClientRequest = mojo.internal.bindings.blink.mojom.WebPressureClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ParamsSpec, 'blink.mojom.WebPressureManager_AddClient_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.device.mojom.PressureSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.WebPressureClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebPressureManager_AddClient_ResponseParamsSpec, 'blink.mojom.WebPressureManager_AddClient_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.PressureManagerAddClientResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebPressureClient_OnPressureUpdated_ParamsSpec, 'blink.mojom.WebPressureClient_OnPressureUpdated_Params', [
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.blink.mojom.WebPressureUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

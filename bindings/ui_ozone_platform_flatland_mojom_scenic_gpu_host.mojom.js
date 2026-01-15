@@ -127,13 +127,6 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHost.$interfaceName = 'ui.mojom.ScenicG
 mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec = { $: {} };
 
 // Interface: ScenicGpuHost
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec, 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params', [
-      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_view_holder_token', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ui.mojom.ScenicGpuHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,7 +239,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachSurfaceToWindow');
-          const result = this.impl.attachSurfaceToWindow(params.arg_window_id, params.arg_view_holder_token);
+          const result = this.impl.attachSurfaceToWindow(params.arg_arg_window_id, params.arg_arg_view_holder_token);
           break;
         }
       }
@@ -261,4 +254,13 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostReceiver = mojo.internal.bindings.u
 
 mojo.internal.bindings.ui.mojom.ScenicGpuHostPtr = mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote;
 mojo.internal.bindings.ui.mojom.ScenicGpuHostRequest = mojo.internal.bindings.ui.mojom.ScenicGpuHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_ParamsSpec, 'ui.mojom.ScenicGpuHost_AttachSurfaceToWindow_Params', [
+      mojo.internal.StructField('arg_window_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_view_holder_token', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

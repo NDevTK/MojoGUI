@@ -279,50 +279,6 @@ mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRequest = mojo.internal.b
 
 
 // Interface: Application
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec, 'remote_cocoa.mojom.Application_CreateAlert_Params', [
-      mojo.internal.StructField('arg_alert_bridge_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec, 'remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_Params', [
-      mojo.internal.StructField('arg_bridge_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_window_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 12, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_input_host', 20, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_Params', [
-      mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec, 'remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateWebContentsNSView_Params', [
-      mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec, 'remote_cocoa.mojom.Application_ForwardCutCopyPaste_Params', [
-      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remote_cocoa.mojom.ApplicationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -505,42 +461,42 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAlert');
-          const result = this.impl.createAlert(params.arg_alert_bridge_receiver);
+          const result = this.impl.createAlert(params.arg_arg_alert_bridge_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNativeWidgetNSWindow');
-          const result = this.impl.createNativeWidgetNSWindow(params.arg_bridge_id, params.arg_window_receiver, params.arg_host, params.arg_text_input_host);
+          const result = this.impl.createNativeWidgetNSWindow(params.arg_arg_bridge_id, params.arg_arg_window_receiver, params.arg_arg_host, params.arg_arg_text_input_host);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRenderWidgetHostNSView');
-          const result = this.impl.createRenderWidgetHostNSView(params.arg_view_id, params.arg_host, params.arg_view_receiver);
+          const result = this.impl.createRenderWidgetHostNSView(params.arg_arg_view_id, params.arg_arg_host, params.arg_arg_view_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSystemMediaControlsBridge');
-          const result = this.impl.createSystemMediaControlsBridge(params.arg_receiver, params.arg_host);
+          const result = this.impl.createSystemMediaControlsBridge(params.arg_arg_receiver, params.arg_arg_host);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebContentsNSView');
-          const result = this.impl.createWebContentsNSView(params.arg_view_id, params.arg_host, params.arg_view_receiver);
+          const result = this.impl.createWebContentsNSView(params.arg_arg_view_id, params.arg_arg_host, params.arg_arg_view_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forwardCutCopyPaste');
-          const result = this.impl.forwardCutCopyPaste(params.arg_command);
+          const result = this.impl.forwardCutCopyPaste(params.arg_arg_command);
           break;
         }
       }
@@ -555,4 +511,50 @@ mojo.internal.bindings.remote_cocoa.mojom.ApplicationReceiver = mojo.internal.bi
 
 mojo.internal.bindings.remote_cocoa.mojom.ApplicationPtr = mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemote;
 mojo.internal.bindings.remote_cocoa.mojom.ApplicationRequest = mojo.internal.bindings.remote_cocoa.mojom.ApplicationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateAlert_ParamsSpec, 'remote_cocoa.mojom.Application_CreateAlert_Params', [
+      mojo.internal.StructField('arg_alert_bridge_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.AlertBridgeRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_ParamsSpec, 'remote_cocoa.mojom.Application_CreateNativeWidgetNSWindow_Params', [
+      mojo.internal.StructField('arg_bridge_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_window_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 12, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.NativeWidgetNSWindowHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_input_host', 20, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.TextInputHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateRenderWidgetHostNSView_Params', [
+      mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_ParamsSpec, 'remote_cocoa.mojom.Application_CreateSystemMediaControlsBridge_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.system_media_controls.mojom.SystemMediaControlsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Application_CreateWebContentsNSView_ParamsSpec, 'remote_cocoa.mojom.Application_CreateWebContentsNSView_Params', [
+      mojo.internal.StructField('arg_view_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_receiver', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.StubInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Application_ForwardCutCopyPaste_ParamsSpec, 'remote_cocoa.mojom.Application_ForwardCutCopyPaste_Params', [
+      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.CutCopyPasteCommandSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -252,6 +252,327 @@ mojo.internal.bindings.crosapi.mojom.OptionConfigurability = {
   kHardwareConfigurable: 2,
 };
 
+// Interface: DocumentScan
+mojo.internal.bindings.crosapi.mojom.DocumentScanPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.crosapi.mojom.DocumentScanRemote = class {
+  static get $interfaceName() {
+    return 'crosapi.mojom.DocumentScan';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.crosapi.mojom.DocumentScanPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  openScanner(arg_client_id, arg_scanner_id) {
+    return this.$.openScanner(arg_client_id, arg_scanner_id);
+  }
+  closeScanner(arg_scanner_handle) {
+    return this.$.closeScanner(arg_scanner_handle);
+  }
+  startPreparedScan(arg_scanner_handle, arg_options) {
+    return this.$.startPreparedScan(arg_scanner_handle, arg_options);
+  }
+  readScanData(arg_job_handle) {
+    return this.$.readScanData(arg_job_handle);
+  }
+  setOptions(arg_scanner_handle, arg_options) {
+    return this.$.setOptions(arg_scanner_handle, arg_options);
+  }
+  getOptionGroups(arg_scanner_handle) {
+    return this.$.getOptionGroups(arg_scanner_handle);
+  }
+  cancelScan(arg_job_handle) {
+    return this.$.cancelScan(arg_job_handle);
+  }
+};
+
+mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DocumentScan', [
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+    ]);
+  }
+
+  openScanner(arg_client_id, arg_scanner_id) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec,
+      [arg_client_id, arg_scanner_id],
+      false);
+  }
+
+  closeScanner(arg_scanner_handle) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec,
+      [arg_scanner_handle],
+      false);
+  }
+
+  startPreparedScan(arg_scanner_handle, arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec,
+      [arg_scanner_handle, arg_options],
+      false);
+  }
+
+  readScanData(arg_job_handle) {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec,
+      [arg_job_handle],
+      false);
+  }
+
+  setOptions(arg_scanner_handle, arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec,
+      [arg_scanner_handle, arg_options],
+      false);
+  }
+
+  getOptionGroups(arg_scanner_handle) {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
+      [arg_scanner_handle],
+      false);
+  }
+
+  cancelScan(arg_job_handle) {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec,
+      mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec,
+      [arg_job_handle],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.crosapi.mojom.DocumentScan.getRemote = function() {
+  let remote = new mojo.internal.bindings.crosapi.mojom.DocumentScanRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'crosapi.mojom.DocumentScan',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DocumentScan', [
+      { explicit: 3 },
+      { explicit: 4 },
+      { explicit: 5 },
+      { explicit: 6 },
+      { explicit: 7 },
+      { explicit: 8 },
+      { explicit: 9 },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.openScanner');
+          const result = this.impl.openScanner(params.arg_arg_client_id, params.arg_arg_scanner_id);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openScanner FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.closeScanner');
+          const result = this.impl.closeScanner(params.arg_arg_scanner_handle);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] closeScanner FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.startPreparedScan');
+          const result = this.impl.startPreparedScan(params.arg_arg_scanner_handle, params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startPreparedScan FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.readScanData');
+          const result = this.impl.readScanData(params.arg_arg_job_handle);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] readScanData FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.setOptions');
+          const result = this.impl.setOptions(params.arg_arg_scanner_handle, params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setOptions FAILED:', e));
+          }
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getOptionGroups');
+          const result = this.impl.getOptionGroups(params.arg_arg_scanner_handle);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionGroups FAILED:', e));
+          }
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.cancelScan');
+          const result = this.impl.cancelScan(params.arg_arg_job_handle);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cancelScan FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver;
+
+mojo.internal.bindings.crosapi.mojom.DocumentScanPtr = mojo.internal.bindings.crosapi.mojom.DocumentScanRemote;
+mojo.internal.bindings.crosapi.mojom.DocumentScanRequest = mojo.internal.bindings.crosapi.mojom.DocumentScanPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: OptionValue
 mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.OptionValueSpec, 'crosapi.mojom.OptionValue', {
@@ -491,8 +812,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.crosapi.mojom.ScannerOperationResultSpec, null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-// Interface: DocumentScan
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec, 'crosapi.mojom.DocumentScan_OpenScanner_Params', [
       mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
@@ -579,300 +898,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.crosapi.mojom.CancelScanResponseSpec, null, false, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.crosapi.mojom.DocumentScanPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.crosapi.mojom.DocumentScanRemote = class {
-  static get $interfaceName() {
-    return 'crosapi.mojom.DocumentScan';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.crosapi.mojom.DocumentScanPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  openScanner(arg_client_id, arg_scanner_id) {
-    return this.$.openScanner(arg_client_id, arg_scanner_id);
-  }
-  closeScanner(arg_scanner_handle) {
-    return this.$.closeScanner(arg_scanner_handle);
-  }
-  startPreparedScan(arg_scanner_handle, arg_options) {
-    return this.$.startPreparedScan(arg_scanner_handle, arg_options);
-  }
-  readScanData(arg_job_handle) {
-    return this.$.readScanData(arg_job_handle);
-  }
-  setOptions(arg_scanner_handle, arg_options) {
-    return this.$.setOptions(arg_scanner_handle, arg_options);
-  }
-  getOptionGroups(arg_scanner_handle) {
-    return this.$.getOptionGroups(arg_scanner_handle);
-  }
-  cancelScan(arg_job_handle) {
-    return this.$.cancelScan(arg_job_handle);
-  }
-};
-
-mojo.internal.bindings.crosapi.mojom.DocumentScanRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DocumentScan', [
-      { explicit: 3 },
-      { explicit: 4 },
-      { explicit: 5 },
-      { explicit: 6 },
-      { explicit: 7 },
-      { explicit: 8 },
-      { explicit: 9 },
-    ]);
-  }
-
-  openScanner(arg_client_id, arg_scanner_id) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec,
-      [arg_client_id, arg_scanner_id],
-      false);
-  }
-
-  closeScanner(arg_scanner_handle) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec,
-      [arg_scanner_handle],
-      false);
-  }
-
-  startPreparedScan(arg_scanner_handle, arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec,
-      [arg_scanner_handle, arg_options],
-      false);
-  }
-
-  readScanData(arg_job_handle) {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec,
-      [arg_job_handle],
-      false);
-  }
-
-  setOptions(arg_scanner_handle, arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec,
-      [arg_scanner_handle, arg_options],
-      false);
-  }
-
-  getOptionGroups(arg_scanner_handle) {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec,
-      [arg_scanner_handle],
-      false);
-  }
-
-  cancelScan(arg_job_handle) {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec,
-      mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec,
-      [arg_job_handle],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.crosapi.mojom.DocumentScan.getRemote = function() {
-  let remote = new mojo.internal.bindings.crosapi.mojom.DocumentScanRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'crosapi.mojom.DocumentScan',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('crosapi.mojom.DocumentScan', [
-      { explicit: 3 },
-      { explicit: 4 },
-      { explicit: 5 },
-      { explicit: 6 },
-      { explicit: 7 },
-      { explicit: 8 },
-      { explicit: 9 },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.openScanner');
-          const result = this.impl.openScanner(params.arg_client_id, params.arg_scanner_id);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_OpenScanner_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenScanner FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.closeScanner');
-          const result = this.impl.closeScanner(params.arg_scanner_handle);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_CloseScanner_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CloseScanner FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.startPreparedScan');
-          const result = this.impl.startPreparedScan(params.arg_scanner_handle, params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_StartPreparedScan_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartPreparedScan FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.readScanData');
-          const result = this.impl.readScanData(params.arg_job_handle);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_ReadScanData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ReadScanData FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.setOptions');
-          const result = this.impl.setOptions(params.arg_scanner_handle, params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_SetOptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetOptions FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getOptionGroups');
-          const result = this.impl.getOptionGroups(params.arg_scanner_handle);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_GetOptionGroups_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionGroups FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.cancelScan');
-          const result = this.impl.cancelScan(params.arg_job_handle);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.DocumentScan_CancelScan_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CancelScan FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver = mojo.internal.bindings.crosapi.mojom.DocumentScanReceiver;
-
-mojo.internal.bindings.crosapi.mojom.DocumentScanPtr = mojo.internal.bindings.crosapi.mojom.DocumentScanRemote;
-mojo.internal.bindings.crosapi.mojom.DocumentScanRequest = mojo.internal.bindings.crosapi.mojom.DocumentScanPendingReceiver;
 

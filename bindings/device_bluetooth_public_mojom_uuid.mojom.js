@@ -123,6 +123,8 @@ mojo.internal.bindings.bluetooth.mojom = mojo.internal.bindings.bluetooth.mojom 
 
 mojo.internal.bindings.bluetooth.mojom.UUIDSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UUID
 mojo.internal.Struct(
     mojo.internal.bindings.bluetooth.mojom.UUIDSpec, 'bluetooth.mojom.UUID', [

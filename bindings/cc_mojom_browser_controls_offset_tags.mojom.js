@@ -129,6 +129,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.OffsetTagSpec = mojo.internal.bindings.viz.mojom.OffsetTagSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BrowserControlsOffsetTags
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec, 'cc.mojom.BrowserControlsOffsetTags', [

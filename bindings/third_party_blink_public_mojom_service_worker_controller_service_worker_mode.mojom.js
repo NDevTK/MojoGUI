@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.ControllerServiceWorkerMode = {
   kNoFetchEventHandler: 1,
   kControlled: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

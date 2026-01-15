@@ -123,6 +123,8 @@ mojo.internal.bindings.on_device_model.mojom = mojo.internal.bindings.on_device_
 
 mojo.internal.bindings.on_device_model.mojom.DownloaderParamsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DownloaderParams
 mojo.internal.Struct(
     mojo.internal.bindings.on_device_model.mojom.DownloaderParamsSpec, 'on_device_model.mojom.DownloaderParams', [

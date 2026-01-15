@@ -134,17 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.BigStringSpec = mojo.internal.bindings.mojo_base.mojom.BigStringSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DhcpWpadUrlClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParams', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.DhcpWpadUrlClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,8 +250,11 @@ mojo.internal.bindings.network.mojom.DhcpWpadUrlClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPacUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_url' in response) ? response.arg_arg_url : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPacUrl FAILED:', e));
           }
           break;
         }
@@ -278,4 +270,17 @@ mojo.internal.bindings.network.mojom.DhcpWpadUrlClientReceiver = mojo.internal.b
 
 mojo.internal.bindings.network.mojom.DhcpWpadUrlClientPtr = mojo.internal.bindings.network.mojom.DhcpWpadUrlClientRemote;
 mojo.internal.bindings.network.mojom.DhcpWpadUrlClientRequest = mojo.internal.bindings.network.mojom.DhcpWpadUrlClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParamsSpec, 'network.mojom.DhcpWpadUrlClient_GetPacUrl_ResponseParams', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

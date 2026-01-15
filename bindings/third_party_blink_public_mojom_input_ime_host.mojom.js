@@ -142,40 +142,7 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: EditorBoundsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec, 'blink.mojom.EditorBoundsInfo', [
-      mojo.internal.StructField('arg_editor_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handwriting_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TextAppearanceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec, 'blink.mojom.TextAppearanceInfo', [
-      mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: InputCursorAnchorInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec, 'blink.mojom.InputCursorAnchorInfo', [
-      mojo.internal.StructField('arg_character_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_editor_bounds_info', 8, 0, mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_appearance_info', 16, 0, mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_line_bounds', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_insertion_marker', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_requested', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: ImeRenderWidgetHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec, 'blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_Params', [
-      mojo.internal.StructField('arg_cursor_anchor_info', 0, 0, mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,7 +255,7 @@ mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCursorAnchorInfo');
-          const result = this.impl.updateCursorAnchorInfo(params.arg_cursor_anchor_info);
+          const result = this.impl.updateCursorAnchorInfo(params.arg_arg_cursor_anchor_info);
           break;
         }
       }
@@ -303,4 +270,39 @@ mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostPtr = mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostRemote;
 mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostRequest = mojo.internal.bindings.blink.mojom.ImeRenderWidgetHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: EditorBoundsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec, 'blink.mojom.EditorBoundsInfo', [
+      mojo.internal.StructField('arg_editor_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handwriting_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TextAppearanceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec, 'blink.mojom.TextAppearanceInfo', [
+      mojo.internal.StructField('arg_text_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: InputCursorAnchorInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec, 'blink.mojom.InputCursorAnchorInfo', [
+      mojo.internal.StructField('arg_character_bounds', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_editor_bounds_info', 8, 0, mojo.internal.bindings.blink.mojom.EditorBoundsInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_appearance_info', 16, 0, mojo.internal.bindings.blink.mojom.TextAppearanceInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_line_bounds', 24, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_insertion_marker', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_requested', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_ParamsSpec, 'blink.mojom.ImeRenderWidgetHost_UpdateCursorAnchorInfo_Params', [
+      mojo.internal.StructField('arg_cursor_anchor_info', 0, 0, mojo.internal.bindings.blink.mojom.InputCursorAnchorInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

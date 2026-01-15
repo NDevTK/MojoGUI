@@ -152,33 +152,6 @@ mojo.internal.bindings.ash.ime.mojom.JpUnusedSpec = mojo.internal.bindings.ash.i
 mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote = mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote || class {};
 
 // Interface: ConnectionFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params', [
-      mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_method_host', 12, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 24, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec, null, true, 2, undefined),
-    ],
-    [[0, 32], [2, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_Params', [
-      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,12 +278,15 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToInputMethod');
-          const result = this.impl.connectToInputMethod(params.arg_ime_spec, params.arg_input_method, params.arg_input_method_host, params.arg_settings);
+          const result = this.impl.connectToInputMethod(params.arg_arg_ime_spec, params.arg_arg_input_method, params.arg_arg_input_method_host, params.arg_arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ConnectToInputMethod FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connectToInputMethod FAILED:', e));
           }
           break;
         }
@@ -318,12 +294,15 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unused');
-          const result = this.impl.unused(params.arg_unused);
+          const result = this.impl.unused(params.arg_arg_unused);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Unused FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unused FAILED:', e));
           }
           break;
         }
@@ -339,4 +318,33 @@ mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryReceiver = mojo.internal.b
 
 mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryPtr = mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRemote;
 mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryRequest = mojo.internal.bindings.ash.ime.mojom.ConnectionFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_Params', [
+      mojo.internal.StructField('arg_ime_spec', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_method', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.InputMethodRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_method_host', 12, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.ime.mojom.InputMethodHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 24, 0, mojo.internal.bindings.ash.ime.mojom.InputMethodSettingsSpec, null, true, 2, undefined),
+    ],
+    [[0, 32], [2, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_ConnectToInputMethod_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_Params', [
+      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.ConnectionFactory_Unused_ResponseParamsSpec, 'ash.ime.mojom.ConnectionFactory_Unused_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

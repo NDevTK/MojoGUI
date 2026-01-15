@@ -236,3 +236,5 @@ mojo.internal.bindings.network.mojom.PermissionsPolicyFeature = {
   kLocalNetwork: 144,
   kLoopbackNetwork: 145,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -131,11 +131,6 @@ mojo.internal.bindings.audio.mojom.DeviceNotifier.$interfaceName = 'audio.mojom.
 mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec = { $: {} };
 
 // Interface: DeviceListener
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec, 'audio.mojom.DeviceListener_DevicesChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.audio.mojom.DeviceListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,12 +261,6 @@ mojo.internal.bindings.audio.mojom.DeviceListenerRequest = mojo.internal.binding
 
 
 // Interface: DeviceNotifier
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec, 'audio.mojom.DeviceNotifier_RegisterListener_Params', [
-      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DeviceListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -384,7 +373,7 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerListener');
-          const result = this.impl.registerListener(params.arg_listener);
+          const result = this.impl.registerListener(params.arg_arg_listener);
           break;
         }
       }
@@ -399,4 +388,17 @@ mojo.internal.bindings.audio.mojom.DeviceNotifierReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.audio.mojom.DeviceNotifierPtr = mojo.internal.bindings.audio.mojom.DeviceNotifierRemote;
 mojo.internal.bindings.audio.mojom.DeviceNotifierRequest = mojo.internal.bindings.audio.mojom.DeviceNotifierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.DeviceListener_DevicesChanged_ParamsSpec, 'audio.mojom.DeviceListener_DevicesChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.DeviceNotifier_RegisterListener_ParamsSpec, 'audio.mojom.DeviceNotifier_RegisterListener_Params', [
+      mojo.internal.StructField('arg_listener', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.audio.mojom.DeviceListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

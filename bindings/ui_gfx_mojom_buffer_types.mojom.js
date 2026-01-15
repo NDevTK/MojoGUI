@@ -168,6 +168,8 @@ mojo.internal.bindings.gfx.mojom.BufferUsage = {
   SCANOUT_FRONT_RENDERING: 11,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GpuMemoryBufferId
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.GpuMemoryBufferIdSpec, 'gfx.mojom.GpuMemoryBufferId', [

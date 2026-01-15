@@ -132,22 +132,7 @@ mojo.internal.bindings.watermark.mojom.PageHandler.$interfaceName = 'watermark.m
 mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec = { $: {} };
 mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec = { $: {} };
 
-// Struct: WatermarkStyle
-mojo.internal.Struct(
-    mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec, 'watermark.mojom.WatermarkStyle', [
-      mojo.internal.StructField('arg_fill_opacity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_outline_opacity', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_font_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'watermark.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.watermark.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.watermark.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,7 +245,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -278,17 +263,6 @@ mojo.internal.bindings.watermark.mojom.PageHandlerFactoryRequest = mojo.internal
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec, 'watermark.mojom.PageHandler_SetWatermarkStyle_Params', [
-      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec, 'watermark.mojom.PageHandler_ShowNotificationToast_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.watermark.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -415,7 +389,7 @@ mojo.internal.bindings.watermark.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWatermarkStyle');
-          const result = this.impl.setWatermarkStyle(params.arg_style);
+          const result = this.impl.setWatermarkStyle(params.arg_arg_style);
           break;
         }
         case 1: {
@@ -437,4 +411,32 @@ mojo.internal.bindings.watermark.mojom.PageHandlerReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.watermark.mojom.PageHandlerPtr = mojo.internal.bindings.watermark.mojom.PageHandlerRemote;
 mojo.internal.bindings.watermark.mojom.PageHandlerRequest = mojo.internal.bindings.watermark.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WatermarkStyle
+mojo.internal.Struct(
+    mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec, 'watermark.mojom.WatermarkStyle', [
+      mojo.internal.StructField('arg_fill_opacity', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_outline_opacity', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_font_size', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.watermark.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'watermark.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.watermark.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.watermark.mojom.PageHandler_SetWatermarkStyle_ParamsSpec, 'watermark.mojom.PageHandler_SetWatermarkStyle_Params', [
+      mojo.internal.StructField('arg_style', 0, 0, mojo.internal.bindings.watermark.mojom.WatermarkStyleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.watermark.mojom.PageHandler_ShowNotificationToast_ParamsSpec, 'watermark.mojom.PageHandler_ShowNotificationToast_Params', [
+    ],
+    [[0, 8]]);
 

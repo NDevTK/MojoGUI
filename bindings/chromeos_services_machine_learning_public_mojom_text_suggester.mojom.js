@@ -167,69 +167,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroup 
   MinVersion: 1,
 };
 
-// Union: TextSuggestionCandidate
-mojo.internal.Union(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
-      'arg_multi_word': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: NextWordCompletionCandidate
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, 'chromeos.machine_learning.mojom.NextWordCompletionCandidate', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TextSuggesterQuery
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec, 'chromeos.machine_learning.mojom.TextSuggesterQuery', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_next_word_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion_mode', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec, null, false, 1, undefined),
-    ],
-    [[0, 24], [1, 32]]);
-
-// Struct: MultiWordSuggestionCandidate
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TextSuggesterResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TextSuggesterSpec
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec, 'chromeos.machine_learning.mojom.TextSuggesterSpec', [
-      mojo.internal.StructField('arg_multi_word_experiment', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: TextSuggester
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -342,12 +280,15 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suggest');
-          const result = this.impl.suggest(params.arg_query);
+          const result = this.impl.suggest(params.arg_arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Suggest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] suggest FAILED:', e));
           }
           break;
         }
@@ -363,4 +304,68 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterReceiver = m
 
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPtr = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRemote;
 mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterRequest = mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: TextSuggestionCandidate
+mojo.internal.Union(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.TextSuggestionCandidate', {
+      'arg_multi_word': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: NextWordCompletionCandidate
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, 'chromeos.machine_learning.mojom.NextWordCompletionCandidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TextSuggesterQuery
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec, 'chromeos.machine_learning.mojom.TextSuggesterQuery', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_next_word_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.NextWordCompletionCandidateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion_mode', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionModeSpec, null, false, 1, undefined),
+    ],
+    [[0, 24], [1, 32]]);
+
+// Struct: MultiWordSuggestionCandidate
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordSuggestionCandidateSpec, 'chromeos.machine_learning.mojom.MultiWordSuggestionCandidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_normalized_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TextSuggesterResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, 'chromeos.machine_learning.mojom.TextSuggesterResult', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggestionCandidateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TextSuggesterSpec
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterSpecSpec, 'chromeos.machine_learning.mojom.TextSuggesterSpec', [
+      mojo.internal.StructField('arg_multi_word_experiment', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.MultiWordExperimentGroupSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterQuerySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParamsSpec, 'chromeos.machine_learning.mojom.TextSuggester_Suggest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TextSuggesterResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

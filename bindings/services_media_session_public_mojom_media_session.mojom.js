@@ -290,133 +290,7 @@ mojo.internal.bindings.media_session.mojom.SuspendType = {
   kContent: 2,
 };
 
-// Struct: MediaImage
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaImageSpec, 'media_session.mojom.MediaImage', [
-      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ChapterInformation
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, 'media_session.mojom.ChapterInformation', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_startTime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artwork', 16, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: MediaMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaMetadataSpec, 'media_session.mojom.MediaMetadata', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artist', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_album', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_title', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_chapters', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, false), null, true, 21, undefined),
-    ],
-    [[0, 40], [21, 48]]);
-
-// Struct: MediaImageBitmap
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, 'media_session.mojom.MediaImageBitmap', [
-      mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pixel_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_type', 16, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapColorTypeSpec, null, false, 5, undefined),
-    ],
-    [[0, 24], [5, 32]]);
-
-// Struct: MediaPosition
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaPositionSpec, 'media_session.mojom.MediaPosition', [
-      mojo.internal.StructField('arg_playback_rate', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_updated_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end_of_media', 32, 0, mojo.internal.Bool, false, false, 13, undefined),
-    ],
-    [[0, 40], [13, 48]]);
-
-// Struct: RemotePlaybackMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.RemotePlaybackMetadataSpec, 'media_session.mojom.RemotePlaybackMetadata', [
-      mojo.internal.StructField('arg_video_codec', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_codec', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_playback_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_playback_started', 16, 1, mojo.internal.Bool, false, false, 17, undefined),
-      mojo.internal.StructField('arg_is_encrypted_media', 16, 2, mojo.internal.Bool, false, false, 18, undefined),
-      mojo.internal.StructField('arg_unused_field', 24, 0, mojo.internal.String, null, true, 17, undefined),
-    ],
-    [[0, 32], [17, 40], [18, 32]]);
-
-// Struct: MediaSessionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, 'media_session.mojom.MediaSessionInfo', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media_session.mojom.SessionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_duck', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_controllable', 4, 1, mojo.internal.Bool, false, false, 2, undefined),
-      mojo.internal.StructField('arg_prefer_stop_for_gain_focus_loss', 4, 2, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('arg_deprecated_is_sensitive', 4, 3, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_muted', 4, 4, mojo.internal.Bool, false, false, 12, undefined),
-      mojo.internal.StructField('arg_has_presentation', 4, 5, mojo.internal.Bool, false, false, 14, undefined),
-      mojo.internal.StructField('arg_hide_metadata', 4, 6, mojo.internal.Bool, false, false, 16, undefined),
-      mojo.internal.StructField('arg_ignore_for_active_session', 4, 7, mojo.internal.Bool, false, false, 20, undefined),
-      mojo.internal.StructField('arg_meets_visibility_threshold', 5, 0, mojo.internal.Bool, false, false, 21, undefined),
-      mojo.internal.StructField('arg_can_enter_browser_initiated_autopip', 5, 1, mojo.internal.Bool, false, false, 24, undefined),
-      mojo.internal.StructField('arg_playback_state', 8, 0, mojo.internal.bindings.media_session.mojom.MediaPlaybackStateSpec, null, false, 1, undefined),
-      mojo.internal.StructField('arg_picture_in_picture_state', 12, 0, mojo.internal.bindings.media_session.mojom.MediaPictureInPictureStateSpec, null, false, 7, undefined),
-      mojo.internal.StructField('arg_deprecated_audio_video_state', 16, 0, mojo.internal.bindings.media_session.mojom.MediaAudioVideoStateSpec, null, false, 8, undefined),
-      mojo.internal.StructField('arg_microphone_state', 20, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec, null, false, 11, undefined),
-      mojo.internal.StructField('arg_audio_sink_id', 24, 0, mojo.internal.String, null, true, 9, undefined),
-      mojo.internal.StructField('arg_audio_video_states', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaAudioVideoStateSpec, false), null, true, 10, undefined),
-      mojo.internal.StructField('arg_camera_state', 40, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec, null, false, 11, undefined),
-      mojo.internal.StructField('arg_remote_playback_metadata', 48, 0, mojo.internal.bindings.media_session.mojom.RemotePlaybackMetadataSpec, null, true, 15, undefined),
-    ],
-    [[0, 16], [1, 24], [2, 16], [4, 16], [6, 16], [7, 24], [8, 32], [9, 40], [10, 48], [11, 56], [12, 16], [14, 16], [15, 64], [16, 16], [20, 16], [21, 16], [24, 16]]);
-
-// Struct: MediaSessionDebugInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec, 'media_session.mojom.MediaSessionDebugInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_owner', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: MediaSessionObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media_session.mojom.MediaMetadataSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_Params', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Map(mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media_session.mojom.MediaSessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -585,35 +459,35 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionInfoChanged');
-          const result = this.impl.mediaSessionInfoChanged(params.arg_info);
+          const result = this.impl.mediaSessionInfoChanged(params.arg_arg_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionMetadataChanged');
-          const result = this.impl.mediaSessionMetadataChanged(params.arg_metadata);
+          const result = this.impl.mediaSessionMetadataChanged(params.arg_arg_metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionActionsChanged');
-          const result = this.impl.mediaSessionActionsChanged(params.arg_action);
+          const result = this.impl.mediaSessionActionsChanged(params.arg_arg_action);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionImagesChanged');
-          const result = this.impl.mediaSessionImagesChanged(params.arg_images);
+          const result = this.impl.mediaSessionImagesChanged(params.arg_arg_images);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaSessionPositionChanged');
-          const result = this.impl.mediaSessionPositionChanged(params.arg_position);
+          const result = this.impl.mediaSessionPositionChanged(params.arg_arg_position);
           break;
         }
       }
@@ -631,182 +505,6 @@ mojo.internal.bindings.media_session.mojom.MediaSessionObserverRequest = mojo.in
 
 
 // Interface: MediaSession
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_StartDucking_ParamsSpec, 'media_session.mojom.MediaSession_StartDucking_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_StopDucking_ParamsSpec, 'media_session.mojom.MediaSession_StopDucking_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_Suspend_ParamsSpec, 'media_session.mojom.MediaSession_Suspend_Params', [
-      mojo.internal.StructField('arg_suspend_type', 0, 0, mojo.internal.bindings.media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_Resume_ParamsSpec, 'media_session.mojom.MediaSession_Resume_Params', [
-      mojo.internal.StructField('arg_suspend_type', 0, 0, mojo.internal.bindings.media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_AddObserver_ParamsSpec, 'media_session.mojom.MediaSession_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_PreviousTrack_ParamsSpec, 'media_session.mojom.MediaSession_PreviousTrack_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_NextTrack_ParamsSpec, 'media_session.mojom.MediaSession_NextTrack_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_Seek_ParamsSpec, 'media_session.mojom.MediaSession_Seek_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_Stop_ParamsSpec, 'media_session.mojom.MediaSession_Stop_Params', [
-      mojo.internal.StructField('arg_suspend_type', 0, 0, mojo.internal.bindings.media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_SkipAd_ParamsSpec, 'media_session.mojom.MediaSession_SkipAd_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_size_px', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_desired_size_px', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParams', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_SeekTo_ParamsSpec, 'media_session.mojom.MediaSession_SeekTo_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_ScrubTo_ParamsSpec, 'media_session.mojom.MediaSession_ScrubTo_Params', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_EnterPictureInPicture_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_ExitPictureInPicture_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec, 'media_session.mojom.MediaSession_SetAudioSinkId_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec, 'media_session.mojom.MediaSession_ToggleMicrophone_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_ToggleCamera_ParamsSpec, 'media_session.mojom.MediaSession_ToggleCamera_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_HangUp_ParamsSpec, 'media_session.mojom.MediaSession_HangUp_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_Raise_ParamsSpec, 'media_session.mojom.MediaSession_Raise_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_SetMute_ParamsSpec, 'media_session.mojom.MediaSession_SetMute_Params', [
-      mojo.internal.StructField('arg_mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec, 'media_session.mojom.MediaSession_RequestMediaRemoting_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_PreviousSlide_ParamsSpec, 'media_session.mojom.MediaSession_PreviousSlide_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_NextSlide_ParamsSpec, 'media_session.mojom.MediaSession_NextSlide_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_EnterAutoPictureInPicture_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec, 'media_session.mojom.MediaSession_GetVisibility_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetVisibility_ResponseParams', [
-      mojo.internal.StructField('arg_has_sufficiently_visible_video', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media_session.mojom.MediaSessionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1301,8 +999,11 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMediaSessionInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMediaSessionInfo FAILED:', e));
           }
           break;
         }
@@ -1314,8 +1015,11 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDebugInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDebugInfo FAILED:', e));
           }
           break;
         }
@@ -1337,21 +1041,21 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Suspend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.suspend');
-          const result = this.impl.suspend(params.arg_suspend_type);
+          const result = this.impl.suspend(params.arg_arg_suspend_type);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Resume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resume');
-          const result = this.impl.resume(params.arg_suspend_type);
+          const result = this.impl.resume(params.arg_arg_suspend_type);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
         case 7: {
@@ -1372,14 +1076,14 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Seek_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seek');
-          const result = this.impl.seek(params.arg_seek_time);
+          const result = this.impl.seek(params.arg_arg_seek_time);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_Stop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stop');
-          const result = this.impl.stop(params.arg_suspend_type);
+          const result = this.impl.stop(params.arg_arg_suspend_type);
           break;
         }
         case 11: {
@@ -1393,12 +1097,15 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMediaImageBitmap');
-          const result = this.impl.getMediaImageBitmap(params.arg_image, params.arg_minimum_size_px, params.arg_desired_size_px);
+          const result = this.impl.getMediaImageBitmap(params.arg_arg_image, params.arg_arg_minimum_size_px, params.arg_arg_desired_size_px);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMediaImageBitmap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_image' in response) ? response.arg_arg_image : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMediaImageBitmap FAILED:', e));
           }
           break;
         }
@@ -1406,14 +1113,14 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SeekTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.seekTo');
-          const result = this.impl.seekTo(params.arg_seek_time);
+          const result = this.impl.seekTo(params.arg_arg_seek_time);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_ScrubTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scrubTo');
-          const result = this.impl.scrubTo(params.arg_seek_time);
+          const result = this.impl.scrubTo(params.arg_arg_seek_time);
           break;
         }
         case 15: {
@@ -1434,7 +1141,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioSinkId');
-          const result = this.impl.setAudioSinkId(params.arg_id);
+          const result = this.impl.setAudioSinkId(params.arg_arg_id);
           break;
         }
         case 18: {
@@ -1469,7 +1176,7 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_SetMute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMute');
-          const result = this.impl.setMute(params.arg_mute);
+          const result = this.impl.setMute(params.arg_arg_mute);
           break;
         }
         case 23: {
@@ -1508,8 +1215,11 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetVisibility FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_has_sufficiently_visible_video' in response) ? response.arg_arg_has_sufficiently_visible_video : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getVisibility FAILED:', e));
           }
           break;
         }
@@ -1525,4 +1235,308 @@ mojo.internal.bindings.media_session.mojom.MediaSessionReceiver = mojo.internal.
 
 mojo.internal.bindings.media_session.mojom.MediaSessionPtr = mojo.internal.bindings.media_session.mojom.MediaSessionRemote;
 mojo.internal.bindings.media_session.mojom.MediaSessionRequest = mojo.internal.bindings.media_session.mojom.MediaSessionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MediaImage
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaImageSpec, 'media_session.mojom.MediaImage', [
+      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sizes', 16, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ChapterInformation
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, 'media_session.mojom.ChapterInformation', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_startTime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artwork', 16, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: MediaMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaMetadataSpec, 'media_session.mojom.MediaMetadata', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artist', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_album', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_title', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_chapters', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, false), null, true, 21, undefined),
+    ],
+    [[0, 40], [21, 48]]);
+
+// Struct: MediaImageBitmap
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, 'media_session.mojom.MediaImageBitmap', [
+      mojo.internal.StructField('arg_width', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pixel_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_type', 16, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapColorTypeSpec, null, false, 5, undefined),
+    ],
+    [[0, 24], [5, 32]]);
+
+// Struct: MediaPosition
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaPositionSpec, 'media_session.mojom.MediaPosition', [
+      mojo.internal.StructField('arg_playback_rate', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_updated_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end_of_media', 32, 0, mojo.internal.Bool, false, false, 13, undefined),
+    ],
+    [[0, 40], [13, 48]]);
+
+// Struct: RemotePlaybackMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.RemotePlaybackMetadataSpec, 'media_session.mojom.RemotePlaybackMetadata', [
+      mojo.internal.StructField('arg_video_codec', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_codec', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_playback_disabled', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_playback_started', 16, 1, mojo.internal.Bool, false, false, 17, undefined),
+      mojo.internal.StructField('arg_is_encrypted_media', 16, 2, mojo.internal.Bool, false, false, 18, undefined),
+      mojo.internal.StructField('arg_unused_field', 24, 0, mojo.internal.String, null, true, 17, undefined),
+    ],
+    [[0, 32], [17, 40], [18, 32]]);
+
+// Struct: MediaSessionInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, 'media_session.mojom.MediaSessionInfo', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media_session.mojom.SessionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_force_duck', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_controllable', 4, 1, mojo.internal.Bool, false, false, 2, undefined),
+      mojo.internal.StructField('arg_prefer_stop_for_gain_focus_loss', 4, 2, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('arg_deprecated_is_sensitive', 4, 3, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_muted', 4, 4, mojo.internal.Bool, false, false, 12, undefined),
+      mojo.internal.StructField('arg_has_presentation', 4, 5, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('arg_hide_metadata', 4, 6, mojo.internal.Bool, false, false, 16, undefined),
+      mojo.internal.StructField('arg_ignore_for_active_session', 4, 7, mojo.internal.Bool, false, false, 20, undefined),
+      mojo.internal.StructField('arg_meets_visibility_threshold', 5, 0, mojo.internal.Bool, false, false, 21, undefined),
+      mojo.internal.StructField('arg_can_enter_browser_initiated_autopip', 5, 1, mojo.internal.Bool, false, false, 24, undefined),
+      mojo.internal.StructField('arg_playback_state', 8, 0, mojo.internal.bindings.media_session.mojom.MediaPlaybackStateSpec, null, false, 1, undefined),
+      mojo.internal.StructField('arg_picture_in_picture_state', 12, 0, mojo.internal.bindings.media_session.mojom.MediaPictureInPictureStateSpec, null, false, 7, undefined),
+      mojo.internal.StructField('arg_deprecated_audio_video_state', 16, 0, mojo.internal.bindings.media_session.mojom.MediaAudioVideoStateSpec, null, false, 8, undefined),
+      mojo.internal.StructField('arg_microphone_state', 20, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec, null, false, 11, undefined),
+      mojo.internal.StructField('arg_audio_sink_id', 24, 0, mojo.internal.String, null, true, 9, undefined),
+      mojo.internal.StructField('arg_audio_video_states', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaAudioVideoStateSpec, false), null, true, 10, undefined),
+      mojo.internal.StructField('arg_camera_state', 40, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec, null, false, 11, undefined),
+      mojo.internal.StructField('arg_remote_playback_metadata', 48, 0, mojo.internal.bindings.media_session.mojom.RemotePlaybackMetadataSpec, null, true, 15, undefined),
+    ],
+    [[0, 16], [1, 24], [2, 16], [4, 16], [6, 16], [7, 24], [8, 32], [9, 40], [10, 48], [11, 56], [12, 16], [14, 16], [15, 64], [16, 16], [20, 16], [21, 16], [24, 16]]);
+
+// Struct: MediaSessionDebugInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec, 'media_session.mojom.MediaSessionDebugInfo', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_owner', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionInfoChanged_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionMetadataChanged_Params', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.media_session.mojom.MediaMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionActionsChanged_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionImagesChanged_Params', [
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.Map(mojo.internal.bindings.media_session.mojom.MediaSessionImageTypeSpec, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_ParamsSpec, 'media_session.mojom.MediaSessionObserver_MediaSessionPositionChanged_Params', [
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaSessionInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetDebugInfo_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetDebugInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionDebugInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_StartDucking_ParamsSpec, 'media_session.mojom.MediaSession_StartDucking_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_StopDucking_ParamsSpec, 'media_session.mojom.MediaSession_StopDucking_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_Suspend_ParamsSpec, 'media_session.mojom.MediaSession_Suspend_Params', [
+      mojo.internal.StructField('arg_suspend_type', 0, 0, mojo.internal.bindings.media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_Resume_ParamsSpec, 'media_session.mojom.MediaSession_Resume_Params', [
+      mojo.internal.StructField('arg_suspend_type', 0, 0, mojo.internal.bindings.media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_AddObserver_ParamsSpec, 'media_session.mojom.MediaSession_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.MediaSessionObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_PreviousTrack_ParamsSpec, 'media_session.mojom.MediaSession_PreviousTrack_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_NextTrack_ParamsSpec, 'media_session.mojom.MediaSession_NextTrack_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_Seek_ParamsSpec, 'media_session.mojom.MediaSession_Seek_Params', [
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_Stop_ParamsSpec, 'media_session.mojom.MediaSession_Stop_Params', [
+      mojo.internal.StructField('arg_suspend_type', 0, 0, mojo.internal.bindings.media_session.mojom.SuspendTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_SkipAd_ParamsSpec, 'media_session.mojom.MediaSession_SkipAd_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_Params', [
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_size_px', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_desired_size_px', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetMediaImageBitmap_ResponseParams', [
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.media_session.mojom.MediaImageBitmapSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_SeekTo_ParamsSpec, 'media_session.mojom.MediaSession_SeekTo_Params', [
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_ScrubTo_ParamsSpec, 'media_session.mojom.MediaSession_ScrubTo_Params', [
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_EnterPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_EnterPictureInPicture_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_ExitPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_ExitPictureInPicture_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_SetAudioSinkId_ParamsSpec, 'media_session.mojom.MediaSession_SetAudioSinkId_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_ToggleMicrophone_ParamsSpec, 'media_session.mojom.MediaSession_ToggleMicrophone_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_ToggleCamera_ParamsSpec, 'media_session.mojom.MediaSession_ToggleCamera_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_HangUp_ParamsSpec, 'media_session.mojom.MediaSession_HangUp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_Raise_ParamsSpec, 'media_session.mojom.MediaSession_Raise_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_SetMute_ParamsSpec, 'media_session.mojom.MediaSession_SetMute_Params', [
+      mojo.internal.StructField('arg_mute', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_RequestMediaRemoting_ParamsSpec, 'media_session.mojom.MediaSession_RequestMediaRemoting_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_PreviousSlide_ParamsSpec, 'media_session.mojom.MediaSession_PreviousSlide_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_NextSlide_ParamsSpec, 'media_session.mojom.MediaSession_NextSlide_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_EnterAutoPictureInPicture_ParamsSpec, 'media_session.mojom.MediaSession_EnterAutoPictureInPicture_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ParamsSpec, 'media_session.mojom.MediaSession_GetVisibility_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_session.mojom.MediaSession_GetVisibility_ResponseParamsSpec, 'media_session.mojom.MediaSession_GetVisibility_ResponseParams', [
+      mojo.internal.StructField('arg_has_sufficiently_visible_video', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

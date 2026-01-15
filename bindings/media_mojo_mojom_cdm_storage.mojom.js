@@ -150,19 +150,6 @@ mojo.internal.bindings.media.mojom.Status = {
 };
 
 // Interface: CdmStorage
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec, 'media.mojom.CdmStorage_Open_Params', [
-      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm_file', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.CdmFileRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.CdmStoragePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,12 +262,14 @@ mojo.internal.bindings.media.mojom.CdmStorageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.open');
-          const result = this.impl.open(params.arg_file_name);
+          const result = this.impl.open(params.arg_arg_file_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Open FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_cdm_file']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] open FAILED:', e));
           }
           break;
         }
@@ -299,30 +288,6 @@ mojo.internal.bindings.media.mojom.CdmStorageRequest = mojo.internal.bindings.me
 
 
 // Interface: CdmFile
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec, 'media.mojom.CdmFile_Read_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec, 'media.mojom.CdmFile_Read_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec, 'media.mojom.CdmFile_Write_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec, 'media.mojom.CdmFile_Write_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.CdmFilePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -453,8 +418,10 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -462,12 +429,15 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_data);
+          const result = this.impl.write(params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Write FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
           break;
         }
@@ -483,4 +453,43 @@ mojo.internal.bindings.media.mojom.CdmFileReceiver = mojo.internal.bindings.medi
 
 mojo.internal.bindings.media.mojom.CdmFilePtr = mojo.internal.bindings.media.mojom.CdmFileRemote;
 mojo.internal.bindings.media.mojom.CdmFileRequest = mojo.internal.bindings.media.mojom.CdmFilePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmStorage_Open_ParamsSpec, 'media.mojom.CdmStorage_Open_Params', [
+      mojo.internal.StructField('arg_file_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmStorage_Open_ResponseParamsSpec, 'media.mojom.CdmStorage_Open_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_file', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.CdmFileRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmFile_Read_ParamsSpec, 'media.mojom.CdmFile_Read_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmFile_Read_ResponseParamsSpec, 'media.mojom.CdmFile_Read_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmFile_Write_ParamsSpec, 'media.mojom.CdmFile_Write_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmFile_Write_ResponseParamsSpec, 'media.mojom.CdmFile_Write_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.media.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -142,29 +142,6 @@ mojo.internal.bindings.ash.cros_healthd.mojom = mojo.internal.bindings.ash.cros_
 mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec = mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MeetDevicesDiagnostics
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParams', [
-      mojo.internal.StructField('arg_telemetry', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_Params', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParams', [
-      mojo.internal.StructField('arg_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -295,8 +272,11 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCrosHealthdTelemetry FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_telemetry' in response) ? response.arg_arg_telemetry : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCrosHealthdTelemetry FAILED:', e));
           }
           break;
         }
@@ -304,12 +284,15 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCrosHealthdProcessInfo');
-          const result = this.impl.getCrosHealthdProcessInfo(params.arg_pid);
+          const result = this.impl.getCrosHealthdProcessInfo(params.arg_arg_pid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCrosHealthdProcessInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_process_info' in response) ? response.arg_arg_process_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCrosHealthdProcessInfo FAILED:', e));
           }
           break;
         }
@@ -325,4 +308,29 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsReceiver = mojo.
 
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsPtr = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsRemote;
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsRequest = mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnosticsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdTelemetry_ResponseParams', [
+      mojo.internal.StructField('arg_telemetry', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.TelemetryInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_Params', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesDiagnostics_GetCrosHealthdProcessInfo_ResponseParams', [
+      mojo.internal.StructField('arg_process_info', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.ProcessResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

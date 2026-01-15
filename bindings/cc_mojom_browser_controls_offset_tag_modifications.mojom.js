@@ -128,6 +128,8 @@ mojo.internal.bindings.cc = mojo.internal.bindings.cc || {};
 mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec = mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BrowserControlsOffsetTagModifications
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec, 'cc.mojom.BrowserControlsOffsetTagModifications', [

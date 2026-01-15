@@ -241,109 +241,7 @@ mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportMode = {
   kComplete: 1,
 };
 
-// Struct: ProfileMenuItem
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec, 'chrome.mojom.ProfileMenuItem', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_menu_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_active', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_profile_path', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ApplicationDockMenuItem
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec, 'chrome.mojom.ApplicationDockMenuItem', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AppShimInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimInfoSpec, 'chrome.mojom.AppShimInfo', [
-      mojo.internal.StructField('arg_profile_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_launch_type', 24, 0, mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_login_item_restore_state', 28, 0, mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_files', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_urls', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_notification_action_handler', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: FeatureState
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.FeatureStateSpec, 'chrome.mojom.FeatureState', [
-      mojo.internal.StructField('arg_field_trial_states', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_field_trial_params', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_features', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_disable_features', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: AppShim
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec, 'chrome.mojom.AppShim_CreateRemoteCocoaApplication_Params', [
-      mojo.internal.StructField('arg_application', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec, 'chrome.mojom.AppShim_CreateCommandDispatcherForWidget_Params', [
-      mojo.internal.StructField('arg_widget_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec, 'chrome.mojom.AppShim_SetUserAttention_Params', [
-      mojo.internal.StructField('arg_attention_type', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec, 'chrome.mojom.AppShim_SetBadgeLabel_Params', [
-      mojo.internal.StructField('arg_badge_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec, 'chrome.mojom.AppShim_UpdateProfileMenu_Params', [
-      mojo.internal.StructField('arg_profile_menu_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec, 'chrome.mojom.AppShim_UpdateApplicationDockMenu_Params', [
-      mojo.internal.StructField('arg_dock_menu_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec, 'chrome.mojom.AppShim_BindNotificationProvider_Params', [
-      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec, 'chrome.mojom.AppShim_RequestNotificationPermission_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec, 'chrome.mojom.AppShim_RequestNotificationPermission_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec, 'chrome.mojom.AppShim_BindChildHistogramFetcherFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.AppShimPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -568,49 +466,49 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createRemoteCocoaApplication');
-          const result = this.impl.createRemoteCocoaApplication(params.arg_application);
+          const result = this.impl.createRemoteCocoaApplication(params.arg_arg_application);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCommandDispatcherForWidget');
-          const result = this.impl.createCommandDispatcherForWidget(params.arg_widget_id);
+          const result = this.impl.createCommandDispatcherForWidget(params.arg_arg_widget_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserAttention');
-          const result = this.impl.setUserAttention(params.arg_attention_type);
+          const result = this.impl.setUserAttention(params.arg_arg_attention_type);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBadgeLabel');
-          const result = this.impl.setBadgeLabel(params.arg_badge_label);
+          const result = this.impl.setBadgeLabel(params.arg_arg_badge_label);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateProfileMenu');
-          const result = this.impl.updateProfileMenu(params.arg_profile_menu_items);
+          const result = this.impl.updateProfileMenu(params.arg_arg_profile_menu_items);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateApplicationDockMenu');
-          const result = this.impl.updateApplicationDockMenu(params.arg_dock_menu_items);
+          const result = this.impl.updateApplicationDockMenu(params.arg_arg_dock_menu_items);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindNotificationProvider');
-          const result = this.impl.bindNotificationProvider(params.arg_provider);
+          const result = this.impl.bindNotificationProvider(params.arg_arg_provider);
           break;
         }
         case 7: {
@@ -621,8 +519,11 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestNotificationPermission FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestNotificationPermission FAILED:', e));
           }
           break;
         }
@@ -630,7 +531,7 @@ mojo.internal.bindings.chrome.mojom.AppShimReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindChildHistogramFetcherFactory');
-          const result = this.impl.bindChildHistogramFetcherFactory(params.arg_receiver);
+          const result = this.impl.bindChildHistogramFetcherFactory(params.arg_arg_receiver);
           break;
         }
       }
@@ -648,62 +549,6 @@ mojo.internal.bindings.chrome.mojom.AppShimRequest = mojo.internal.bindings.chro
 
 
 // Interface: AppShimHost
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec, 'chrome.mojom.AppShimHost_FocusApp_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec, 'chrome.mojom.AppShimHost_ReopenApp_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec, 'chrome.mojom.AppShimHost_FilesOpened_Params', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec, 'chrome.mojom.AppShimHost_ProfileSelectedFromMenu_Params', [
-      mojo.internal.StructField('arg_profile_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec, 'chrome.mojom.AppShimHost_OpenAppSettings_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec, 'chrome.mojom.AppShimHost_UrlsOpened_Params', [
-      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec, 'chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_Params', [
-      mojo.internal.StructField('arg_override_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec, 'chrome.mojom.AppShimHost_EnableAccessibilitySupport_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec, 'chrome.mojom.AppShimHost_ApplicationWillTerminate_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec, 'chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.AppShimHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -956,14 +801,14 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.filesOpened');
-          const result = this.impl.filesOpened(params.arg_files);
+          const result = this.impl.filesOpened(params.arg_arg_files);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.profileSelectedFromMenu');
-          const result = this.impl.profileSelectedFromMenu(params.arg_profile_path);
+          const result = this.impl.profileSelectedFromMenu(params.arg_arg_profile_path);
           break;
         }
         case 4: {
@@ -977,21 +822,21 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.urlsOpened');
-          const result = this.impl.urlsOpened(params.arg_urls);
+          const result = this.impl.urlsOpened(params.arg_arg_urls);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openAppWithOverrideUrl');
-          const result = this.impl.openAppWithOverrideUrl(params.arg_override_url);
+          const result = this.impl.openAppWithOverrideUrl(params.arg_arg_override_url);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAccessibilitySupport');
-          const result = this.impl.enableAccessibilitySupport(params.arg_mode);
+          const result = this.impl.enableAccessibilitySupport(params.arg_arg_mode);
           break;
         }
         case 8: {
@@ -1005,7 +850,7 @@ mojo.internal.bindings.chrome.mojom.AppShimHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notificationPermissionStatusChanged');
-          const result = this.impl.notificationPermissionStatusChanged(params.arg_status);
+          const result = this.impl.notificationPermissionStatusChanged(params.arg_arg_status);
           break;
         }
       }
@@ -1023,21 +868,6 @@ mojo.internal.bindings.chrome.mojom.AppShimHostRequest = mojo.internal.bindings.
 
 
 // Interface: AppShimHostBootstrap
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_Params', [
-      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_shim_info', 8, 0, mojo.internal.bindings.chrome.mojom.AppShimInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParams', [
-      mojo.internal.StructField('arg_launch_result', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_shim_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_state', 8, 0, mojo.internal.bindings.chrome.mojom.FeatureStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1150,12 +980,14 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShimConnected');
-          const result = this.impl.onShimConnected(params.arg_host_receiver, params.arg_app_shim_info);
+          const result = this.impl.onShimConnected(params.arg_arg_host_receiver, params.arg_arg_app_shim_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnShimConnected FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec.$.structSpec, ['response.arg_arg_launch_result', 'response.arg_arg_feature_state', 'response.arg_arg_app_shim_receiver']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onShimConnected FAILED:', e));
           }
           break;
         }
@@ -1171,4 +1003,179 @@ mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapReceiver = mojo.internal
 
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapPtr = mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapRemote;
 mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapRequest = mojo.internal.bindings.chrome.mojom.AppShimHostBootstrapPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ProfileMenuItem
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec, 'chrome.mojom.ProfileMenuItem', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 8, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_menu_index', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_active', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_path', 24, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ApplicationDockMenuItem
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec, 'chrome.mojom.ApplicationDockMenuItem', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AppShimInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimInfoSpec, 'chrome.mojom.AppShimInfo', [
+      mojo.internal.StructField('arg_profile_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_launch_type', 24, 0, mojo.internal.bindings.chrome.mojom.AppShimLaunchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_login_item_restore_state', 28, 0, mojo.internal.bindings.chrome.mojom.AppShimLoginItemRestoreStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_files', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_urls', 40, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_notification_action_handler', 48, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationActionHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: FeatureState
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.FeatureStateSpec, 'chrome.mojom.FeatureState', [
+      mojo.internal.StructField('arg_field_trial_states', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_trial_params', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_features', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_disable_features', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_CreateRemoteCocoaApplication_ParamsSpec, 'chrome.mojom.AppShim_CreateRemoteCocoaApplication_Params', [
+      mojo.internal.StructField('arg_application', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.remote_cocoa.mojom.ApplicationRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_CreateCommandDispatcherForWidget_ParamsSpec, 'chrome.mojom.AppShim_CreateCommandDispatcherForWidget_Params', [
+      mojo.internal.StructField('arg_widget_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_SetUserAttention_ParamsSpec, 'chrome.mojom.AppShim_SetUserAttention_Params', [
+      mojo.internal.StructField('arg_attention_type', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimAttentionTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_SetBadgeLabel_ParamsSpec, 'chrome.mojom.AppShim_SetBadgeLabel_Params', [
+      mojo.internal.StructField('arg_badge_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_UpdateProfileMenu_ParamsSpec, 'chrome.mojom.AppShim_UpdateProfileMenu_Params', [
+      mojo.internal.StructField('arg_profile_menu_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ProfileMenuItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_UpdateApplicationDockMenu_ParamsSpec, 'chrome.mojom.AppShim_UpdateApplicationDockMenu_Params', [
+      mojo.internal.StructField('arg_dock_menu_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.ApplicationDockMenuItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_BindNotificationProvider_ParamsSpec, 'chrome.mojom.AppShim_BindNotificationProvider_Params', [
+      mojo.internal.StructField('arg_provider', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mac_notifications.mojom.MacNotificationProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ParamsSpec, 'chrome.mojom.AppShim_RequestNotificationPermission_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_RequestNotificationPermission_ResponseParamsSpec, 'chrome.mojom.AppShim_RequestNotificationPermission_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mac_notifications.mojom.RequestPermissionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShim_BindChildHistogramFetcherFactory_ParamsSpec, 'chrome.mojom.AppShim_BindChildHistogramFetcherFactory_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_FocusApp_ParamsSpec, 'chrome.mojom.AppShimHost_FocusApp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_ReopenApp_ParamsSpec, 'chrome.mojom.AppShimHost_ReopenApp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_FilesOpened_ParamsSpec, 'chrome.mojom.AppShimHost_FilesOpened_Params', [
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_ProfileSelectedFromMenu_ParamsSpec, 'chrome.mojom.AppShimHost_ProfileSelectedFromMenu_Params', [
+      mojo.internal.StructField('arg_profile_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppSettings_ParamsSpec, 'chrome.mojom.AppShimHost_OpenAppSettings_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_UrlsOpened_ParamsSpec, 'chrome.mojom.AppShimHost_UrlsOpened_Params', [
+      mojo.internal.StructField('arg_urls', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_ParamsSpec, 'chrome.mojom.AppShimHost_OpenAppWithOverrideUrl_Params', [
+      mojo.internal.StructField('arg_override_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_EnableAccessibilitySupport_ParamsSpec, 'chrome.mojom.AppShimHost_EnableAccessibilitySupport_Params', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimScreenReaderSupportModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_ApplicationWillTerminate_ParamsSpec, 'chrome.mojom.AppShimHost_ApplicationWillTerminate_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_ParamsSpec, 'chrome.mojom.AppShimHost_NotificationPermissionStatusChanged_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.mac_notifications.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_Params', [
+      mojo.internal.StructField('arg_host_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_shim_info', 8, 0, mojo.internal.bindings.chrome.mojom.AppShimInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParamsSpec, 'chrome.mojom.AppShimHostBootstrap_OnShimConnected_ResponseParams', [
+      mojo.internal.StructField('arg_launch_result', 0, 0, mojo.internal.bindings.chrome.mojom.AppShimLaunchResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_shim_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.AppShimRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_state', 8, 0, mojo.internal.bindings.chrome.mojom.FeatureStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

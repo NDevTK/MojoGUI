@@ -142,55 +142,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: CookieChangeSubscription
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, 'blink.mojom.CookieChangeSubscription', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_match_type', 8, 0, mojo.internal.bindings.network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: CookieStore
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_ResponseParams', [
-      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.CookieStorePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -331,12 +283,15 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSubscriptions');
-          const result = this.impl.addSubscriptions(params.arg_service_worker_registration_id, params.arg_subscription);
+          const result = this.impl.addSubscriptions(params.arg_arg_service_worker_registration_id, params.arg_arg_subscription);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddSubscriptions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addSubscriptions FAILED:', e));
           }
           break;
         }
@@ -344,12 +299,15 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeSubscriptions');
-          const result = this.impl.removeSubscriptions(params.arg_service_worker_registration_id, params.arg_subscription);
+          const result = this.impl.removeSubscriptions(params.arg_arg_service_worker_registration_id, params.arg_arg_subscription);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveSubscriptions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeSubscriptions FAILED:', e));
           }
           break;
         }
@@ -357,12 +315,14 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSubscriptions');
-          const result = this.impl.getSubscriptions(params.arg_service_worker_registration_id);
+          const result = this.impl.getSubscriptions(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSubscriptions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_subscriptions', 'response.arg_arg_success']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSubscriptions FAILED:', e));
           }
           break;
         }
@@ -378,4 +338,54 @@ mojo.internal.bindings.blink.mojom.CookieStoreReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.blink.mojom.CookieStorePtr = mojo.internal.bindings.blink.mojom.CookieStoreRemote;
 mojo.internal.bindings.blink.mojom.CookieStoreRequest = mojo.internal.bindings.blink.mojom.CookieStorePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CookieChangeSubscription
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, 'blink.mojom.CookieChangeSubscription', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_match_type', 8, 0, mojo.internal.bindings.network.mojom.CookieMatchTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieStore_AddSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_AddSubscriptions_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieStore_RemoveSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_RemoveSubscriptions_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CookieStore_GetSubscriptions_ResponseParamsSpec, 'blink.mojom.CookieStore_GetSubscriptions_ResponseParams', [
+      mojo.internal.StructField('arg_subscriptions', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CookieChangeSubscriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

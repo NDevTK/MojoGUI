@@ -133,13 +133,6 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 mojo.internal.bindings.gpu.mojom.SyncTokenSpec = mojo.internal.bindings.gpu.mojom.SyncTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TextureReleaser
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec, 'viz.mojom.TextureReleaser_Release_Params', [
-      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_lost', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.viz.mojom.TextureReleaserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.viz.mojom.TextureReleaserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.release');
-          const result = this.impl.release(params.arg_sync_token, params.arg_is_lost);
+          const result = this.impl.release(params.arg_arg_sync_token, params.arg_arg_is_lost);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.viz.mojom.TextureReleaserReceiver = mojo.internal.binding
 
 mojo.internal.bindings.viz.mojom.TextureReleaserPtr = mojo.internal.bindings.viz.mojom.TextureReleaserRemote;
 mojo.internal.bindings.viz.mojom.TextureReleaserRequest = mojo.internal.bindings.viz.mojom.TextureReleaserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.TextureReleaser_Release_ParamsSpec, 'viz.mojom.TextureReleaser_Release_Params', [
+      mojo.internal.StructField('arg_sync_token', 0, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_lost', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

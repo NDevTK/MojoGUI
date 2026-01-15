@@ -127,12 +127,6 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages.$interfaceName = 
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec = { $: {} };
 
 // Interface: NoStatePrefetchMessages
-mojo.internal.Struct(
-    mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec, 'prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_Params', [
-      mojo.internal.StructField('arg_histogram_prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsNoStatePrefetching');
-          const result = this.impl.setIsNoStatePrefetching(params.arg_histogram_prefix);
+          const result = this.impl.setIsNoStatePrefetching(params.arg_arg_histogram_prefix);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesReceiver = mojo.in
 
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesPtr = mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesRemote;
 mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesRequest = mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessagesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_ParamsSpec, 'prerender.mojom.NoStatePrefetchMessages_SetIsNoStatePrefetching_Params', [
+      mojo.internal.StructField('arg_histogram_prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -131,3 +131,5 @@ mojo.internal.bindings.extensions.mojom.Channel = {
   kBeta: 3,
   kStable: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

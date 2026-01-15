@@ -141,20 +141,6 @@ mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom ||
 mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec = mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TabStripExperimentService
-mojo.internal.Struct(
-    mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_Params', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visual_data', 8, 0, mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_Params', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,14 +267,14 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateTabGroupVisual');
-          const result = this.impl.updateTabGroupVisual(params.arg_id, params.arg_visual_data);
+          const result = this.impl.updateTabGroupVisual(params.arg_arg_id, params.arg_arg_visual_data);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showTabContextMenu');
-          const result = this.impl.showTabContextMenu(params.arg_tab_id, params.arg_location);
+          const result = this.impl.showTabContextMenu(params.arg_arg_tab_id, params.arg_arg_location);
           break;
         }
       }
@@ -303,4 +289,20 @@ mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceReceiver = mojo.i
 
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServicePtr = mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceRemote;
 mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServiceRequest = mojo.internal.bindings.tabs_api.mojom.TabStripExperimentServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_UpdateTabGroupVisual_Params', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_data', 8, 0, mojo.internal.bindings.tabs_api.mojom.TabGroupVisualDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_ParamsSpec, 'tabs_api.mojom.TabStripExperimentService_ShowTabContextMenu_Params', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.bindings.tabs_api.mojom.NodeIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_location', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

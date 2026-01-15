@@ -179,58 +179,6 @@ mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
 mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec = mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WaylandBufferManagerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
-      mojo.internal.StructField('arg_buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_Params', [
-      mojo.internal.StructField('arg_dmabuf_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_planes_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_color_space', 48, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hdr_metadata', 56, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_Params', [
-      mojo.internal.StructField('arg_shm_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_Params', [
-      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_Params', [
-      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_Params', [
-      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.gfx.mojom.FrameDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overlays', 24, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,42 +361,42 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWaylandBufferManagerGpu');
-          const result = this.impl.setWaylandBufferManagerGpu(params.arg_buffer_manager_gpu_associated);
+          const result = this.impl.setWaylandBufferManagerGpu(params.arg_arg_buffer_manager_gpu_associated);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDmabufBasedBuffer');
-          const result = this.impl.createDmabufBasedBuffer(params.arg_dmabuf_fd, params.arg_size, params.arg_strides, params.arg_offsets, params.arg_modifiers, params.arg_format, params.arg_planes_count, params.arg_color_space, params.arg_hdr_metadata, params.arg_buffer_id);
+          const result = this.impl.createDmabufBasedBuffer(params.arg_arg_dmabuf_fd, params.arg_arg_size, params.arg_arg_strides, params.arg_arg_offsets, params.arg_arg_modifiers, params.arg_arg_format, params.arg_arg_planes_count, params.arg_arg_color_space, params.arg_arg_hdr_metadata, params.arg_arg_buffer_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createShmBasedBuffer');
-          const result = this.impl.createShmBasedBuffer(params.arg_shm_fd, params.arg_length, params.arg_size, params.arg_buffer_id);
+          const result = this.impl.createShmBasedBuffer(params.arg_arg_shm_fd, params.arg_arg_length, params.arg_arg_size, params.arg_arg_buffer_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSinglePixelBuffer');
-          const result = this.impl.createSinglePixelBuffer(params.arg_color, params.arg_buffer_id);
+          const result = this.impl.createSinglePixelBuffer(params.arg_arg_color, params.arg_arg_buffer_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.destroyBuffer');
-          const result = this.impl.destroyBuffer(params.arg_buffer_id);
+          const result = this.impl.destroyBuffer(params.arg_arg_buffer_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitOverlays');
-          const result = this.impl.commitOverlays(params.arg_widget, params.arg_frame_id, params.arg_data, params.arg_overlays);
+          const result = this.impl.commitOverlays(params.arg_arg_widget, params.arg_arg_frame_id, params.arg_arg_data, params.arg_arg_overlays);
           break;
         }
       }
@@ -466,35 +414,6 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRequest = mojo.int
 
 
 // Interface: WaylandBufferManagerGpu
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params', [
-      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_dma_buf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_viewporter', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_acquire_fence', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_overlays', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_single_pixel_buffer', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_Params', [
-      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_swap_result', 12, 0, mojo.internal.bindings.gfx.mojom.SwapResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_fence_handle', 16, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_presentation_infos', 24, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Params', [
-      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_presentation_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -635,21 +554,21 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_remote_host, params.arg_shared_image_formats_with_modifiers, params.arg_supports_dma_buf, params.arg_supports_viewporter, params.arg_supports_acquire_fence, params.arg_supports_overlays, params.arg_supports_single_pixel_buffer);
+          const result = this.impl.initialize(params.arg_arg_remote_host, params.arg_arg_shared_image_formats_with_modifiers, params.arg_arg_supports_dma_buf, params.arg_arg_supports_viewporter, params.arg_arg_supports_acquire_fence, params.arg_arg_supports_overlays, params.arg_arg_supports_single_pixel_buffer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSubmission');
-          const result = this.impl.onSubmission(params.arg_widget, params.arg_frame_id, params.arg_swap_result, params.arg_release_fence_handle, params.arg_presentation_infos);
+          const result = this.impl.onSubmission(params.arg_arg_widget, params.arg_arg_frame_id, params.arg_arg_swap_result, params.arg_arg_release_fence_handle, params.arg_arg_presentation_infos);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPresentation');
-          const result = this.impl.onPresentation(params.arg_widget, params.arg_presentation_infos);
+          const result = this.impl.onPresentation(params.arg_arg_widget, params.arg_arg_presentation_infos);
           break;
         }
       }
@@ -664,4 +583,87 @@ mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuReceiver = mojo.int
 
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuPtr = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemote;
 mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRequest = mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_SetWaylandBufferManagerGpu_Params', [
+      mojo.internal.StructField('arg_buffer_manager_gpu_associated', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpuRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateDmabufBasedBuffer_Params', [
+      mojo.internal.StructField('arg_dmabuf_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_strides', 16, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_offsets', 24, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_planes_count', 44, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color_space', 48, 0, mojo.internal.bindings.gfx.mojom.ColorSpaceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hdr_metadata', 56, 0, mojo.internal.bindings.gfx.mojom.HDRMetadataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 80]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateShmBasedBuffer_Params', [
+      mojo.internal.StructField('arg_shm_fd', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CreateSinglePixelBuffer_Params', [
+      mojo.internal.StructField('arg_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_DestroyBuffer_Params', [
+      mojo.internal.StructField('arg_buffer_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerHost_CommitOverlays_Params', [
+      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.gfx.mojom.FrameDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlays', 24, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandOverlayConfigSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_Initialize_Params', [
+      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_image_formats_with_modifiers', 8, 0, mojo.internal.Map(mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, mojo.internal.Array(mojo.internal.Uint64, false), false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_dma_buf', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_viewporter', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_acquire_fence', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_overlays', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_single_pixel_buffer', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnSubmission_Params', [
+      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_id', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_swap_result', 12, 0, mojo.internal.bindings.gfx.mojom.SwapResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_fence_handle', 16, 0, mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_presentation_infos', 24, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_ParamsSpec, 'ui.ozone.mojom.WaylandBufferManagerGpu_OnPresentation_Params', [
+      mojo.internal.StructField('arg_widget', 0, 0, mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presentation_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.wl.mojom.WaylandPresentationInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

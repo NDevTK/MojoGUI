@@ -144,62 +144,7 @@ mojo.internal.bindings.blink.mojom.NodeLocationType = {
   kStart: 0,
 };
 
-// Union: InnerTextSegment
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec, 'blink.mojom.InnerTextSegment', {
-      'arg_node_location': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.NodeLocationTypeSpec,
-        'nullable': false,
-      },
-      'arg_text': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-      'arg_frame': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.blink.mojom.InnerTextFrameSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: InnerTextFrame
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InnerTextFrameSpec, 'blink.mojom.InnerTextFrame', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: InnerTextParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InnerTextParamsSpec, 'blink.mojom.InnerTextParams', [
-      mojo.internal.StructField('arg_node_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_node_id_$value', originalFieldName: 'arg_node_id' }),
-      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$value', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
-      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$value', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
-      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
-      mojo.internal.StructField('arg_min_words_per_passage_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_min_words_per_passage_$value', originalFieldName: 'arg_min_words_per_passage' }),
-      mojo.internal.StructField('arg_node_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_node_id_$flag', originalFieldName: 'arg_node_id' }),
-      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$flag', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
-      mojo.internal.StructField('arg_max_passages', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min_words_per_passage_$value', 16, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_min_words_per_passage_$flag', originalFieldName: 'arg_min_words_per_passage' }),
-    ],
-    [[0, 32]]);
-
 // Interface: InnerTextAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_ResponseParams', [
-      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextFrameSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.InnerTextAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -312,12 +257,15 @@ mojo.internal.bindings.blink.mojom.InnerTextAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInnerText');
-          const result = this.impl.getInnerText(params.arg_params);
+          const result = this.impl.getInnerText(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInnerText FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_frame' in response) ? response.arg_arg_frame : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInnerText FAILED:', e));
           }
           break;
         }
@@ -333,4 +281,61 @@ mojo.internal.bindings.blink.mojom.InnerTextAgentReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.blink.mojom.InnerTextAgentPtr = mojo.internal.bindings.blink.mojom.InnerTextAgentRemote;
 mojo.internal.bindings.blink.mojom.InnerTextAgentRequest = mojo.internal.bindings.blink.mojom.InnerTextAgentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: InnerTextSegment
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec, 'blink.mojom.InnerTextSegment', {
+      'arg_node_location': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.NodeLocationTypeSpec,
+        'nullable': false,
+      },
+      'arg_text': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+      'arg_frame': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.blink.mojom.InnerTextFrameSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: InnerTextFrame
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InnerTextFrameSpec, 'blink.mojom.InnerTextFrame', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_segments', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.InnerTextSegmentSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: InnerTextParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InnerTextParamsSpec, 'blink.mojom.InnerTextParams', [
+      mojo.internal.StructField('arg_node_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_node_id_$value', originalFieldName: 'arg_node_id' }),
+      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$value', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$value', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('arg_greedily_aggregate_sibling_nodes_$value', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_greedily_aggregate_sibling_nodes_$flag', originalFieldName: 'arg_greedily_aggregate_sibling_nodes' }),
+      mojo.internal.StructField('arg_min_words_per_passage_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_min_words_per_passage_$value', originalFieldName: 'arg_min_words_per_passage' }),
+      mojo.internal.StructField('arg_node_id_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_node_id_$flag', originalFieldName: 'arg_node_id' }),
+      mojo.internal.StructField('arg_max_words_per_aggregate_passage_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_max_words_per_aggregate_passage_$flag', originalFieldName: 'arg_max_words_per_aggregate_passage' }),
+      mojo.internal.StructField('arg_max_passages', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min_words_per_passage_$value', 16, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_min_words_per_passage_$flag', originalFieldName: 'arg_min_words_per_passage' }),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.InnerTextAgent_GetInnerText_ResponseParamsSpec, 'blink.mojom.InnerTextAgent_GetInnerText_ResponseParams', [
+      mojo.internal.StructField('arg_frame', 0, 0, mojo.internal.bindings.blink.mojom.InnerTextFrameSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

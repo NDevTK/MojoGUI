@@ -138,3 +138,5 @@ mojo.internal.bindings.auction_worklet.mojom.RejectReason = {
   kWrongScoreAdCurrency: 10,
   kMultiBidLimitExceeded: 11,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

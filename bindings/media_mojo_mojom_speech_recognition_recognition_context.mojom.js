@@ -124,6 +124,8 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.SpeechRecognitionPhraseSpec = { $: {} };
 mojo.internal.bindings.media.mojom.SpeechRecognitionRecognitionContextSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SpeechRecognitionPhrase
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionPhraseSpec, 'media.mojom.SpeechRecognitionPhrase', [

@@ -222,100 +222,7 @@ mojo.internal.bindings.crosapi.mojom.Status = {
   MinVersion: 4,
 };
 
-// Union: AccessTokenResult
-mojo.internal.Union(
-    mojo.internal.bindings.crosapi.mojom.AccessTokenResultSpec, 'crosapi.mojom.AccessTokenResult', {
-      'arg_access_token_info': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: AccountKey
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountKeySpec, 'crosapi.mojom.AccountKey', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_account_type', 8, 0, mojo.internal.bindings.crosapi.mojom.AccountTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Account
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountSpec, 'crosapi.mojom.Account', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_raw_email', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: GoogleServiceAuthError
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, 'crosapi.mojom.GoogleServiceAuthError', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_invalid_gaia_credentials_reason', 4, 0, mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_error', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token_binding_challenge', 24, 0, mojo.internal.String, null, true, 14, undefined),
-      mojo.internal.StructField('arg_scope_limited_unrecoverable_error_reason', 32, 0, mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec, null, false, 15, undefined),
-    ],
-    [[0, 32], [14, 40], [15, 48]]);
-
-// Struct: AccountAdditionOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec, 'crosapi.mojom.AccountAdditionOptions', [
-      mojo.internal.StructField('arg_is_available_in_arc', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_show_arc_availability_picker', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: AccountUpsertionResult
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, 'crosapi.mojom.AccountUpsertionResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_account', 8, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: AccessTokenInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec, 'crosapi.mojom.AccessTokenInfo', [
-      mojo.internal.StructField('arg_access_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expiration_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: AccountManagerObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnTokenUpserted_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAccountRemoved_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.crosapi.mojom.AccountManagerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -470,21 +377,21 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTokenUpserted');
-          const result = this.impl.onTokenUpserted(params.arg_account);
+          const result = this.impl.onTokenUpserted(params.arg_arg_account);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAccountRemoved');
-          const result = this.impl.onAccountRemoved(params.arg_account);
+          const result = this.impl.onAccountRemoved(params.arg_arg_account);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAuthErrorChanged');
-          const result = this.impl.onAuthErrorChanged(params.arg_account, params.arg_error);
+          const result = this.impl.onAuthErrorChanged(params.arg_arg_account, params.arg_arg_error);
           break;
         }
         case 3: {
@@ -509,100 +416,6 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRequest = mojo.intern
 
 
 // Interface: AccountManager
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec, 'crosapi.mojom.AccountManager_IsInitialized_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec, 'crosapi.mojom.AccountManager_IsInitialized_ResponseParams', [
-      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ParamsSpec, 'crosapi.mojom.AccountManager_AddObserver_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, 'crosapi.mojom.AccountManager_AddObserver_ResponseParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ParamsSpec, 'crosapi.mojom.AccountManager_GetAccounts_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetAccounts_ResponseParams', [
-      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.AccountSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_Params', [
-      mojo.internal.StructField('arg_add_account_options', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec, null, true, 8, undefined),
-    ],
-    [[0, 8], [8, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_Params', [
-      mojo.internal.StructField('arg_email', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, null, true, 13, undefined),
-    ],
-    [[0, 8], [13, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec, 'crosapi.mojom.AccountManager_ShowManageAccountsSettings_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_Params', [
-      mojo.internal.StructField('arg_account_key', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oauth_consumer_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParams', [
-      mojo.internal.StructField('arg_access_token_fetcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec, 'crosapi.mojom.AccountManager_ReportAuthError_Params', [
-      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.crosapi.mojom.AccountManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -831,8 +644,11 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsInitialized FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_initialized' in response) ? response.arg_arg_is_initialized : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isInitialized FAILED:', e));
           }
           break;
         }
@@ -844,8 +660,11 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddObserver FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_receiver' in response) ? response.arg_arg_receiver : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addObserver FAILED:', e));
           }
           break;
         }
@@ -857,8 +676,11 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAccounts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_accounts' in response) ? response.arg_arg_accounts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAccounts FAILED:', e));
           }
           break;
         }
@@ -866,12 +688,15 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showAddAccountDialog');
-          const result = this.impl.showAddAccountDialog(params.arg_add_account_options);
+          const result = this.impl.showAddAccountDialog(params.arg_arg_add_account_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShowAddAccountDialog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] showAddAccountDialog FAILED:', e));
           }
           break;
         }
@@ -879,12 +704,15 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showReauthAccountDialog');
-          const result = this.impl.showReauthAccountDialog(params.arg_email);
+          const result = this.impl.showReauthAccountDialog(params.arg_arg_email);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShowReauthAccountDialog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] showReauthAccountDialog FAILED:', e));
           }
           break;
         }
@@ -899,12 +727,15 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPersistentErrorForAccount');
-          const result = this.impl.getPersistentErrorForAccount(params.arg_account);
+          const result = this.impl.getPersistentErrorForAccount(params.arg_arg_account);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPersistentErrorForAccount FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPersistentErrorForAccount FAILED:', e));
           }
           break;
         }
@@ -912,12 +743,15 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAccessTokenFetcher');
-          const result = this.impl.createAccessTokenFetcher(params.arg_account_key, params.arg_oauth_consumer_name);
+          const result = this.impl.createAccessTokenFetcher(params.arg_arg_account_key, params.arg_arg_oauth_consumer_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateAccessTokenFetcher FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_access_token_fetcher' in response) ? response.arg_arg_access_token_fetcher : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createAccessTokenFetcher FAILED:', e));
           }
           break;
         }
@@ -925,7 +759,7 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAuthError');
-          const result = this.impl.reportAuthError(params.arg_account, params.arg_error);
+          const result = this.impl.reportAuthError(params.arg_arg_account, params.arg_arg_error);
           break;
         }
       }
@@ -943,18 +777,6 @@ mojo.internal.bindings.crosapi.mojom.AccountManagerRequest = mojo.internal.bindi
 
 
 // Interface: AccessTokenFetcher
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec, 'crosapi.mojom.AccessTokenFetcher_Start_Params', [
-      mojo.internal.StructField('arg_scopes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec, 'crosapi.mojom.AccessTokenFetcher_Start_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccessTokenResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1067,12 +889,15 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_scopes);
+          const result = this.impl.start(params.arg_arg_scopes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Start FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] start FAILED:', e));
           }
           break;
         }
@@ -1088,4 +913,205 @@ mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherReceiver = mojo.internal.
 
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherPtr = mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemote;
 mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRequest = mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: AccessTokenResult
+mojo.internal.Union(
+    mojo.internal.bindings.crosapi.mojom.AccessTokenResultSpec, 'crosapi.mojom.AccessTokenResult', {
+      'arg_access_token_info': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: AccountKey
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountKeySpec, 'crosapi.mojom.AccountKey', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account_type', 8, 0, mojo.internal.bindings.crosapi.mojom.AccountTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Account
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountSpec, 'crosapi.mojom.Account', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_raw_email', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GoogleServiceAuthError
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, 'crosapi.mojom.GoogleServiceAuthError', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.crosapi.mojom.StateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_gaia_credentials_reason', 4, 0, mojo.internal.bindings.crosapi.mojom.InvalidGaiaCredentialsReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_error', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token_binding_challenge', 24, 0, mojo.internal.String, null, true, 14, undefined),
+      mojo.internal.StructField('arg_scope_limited_unrecoverable_error_reason', 32, 0, mojo.internal.bindings.crosapi.mojom.ScopeLimitedUnrecoverableErrorReasonSpec, null, false, 15, undefined),
+    ],
+    [[0, 32], [14, 40], [15, 48]]);
+
+// Struct: AccountAdditionOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec, 'crosapi.mojom.AccountAdditionOptions', [
+      mojo.internal.StructField('arg_is_available_in_arc', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_show_arc_availability_picker', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AccountUpsertionResult
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, 'crosapi.mojom.AccountUpsertionResult', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_account', 8, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: AccessTokenInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccessTokenInfoSpec, 'crosapi.mojom.AccessTokenInfo', [
+      mojo.internal.StructField('arg_access_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiration_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id_token', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnTokenUpserted_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnTokenUpserted_Params', [
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAccountRemoved_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAccountRemoved_Params', [
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnAuthErrorChanged_Params', [
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_ParamsSpec, 'crosapi.mojom.AccountManagerObserver_OnSigninDialogClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ParamsSpec, 'crosapi.mojom.AccountManager_IsInitialized_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_IsInitialized_ResponseParamsSpec, 'crosapi.mojom.AccountManager_IsInitialized_ResponseParams', [
+      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ParamsSpec, 'crosapi.mojom.AccountManager_AddObserver_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_AddObserver_ResponseParamsSpec, 'crosapi.mojom.AccountManager_AddObserver_ResponseParams', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.AccountManagerObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ParamsSpec, 'crosapi.mojom.AccountManager_GetAccounts_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_GetAccounts_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetAccounts_ResponseParams', [
+      mojo.internal.StructField('arg_accounts', 0, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.AccountSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_Params', [
+      mojo.internal.StructField('arg_add_account_options', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountAdditionOptionsSpec, null, true, 8, undefined),
+    ],
+    [[0, 8], [8, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowAddAccountDialog_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_Params', [
+      mojo.internal.StructField('arg_email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParamsSpec, 'crosapi.mojom.AccountManager_ShowReauthAccountDialog_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountUpsertionResultSpec, null, true, 13, undefined),
+    ],
+    [[0, 8], [13, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_ShowManageAccountsSettings_ParamsSpec, 'crosapi.mojom.AccountManager_ShowManageAccountsSettings_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_Params', [
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParamsSpec, 'crosapi.mojom.AccountManager_GetPersistentErrorForAccount_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_Params', [
+      mojo.internal.StructField('arg_account_key', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oauth_consumer_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParamsSpec, 'crosapi.mojom.AccountManager_CreateAccessTokenFetcher_ResponseParams', [
+      mojo.internal.StructField('arg_access_token_fetcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.AccessTokenFetcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccountManager_ReportAuthError_ParamsSpec, 'crosapi.mojom.AccountManager_ReportAuthError_Params', [
+      mojo.internal.StructField('arg_account', 0, 0, mojo.internal.bindings.crosapi.mojom.AccountKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.bindings.crosapi.mojom.GoogleServiceAuthErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ParamsSpec, 'crosapi.mojom.AccessTokenFetcher_Start_Params', [
+      mojo.internal.StructField('arg_scopes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AccessTokenFetcher_Start_ResponseParamsSpec, 'crosapi.mojom.AccessTokenFetcher_Start_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.AccessTokenResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

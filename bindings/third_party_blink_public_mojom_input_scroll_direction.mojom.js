@@ -134,3 +134,5 @@ mojo.internal.bindings.blink.mojom.ScrollDirection = {
   kScrollInlineDirectionBackward: 6,
   kScrollInlineDirectionForward: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

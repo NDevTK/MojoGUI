@@ -125,6 +125,8 @@ mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec = { $: {} 
 mojo.internal.bindings.origin_matcher.mojom.OriginMatcherRuleSpec = { $: {} };
 mojo.internal.bindings.origin_matcher.mojom.OriginMatcherSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SubdomainMatchingRule
 mojo.internal.Struct(
     mojo.internal.bindings.origin_matcher.mojom.SubdomainMatchingRuleSpec, 'origin_matcher.mojom.SubdomainMatchingRule', [

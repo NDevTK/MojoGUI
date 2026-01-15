@@ -292,95 +292,6 @@ mojo.internal.bindings.media.mojom.LocalMuterRequest = mojo.internal.bindings.me
 
 
 // Interface: AudioStreamFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateInputStream_Params', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_log', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_agc', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_processing_config', 64, 0, mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, null, true, 0, undefined),
-    ],
-    [[0, 80]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateInputStream_ResponseParams', [
-      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_initially_muted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec, 'media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_Params', [
-      mojo.internal.StructField('arg_input_stream_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateOutputStream_Params', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_log', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 32, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParams', [
-      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_Params', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_switch_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_log', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 32, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParams', [
-      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec, 'media.mojom.AudioStreamFactory_BindMuter_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.LocalMuterRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateLoopbackStream_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_shared_memory_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_id', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParams', [
-      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -563,12 +474,14 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInputStream');
-          const result = this.impl.createInputStream(params.arg_stream, params.arg_client, params.arg_observer, params.arg_log, params.arg_device_id, params.arg_params, params.arg_group_id, params.arg_shared_memory_count, params.arg_enable_agc, params.arg_processing_config);
+          const result = this.impl.createInputStream(params.arg_arg_stream, params.arg_arg_client, params.arg_arg_observer, params.arg_arg_log, params.arg_arg_device_id, params.arg_arg_params, params.arg_arg_group_id, params.arg_arg_shared_memory_count, params.arg_arg_enable_agc, params.arg_arg_processing_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateInputStream FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec.$.structSpec, ['response.arg_arg_data_pipe', 'response.arg_arg_initially_muted', 'response.arg_arg_stream_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createInputStream FAILED:', e));
           }
           break;
         }
@@ -576,19 +489,22 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.associateInputAndOutputForAec');
-          const result = this.impl.associateInputAndOutputForAec(params.arg_input_stream_id, params.arg_output_device_id);
+          const result = this.impl.associateInputAndOutputForAec(params.arg_arg_input_stream_id, params.arg_arg_output_device_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOutputStream');
-          const result = this.impl.createOutputStream(params.arg_stream, params.arg_observer, params.arg_log, params.arg_device_id, params.arg_params, params.arg_group_id);
+          const result = this.impl.createOutputStream(params.arg_arg_stream, params.arg_arg_observer, params.arg_arg_log, params.arg_arg_device_id, params.arg_arg_params, params.arg_arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateOutputStream FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data_pipe' in response) ? response.arg_arg_data_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createOutputStream FAILED:', e));
           }
           break;
         }
@@ -596,12 +512,15 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSwitchableOutputStream');
-          const result = this.impl.createSwitchableOutputStream(params.arg_stream, params.arg_device_switch_receiver, params.arg_observer, params.arg_log, params.arg_device_id, params.arg_params, params.arg_group_id);
+          const result = this.impl.createSwitchableOutputStream(params.arg_arg_stream, params.arg_arg_device_switch_receiver, params.arg_arg_observer, params.arg_arg_log, params.arg_arg_device_id, params.arg_arg_params, params.arg_arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateSwitchableOutputStream FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data_pipe' in response) ? response.arg_arg_data_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createSwitchableOutputStream FAILED:', e));
           }
           break;
         }
@@ -609,19 +528,22 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMuter');
-          const result = this.impl.bindMuter(params.arg_receiver, params.arg_group_id);
+          const result = this.impl.bindMuter(params.arg_arg_receiver, params.arg_arg_group_id);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createLoopbackStream');
-          const result = this.impl.createLoopbackStream(params.arg_receiver, params.arg_client, params.arg_observer, params.arg_params, params.arg_shared_memory_count, params.arg_group_id);
+          const result = this.impl.createLoopbackStream(params.arg_arg_receiver, params.arg_arg_client, params.arg_arg_observer, params.arg_arg_params, params.arg_arg_shared_memory_count, params.arg_arg_group_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateLoopbackStream FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data_pipe' in response) ? response.arg_arg_data_pipe : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createLoopbackStream FAILED:', e));
           }
           break;
         }
@@ -637,4 +559,95 @@ mojo.internal.bindings.media.mojom.AudioStreamFactoryReceiver = mojo.internal.bi
 
 mojo.internal.bindings.media.mojom.AudioStreamFactoryPtr = mojo.internal.bindings.media.mojom.AudioStreamFactoryRemote;
 mojo.internal.bindings.media.mojom.AudioStreamFactoryRequest = mojo.internal.bindings.media.mojom.AudioStreamFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateInputStream_Params', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_log', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory_count', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 40, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_agc', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_processing_config', 64, 0, mojo.internal.bindings.media.mojom.AudioProcessingConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 80]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateInputStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateInputStream_ResponseParams', [
+      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_initially_muted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_ParamsSpec, 'media.mojom.AudioStreamFactory_AssociateInputAndOutputForAec_Params', [
+      mojo.internal.StructField('arg_input_stream_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateOutputStream_Params', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_log', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 32, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateOutputStream_ResponseParams', [
+      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_Params', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioOutputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_switch_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.DeviceSwitchInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.media.mojom.AudioOutputStreamObserverRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_log', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioLogRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 32, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 40, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateSwitchableOutputStream_ResponseParams', [
+      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_BindMuter_ParamsSpec, 'media.mojom.AudioStreamFactory_BindMuter_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.media.mojom.LocalMuterRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ParamsSpec, 'media.mojom.AudioStreamFactory_CreateLoopbackStream_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioInputStreamRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AudioInputStreamObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_shared_memory_count', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_id', 32, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParamsSpec, 'media.mojom.AudioStreamFactory_CreateLoopbackStream_ResponseParams', [
+      mojo.internal.StructField('arg_data_pipe', 0, 0, mojo.internal.bindings.media.mojom.ReadWriteAudioDataPipeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -134,20 +134,6 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.b
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote || class {};
 
 // Interface: Translator
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec, 'blink.mojom.Translator_Translate_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec, 'blink.mojom.Translator_TranslateStreaming_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.TranslatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,14 +260,14 @@ mojo.internal.bindings.blink.mojom.TranslatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translate');
-          const result = this.impl.translate(params.arg_input, params.arg_pending_responder);
+          const result = this.impl.translate(params.arg_arg_input, params.arg_arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateStreaming');
-          const result = this.impl.translateStreaming(params.arg_input, params.arg_pending_responder);
+          const result = this.impl.translateStreaming(params.arg_arg_input, params.arg_arg_pending_responder);
           break;
         }
       }
@@ -296,4 +282,20 @@ mojo.internal.bindings.blink.mojom.TranslatorReceiver = mojo.internal.bindings.b
 
 mojo.internal.bindings.blink.mojom.TranslatorPtr = mojo.internal.bindings.blink.mojom.TranslatorRemote;
 mojo.internal.bindings.blink.mojom.TranslatorRequest = mojo.internal.bindings.blink.mojom.TranslatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Translator_Translate_ParamsSpec, 'blink.mojom.Translator_Translate_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.Translator_TranslateStreaming_ParamsSpec, 'blink.mojom.Translator_TranslateStreaming_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

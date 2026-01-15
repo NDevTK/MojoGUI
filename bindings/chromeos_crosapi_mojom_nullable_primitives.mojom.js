@@ -129,6 +129,8 @@ mojo.internal.bindings.crosapi.mojom.UInt32ValueSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.UInt64ValueSpec = { $: {} };
 mojo.internal.bindings.crosapi.mojom.BoolValueSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DoubleValue
 mojo.internal.Struct(
     mojo.internal.bindings.crosapi.mojom.DoubleValueSpec, 'crosapi.mojom.DoubleValue', [

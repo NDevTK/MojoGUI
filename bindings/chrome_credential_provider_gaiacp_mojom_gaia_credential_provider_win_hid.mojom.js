@@ -134,18 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: GaiaCredentialProviderHidBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_Params', [
-      mojo.internal.StructField('arg_device_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParams', [
-      mojo.internal.StructField('arg_out_handle', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,12 +246,15 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openDevice');
-          const result = this.impl.openDevice(params.arg_device_path);
+          const result = this.impl.openDevice(params.arg_arg_device_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenDevice FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out_handle' in response) ? response.arg_arg_out_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openDevice FAILED:', e));
           }
           break;
         }
@@ -279,4 +270,18 @@ mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerReceiver = 
 
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPtr = mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRemote;
 mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerRequest = mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_Params', [
+      mojo.internal.StructField('arg_device_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParamsSpec, 'gcpw_hid.mojom.GaiaCredentialProviderHidBroker_OpenDevice_ResponseParams', [
+      mojo.internal.StructField('arg_out_handle', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.DeferredFetchPolicy = {
   kDeferredFetch: 1,
   kDeferredFetchMinimal: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

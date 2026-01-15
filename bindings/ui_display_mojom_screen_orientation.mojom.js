@@ -131,3 +131,5 @@ mojo.internal.bindings.display.mojom.ScreenOrientation = {
   kLandscapePrimary: 3,
   kLandscapeSecondary: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

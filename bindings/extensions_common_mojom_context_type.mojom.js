@@ -136,3 +136,5 @@ mojo.internal.bindings.extensions.mojom.ContextType = {
   kUserScript: 8,
   kUnspecified: 9,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

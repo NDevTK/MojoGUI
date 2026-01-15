@@ -174,86 +174,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertificateTrust = {
   kTrusted: 2,
 };
 
-// Struct: CertVerifierCreationParams
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, 'cert_verifier.mojom.CertVerifierCreationParams', [
-      mojo.internal.StructField('arg_initial_additional_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wait_for_update', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ct_policy', 16, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ChromeRootCertInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec, 'cert_verifier.mojom.ChromeRootCertInfo', [
-      mojo.internal.StructField('arg_sha256hash_hex', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cert', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ChromeRootMerkleTreeCertInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec, 'cert_verifier.mojom.ChromeRootMerkleTreeCertInfo', [
-      mojo.internal.StructField('arg_log_id_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_landmark_id_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_landmark_id_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ChromeRootStoreInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec, 'cert_verifier.mojom.ChromeRootStoreInfo', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_root_cert_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mtc_metadata_update_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_root_mtc_info', 24, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: PlatformCertInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.PlatformCertInfoSpec, 'cert_verifier.mojom.PlatformCertInfo', [
-      mojo.internal.StructField('arg_cert', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_trust_setting', 8, 0, mojo.internal.bindings.cert_verifier.mojom.CertificateTrustSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PlatformRootStoreInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.PlatformRootStoreInfoSpec, 'cert_verifier.mojom.PlatformRootStoreInfo', [
-      mojo.internal.StructField('arg_user_added_certs', 0, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.PlatformCertInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: CertVerifierServiceFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_updater', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_creation_params', 16, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_Params', [
-      mojo.internal.StructField('arg_crl_set', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_Params', [
-      mojo.internal.StructField('arg_system_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_ticks', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -394,19 +315,21 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNewCertVerifier');
-          const result = this.impl.getNewCertVerifier(params.arg_receiver, params.arg_updater, params.arg_client, params.arg_creation_params);
+          const result = this.impl.getNewCertVerifier(params.arg_arg_receiver, params.arg_arg_updater, params.arg_arg_client, params.arg_arg_creation_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateCRLSet');
-          const result = this.impl.updateCRLSet(params.arg_crl_set);
+          const result = this.impl.updateCRLSet(params.arg_arg_crl_set);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateCRLSet FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateCRLSet FAILED:', e));
           }
           break;
         }
@@ -414,7 +337,7 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateNetworkTime');
-          const result = this.impl.updateNetworkTime(params.arg_system_time, params.arg_system_ticks, params.arg_current_time);
+          const result = this.impl.updateNetworkTime(params.arg_arg_system_time, params.arg_arg_system_ticks, params.arg_arg_current_time);
           break;
         }
       }
@@ -429,4 +352,85 @@ mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryReceiver = 
 
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryPtr = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRemote;
 mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryRequest = mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CertVerifierCreationParams
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, 'cert_verifier.mojom.CertVerifierCreationParams', [
+      mojo.internal.StructField('arg_initial_additional_certificates', 0, 0, mojo.internal.bindings.cert_verifier.mojom.AdditionalCertificatesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wait_for_update', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ct_policy', 16, 0, mojo.internal.bindings.network.mojom.CTPolicySpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ChromeRootCertInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec, 'cert_verifier.mojom.ChromeRootCertInfo', [
+      mojo.internal.StructField('arg_sha256hash_hex', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cert', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ChromeRootMerkleTreeCertInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec, 'cert_verifier.mojom.ChromeRootMerkleTreeCertInfo', [
+      mojo.internal.StructField('arg_log_id_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_landmark_id_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_landmark_id_text', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ChromeRootStoreInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.ChromeRootStoreInfoSpec, 'cert_verifier.mojom.ChromeRootStoreInfo', [
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_root_cert_info', 8, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.ChromeRootCertInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mtc_metadata_update_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_root_mtc_info', 24, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.ChromeRootMerkleTreeCertInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: PlatformCertInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.PlatformCertInfoSpec, 'cert_verifier.mojom.PlatformCertInfo', [
+      mojo.internal.StructField('arg_cert', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_trust_setting', 8, 0, mojo.internal.bindings.cert_verifier.mojom.CertificateTrustSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PlatformRootStoreInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.PlatformRootStoreInfoSpec, 'cert_verifier.mojom.PlatformRootStoreInfo', [
+      mojo.internal.StructField('arg_user_added_certs', 0, 0, mojo.internal.Array(mojo.internal.bindings.cert_verifier.mojom.PlatformCertInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_GetNewCertVerifier_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_updater', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceUpdaterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_creation_params', 16, 0, mojo.internal.bindings.cert_verifier.mojom.CertVerifierCreationParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_Params', [
+      mojo.internal.StructField('arg_crl_set', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateCRLSet_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_ParamsSpec, 'cert_verifier.mojom.CertVerifierServiceFactory_UpdateNetworkTime_Params', [
+      mojo.internal.StructField('arg_system_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_ticks', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

@@ -325,598 +325,7 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnum = {
   kBar: 2,
 };
 
-// Struct: OptionalNumericsStruct
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, 'content.optional_numerics_unittest.mojom.OptionalNumericsStruct', [
-      mojo.internal.StructField('arg_optional_bool_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
-      mojo.internal.StructField('arg_optional_bool_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
-      mojo.internal.StructField('arg_optional_uint8_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
-      mojo.internal.StructField('arg_optional_int8_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
-      mojo.internal.StructField('arg_optional_uint16_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
-      mojo.internal.StructField('arg_optional_int16_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
-      mojo.internal.StructField('arg_optional_uint32_$flag', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
-      mojo.internal.StructField('arg_optional_int32_$flag', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
-      mojo.internal.StructField('arg_optional_uint8_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
-      mojo.internal.StructField('arg_optional_int8_$value', 2, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
-      mojo.internal.StructField('arg_optional_uint64_$flag', 3, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
-      mojo.internal.StructField('arg_optional_int64_$flag', 3, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
-      mojo.internal.StructField('arg_optional_float_$flag', 3, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
-      mojo.internal.StructField('arg_optional_double_$flag', 3, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
-      mojo.internal.StructField('arg_optional_uint16_$value', 4, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
-      mojo.internal.StructField('arg_optional_int16_$value', 6, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
-      mojo.internal.StructField('arg_optional_uint32_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
-      mojo.internal.StructField('arg_optional_int32_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
-      mojo.internal.StructField('arg_optional_uint64_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
-      mojo.internal.StructField('arg_optional_int64_$value', 24, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
-      mojo.internal.StructField('arg_optional_float_$value', 32, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
-      mojo.internal.StructField('arg_optional_enum', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_optional_double_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
-    ],
-    [[0, 56]]);
-
-// Struct: VersionedStructV0
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, 'content.optional_numerics_unittest.mojom.VersionedStructV0', [
-    ],
-    [[0, 8]]);
-
-// Struct: VersionedStructV2
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, 'content.optional_numerics_unittest.mojom.VersionedStructV2', [
-      mojo.internal.StructField('arg_bool_value_$flag', 0, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_bool_value_$value', 0, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_uint8_value_$flag', 0, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$flag', 0, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint16_value_$flag', 0, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$flag', 0, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$flag', 0, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$flag', 0, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint8_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$value', 2, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint64_value_$flag', 3, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$flag', 3, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$flag', 3, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_double_value_$flag', 3, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
-      mojo.internal.StructField('arg_uint16_value_$value', 4, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$value', 6, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$value', 8, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$value', 12, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint64_value_$value', 16, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$value', 24, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_double_value_$value', 40, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
-    ],
-    [[0, 8], [2, 56]]);
-
 // Interface: Params
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBool_Params', [
-      mojo.internal.StructField('arg_optional_bool_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
-      mojo.internal.StructField('arg_optional_bool_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint8_Params', [
-      mojo.internal.StructField('arg_optional_uint8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
-      mojo.internal.StructField('arg_optional_uint8_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt8_Params', [
-      mojo.internal.StructField('arg_optional_int8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
-      mojo.internal.StructField('arg_optional_int8_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint16_Params', [
-      mojo.internal.StructField('arg_optional_uint16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
-      mojo.internal.StructField('arg_optional_uint16_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16_Params', [
-      mojo.internal.StructField('arg_optional_int16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
-      mojo.internal.StructField('arg_optional_int16_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32_Params', [
-      mojo.internal.StructField('arg_optional_uint32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
-      mojo.internal.StructField('arg_optional_uint32_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt32_Params', [
-      mojo.internal.StructField('arg_optional_int32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
-      mojo.internal.StructField('arg_optional_int32_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint64_Params', [
-      mojo.internal.StructField('arg_optional_uint64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
-      mojo.internal.StructField('arg_optional_uint64_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt64_Params', [
-      mojo.internal.StructField('arg_optional_int64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
-      mojo.internal.StructField('arg_optional_int64_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullFloat_Params', [
-      mojo.internal.StructField('arg_optional_float_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
-      mojo.internal.StructField('arg_optional_float_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDouble_Params', [
-      mojo.internal.StructField('arg_optional_double_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
-      mojo.internal.StructField('arg_optional_double_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_Params', [
-      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBools_Params', [
-      mojo.internal.StructField('arg_optional_bools', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16s_Params', [
-      mojo.internal.StructField('arg_optional_int16s', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32s_Params', [
-      mojo.internal.StructField('arg_optional_uint32s', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubles_Params', [
-      mojo.internal.StructField('arg_optional_doubles', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_Params', [
-      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBool_Params', [
-      mojo.internal.StructField('arg_optional_bool_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
-      mojo.internal.StructField('arg_optional_bool_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_Params', [
-      mojo.internal.StructField('arg_optional_uint8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
-      mojo.internal.StructField('arg_optional_uint8_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_Params', [
-      mojo.internal.StructField('arg_optional_int8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
-      mojo.internal.StructField('arg_optional_int8_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_Params', [
-      mojo.internal.StructField('arg_optional_uint16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
-      mojo.internal.StructField('arg_optional_uint16_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_Params', [
-      mojo.internal.StructField('arg_optional_int16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
-      mojo.internal.StructField('arg_optional_int16_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_Params', [
-      mojo.internal.StructField('arg_optional_uint32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
-      mojo.internal.StructField('arg_optional_uint32_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_Params', [
-      mojo.internal.StructField('arg_optional_int32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
-      mojo.internal.StructField('arg_optional_int32_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_Params', [
-      mojo.internal.StructField('arg_optional_uint64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
-      mojo.internal.StructField('arg_optional_uint64_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_Params', [
-      mojo.internal.StructField('arg_optional_int64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
-      mojo.internal.StructField('arg_optional_int64_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_Params', [
-      mojo.internal.StructField('arg_optional_float_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
-      mojo.internal.StructField('arg_optional_float_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_Params', [
-      mojo.internal.StructField('arg_optional_double_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
-      mojo.internal.StructField('arg_optional_double_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_Params', [
-      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBools_Params', [
-      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_Params', [
-      mojo.internal.StructField('arg_optional_int16s', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_Params', [
-      mojo.internal.StructField('arg_optional_uint32s', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_Params', [
-      mojo.internal.StructField('arg_optional_doubles', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_Params', [
-      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_Params', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParams', [
-      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_bool_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uint8_value', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int8_value', 2, 0, mojo.internal.Int8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint16_value', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int16_value', 6, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint32_value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int32_value', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint64_value', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int64_value', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_double_value', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1617,12 +1026,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBool');
-          const result = this.impl.sendNullBool(params.arg_optional_bool);
+          const result = this.impl.sendNullBool(params.arg_arg_optional_bool);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullBool FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullBool FAILED:', e));
           }
           break;
         }
@@ -1630,12 +1041,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint8');
-          const result = this.impl.sendNullUint8(params.arg_optional_uint8);
+          const result = this.impl.sendNullUint8(params.arg_arg_optional_uint8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullUint8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint8 FAILED:', e));
           }
           break;
         }
@@ -1643,12 +1056,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt8');
-          const result = this.impl.sendNullInt8(params.arg_optional_int8);
+          const result = this.impl.sendNullInt8(params.arg_arg_optional_int8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullInt8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt8 FAILED:', e));
           }
           break;
         }
@@ -1656,12 +1071,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint16');
-          const result = this.impl.sendNullUint16(params.arg_optional_uint16);
+          const result = this.impl.sendNullUint16(params.arg_arg_optional_uint16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullUint16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint16 FAILED:', e));
           }
           break;
         }
@@ -1669,12 +1086,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16');
-          const result = this.impl.sendNullInt16(params.arg_optional_int16);
+          const result = this.impl.sendNullInt16(params.arg_arg_optional_int16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullInt16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt16 FAILED:', e));
           }
           break;
         }
@@ -1682,12 +1101,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32');
-          const result = this.impl.sendNullUint32(params.arg_optional_uint32);
+          const result = this.impl.sendNullUint32(params.arg_arg_optional_uint32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullUint32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint32 FAILED:', e));
           }
           break;
         }
@@ -1695,12 +1116,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt32');
-          const result = this.impl.sendNullInt32(params.arg_optional_int32);
+          const result = this.impl.sendNullInt32(params.arg_arg_optional_int32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullInt32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt32 FAILED:', e));
           }
           break;
         }
@@ -1708,12 +1131,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint64');
-          const result = this.impl.sendNullUint64(params.arg_optional_uint64);
+          const result = this.impl.sendNullUint64(params.arg_arg_optional_uint64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullUint64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint64 FAILED:', e));
           }
           break;
         }
@@ -1721,12 +1146,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt64');
-          const result = this.impl.sendNullInt64(params.arg_optional_int64);
+          const result = this.impl.sendNullInt64(params.arg_arg_optional_int64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullInt64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt64 FAILED:', e));
           }
           break;
         }
@@ -1734,12 +1161,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullFloat');
-          const result = this.impl.sendNullFloat(params.arg_optional_float);
+          const result = this.impl.sendNullFloat(params.arg_arg_optional_float);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullFloat FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullFloat FAILED:', e));
           }
           break;
         }
@@ -1747,12 +1176,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDouble');
-          const result = this.impl.sendNullDouble(params.arg_optional_double);
+          const result = this.impl.sendNullDouble(params.arg_arg_optional_double);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullDouble FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullDouble FAILED:', e));
           }
           break;
         }
@@ -1760,12 +1191,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnum');
-          const result = this.impl.sendNullEnum(params.arg_optional_enum);
+          const result = this.impl.sendNullEnum(params.arg_arg_optional_enum);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullEnum FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullEnum FAILED:', e));
           }
           break;
         }
@@ -1773,12 +1206,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBools');
-          const result = this.impl.sendNullBools(params.arg_optional_bools);
+          const result = this.impl.sendNullBools(params.arg_arg_optional_bools);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullBools FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullBools FAILED:', e));
           }
           break;
         }
@@ -1786,12 +1221,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullInt16s');
-          const result = this.impl.sendNullInt16s(params.arg_optional_int16s);
+          const result = this.impl.sendNullInt16s(params.arg_arg_optional_int16s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullInt16s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullInt16s FAILED:', e));
           }
           break;
         }
@@ -1799,12 +1236,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullUint32s');
-          const result = this.impl.sendNullUint32s(params.arg_optional_uint32s);
+          const result = this.impl.sendNullUint32s(params.arg_arg_optional_uint32s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullUint32s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullUint32s FAILED:', e));
           }
           break;
         }
@@ -1812,12 +1251,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubles');
-          const result = this.impl.sendNullDoubles(params.arg_optional_doubles);
+          const result = this.impl.sendNullDoubles(params.arg_arg_optional_doubles);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullDoubles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullDoubles FAILED:', e));
           }
           break;
         }
@@ -1825,12 +1266,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnums');
-          const result = this.impl.sendNullEnums(params.arg_optional_enums);
+          const result = this.impl.sendNullEnums(params.arg_arg_optional_enums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullEnums FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullEnums FAILED:', e));
           }
           break;
         }
@@ -1838,12 +1281,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullBoolMap');
-          const result = this.impl.sendNullBoolMap(params.arg_values);
+          const result = this.impl.sendNullBoolMap(params.arg_arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullBoolMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullBoolMap FAILED:', e));
           }
           break;
         }
@@ -1851,12 +1296,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullDoubleMap');
-          const result = this.impl.sendNullDoubleMap(params.arg_values);
+          const result = this.impl.sendNullDoubleMap(params.arg_arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullDoubleMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullDoubleMap FAILED:', e));
           }
           break;
         }
@@ -1864,12 +1311,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullEnumMap');
-          const result = this.impl.sendNullEnumMap(params.arg_values);
+          const result = this.impl.sendNullEnumMap(params.arg_arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullEnumMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullEnumMap FAILED:', e));
           }
           break;
         }
@@ -1877,12 +1326,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBool');
-          const result = this.impl.sendOptionalBool(params.arg_optional_bool);
+          const result = this.impl.sendOptionalBool(params.arg_arg_optional_bool);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalBool FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalBool FAILED:', e));
           }
           break;
         }
@@ -1890,12 +1342,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint8');
-          const result = this.impl.sendOptionalUint8(params.arg_optional_uint8);
+          const result = this.impl.sendOptionalUint8(params.arg_arg_optional_uint8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint8 FAILED:', e));
           }
           break;
         }
@@ -1903,12 +1358,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt8');
-          const result = this.impl.sendOptionalInt8(params.arg_optional_int8);
+          const result = this.impl.sendOptionalInt8(params.arg_arg_optional_int8);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt8 FAILED:', e));
           }
           break;
         }
@@ -1916,12 +1374,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint16');
-          const result = this.impl.sendOptionalUint16(params.arg_optional_uint16);
+          const result = this.impl.sendOptionalUint16(params.arg_arg_optional_uint16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint16 FAILED:', e));
           }
           break;
         }
@@ -1929,12 +1390,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16');
-          const result = this.impl.sendOptionalInt16(params.arg_optional_int16);
+          const result = this.impl.sendOptionalInt16(params.arg_arg_optional_int16);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt16 FAILED:', e));
           }
           break;
         }
@@ -1942,12 +1406,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32');
-          const result = this.impl.sendOptionalUint32(params.arg_optional_uint32);
+          const result = this.impl.sendOptionalUint32(params.arg_arg_optional_uint32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint32 FAILED:', e));
           }
           break;
         }
@@ -1955,12 +1422,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt32');
-          const result = this.impl.sendOptionalInt32(params.arg_optional_int32);
+          const result = this.impl.sendOptionalInt32(params.arg_arg_optional_int32);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt32 FAILED:', e));
           }
           break;
         }
@@ -1968,12 +1438,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint64');
-          const result = this.impl.sendOptionalUint64(params.arg_optional_uint64);
+          const result = this.impl.sendOptionalUint64(params.arg_arg_optional_uint64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint64 FAILED:', e));
           }
           break;
         }
@@ -1981,12 +1454,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt64');
-          const result = this.impl.sendOptionalInt64(params.arg_optional_int64);
+          const result = this.impl.sendOptionalInt64(params.arg_arg_optional_int64);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt64 FAILED:', e));
           }
           break;
         }
@@ -1994,12 +1470,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalFloat');
-          const result = this.impl.sendOptionalFloat(params.arg_optional_float);
+          const result = this.impl.sendOptionalFloat(params.arg_arg_optional_float);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalFloat FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalFloat FAILED:', e));
           }
           break;
         }
@@ -2007,12 +1486,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDouble');
-          const result = this.impl.sendOptionalDouble(params.arg_optional_double);
+          const result = this.impl.sendOptionalDouble(params.arg_arg_optional_double);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalDouble FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalDouble FAILED:', e));
           }
           break;
         }
@@ -2020,12 +1502,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnum');
-          const result = this.impl.sendOptionalEnum(params.arg_optional_enum);
+          const result = this.impl.sendOptionalEnum(params.arg_arg_optional_enum);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalEnum FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnum FAILED:', e));
           }
           break;
         }
@@ -2033,12 +1518,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBools');
-          const result = this.impl.sendOptionalBools(params.arg_optional_enums);
+          const result = this.impl.sendOptionalBools(params.arg_arg_optional_enums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalBools FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalBools FAILED:', e));
           }
           break;
         }
@@ -2046,12 +1534,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalInt16s');
-          const result = this.impl.sendOptionalInt16s(params.arg_optional_int16s);
+          const result = this.impl.sendOptionalInt16s(params.arg_arg_optional_int16s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalInt16s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalInt16s FAILED:', e));
           }
           break;
         }
@@ -2059,12 +1550,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalUint32s');
-          const result = this.impl.sendOptionalUint32s(params.arg_optional_uint32s);
+          const result = this.impl.sendOptionalUint32s(params.arg_arg_optional_uint32s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalUint32s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalUint32s FAILED:', e));
           }
           break;
         }
@@ -2072,12 +1566,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubles');
-          const result = this.impl.sendOptionalDoubles(params.arg_optional_doubles);
+          const result = this.impl.sendOptionalDoubles(params.arg_arg_optional_doubles);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalDoubles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalDoubles FAILED:', e));
           }
           break;
         }
@@ -2085,12 +1582,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnums');
-          const result = this.impl.sendOptionalEnums(params.arg_optional_enums);
+          const result = this.impl.sendOptionalEnums(params.arg_arg_optional_enums);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalEnums FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnums FAILED:', e));
           }
           break;
         }
@@ -2098,12 +1598,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalBoolMap');
-          const result = this.impl.sendOptionalBoolMap(params.arg_values);
+          const result = this.impl.sendOptionalBoolMap(params.arg_arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalBoolMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalBoolMap FAILED:', e));
           }
           break;
         }
@@ -2111,12 +1614,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalDoubleMap');
-          const result = this.impl.sendOptionalDoubleMap(params.arg_values);
+          const result = this.impl.sendOptionalDoubleMap(params.arg_arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalDoubleMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalDoubleMap FAILED:', e));
           }
           break;
         }
@@ -2124,12 +1630,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendOptionalEnumMap');
-          const result = this.impl.sendOptionalEnumMap(params.arg_values);
+          const result = this.impl.sendOptionalEnumMap(params.arg_arg_values);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendOptionalEnumMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_values' in response) ? response.arg_arg_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendOptionalEnumMap FAILED:', e));
           }
           break;
         }
@@ -2137,12 +1646,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendNullStructWithOptionalNumerics');
-          const result = this.impl.sendNullStructWithOptionalNumerics(params.arg_s);
+          const result = this.impl.sendNullStructWithOptionalNumerics(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendNullStructWithOptionalNumerics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendNullStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -2150,12 +1661,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithNullOptionalNumerics');
-          const result = this.impl.sendStructWithNullOptionalNumerics(params.arg_s);
+          const result = this.impl.sendStructWithNullOptionalNumerics(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendStructWithNullOptionalNumerics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendStructWithNullOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -2163,12 +1676,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendStructWithOptionalNumerics');
-          const result = this.impl.sendStructWithOptionalNumerics(params.arg_s);
+          const result = this.impl.sendStructWithOptionalNumerics(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendStructWithOptionalNumerics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bool_value', 'response.arg_arg_uint8_value', 'response.arg_arg_int8_value', 'response.arg_arg_uint16_value', 'response.arg_arg_int16_value', 'response.arg_arg_uint32_value', 'response.arg_arg_int32_value', 'response.arg_arg_uint64_value', 'response.arg_arg_int64_value', 'response.arg_arg_float_value', 'response.arg_arg_double_value', 'response.arg_arg_enum_value']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -2187,536 +1702,6 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ParamsRequest = 
 
 
 // Interface: ResponseParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Int32, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
-      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParams', [
-      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Bool, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Float, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParams', [
-      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_Params', [
-      mojo.internal.StructField('arg_bool_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uint8_value', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int8_value', 2, 0, mojo.internal.Int8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint16_value', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int16_value', 6, 0, mojo.internal.Int16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint32_value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int32_value', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_uint64_value', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_int64_value', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_double_value', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -3421,8 +2406,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullBool FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullBool FAILED:', e));
           }
           break;
         }
@@ -3434,8 +2422,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullUint8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint8 FAILED:', e));
           }
           break;
         }
@@ -3447,8 +2438,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullInt8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt8 FAILED:', e));
           }
           break;
         }
@@ -3460,8 +2454,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullUint16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint16 FAILED:', e));
           }
           break;
         }
@@ -3473,8 +2470,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullInt16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt16 FAILED:', e));
           }
           break;
         }
@@ -3486,8 +2486,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullUint32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint32 FAILED:', e));
           }
           break;
         }
@@ -3499,8 +2502,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullInt32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt32 FAILED:', e));
           }
           break;
         }
@@ -3512,8 +2518,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullUint64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint64 FAILED:', e));
           }
           break;
         }
@@ -3525,8 +2534,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullInt64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt64 FAILED:', e));
           }
           break;
         }
@@ -3538,8 +2550,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullFloat FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullFloat FAILED:', e));
           }
           break;
         }
@@ -3551,8 +2566,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullDouble FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullDouble FAILED:', e));
           }
           break;
         }
@@ -3564,8 +2582,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullEnum FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullEnum FAILED:', e));
           }
           break;
         }
@@ -3577,8 +2598,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullBools FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullBools FAILED:', e));
           }
           break;
         }
@@ -3590,8 +2614,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullInt16s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt16s FAILED:', e));
           }
           break;
         }
@@ -3603,8 +2630,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullUint32s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullUint32s FAILED:', e));
           }
           break;
         }
@@ -3616,8 +2646,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullDoubles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullDoubles FAILED:', e));
           }
           break;
         }
@@ -3629,8 +2662,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullEnums FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullEnums FAILED:', e));
           }
           break;
         }
@@ -3642,8 +2678,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullBoolMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullBoolMap FAILED:', e));
           }
           break;
         }
@@ -3655,8 +2694,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullInt32Map FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullInt32Map FAILED:', e));
           }
           break;
         }
@@ -3668,8 +2710,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullEnumMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullEnumMap FAILED:', e));
           }
           break;
         }
@@ -3677,12 +2722,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBool');
-          const result = this.impl.getOptionalBool(params.arg_value);
+          const result = this.impl.getOptionalBool(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalBool FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalBool FAILED:', e));
           }
           break;
         }
@@ -3690,12 +2738,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint8');
-          const result = this.impl.getOptionalUint8(params.arg_value);
+          const result = this.impl.getOptionalUint8(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint8 FAILED:', e));
           }
           break;
         }
@@ -3703,12 +2754,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt8');
-          const result = this.impl.getOptionalInt8(params.arg_value);
+          const result = this.impl.getOptionalInt8(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt8 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt8 FAILED:', e));
           }
           break;
         }
@@ -3716,12 +2770,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint16');
-          const result = this.impl.getOptionalUint16(params.arg_value);
+          const result = this.impl.getOptionalUint16(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint16 FAILED:', e));
           }
           break;
         }
@@ -3729,12 +2786,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16');
-          const result = this.impl.getOptionalInt16(params.arg_value);
+          const result = this.impl.getOptionalInt16(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt16 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt16 FAILED:', e));
           }
           break;
         }
@@ -3742,12 +2802,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32');
-          const result = this.impl.getOptionalUint32(params.arg_value);
+          const result = this.impl.getOptionalUint32(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint32 FAILED:', e));
           }
           break;
         }
@@ -3755,12 +2818,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt32');
-          const result = this.impl.getOptionalInt32(params.arg_value);
+          const result = this.impl.getOptionalInt32(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt32 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt32 FAILED:', e));
           }
           break;
         }
@@ -3768,12 +2834,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint64');
-          const result = this.impl.getOptionalUint64(params.arg_value);
+          const result = this.impl.getOptionalUint64(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint64 FAILED:', e));
           }
           break;
         }
@@ -3781,12 +2850,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt64');
-          const result = this.impl.getOptionalInt64(params.arg_value);
+          const result = this.impl.getOptionalInt64(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt64 FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt64 FAILED:', e));
           }
           break;
         }
@@ -3794,12 +2866,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloat');
-          const result = this.impl.getOptionalFloat(params.arg_value);
+          const result = this.impl.getOptionalFloat(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalFloat FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalFloat FAILED:', e));
           }
           break;
         }
@@ -3807,12 +2882,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDouble');
-          const result = this.impl.getOptionalDouble(params.arg_value);
+          const result = this.impl.getOptionalDouble(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalDouble FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalDouble FAILED:', e));
           }
           break;
         }
@@ -3820,12 +2898,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnum');
-          const result = this.impl.getOptionalEnum(params.arg_value);
+          const result = this.impl.getOptionalEnum(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalEnum FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_value' in response) ? response.arg_arg_optional_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalEnum FAILED:', e));
           }
           break;
         }
@@ -3833,12 +2914,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBools');
-          const result = this.impl.getOptionalBools(params.arg_value);
+          const result = this.impl.getOptionalBools(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalBools FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalBools FAILED:', e));
           }
           break;
         }
@@ -3846,12 +2930,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalInt16s');
-          const result = this.impl.getOptionalInt16s(params.arg_value);
+          const result = this.impl.getOptionalInt16s(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalInt16s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalInt16s FAILED:', e));
           }
           break;
         }
@@ -3859,12 +2946,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalUint32s');
-          const result = this.impl.getOptionalUint32s(params.arg_value);
+          const result = this.impl.getOptionalUint32s(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalUint32s FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalUint32s FAILED:', e));
           }
           break;
         }
@@ -3872,12 +2962,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalDoubles');
-          const result = this.impl.getOptionalDoubles(params.arg_value);
+          const result = this.impl.getOptionalDoubles(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalDoubles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalDoubles FAILED:', e));
           }
           break;
         }
@@ -3885,12 +2978,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnums');
-          const result = this.impl.getOptionalEnums(params.arg_value);
+          const result = this.impl.getOptionalEnums(params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalEnums FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalEnums FAILED:', e));
           }
           break;
         }
@@ -3898,12 +2994,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalBoolMap');
-          const result = this.impl.getOptionalBoolMap(params.arg_key, params.arg_value);
+          const result = this.impl.getOptionalBoolMap(params.arg_arg_key, params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalBoolMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalBoolMap FAILED:', e));
           }
           break;
         }
@@ -3911,12 +3010,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalFloatMap');
-          const result = this.impl.getOptionalFloatMap(params.arg_key, params.arg_value);
+          const result = this.impl.getOptionalFloatMap(params.arg_arg_key, params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalFloatMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalFloatMap FAILED:', e));
           }
           break;
         }
@@ -3924,12 +3026,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getOptionalEnumMap');
-          const result = this.impl.getOptionalEnumMap(params.arg_key, params.arg_value);
+          const result = this.impl.getOptionalEnumMap(params.arg_arg_key, params.arg_arg_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOptionalEnumMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_optional_values' in response) ? response.arg_arg_optional_values : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOptionalEnumMap FAILED:', e));
           }
           break;
         }
@@ -3941,8 +3046,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNullStructWithOptionalNumerics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNullStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -3954,8 +3062,11 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStructWithNullOptionalNumerics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStructWithNullOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -3963,12 +3074,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStructWithOptionalNumerics');
-          const result = this.impl.getStructWithOptionalNumerics(params.arg_bool_value, params.arg_uint8_value, params.arg_int8_value, params.arg_uint16_value, params.arg_int16_value, params.arg_uint32_value, params.arg_int32_value, params.arg_uint64_value, params.arg_int64_value, params.arg_float_value, params.arg_double_value, params.arg_enum_value);
+          const result = this.impl.getStructWithOptionalNumerics(params.arg_arg_bool_value, params.arg_arg_uint8_value, params.arg_arg_int8_value, params.arg_arg_uint16_value, params.arg_arg_int16_value, params.arg_arg_uint32_value, params.arg_arg_int32_value, params.arg_arg_uint64_value, params.arg_arg_int64_value, params.arg_arg_float_value, params.arg_arg_double_value, params.arg_arg_enum_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStructWithOptionalNumerics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStructWithOptionalNumerics FAILED:', e));
           }
           break;
         }
@@ -3987,28 +3101,6 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParamsRe
 
 
 // Interface: InterfaceV0
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0PendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -4139,8 +3231,10 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedParams FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedParams FAILED:', e));
           }
           break;
         }
@@ -4148,12 +3242,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Recei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
-          const result = this.impl.methodWithVersionedStruct(params.arg_s);
+          const result = this.impl.methodWithVersionedStruct(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedStruct FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedStruct FAILED:', e));
           }
           break;
         }
@@ -4172,74 +3269,6 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0Reque
 
 
 // Interface: InterfaceV2
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_Params', [
-      mojo.internal.StructField('arg_bool_value_$flag', 0, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_bool_value_$value', 0, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_uint8_value_$flag', 0, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$flag', 0, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint16_value_$flag', 0, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$flag', 0, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$flag', 0, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$flag', 0, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint8_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$value', 2, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint64_value_$flag', 3, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$flag', 3, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$flag', 3, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_double_value_$flag', 3, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
-      mojo.internal.StructField('arg_uint16_value_$value', 4, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$value', 6, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$value', 8, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$value', 12, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint64_value_$value', 16, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$value', 24, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_double_value_$value', 40, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
-    ],
-    [[0, 8], [2, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParams', [
-      mojo.internal.StructField('arg_bool_value_$flag', 0, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_bool_value_$value', 0, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
-      mojo.internal.StructField('arg_uint8_value_$flag', 0, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$flag', 0, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint16_value_$flag', 0, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$flag', 0, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$flag', 0, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$flag', 0, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint8_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
-      mojo.internal.StructField('arg_int8_value_$value', 2, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
-      mojo.internal.StructField('arg_uint64_value_$flag', 3, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$flag', 3, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$flag', 3, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_double_value_$flag', 3, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
-      mojo.internal.StructField('arg_uint16_value_$value', 4, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
-      mojo.internal.StructField('arg_int16_value_$value', 6, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
-      mojo.internal.StructField('arg_uint32_value_$value', 8, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
-      mojo.internal.StructField('arg_int32_value_$value', 12, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
-      mojo.internal.StructField('arg_uint64_value_$value', 16, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
-      mojo.internal.StructField('arg_int64_value_$value', 24, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
-      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
-      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_double_value_$value', 40, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
-    ],
-    [[0, 8], [2, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParams', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2PendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -4366,12 +3395,14 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedParams');
-          const result = this.impl.methodWithVersionedParams(params.arg_bool_value, params.arg_uint8_value, params.arg_int8_value, params.arg_uint16_value, params.arg_int16_value, params.arg_uint32_value, params.arg_int32_value, params.arg_uint64_value, params.arg_int64_value, params.arg_float_value, params.arg_double_value, params.arg_enum_value);
+          const result = this.impl.methodWithVersionedParams(params.arg_arg_bool_value, params.arg_arg_uint8_value, params.arg_arg_int8_value, params.arg_arg_uint16_value, params.arg_arg_int16_value, params.arg_arg_uint32_value, params.arg_arg_int32_value, params.arg_arg_uint64_value, params.arg_arg_int64_value, params.arg_arg_float_value, params.arg_arg_double_value, params.arg_arg_enum_value);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedParams FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec.$.structSpec, ['response.arg_arg_bool_value', 'response.arg_arg_uint8_value', 'response.arg_arg_int8_value', 'response.arg_arg_uint16_value', 'response.arg_arg_int16_value', 'response.arg_arg_uint32_value', 'response.arg_arg_int32_value', 'response.arg_arg_uint64_value', 'response.arg_arg_int64_value', 'response.arg_arg_float_value', 'response.arg_arg_double_value', 'response.arg_arg_enum_value']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedParams FAILED:', e));
           }
           break;
         }
@@ -4379,12 +3410,15 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.methodWithVersionedStruct');
-          const result = this.impl.methodWithVersionedStruct(params.arg_s);
+          const result = this.impl.methodWithVersionedStruct(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MethodWithVersionedStruct FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_s' in response) ? response.arg_arg_s : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] methodWithVersionedStruct FAILED:', e));
           }
           break;
         }
@@ -4400,4 +3434,1217 @@ mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Recei
 
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Ptr = mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Remote;
 mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2Request = mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2PendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: OptionalNumericsStruct
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, 'content.optional_numerics_unittest.mojom.OptionalNumericsStruct', [
+      mojo.internal.StructField('arg_optional_bool_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
+      mojo.internal.StructField('arg_optional_bool_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
+      mojo.internal.StructField('arg_optional_uint8_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
+      mojo.internal.StructField('arg_optional_int8_$flag', 0, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
+      mojo.internal.StructField('arg_optional_uint16_$flag', 0, 4, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
+      mojo.internal.StructField('arg_optional_int16_$flag', 0, 5, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
+      mojo.internal.StructField('arg_optional_uint32_$flag', 0, 6, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
+      mojo.internal.StructField('arg_optional_int32_$flag', 0, 7, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
+      mojo.internal.StructField('arg_optional_uint8_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
+      mojo.internal.StructField('arg_optional_int8_$value', 2, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
+      mojo.internal.StructField('arg_optional_uint64_$flag', 3, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
+      mojo.internal.StructField('arg_optional_int64_$flag', 3, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
+      mojo.internal.StructField('arg_optional_float_$flag', 3, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
+      mojo.internal.StructField('arg_optional_double_$flag', 3, 3, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
+      mojo.internal.StructField('arg_optional_uint16_$value', 4, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
+      mojo.internal.StructField('arg_optional_int16_$value', 6, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
+      mojo.internal.StructField('arg_optional_uint32_$value', 8, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
+      mojo.internal.StructField('arg_optional_int32_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
+      mojo.internal.StructField('arg_optional_uint64_$value', 16, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
+      mojo.internal.StructField('arg_optional_int64_$value', 24, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
+      mojo.internal.StructField('arg_optional_float_$value', 32, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
+      mojo.internal.StructField('arg_optional_enum', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_optional_double_$value', 40, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
+    ],
+    [[0, 56]]);
+
+// Struct: VersionedStructV0
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, 'content.optional_numerics_unittest.mojom.VersionedStructV0', [
+    ],
+    [[0, 8]]);
+
+// Struct: VersionedStructV2
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, 'content.optional_numerics_unittest.mojom.VersionedStructV2', [
+      mojo.internal.StructField('arg_bool_value_$flag', 0, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_bool_value_$value', 0, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_uint8_value_$flag', 0, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$flag', 0, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint16_value_$flag', 0, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$flag', 0, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$flag', 0, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$flag', 0, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint8_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$value', 2, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint64_value_$flag', 3, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$flag', 3, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$flag', 3, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_double_value_$flag', 3, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
+      mojo.internal.StructField('arg_uint16_value_$value', 4, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$value', 6, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$value', 8, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$value', 12, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint64_value_$value', 16, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$value', 24, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_double_value_$value', 40, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
+    ],
+    [[0, 8], [2, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBool_Params', [
+      mojo.internal.StructField('arg_optional_bool_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
+      mojo.internal.StructField('arg_optional_bool_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBool_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint8_Params', [
+      mojo.internal.StructField('arg_optional_uint8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
+      mojo.internal.StructField('arg_optional_uint8_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint8_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt8_Params', [
+      mojo.internal.StructField('arg_optional_int8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
+      mojo.internal.StructField('arg_optional_int8_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt8_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint16_Params', [
+      mojo.internal.StructField('arg_optional_uint16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
+      mojo.internal.StructField('arg_optional_uint16_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint16_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16_Params', [
+      mojo.internal.StructField('arg_optional_int16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
+      mojo.internal.StructField('arg_optional_int16_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32_Params', [
+      mojo.internal.StructField('arg_optional_uint32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
+      mojo.internal.StructField('arg_optional_uint32_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt32_Params', [
+      mojo.internal.StructField('arg_optional_int32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
+      mojo.internal.StructField('arg_optional_int32_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt32_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint64_Params', [
+      mojo.internal.StructField('arg_optional_uint64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
+      mojo.internal.StructField('arg_optional_uint64_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint64_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt64_Params', [
+      mojo.internal.StructField('arg_optional_int64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
+      mojo.internal.StructField('arg_optional_int64_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt64_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullFloat_Params', [
+      mojo.internal.StructField('arg_optional_float_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
+      mojo.internal.StructField('arg_optional_float_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullFloat_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDouble_Params', [
+      mojo.internal.StructField('arg_optional_double_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
+      mojo.internal.StructField('arg_optional_double_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDouble_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_Params', [
+      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnum_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBools_Params', [
+      mojo.internal.StructField('arg_optional_bools', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBools_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16s_Params', [
+      mojo.internal.StructField('arg_optional_int16s', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullInt16s_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32s_Params', [
+      mojo.internal.StructField('arg_optional_uint32s', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullUint32s_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubles_Params', [
+      mojo.internal.StructField('arg_optional_doubles', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubles_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_Params', [
+      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnums_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_Params', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullBoolMap_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_Params', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullDoubleMap_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_Params', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullEnumMap_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBool_Params', [
+      mojo.internal.StructField('arg_optional_bool_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_bool_$value', originalFieldName: 'arg_optional_bool' }),
+      mojo.internal.StructField('arg_optional_bool_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_bool_$flag', originalFieldName: 'arg_optional_bool' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBool_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_Params', [
+      mojo.internal.StructField('arg_optional_uint8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint8_$value', originalFieldName: 'arg_optional_uint8' }),
+      mojo.internal.StructField('arg_optional_uint8_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint8_$flag', originalFieldName: 'arg_optional_uint8' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint8_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_Params', [
+      mojo.internal.StructField('arg_optional_int8_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int8_$value', originalFieldName: 'arg_optional_int8' }),
+      mojo.internal.StructField('arg_optional_int8_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int8_$flag', originalFieldName: 'arg_optional_int8' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt8_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_Params', [
+      mojo.internal.StructField('arg_optional_uint16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint16_$value', originalFieldName: 'arg_optional_uint16' }),
+      mojo.internal.StructField('arg_optional_uint16_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint16_$flag', originalFieldName: 'arg_optional_uint16' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint16_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_Params', [
+      mojo.internal.StructField('arg_optional_int16_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int16_$value', originalFieldName: 'arg_optional_int16' }),
+      mojo.internal.StructField('arg_optional_int16_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int16_$flag', originalFieldName: 'arg_optional_int16' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_Params', [
+      mojo.internal.StructField('arg_optional_uint32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint32_$value', originalFieldName: 'arg_optional_uint32' }),
+      mojo.internal.StructField('arg_optional_uint32_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint32_$flag', originalFieldName: 'arg_optional_uint32' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_Params', [
+      mojo.internal.StructField('arg_optional_int32_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int32_$value', originalFieldName: 'arg_optional_int32' }),
+      mojo.internal.StructField('arg_optional_int32_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int32_$flag', originalFieldName: 'arg_optional_int32' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt32_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_Params', [
+      mojo.internal.StructField('arg_optional_uint64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_uint64_$value', originalFieldName: 'arg_optional_uint64' }),
+      mojo.internal.StructField('arg_optional_uint64_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_uint64_$flag', originalFieldName: 'arg_optional_uint64' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint64_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_Params', [
+      mojo.internal.StructField('arg_optional_int64_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_int64_$value', originalFieldName: 'arg_optional_int64' }),
+      mojo.internal.StructField('arg_optional_int64_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_int64_$flag', originalFieldName: 'arg_optional_int64' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt64_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_Params', [
+      mojo.internal.StructField('arg_optional_float_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_float_$value', originalFieldName: 'arg_optional_float' }),
+      mojo.internal.StructField('arg_optional_float_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_float_$flag', originalFieldName: 'arg_optional_float' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalFloat_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_Params', [
+      mojo.internal.StructField('arg_optional_double_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_double_$value', originalFieldName: 'arg_optional_double' }),
+      mojo.internal.StructField('arg_optional_double_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_double_$flag', originalFieldName: 'arg_optional_double' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDouble_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_Params', [
+      mojo.internal.StructField('arg_optional_enum', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnum_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBools_Params', [
+      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBools_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_Params', [
+      mojo.internal.StructField('arg_optional_int16s', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalInt16s_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_Params', [
+      mojo.internal.StructField('arg_optional_uint32s', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalUint32s_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_Params', [
+      mojo.internal.StructField('arg_optional_doubles', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubles_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_Params', [
+      mojo.internal.StructField('arg_optional_enums', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnums_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_Params', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalBoolMap_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_Params', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalDoubleMap_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_Params', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendOptionalEnumMap_ResponseParams', [
+      mojo.internal.StructField('arg_values', 0, 0, mojo.internal.Map(mojo.internal.Int32, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendNullStructWithOptionalNumerics_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithNullOptionalNumerics_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.Params_SendStructWithOptionalNumerics_ResponseParams', [
+      mojo.internal.StructField('arg_bool_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uint8_value', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int8_value', 2, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint16_value', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int16_value', 6, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint32_value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int32_value', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint64_value', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int64_value', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_double_value', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBool_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint8_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt8_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint16_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint64_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt64_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullFloat_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDouble_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnum_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBools_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt16s_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullUint32s_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullDoubles_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnums_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullBoolMap_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullInt32Map_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Int32, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullEnumMap_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBool_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint8_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt8_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 1, 0, mojo.internal.Int8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint16_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Uint16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 2, 0, mojo.internal.Int16, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Uint32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt32_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint64_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt64_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloat_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 4, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDouble_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_optional_value_$value', originalFieldName: 'arg_optional_value' }),
+      mojo.internal.StructField('arg_optional_value_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_optional_value_$flag', originalFieldName: 'arg_optional_value' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnum_ResponseParams', [
+      mojo.internal.StructField('arg_optional_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBools_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalInt16s_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Int16, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalUint32s_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalDoubles_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.Double, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnums_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalBoolMap_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Bool, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalFloatMap_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.Float, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetOptionalEnumMap_ResponseParams', [
+      mojo.internal.StructField('arg_optional_values', 0, 0, mojo.internal.Map(mojo.internal.Int16, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetNullStructWithOptionalNumerics_ResponseParams', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithNullOptionalNumerics_ResponseParams', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_Params', [
+      mojo.internal.StructField('arg_bool_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uint8_value', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int8_value', 2, 0, mojo.internal.Int8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint16_value', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int16_value', 6, 0, mojo.internal.Int16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint32_value', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int32_value', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_uint64_value', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_int64_value', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_float_value', 32, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_double_value', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.ResponseParams_GetStructWithOptionalNumerics_ResponseParams', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.OptionalNumericsStructSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedParams_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV0_MethodWithVersionedStruct_ResponseParams', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV0Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_Params', [
+      mojo.internal.StructField('arg_bool_value_$flag', 0, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_bool_value_$value', 0, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_uint8_value_$flag', 0, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$flag', 0, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint16_value_$flag', 0, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$flag', 0, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$flag', 0, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$flag', 0, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint8_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$value', 2, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint64_value_$flag', 3, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$flag', 3, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$flag', 3, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_double_value_$flag', 3, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
+      mojo.internal.StructField('arg_uint16_value_$value', 4, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$value', 6, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$value', 8, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$value', 12, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint64_value_$value', 16, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$value', 24, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_double_value_$value', 40, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
+    ],
+    [[0, 8], [2, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedParams_ResponseParams', [
+      mojo.internal.StructField('arg_bool_value_$flag', 0, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_bool_value_$value', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_bool_value_$value', 0, 1, mojo.internal.Bool, false, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_bool_value_$flag', originalFieldName: 'arg_bool_value' }),
+      mojo.internal.StructField('arg_uint8_value_$flag', 0, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint8_value_$value', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$flag', 0, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int8_value_$value', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint16_value_$flag', 0, 4, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint16_value_$value', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$flag', 0, 5, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int16_value_$value', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$flag', 0, 6, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint32_value_$value', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$flag', 0, 7, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int32_value_$value', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint8_value_$value', 1, 0, mojo.internal.Uint8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint8_value_$flag', originalFieldName: 'arg_uint8_value' }),
+      mojo.internal.StructField('arg_int8_value_$value', 2, 0, mojo.internal.Int8, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int8_value_$flag', originalFieldName: 'arg_int8_value' }),
+      mojo.internal.StructField('arg_uint64_value_$flag', 3, 0, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_uint64_value_$value', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$flag', 3, 1, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_int64_value_$value', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$flag', 3, 2, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_float_value_$value', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_double_value_$flag', 3, 3, mojo.internal.Bool, false, false, 2, { isPrimary: true, linkedValueFieldName: 'arg_double_value_$value', originalFieldName: 'arg_double_value' }),
+      mojo.internal.StructField('arg_uint16_value_$value', 4, 0, mojo.internal.Uint16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint16_value_$flag', originalFieldName: 'arg_uint16_value' }),
+      mojo.internal.StructField('arg_int16_value_$value', 6, 0, mojo.internal.Int16, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int16_value_$flag', originalFieldName: 'arg_int16_value' }),
+      mojo.internal.StructField('arg_uint32_value_$value', 8, 0, mojo.internal.Uint32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint32_value_$flag', originalFieldName: 'arg_uint32_value' }),
+      mojo.internal.StructField('arg_int32_value_$value', 12, 0, mojo.internal.Int32, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int32_value_$flag', originalFieldName: 'arg_int32_value' }),
+      mojo.internal.StructField('arg_uint64_value_$value', 16, 0, mojo.internal.Uint64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_uint64_value_$flag', originalFieldName: 'arg_uint64_value' }),
+      mojo.internal.StructField('arg_int64_value_$value', 24, 0, mojo.internal.Int64, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_int64_value_$flag', originalFieldName: 'arg_int64_value' }),
+      mojo.internal.StructField('arg_float_value_$value', 32, 0, mojo.internal.Float, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_float_value_$flag', originalFieldName: 'arg_float_value' }),
+      mojo.internal.StructField('arg_enum_value', 36, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.RegularEnumSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_double_value_$value', 40, 0, mojo.internal.Double, 0, false, 2, { isPrimary: false, linkedValueFieldName: 'arg_double_value_$flag', originalFieldName: 'arg_double_value' }),
+    ],
+    [[0, 8], [2, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParamsSpec, 'content.optional_numerics_unittest.mojom.InterfaceV2_MethodWithVersionedStruct_ResponseParams', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.content.optional_numerics_unittest.mojom.VersionedStructV2Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

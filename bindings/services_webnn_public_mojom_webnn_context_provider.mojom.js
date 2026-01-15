@@ -160,53 +160,7 @@ mojo.internal.bindings.webnn.mojom.PowerPreference = {
   kLowPower: 2,
 };
 
-// Union: CreateContextResult
-mojo.internal.Union(
-    mojo.internal.bindings.webnn.mojom.CreateContextResultSpec, 'webnn.mojom.CreateContextResult', {
-      'arg_success': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.webnn.mojom.ErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: CreateContextOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, 'webnn.mojom.CreateContextOptions', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.webnn.mojom.DeviceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_power_preference', 4, 0, mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: CreateContextSuccess
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec, 'webnn.mojom.CreateContextSuccess', [
-      mojo.internal.StructField('arg_context_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNContextRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_context_properties', 8, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_context_handle', 16, 0, mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_write_tensor_producer', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_read_tensor_consumer', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: WebNNContextProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -319,12 +273,15 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createWebNNContext');
-          const result = this.impl.createWebNNContext(params.arg_options);
+          const result = this.impl.createWebNNContext(params.arg_arg_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateWebNNContext FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createWebNNContext FAILED:', e));
           }
           break;
         }
@@ -340,4 +297,52 @@ mojo.internal.bindings.webnn.mojom.WebNNContextProviderReceiver = mojo.internal.
 
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderPtr = mojo.internal.bindings.webnn.mojom.WebNNContextProviderRemote;
 mojo.internal.bindings.webnn.mojom.WebNNContextProviderRequest = mojo.internal.bindings.webnn.mojom.WebNNContextProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: CreateContextResult
+mojo.internal.Union(
+    mojo.internal.bindings.webnn.mojom.CreateContextResultSpec, 'webnn.mojom.CreateContextResult', {
+      'arg_success': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.webnn.mojom.ErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: CreateContextOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, 'webnn.mojom.CreateContextOptions', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.webnn.mojom.DeviceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_power_preference', 4, 0, mojo.internal.bindings.webnn.mojom.PowerPreferenceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: CreateContextSuccess
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.CreateContextSuccessSpec, 'webnn.mojom.CreateContextSuccess', [
+      mojo.internal.StructField('arg_context_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNContextRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_context_properties', 8, 0, mojo.internal.bindings.webnn.mojom.ContextPropertiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_context_handle', 16, 0, mojo.internal.bindings.blink.mojom.WebNNContextTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_write_tensor_producer', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_read_tensor_consumer', 32, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParamsSpec, 'webnn.mojom.WebNNContextProvider_CreateWebNNContext_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.CreateContextResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

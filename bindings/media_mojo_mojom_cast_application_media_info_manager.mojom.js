@@ -128,27 +128,7 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager.$interfaceNam
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec = { $: {} };
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec = { $: {} };
 
-// Struct: CastApplicationMediaInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec, 'media.mojom.CastApplicationMediaInfo', [
-      mojo.internal.StructField('arg_application_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mixer_audio_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_audio_only_session', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: CastApplicationMediaInfoManager
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParams', [
-      mojo.internal.StructField('arg_cast_application_media_info', 0, 0, mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,8 +245,11 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCastApplicationMediaInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_cast_application_media_info' in response) ? response.arg_arg_cast_application_media_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCastApplicationMediaInfo FAILED:', e));
           }
           break;
         }
@@ -282,4 +265,26 @@ mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerReceiver = moj
 
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerPtr = mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerRemote;
 mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerRequest = mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CastApplicationMediaInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec, 'media.mojom.CastApplicationMediaInfo', [
+      mojo.internal.StructField('arg_application_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mixer_audio_enabled', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_audio_only_session', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParamsSpec, 'media.mojom.CastApplicationMediaInfoManager_GetCastApplicationMediaInfo_ResponseParams', [
+      mojo.internal.StructField('arg_cast_application_media_info', 0, 0, mojo.internal.bindings.media.mojom.CastApplicationMediaInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

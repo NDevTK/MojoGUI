@@ -155,24 +155,7 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: Theme
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
-      mojo.internal.StructField('arg_border_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_border_glow_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scrim_colors', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_magic_cursor_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ActorOverlayPageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,7 +268,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_receiver);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_receiver);
           break;
         }
       }
@@ -303,23 +286,6 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactoryRequest = mo
 
 
 // Interface: ActorOverlayPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_Params', [
-      mojo.internal.StructField('arg_is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParams', [
-      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -446,7 +412,7 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHoverStatusChanged');
-          const result = this.impl.onHoverStatusChanged(params.arg_is_hovering);
+          const result = this.impl.onHoverStatusChanged(params.arg_arg_is_hovering);
           break;
         }
         case 1: {
@@ -457,8 +423,11 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCurrentBorderGlowVisibility FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_visible' in response) ? response.arg_arg_is_visible : response;
+              encoder.encodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCurrentBorderGlowVisibility FAILED:', e));
           }
           break;
         }
@@ -477,45 +446,6 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRequest = mojo.inte
 
 
 // Interface: ActorOverlayPage
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetScrimBackground_Params', [
-      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_Params', [
-      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.actor.ui.mojom.ThemeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
-      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -684,33 +614,35 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setScrimBackground');
-          const result = this.impl.setScrimBackground(params.arg_is_visible);
+          const result = this.impl.setScrimBackground(params.arg_arg_is_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBorderGlowVisibility');
-          const result = this.impl.setBorderGlowVisibility(params.arg_is_visible);
+          const result = this.impl.setBorderGlowVisibility(params.arg_arg_is_visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTheme');
-          const result = this.impl.setTheme(params.arg_theme);
+          const result = this.impl.setTheme(params.arg_arg_theme);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.moveCursorTo');
-          const result = this.impl.moveCursorTo(params.arg_point);
+          const result = this.impl.moveCursorTo(params.arg_arg_point);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MoveCursorTo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] moveCursorTo FAILED:', e));
           }
           break;
         }
@@ -722,8 +654,10 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TriggerClickAnimation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] triggerClickAnimation FAILED:', e));
           }
           break;
         }
@@ -739,4 +673,79 @@ mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageReceiver = mojo.internal.b
 
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePtr = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote;
 mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRequest = mojo.internal.bindings.actor.ui.mojom.ActorOverlayPagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Theme
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ThemeSpec, 'actor.ui.mojom.Theme', [
+      mojo.internal.StructField('arg_border_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_border_glow_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scrim_colors', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.SkColorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_magic_cursor_color', 24, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_OnHoverStatusChanged_Params', [
+      mojo.internal.StructField('arg_is_hovering', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPageHandler_GetCurrentBorderGlowVisibility_ResponseParams', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetScrimBackground_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetScrimBackground_Params', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetBorderGlowVisibility_Params', [
+      mojo.internal.StructField('arg_is_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_SetTheme_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_SetTheme_Params', [
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.actor.ui.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_Params', [
+      mojo.internal.StructField('arg_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_MoveCursorTo_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParamsSpec, 'actor.ui.mojom.ActorOverlayPage_TriggerClickAnimation_ResponseParams', [
+    ],
+    [[0, 8]]);
 

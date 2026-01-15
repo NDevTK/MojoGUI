@@ -124,6 +124,8 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.StepSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.LinearGradientSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Step
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.StepSpec, 'gfx.mojom.Step', [

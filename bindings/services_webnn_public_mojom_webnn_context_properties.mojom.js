@@ -149,6 +149,8 @@ mojo.internal.bindings.webnn.mojom.BatchNormalizationAxis = {
   kChannelsFirst: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SupportedDataTypes
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.SupportedDataTypesSpec, 'webnn.mojom.SupportedDataTypes', [

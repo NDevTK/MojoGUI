@@ -123,6 +123,8 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.MtpStorageInfoSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: MtpStorageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.MtpStorageInfoSpec, 'device.mojom.MtpStorageInfo', [

@@ -124,6 +124,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.BigBufferSpec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.BigBufferSharedMemoryRegionSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: BigBuffer
 mojo.internal.Union(
     mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, 'mojo_base.mojom.BigBuffer', {

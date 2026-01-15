@@ -155,32 +155,7 @@ mojo.internal.bindings.action_chips.mojom.ChipType = {
   kDeepDive: 3,
 };
 
-// Struct: TabInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
-      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_last_active_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ActionChip
-mojo.internal.Struct(
-    mojo.internal.bindings.action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab', 24, 0, mojo.internal.bindings.action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ActionChipsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec, 'action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -311,12 +286,6 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRequest = mojo.inter
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec, 'action_chips.mojom.Page_OnActionChipsChanged_Params', [
-      mojo.internal.StructField('arg_action_chips', 0, 0, mojo.internal.Array(mojo.internal.bindings.action_chips.mojom.ActionChipSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.action_chips.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -429,7 +398,7 @@ mojo.internal.bindings.action_chips.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onActionChipsChanged');
-          const result = this.impl.onActionChipsChanged(params.arg_action_chips);
+          const result = this.impl.onActionChipsChanged(params.arg_arg_action_chips);
           break;
         }
       }
@@ -447,13 +416,6 @@ mojo.internal.bindings.action_chips.mojom.PageRequest = mojo.internal.bindings.a
 
 
 // Interface: ActionChipsHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -566,7 +528,7 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createActionChipsHandler');
-          const result = this.impl.createActionChipsHandler(params.arg_handler, params.arg_page);
+          const result = this.impl.createActionChipsHandler(params.arg_arg_handler, params.arg_arg_page);
           break;
         }
       }
@@ -581,4 +543,44 @@ mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryReceiver = mo
 
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryPtr = mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryRemote;
 mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryRequest = mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TabInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.action_chips.mojom.TabInfoSpec, 'action_chips.mojom.TabInfo', [
+      mojo.internal.StructField('arg_tab_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_last_active_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ActionChip
+mojo.internal.Struct(
+    mojo.internal.bindings.action_chips.mojom.ActionChipSpec, 'action_chips.mojom.ActionChip', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggestion', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.action_chips.mojom.ChipTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab', 24, 0, mojo.internal.bindings.action_chips.mojom.TabInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_ParamsSpec, 'action_chips.mojom.ActionChipsHandler_StartActionChipsRetrieval_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.action_chips.mojom.Page_OnActionChipsChanged_ParamsSpec, 'action_chips.mojom.Page_OnActionChipsChanged_Params', [
+      mojo.internal.StructField('arg_action_chips', 0, 0, mojo.internal.Array(mojo.internal.bindings.action_chips.mojom.ActionChipSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_ParamsSpec, 'action_chips.mojom.ActionChipsHandlerFactory_CreateActionChipsHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.action_chips.mojom.ActionChipsHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_page', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.action_chips.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

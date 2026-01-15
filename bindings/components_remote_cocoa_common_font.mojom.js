@@ -151,6 +151,8 @@ mojo.internal.bindings.remote_cocoa.mojom.FontWeight = {
   kBlack: 900,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: FontName
 mojo.internal.Union(
     mojo.internal.bindings.remote_cocoa.mojom.FontNameSpec, 'remote_cocoa.mojom.FontName', {

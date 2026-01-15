@@ -193,41 +193,6 @@ mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatus = {
 };
 
 // Interface: CdmFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_protection', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_protection', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_protection', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_host', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -368,26 +333,29 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_1');
-          const result = this.impl.dEPRECATED_1(params.arg_client, params.arg_storage, params.arg_cdm, params.arg_output_protection);
+          const result = this.impl.dEPRECATED_1(params.arg_arg_client, params.arg_arg_storage, params.arg_arg_cdm, params.arg_arg_output_protection);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmDeprecated');
-          const result = this.impl.createCdmDeprecated(params.arg_client, params.arg_storage, params.arg_output_protection, params.arg_host, params.arg_cdm);
+          const result = this.impl.createCdmDeprecated(params.arg_arg_client, params.arg_arg_storage, params.arg_arg_output_protection, params.arg_arg_host, params.arg_arg_cdm);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
-          const result = this.impl.createCdm(params.arg_client, params.arg_storage, params.arg_output_protection, params.arg_host, params.arg_cdm);
+          const result = this.impl.createCdm(params.arg_arg_client, params.arg_arg_storage, params.arg_arg_output_protection, params.arg_arg_host, params.arg_arg_cdm);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateCdm FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createCdm FAILED:', e));
           }
           break;
         }
@@ -406,105 +374,6 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRequest = mojo.internal.bind
 
 
 // Interface: CdmFactoryDaemon
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_Params', [
-      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParams', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_Params', [
-      mojo.internal.StructField('arg_oemcryptor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.OemCryptoServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_buffer_manager', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_protection', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_config_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParams', [
-      mojo.internal.StructField('arg_hdcp_key_base64', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_Params', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_Params', [
-      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParams', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_Params', [
-      mojo.internal.StructField('arg_secure_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_slice_header', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -743,12 +612,15 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFactory');
-          const result = this.impl.createFactory(params.arg_key_system);
+          const result = this.impl.createFactory(params.arg_arg_key_system);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateFactory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_factory' in response) ? response.arg_arg_factory : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createFactory FAILED:', e));
           }
           break;
         }
@@ -763,7 +635,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectOemCrypto');
-          const result = this.impl.connectOemCrypto(params.arg_oemcryptor, params.arg_protected_buffer_manager, params.arg_output_protection);
+          const result = this.impl.connectOemCrypto(params.arg_arg_oemcryptor, params.arg_arg_protected_buffer_manager, params.arg_arg_output_protection);
           break;
         }
         case 3: {
@@ -781,8 +653,10 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHwConfigData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_config_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHwConfigData FAILED:', e));
           }
           break;
         }
@@ -801,8 +675,11 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHdcp14Key FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_hdcp_key_base64' in response) ? response.arg_arg_hdcp_key_base64 : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHdcp14Key FAILED:', e));
           }
           break;
         }
@@ -810,12 +687,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAndroidHwKeyData');
-          const result = this.impl.getAndroidHwKeyData(params.arg_key_id, params.arg_hw_identifier);
+          const result = this.impl.getAndroidHwKeyData(params.arg_arg_key_id, params.arg_arg_hw_identifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAndroidHwKeyData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_key_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAndroidHwKeyData FAILED:', e));
           }
           break;
         }
@@ -823,12 +702,15 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.allocateSecureBuffer');
-          const result = this.impl.allocateSecureBuffer(params.arg_size);
+          const result = this.impl.allocateSecureBuffer(params.arg_arg_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AllocateSecureBuffer FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] allocateSecureBuffer FAILED:', e));
           }
           break;
         }
@@ -836,12 +718,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseEncryptedSliceHeader');
-          const result = this.impl.parseEncryptedSliceHeader(params.arg_secure_handle, params.arg_offset, params.arg_stream_data);
+          const result = this.impl.parseEncryptedSliceHeader(params.arg_arg_secure_handle, params.arg_arg_offset, params.arg_arg_stream_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseEncryptedSliceHeader FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_slice_header']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseEncryptedSliceHeader FAILED:', e));
           }
           break;
         }
@@ -857,4 +741,140 @@ mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonReceiver = mojo.intern
 
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonPtr = mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRemote;
 mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonRequest = mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemonPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_DEPRECATED_1_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_protection', 20, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdmDeprecated_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_protection', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_storage', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmStorageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_protection', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_host', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm', 32, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactory_CreateCdm_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_Params', [
+      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_CreateFactory_ResponseParams', [
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod1_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ConnectOemCrypto_Params', [
+      mojo.internal.StructField('arg_oemcryptor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.OemCryptoServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_protected_buffer_manager', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_protection', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.OutputProtectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod3_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHwConfigData_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_config_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_RemovedMethod5_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetHdcp14Key_ResponseParams', [
+      mojo.internal.StructField('arg_hdcp_key_base64', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_Params', [
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_GetAndroidHwKeyData_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_Params', [
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_AllocateSecureBuffer_ResponseParams', [
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_Params', [
+      mojo.internal.StructField('arg_secure_handle', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_data', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParamsSpec, 'chromeos.cdm.mojom.CdmFactoryDaemon_ParseEncryptedSliceHeader_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_slice_header', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

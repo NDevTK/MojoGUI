@@ -202,3 +202,5 @@ mojo.internal.bindings.network.mojom.FetchResponseSource = {
   kHttpCache: 2,
   kCacheStorage: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

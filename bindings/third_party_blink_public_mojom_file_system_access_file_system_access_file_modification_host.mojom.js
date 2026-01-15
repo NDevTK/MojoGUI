@@ -129,23 +129,6 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestC
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec = { $: {} };
 
 // Interface: FileSystemAccessFileModificationHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Params', [
-      mojo.internal.StructField('arg_capacity_delta', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParams', [
-      mojo.internal.StructField('arg_granted_capacity_delta', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,12 +255,15 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestCapacityChange');
-          const result = this.impl.requestCapacityChange(params.arg_capacity_delta);
+          const result = this.impl.requestCapacityChange(params.arg_arg_capacity_delta);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestCapacityChange FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_granted_capacity_delta' in response) ? response.arg_arg_granted_capacity_delta : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestCapacityChange FAILED:', e));
           }
           break;
         }
@@ -300,4 +286,23 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostReceiver 
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostPtr = mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostRemote;
 mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostRequest = mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_Params', [
+      mojo.internal.StructField('arg_capacity_delta', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_RequestCapacityChange_ResponseParams', [
+      mojo.internal.StructField('arg_granted_capacity_delta', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_ParamsSpec, 'blink.mojom.FileSystemAccessFileModificationHost_OnContentsModified_Params', [
+    ],
+    [[0, 8]]);
 

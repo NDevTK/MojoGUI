@@ -142,45 +142,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: EventFilteringInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_has_instance_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_window_exposed_by_default', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_window_exposed_by_default', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_instance_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_window_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: DispatchEventParams
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec, 'extensions.mojom.DispatchEventParams', [
-      mojo.internal.StructField('arg_worker_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_host_id', 8, 0, mojo.internal.bindings.extensions.mojom.HostIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_user_gesture', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_filtering_info', 32, 0, mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: EventDispatcher
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_ResponseParams', [
-      mojo.internal.StructField('arg_event_will_run_in_lazy_background_page_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.extensions.mojom.EventDispatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,12 +255,15 @@ mojo.internal.bindings.extensions.mojom.EventDispatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchEvent');
-          const result = this.impl.dispatchEvent(params.arg_params, params.arg_event_args);
+          const result = this.impl.dispatchEvent(params.arg_arg_params, params.arg_arg_event_args);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DispatchEvent FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_event_will_run_in_lazy_background_page_script' in response) ? response.arg_arg_event_will_run_in_lazy_background_page_script : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dispatchEvent FAILED:', e));
           }
           break;
         }
@@ -314,4 +279,44 @@ mojo.internal.bindings.extensions.mojom.EventDispatcherReceiver = mojo.internal.
 
 mojo.internal.bindings.extensions.mojom.EventDispatcherPtr = mojo.internal.bindings.extensions.mojom.EventDispatcherRemote;
 mojo.internal.bindings.extensions.mojom.EventDispatcherRequest = mojo.internal.bindings.extensions.mojom.EventDispatcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: EventFilteringInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, 'extensions.mojom.EventFilteringInfo', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_service_type', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_has_instance_id', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_window_exposed_by_default', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_window_exposed_by_default', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_instance_id', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_window_type', 24, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: DispatchEventParams
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec, 'extensions.mojom.DispatchEventParams', [
+      mojo.internal.StructField('arg_worker_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_host_id', 8, 0, mojo.internal.bindings.extensions.mojom.HostIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_user_gesture', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_filtering_info', 32, 0, mojo.internal.bindings.extensions.mojom.EventFilteringInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.extensions.mojom.DispatchEventParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_args', 8, 0, mojo.internal.bindings.mojo_base.mojom.ListValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.EventDispatcher_DispatchEvent_ResponseParamsSpec, 'extensions.mojom.EventDispatcher_DispatchEvent_ResponseParams', [
+      mojo.internal.StructField('arg_event_will_run_in_lazy_background_page_script', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

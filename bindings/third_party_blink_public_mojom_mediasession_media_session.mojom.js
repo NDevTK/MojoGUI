@@ -188,55 +188,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReason = {
   kContentOccluded: 2,
 };
 
-// Union: MediaSessionActionDetails
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, 'blink.mojom.MediaSessionActionDetails', {
-      'arg_seek_to': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec,
-        'nullable': false,
-      },
-      'arg_enter_picture_in_picture': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: MediaSessionSeekToDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec, 'blink.mojom.MediaSessionSeekToDetails', [
-      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fast_seek', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MediaSessionEnterPictureInPictureDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec, 'blink.mojom.MediaSessionEnterPictureInPictureDetails', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SpecMediaMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec, 'blink.mojom.SpecMediaMetadata', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artist', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_album', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_artwork', 24, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_chapterInfo', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: MediaSessionClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.MediaSessionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -349,7 +301,7 @@ mojo.internal.bindings.blink.mojom.MediaSessionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didReceiveAction');
-          const result = this.impl.didReceiveAction(params.arg_action, params.arg_details);
+          const result = this.impl.didReceiveAction(params.arg_arg_action, params.arg_arg_details);
           break;
         }
       }
@@ -367,54 +319,6 @@ mojo.internal.bindings.blink.mojom.MediaSessionClientRequest = mojo.internal.bin
 
 
 // Interface: MediaSessionService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec, 'blink.mojom.MediaSessionService_SetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaSessionClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPlaybackState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPositionState_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec, 'blink.mojom.MediaSessionService_SetMetadata_Params', [
-      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec, 'blink.mojom.MediaSessionService_SetMicrophoneState_Params', [
-      mojo.internal.StructField('arg_microphone_state', 0, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec, 'blink.mojom.MediaSessionService_SetCameraState_Params', [
-      mojo.internal.StructField('arg_camera_state', 0, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec, 'blink.mojom.MediaSessionService_EnableAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec, 'blink.mojom.MediaSessionService_DisableAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.MediaSessionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -625,56 +529,56 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClient');
-          const result = this.impl.setClient(params.arg_client);
+          const result = this.impl.setClient(params.arg_arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPlaybackState');
-          const result = this.impl.setPlaybackState(params.arg_state);
+          const result = this.impl.setPlaybackState(params.arg_arg_state);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPositionState');
-          const result = this.impl.setPositionState(params.arg_position);
+          const result = this.impl.setPositionState(params.arg_arg_position);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMetadata');
-          const result = this.impl.setMetadata(params.arg_metadata);
+          const result = this.impl.setMetadata(params.arg_arg_metadata);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMicrophoneState');
-          const result = this.impl.setMicrophoneState(params.arg_microphone_state);
+          const result = this.impl.setMicrophoneState(params.arg_arg_microphone_state);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCameraState');
-          const result = this.impl.setCameraState(params.arg_camera_state);
+          const result = this.impl.setCameraState(params.arg_arg_camera_state);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAction');
-          const result = this.impl.enableAction(params.arg_action);
+          const result = this.impl.enableAction(params.arg_arg_action);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disableAction');
-          const result = this.impl.disableAction(params.arg_action);
+          const result = this.impl.disableAction(params.arg_arg_action);
           break;
         }
       }
@@ -689,4 +593,102 @@ mojo.internal.bindings.blink.mojom.MediaSessionServiceReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.MediaSessionServicePtr = mojo.internal.bindings.blink.mojom.MediaSessionServiceRemote;
 mojo.internal.bindings.blink.mojom.MediaSessionServiceRequest = mojo.internal.bindings.blink.mojom.MediaSessionServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: MediaSessionActionDetails
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, 'blink.mojom.MediaSessionActionDetails', {
+      'arg_seek_to': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec,
+        'nullable': false,
+      },
+      'arg_enter_picture_in_picture': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: MediaSessionSeekToDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionSeekToDetailsSpec, 'blink.mojom.MediaSessionSeekToDetails', [
+      mojo.internal.StructField('arg_seek_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fast_seek', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MediaSessionEnterPictureInPictureDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureDetailsSpec, 'blink.mojom.MediaSessionEnterPictureInPictureDetails', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionEnterPictureInPictureReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SpecMediaMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec, 'blink.mojom.SpecMediaMetadata', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artist', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_album', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_artwork', 24, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.MediaImageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_chapterInfo', 32, 0, mojo.internal.Array(mojo.internal.bindings.media_session.mojom.ChapterInformationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionClient_DidReceiveAction_ParamsSpec, 'blink.mojom.MediaSessionClient_DidReceiveAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 8, 0, mojo.internal.bindings.blink.mojom.MediaSessionActionDetailsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_SetClient_ParamsSpec, 'blink.mojom.MediaSessionService_SetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.MediaSessionClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_SetPlaybackState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPlaybackState_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.blink.mojom.MediaSessionPlaybackStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_SetPositionState_ParamsSpec, 'blink.mojom.MediaSessionService_SetPositionState_Params', [
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.media_session.mojom.MediaPositionSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_SetMetadata_ParamsSpec, 'blink.mojom.MediaSessionService_SetMetadata_Params', [
+      mojo.internal.StructField('arg_metadata', 0, 0, mojo.internal.bindings.blink.mojom.SpecMediaMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_SetMicrophoneState_ParamsSpec, 'blink.mojom.MediaSessionService_SetMicrophoneState_Params', [
+      mojo.internal.StructField('arg_microphone_state', 0, 0, mojo.internal.bindings.media_session.mojom.MicrophoneStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_SetCameraState_ParamsSpec, 'blink.mojom.MediaSessionService_SetCameraState_Params', [
+      mojo.internal.StructField('arg_camera_state', 0, 0, mojo.internal.bindings.media_session.mojom.CameraStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_EnableAction_ParamsSpec, 'blink.mojom.MediaSessionService_EnableAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MediaSessionService_DisableAction_ParamsSpec, 'blink.mojom.MediaSessionService_DisableAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.bindings.media_session.mojom.MediaSessionActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

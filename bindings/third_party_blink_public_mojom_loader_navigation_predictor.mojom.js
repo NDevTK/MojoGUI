@@ -174,174 +174,7 @@ mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTy
   kUnknown: 4,
 };
 
-// Struct: AnchorElementMetrics
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec, 'blink.mojom.AnchorElementMetrics', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ratio_area', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ratio_distance_top_to_visible_top', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ratio_distance_root_top', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_in_iframe', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_contains_image', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_same_host', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_url_incremented_by_one', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_text_sibling', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_font_size_px', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_font_weight', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_target_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_viewport_size', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: AnchorElementClick
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementClickSpec, 'blink.mojom.AnchorElementClick', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_target_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_start_to_click', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: AnchorElementPointerDataOnHoverTimerFired
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec, 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pointer_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementEnteredViewport
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec, 'blink.mojom.AnchorElementEnteredViewport', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_start_to_entered_viewport', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementLeftViewport
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec, 'blink.mojom.AnchorElementLeftViewport', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_time_in_viewport', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementPointerOver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec, 'blink.mojom.AnchorElementPointerOver', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_start_to_pointer_over', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementPointerOut
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec, 'blink.mojom.AnchorElementPointerOut', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_hover_dwell_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementPointerEventForMLModel
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec, 'blink.mojom.AnchorElementPointerEventForMLModel', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mouse', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_user_interaction_event_type', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementPointerDown
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec, 'blink.mojom.AnchorElementPointerDown', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_start_to_pointer_down', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AnchorElementPositionUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec, 'blink.mojom.AnchorElementPositionUpdate', [
-      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_vertical_position_ratio', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_distance_from_pointer_down_ratio_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_distance_from_pointer_down_ratio_$value', originalFieldName: 'arg_distance_from_pointer_down_ratio' }),
-      mojo.internal.StructField('arg_distance_from_pointer_down_ratio_$value', 12, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_distance_from_pointer_down_ratio_$flag', originalFieldName: 'arg_distance_from_pointer_down_ratio' }),
-    ],
-    [[0, 24]]);
-
 // Interface: AnchorElementMetricsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_Params', [
-      mojo.internal.StructField('arg_clicked', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementClickSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_Params', [
-      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_removed_elements', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_Params', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_Params', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_Params', [
-      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_Params', [
-      mojo.internal.StructField('arg_pointer_over_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_Params', [
-      mojo.internal.StructField('arg_hover_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_Params', [
-      mojo.internal.StructField('arg_pointer_down_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_Params', [
-      mojo.internal.StructField('arg_pointer_data', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_Params', [
-      mojo.internal.StructField('arg_pointer_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParams', [
-      mojo.internal.StructField('arg_should_skip_for_testing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -594,70 +427,70 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementClick');
-          const result = this.impl.reportAnchorElementClick(params.arg_clicked);
+          const result = this.impl.reportAnchorElementClick(params.arg_arg_clicked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportNewAnchorElements');
-          const result = this.impl.reportNewAnchorElements(params.arg_metrics, params.arg_removed_elements);
+          const result = this.impl.reportNewAnchorElements(params.arg_arg_metrics, params.arg_arg_removed_elements);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsEnteredViewport');
-          const result = this.impl.reportAnchorElementsEnteredViewport(params.arg_elements);
+          const result = this.impl.reportAnchorElementsEnteredViewport(params.arg_arg_elements);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsLeftViewport');
-          const result = this.impl.reportAnchorElementsLeftViewport(params.arg_elements);
+          const result = this.impl.reportAnchorElementsLeftViewport(params.arg_arg_elements);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementsPositionUpdate');
-          const result = this.impl.reportAnchorElementsPositionUpdate(params.arg_elements);
+          const result = this.impl.reportAnchorElementsPositionUpdate(params.arg_arg_elements);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOver');
-          const result = this.impl.reportAnchorElementPointerOver(params.arg_pointer_over_event);
+          const result = this.impl.reportAnchorElementPointerOver(params.arg_arg_pointer_over_event);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerOut');
-          const result = this.impl.reportAnchorElementPointerOut(params.arg_hover_event);
+          const result = this.impl.reportAnchorElementPointerOut(params.arg_arg_hover_event);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDown');
-          const result = this.impl.reportAnchorElementPointerDown(params.arg_pointer_down_event);
+          const result = this.impl.reportAnchorElementPointerDown(params.arg_arg_pointer_down_event);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnchorElementPointerDataOnHoverTimerFired');
-          const result = this.impl.reportAnchorElementPointerDataOnHoverTimerFired(params.arg_pointer_data);
+          const result = this.impl.reportAnchorElementPointerDataOnHoverTimerFired(params.arg_arg_pointer_data);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processPointerEventUsingMLModel');
-          const result = this.impl.processPointerEventUsingMLModel(params.arg_pointer_event);
+          const result = this.impl.processPointerEventUsingMLModel(params.arg_arg_pointer_event);
           break;
         }
         case 10: {
@@ -668,8 +501,11 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShouldSkipUpdateDelays FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_should_skip_for_testing' in response) ? response.arg_arg_should_skip_for_testing : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shouldSkipUpdateDelays FAILED:', e));
           }
           break;
         }
@@ -685,4 +521,173 @@ mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostReceiver = mojo.inter
 
 mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostPtr = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRemote;
 mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostRequest = mojo.internal.bindings.blink.mojom.AnchorElementMetricsHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AnchorElementMetrics
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec, 'blink.mojom.AnchorElementMetrics', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ratio_area', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ratio_distance_top_to_visible_top', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ratio_distance_root_top', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_in_iframe', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_contains_image', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_same_host', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_url_incremented_by_one', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_text_sibling', 16, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_font_size_px', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_font_weight', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_url', 32, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_size', 40, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: AnchorElementClick
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementClickSpec, 'blink.mojom.AnchorElementClick', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_start_to_click', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: AnchorElementPointerDataOnHoverTimerFired
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec, 'blink.mojom.AnchorElementPointerDataOnHoverTimerFired', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pointer_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementEnteredViewport
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec, 'blink.mojom.AnchorElementEnteredViewport', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_start_to_entered_viewport', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementLeftViewport
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec, 'blink.mojom.AnchorElementLeftViewport', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_time_in_viewport', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementPointerOver
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec, 'blink.mojom.AnchorElementPointerOver', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_start_to_pointer_over', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementPointerOut
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec, 'blink.mojom.AnchorElementPointerOut', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_hover_dwell_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementPointerEventForMLModel
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec, 'blink.mojom.AnchorElementPointerEventForMLModel', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mouse', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_user_interaction_event_type', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementUserInteractionEventForMLModelTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementPointerDown
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec, 'blink.mojom.AnchorElementPointerDown', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_start_to_pointer_down', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AnchorElementPositionUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec, 'blink.mojom.AnchorElementPositionUpdate', [
+      mojo.internal.StructField('arg_anchor_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_vertical_position_ratio', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_distance_from_pointer_down_ratio_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_distance_from_pointer_down_ratio_$value', originalFieldName: 'arg_distance_from_pointer_down_ratio' }),
+      mojo.internal.StructField('arg_distance_from_pointer_down_ratio_$value', 12, 0, mojo.internal.Float, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_distance_from_pointer_down_ratio_$flag', originalFieldName: 'arg_distance_from_pointer_down_ratio' }),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementClick_Params', [
+      mojo.internal.StructField('arg_clicked', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementClickSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportNewAnchorElements_Params', [
+      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementMetricsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_removed_elements', 8, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsEnteredViewport_Params', [
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementEnteredViewportSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsLeftViewport_Params', [
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementLeftViewportSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementsPositionUpdate_Params', [
+      mojo.internal.StructField('arg_elements', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AnchorElementPositionUpdateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOver_Params', [
+      mojo.internal.StructField('arg_pointer_over_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerOverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerOut_Params', [
+      mojo.internal.StructField('arg_hover_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerOutSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDown_Params', [
+      mojo.internal.StructField('arg_pointer_down_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDownSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ReportAnchorElementPointerDataOnHoverTimerFired_Params', [
+      mojo.internal.StructField('arg_pointer_data', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataOnHoverTimerFiredSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ProcessPointerEventUsingMLModel_Params', [
+      mojo.internal.StructField('arg_pointer_event', 0, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerEventForMLModelSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParamsSpec, 'blink.mojom.AnchorElementMetricsHost_ShouldSkipUpdateDelays_ResponseParams', [
+      mojo.internal.StructField('arg_should_skip_for_testing', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -134,3 +134,5 @@ mojo.internal.bindings.blink.mojom.FocusType = {
   kAccessKey: 6,
   kPage: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

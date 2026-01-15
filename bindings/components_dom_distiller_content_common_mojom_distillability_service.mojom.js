@@ -127,15 +127,6 @@ mojo.internal.bindings.dom_distiller.mojom.DistillabilityService.$interfaceName 
 mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec = { $: {} };
 
 // Interface: DistillabilityService
-mojo.internal.Struct(
-    mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec, 'dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_Params', [
-      mojo.internal.StructField('arg_page_is_distillable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_last_update', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_long_article', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_mobile_friendly', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.dom_distiller.mojom.DistillabilityServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -248,7 +239,7 @@ mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyIsDistillable');
-          const result = this.impl.notifyIsDistillable(params.arg_page_is_distillable, params.arg_is_last_update, params.arg_is_long_article, params.arg_is_mobile_friendly);
+          const result = this.impl.notifyIsDistillable(params.arg_arg_page_is_distillable, params.arg_arg_is_last_update, params.arg_arg_is_long_article, params.arg_arg_is_mobile_friendly);
           break;
         }
       }
@@ -263,4 +254,15 @@ mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceReceiver = mojo.
 
 mojo.internal.bindings.dom_distiller.mojom.DistillabilityServicePtr = mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceRemote;
 mojo.internal.bindings.dom_distiller.mojom.DistillabilityServiceRequest = mojo.internal.bindings.dom_distiller.mojom.DistillabilityServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_ParamsSpec, 'dom_distiller.mojom.DistillabilityService_NotifyIsDistillable_Params', [
+      mojo.internal.StructField('arg_page_is_distillable', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_last_update', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_long_article', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_mobile_friendly', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -149,80 +149,6 @@ mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIcon = {
 };
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleImeTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_Params', [
-      mojo.internal.StructField('arg_in_child_session', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_Params', [
-      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_camera_used', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_microphone_used', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_Params', [
-      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_Params', [
-      mojo.internal.StructField('arg_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -489,63 +415,63 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleImeTray');
-          const result = this.impl.toggleImeTray(params.arg_visible);
+          const result = this.impl.toggleImeTray(params.arg_arg_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.togglePaletteTray');
-          const result = this.impl.togglePaletteTray(params.arg_visible);
+          const result = this.impl.togglePaletteTray(params.arg_arg_visible);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleLogoutTray');
-          const result = this.impl.toggleLogoutTray(params.arg_visible);
+          const result = this.impl.toggleLogoutTray(params.arg_arg_visible);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleVirtualKeyboardTray');
-          const result = this.impl.toggleVirtualKeyboardTray(params.arg_visible);
+          const result = this.impl.toggleVirtualKeyboardTray(params.arg_arg_visible);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleDictationTray');
-          const result = this.impl.toggleDictationTray(params.arg_visible);
+          const result = this.impl.toggleDictationTray(params.arg_arg_visible);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleVideoConferenceTray');
-          const result = this.impl.toggleVideoConferenceTray(params.arg_visible);
+          const result = this.impl.toggleVideoConferenceTray(params.arg_arg_visible);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleAnnotationTray');
-          const result = this.impl.toggleAnnotationTray(params.arg_visible);
+          const result = this.impl.toggleAnnotationTray(params.arg_arg_visible);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsInUserChildSession');
-          const result = this.impl.setIsInUserChildSession(params.arg_in_child_session);
+          const result = this.impl.setIsInUserChildSession(params.arg_arg_in_child_session);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.triggerPrivacyIndicators');
-          const result = this.impl.triggerPrivacyIndicators(params.arg_app_id, params.arg_app_name, params.arg_is_camera_used, params.arg_is_microphone_used);
+          const result = this.impl.triggerPrivacyIndicators(params.arg_arg_app_id, params.arg_arg_app_name, params.arg_arg_is_camera_used, params.arg_arg_is_microphone_used);
           break;
         }
         case 9: {
@@ -559,14 +485,14 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBatteryIcon');
-          const result = this.impl.setBatteryIcon(params.arg_icon);
+          const result = this.impl.setBatteryIcon(params.arg_arg_icon);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBatteryPercent');
-          const result = this.impl.setBatteryPercent(params.arg_percent);
+          const result = this.impl.setBatteryPercent(params.arg_arg_percent);
           break;
         }
       }
@@ -581,4 +507,80 @@ mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerReceiver = moj
 
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerPtr = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRemote;
 mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerRequest = mojo.internal.bindings.ash.mojom.status_area_internals.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleImeTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleImeTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_TogglePaletteTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleLogoutTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleVirtualKeyboardTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleDictationTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleVideoConferenceTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ToggleAnnotationTray_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetIsInUserChildSession_Params', [
+      mojo.internal.StructField('arg_in_child_session', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_TriggerPrivacyIndicators_Params', [
+      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_camera_used', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_microphone_used', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_ResetHmrConsentStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryIcon_Params', [
+      mojo.internal.StructField('arg_icon', 0, 0, mojo.internal.bindings.ash.mojom.status_area_internals.BatteryIconSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_ParamsSpec, 'ash.mojom.status_area_internals.PageHandler_SetBatteryPercent_Params', [
+      mojo.internal.StructField('arg_percent', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

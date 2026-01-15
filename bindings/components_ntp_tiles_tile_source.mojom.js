@@ -133,3 +133,5 @@ mojo.internal.bindings.ntp_tiles.mojom.TileSource = {
   HOMEPAGE: 5,
   ENTERPRISE_SHORTCUTS: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

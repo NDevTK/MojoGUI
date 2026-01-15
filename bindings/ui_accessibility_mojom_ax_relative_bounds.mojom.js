@@ -132,6 +132,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.TransformSpec = mojo.internal.bindings.gfx.mojom.TransformSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXRelativeBounds
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, 'ax.mojom.AXRelativeBounds', [

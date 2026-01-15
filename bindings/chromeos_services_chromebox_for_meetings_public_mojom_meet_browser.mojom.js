@@ -129,18 +129,6 @@ mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSp
 mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec = { $: {} };
 
 // Interface: MeetBrowser
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec, 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_Params', [
-      mojo.internal.StructField('arg_hashed_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec, 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParams', [
-      mojo.internal.StructField('arg_device_path', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cfm.mojom.MeetBrowserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,12 +241,15 @@ mojo.internal.bindings.ash.cfm.mojom.MeetBrowserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.translateVideoDeviceId');
-          const result = this.impl.translateVideoDeviceId(params.arg_hashed_device_id);
+          const result = this.impl.translateVideoDeviceId(params.arg_arg_hashed_device_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TranslateVideoDeviceId FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_device_path' in response) ? response.arg_arg_device_path : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] translateVideoDeviceId FAILED:', e));
           }
           break;
         }
@@ -274,4 +265,18 @@ mojo.internal.bindings.ash.cfm.mojom.MeetBrowserReceiver = mojo.internal.binding
 
 mojo.internal.bindings.ash.cfm.mojom.MeetBrowserPtr = mojo.internal.bindings.ash.cfm.mojom.MeetBrowserRemote;
 mojo.internal.bindings.ash.cfm.mojom.MeetBrowserRequest = mojo.internal.bindings.ash.cfm.mojom.MeetBrowserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ParamsSpec, 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_Params', [
+      mojo.internal.StructField('arg_hashed_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParamsSpec, 'ash.cfm.mojom.MeetBrowser_TranslateVideoDeviceId_ResponseParams', [
+      mojo.internal.StructField('arg_device_path', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -135,3 +135,5 @@ mojo.internal.bindings.blink.mojom.PointerLockResult = {
   kElementDestroyed: 7,
   kUnknownError: 8,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

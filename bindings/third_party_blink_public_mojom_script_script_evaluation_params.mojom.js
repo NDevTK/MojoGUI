@@ -157,3 +157,5 @@ mojo.internal.bindings.blink.mojom.LoadEventBlockingOption = {
   kDoNotBlock: 0,
   kBlock: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

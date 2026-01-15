@@ -160,6 +160,8 @@ mojo.internal.bindings.device.mojom.XRHandJoint = {
   kPinkyFingerTip: 24,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: XRHandJointData
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.XRHandJointDataSpec, 'device.mojom.XRHandJointData', [

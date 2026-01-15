@@ -156,3 +156,5 @@ mojo.internal.bindings.sandbox.mojom.Sandbox = {
   EnableIf: 11,
   EnableIf: 11,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

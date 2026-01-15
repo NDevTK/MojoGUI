@@ -134,17 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FileSpec = mojo.internal.bindings.mojo_base.mojom.FileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SystemTracingService
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParams', [
-      mojo.internal.StructField('arg_traced_socket', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.tracing.mojom.SystemTracingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,8 +250,11 @@ mojo.internal.bindings.tracing.mojom.SystemTracingServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenProducerSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_traced_socket' in response) ? response.arg_arg_traced_socket : response;
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openProducerSocket FAILED:', e));
           }
           break;
         }
@@ -278,4 +270,17 @@ mojo.internal.bindings.tracing.mojom.SystemTracingServiceReceiver = mojo.interna
 
 mojo.internal.bindings.tracing.mojom.SystemTracingServicePtr = mojo.internal.bindings.tracing.mojom.SystemTracingServiceRemote;
 mojo.internal.bindings.tracing.mojom.SystemTracingServiceRequest = mojo.internal.bindings.tracing.mojom.SystemTracingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParamsSpec, 'tracing.mojom.SystemTracingService_OpenProducerSocket_ResponseParams', [
+      mojo.internal.StructField('arg_traced_socket', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

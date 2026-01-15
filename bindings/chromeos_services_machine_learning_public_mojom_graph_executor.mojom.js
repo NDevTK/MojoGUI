@@ -150,20 +150,6 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResult = {
 };
 
 // Interface: GraphExecutor
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_Params', [
-      mojo.internal.StructField('arg_inputs', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_outputs', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,12 +262,14 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.execute');
-          const result = this.impl.execute(params.arg_inputs, params.arg_output_names);
+          const result = this.impl.execute(params.arg_arg_inputs, params.arg_arg_output_names);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Execute FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_outputs']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] execute FAILED:', e));
           }
           break;
         }
@@ -297,4 +285,20 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorReceiver = m
 
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPtr = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRemote;
 mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorRequest = mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_Params', [
+      mojo.internal.StructField('arg_inputs', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_names', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GraphExecutor_Execute_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.ExecuteResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_outputs', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.TensorSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -128,17 +128,6 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Pa
 mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec = { $: {} };
 
 // Interface: AudioSocketBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParams', [
-      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,8 +244,11 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSocketDescriptor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_fd' in response) ? response.arg_arg_fd : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSocketDescriptor FAILED:', e));
           }
           break;
         }
@@ -272,4 +264,17 @@ mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerReceiver = mojo.interna
 
 mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerPtr = mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerRemote;
 mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerRequest = mojo.internal.bindings.chromecast.mojom.AudioSocketBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParamsSpec, 'chromecast.mojom.AudioSocketBroker_GetSocketDescriptor_ResponseParams', [
+      mojo.internal.StructField('arg_fd', 0, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

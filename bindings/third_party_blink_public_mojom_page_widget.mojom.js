@@ -232,176 +232,7 @@ mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehavior = {
   kKeepCache: 1,
 };
 
-// Struct: ProximateCharacterRangeBounds
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec, 'blink.mojom.ProximateCharacterRangeBounds', [
-      mojo.internal.StructField('arg_range', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_widget_bounds_in_dips', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: StylusWritingFocusResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec, 'blink.mojom.StylusWritingFocusResult', [
-      mojo.internal.StructField('arg_focused_edit_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_caret_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proximate_bounds', 16, 0, mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: FrameWidget
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragEnter_Params', [
-      mojo.internal.StructField('arg_drag_data', 0, 0, mojo.internal.bindings.blink.mojom.DragDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point_in_viewport', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screen_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operations_allowed', 24, 0, mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_modifiers', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParams', [
-      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_is_handling_drag', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragOver_Params', [
-      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operations_allowed', 16, 0, mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_modifiers', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragOver_ResponseParams', [
-      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_is_handling_drag', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragLeave_Params', [
-      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDrop_Params', [
-      mojo.internal.StructField('arg_drag_data', 0, 0, mojo.internal.bindings.blink.mojom.DragDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_point_in_viewport', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screen_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_modifiers', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDrop_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_Params', [
-      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_drag_operation', 16, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceSystemDragEnded_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec, 'blink.mojom.FrameWidget_OnStartStylusWriting_Params', [
-      mojo.internal.StructField('arg_focus_widget_rect_in_dips', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec, 'blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParams', [
-      mojo.internal.StructField('arg_focus_result', 0, 0, mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec, 'blink.mojom.FrameWidget_SetBackgroundOpaque_Params', [
-      mojo.internal.StructField('arg_opaque', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec, 'blink.mojom.FrameWidget_SetTextDirection_Params', [
-      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec, 'blink.mojom.FrameWidget_SetActive_Params', [
-      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec, 'blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_Params', [
-      mojo.internal.StructField('arg_touch_action', 0, 0, mojo.internal.bindings.cc.mojom.TouchActionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec, 'blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_Params', [
-      mojo.internal.StructField('arg_is_throttled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_subtree_throttled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_display_locked', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec, 'blink.mojom.FrameWidget_SetIsInertForSubFrame_Params', [
-      mojo.internal.StructField('arg_inert', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_EnableDeviceEmulation_Params', [
-      mojo.internal.StructField('arg_parameters', 0, 0, mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_behavior', 8, 0, mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehaviorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_DisableDeviceEmulation_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec, 'blink.mojom.FrameWidget_BindWidgetCompositor_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetCompositorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec, 'blink.mojom.FrameWidget_SetViewportIntersection_Params', [
-      mojo.internal.StructField('arg_intersection_state', 0, 0, mojo.internal.bindings.blink.mojom.ViewportIntersectionStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visual_properties', 8, 0, mojo.internal.bindings.blink.mojom.VisualPropertiesSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec, 'blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.FrameWidgetPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -752,12 +583,14 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragTargetDragEnter');
-          const result = this.impl.dragTargetDragEnter(params.arg_drag_data, params.arg_point_in_viewport, params.arg_screen_point, params.arg_operations_allowed, params.arg_key_modifiers);
+          const result = this.impl.dragTargetDragEnter(params.arg_arg_drag_data, params.arg_arg_point_in_viewport, params.arg_arg_screen_point, params.arg_arg_operations_allowed, params.arg_arg_key_modifiers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DragTargetDragEnter FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec.$.structSpec, ['response.arg_arg_operation', 'response.arg_arg_document_is_handling_drag']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dragTargetDragEnter FAILED:', e));
           }
           break;
         }
@@ -765,12 +598,14 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragTargetDragOver');
-          const result = this.impl.dragTargetDragOver(params.arg_point_in_viewport, params.arg_screen_point, params.arg_operations_allowed, params.arg_key_modifiers);
+          const result = this.impl.dragTargetDragOver(params.arg_arg_point_in_viewport, params.arg_arg_screen_point, params.arg_arg_operations_allowed, params.arg_arg_key_modifiers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DragTargetDragOver FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec.$.structSpec, ['response.arg_arg_operation', 'response.arg_arg_document_is_handling_drag']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dragTargetDragOver FAILED:', e));
           }
           break;
         }
@@ -778,19 +613,21 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragTargetDragLeave');
-          const result = this.impl.dragTargetDragLeave(params.arg_point_in_viewport, params.arg_screen_point);
+          const result = this.impl.dragTargetDragLeave(params.arg_arg_point_in_viewport, params.arg_arg_screen_point);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragTargetDrop');
-          const result = this.impl.dragTargetDrop(params.arg_drag_data, params.arg_point_in_viewport, params.arg_screen_point, params.arg_key_modifiers);
+          const result = this.impl.dragTargetDrop(params.arg_arg_drag_data, params.arg_arg_point_in_viewport, params.arg_arg_screen_point, params.arg_arg_key_modifiers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DragTargetDrop FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dragTargetDrop FAILED:', e));
           }
           break;
         }
@@ -798,12 +635,14 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dragSourceEndedAt');
-          const result = this.impl.dragSourceEndedAt(params.arg_point_in_viewport, params.arg_screen_point, params.arg_drag_operation);
+          const result = this.impl.dragSourceEndedAt(params.arg_arg_point_in_viewport, params.arg_arg_screen_point, params.arg_arg_drag_operation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DragSourceEndedAt FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dragSourceEndedAt FAILED:', e));
           }
           break;
         }
@@ -818,12 +657,15 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStartStylusWriting');
-          const result = this.impl.onStartStylusWriting(params.arg_focus_widget_rect_in_dips);
+          const result = this.impl.onStartStylusWriting(params.arg_arg_focus_widget_rect_in_dips);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnStartStylusWriting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_focus_result' in response) ? response.arg_arg_focus_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onStartStylusWriting FAILED:', e));
           }
           break;
         }
@@ -831,49 +673,49 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundOpaque');
-          const result = this.impl.setBackgroundOpaque(params.arg_opaque);
+          const result = this.impl.setBackgroundOpaque(params.arg_arg_opaque);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTextDirection');
-          const result = this.impl.setTextDirection(params.arg_direction);
+          const result = this.impl.setTextDirection(params.arg_arg_direction);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActive');
-          const result = this.impl.setActive(params.arg_active);
+          const result = this.impl.setActive(params.arg_arg_active);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInheritedEffectiveTouchActionForSubFrame');
-          const result = this.impl.setInheritedEffectiveTouchActionForSubFrame(params.arg_touch_action);
+          const result = this.impl.setInheritedEffectiveTouchActionForSubFrame(params.arg_arg_touch_action);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRenderThrottlingStatusForSubFrame');
-          const result = this.impl.updateRenderThrottlingStatusForSubFrame(params.arg_is_throttled, params.arg_subtree_throttled, params.arg_display_locked);
+          const result = this.impl.updateRenderThrottlingStatusForSubFrame(params.arg_arg_is_throttled, params.arg_arg_subtree_throttled, params.arg_arg_display_locked);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setIsInertForSubFrame');
-          const result = this.impl.setIsInertForSubFrame(params.arg_inert);
+          const result = this.impl.setIsInertForSubFrame(params.arg_arg_inert);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDeviceEmulation');
-          const result = this.impl.enableDeviceEmulation(params.arg_parameters, params.arg_cache_behavior);
+          const result = this.impl.enableDeviceEmulation(params.arg_arg_parameters, params.arg_arg_cache_behavior);
           break;
         }
         case 14: {
@@ -887,14 +729,14 @@ mojo.internal.bindings.blink.mojom.FrameWidgetReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWidgetCompositor');
-          const result = this.impl.bindWidgetCompositor(params.arg_host);
+          const result = this.impl.bindWidgetCompositor(params.arg_arg_host);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewportIntersection');
-          const result = this.impl.setViewportIntersection(params.arg_intersection_state, params.arg_visual_properties);
+          const result = this.impl.setViewportIntersection(params.arg_arg_intersection_state, params.arg_arg_visual_properties);
           break;
         }
         case 17: {
@@ -919,48 +761,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetRequest = mojo.internal.bindings.b
 
 
 // Interface: FrameWidgetHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec, 'blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_Params', [
-      mojo.internal.StructField('arg_tap_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect_to_zoom', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec, 'blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_Params', [
-      mojo.internal.StructField('arg_rect_to_zoom', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec, 'blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_Params', [
-      mojo.internal.StructField('arg_touch_event_consumers', 0, 0, mojo.internal.bindings.blink.mojom.TouchEventConsumersSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec, 'blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_Params', [
-      mojo.internal.StructField('arg_sizing_info', 0, 0, mojo.internal.bindings.blink.mojom.IntrinsicSizingInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollStart_Params', [
-      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollFling_Params', [
-      mojo.internal.StructField('arg_velocity', 0, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollEnd_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.FrameWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1157,42 +957,42 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.animateDoubleTapZoomInMainFrame');
-          const result = this.impl.animateDoubleTapZoomInMainFrame(params.arg_tap_point, params.arg_rect_to_zoom);
+          const result = this.impl.animateDoubleTapZoomInMainFrame(params.arg_arg_tap_point, params.arg_arg_rect_to_zoom);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.zoomToFindInPageRectInMainFrame');
-          const result = this.impl.zoomToFindInPageRectInMainFrame(params.arg_rect_to_zoom);
+          const result = this.impl.zoomToFindInPageRectInMainFrame(params.arg_arg_rect_to_zoom);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHasTouchEventConsumers');
-          const result = this.impl.setHasTouchEventConsumers(params.arg_touch_event_consumers);
+          const result = this.impl.setHasTouchEventConsumers(params.arg_arg_touch_event_consumers);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.intrinsicSizingInfoChanged');
-          const result = this.impl.intrinsicSizingInfoChanged(params.arg_sizing_info);
+          const result = this.impl.intrinsicSizingInfoChanged(params.arg_arg_sizing_info);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.autoscrollStart');
-          const result = this.impl.autoscrollStart(params.arg_position);
+          const result = this.impl.autoscrollStart(params.arg_arg_position);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.autoscrollFling');
-          const result = this.impl.autoscrollFling(params.arg_velocity);
+          const result = this.impl.autoscrollFling(params.arg_arg_velocity);
           break;
         }
         case 6: {
@@ -1217,34 +1017,6 @@ mojo.internal.bindings.blink.mojom.FrameWidgetHostRequest = mojo.internal.bindin
 
 
 // Interface: PopupWidgetHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec, 'blink.mojom.PopupWidgetHost_RequestClosePopup_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec, 'blink.mojom.PopupWidgetHost_ShowPopup_Params', [
-      mojo.internal.StructField('arg_initial_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec, 'blink.mojom.PopupWidgetHost_ShowPopup_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec, 'blink.mojom.PopupWidgetHost_SetPopupBounds_Params', [
-      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec, 'blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.PopupWidgetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1392,12 +1164,14 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showPopup');
-          const result = this.impl.showPopup(params.arg_initial_rect, params.arg_anchor_rect);
+          const result = this.impl.showPopup(params.arg_arg_initial_rect, params.arg_arg_anchor_rect);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShowPopup FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] showPopup FAILED:', e));
           }
           break;
         }
@@ -1405,12 +1179,14 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPopupBounds');
-          const result = this.impl.setPopupBounds(params.arg_bounds);
+          const result = this.impl.setPopupBounds(params.arg_arg_bounds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetPopupBounds FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setPopupBounds FAILED:', e));
           }
           break;
         }
@@ -1426,4 +1202,245 @@ mojo.internal.bindings.blink.mojom.PopupWidgetHostReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.PopupWidgetHostPtr = mojo.internal.bindings.blink.mojom.PopupWidgetHostRemote;
 mojo.internal.bindings.blink.mojom.PopupWidgetHostRequest = mojo.internal.bindings.blink.mojom.PopupWidgetHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ProximateCharacterRangeBounds
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec, 'blink.mojom.ProximateCharacterRangeBounds', [
+      mojo.internal.StructField('arg_range', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_widget_bounds_in_dips', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.RectSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: StylusWritingFocusResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec, 'blink.mojom.StylusWritingFocusResult', [
+      mojo.internal.StructField('arg_focused_edit_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_caret_bounds', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proximate_bounds', 16, 0, mojo.internal.bindings.blink.mojom.ProximateCharacterRangeBoundsSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragEnter_Params', [
+      mojo.internal.StructField('arg_drag_data', 0, 0, mojo.internal.bindings.blink.mojom.DragDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point_in_viewport', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operations_allowed', 24, 0, mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_modifiers', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragEnter_ResponseParams', [
+      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_is_handling_drag', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragOver_Params', [
+      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operations_allowed', 16, 0, mojo.internal.bindings.blink.mojom.AllowedDragOperationsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_modifiers', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragOver_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragOver_ResponseParams', [
+      mojo.internal.StructField('arg_operation', 0, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_is_handling_drag', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDragLeave_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDragLeave_Params', [
+      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ParamsSpec, 'blink.mojom.FrameWidget_DragTargetDrop_Params', [
+      mojo.internal.StructField('arg_drag_data', 0, 0, mojo.internal.bindings.blink.mojom.DragDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_point_in_viewport', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_point', 16, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_modifiers', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragTargetDrop_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragTargetDrop_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_Params', [
+      mojo.internal.StructField('arg_point_in_viewport', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screen_point', 8, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_drag_operation', 16, 0, mojo.internal.bindings.ui.mojom.DragOperationSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParamsSpec, 'blink.mojom.FrameWidget_DragSourceEndedAt_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DragSourceSystemDragEnded_ParamsSpec, 'blink.mojom.FrameWidget_DragSourceSystemDragEnded_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ParamsSpec, 'blink.mojom.FrameWidget_OnStartStylusWriting_Params', [
+      mojo.internal.StructField('arg_focus_widget_rect_in_dips', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParamsSpec, 'blink.mojom.FrameWidget_OnStartStylusWriting_ResponseParams', [
+      mojo.internal.StructField('arg_focus_result', 0, 0, mojo.internal.bindings.blink.mojom.StylusWritingFocusResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_SetBackgroundOpaque_ParamsSpec, 'blink.mojom.FrameWidget_SetBackgroundOpaque_Params', [
+      mojo.internal.StructField('arg_opaque', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_SetTextDirection_ParamsSpec, 'blink.mojom.FrameWidget_SetTextDirection_Params', [
+      mojo.internal.StructField('arg_direction', 0, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_SetActive_ParamsSpec, 'blink.mojom.FrameWidget_SetActive_Params', [
+      mojo.internal.StructField('arg_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_ParamsSpec, 'blink.mojom.FrameWidget_SetInheritedEffectiveTouchActionForSubFrame_Params', [
+      mojo.internal.StructField('arg_touch_action', 0, 0, mojo.internal.bindings.cc.mojom.TouchActionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_ParamsSpec, 'blink.mojom.FrameWidget_UpdateRenderThrottlingStatusForSubFrame_Params', [
+      mojo.internal.StructField('arg_is_throttled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_subtree_throttled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_display_locked', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_SetIsInertForSubFrame_ParamsSpec, 'blink.mojom.FrameWidget_SetIsInertForSubFrame_Params', [
+      mojo.internal.StructField('arg_inert', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_EnableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_EnableDeviceEmulation_Params', [
+      mojo.internal.StructField('arg_parameters', 0, 0, mojo.internal.bindings.blink.mojom.DeviceEmulationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_behavior', 8, 0, mojo.internal.bindings.blink.mojom.DeviceEmulationCacheBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_DisableDeviceEmulation_ParamsSpec, 'blink.mojom.FrameWidget_DisableDeviceEmulation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_BindWidgetCompositor_ParamsSpec, 'blink.mojom.FrameWidget_BindWidgetCompositor_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.WidgetCompositorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_SetViewportIntersection_ParamsSpec, 'blink.mojom.FrameWidget_SetViewportIntersection_Params', [
+      mojo.internal.StructField('arg_intersection_state', 0, 0, mojo.internal.bindings.blink.mojom.ViewportIntersectionStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visual_properties', 8, 0, mojo.internal.bindings.blink.mojom.VisualPropertiesSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_ParamsSpec, 'blink.mojom.FrameWidget_NotifyClearedDisplayedGraphics_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_ParamsSpec, 'blink.mojom.FrameWidgetHost_AnimateDoubleTapZoomInMainFrame_Params', [
+      mojo.internal.StructField('arg_tap_point', 0, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect_to_zoom', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_ParamsSpec, 'blink.mojom.FrameWidgetHost_ZoomToFindInPageRectInMainFrame_Params', [
+      mojo.internal.StructField('arg_rect_to_zoom', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_ParamsSpec, 'blink.mojom.FrameWidgetHost_SetHasTouchEventConsumers_Params', [
+      mojo.internal.StructField('arg_touch_event_consumers', 0, 0, mojo.internal.bindings.blink.mojom.TouchEventConsumersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_ParamsSpec, 'blink.mojom.FrameWidgetHost_IntrinsicSizingInfoChanged_Params', [
+      mojo.internal.StructField('arg_sizing_info', 0, 0, mojo.internal.bindings.blink.mojom.IntrinsicSizingInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollStart_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollStart_Params', [
+      mojo.internal.StructField('arg_position', 0, 0, mojo.internal.bindings.gfx.mojom.PointFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollFling_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollFling_Params', [
+      mojo.internal.StructField('arg_velocity', 0, 0, mojo.internal.bindings.gfx.mojom.Vector2dFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FrameWidgetHost_AutoscrollEnd_ParamsSpec, 'blink.mojom.FrameWidgetHost_AutoscrollEnd_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupWidgetHost_RequestClosePopup_ParamsSpec, 'blink.mojom.PopupWidgetHost_RequestClosePopup_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ParamsSpec, 'blink.mojom.PopupWidgetHost_ShowPopup_Params', [
+      mojo.internal.StructField('arg_initial_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupWidgetHost_ShowPopup_ResponseParamsSpec, 'blink.mojom.PopupWidgetHost_ShowPopup_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ParamsSpec, 'blink.mojom.PopupWidgetHost_SetPopupBounds_Params', [
+      mojo.internal.StructField('arg_bounds', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParamsSpec, 'blink.mojom.PopupWidgetHost_SetPopupBounds_ResponseParams', [
+    ],
+    [[0, 8]]);
 

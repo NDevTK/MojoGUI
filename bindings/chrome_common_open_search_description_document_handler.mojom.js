@@ -133,13 +133,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: OpenSearchDescriptionDocumentHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec, 'chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_Params', [
-      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_osdd_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pageHasOpenSearchDescriptionDocument');
-          const result = this.impl.pageHasOpenSearchDescriptionDocument(params.arg_page_url, params.arg_osdd_url);
+          const result = this.impl.pageHasOpenSearchDescriptionDocument(params.arg_arg_page_url, params.arg_arg_osdd_url);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerReceiver
 
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerPtr = mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerRemote;
 mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerRequest = mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_ParamsSpec, 'chrome.mojom.OpenSearchDescriptionDocumentHandler_PageHasOpenSearchDescriptionDocument_Params', [
+      mojo.internal.StructField('arg_page_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_osdd_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

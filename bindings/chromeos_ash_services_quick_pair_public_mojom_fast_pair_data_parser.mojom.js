@@ -179,202 +179,7 @@ mojo.internal.bindings.ash.quick_pair.mojom.MessageGroup = {
   kAcknowledgementEvent: 4,
 };
 
-// Union: MessageStreamMessage
-mojo.internal.Union(
-    mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec, 'ash.quick_pair.mojom.MessageStreamMessage', {
-      'arg_model_id': {
-        'ordinal': 0,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-      'arg_ble_address_update': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-      'arg_battery_update': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec,
-        'nullable': false,
-      },
-      'arg_remaining_battery_time': {
-        'ordinal': 3,
-        'type': mojo.internal.Uint16,
-        'nullable': false,
-      },
-      'arg_enable_silence_mode': {
-        'ordinal': 4,
-        'type': mojo.internal.Bool,
-        'nullable': false,
-      },
-      'arg_companion_app_log_buffer_full': {
-        'ordinal': 5,
-        'type': mojo.internal.Bool,
-        'nullable': false,
-      },
-      'arg_active_components_byte': {
-        'ordinal': 6,
-        'type': mojo.internal.Uint8,
-        'nullable': false,
-      },
-      'arg_ring_device_event': {
-        'ordinal': 7,
-        'type': mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec,
-        'nullable': false,
-      },
-      'arg_acknowledgement': {
-        'ordinal': 8,
-        'type': mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec,
-        'nullable': false,
-      },
-      'arg_sdk_version': {
-        'ordinal': 9,
-        'type': mojo.internal.Int8,
-        'nullable': false,
-      },
-    });
-
-// Struct: DecryptedResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec, 'ash.quick_pair.mojom.DecryptedResponse', [
-      mojo.internal.StructField('arg_message_type', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_flags_$value', originalFieldName: 'arg_flags' }),
-      mojo.internal.StructField('arg_num_addresses_$flag', 4, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_addresses_$value', originalFieldName: 'arg_num_addresses' }),
-      mojo.internal.StructField('arg_flags_$value', 5, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_flags_$flag', originalFieldName: 'arg_flags' }),
-      mojo.internal.StructField('arg_num_addresses_$value', 6, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_addresses_$flag', originalFieldName: 'arg_num_addresses' }),
-      mojo.internal.StructField('arg_address_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_secondary_address_bytes', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: DecryptedPasskey
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec, 'ash.quick_pair.mojom.DecryptedPasskey', [
-      mojo.internal.StructField('arg_message_type', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_passkey', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: BatteryInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, 'ash.quick_pair.mojom.BatteryInfo', [
-      mojo.internal.StructField('arg_is_charging', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_percentage', 1, 0, mojo.internal.Int8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: BatteryNotification
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec, 'ash.quick_pair.mojom.BatteryNotification', [
-      mojo.internal.StructField('arg_show_ui', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_left_bud_info', 8, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_right_bud_info', 16, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_case_info', 24, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: BatteryUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec, 'ash.quick_pair.mojom.BatteryUpdate', [
-      mojo.internal.StructField('arg_left_bud_info', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_right_bud_info', 8, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_case_info', 16, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: RingDevice
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec, 'ash.quick_pair.mojom.RingDevice', [
-      mojo.internal.StructField('arg_ring_device_byte', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout_in_seconds', 1, 0, mojo.internal.Int8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: AcknowledgementMessage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec, 'ash.quick_pair.mojom.AcknowledgementMessage', [
-      mojo.internal.StructField('arg_action_message_code', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_acknowledgement', 4, 0, mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action_message_group', 8, 0, mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: NotDiscoverableAdvertisement
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, 'ash.quick_pair.mojom.NotDiscoverableAdvertisement', [
-      mojo.internal.StructField('arg_account_key_filter', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_show_ui', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_notification', 24, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: FastPairDataParser
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_Params', [
-      mojo.internal.StructField('arg_service_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParams', [
-      mojo.internal.StructField('arg_model_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_Params', [
-      mojo.internal.StructField('arg_aes_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted_response_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_Params', [
-      mojo.internal.StructField('arg_aes_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encrypted_passkey_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParams', [
-      mojo.internal.StructField('arg_passkey', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params', [
-      mojo.internal.StructField('arg_service_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParams', [
-      mojo.internal.StructField('arg_advertisement', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_Params', [
-      mojo.internal.StructField('arg_message_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParams', [
-      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -543,12 +348,15 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHexModelIdFromServiceData');
-          const result = this.impl.getHexModelIdFromServiceData(params.arg_service_data);
+          const result = this.impl.getHexModelIdFromServiceData(params.arg_arg_service_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHexModelIdFromServiceData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_model_id' in response) ? response.arg_arg_model_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHexModelIdFromServiceData FAILED:', e));
           }
           break;
         }
@@ -556,12 +364,15 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedResponse');
-          const result = this.impl.parseDecryptedResponse(params.arg_aes_key, params.arg_encrypted_response_bytes);
+          const result = this.impl.parseDecryptedResponse(params.arg_arg_aes_key, params.arg_arg_encrypted_response_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseDecryptedResponse FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseDecryptedResponse FAILED:', e));
           }
           break;
         }
@@ -569,12 +380,15 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDecryptedPasskey');
-          const result = this.impl.parseDecryptedPasskey(params.arg_aes_key, params.arg_encrypted_passkey_bytes);
+          const result = this.impl.parseDecryptedPasskey(params.arg_arg_aes_key, params.arg_arg_encrypted_passkey_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseDecryptedPasskey FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_passkey' in response) ? response.arg_arg_passkey : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseDecryptedPasskey FAILED:', e));
           }
           break;
         }
@@ -582,12 +396,15 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseNotDiscoverableAdvertisement');
-          const result = this.impl.parseNotDiscoverableAdvertisement(params.arg_service_data, params.arg_address);
+          const result = this.impl.parseNotDiscoverableAdvertisement(params.arg_arg_service_data, params.arg_arg_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseNotDiscoverableAdvertisement FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_advertisement' in response) ? response.arg_arg_advertisement : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseNotDiscoverableAdvertisement FAILED:', e));
           }
           break;
         }
@@ -595,12 +412,15 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseMessageStreamMessages');
-          const result = this.impl.parseMessageStreamMessages(params.arg_message_bytes);
+          const result = this.impl.parseMessageStreamMessages(params.arg_arg_message_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseMessageStreamMessages FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_messages' in response) ? response.arg_arg_messages : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseMessageStreamMessages FAILED:', e));
           }
           break;
         }
@@ -616,4 +436,201 @@ mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserReceiver = mojo.in
 
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserPtr = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRemote;
 mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserRequest = mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: MessageStreamMessage
+mojo.internal.Union(
+    mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec, 'ash.quick_pair.mojom.MessageStreamMessage', {
+      'arg_model_id': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+      'arg_ble_address_update': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+      'arg_battery_update': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec,
+        'nullable': false,
+      },
+      'arg_remaining_battery_time': {
+        'ordinal': 3,
+        'type': mojo.internal.Uint16,
+        'nullable': false,
+      },
+      'arg_enable_silence_mode': {
+        'ordinal': 4,
+        'type': mojo.internal.Bool,
+        'nullable': false,
+      },
+      'arg_companion_app_log_buffer_full': {
+        'ordinal': 5,
+        'type': mojo.internal.Bool,
+        'nullable': false,
+      },
+      'arg_active_components_byte': {
+        'ordinal': 6,
+        'type': mojo.internal.Uint8,
+        'nullable': false,
+      },
+      'arg_ring_device_event': {
+        'ordinal': 7,
+        'type': mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec,
+        'nullable': false,
+      },
+      'arg_acknowledgement': {
+        'ordinal': 8,
+        'type': mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec,
+        'nullable': false,
+      },
+      'arg_sdk_version': {
+        'ordinal': 9,
+        'type': mojo.internal.Int8,
+        'nullable': false,
+      },
+    });
+
+// Struct: DecryptedResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec, 'ash.quick_pair.mojom.DecryptedResponse', [
+      mojo.internal.StructField('arg_message_type', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_flags_$value', originalFieldName: 'arg_flags' }),
+      mojo.internal.StructField('arg_num_addresses_$flag', 4, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_num_addresses_$value', originalFieldName: 'arg_num_addresses' }),
+      mojo.internal.StructField('arg_flags_$value', 5, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_flags_$flag', originalFieldName: 'arg_flags' }),
+      mojo.internal.StructField('arg_num_addresses_$value', 6, 0, mojo.internal.Uint8, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_num_addresses_$flag', originalFieldName: 'arg_num_addresses' }),
+      mojo.internal.StructField('arg_address_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_secondary_address_bytes', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: DecryptedPasskey
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec, 'ash.quick_pair.mojom.DecryptedPasskey', [
+      mojo.internal.StructField('arg_message_type', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.MessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passkey', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: BatteryInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, 'ash.quick_pair.mojom.BatteryInfo', [
+      mojo.internal.StructField('arg_is_charging', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_percentage', 1, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: BatteryNotification
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec, 'ash.quick_pair.mojom.BatteryNotification', [
+      mojo.internal.StructField('arg_show_ui', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_left_bud_info', 8, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_right_bud_info', 16, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_case_info', 24, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: BatteryUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.BatteryUpdateSpec, 'ash.quick_pair.mojom.BatteryUpdate', [
+      mojo.internal.StructField('arg_left_bud_info', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_right_bud_info', 8, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_case_info', 16, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: RingDevice
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.RingDeviceSpec, 'ash.quick_pair.mojom.RingDevice', [
+      mojo.internal.StructField('arg_ring_device_byte', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout_in_seconds', 1, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AcknowledgementMessage
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementMessageSpec, 'ash.quick_pair.mojom.AcknowledgementMessage', [
+      mojo.internal.StructField('arg_action_message_code', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_acknowledgement', 4, 0, mojo.internal.bindings.ash.quick_pair.mojom.AcknowledgementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action_message_group', 8, 0, mojo.internal.bindings.ash.quick_pair.mojom.MessageGroupSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: NotDiscoverableAdvertisement
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, 'ash.quick_pair.mojom.NotDiscoverableAdvertisement', [
+      mojo.internal.StructField('arg_account_key_filter', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_show_ui', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_notification', 24, 0, mojo.internal.bindings.ash.quick_pair.mojom.BatteryNotificationSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_Params', [
+      mojo.internal.StructField('arg_service_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_GetHexModelIdFromServiceData_ResponseParams', [
+      mojo.internal.StructField('arg_model_id', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_Params', [
+      mojo.internal.StructField('arg_aes_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted_response_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedResponse_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.DecryptedResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_Params', [
+      mojo.internal.StructField('arg_aes_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encrypted_passkey_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseDecryptedPasskey_ResponseParams', [
+      mojo.internal.StructField('arg_passkey', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.DecryptedPasskeySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_Params', [
+      mojo.internal.StructField('arg_service_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseNotDiscoverableAdvertisement_ResponseParams', [
+      mojo.internal.StructField('arg_advertisement', 0, 0, mojo.internal.bindings.ash.quick_pair.mojom.NotDiscoverableAdvertisementSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_Params', [
+      mojo.internal.StructField('arg_message_bytes', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParamsSpec, 'ash.quick_pair.mojom.FastPairDataParser_ParseMessageStreamMessages_ResponseParams', [
+      mojo.internal.StructField('arg_messages', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.quick_pair.mojom.MessageStreamMessageSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

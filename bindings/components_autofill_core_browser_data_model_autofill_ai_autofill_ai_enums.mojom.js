@@ -133,3 +133,5 @@ mojo.internal.bindings.autofill.mojom.EntityTypeName = {
   kRedressNumber: 5,
   kFlightReservation: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

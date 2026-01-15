@@ -213,6 +213,8 @@ mojo.internal.bindings.network.mojom.CSPRequireTrustedTypesFor = {
   Script: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: AllowCSPFromHeaderValue
 mojo.internal.Union(
     mojo.internal.bindings.network.mojom.AllowCSPFromHeaderValueSpec, 'network.mojom.AllowCSPFromHeaderValue', {

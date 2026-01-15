@@ -155,39 +155,7 @@ mojo.internal.bindings.printing.mojom.DuplexMode = {
   SHORT_EDGE: 2,
 };
 
-// Struct: PwgRasterSettings
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec, 'printing.mojom.PwgRasterSettings', [
-      mojo.internal.StructField('arg_duplex_mode', 0, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_odd_page_transform', 4, 0, mojo.internal.bindings.printing.mojom.TransformTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rotate_all_pages', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_reverse_page_order', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_color', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PdfToPwgRasterConverter
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_Params', [
-      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pdf_settings', 8, 0, mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pwg_raster_settings', 16, 0, mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParams', [
-      mojo.internal.StructField('arg_pwg_raster_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_Params', [
-      mojo.internal.StructField('arg_use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -314,12 +282,14 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.convert');
-          const result = this.impl.convert(params.arg_pdf_region, params.arg_pdf_settings, params.arg_pwg_raster_settings);
+          const result = this.impl.convert(params.arg_arg_pdf_region, params.arg_arg_pdf_settings, params.arg_arg_pwg_raster_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Convert FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec.$.structSpec, ['response.arg_arg_pwg_raster_region', 'response.arg_arg_page_count']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] convert FAILED:', e));
           }
           break;
         }
@@ -327,7 +297,7 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUseSkiaRendererPolicy');
-          const result = this.impl.setUseSkiaRendererPolicy(params.arg_use_skia);
+          const result = this.impl.setUseSkiaRendererPolicy(params.arg_arg_use_skia);
           break;
         }
       }
@@ -342,4 +312,38 @@ mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterReceiver = mojo.int
 
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterPtr = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRemote;
 mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterRequest = mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PwgRasterSettings
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec, 'printing.mojom.PwgRasterSettings', [
+      mojo.internal.StructField('arg_duplex_mode', 0, 0, mojo.internal.bindings.printing.mojom.DuplexModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_odd_page_transform', 4, 0, mojo.internal.bindings.printing.mojom.TransformTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rotate_all_pages', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_reverse_page_order', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_color', 8, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_Params', [
+      mojo.internal.StructField('arg_pdf_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pdf_settings', 8, 0, mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pwg_raster_settings', 16, 0, mojo.internal.bindings.printing.mojom.PwgRasterSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_Convert_ResponseParams', [
+      mojo.internal.StructField('arg_pwg_raster_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_ParamsSpec, 'printing.mojom.PdfToPwgRasterConverter_SetUseSkiaRendererPolicy_Params', [
+      mojo.internal.StructField('arg_use_skia', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

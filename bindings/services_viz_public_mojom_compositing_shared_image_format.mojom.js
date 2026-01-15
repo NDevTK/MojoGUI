@@ -156,6 +156,8 @@ mojo.internal.bindings.viz.mojom.ChannelFormat = {
   k16F: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: SharedImageFormat
 mojo.internal.Union(
     mojo.internal.bindings.viz.mojom.SharedImageFormatSpec, 'viz.mojom.SharedImageFormat', {

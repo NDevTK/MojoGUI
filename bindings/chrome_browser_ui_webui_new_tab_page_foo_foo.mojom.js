@@ -128,27 +128,7 @@ mojo.internal.bindings.foo.mojom.FooHandler.$interfaceName = 'foo.mojom.FooHandl
 mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec = { $: {} };
 mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec = { $: {} };
 
-// Struct: FooDataItem
-mojo.internal.Struct(
-    mojo.internal.bindings.foo.mojom.FooDataItemSpec, 'foo.mojom.FooDataItem', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_imageUrl', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: FooHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec, 'foo.mojom.FooHandler_GetData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec, 'foo.mojom.FooHandler_GetData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.foo.mojom.FooDataItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.foo.mojom.FooHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,8 +245,11 @@ mojo.internal.bindings.foo.mojom.FooHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getData FAILED:', e));
           }
           break;
         }
@@ -282,4 +265,26 @@ mojo.internal.bindings.foo.mojom.FooHandlerReceiver = mojo.internal.bindings.foo
 
 mojo.internal.bindings.foo.mojom.FooHandlerPtr = mojo.internal.bindings.foo.mojom.FooHandlerRemote;
 mojo.internal.bindings.foo.mojom.FooHandlerRequest = mojo.internal.bindings.foo.mojom.FooHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FooDataItem
+mojo.internal.Struct(
+    mojo.internal.bindings.foo.mojom.FooDataItemSpec, 'foo.mojom.FooDataItem', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_imageUrl', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.foo.mojom.FooHandler_GetData_ParamsSpec, 'foo.mojom.FooHandler_GetData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.foo.mojom.FooHandler_GetData_ResponseParamsSpec, 'foo.mojom.FooHandler_GetData_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.foo.mojom.FooDataItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

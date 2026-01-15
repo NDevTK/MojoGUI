@@ -138,17 +138,6 @@ mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec = { $: {} };
 mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec = { $: {} };
 
 // Interface: Foo
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec, 'test.mojom.Foo_GetFoo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec, 'test.mojom.Foo_GetFoo_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.test.mojom.FooPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,8 +254,11 @@ mojo.internal.bindings.test.mojom.FooReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFoo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFoo FAILED:', e));
           }
           break;
         }
@@ -285,17 +277,6 @@ mojo.internal.bindings.test.mojom.FooRequest = mojo.internal.bindings.test.mojom
 
 
 // Interface: Bar
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec, 'test.mojom.Bar_GetBar_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec, 'test.mojom.Bar_GetBar_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.test.mojom.BarPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,8 +393,11 @@ mojo.internal.bindings.test.mojom.BarReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBar FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBar FAILED:', e));
           }
           break;
         }
@@ -432,17 +416,6 @@ mojo.internal.bindings.test.mojom.BarRequest = mojo.internal.bindings.test.mojom
 
 
 // Interface: Baz
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec, 'test.mojom.Baz_GetBaz_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec, 'test.mojom.Baz_GetBaz_ResponseParams', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.test.mojom.BazPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -559,8 +532,11 @@ mojo.internal.bindings.test.mojom.BazReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBaz FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_value' in response) ? response.arg_arg_value : response;
+              encoder.encodeStructInline(mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBaz FAILED:', e));
           }
           break;
         }
@@ -576,4 +552,39 @@ mojo.internal.bindings.test.mojom.BazReceiver = mojo.internal.bindings.test.mojo
 
 mojo.internal.bindings.test.mojom.BazPtr = mojo.internal.bindings.test.mojom.BazRemote;
 mojo.internal.bindings.test.mojom.BazRequest = mojo.internal.bindings.test.mojom.BazPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.Foo_GetFoo_ParamsSpec, 'test.mojom.Foo_GetFoo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.Foo_GetFoo_ResponseParamsSpec, 'test.mojom.Foo_GetFoo_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.Bar_GetBar_ParamsSpec, 'test.mojom.Bar_GetBar_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.Bar_GetBar_ResponseParamsSpec, 'test.mojom.Bar_GetBar_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.Baz_GetBaz_ParamsSpec, 'test.mojom.Baz_GetBaz_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.test.mojom.Baz_GetBaz_ResponseParamsSpec, 'test.mojom.Baz_GetBaz_ResponseParams', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

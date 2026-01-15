@@ -134,6 +134,8 @@ mojo.internal.bindings.gpu.mojom.GpuDiskCacheType = {
   kDawnGraphite: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: GpuDiskCacheHandle
 mojo.internal.Union(
     mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, 'gpu.mojom.GpuDiskCacheHandle', {

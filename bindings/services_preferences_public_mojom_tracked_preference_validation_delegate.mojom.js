@@ -152,27 +152,6 @@ mojo.internal.bindings.prefs.mojom.ValueState = {
 };
 
 // Interface: TrackedPreferenceValidationDelegate
-mojo.internal.Struct(
-    mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
-      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_value_state', 24, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_external_validation_value_state', 28, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Params', [
-      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_invalid_keys', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_external_validation_invalid_keys', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_value_state', 24, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_external_validation_value_state', 28, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -299,14 +278,14 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAtomicPreferenceValidation');
-          const result = this.impl.onAtomicPreferenceValidation(params.arg_pref_path, params.arg_value, params.arg_value_state, params.arg_external_validation_value_state, params.arg_is_personal);
+          const result = this.impl.onAtomicPreferenceValidation(params.arg_arg_pref_path, params.arg_arg_value, params.arg_arg_value_state, params.arg_arg_external_validation_value_state, params.arg_arg_is_personal);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSplitPreferenceValidation');
-          const result = this.impl.onSplitPreferenceValidation(params.arg_pref_path, params.arg_invalid_keys, params.arg_external_validation_invalid_keys, params.arg_value_state, params.arg_external_validation_value_state, params.arg_is_personal);
+          const result = this.impl.onSplitPreferenceValidation(params.arg_arg_pref_path, params.arg_arg_invalid_keys, params.arg_arg_external_validation_invalid_keys, params.arg_arg_value_state, params.arg_arg_external_validation_value_state, params.arg_arg_is_personal);
           break;
         }
       }
@@ -321,4 +300,27 @@ mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateReceiver =
 
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePtr = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRemote;
 mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegateRequest = mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegatePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnAtomicPreferenceValidation_Params', [
+      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value_state', 24, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_validation_value_state', 28, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_ParamsSpec, 'prefs.mojom.TrackedPreferenceValidationDelegate_OnSplitPreferenceValidation_Params', [
+      mojo.internal.StructField('arg_pref_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_invalid_keys', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_validation_invalid_keys', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_value_state', 24, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_validation_value_state', 28, 0, mojo.internal.bindings.prefs.mojom.ValueStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_personal', 32, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 48]]);
 

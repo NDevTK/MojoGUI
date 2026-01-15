@@ -133,12 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec = mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: BrowserInterfaceBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec, 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterface');
-          const result = this.impl.getInterface(params.arg_receiver);
+          const result = this.impl.getInterface(params.arg_arg_receiver);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerReceiver = mojo.interna
 
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPtr = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRemote;
 mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerRequest = mojo.internal.bindings.blink.mojom.BrowserInterfaceBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BrowserInterfaceBroker_GetInterface_ParamsSpec, 'blink.mojom.BrowserInterfaceBroker_GetInterface_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.bindings.mojo_base.mojom.GenericPendingReceiverSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

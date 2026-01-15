@@ -141,30 +141,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactorySpec = { $ : {} };
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactory.$interfaceName = 'ukm.mojom.UkmRecorderFactory';
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec = { $: {} };
 
-// Struct: UkmEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.UkmEntrySpec, 'ukm.mojom.UkmEntry', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event_hash', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_metrics', 16, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: UkmRecorderParameters
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec, 'ukm.mojom.UkmRecorderParameters', [
-      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_event_hash_bypass_list', 8, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: SingularUkmInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec, 'ukm.mojom.SingularUkmInterface_Submit_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ukm.mojom.SingularUkmInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +254,7 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submit');
-          const result = this.impl.submit(params.arg_entry);
+          const result = this.impl.submit(params.arg_arg_entry);
           break;
         }
       }
@@ -295,12 +272,6 @@ mojo.internal.bindings.ukm.mojom.SingularUkmInterfaceRequest = mojo.internal.bin
 
 
 // Interface: UkmRecorderClientInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec, 'ukm.mojom.UkmRecorderClientInterface_SetParameters_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,7 +384,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setParameters');
-          const result = this.impl.setParameters(params.arg_params);
+          const result = this.impl.setParameters(params.arg_arg_params);
           break;
         }
       }
@@ -431,19 +402,6 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRequest = mojo.intern
 
 
 // Interface: UkmRecorderInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_AddEntry_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_UpdateSourceURL_Params', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ukm.mojom.UkmRecorderInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -570,14 +528,14 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEntry');
-          const result = this.impl.addEntry(params.arg_entry);
+          const result = this.impl.addEntry(params.arg_arg_entry);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSourceURL');
-          const result = this.impl.updateSourceURL(params.arg_source_id, params.arg_url);
+          const result = this.impl.updateSourceURL(params.arg_arg_source_id, params.arg_arg_url);
           break;
         }
       }
@@ -595,13 +553,6 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRequest = mojo.internal.bin
 
 
 // Interface: UkmRecorderFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec, 'ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -714,7 +665,7 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUkmRecorder');
-          const result = this.impl.createUkmRecorder(params.arg_receiver, params.arg_client_remote);
+          const result = this.impl.createUkmRecorder(params.arg_arg_receiver, params.arg_arg_client_remote);
           break;
         }
       }
@@ -729,4 +680,55 @@ mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryReceiver = mojo.internal.bind
 
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryPtr = mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryRemote;
 mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryRequest = mojo.internal.bindings.ukm.mojom.UkmRecorderFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: UkmEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.UkmEntrySpec, 'ukm.mojom.UkmEntry', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_hash', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_metrics', 16, 0, mojo.internal.Map(mojo.internal.Uint64, mojo.internal.Int64, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: UkmRecorderParameters
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec, 'ukm.mojom.UkmRecorderParameters', [
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_event_hash_bypass_list', 8, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.SingularUkmInterface_Submit_ParamsSpec, 'ukm.mojom.SingularUkmInterface_Submit_Params', [
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterface_SetParameters_ParamsSpec, 'ukm.mojom.UkmRecorderClientInterface_SetParameters_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.ukm.mojom.UkmRecorderParametersSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_AddEntry_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_AddEntry_Params', [
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.ukm.mojom.UkmEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.UkmRecorderInterface_UpdateSourceURL_ParamsSpec, 'ukm.mojom.UkmRecorderInterface_UpdateSourceURL_Params', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_ParamsSpec, 'ukm.mojom.UkmRecorderFactory_CreateUkmRecorder_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ukm.mojom.UkmRecorderInterfaceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ukm.mojom.UkmRecorderClientInterfaceRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

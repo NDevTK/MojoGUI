@@ -131,6 +131,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RRectFSpec = mojo.internal.bindings.gfx.mojom.RRectFSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: MaskFilterInfo
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.MaskFilterInfoSpec, 'gfx.mojom.MaskFilterInfo', [

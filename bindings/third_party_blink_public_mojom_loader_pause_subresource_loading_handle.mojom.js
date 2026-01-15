@@ -233,3 +233,5 @@ mojo.internal.bindings.blink.mojom.PauseSubresourceLoadingHandleReceiver = mojo.
 mojo.internal.bindings.blink.mojom.PauseSubresourceLoadingHandlePtr = mojo.internal.bindings.blink.mojom.PauseSubresourceLoadingHandleRemote;
 mojo.internal.bindings.blink.mojom.PauseSubresourceLoadingHandleRequest = mojo.internal.bindings.blink.mojom.PauseSubresourceLoadingHandlePendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

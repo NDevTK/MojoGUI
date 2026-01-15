@@ -179,6 +179,8 @@ mojo.internal.bindings.display.mojom.VariableRefreshRateState = {
   kVrrNotCapable: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ModesetFlags
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.ModesetFlagsSpec, 'display.mojom.ModesetFlags', [

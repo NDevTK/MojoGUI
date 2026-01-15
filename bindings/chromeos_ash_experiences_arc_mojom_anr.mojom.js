@@ -149,6 +149,8 @@ mojo.internal.bindings.arc.mojom.AnrSource = {
   ARC_APP_LAUNCHER: 7,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Anr
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.AnrSpec, 'arc.mojom.Anr', [

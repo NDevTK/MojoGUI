@@ -146,68 +146,7 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.FrameSinkIdSpec = mojo.internal.bindings.viz.mojom.FrameSinkIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: FrameCountingPerSinkData
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
-      mojo.internal.StructField('arg_is_root', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_start_bucket', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_presented_frames', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: FrameCountingData
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameCountingDataSpec, 'viz.mojom.FrameCountingData', [
-      mojo.internal.StructField('arg_per_sink_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: OverdrawData
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.OverdrawDataSpec, 'viz.mojom.OverdrawData', [
-      mojo.internal.StructField('arg_average_overdraws', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: FrameSinksMetricsRecorder
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_Params', [
-      mojo.internal.StructField('arg_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket_size', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.FrameCountingDataSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_Params', [
-      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket_size', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_Params', [
-      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.OverdrawDataSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -362,7 +301,7 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startFrameCounting');
-          const result = this.impl.startFrameCounting(params.arg_start_time, params.arg_bucket_size);
+          const result = this.impl.startFrameCounting(params.arg_arg_start_time, params.arg_arg_bucket_size);
           break;
         }
         case 1: {
@@ -373,8 +312,11 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StopFrameCounting FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stopFrameCounting FAILED:', e));
           }
           break;
         }
@@ -382,19 +324,22 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startOverdrawTracking');
-          const result = this.impl.startOverdrawTracking(params.arg_root_frame_sink_id, params.arg_bucket_size);
+          const result = this.impl.startOverdrawTracking(params.arg_arg_root_frame_sink_id, params.arg_arg_bucket_size);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopOverdrawTracking');
-          const result = this.impl.stopOverdrawTracking(params.arg_root_frame_sink_id);
+          const result = this.impl.stopOverdrawTracking(params.arg_arg_root_frame_sink_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StopOverdrawTracking FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] stopOverdrawTracking FAILED:', e));
           }
           break;
         }
@@ -410,4 +355,67 @@ mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderReceiver = mojo.intern
 
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPtr = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRemote;
 mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderRequest = mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FrameCountingPerSinkData
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec, 'viz.mojom.FrameCountingPerSinkData', [
+      mojo.internal.StructField('arg_is_root', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_start_bucket', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presented_frames', 16, 0, mojo.internal.Array(mojo.internal.Uint16, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: FrameCountingData
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameCountingDataSpec, 'viz.mojom.FrameCountingData', [
+      mojo.internal.StructField('arg_per_sink_data', 0, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.FrameCountingPerSinkDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: OverdrawData
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.OverdrawDataSpec, 'viz.mojom.OverdrawData', [
+      mojo.internal.StructField('arg_average_overdraws', 0, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartFrameCounting_Params', [
+      mojo.internal.StructField('arg_start_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_size', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopFrameCounting_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.FrameCountingDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StartOverdrawTracking_Params', [
+      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_size', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_Params', [
+      mojo.internal.StructField('arg_root_frame_sink_id', 0, 0, mojo.internal.bindings.viz.mojom.FrameSinkIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParamsSpec, 'viz.mojom.FrameSinksMetricsRecorder_StopOverdrawTracking_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.viz.mojom.OverdrawDataSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

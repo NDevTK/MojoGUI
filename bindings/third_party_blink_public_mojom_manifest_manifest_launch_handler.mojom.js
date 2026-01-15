@@ -132,6 +132,8 @@ mojo.internal.bindings.blink.mojom.ClientMode = {
   kFocusExisting: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ManifestLaunchHandler
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ManifestLaunchHandlerSpec, 'blink.mojom.ManifestLaunchHandler', [

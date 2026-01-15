@@ -139,53 +139,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.Status = {
   ERROR: 1,
 };
 
-// Struct: GrammarCheckerQuery
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, 'chromeos.machine_learning.mojom.GrammarCheckerQuery', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: GrammarCorrectionFragment
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, 'chromeos.machine_learning.mojom.GrammarCorrectionFragment', [
-      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_replacement', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: GrammarCheckerCandidate
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, 'chromeos.machine_learning.mojom.GrammarCheckerCandidate', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fragments', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: GrammarCheckerResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec, 'chromeos.machine_learning.mojom.GrammarCheckerResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: GrammarChecker
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -298,12 +252,15 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.check');
-          const result = this.impl.check(params.arg_query);
+          const result = this.impl.check(params.arg_arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Check FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] check FAILED:', e));
           }
           break;
         }
@@ -319,4 +276,52 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerReceiver = 
 
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerPtr = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerRemote;
 mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerRequest = mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: GrammarCheckerQuery
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, 'chromeos.machine_learning.mojom.GrammarCheckerQuery', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GrammarCorrectionFragment
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, 'chromeos.machine_learning.mojom.GrammarCorrectionFragment', [
+      mojo.internal.StructField('arg_offset', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_replacement', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GrammarCheckerCandidate
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, 'chromeos.machine_learning.mojom.GrammarCheckerCandidate', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_score', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fragments', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCorrectionFragmentSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: GrammarCheckerResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec, 'chromeos.machine_learning.mojom.GrammarCheckerResult', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_candidates', 8, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerCandidateSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerQuerySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParamsSpec, 'chromeos.machine_learning.mojom.GrammarChecker_Check_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.GrammarCheckerResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

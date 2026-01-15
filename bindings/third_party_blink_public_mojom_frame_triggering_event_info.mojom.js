@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.TriggeringEventInfo = {
   kFromTrustedEvent: 2,
   kFromUntrustedEvent: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

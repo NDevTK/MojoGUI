@@ -133,3 +133,5 @@ mojo.internal.bindings.ui.mojom.WindowShowState = {
   kFullscreen: 5,
   MinVersion: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

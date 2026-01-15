@@ -124,6 +124,8 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RangeSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.RangeFSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Range
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RangeSpec, 'gfx.mojom.Range', [

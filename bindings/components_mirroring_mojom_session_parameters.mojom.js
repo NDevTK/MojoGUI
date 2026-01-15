@@ -141,6 +141,8 @@ mojo.internal.bindings.mirroring.mojom.SessionType = {
   AUDIO_AND_VIDEO: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SessionParameters
 mojo.internal.Struct(
     mojo.internal.bindings.mirroring.mojom.SessionParametersSpec, 'mirroring.mojom.SessionParameters', [

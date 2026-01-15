@@ -152,107 +152,7 @@ mojo.internal.bindings.remoting.mojom.StartSupportSessionError = {
   kExistingAdminSession: 1,
 };
 
-// Union: StartSupportSessionResponse
-mojo.internal.Union(
-    mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec, 'remoting.mojom.StartSupportSessionResponse', {
-      'arg_observer': {
-        'ordinal': 0,
-        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SupportHostObserverRemote),
-        'nullable': false,
-      },
-      'arg_support_session_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: SupportHostDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec, 'remoting.mojom.SupportHostDetails', [
-      mojo.internal.StructField('arg_host_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_features', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SupportSessionParams
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec, 'remoting.mojom.SupportSessionParams', [
-      mojo.internal.StructField('arg_user_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oauth_access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suppress_user_dialogs', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_suppress_notifications', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_terminate_upon_input', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_curtain_local_user_session', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_authorized_helper', 24, 0, mojo.internal.String, null, true, 2, undefined),
-    ],
-    [[0, 32], [2, 40]]);
-
-// Struct: NatPolicyState
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec, 'remoting.mojom.NatPolicyState', [
-      mojo.internal.StructField('arg_nat_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_relay_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SupportHostObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateStarting_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_Params', [
-      mojo.internal.StructField('arg_access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lifetime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateConnecting_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateConnected_Params', [
-      mojo.internal.StructField('arg_remote_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateDisconnected_Params', [
-      mojo.internal.StructField('arg_disconnect_reason', 0, 0, mojo.internal.String, null, true, 1, undefined),
-    ],
-    [[0, 8], [1, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnNatPolicyChanged_Params', [
-      mojo.internal.StructField('arg_nat_policy_state', 0, 0, mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateError_Params', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnPolicyError_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnInvalidDomainError_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.remoting.mojom.SupportHostObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -505,7 +405,7 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateReceivedAccessCode');
-          const result = this.impl.onHostStateReceivedAccessCode(params.arg_access_code, params.arg_lifetime);
+          const result = this.impl.onHostStateReceivedAccessCode(params.arg_arg_access_code, params.arg_arg_lifetime);
           break;
         }
         case 3: {
@@ -519,28 +419,28 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateConnected');
-          const result = this.impl.onHostStateConnected(params.arg_remote_username);
+          const result = this.impl.onHostStateConnected(params.arg_arg_remote_username);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateDisconnected');
-          const result = this.impl.onHostStateDisconnected(params.arg_disconnect_reason);
+          const result = this.impl.onHostStateDisconnected(params.arg_arg_disconnect_reason);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNatPolicyChanged');
-          const result = this.impl.onNatPolicyChanged(params.arg_nat_policy_state);
+          const result = this.impl.onNatPolicyChanged(params.arg_arg_nat_policy_state);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStateError');
-          const result = this.impl.onHostStateError(params.arg_error_code);
+          const result = this.impl.onHostStateError(params.arg_arg_error_code);
           break;
         }
         case 8: {
@@ -569,4 +469,106 @@ mojo.internal.bindings.remoting.mojom.SupportHostObserverReceiver = mojo.interna
 
 mojo.internal.bindings.remoting.mojom.SupportHostObserverPtr = mojo.internal.bindings.remoting.mojom.SupportHostObserverRemote;
 mojo.internal.bindings.remoting.mojom.SupportHostObserverRequest = mojo.internal.bindings.remoting.mojom.SupportHostObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: StartSupportSessionResponse
+mojo.internal.Union(
+    mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec, 'remoting.mojom.StartSupportSessionResponse', {
+      'arg_observer': {
+        'ordinal': 0,
+        'type': mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SupportHostObserverRemote),
+        'nullable': false,
+      },
+      'arg_support_session_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.remoting.mojom.StartSupportSessionErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: SupportHostDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec, 'remoting.mojom.SupportHostDetails', [
+      mojo.internal.StructField('arg_host_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_features', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SupportSessionParams
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec, 'remoting.mojom.SupportSessionParams', [
+      mojo.internal.StructField('arg_user_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oauth_access_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suppress_user_dialogs', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_suppress_notifications', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_terminate_upon_input', 16, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_curtain_local_user_session', 16, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_authorized_helper', 24, 0, mojo.internal.String, null, true, 2, undefined),
+    ],
+    [[0, 32], [2, 40]]);
+
+// Struct: NatPolicyState
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec, 'remoting.mojom.NatPolicyState', [
+      mojo.internal.StructField('arg_nat_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_relay_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateStarting_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateStarting_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateRequestedAccessCode_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateReceivedAccessCode_Params', [
+      mojo.internal.StructField('arg_access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lifetime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnecting_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateConnecting_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateConnected_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateConnected_Params', [
+      mojo.internal.StructField('arg_remote_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateDisconnected_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateDisconnected_Params', [
+      mojo.internal.StructField('arg_disconnect_reason', 0, 0, mojo.internal.String, null, true, 1, undefined),
+    ],
+    [[0, 8], [1, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnNatPolicyChanged_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnNatPolicyChanged_Params', [
+      mojo.internal.StructField('arg_nat_policy_state', 0, 0, mojo.internal.bindings.remoting.mojom.NatPolicyStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnHostStateError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnHostStateError_Params', [
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnPolicyError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnPolicyError_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SupportHostObserver_OnInvalidDomainError_ParamsSpec, 'remoting.mojom.SupportHostObserver_OnInvalidDomainError_Params', [
+    ],
+    [[0, 8]]);
 

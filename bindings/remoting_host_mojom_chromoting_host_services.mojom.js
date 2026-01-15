@@ -147,12 +147,6 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxySpec = mojo.internal.bindings
 mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote = mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote || class {};
 
 // Interface: ChromotingHostServices
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.ChromotingHostServicesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,7 +259,7 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionServices');
-          const result = this.impl.bindSessionServices(params.arg_receiver);
+          const result = this.impl.bindSessionServices(params.arg_arg_receiver);
           break;
         }
       }
@@ -283,24 +277,6 @@ mojo.internal.bindings.remoting.mojom.ChromotingHostServicesRequest = mojo.inter
 
 
 // Interface: ChromotingSessionServices
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,21 +417,21 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebAuthnProxy');
-          const result = this.impl.bindWebAuthnProxy(params.arg_receiver);
+          const result = this.impl.bindWebAuthnProxy(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindRemoteUrlOpener');
-          const result = this.impl.bindRemoteUrlOpener(params.arg_receiver);
+          const result = this.impl.bindRemoteUrlOpener(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSecurityKeyForwarder');
-          const result = this.impl.bindSecurityKeyForwarder(params.arg_receiver);
+          const result = this.impl.bindSecurityKeyForwarder(params.arg_arg_receiver);
           break;
         }
       }
@@ -470,4 +446,30 @@ mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesReceiver = mojo.i
 
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesPtr = mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote;
 mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRequest = mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.ChromotingHostServices_BindSessionServices_ParamsSpec, 'remoting.mojom.ChromotingHostServices_BindSessionServices_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.ChromotingSessionServicesRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindWebAuthnProxy_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindRemoteUrlOpener_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_ParamsSpec, 'remoting.mojom.ChromotingSessionServices_BindSecurityKeyForwarder_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

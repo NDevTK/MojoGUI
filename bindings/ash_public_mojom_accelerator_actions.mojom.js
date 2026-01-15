@@ -298,3 +298,5 @@ mojo.internal.bindings.ash.mojom.AcceleratorAction = {
   kDebugStartSunfishSession: 9028,
   kDebugShowTestWindow: 9029,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

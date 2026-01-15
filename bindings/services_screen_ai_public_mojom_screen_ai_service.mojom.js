@@ -200,88 +200,7 @@ mojo.internal.bindings.screen_ai.mojom.MceClientType = {
   kMahi: 3,
 };
 
-// Struct: VisualAnnotation
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, 'screen_ai.mojom.VisualAnnotation', [
-      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.screen_ai.mojom.LineBoxSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: LineBox
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.LineBoxSpec, 'screen_ai.mojom.LineBox', [
-      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.screen_ai.mojom.WordBoxSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_line', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_block_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_paragraph_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_confidence', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: WordBox
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.WordBoxSpec, 'screen_ai.mojom.WordBox', [
-      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_direction', 28, 0, mojo.internal.bindings.screen_ai.mojom.DirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_whitespace_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_whitespace_bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_confidence', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: ScreenAIAnnotator
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParams', [
-      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_SetClientType_Params', [
-      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParams', [
-      mojo.internal.StructField('arg_max_dimension', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParams', [
-      mojo.internal.StructField('arg_busy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -450,12 +369,15 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.performOcrAndReturnAnnotation');
-          const result = this.impl.performOcrAndReturnAnnotation(params.arg_image);
+          const result = this.impl.performOcrAndReturnAnnotation(params.arg_arg_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PerformOcrAndReturnAnnotation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_visual_annotation' in response) ? response.arg_arg_visual_annotation : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] performOcrAndReturnAnnotation FAILED:', e));
           }
           break;
         }
@@ -463,7 +385,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
-          const result = this.impl.setClientType(params.arg_client_type);
+          const result = this.impl.setClientType(params.arg_arg_client_type);
           break;
         }
         case 2: {
@@ -474,8 +396,11 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMaxImageDimension FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_max_dimension' in response) ? response.arg_arg_max_dimension : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMaxImageDimension FAILED:', e));
           }
           break;
         }
@@ -483,7 +408,7 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOCRLightMode');
-          const result = this.impl.setOCRLightMode(params.arg_enabled);
+          const result = this.impl.setOCRLightMode(params.arg_arg_enabled);
           break;
         }
         case 4: {
@@ -494,8 +419,11 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsOCRBusy FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_busy' in response) ? response.arg_arg_busy : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isOCRBusy FAILED:', e));
           }
           break;
         }
@@ -514,49 +442,6 @@ mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRequest = mojo.internal.
 
 
 // Interface: Screen2xMainContentExtractor
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_Params', [
-      mojo.internal.StructField('arg_snapshot', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParams', [
-      mojo.internal.StructField('arg_content_node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_Params', [
-      mojo.internal.StructField('arg_snapshot', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParams', [
-      mojo.internal.StructField('arg_main_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_Params', [
-      mojo.internal.StructField('arg_ax_tree', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParams', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_Params', [
-      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -711,12 +596,15 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractMainContent');
-          const result = this.impl.extractMainContent(params.arg_snapshot);
+          const result = this.impl.extractMainContent(params.arg_arg_snapshot);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractMainContent FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_content_node_ids' in response) ? response.arg_arg_content_node_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extractMainContent FAILED:', e));
           }
           break;
         }
@@ -724,12 +612,15 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractMainNode');
-          const result = this.impl.extractMainNode(params.arg_snapshot);
+          const result = this.impl.extractMainNode(params.arg_arg_snapshot);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractMainNode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_main_node_id' in response) ? response.arg_arg_main_node_id : response;
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extractMainNode FAILED:', e));
           }
           break;
         }
@@ -737,12 +628,14 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.identifyMainNode');
-          const result = this.impl.identifyMainNode(params.arg_ax_tree);
+          const result = this.impl.identifyMainNode(params.arg_arg_ax_tree);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IdentifyMainNode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_tree_id', 'response.arg_arg_node_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] identifyMainNode FAILED:', e));
           }
           break;
         }
@@ -750,7 +643,7 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setClientType');
-          const result = this.impl.setClientType(params.arg_client_type);
+          const result = this.impl.setClientType(params.arg_arg_client_type);
           break;
         }
       }
@@ -768,12 +661,6 @@ mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRequest = moj
 
 
 // Interface: OCRService
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec, 'screen_ai.mojom.OCRService_BindAnnotator_Params', [
-      mojo.internal.StructField('arg_annotator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.screen_ai.mojom.OCRServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -886,7 +773,7 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAnnotator');
-          const result = this.impl.bindAnnotator(params.arg_annotator);
+          const result = this.impl.bindAnnotator(params.arg_arg_annotator);
           break;
         }
       }
@@ -904,12 +791,6 @@ mojo.internal.bindings.screen_ai.mojom.OCRServiceRequest = mojo.internal.binding
 
 
 // Interface: MainContentExtractionService
-mojo.internal.Struct(
-    mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec, 'screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_Params', [
-      mojo.internal.StructField('arg_main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1022,7 +903,7 @@ mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindMainContentExtractor');
-          const result = this.impl.bindMainContentExtractor(params.arg_main_content_extractor);
+          const result = this.impl.bindMainContentExtractor(params.arg_arg_main_content_extractor);
           break;
         }
       }
@@ -1037,4 +918,142 @@ mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceReceiver = mo
 
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServicePtr = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRemote;
 mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServiceRequest = mojo.internal.bindings.screen_ai.mojom.MainContentExtractionServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: VisualAnnotation
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, 'screen_ai.mojom.VisualAnnotation', [
+      mojo.internal.StructField('arg_lines', 0, 0, mojo.internal.Array(mojo.internal.bindings.screen_ai.mojom.LineBoxSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: LineBox
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.LineBoxSpec, 'screen_ai.mojom.LineBox', [
+      mojo.internal.StructField('arg_words', 0, 0, mojo.internal.Array(mojo.internal.bindings.screen_ai.mojom.WordBoxSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_line', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_block_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_paragraph_id', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_confidence', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: WordBox
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.WordBoxSpec, 'screen_ai.mojom.WordBox', [
+      mojo.internal.StructField('arg_word', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bounding_box_angle', 24, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_direction', 28, 0, mojo.internal.bindings.screen_ai.mojom.DirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_whitespace_bounding_box', 32, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_whitespace_bounding_box_angle', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_confidence', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_Params', [
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_PerformOcrAndReturnAnnotation_ResponseParams', [
+      mojo.internal.StructField('arg_visual_annotation', 0, 0, mojo.internal.bindings.screen_ai.mojom.VisualAnnotationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetClientType_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_SetClientType_Params', [
+      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.screen_ai.mojom.OcrClientTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_GetMaxImageDimension_ResponseParams', [
+      mojo.internal.StructField('arg_max_dimension', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_SetOCRLightMode_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParamsSpec, 'screen_ai.mojom.ScreenAIAnnotator_IsOCRBusy_ResponseParams', [
+      mojo.internal.StructField('arg_busy', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_Params', [
+      mojo.internal.StructField('arg_snapshot', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainContent_ResponseParams', [
+      mojo.internal.StructField('arg_content_node_ids', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_Params', [
+      mojo.internal.StructField('arg_snapshot', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_ExtractMainNode_ResponseParams', [
+      mojo.internal.StructField('arg_main_node_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_Params', [
+      mojo.internal.StructField('arg_ax_tree', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_IdentifyMainNode_ResponseParams', [
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_ParamsSpec, 'screen_ai.mojom.Screen2xMainContentExtractor_SetClientType_Params', [
+      mojo.internal.StructField('arg_client_type', 0, 0, mojo.internal.bindings.screen_ai.mojom.MceClientTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.OCRService_BindAnnotator_ParamsSpec, 'screen_ai.mojom.OCRService_BindAnnotator_Params', [
+      mojo.internal.StructField('arg_annotator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.ScreenAIAnnotatorRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_ParamsSpec, 'screen_ai.mojom.MainContentExtractionService_BindMainContentExtractor_Params', [
+      mojo.internal.StructField('arg_main_content_extractor', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -133,13 +133,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FrameHostTestInterface
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec, 'content.mojom.FrameHostTestInterface_Ping_Params', [
-      mojo.internal.StructField('arg_source_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.FrameHostTestInterfacePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.content.mojom.FrameHostTestInterfaceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ping');
-          const result = this.impl.ping(params.arg_source_url, params.arg_source_event);
+          const result = this.impl.ping(params.arg_arg_source_url, params.arg_arg_source_event);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.content.mojom.FrameHostTestInterfaceReceiver = mojo.inter
 
 mojo.internal.bindings.content.mojom.FrameHostTestInterfacePtr = mojo.internal.bindings.content.mojom.FrameHostTestInterfaceRemote;
 mojo.internal.bindings.content.mojom.FrameHostTestInterfaceRequest = mojo.internal.bindings.content.mojom.FrameHostTestInterfacePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.FrameHostTestInterface_Ping_ParamsSpec, 'content.mojom.FrameHostTestInterface_Ping_Params', [
+      mojo.internal.StructField('arg_source_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

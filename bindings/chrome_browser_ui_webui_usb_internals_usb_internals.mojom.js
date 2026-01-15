@@ -138,18 +138,6 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerTestSpec = mojo.internal.bin
 mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote = mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote || class {};
 
 // Interface: UsbInternalsPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindTestInterface_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.UsbInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -276,14 +264,14 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindUsbDeviceManagerInterface');
-          const result = this.impl.bindUsbDeviceManagerInterface(params.arg_receiver);
+          const result = this.impl.bindUsbDeviceManagerInterface(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestInterface');
-          const result = this.impl.bindTestInterface(params.arg_receiver);
+          const result = this.impl.bindTestInterface(params.arg_arg_receiver);
           break;
         }
       }
@@ -298,4 +286,18 @@ mojo.internal.bindings.mojom.UsbInternalsPageHandlerReceiver = mojo.internal.bin
 
 mojo.internal.bindings.mojom.UsbInternalsPageHandlerPtr = mojo.internal.bindings.mojom.UsbInternalsPageHandlerRemote;
 mojo.internal.bindings.mojom.UsbInternalsPageHandlerRequest = mojo.internal.bindings.mojom.UsbInternalsPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindUsbDeviceManagerInterface_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.UsbInternalsPageHandler_BindTestInterface_ParamsSpec, 'mojom.UsbInternalsPageHandler_BindTestInterface_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.UsbDeviceManagerTestRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

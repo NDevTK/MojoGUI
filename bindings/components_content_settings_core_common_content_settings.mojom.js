@@ -161,6 +161,8 @@ mojo.internal.bindings.content_settings.mojom.ContentSetting = {
   SESSION_ONLY: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PatternParts
 mojo.internal.Struct(
     mojo.internal.bindings.content_settings.mojom.PatternPartsSpec, 'content_settings.mojom.PatternParts', [

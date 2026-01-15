@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.TextAutosizerPageInfoSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TextAutosizerPageInfo
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TextAutosizerPageInfoSpec, 'blink.mojom.TextAutosizerPageInfo', [

@@ -143,18 +143,6 @@ mojo.internal.bindings.remoting.mojom.OpenUrlResult = {
 };
 
 // Interface: RemoteUrlOpener
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.remoting.mojom.OpenUrlResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,12 +255,15 @@ mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrl');
-          const result = this.impl.openUrl(params.arg_url);
+          const result = this.impl.openUrl(params.arg_arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openUrl FAILED:', e));
           }
           break;
         }
@@ -288,4 +279,18 @@ mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerReceiver = mojo.internal.bi
 
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerPtr = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRemote;
 mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerRequest = mojo.internal.bindings.remoting.mojom.RemoteUrlOpenerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParamsSpec, 'remoting.mojom.RemoteUrlOpener_OpenUrl_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.remoting.mojom.OpenUrlResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -233,3 +233,5 @@ mojo.internal.bindings.blink.mojom.DedicatedWorkerHostReceiver = mojo.internal.b
 mojo.internal.bindings.blink.mojom.DedicatedWorkerHostPtr = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostRemote;
 mojo.internal.bindings.blink.mojom.DedicatedWorkerHostRequest = mojo.internal.bindings.blink.mojom.DedicatedWorkerHostPendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

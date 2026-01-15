@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessCloudIdentifierSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FileSystemAccessCloudIdentifier
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FileSystemAccessCloudIdentifierSpec, 'blink.mojom.FileSystemAccessCloudIdentifier', [

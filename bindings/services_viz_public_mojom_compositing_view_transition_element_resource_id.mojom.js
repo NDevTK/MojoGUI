@@ -129,6 +129,8 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec = mojo.internal.bindings.blink.mojom.ViewTransitionTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ViewTransitionElementResourceId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ViewTransitionElementResourceIdSpec, 'viz.mojom.ViewTransitionElementResourceId', [

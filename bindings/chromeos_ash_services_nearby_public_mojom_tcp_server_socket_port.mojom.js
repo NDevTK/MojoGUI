@@ -123,6 +123,8 @@ mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {
 
 mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TcpServerSocketPort
 mojo.internal.Struct(
     mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec, 'sharing.mojom.TcpServerSocketPort', [

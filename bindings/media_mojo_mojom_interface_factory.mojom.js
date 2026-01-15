@@ -290,68 +290,6 @@ mojo.internal.bindings.media.mojom.VideoDecoderTrackerRequest = mojo.internal.bi
 
 
 // Interface: InterfaceFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioDecoder_Params', [
-      mojo.internal.StructField('arg_audio_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioDecoderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoder_Params', [
-      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_dst_video_decoder', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tracker', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioEncoder_Params', [
-      mojo.internal.StructField('arg_audio_encoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioEncoderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateDefaultRenderer_Params', [
-      mojo.internal.StructField('arg_audio_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCastRenderer_Params', [
-      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_Params', [
-      mojo.internal.StructField('arg_media_log', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_renderer_extension', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_Params', [
-      mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.media.mojom.CdmConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_ResponseParams', [
-      mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.media.mojom.CdmContextSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.media.mojom.InterfaceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -562,61 +500,63 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioDecoder');
-          const result = this.impl.createAudioDecoder(params.arg_audio_decoder);
+          const result = this.impl.createAudioDecoder(params.arg_arg_audio_decoder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
-          const result = this.impl.createVideoDecoder(params.arg_video_decoder, params.arg_dst_video_decoder);
+          const result = this.impl.createVideoDecoder(params.arg_arg_video_decoder, params.arg_arg_dst_video_decoder);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoderWithTracker');
-          const result = this.impl.createVideoDecoderWithTracker(params.arg_receiver, params.arg_tracker);
+          const result = this.impl.createVideoDecoderWithTracker(params.arg_arg_receiver, params.arg_arg_tracker);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioEncoder');
-          const result = this.impl.createAudioEncoder(params.arg_audio_encoder);
+          const result = this.impl.createAudioEncoder(params.arg_arg_audio_encoder);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDefaultRenderer');
-          const result = this.impl.createDefaultRenderer(params.arg_audio_device_id, params.arg_renderer);
+          const result = this.impl.createDefaultRenderer(params.arg_arg_audio_device_id, params.arg_arg_renderer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCastRenderer');
-          const result = this.impl.createCastRenderer(params.arg_overlay_plane_id, params.arg_renderer);
+          const result = this.impl.createCastRenderer(params.arg_arg_overlay_plane_id, params.arg_arg_renderer);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createMediaFoundationRenderer');
-          const result = this.impl.createMediaFoundationRenderer(params.arg_media_log, params.arg_renderer, params.arg_renderer_extension);
+          const result = this.impl.createMediaFoundationRenderer(params.arg_arg_media_log, params.arg_arg_renderer, params.arg_arg_renderer_extension);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
-          const result = this.impl.createCdm(params.arg_cdm_config);
+          const result = this.impl.createCdm(params.arg_arg_cdm_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateCdm FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec.$.structSpec, ['response.arg_arg_cdm', 'response.arg_arg_cdm_context', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createCdm FAILED:', e));
           }
           break;
         }
@@ -632,4 +572,68 @@ mojo.internal.bindings.media.mojom.InterfaceFactoryReceiver = mojo.internal.bind
 
 mojo.internal.bindings.media.mojom.InterfaceFactoryPtr = mojo.internal.bindings.media.mojom.InterfaceFactoryRemote;
 mojo.internal.bindings.media.mojom.InterfaceFactoryRequest = mojo.internal.bindings.media.mojom.InterfaceFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioDecoder_Params', [
+      mojo.internal.StructField('arg_audio_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoder_Params', [
+      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_dst_video_decoder', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_ParamsSpec, 'media.mojom.InterfaceFactory_CreateVideoDecoderWithTracker_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.VideoDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tracker', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.VideoDecoderTrackerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateAudioEncoder_ParamsSpec, 'media.mojom.InterfaceFactory_CreateAudioEncoder_Params', [
+      mojo.internal.StructField('arg_audio_encoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioEncoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateDefaultRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateDefaultRenderer_Params', [
+      mojo.internal.StructField('arg_audio_device_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCastRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCastRenderer_Params', [
+      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_ParamsSpec, 'media.mojom.InterfaceFactory_CreateMediaFoundationRenderer_Params', [
+      mojo.internal.StructField('arg_media_log', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.MediaLogRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.RendererRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_renderer_extension', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_Params', [
+      mojo.internal.StructField('arg_cdm_config', 0, 0, mojo.internal.bindings.media.mojom.CdmConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.InterfaceFactory_CreateCdm_ResponseParamsSpec, 'media.mojom.InterfaceFactory_CreateCdm_ResponseParams', [
+      mojo.internal.StructField('arg_cdm', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.ContentDecryptionModuleRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cdm_context', 8, 0, mojo.internal.bindings.media.mojom.CdmContextSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.bindings.media.mojom.CreateCdmStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

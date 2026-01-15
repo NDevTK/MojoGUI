@@ -137,18 +137,6 @@ mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeType = {
 };
 
 // Interface: PixCodeValidator
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_Params', [
-      mojo.internal.StructField('arg_input_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParams', [
-      mojo.internal.StructField('arg_pix_qr_code_type', 0, 0, mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeTypeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,12 +249,15 @@ mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.validatePixCode');
-          const result = this.impl.validatePixCode(params.arg_input_text);
+          const result = this.impl.validatePixCode(params.arg_arg_input_text);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ValidatePixCode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pix_qr_code_type' in response) ? response.arg_arg_pix_qr_code_type : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] validatePixCode FAILED:', e));
           }
           break;
         }
@@ -282,4 +273,18 @@ mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorReceiver = moj
 
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorPtr = mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemote;
 mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRequest = mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_Params', [
+      mojo.internal.StructField('arg_input_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParamsSpec, 'payments.facilitated.mojom.PixCodeValidator_ValidatePixCode_ResponseParams', [
+      mojo.internal.StructField('arg_pix_qr_code_type', 0, 0, mojo.internal.bindings.payments.facilitated.mojom.PixQrCodeTypeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

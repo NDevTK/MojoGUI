@@ -162,29 +162,7 @@ mojo.internal.bindings.remoting.mojom.TransportRouteType = {
   kRelay: 3,
 };
 
-// Struct: TransportRoute
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.TransportRouteSpec, 'remoting.mojom.TransportRoute', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_address', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: RemotingHostControl
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec, 'remoting.mojom.RemotingHostControl_ApplyHostConfig_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec, 'remoting.mojom.RemotingHostControl_InitializePairingRegistry_Params', [
-      mojo.internal.StructField('arg_privileged_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unprivileged_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.remoting.mojom.RemotingHostControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -311,14 +289,14 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.applyHostConfig');
-          const result = this.impl.applyHostConfig(params.arg_config);
+          const result = this.impl.applyHostConfig(params.arg_arg_config);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initializePairingRegistry');
-          const result = this.impl.initializePairingRegistry(params.arg_privileged_handle, params.arg_unprivileged_handle);
+          const result = this.impl.initializePairingRegistry(params.arg_arg_privileged_handle, params.arg_arg_unprivileged_handle);
           break;
         }
       }
@@ -336,20 +314,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlRequest = mojo.internal
 
 
 // Interface: DesktopSessionConnectionEvents
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_Params', [
-      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Params', [
-      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_desktop_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -476,14 +440,14 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTerminalDisconnected');
-          const result = this.impl.onTerminalDisconnected(params.arg_terminal_id);
+          const result = this.impl.onTerminalDisconnected(params.arg_arg_terminal_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDesktopSessionAgentAttached');
-          const result = this.impl.onDesktopSessionAgentAttached(params.arg_terminal_id, params.arg_session_id, params.arg_desktop_pipe);
+          const result = this.impl.onDesktopSessionAgentAttached(params.arg_arg_terminal_id, params.arg_arg_session_id, params.arg_arg_desktop_pipe);
           break;
         }
       }
@@ -501,49 +465,6 @@ mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEventsRequest = mo
 
 
 // Interface: HostStatusObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientAccessDenied_Params', [
-      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientAuthenticated_Params', [
-      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientConnected_Params', [
-      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientDisconnected_Params', [
-      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientRouteChange_Params', [
-      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_route', 16, 0, mojo.internal.bindings.remoting.mojom.TransportRouteSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnHostStarted_Params', [
-      mojo.internal.StructField('arg_owner_email', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnHostShutdown_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.remoting.mojom.HostStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -740,42 +661,42 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientAccessDenied');
-          const result = this.impl.onClientAccessDenied(params.arg_signaling_id);
+          const result = this.impl.onClientAccessDenied(params.arg_arg_signaling_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientAuthenticated');
-          const result = this.impl.onClientAuthenticated(params.arg_signaling_id);
+          const result = this.impl.onClientAuthenticated(params.arg_arg_signaling_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientConnected');
-          const result = this.impl.onClientConnected(params.arg_signaling_id);
+          const result = this.impl.onClientConnected(params.arg_arg_signaling_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientDisconnected');
-          const result = this.impl.onClientDisconnected(params.arg_signaling_id);
+          const result = this.impl.onClientDisconnected(params.arg_arg_signaling_id);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientRouteChange');
-          const result = this.impl.onClientRouteChange(params.arg_signaling_id, params.arg_channel_name, params.arg_route);
+          const result = this.impl.onClientRouteChange(params.arg_arg_signaling_id, params.arg_arg_channel_name, params.arg_arg_route);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHostStarted');
-          const result = this.impl.onHostStarted(params.arg_owner_email);
+          const result = this.impl.onHostStarted(params.arg_arg_owner_email);
           break;
         }
         case 6: {
@@ -797,4 +718,85 @@ mojo.internal.bindings.remoting.mojom.HostStatusObserverReceiver = mojo.internal
 
 mojo.internal.bindings.remoting.mojom.HostStatusObserverPtr = mojo.internal.bindings.remoting.mojom.HostStatusObserverRemote;
 mojo.internal.bindings.remoting.mojom.HostStatusObserverRequest = mojo.internal.bindings.remoting.mojom.HostStatusObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TransportRoute
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.TransportRouteSpec, 'remoting.mojom.TransportRoute', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.remoting.mojom.TransportRouteTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_address', 8, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_address', 16, 0, mojo.internal.bindings.network.mojom.IPEndPointSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.RemotingHostControl_ApplyHostConfig_ParamsSpec, 'remoting.mojom.RemotingHostControl_ApplyHostConfig_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.RemotingHostControl_InitializePairingRegistry_ParamsSpec, 'remoting.mojom.RemotingHostControl_InitializePairingRegistry_Params', [
+      mojo.internal.StructField('arg_privileged_handle', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unprivileged_handle', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnTerminalDisconnected_Params', [
+      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_ParamsSpec, 'remoting.mojom.DesktopSessionConnectionEvents_OnDesktopSessionAgentAttached_Params', [
+      mojo.internal.StructField('arg_terminal_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_desktop_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAccessDenied_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientAccessDenied_Params', [
+      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientAuthenticated_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientAuthenticated_Params', [
+      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientConnected_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientConnected_Params', [
+      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientDisconnected_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientDisconnected_Params', [
+      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnClientRouteChange_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnClientRouteChange_Params', [
+      mojo.internal.StructField('arg_signaling_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_route', 16, 0, mojo.internal.bindings.remoting.mojom.TransportRouteSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostStarted_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnHostStarted_Params', [
+      mojo.internal.StructField('arg_owner_email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.HostStatusObserver_OnHostShutdown_ParamsSpec, 'remoting.mojom.HostStatusObserver_OnHostShutdown_Params', [
+    ],
+    [[0, 8]]);
 

@@ -176,163 +176,7 @@ mojo.internal.bindings.media.mojom.FillLightMode = {
   FLASH: 2,
 };
 
-// Struct: Range
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.RangeSpec, 'media.mojom.Range', [
-      mojo.internal.StructField('arg_max', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_min', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_current', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_step', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: PhotoState
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.PhotoStateSpec, 'media.mojom.PhotoState', [
-      mojo.internal.StructField('arg_supported_white_balance_modes', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_white_balance_mode', 8, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_exposure_mode', 12, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_exposure_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_focus_modes', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_focus_mode', 32, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_torch', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_torch', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_current_background_segmentation_mask_state', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_points_of_interest', 40, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.Point2DSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_compensation', 48, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_time', 56, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_color_temperature', 64, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_iso', 72, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_brightness', 80, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_contrast', 88, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_saturation', 96, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sharpness', 104, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_distance', 112, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pan', 120, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt', 128, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_zoom', 136, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_red_eye_reduction', 144, 0, mojo.internal.bindings.media.mojom.RedEyeReductionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_blur_mode', 148, 0, mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 152, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 160, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_light_mode', 168, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FillLightModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_background_blur_modes', 176, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_face_framing_modes', 184, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_face_framing_mode', 192, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_eye_gaze_correction_mode', 196, 0, mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_eye_gaze_correction_modes', 200, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supported_background_segmentation_mask_states', 208, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
-    ],
-    [[0, 224]]);
-
-// Struct: Point2D
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.Point2DSpec, 'media.mojom.Point2D', [
-      mojo.internal.StructField('arg_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PhotoSettings
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.PhotoSettingsSpec, 'media.mojom.PhotoSettings', [
-      mojo.internal.StructField('arg_has_white_balance_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_exposure_mode', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_focus_mode', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_exposure_compensation', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_exposure_time', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_color_temperature', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_iso', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_brightness', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_contrast', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_saturation', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_sharpness', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_focus_distance', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_pan', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_tilt', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_zoom', 1, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_torch', 1, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_torch', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_fill_light_mode', 2, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_width', 2, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_height', 2, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_red_eye_reduction', 2, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_red_eye_reduction', 2, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_background_blur_mode', 2, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_face_framing_mode', 2, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_background_segmentation_mask_state_$flag', 3, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_background_segmentation_mask_state_$value', originalFieldName: 'arg_background_segmentation_mask_state' }),
-      mojo.internal.StructField('arg_background_segmentation_mask_state_$value', 3, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_background_segmentation_mask_state_$flag', originalFieldName: 'arg_background_segmentation_mask_state' }),
-      mojo.internal.StructField('arg_white_balance_mode', 4, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_mode', 8, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_mode', 12, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_points_of_interest', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.Point2DSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_compensation', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_exposure_time', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_color_temperature', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_iso', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_brightness', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_contrast', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_saturation', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sharpness', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_distance', 88, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pan', 96, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tilt', 104, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_zoom', 112, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fill_light_mode', 120, 0, mojo.internal.bindings.media.mojom.FillLightModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_blur_mode', 124, 0, mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_width', 128, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_height', 136, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_face_framing_mode', 144, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_eye_gaze_correction_mode', 148, 0, mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec, null, true, 0, undefined),
-    ],
-    [[0, 160]]);
-
-// Struct: Blob
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.BlobSpec, 'media.mojom.Blob', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ImageCapture
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec, 'media.mojom.ImageCapture_GetPhotoState_Params', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec, 'media.mojom.ImageCapture_GetPhotoState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec, 'media.mojom.ImageCapture_SetPhotoOptions_Params', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec, 'media.mojom.ImageCapture_SetPhotoOptions_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec, 'media.mojom.ImageCapture_TakePhoto_Params', [
-      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec, 'media.mojom.ImageCapture_TakePhoto_ResponseParams', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.ImageCapturePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -473,12 +317,15 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPhotoState');
-          const result = this.impl.getPhotoState(params.arg_source_id);
+          const result = this.impl.getPhotoState(params.arg_arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPhotoState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPhotoState FAILED:', e));
           }
           break;
         }
@@ -486,12 +333,15 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPhotoOptions');
-          const result = this.impl.setPhotoOptions(params.arg_source_id, params.arg_settings);
+          const result = this.impl.setPhotoOptions(params.arg_arg_source_id, params.arg_arg_settings);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetPhotoOptions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setPhotoOptions FAILED:', e));
           }
           break;
         }
@@ -499,12 +349,15 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takePhoto');
-          const result = this.impl.takePhoto(params.arg_source_id);
+          const result = this.impl.takePhoto(params.arg_arg_source_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TakePhoto FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_blob' in response) ? response.arg_arg_blob : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] takePhoto FAILED:', e));
           }
           break;
         }
@@ -520,4 +373,162 @@ mojo.internal.bindings.media.mojom.ImageCaptureReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.media.mojom.ImageCapturePtr = mojo.internal.bindings.media.mojom.ImageCaptureRemote;
 mojo.internal.bindings.media.mojom.ImageCaptureRequest = mojo.internal.bindings.media.mojom.ImageCapturePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Range
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.RangeSpec, 'media.mojom.Range', [
+      mojo.internal.StructField('arg_max', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_min', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_current', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_step', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: PhotoState
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.PhotoStateSpec, 'media.mojom.PhotoState', [
+      mojo.internal.StructField('arg_supported_white_balance_modes', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_white_balance_mode', 8, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_exposure_mode', 12, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_exposure_modes', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_focus_modes', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_focus_mode', 32, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_torch', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_torch', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_current_background_segmentation_mask_state', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_points_of_interest', 40, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.Point2DSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_compensation', 48, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_time', 56, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_color_temperature', 64, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_iso', 72, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_brightness', 80, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_contrast', 88, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_saturation', 96, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sharpness', 104, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_distance', 112, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pan', 120, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt', 128, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_zoom', 136, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_red_eye_reduction', 144, 0, mojo.internal.bindings.media.mojom.RedEyeReductionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_blur_mode', 148, 0, mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 152, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 160, 0, mojo.internal.bindings.media.mojom.RangeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_light_mode', 168, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FillLightModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_background_blur_modes', 176, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_face_framing_modes', 184, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.MeteringModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_face_framing_mode', 192, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_eye_gaze_correction_mode', 196, 0, mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_eye_gaze_correction_modes', 200, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supported_background_segmentation_mask_states', 208, 0, mojo.internal.Array(mojo.internal.Bool, false), null, false, 0, undefined),
+    ],
+    [[0, 224]]);
+
+// Struct: Point2D
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.Point2DSpec, 'media.mojom.Point2D', [
+      mojo.internal.StructField('arg_x', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PhotoSettings
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.PhotoSettingsSpec, 'media.mojom.PhotoSettings', [
+      mojo.internal.StructField('arg_has_white_balance_mode', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_exposure_mode', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_focus_mode', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_exposure_compensation', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_exposure_time', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_color_temperature', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_iso', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_brightness', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_contrast', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_saturation', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_sharpness', 1, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_focus_distance', 1, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_pan', 1, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_tilt', 1, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_zoom', 1, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_torch', 1, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_torch', 2, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_fill_light_mode', 2, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_width', 2, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_height', 2, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_red_eye_reduction', 2, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_red_eye_reduction', 2, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_background_blur_mode', 2, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_face_framing_mode', 2, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_background_segmentation_mask_state_$flag', 3, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_background_segmentation_mask_state_$value', originalFieldName: 'arg_background_segmentation_mask_state' }),
+      mojo.internal.StructField('arg_background_segmentation_mask_state_$value', 3, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_background_segmentation_mask_state_$flag', originalFieldName: 'arg_background_segmentation_mask_state' }),
+      mojo.internal.StructField('arg_white_balance_mode', 4, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_mode', 8, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_mode', 12, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_points_of_interest', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.Point2DSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_compensation', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_exposure_time', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_color_temperature', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_iso', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_brightness', 56, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_contrast', 64, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_saturation', 72, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sharpness', 80, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_distance', 88, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pan', 96, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tilt', 104, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_zoom', 112, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fill_light_mode', 120, 0, mojo.internal.bindings.media.mojom.FillLightModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_blur_mode', 124, 0, mojo.internal.bindings.media.mojom.BackgroundBlurModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_width', 128, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_height', 136, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_face_framing_mode', 144, 0, mojo.internal.bindings.media.mojom.MeteringModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_eye_gaze_correction_mode', 148, 0, mojo.internal.bindings.media.mojom.EyeGazeCorrectionModeSpec, null, true, 0, undefined),
+    ],
+    [[0, 160]]);
+
+// Struct: Blob
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.BlobSpec, 'media.mojom.Blob', [
+      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ParamsSpec, 'media.mojom.ImageCapture_GetPhotoState_Params', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ImageCapture_GetPhotoState_ResponseParamsSpec, 'media.mojom.ImageCapture_GetPhotoState_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.PhotoStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ParamsSpec, 'media.mojom.ImageCapture_SetPhotoOptions_Params', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_settings', 8, 0, mojo.internal.bindings.media.mojom.PhotoSettingsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ImageCapture_SetPhotoOptions_ResponseParamsSpec, 'media.mojom.ImageCapture_SetPhotoOptions_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ParamsSpec, 'media.mojom.ImageCapture_TakePhoto_Params', [
+      mojo.internal.StructField('arg_source_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ImageCapture_TakePhoto_ResponseParamsSpec, 'media.mojom.ImageCapture_TakePhoto_ResponseParams', [
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.bindings.media.mojom.BlobSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

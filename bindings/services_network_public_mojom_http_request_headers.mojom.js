@@ -130,6 +130,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: HttpRequestHeaderKeyValuePair
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpRequestHeaderKeyValuePairSpec, 'network.mojom.HttpRequestHeaderKeyValuePair', [

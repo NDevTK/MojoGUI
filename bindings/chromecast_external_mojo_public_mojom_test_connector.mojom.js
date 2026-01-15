@@ -128,14 +128,6 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector.$int
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec = { $: {} };
 
 // Interface: TestExternalConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec, 'chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_Params', [
-      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -248,7 +240,7 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInterfaceInternal');
-          const result = this.impl.bindInterfaceInternal(params.arg_service_name, params.arg_interface_name, params.arg_interface_pipe);
+          const result = this.impl.bindInterfaceInternal(params.arg_arg_service_name, params.arg_arg_interface_name, params.arg_arg_interface_pipe);
           break;
         }
       }
@@ -263,4 +255,14 @@ mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRecei
 
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorPtr = mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRemote;
 mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorRequest = mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_ParamsSpec, 'chromecast.external_mojo.mojom.TestExternalConnector_BindInterfaceInternal_Params', [
+      mojo.internal.StructField('arg_service_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_pipe', 16, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

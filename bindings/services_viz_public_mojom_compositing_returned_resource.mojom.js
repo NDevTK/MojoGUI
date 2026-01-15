@@ -136,6 +136,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.ResourceIdSpec = mojo.internal.bindings.viz.mojom.ResourceIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ReturnedResource
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ReturnedResourceSpec, 'viz.mojom.ReturnedResource', [

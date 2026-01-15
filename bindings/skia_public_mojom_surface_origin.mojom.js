@@ -128,3 +128,5 @@ mojo.internal.bindings.skia.mojom.SurfaceOrigin = {
   kTopLeft: 0,
   kBottomLeft: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

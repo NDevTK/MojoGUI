@@ -133,33 +133,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.BadgeValueSpec = mojo.internal.bindings.blink.mojom.BadgeValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: BadgeValue
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.BadgeValueSpec, 'blink.mojom.BadgeValue', {
-      'arg_flag': {
-        'ordinal': 0,
-        'type': mojo.internal.Uint8,
-        'nullable': false,
-      },
-      'arg_number': {
-        'ordinal': 1,
-        'type': mojo.internal.Uint64,
-        'nullable': false,
-      },
-    });
-
 // Interface: BadgeService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BadgeService_SetBadge_ParamsSpec, 'blink.mojom.BadgeService_SetBadge_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.BadgeValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BadgeService_ClearBadge_ParamsSpec, 'blink.mojom.BadgeService_ClearBadge_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.BadgeServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,7 +260,7 @@ mojo.internal.bindings.blink.mojom.BadgeServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BadgeService_SetBadge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBadge');
-          const result = this.impl.setBadge(params.arg_value);
+          const result = this.impl.setBadge(params.arg_arg_value);
           break;
         }
         case 1: {
@@ -308,4 +282,32 @@ mojo.internal.bindings.blink.mojom.BadgeServiceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.blink.mojom.BadgeServicePtr = mojo.internal.bindings.blink.mojom.BadgeServiceRemote;
 mojo.internal.bindings.blink.mojom.BadgeServiceRequest = mojo.internal.bindings.blink.mojom.BadgeServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: BadgeValue
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.BadgeValueSpec, 'blink.mojom.BadgeValue', {
+      'arg_flag': {
+        'ordinal': 0,
+        'type': mojo.internal.Uint8,
+        'nullable': false,
+      },
+      'arg_number': {
+        'ordinal': 1,
+        'type': mojo.internal.Uint64,
+        'nullable': false,
+      },
+    });
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BadgeService_SetBadge_ParamsSpec, 'blink.mojom.BadgeService_SetBadge_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.BadgeValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BadgeService_ClearBadge_ParamsSpec, 'blink.mojom.BadgeService_ClearBadge_Params', [
+    ],
+    [[0, 8]]);
 

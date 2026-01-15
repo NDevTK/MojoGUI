@@ -140,12 +140,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'webui_examples.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_examples.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,7 +252,7 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -276,25 +270,6 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerFactoryRequest = mojo.int
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec, 'webui_examples.mojom.PageHandler_Navigate_Params', [
-      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_src', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec, 'webui_examples.mojom.PageHandler_GoBack_Params', [
-      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec, 'webui_examples.mojom.PageHandler_GoForward_Params', [
-      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.webui_examples.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -435,21 +410,21 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.navigate');
-          const result = this.impl.navigate(params.arg_guest_contents_id, params.arg_src);
+          const result = this.impl.navigate(params.arg_arg_guest_contents_id, params.arg_arg_src);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goBack');
-          const result = this.impl.goBack(params.arg_guest_contents_id);
+          const result = this.impl.goBack(params.arg_arg_guest_contents_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.goForward');
-          const result = this.impl.goForward(params.arg_guest_contents_id);
+          const result = this.impl.goForward(params.arg_arg_guest_contents_id);
           break;
         }
       }
@@ -464,4 +439,31 @@ mojo.internal.bindings.webui_examples.mojom.PageHandlerReceiver = mojo.internal.
 
 mojo.internal.bindings.webui_examples.mojom.PageHandlerPtr = mojo.internal.bindings.webui_examples.mojom.PageHandlerRemote;
 mojo.internal.bindings.webui_examples.mojom.PageHandlerRequest = mojo.internal.bindings.webui_examples.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_examples.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'webui_examples.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_examples.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_examples.mojom.PageHandler_Navigate_ParamsSpec, 'webui_examples.mojom.PageHandler_Navigate_Params', [
+      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_src', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_examples.mojom.PageHandler_GoBack_ParamsSpec, 'webui_examples.mojom.PageHandler_GoBack_Params', [
+      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_examples.mojom.PageHandler_GoForward_ParamsSpec, 'webui_examples.mojom.PageHandler_GoForward_Params', [
+      mojo.internal.StructField('arg_guest_contents_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

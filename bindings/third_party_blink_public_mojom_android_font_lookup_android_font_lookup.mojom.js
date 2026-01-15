@@ -138,40 +138,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AndroidFontLookup
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec, 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParams', [
-      mojo.internal.StructField('arg_unique_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec, 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_Params', [
-      mojo.internal.StructField('arg_font_unique_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParams', [
-      mojo.internal.StructField('arg_font_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParams', [
-      mojo.internal.StructField('arg_font_files', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.AndroidFontLookupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -316,8 +282,11 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetUniqueNameLookupTable FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_unique_font_names' in response) ? response.arg_arg_unique_font_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getUniqueNameLookupTable FAILED:', e));
           }
           break;
         }
@@ -325,12 +294,15 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.matchLocalFontByUniqueName');
-          const result = this.impl.matchLocalFontByUniqueName(params.arg_font_unique_name);
+          const result = this.impl.matchLocalFontByUniqueName(params.arg_arg_font_unique_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MatchLocalFontByUniqueName FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_font_file_handle' in response) ? response.arg_arg_font_file_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] matchLocalFontByUniqueName FAILED:', e));
           }
           break;
         }
@@ -342,8 +314,11 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FetchAllFontFiles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_font_files' in response) ? response.arg_arg_font_files : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetchAllFontFiles FAILED:', e));
           }
           break;
         }
@@ -359,4 +334,40 @@ mojo.internal.bindings.blink.mojom.AndroidFontLookupReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.AndroidFontLookupPtr = mojo.internal.bindings.blink.mojom.AndroidFontLookupRemote;
 mojo.internal.bindings.blink.mojom.AndroidFontLookupRequest = mojo.internal.bindings.blink.mojom.AndroidFontLookupPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ParamsSpec, 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_GetUniqueNameLookupTable_ResponseParams', [
+      mojo.internal.StructField('arg_unique_font_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ParamsSpec, 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_Params', [
+      mojo.internal.StructField('arg_font_unique_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_MatchLocalFontByUniqueName_ResponseParams', [
+      mojo.internal.StructField('arg_font_file_handle', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParamsSpec, 'blink.mojom.AndroidFontLookup_FetchAllFontFiles_ResponseParams', [
+      mojo.internal.StructField('arg_font_files', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

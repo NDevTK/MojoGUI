@@ -141,15 +141,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebTransportConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec, 'blink.mojom.WebTransportConnector_Connect_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fingerprints', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_application_protocols', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.blink.mojom.WebTransportConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -262,7 +253,7 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_url, params.arg_fingerprints, params.arg_application_protocols, params.arg_client);
+          const result = this.impl.connect(params.arg_arg_url, params.arg_arg_fingerprints, params.arg_arg_application_protocols, params.arg_arg_client);
           break;
         }
       }
@@ -277,4 +268,15 @@ mojo.internal.bindings.blink.mojom.WebTransportConnectorReceiver = mojo.internal
 
 mojo.internal.bindings.blink.mojom.WebTransportConnectorPtr = mojo.internal.bindings.blink.mojom.WebTransportConnectorRemote;
 mojo.internal.bindings.blink.mojom.WebTransportConnectorRequest = mojo.internal.bindings.blink.mojom.WebTransportConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebTransportConnector_Connect_ParamsSpec, 'blink.mojom.WebTransportConnector_Connect_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fingerprints', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.WebTransportCertificateFingerprintSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_application_protocols', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebTransportHandshakeClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

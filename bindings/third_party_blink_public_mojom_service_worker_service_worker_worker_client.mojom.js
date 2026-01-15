@@ -132,12 +132,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec = mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: ServiceWorkerWorkerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onControllerChanged');
-          const result = this.impl.onControllerChanged(params.arg_mode);
+          const result = this.impl.onControllerChanged(params.arg_arg_mode);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientReceiver = mojo.inte
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientPtr = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote;
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRequest = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClient_OnControllerChanged_Params', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

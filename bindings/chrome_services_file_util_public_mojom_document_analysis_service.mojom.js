@@ -134,12 +134,6 @@ mojo.internal.bindings.chrome.mojom = mojo.internal.bindings.chrome.mojom || {};
 mojo.internal.bindings.chrome.mojom.SafeDocumentAnalyzerSpec = mojo.internal.bindings.chrome.mojom.SafeDocumentAnalyzerSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: DocumentAnalysisService
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec, 'chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SafeDocumentAnalyzerSpec), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.DocumentAnalysisServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +246,7 @@ mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSafeDocumentAnalyzer');
-          const result = this.impl.bindSafeDocumentAnalyzer(params.arg_receiver);
+          const result = this.impl.bindSafeDocumentAnalyzer(params.arg_arg_receiver);
           break;
         }
       }
@@ -267,4 +261,12 @@ mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceReceiver = mojo.inter
 
 mojo.internal.bindings.chrome.mojom.DocumentAnalysisServicePtr = mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceRemote;
 mojo.internal.bindings.chrome.mojom.DocumentAnalysisServiceRequest = mojo.internal.bindings.chrome.mojom.DocumentAnalysisServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_ParamsSpec, 'chrome.mojom.DocumentAnalysisService_BindSafeDocumentAnalyzer_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chrome.mojom.SafeDocumentAnalyzerSpec), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

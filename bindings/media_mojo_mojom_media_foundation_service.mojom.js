@@ -161,12 +161,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: GpuInfoObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec, 'media.mojom.GpuInfoObserver_OnGpuInfoUpdate_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.GpuInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -279,7 +273,7 @@ mojo.internal.bindings.media.mojom.GpuInfoObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGpuInfoUpdate');
-          const result = this.impl.onGpuInfoUpdate(params.arg_gpu_info);
+          const result = this.impl.onGpuInfoUpdate(params.arg_arg_gpu_info);
           break;
         }
       }
@@ -297,26 +291,6 @@ mojo.internal.bindings.media.mojom.GpuInfoObserverRequest = mojo.internal.bindin
 
 
 // Interface: MediaFoundationService
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_Params', [
-      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParams', [
-      mojo.internal.StructField('arg_is_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_key_system_capability', 8, 0, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaFoundationService_CreateInterfaceFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.MediaFoundationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -443,12 +417,14 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isKeySystemSupported');
-          const result = this.impl.isKeySystemSupported(params.arg_key_system);
+          const result = this.impl.isKeySystemSupported(params.arg_arg_key_system);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsKeySystemSupported FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec.$.structSpec, ['response.arg_arg_is_supported', 'response.arg_arg_key_system_capability']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isKeySystemSupported FAILED:', e));
           }
           break;
         }
@@ -456,7 +432,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createInterfaceFactory');
-          const result = this.impl.createInterfaceFactory(params.arg_factory, params.arg_frame_interfaces);
+          const result = this.impl.createInterfaceFactory(params.arg_arg_factory, params.arg_arg_frame_interfaces);
           break;
         }
       }
@@ -474,25 +450,6 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceRequest = mojo.internal
 
 
 // Interface: MediaFoundationServiceBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParams', [
-      mojo.internal.StructField('arg_gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.GpuInfoObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
-      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -619,12 +576,15 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateGpuInfo');
-          const result = this.impl.updateGpuInfo(params.arg_gpu_info);
+          const result = this.impl.updateGpuInfo(params.arg_arg_gpu_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateGpuInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_gpu_info_observer' in response) ? response.arg_arg_gpu_info_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateGpuInfo FAILED:', e));
           }
           break;
         }
@@ -632,7 +592,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
-          const result = this.impl.getService(params.arg_cdm_path, params.arg_receiver);
+          const result = this.impl.getService(params.arg_arg_cdm_path, params.arg_arg_receiver);
           break;
         }
       }
@@ -647,4 +607,51 @@ mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerReceiver = mojo.i
 
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerPtr = mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerRemote;
 mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerRequest = mojo.internal.bindings.media.mojom.MediaFoundationServiceBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.GpuInfoObserver_OnGpuInfoUpdate_ParamsSpec, 'media.mojom.GpuInfoObserver_OnGpuInfoUpdate_Params', [
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_Params', [
+      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaFoundationService_IsKeySystemSupported_ResponseParams', [
+      mojo.internal.StructField('arg_is_supported', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_key_system_capability', 8, 0, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationService_CreateInterfaceFactory_ParamsSpec, 'media.mojom.MediaFoundationService_CreateInterfaceFactory_Params', [
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.InterfaceFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_Params', [
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParamsSpec, 'media.mojom.MediaFoundationServiceBroker_UpdateGpuInfo_ResponseParams', [
+      mojo.internal.StructField('arg_gpu_info_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.GpuInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationServiceBroker_GetService_ParamsSpec, 'media.mojom.MediaFoundationServiceBroker_GetService_Params', [
+      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

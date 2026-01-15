@@ -128,16 +128,6 @@ mojo.internal.bindings.chromecast.mojom.ActivityWindow_Show_ParamsSpec = { $: {}
 mojo.internal.bindings.chromecast.mojom.ActivityWindow_Hide_ParamsSpec = { $: {} };
 
 // Interface: ActivityWindow
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ActivityWindow_Show_ParamsSpec, 'chromecast.mojom.ActivityWindow_Show_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.ActivityWindow_Hide_ParamsSpec, 'chromecast.mojom.ActivityWindow_Hide_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chromecast.mojom.ActivityWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,4 +276,16 @@ mojo.internal.bindings.chromecast.mojom.ActivityWindowReceiver = mojo.internal.b
 
 mojo.internal.bindings.chromecast.mojom.ActivityWindowPtr = mojo.internal.bindings.chromecast.mojom.ActivityWindowRemote;
 mojo.internal.bindings.chromecast.mojom.ActivityWindowRequest = mojo.internal.bindings.chromecast.mojom.ActivityWindowPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ActivityWindow_Show_ParamsSpec, 'chromecast.mojom.ActivityWindow_Show_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.ActivityWindow_Hide_ParamsSpec, 'chromecast.mojom.ActivityWindow_Hide_Params', [
+    ],
+    [[0, 8]]);
 

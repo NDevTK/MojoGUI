@@ -133,18 +133,6 @@ mojo.internal.bindings.media_router.mojom = mojo.internal.bindings.media_router.
 mojo.internal.bindings.media_router.mojom.MediaSinkSpec = mojo.internal.bindings.media_router.mojom.MediaSinkSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MediaRouterTraitsTestService
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params', [
-      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParams', [
-      mojo.internal.StructField('arg_sink', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,12 +245,15 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoMediaSink');
-          const result = this.impl.echoMediaSink(params.arg_s);
+          const result = this.impl.echoMediaSink(params.arg_arg_s);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoMediaSink FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_sink' in response) ? response.arg_arg_sink : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoMediaSink FAILED:', e));
           }
           break;
         }
@@ -278,4 +269,18 @@ mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceReceiver =
 
 mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServicePtr = mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceRemote;
 mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServiceRequest = mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_Params', [
+      mojo.internal.StructField('arg_s', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParamsSpec, 'media_router.mojom.MediaRouterTraitsTestService_EchoMediaSink_ResponseParams', [
+      mojo.internal.StructField('arg_sink', 0, 0, mojo.internal.bindings.media_router.mojom.MediaSinkSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

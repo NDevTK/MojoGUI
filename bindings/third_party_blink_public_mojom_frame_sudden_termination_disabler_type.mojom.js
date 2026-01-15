@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.SuddenTerminationDisablerType = {
   kUnloadHandler: 2,
   kVisibilityChangeHandler: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

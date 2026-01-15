@@ -123,6 +123,8 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CompositorRenderPassId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.CompositorRenderPassIdSpec, 'viz.mojom.CompositorRenderPassId', [

@@ -128,27 +128,7 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration.$interfaceName 
 mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec = { $: {} };
 
-// Struct: SyntheticTrialGroup
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec, 'content.mojom.SyntheticTrialGroup', [
-      mojo.internal.StructField('arg_trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: SyntheticTrialConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params', [
-      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_Params', [
-      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,14 +255,14 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addOrUpdateSyntheticTrialGroups');
-          const result = this.impl.addOrUpdateSyntheticTrialGroups(params.arg_groups);
+          const result = this.impl.addOrUpdateSyntheticTrialGroups(params.arg_arg_groups);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeSyntheticTrialGroups');
-          const result = this.impl.removeSyntheticTrialGroups(params.arg_groups);
+          const result = this.impl.removeSyntheticTrialGroups(params.arg_arg_groups);
           break;
         }
       }
@@ -297,4 +277,26 @@ mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationReceiver = mojo.
 
 mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationPtr = mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRemote;
 mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationRequest = mojo.internal.bindings.content.mojom.SyntheticTrialConfigurationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SyntheticTrialGroup
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec, 'content.mojom.SyntheticTrialGroup', [
+      mojo.internal.StructField('arg_trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_AddOrUpdateSyntheticTrialGroups_Params', [
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_ParamsSpec, 'content.mojom.SyntheticTrialConfiguration_RemoveSyntheticTrialGroups_Params', [
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.content.mojom.SyntheticTrialGroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

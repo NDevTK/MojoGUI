@@ -127,11 +127,6 @@ mojo.internal.bindings.video_capture.mojom.DevicesChangedObserver.$interfaceName
 mojo.internal.bindings.video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec = { $: {} };
 
 // Interface: DevicesChangedObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec, 'video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverReceiver = mojo
 
 mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverPtr = mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRemote;
 mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverRequest = mojo.internal.bindings.video_capture.mojom.DevicesChangedObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_ParamsSpec, 'video_capture.mojom.DevicesChangedObserver_OnDevicesChanged_Params', [
+    ],
+    [[0, 8]]);
 

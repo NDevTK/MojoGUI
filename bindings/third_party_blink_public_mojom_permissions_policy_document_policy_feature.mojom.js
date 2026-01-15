@@ -133,3 +133,5 @@ mojo.internal.bindings.blink.mojom.DocumentPolicyFeature = {
   kExpectNoLinkedResources: 15,
   kNetworkEfficiencyGuardrails: 16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

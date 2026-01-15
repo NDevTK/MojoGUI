@@ -311,6 +311,316 @@ mojo.internal.bindings.blink.mojom.PublicKeyCredentialType = {
   PUBLIC_KEY: 0,
 };
 
+// Interface: Authenticator
+mojo.internal.bindings.blink.mojom.AuthenticatorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.blink.mojom.AuthenticatorRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.Authenticator';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.blink.mojom.AuthenticatorPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  makeCredential(arg_options) {
+    return this.$.makeCredential(arg_options);
+  }
+  getCredential(arg_options) {
+    return this.$.getCredential(arg_options);
+  }
+  isUserVerifyingPlatformAuthenticatorAvailable() {
+    return this.$.isUserVerifyingPlatformAuthenticatorAvailable();
+  }
+  isConditionalMediationAvailable() {
+    return this.$.isConditionalMediationAvailable();
+  }
+  report(arg_options) {
+    return this.$.report(arg_options);
+  }
+  getClientCapabilities() {
+    return this.$.getClientCapabilities();
+  }
+  cancel() {
+    return this.$.cancel();
+  }
+};
+
+mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Authenticator', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+  }
+
+  makeCredential(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  getCredential(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[1],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  isUserVerifyingPlatformAuthenticatorAvailable() {
+    return this.proxy.sendMessage(
+      this.ordinals[2],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  isConditionalMediationAvailable() {
+    return this.proxy.sendMessage(
+      this.ordinals[3],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  report(arg_options) {
+    return this.proxy.sendMessage(
+      this.ordinals[4],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec,
+      [arg_options],
+      false);
+  }
+
+  getClientCapabilities() {
+    return this.proxy.sendMessage(
+      this.ordinals[5],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
+      [],
+      false);
+  }
+
+  cancel() {
+    return this.proxy.sendMessage(
+      this.ordinals[6],  // ordinal
+      mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec,
+      null,
+      [],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.blink.mojom.Authenticator.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.AuthenticatorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.Authenticator',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Authenticator', [
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.makeCredential');
+          const result = this.impl.makeCredential(params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_credential', 'response.arg_arg_dom_exception_details']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] makeCredential FAILED:', e));
+          }
+          break;
+        }
+        case 1: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getCredential');
+          const result = this.impl.getCredential(params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getCredential FAILED:', e));
+          }
+          break;
+        }
+        case 2: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isUserVerifyingPlatformAuthenticatorAvailable');
+          const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_available' in response) ? response.arg_arg_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
+          }
+          break;
+        }
+        case 3: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.isConditionalMediationAvailable');
+          const result = this.impl.isConditionalMediationAvailable();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_available' in response) ? response.arg_arg_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isConditionalMediationAvailable FAILED:', e));
+          }
+          break;
+        }
+        case 4: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.report');
+          const result = this.impl.report(params.arg_arg_options);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_dom_exception_details']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] report FAILED:', e));
+          }
+          break;
+        }
+        case 5: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getClientCapabilities');
+          const result = this.impl.getClientCapabilities();
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_capabilities' in response) ? response.arg_arg_capabilities : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getClientCapabilities FAILED:', e));
+          }
+          break;
+        }
+        case 6: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.cancel');
+          const result = this.impl.cancel();
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = mojo.internal.bindings.blink.mojom.AuthenticatorReceiver;
+
+mojo.internal.bindings.blink.mojom.AuthenticatorPtr = mojo.internal.bindings.blink.mojom.AuthenticatorRemote;
+mojo.internal.bindings.blink.mojom.AuthenticatorRequest = mojo.internal.bindings.blink.mojom.AuthenticatorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: GetCredentialResponse
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.GetCredentialResponseSpec, 'blink.mojom.GetCredentialResponse', {
@@ -650,8 +960,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_dom_exception_details', 16, 0, mojo.internal.bindings.blink.mojom.WebAuthnDOMExceptionDetailsSpec, null, true, 0, undefined),
     ],
     [[0, 32]]);
-
-// Interface: Authenticator
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec, 'blink.mojom.Authenticator_MakeCredential_Params', [
       mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.blink.mojom.PublicKeyCredentialCreationOptionsSpec, null, false, 0, undefined),
@@ -728,294 +1036,4 @@ mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec, 'blink.mojom.Authenticator_Cancel_Params', [
     ],
     [[0, 8]]);
-
-mojo.internal.bindings.blink.mojom.AuthenticatorPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.blink.mojom.AuthenticatorRemote = class {
-  static get $interfaceName() {
-    return 'blink.mojom.Authenticator';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.blink.mojom.AuthenticatorPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  makeCredential(arg_options) {
-    return this.$.makeCredential(arg_options);
-  }
-  getCredential(arg_options) {
-    return this.$.getCredential(arg_options);
-  }
-  isUserVerifyingPlatformAuthenticatorAvailable() {
-    return this.$.isUserVerifyingPlatformAuthenticatorAvailable();
-  }
-  isConditionalMediationAvailable() {
-    return this.$.isConditionalMediationAvailable();
-  }
-  report(arg_options) {
-    return this.$.report(arg_options);
-  }
-  getClientCapabilities() {
-    return this.$.getClientCapabilities();
-  }
-  cancel() {
-    return this.$.cancel();
-  }
-};
-
-mojo.internal.bindings.blink.mojom.AuthenticatorRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Authenticator', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-  }
-
-  makeCredential(arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec,
-      [arg_options],
-      false);
-  }
-
-  getCredential(arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[1],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec,
-      [arg_options],
-      false);
-  }
-
-  isUserVerifyingPlatformAuthenticatorAvailable() {
-    return this.proxy.sendMessage(
-      this.ordinals[2],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  isConditionalMediationAvailable() {
-    return this.proxy.sendMessage(
-      this.ordinals[3],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  report(arg_options) {
-    return this.proxy.sendMessage(
-      this.ordinals[4],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec,
-      [arg_options],
-      false);
-  }
-
-  getClientCapabilities() {
-    return this.proxy.sendMessage(
-      this.ordinals[5],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec,
-      [],
-      false);
-  }
-
-  cancel() {
-    return this.proxy.sendMessage(
-      this.ordinals[6],  // ordinal
-      mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec,
-      null,
-      [],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.blink.mojom.Authenticator.getRemote = function() {
-  let remote = new mojo.internal.bindings.blink.mojom.AuthenticatorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'blink.mojom.Authenticator',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.Authenticator', [
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.makeCredential');
-          const result = this.impl.makeCredential(params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_MakeCredential_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MakeCredential FAILED:', e));
-          }
-          break;
-        }
-        case 1: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getCredential');
-          const result = this.impl.getCredential(params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_GetCredential_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetCredential FAILED:', e));
-          }
-          break;
-        }
-        case 2: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isUserVerifyingPlatformAuthenticatorAvailable');
-          const result = this.impl.isUserVerifyingPlatformAuthenticatorAvailable();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
-          }
-          break;
-        }
-        case 3: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.isConditionalMediationAvailable');
-          const result = this.impl.isConditionalMediationAvailable();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_IsConditionalMediationAvailable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsConditionalMediationAvailable FAILED:', e));
-          }
-          break;
-        }
-        case 4: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Report_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.report');
-          const result = this.impl.report(params.arg_options);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_Report_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Report FAILED:', e));
-          }
-          break;
-        }
-        case 5: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getClientCapabilities');
-          const result = this.impl.getClientCapabilities();
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.Authenticator_GetClientCapabilities_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetClientCapabilities FAILED:', e));
-          }
-          break;
-        }
-        case 6: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.Authenticator_Cancel_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.cancel');
-          const result = this.impl.cancel();
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.blink.mojom.AuthenticatorReceiver = mojo.internal.bindings.blink.mojom.AuthenticatorReceiver;
-
-mojo.internal.bindings.blink.mojom.AuthenticatorPtr = mojo.internal.bindings.blink.mojom.AuthenticatorRemote;
-mojo.internal.bindings.blink.mojom.AuthenticatorRequest = mojo.internal.bindings.blink.mojom.AuthenticatorPendingReceiver;
 

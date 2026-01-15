@@ -389,109 +389,7 @@ mojo.internal.bindings.device.mojom.HidBusType = {
   MinVersion: 1,
 };
 
-// Struct: HidUsageAndPage
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, 'device.mojom.HidUsageAndPage', [
-      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_usage_page', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: HidReportItem
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidReportItemSpec, 'device.mojom.HidReportItem', [
-      mojo.internal.StructField('arg_is_range', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_constant', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_variable', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_relative', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_wrap', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_non_linear', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_no_preferred_state', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_null_position', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_volatile', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_buffered_bytes', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_designator_minimum', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_usages', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_usage_minimum', 16, 0, mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_usage_maximum', 24, 0, mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_designator_maximum', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_string_minimum', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_string_maximum', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_logical_minimum', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_logical_maximum', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_minimum', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_maximum', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_unit_exponent', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_unit', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_report_size', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_report_count', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 88]]);
-
-// Struct: HidReportDescription
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, 'device.mojom.HidReportDescription', [
-      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: HidCollectionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidCollectionInfoSpec, 'device.mojom.HidCollectionInfo', [
-      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_collection_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_reports', 24, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_reports', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_reports', 40, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 48, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: HidDeviceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, 'device.mojom.HidDeviceInfo', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_physical_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_vendor_id', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_product_id', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bus_type', 20, 0, mojo.internal.bindings.device.mojom.HidBusTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_serial_number', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_report_descriptor', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_collections', 48, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_report_id', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_excluded_by_blocklist', 56, 1, mojo.internal.Bool, false, false, 3, undefined),
-      mojo.internal.StructField('arg_max_input_report_size', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_output_report_size', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_feature_report_size', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_node', 88, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_input_report_ids', 96, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
-      mojo.internal.StructField('arg_protected_output_report_ids', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
-      mojo.internal.StructField('arg_protected_feature_report_ids', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
-    ],
-    [[0, 104], [1, 128], [3, 72]]);
-
 // Interface: HidManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec, 'device.mojom.HidManagerClient_DeviceAdded_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec, 'device.mojom.HidManagerClient_DeviceRemoved_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec, 'device.mojom.HidManagerClient_DeviceChanged_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.HidManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -632,21 +530,21 @@ mojo.internal.bindings.device.mojom.HidManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceAdded');
-          const result = this.impl.deviceAdded(params.arg_device_info);
+          const result = this.impl.deviceAdded(params.arg_arg_device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceRemoved');
-          const result = this.impl.deviceRemoved(params.arg_device_info);
+          const result = this.impl.deviceRemoved(params.arg_arg_device_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deviceChanged');
-          const result = this.impl.deviceChanged(params.arg_device_info);
+          const result = this.impl.deviceChanged(params.arg_arg_device_info);
           break;
         }
       }
@@ -664,51 +562,6 @@ mojo.internal.bindings.device.mojom.HidManagerClientRequest = mojo.internal.bind
 
 
 // Interface: HidManager
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.HidManagerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec, 'device.mojom.HidManager_GetDevices_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec, 'device.mojom.HidManager_GetDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec, 'device.mojom.HidManager_Connect_Params', [
-      mojo.internal.StructField('arg_device_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_connection_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.HidConnectionClientRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_watcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.HidConnectionWatcherRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_allow_protected_reports', 24, 0, mojo.internal.Bool, false, false, 1, undefined),
-      mojo.internal.StructField('arg_allow_fido_reports', 24, 1, mojo.internal.Bool, false, false, 2, undefined),
-    ],
-    [[0, 32], [1, 40], [2, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec, 'device.mojom.HidManager_Connect_ResponseParams', [
-      mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.HidConnectionRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec, 'device.mojom.HidManager_AddReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.HidManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.HidManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -863,12 +716,15 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDevicesAndSetClient');
-          const result = this.impl.getDevicesAndSetClient(params.arg_client);
+          const result = this.impl.getDevicesAndSetClient(params.arg_arg_client);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDevicesAndSetClient FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDevicesAndSetClient FAILED:', e));
           }
           break;
         }
@@ -880,8 +736,11 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDevices FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDevices FAILED:', e));
           }
           break;
         }
@@ -889,12 +748,15 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_device_guid, params.arg_connection_client, params.arg_watcher, params.arg_allow_protected_reports, params.arg_allow_fido_reports);
+          const result = this.impl.connect(params.arg_arg_device_guid, params.arg_arg_connection_client, params.arg_arg_watcher, params.arg_arg_allow_protected_reports, params.arg_arg_allow_fido_reports);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_connection' in response) ? response.arg_arg_connection : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
           break;
         }
@@ -902,7 +764,7 @@ mojo.internal.bindings.device.mojom.HidManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addReceiver');
-          const result = this.impl.addReceiver(params.arg_receiver);
+          const result = this.impl.addReceiver(params.arg_arg_receiver);
           break;
         }
       }
@@ -920,58 +782,6 @@ mojo.internal.bindings.device.mojom.HidManagerRequest = mojo.internal.bindings.d
 
 
 // Interface: HidConnection
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec, 'device.mojom.HidConnection_Read_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec, 'device.mojom.HidConnection_Read_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_report_id', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec, 'device.mojom.HidConnection_Write_Params', [
-      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec, 'device.mojom.HidConnection_Write_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_Params', [
-      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_Params', [
-      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.HidConnectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1130,8 +940,10 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Read FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_report_id', 'response.arg_arg_buffer']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] read FAILED:', e));
           }
           break;
         }
@@ -1139,12 +951,15 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.write');
-          const result = this.impl.write(params.arg_report_id, params.arg_buffer);
+          const result = this.impl.write(params.arg_arg_report_id, params.arg_arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Write FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] write FAILED:', e));
           }
           break;
         }
@@ -1152,12 +967,14 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFeatureReport');
-          const result = this.impl.getFeatureReport(params.arg_report_id);
+          const result = this.impl.getFeatureReport(params.arg_arg_report_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFeatureReport FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec.$.structSpec, ['response.arg_arg_success', 'response.arg_arg_buffer']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFeatureReport FAILED:', e));
           }
           break;
         }
@@ -1165,12 +982,15 @@ mojo.internal.bindings.device.mojom.HidConnectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFeatureReport');
-          const result = this.impl.sendFeatureReport(params.arg_report_id, params.arg_buffer);
+          const result = this.impl.sendFeatureReport(params.arg_arg_report_id, params.arg_arg_buffer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendFeatureReport FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendFeatureReport FAILED:', e));
           }
           break;
         }
@@ -1189,13 +1009,6 @@ mojo.internal.bindings.device.mojom.HidConnectionRequest = mojo.internal.binding
 
 
 // Interface: HidConnectionClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec, 'device.mojom.HidConnectionClient_OnInputReport_Params', [
-      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.HidConnectionClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1308,7 +1121,7 @@ mojo.internal.bindings.device.mojom.HidConnectionClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onInputReport');
-          const result = this.impl.onInputReport(params.arg_report_id, params.arg_buffer);
+          const result = this.impl.onInputReport(params.arg_arg_report_id, params.arg_arg_buffer);
           break;
         }
       }
@@ -1432,4 +1245,212 @@ mojo.internal.bindings.device.mojom.HidConnectionWatcherReceiver = mojo.internal
 
 mojo.internal.bindings.device.mojom.HidConnectionWatcherPtr = mojo.internal.bindings.device.mojom.HidConnectionWatcherRemote;
 mojo.internal.bindings.device.mojom.HidConnectionWatcherRequest = mojo.internal.bindings.device.mojom.HidConnectionWatcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: HidUsageAndPage
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, 'device.mojom.HidUsageAndPage', [
+      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_usage_page', 2, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: HidReportItem
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidReportItemSpec, 'device.mojom.HidReportItem', [
+      mojo.internal.StructField('arg_is_range', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_constant', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_variable', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_relative', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_wrap', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_non_linear', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_no_preferred_state', 0, 6, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_null_position', 0, 7, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_volatile', 1, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_buffered_bytes', 1, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_designator_minimum', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_usages', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_usage_minimum', 16, 0, mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_usage_maximum', 24, 0, mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_designator_maximum', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_string_minimum', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_string_maximum', 40, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_logical_minimum', 44, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_logical_maximum', 48, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_minimum', 52, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_maximum', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_unit_exponent', 60, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_unit', 64, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_size', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_report_count', 72, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 88]]);
+
+// Struct: HidReportDescription
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, 'device.mojom.HidReportDescription', [
+      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_items', 8, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: HidCollectionInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidCollectionInfoSpec, 'device.mojom.HidCollectionInfo', [
+      mojo.internal.StructField('arg_usage', 0, 0, mojo.internal.bindings.device.mojom.HidUsageAndPageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_ids', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_collection_type', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_reports', 24, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_reports', 32, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_reports', 40, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidReportDescriptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 48, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: HidDeviceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, 'device.mojom.HidDeviceInfo', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_physical_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_vendor_id', 16, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_product_id', 18, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bus_type', 20, 0, mojo.internal.bindings.device.mojom.HidBusTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_serial_number', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_report_descriptor', 40, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_collections', 48, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidCollectionInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_report_id', 56, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_excluded_by_blocklist', 56, 1, mojo.internal.Bool, false, false, 3, undefined),
+      mojo.internal.StructField('arg_max_input_report_size', 64, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_output_report_size', 72, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_feature_report_size', 80, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_node', 88, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_protected_input_report_ids', 96, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_protected_output_report_ids', 104, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+      mojo.internal.StructField('arg_protected_feature_report_ids', 112, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 1, undefined),
+    ],
+    [[0, 104], [1, 128], [3, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManagerClient_DeviceAdded_ParamsSpec, 'device.mojom.HidManagerClient_DeviceAdded_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManagerClient_DeviceRemoved_ParamsSpec, 'device.mojom.HidManagerClient_DeviceRemoved_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManagerClient_DeviceChanged_ParamsSpec, 'device.mojom.HidManagerClient_DeviceChanged_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.device.mojom.HidManagerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_GetDevicesAndSetClient_ResponseParamsSpec, 'device.mojom.HidManager_GetDevicesAndSetClient_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_GetDevices_ParamsSpec, 'device.mojom.HidManager_GetDevices_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_GetDevices_ResponseParamsSpec, 'device.mojom.HidManager_GetDevices_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.device.mojom.HidDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_Connect_ParamsSpec, 'device.mojom.HidManager_Connect_Params', [
+      mojo.internal.StructField('arg_device_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_connection_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.HidConnectionClientRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_watcher', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.HidConnectionWatcherRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_allow_protected_reports', 24, 0, mojo.internal.Bool, false, false, 1, undefined),
+      mojo.internal.StructField('arg_allow_fido_reports', 24, 1, mojo.internal.Bool, false, false, 2, undefined),
+    ],
+    [[0, 32], [1, 40], [2, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_Connect_ResponseParamsSpec, 'device.mojom.HidManager_Connect_ResponseParams', [
+      mojo.internal.StructField('arg_connection', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.HidConnectionRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidManager_AddReceiver_ParamsSpec, 'device.mojom.HidManager_AddReceiver_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.HidManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_Read_ParamsSpec, 'device.mojom.HidConnection_Read_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_Read_ResponseParamsSpec, 'device.mojom.HidConnection_Read_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_report_id', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_Write_ParamsSpec, 'device.mojom.HidConnection_Write_Params', [
+      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_Write_ResponseParamsSpec, 'device.mojom.HidConnection_Write_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_Params', [
+      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_GetFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_GetFeatureReport_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_Params', [
+      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnection_SendFeatureReport_ResponseParamsSpec, 'device.mojom.HidConnection_SendFeatureReport_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.HidConnectionClient_OnInputReport_ParamsSpec, 'device.mojom.HidConnectionClient_OnInputReport_Params', [
+      mojo.internal.StructField('arg_report_id', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -134,19 +134,6 @@ mojo.internal.bindings.variations.mojom = mojo.internal.bindings.variations.mojo
 mojo.internal.bindings.variations.mojom.VariationsHeadersSpec = mojo.internal.bindings.variations.mojom.VariationsHeadersSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RendererVariationsConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params', [
-      mojo.internal.StructField('arg_variations_headers', 0, 0, mojo.internal.bindings.variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_Params', [
-      mojo.internal.StructField('arg_trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_group_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.RendererVariationsConfigurationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,14 +260,14 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVariationsHeaders');
-          const result = this.impl.setVariationsHeaders(params.arg_variations_headers);
+          const result = this.impl.setVariationsHeaders(params.arg_arg_variations_headers);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setFieldTrialGroup');
-          const result = this.impl.setFieldTrialGroup(params.arg_trial_name, params.arg_group_name);
+          const result = this.impl.setFieldTrialGroup(params.arg_arg_trial_name, params.arg_arg_group_name);
           break;
         }
       }
@@ -295,4 +282,19 @@ mojo.internal.bindings.content.mojom.RendererVariationsConfigurationReceiver = m
 
 mojo.internal.bindings.content.mojom.RendererVariationsConfigurationPtr = mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRemote;
 mojo.internal.bindings.content.mojom.RendererVariationsConfigurationRequest = mojo.internal.bindings.content.mojom.RendererVariationsConfigurationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetVariationsHeaders_Params', [
+      mojo.internal.StructField('arg_variations_headers', 0, 0, mojo.internal.bindings.variations.mojom.VariationsHeadersSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_ParamsSpec, 'content.mojom.RendererVariationsConfiguration_SetFieldTrialGroup_Params', [
+      mojo.internal.StructField('arg_trial_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_group_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

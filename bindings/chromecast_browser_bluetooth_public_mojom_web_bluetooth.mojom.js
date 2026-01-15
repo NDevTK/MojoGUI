@@ -132,12 +132,6 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_Gran
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec = { $: {} };
 
 // Interface: BluetoothDeviceAccessProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestDeviceAccess');
-          const result = this.impl.requestDeviceAccess(params.arg_client);
+          const result = this.impl.requestDeviceAccess(params.arg_arg_client);
           break;
         }
       }
@@ -268,17 +262,6 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderRequest = m
 
 
 // Interface: BluetoothDeviceAccessProviderClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_Params', [
-      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -405,7 +388,7 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.grantAccess');
-          const result = this.impl.grantAccess(params.arg_address);
+          const result = this.impl.grantAccess(params.arg_arg_address);
           break;
         }
         case 1: {
@@ -427,4 +410,23 @@ mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRecei
 
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientPtr = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemote;
 mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRequest = mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProvider_RequestDeviceAccess_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccess_Params', [
+      mojo.internal.StructField('arg_address', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_ParamsSpec, 'chromecast.mojom.BluetoothDeviceAccessProviderClient_GrantAccessToAllDevices_Params', [
+    ],
+    [[0, 8]]);
 

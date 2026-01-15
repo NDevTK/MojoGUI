@@ -137,12 +137,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec = mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FeatureUpdateObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec, 'chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,7 +249,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFeaturesUpdated');
-          const result = this.impl.onFeaturesUpdated(params.arg_features);
+          const result = this.impl.onFeaturesUpdated(params.arg_arg_features);
           break;
         }
       }
@@ -273,12 +267,6 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverRequest = mojo.inte
 
 
 // Interface: FeatureUpdateService
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec, 'chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.FeatureUpdateServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -391,7 +379,7 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerFeatureUpdateObserver');
-          const result = this.impl.registerFeatureUpdateObserver(params.arg_observer);
+          const result = this.impl.registerFeatureUpdateObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -406,4 +394,18 @@ mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceReceiver = mojo.inte
 
 mojo.internal.bindings.chromecast.mojom.FeatureUpdateServicePtr = mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceRemote;
 mojo.internal.bindings.chromecast.mojom.FeatureUpdateServiceRequest = mojo.internal.bindings.chromecast.mojom.FeatureUpdateServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_ParamsSpec, 'chromecast.mojom.FeatureUpdateObserver_OnFeaturesUpdated_Params', [
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_ParamsSpec, 'chromecast.mojom.FeatureUpdateService_RegisterFeatureUpdateObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.FeatureUpdateObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

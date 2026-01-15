@@ -133,17 +133,6 @@ mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_s
 mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec = mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ContentSettingsAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params', [
-      mojo.internal.StructField('arg_renderer_settings', 0, 0, mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +266,7 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendRendererContentSettingRules');
-          const result = this.impl.sendRendererContentSettingRules(params.arg_renderer_settings);
+          const result = this.impl.sendRendererContentSettingRules(params.arg_arg_renderer_settings);
           break;
         }
       }
@@ -292,4 +281,17 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentReceiver = moj
 
 mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentPtr = mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentRemote;
 mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentRequest = mojo.internal.bindings.content_settings.mojom.ContentSettingsAgentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SetAllowRunningInsecureContent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_ParamsSpec, 'content_settings.mojom.ContentSettingsAgent_SendRendererContentSettingRules_Params', [
+      mojo.internal.StructField('arg_renderer_settings', 0, 0, mojo.internal.bindings.content_settings.mojom.RendererContentSettingRulesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

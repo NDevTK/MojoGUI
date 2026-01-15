@@ -150,24 +150,6 @@ mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.inter
 mojo.internal.bindings.shape_detection.mojom.kShapeDetectionSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kGpu;
 
 // Interface: ShapeDetectionService
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindTextDetection_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.TextDetectionRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,21 +290,21 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindBarcodeDetectionProvider');
-          const result = this.impl.bindBarcodeDetectionProvider(params.arg_receiver);
+          const result = this.impl.bindBarcodeDetectionProvider(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindFaceDetectionProvider');
-          const result = this.impl.bindFaceDetectionProvider(params.arg_receiver);
+          const result = this.impl.bindFaceDetectionProvider(params.arg_arg_receiver);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTextDetection');
-          const result = this.impl.bindTextDetection(params.arg_receiver);
+          const result = this.impl.bindTextDetection(params.arg_arg_receiver);
           break;
         }
       }
@@ -337,4 +319,24 @@ mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceReceiver = moj
 
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServicePtr = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRemote;
 mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServiceRequest = mojo.internal.bindings.shape_detection.mojom.ShapeDetectionServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindBarcodeDetectionProvider_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.BarcodeDetectionProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindFaceDetectionProvider_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.FaceDetectionProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.ShapeDetectionService_BindTextDetection_ParamsSpec, 'shape_detection.mojom.ShapeDetectionService_BindTextDetection_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.shape_detection.mojom.TextDetectionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

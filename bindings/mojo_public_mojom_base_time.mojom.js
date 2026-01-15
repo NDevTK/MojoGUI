@@ -126,6 +126,8 @@ mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Time
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.TimeSpec, 'mojo_base.mojom.Time', [

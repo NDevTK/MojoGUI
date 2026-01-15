@@ -137,6 +137,8 @@ mojo.internal.bindings.network.mojom.UnencodedDigestIssue = {
   kIncorrectDigestLength: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UnencodedDigests
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.UnencodedDigestsSpec, 'network.mojom.UnencodedDigests', [

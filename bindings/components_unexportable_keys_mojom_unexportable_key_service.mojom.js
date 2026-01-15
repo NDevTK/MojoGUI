@@ -172,67 +172,7 @@ mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPriority = {
   kUserBlocking: 2,
 };
 
-// Struct: UnexportableKeyId
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, 'unexportable_keys.mojom.UnexportableKeyId', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: NewKeyData
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec, 'unexportable_keys.mojom.NewKeyData', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subject_public_key_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_wrapped_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_algorithm', 24, 0, mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_creation_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: UnexportableKeyService
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_Params', [
-      mojo.internal.StructField('arg_acceptable_algorithms', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_Params', [
-      mojo.internal.StructField('arg_wrapped_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_Sign_Params', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 16, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_Params', [
-      mojo.internal.StructField('arg_key_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -415,42 +355,42 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.generateSigningKey');
-          const result = this.impl.generateSigningKey(params.arg_acceptable_algorithms, params.arg_priority);
+          const result = this.impl.generateSigningKey(params.arg_arg_acceptable_algorithms, params.arg_arg_priority);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fromWrappedSigningKey');
-          const result = this.impl.fromWrappedSigningKey(params.arg_wrapped_key, params.arg_priority);
+          const result = this.impl.fromWrappedSigningKey(params.arg_arg_wrapped_key, params.arg_arg_priority);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sign');
-          const result = this.impl.sign(params.arg_key_id, params.arg_data, params.arg_priority);
+          const result = this.impl.sign(params.arg_arg_key_id, params.arg_arg_data, params.arg_arg_priority);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAllSigningKeysForGarbageCollection');
-          const result = this.impl.getAllSigningKeysForGarbageCollection(params.arg_priority);
+          const result = this.impl.getAllSigningKeysForGarbageCollection(params.arg_arg_priority);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteKeys');
-          const result = this.impl.deleteKeys(params.arg_key_ids, params.arg_priority);
+          const result = this.impl.deleteKeys(params.arg_arg_key_ids, params.arg_arg_priority);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllKeys');
-          const result = this.impl.deleteAllKeys(params.arg_priority);
+          const result = this.impl.deleteAllKeys(params.arg_arg_priority);
           break;
         }
       }
@@ -465,4 +405,66 @@ mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceReceiver = 
 
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServicePtr = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRemote;
 mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServiceRequest = mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: UnexportableKeyId
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, 'unexportable_keys.mojom.UnexportableKeyId', [
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: NewKeyData
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.NewKeyDataSpec, 'unexportable_keys.mojom.NewKeyData', [
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subject_public_key_info', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wrapped_key', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_algorithm', 24, 0, mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_tag', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_creation_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_GenerateSigningKey_Params', [
+      mojo.internal.StructField('arg_acceptable_algorithms', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys.mojom.SignatureAlgorithmSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_FromWrappedSigningKey_Params', [
+      mojo.internal.StructField('arg_wrapped_key', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_Sign_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_Sign_Params', [
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 16, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_GetAllSigningKeysForGarbageCollection_Params', [
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteKeys_Params', [
+      mojo.internal.StructField('arg_key_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyIdSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_priority', 8, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_ParamsSpec, 'unexportable_keys.mojom.UnexportableKeyService_DeleteAllKeys_Params', [
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.unexportable_keys.mojom.BackgroundTaskPrioritySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.AXTreeChecksSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXTreeChecks
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXTreeChecksSpec, 'ax.mojom.AXTreeChecks', [

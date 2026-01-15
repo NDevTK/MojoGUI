@@ -144,6 +144,8 @@ mojo.internal.bindings.data_sharing.mojom.MemberRole = {
   kFormerMember: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GroupMember
 mojo.internal.Struct(
     mojo.internal.bindings.data_sharing.mojom.GroupMemberSpec, 'data_sharing.mojom.GroupMember', [

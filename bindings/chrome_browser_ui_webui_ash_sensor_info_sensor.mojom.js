@@ -145,46 +145,7 @@ mojo.internal.bindings.sensor.mojom.SensorType = {
   kSensorTypeCount: 5,
 };
 
-// Union: SensorUpdateInfo
-mojo.internal.Union(
-    mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec, 'sensor.mojom.SensorUpdateInfo', {
-      'arg_lid_angle_update_info': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec,
-        'nullable': false,
-      },
-      'arg_update_info': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: NonLidAngleUpdateInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec, 'sensor.mojom.NonLidAngleUpdateInfo', [
-      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_z', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: LidAngleUpdateInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec, 'sensor.mojom.LidAngleUpdateInfo', [
-      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'sensor.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sensor.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sensor.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -297,7 +258,7 @@ mojo.internal.bindings.sensor.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -315,16 +276,6 @@ mojo.internal.bindings.sensor.mojom.PageHandlerFactoryRequest = mojo.internal.bi
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StartRecordingUpdate_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StopRecordingUpdate_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.sensor.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -473,4 +424,55 @@ mojo.internal.bindings.sensor.mojom.PageHandlerReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.sensor.mojom.PageHandlerPtr = mojo.internal.bindings.sensor.mojom.PageHandlerRemote;
 mojo.internal.bindings.sensor.mojom.PageHandlerRequest = mojo.internal.bindings.sensor.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SensorUpdateInfo
+mojo.internal.Union(
+    mojo.internal.bindings.sensor.mojom.SensorUpdateInfoSpec, 'sensor.mojom.SensorUpdateInfo', {
+      'arg_lid_angle_update_info': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec,
+        'nullable': false,
+      },
+      'arg_update_info': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: NonLidAngleUpdateInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.sensor.mojom.NonLidAngleUpdateInfoSpec, 'sensor.mojom.NonLidAngleUpdateInfo', [
+      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_z', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: LidAngleUpdateInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.sensor.mojom.LidAngleUpdateInfoSpec, 'sensor.mojom.LidAngleUpdateInfo', [
+      mojo.internal.StructField('arg_sensor_type', 0, 0, mojo.internal.bindings.sensor.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.sensor.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'sensor.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sensor.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sensor.mojom.PageHandler_StartRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StartRecordingUpdate_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sensor.mojom.PageHandler_StopRecordingUpdate_ParamsSpec, 'sensor.mojom.PageHandler_StopRecordingUpdate_Params', [
+    ],
+    [[0, 8]]);
 

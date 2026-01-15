@@ -130,40 +130,7 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncry
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec = { $: {} };
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec = { $: {} };
 
-// Struct: TrustedVaultKey
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec, 'chrome.mojom.TrustedVaultKey', [
-      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: TrustedVaultEncryptionKeysExtension
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_Params', [
-      mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec, false), false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params', [
-      mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_method_type_hint', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,12 +257,14 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEncryptionKeys');
-          const result = this.impl.setEncryptionKeys(params.arg_gaia_id, params.arg_encryption_keys);
+          const result = this.impl.setEncryptionKeys(params.arg_arg_gaia_id, params.arg_arg_encryption_keys);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetEncryptionKeys FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setEncryptionKeys FAILED:', e));
           }
           break;
         }
@@ -303,12 +272,14 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addTrustedRecoveryMethod');
-          const result = this.impl.addTrustedRecoveryMethod(params.arg_gaia_id, params.arg_public_key, params.arg_method_type_hint);
+          const result = this.impl.addTrustedRecoveryMethod(params.arg_arg_gaia_id, params.arg_arg_public_key, params.arg_arg_method_type_hint);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddTrustedRecoveryMethod FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addTrustedRecoveryMethod FAILED:', e));
           }
           break;
         }
@@ -324,4 +295,39 @@ mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionReceiver 
 
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionPtr = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionRemote;
 mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionRequest = mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtensionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TrustedVaultKey
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec, 'chrome.mojom.TrustedVaultKey', [
+      mojo.internal.StructField('arg_version', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bytes', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_Params', [
+      mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_keys', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.Array(mojo.internal.bindings.chrome.mojom.TrustedVaultKeySpec, false), false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_SetEncryptionKeys_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_Params', [
+      mojo.internal.StructField('arg_gaia_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_public_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_type_hint', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParamsSpec, 'chrome.mojom.TrustedVaultEncryptionKeysExtension_AddTrustedRecoveryMethod_ResponseParams', [
+    ],
+    [[0, 8]]);
 

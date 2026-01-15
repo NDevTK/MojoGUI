@@ -123,6 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.TimingAllowOriginSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: TimingAllowOrigin
 mojo.internal.Union(
     mojo.internal.bindings.network.mojom.TimingAllowOriginSpec, 'network.mojom.TimingAllowOrigin', {

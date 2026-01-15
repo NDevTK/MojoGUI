@@ -147,3 +147,5 @@ mojo.internal.bindings.crosapi.mojom.KeystoreError = {
   kMojoUnavailable: 19,
   kUnsupportedKeyType: 20,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

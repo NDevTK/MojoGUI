@@ -139,6 +139,8 @@ mojo.internal.bindings.ash.camera_app.mojom.WordDirection = {
   kRightToLeft: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OcrResult
 mojo.internal.Struct(
     mojo.internal.bindings.ash.camera_app.mojom.OcrResultSpec, 'ash.camera_app.mojom.OcrResult', [

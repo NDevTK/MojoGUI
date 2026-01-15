@@ -136,31 +136,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AIPrototypingService
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteServerQuery_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParams', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_logging_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParams', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ai.mojom.AIPrototypingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,12 +262,14 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeServerQuery');
-          const result = this.impl.executeServerQuery(params.arg_request);
+          const result = this.impl.executeServerQuery(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExecuteServerQuery FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec.$.structSpec, ['response.arg_arg_output', 'response.arg_arg_logging_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] executeServerQuery FAILED:', e));
           }
           break;
         }
@@ -300,12 +277,15 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeOnDeviceQuery');
-          const result = this.impl.executeOnDeviceQuery(params.arg_request);
+          const result = this.impl.executeOnDeviceQuery(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExecuteOnDeviceQuery FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] executeOnDeviceQuery FAILED:', e));
           }
           break;
         }
@@ -321,4 +301,31 @@ mojo.internal.bindings.ai.mojom.AIPrototypingServiceReceiver = mojo.internal.bin
 
 mojo.internal.bindings.ai.mojom.AIPrototypingServicePtr = mojo.internal.bindings.ai.mojom.AIPrototypingServiceRemote;
 mojo.internal.bindings.ai.mojom.AIPrototypingServiceRequest = mojo.internal.bindings.ai.mojom.AIPrototypingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteServerQuery_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteServerQuery_ResponseParams', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_logging_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParamsSpec, 'ai.mojom.AIPrototypingService_ExecuteOnDeviceQuery_ResponseParams', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

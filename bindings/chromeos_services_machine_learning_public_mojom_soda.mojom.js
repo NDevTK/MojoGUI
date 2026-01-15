@@ -211,161 +211,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResult = {
   SWITCH_SKIPPED_NO_LP: 3,
 };
 
-// Union: SpeechRecognizerEvent
-mojo.internal.Union(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec, 'chromeos.machine_learning.mojom.SpeechRecognizerEvent', {
-      'arg_audio_event': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec,
-        'nullable': false,
-      },
-      'arg_partial_result': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec,
-        'nullable': false,
-      },
-      'arg_endpointer_event': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec,
-        'nullable': false,
-      },
-      'arg_final_result': {
-        'ordinal': 3,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec,
-        'nullable': false,
-      },
-      'arg_langid_event': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec,
-        'nullable': false,
-      },
-      'arg_label_correction_event': {
-        'ordinal': 5,
-        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: SodaMultilangConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec, 'chromeos.machine_learning.mojom.SodaMultilangConfig', [
-      mojo.internal.StructField('arg_rewind_when_switching_language', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_locale_to_language_pack_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SodaConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec, 'chromeos.machine_learning.mojom.SodaConfig', [
-      mojo.internal.StructField('arg_channel_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sample_rate', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_api_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_library_dlc_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_language_dlc_path', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_enable_formatting', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec, 0, false, 2, undefined),
-      mojo.internal.StructField('arg_recognition_mode', 36, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec, 0, false, 3, undefined),
-      mojo.internal.StructField('arg_mask_offensive_words', 40, 0, mojo.internal.Bool, false, false, 4, undefined),
-      mojo.internal.StructField('arg_speaker_change_detection', 40, 1, mojo.internal.Bool, false, false, 5, undefined),
-      mojo.internal.StructField('arg_include_logging_output', 40, 2, mojo.internal.Bool, false, false, 6, undefined),
-      mojo.internal.StructField('arg_speaker_diarization_mode', 44, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationModeSpec, 0, false, 9, undefined),
-      mojo.internal.StructField('arg_multi_lang_config', 48, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec, null, true, 7, undefined),
-      mojo.internal.StructField('arg_max_speaker_count', 56, 0, mojo.internal.Uint32, 2, false, 9, undefined),
-    ],
-    [[0, 40], [2, 48], [3, 48], [4, 56], [5, 56], [6, 56], [7, 64], [9, 72]]);
-
-// Struct: TimingInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, 'chromeos.machine_learning.mojom.TimingInfo', [
-      mojo.internal.StructField('arg_audio_start_epoch', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_elapsed_wall_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_end_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_latency', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_normalized_latency', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_word_alignments', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: EndpointerEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec, 'chromeos.machine_learning.mojom.EndpointerEvent', [
-      mojo.internal.StructField('arg_endpointer_type', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: HypothesisPartInResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, 'chromeos.machine_learning.mojom.HypothesisPartInResult', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_alignment', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_leading_space_$flag', 16, 0, mojo.internal.Bool, false, false, 8, { isPrimary: true, linkedValueFieldName: 'arg_leading_space_$value', originalFieldName: 'arg_leading_space' }),
-      mojo.internal.StructField('arg_leading_space_$value', 16, 1, mojo.internal.Bool, false, false, 8, { isPrimary: false, linkedValueFieldName: 'arg_leading_space_$flag', originalFieldName: 'arg_leading_space' }),
-      mojo.internal.StructField('arg_speaker_change', 16, 2, mojo.internal.Bool, false, false, 9, undefined),
-      mojo.internal.StructField('arg_speaker_label', 24, 0, mojo.internal.String, null, true, 9, undefined),
-    ],
-    [[0, 24], [8, 32], [9, 40]]);
-
-// Struct: PartialResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec, 'chromeos.machine_learning.mojom.PartialResult', [
-      mojo.internal.StructField('arg_partial_text', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hypothesis_part', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, true, 9, undefined),
-    ],
-    [[0, 24], [9, 32]]);
-
-// Struct: FinalResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec, 'chromeos.machine_learning.mojom.FinalResult', [
-      mojo.internal.StructField('arg_final_hypotheses', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_endpoint_reason', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timing_event', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hypothesis_part', 24, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, true, 1, undefined),
-    ],
-    [[0, 32], [1, 40]]);
-
-// Struct: AudioLevelEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec, 'chromeos.machine_learning.mojom.AudioLevelEvent', [
-      mojo.internal.StructField('arg_rms', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_level', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: LangIdEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec, 'chromeos.machine_learning.mojom.LangIdEvent', [
-      mojo.internal.StructField('arg_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_confidence_level', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_asr_switch_result', 12, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: LabelCorrectionEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec, 'chromeos.machine_learning.mojom.LabelCorrectionEvent', [
-      mojo.internal.StructField('arg_hypothesis_parts', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SodaClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnStart_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnStop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -520,7 +366,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSpeechRecognizerEvent');
-          const result = this.impl.onSpeechRecognizerEvent(params.arg_event);
+          const result = this.impl.onSpeechRecognizerEvent(params.arg_arg_event);
           break;
         }
       }
@@ -538,27 +384,6 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClientRequest = mojo.
 
 
 // Interface: SodaRecognizer
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_Params', [
-      mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_Stop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_Start_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -713,7 +538,7 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAudio');
-          const result = this.impl.addAudio(params.arg_audio);
+          const result = this.impl.addAudio(params.arg_arg_audio);
           break;
         }
         case 1: {
@@ -749,4 +574,181 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerReceiver = 
 
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPtr = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRemote;
 mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerRequest = mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: SpeechRecognizerEvent
+mojo.internal.Union(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec, 'chromeos.machine_learning.mojom.SpeechRecognizerEvent', {
+      'arg_audio_event': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec,
+        'nullable': false,
+      },
+      'arg_partial_result': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec,
+        'nullable': false,
+      },
+      'arg_endpointer_event': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec,
+        'nullable': false,
+      },
+      'arg_final_result': {
+        'ordinal': 3,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec,
+        'nullable': false,
+      },
+      'arg_langid_event': {
+        'ordinal': 4,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec,
+        'nullable': false,
+      },
+      'arg_label_correction_event': {
+        'ordinal': 5,
+        'type': mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: SodaMultilangConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec, 'chromeos.machine_learning.mojom.SodaMultilangConfig', [
+      mojo.internal.StructField('arg_rewind_when_switching_language', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_locale_to_language_pack_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SodaConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaConfigSpec, 'chromeos.machine_learning.mojom.SodaConfig', [
+      mojo.internal.StructField('arg_channel_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sample_rate', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_api_key', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_library_dlc_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_language_dlc_path', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_enable_formatting', 32, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.OptionalBoolSpec, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_recognition_mode', 36, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognitionModeSpec, 0, false, 3, undefined),
+      mojo.internal.StructField('arg_mask_offensive_words', 40, 0, mojo.internal.Bool, false, false, 4, undefined),
+      mojo.internal.StructField('arg_speaker_change_detection', 40, 1, mojo.internal.Bool, false, false, 5, undefined),
+      mojo.internal.StructField('arg_include_logging_output', 40, 2, mojo.internal.Bool, false, false, 6, undefined),
+      mojo.internal.StructField('arg_speaker_diarization_mode', 44, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeakerDiarizationModeSpec, 0, false, 9, undefined),
+      mojo.internal.StructField('arg_multi_lang_config', 48, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SodaMultilangConfigSpec, null, true, 7, undefined),
+      mojo.internal.StructField('arg_max_speaker_count', 56, 0, mojo.internal.Uint32, 2, false, 9, undefined),
+    ],
+    [[0, 40], [2, 48], [3, 48], [4, 56], [5, 56], [6, 56], [7, 64], [9, 72]]);
+
+// Struct: TimingInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, 'chromeos.machine_learning.mojom.TimingInfo', [
+      mojo.internal.StructField('arg_audio_start_epoch', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_start_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_elapsed_wall_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_end_time', 24, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_latency', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_normalized_latency', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_word_alignments', 48, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: EndpointerEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerEventSpec, 'chromeos.machine_learning.mojom.EndpointerEvent', [
+      mojo.internal.StructField('arg_endpointer_type', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: HypothesisPartInResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, 'chromeos.machine_learning.mojom.HypothesisPartInResult', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_alignment', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_leading_space_$flag', 16, 0, mojo.internal.Bool, false, false, 8, { isPrimary: true, linkedValueFieldName: 'arg_leading_space_$value', originalFieldName: 'arg_leading_space' }),
+      mojo.internal.StructField('arg_leading_space_$value', 16, 1, mojo.internal.Bool, false, false, 8, { isPrimary: false, linkedValueFieldName: 'arg_leading_space_$flag', originalFieldName: 'arg_leading_space' }),
+      mojo.internal.StructField('arg_speaker_change', 16, 2, mojo.internal.Bool, false, false, 9, undefined),
+      mojo.internal.StructField('arg_speaker_label', 24, 0, mojo.internal.String, null, true, 9, undefined),
+    ],
+    [[0, 24], [8, 32], [9, 40]]);
+
+// Struct: PartialResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.PartialResultSpec, 'chromeos.machine_learning.mojom.PartialResult', [
+      mojo.internal.StructField('arg_partial_text', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_event', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hypothesis_part', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, true, 9, undefined),
+    ],
+    [[0, 24], [9, 32]]);
+
+// Struct: FinalResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.FinalResultSpec, 'chromeos.machine_learning.mojom.FinalResult', [
+      mojo.internal.StructField('arg_final_hypotheses', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_endpoint_reason', 8, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.EndpointReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timing_event', 16, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.TimingInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hypothesis_part', 24, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, true, 1, undefined),
+    ],
+    [[0, 32], [1, 40]]);
+
+// Struct: AudioLevelEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.AudioLevelEventSpec, 'chromeos.machine_learning.mojom.AudioLevelEvent', [
+      mojo.internal.StructField('arg_rms', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_level', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: LangIdEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.LangIdEventSpec, 'chromeos.machine_learning.mojom.LangIdEvent', [
+      mojo.internal.StructField('arg_language', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_confidence_level', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_asr_switch_result', 12, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.AsrSwitchResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: LabelCorrectionEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.LabelCorrectionEventSpec, 'chromeos.machine_learning.mojom.LabelCorrectionEvent', [
+      mojo.internal.StructField('arg_hypothesis_parts', 0, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.machine_learning.mojom.HypothesisPartInResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStart_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnStart_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnStop_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnStop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_ParamsSpec, 'chromeos.machine_learning.mojom.SodaClient_OnSpeechRecognizerEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.chromeos.machine_learning.mojom.SpeechRecognizerEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_AddAudio_Params', [
+      mojo.internal.StructField('arg_audio', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Stop_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_Stop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_Start_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_Start_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_ParamsSpec, 'chromeos.machine_learning.mojom.SodaRecognizer_MarkDone_Params', [
+    ],
+    [[0, 8]]);
 

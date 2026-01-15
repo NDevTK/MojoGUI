@@ -127,13 +127,6 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProvider.$interfaceName = 
 mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec = { $: {} };
 
 // Interface: InterfaceProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec, 'service_manager.mojom.InterfaceProvider_GetInterface_Params', [
-      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.service_manager.mojom.InterfaceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,7 +239,7 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getInterface');
-          const result = this.impl.getInterface(params.arg_interface_name, params.arg_pipe);
+          const result = this.impl.getInterface(params.arg_arg_interface_name, params.arg_arg_pipe);
           break;
         }
       }
@@ -261,4 +254,13 @@ mojo.internal.bindings.service_manager.mojom.InterfaceProviderReceiver = mojo.in
 
 mojo.internal.bindings.service_manager.mojom.InterfaceProviderPtr = mojo.internal.bindings.service_manager.mojom.InterfaceProviderRemote;
 mojo.internal.bindings.service_manager.mojom.InterfaceProviderRequest = mojo.internal.bindings.service_manager.mojom.InterfaceProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.service_manager.mojom.InterfaceProvider_GetInterface_ParamsSpec, 'service_manager.mojom.InterfaceProvider_GetInterface_Params', [
+      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -133,12 +133,6 @@ mojo.internal.bindings.ui.mojom.ScenicGpuHostSpec = mojo.internal.bindings.ui.mo
 mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote = mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote || class {};
 
 // Interface: ScenicGpuService
-mojo.internal.Struct(
-    mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec, 'ui.mojom.ScenicGpuService_Initialize_Params', [
-      mojo.internal.StructField('arg_scenic_gpu_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ui.mojom.ScenicGpuServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.ui.mojom.ScenicGpuServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_scenic_gpu_host);
+          const result = this.impl.initialize(params.arg_arg_scenic_gpu_host);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.ui.mojom.ScenicGpuServiceReceiver = mojo.internal.binding
 
 mojo.internal.bindings.ui.mojom.ScenicGpuServicePtr = mojo.internal.bindings.ui.mojom.ScenicGpuServiceRemote;
 mojo.internal.bindings.ui.mojom.ScenicGpuServiceRequest = mojo.internal.bindings.ui.mojom.ScenicGpuServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ui.mojom.ScenicGpuService_Initialize_ParamsSpec, 'ui.mojom.ScenicGpuService_Initialize_Params', [
+      mojo.internal.StructField('arg_scenic_gpu_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ui.mojom.ScenicGpuHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

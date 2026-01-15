@@ -150,25 +150,7 @@ mojo.internal.bindings.drivefs.pinning_manager_types = mojo.internal.bindings.dr
 mojo.internal.bindings.drivefs.pinning_manager_types.mojom = mojo.internal.bindings.drivefs.pinning_manager_types.mojom || {};
 mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec = mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: Status
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec, 'ash.settings.google_drive.mojom.Status', [
-      mojo.internal.StructField('arg_required_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_free_space', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stage', 16, 0, mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_error', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_listed_files', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,7 +263,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryReceive
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -299,37 +281,6 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactoryRequest
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParams', [
-      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -495,8 +446,11 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetContentCacheSize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_size' in response) ? response.arg_arg_size : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getContentCacheSize FAILED:', e));
           }
           break;
         }
@@ -508,8 +462,10 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClearPinnedFiles FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] clearPinnedFiles FAILED:', e));
           }
           break;
         }
@@ -535,17 +491,6 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRequest = mojo
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnServiceUnavailable_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnProgress_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.google_drive.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -679,7 +624,7 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_status);
+          const result = this.impl.onProgress(params.arg_arg_status);
           break;
         }
       }
@@ -694,4 +639,66 @@ mojo.internal.bindings.ash.settings.google_drive.mojom.PageReceiver = mojo.inter
 
 mojo.internal.bindings.ash.settings.google_drive.mojom.PagePtr = mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemote;
 mojo.internal.bindings.ash.settings.google_drive.mojom.PageRequest = mojo.internal.bindings.ash.settings.google_drive.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Status
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec, 'ash.settings.google_drive.mojom.Status', [
+      mojo.internal.StructField('arg_required_space', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_free_space', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stage', 16, 0, mojo.internal.bindings.drivefs.pinning_manager_types.mojom.StageSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_error', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_listed_files', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.google_drive.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_CalculateRequiredSpace_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_GetContentCacheSize_ResponseParams', [
+      mojo.internal.StructField('arg_size', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_ClearPinnedFiles_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_ParamsSpec, 'ash.settings.google_drive.mojom.PageHandler_RecordBulkPinningEnabledMetric_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnServiceUnavailable_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnServiceUnavailable_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.google_drive.mojom.Page_OnProgress_ParamsSpec, 'ash.settings.google_drive.mojom.Page_OnProgress_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.settings.google_drive.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -177,6 +177,8 @@ mojo.internal.bindings.gpu.mojom.DawnBackendValidationLevel = {
   kFull: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GpuPreferences
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.GpuPreferencesSpec, 'gpu.mojom.GpuPreferences', [

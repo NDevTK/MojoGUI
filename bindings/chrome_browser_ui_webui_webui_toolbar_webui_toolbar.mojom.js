@@ -145,13 +145,6 @@ mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlag = {
 };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webui_toolbar.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -264,7 +257,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -282,25 +275,6 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactoryRequest = mojo.inte
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec, 'webui_toolbar.mojom.PageHandler_Reload_Params', [
-      mojo.internal.StructField('arg_ignore_cache', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Array(mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_toolbar.mojom.PageHandler_StopReload_ParamsSpec, 'webui_toolbar.mojom.PageHandler_StopReload_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'webui_toolbar.mojom.PageHandler_ShowContextMenu_Params', [
-      mojo.internal.StructField('arg_offset_x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_offset_y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.webui_toolbar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,7 +415,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reload');
-          const result = this.impl.reload(params.arg_ignore_cache, params.arg_flags);
+          const result = this.impl.reload(params.arg_arg_ignore_cache, params.arg_arg_flags);
           break;
         }
         case 1: {
@@ -455,7 +429,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showContextMenu');
-          const result = this.impl.showContextMenu(params.arg_offset_x, params.arg_offset_y);
+          const result = this.impl.showContextMenu(params.arg_arg_offset_x, params.arg_arg_offset_y);
           break;
         }
       }
@@ -473,13 +447,6 @@ mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRequest = mojo.internal.bi
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec, 'webui_toolbar.mojom.Page_SetReloadButtonState_Params', [
-      mojo.internal.StructField('arg_is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_menu_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.webui_toolbar.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -592,7 +559,7 @@ mojo.internal.bindings.webui_toolbar.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReloadButtonState');
-          const result = this.impl.setReloadButtonState(params.arg_is_loading, params.arg_is_menu_enabled);
+          const result = this.impl.setReloadButtonState(params.arg_arg_is_loading, params.arg_arg_is_menu_enabled);
           break;
         }
       }
@@ -607,4 +574,39 @@ mojo.internal.bindings.webui_toolbar.mojom.PageReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.webui_toolbar.mojom.PagePtr = mojo.internal.bindings.webui_toolbar.mojom.PageRemote;
 mojo.internal.bindings.webui_toolbar.mojom.PageRequest = mojo.internal.bindings.webui_toolbar.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'webui_toolbar.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.webui_toolbar.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.webui_toolbar.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_toolbar.mojom.PageHandler_Reload_ParamsSpec, 'webui_toolbar.mojom.PageHandler_Reload_Params', [
+      mojo.internal.StructField('arg_ignore_cache', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Array(mojo.internal.bindings.webui_toolbar.mojom.ClickDispositionFlagSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_toolbar.mojom.PageHandler_StopReload_ParamsSpec, 'webui_toolbar.mojom.PageHandler_StopReload_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_toolbar.mojom.PageHandler_ShowContextMenu_ParamsSpec, 'webui_toolbar.mojom.PageHandler_ShowContextMenu_Params', [
+      mojo.internal.StructField('arg_offset_x', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_offset_y', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webui_toolbar.mojom.Page_SetReloadButtonState_ParamsSpec, 'webui_toolbar.mojom.Page_SetReloadButtonState_Params', [
+      mojo.internal.StructField('arg_is_loading', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_menu_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

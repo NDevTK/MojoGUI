@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.InsecureRequestPolicy = {
   kBlockAllMixedContent: 2,
   kMaxInsecureRequestPolicy: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

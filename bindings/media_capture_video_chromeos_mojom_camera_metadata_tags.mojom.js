@@ -1347,3 +1347,5 @@ mojo.internal.bindings.cros.mojom.AndroidAutomotiveLensFacing = {
   ANDROID_AUTOMOTIVE_LENS_FACING_INTERIOR_SEAT_ROW_3_CENTER: 13,
   ANDROID_AUTOMOTIVE_LENS_FACING_INTERIOR_SEAT_ROW_3_RIGHT: 14,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

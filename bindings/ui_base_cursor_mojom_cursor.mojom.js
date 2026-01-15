@@ -136,6 +136,8 @@ mojo.internal.bindings.ui = mojo.internal.bindings.ui || {};
 mojo.internal.bindings.ui.mojom = mojo.internal.bindings.ui.mojom || {};
 mojo.internal.bindings.ui.mojom.CursorTypeSpec = mojo.internal.bindings.ui.mojom.CursorTypeSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Cursor
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.CursorSpec, 'ui.mojom.Cursor', [

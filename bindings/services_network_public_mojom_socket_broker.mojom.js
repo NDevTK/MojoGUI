@@ -138,32 +138,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.TransferableSocketSpec = mojo.internal.bindings.network.mojom.TransferableSocketSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SocketBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_Params', [
-      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_ResponseParams', [
-      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_Params', [
-      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_ResponseParams', [
-      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.network.mojom.SocketBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,12 +264,14 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTcpSocket');
-          const result = this.impl.createTcpSocket(params.arg_address_family);
+          const result = this.impl.createTcpSocket(params.arg_arg_address_family);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateTcpSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_created_socket', 'response.arg_arg_rv']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createTcpSocket FAILED:', e));
           }
           break;
         }
@@ -303,12 +279,14 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createUdpSocket');
-          const result = this.impl.createUdpSocket(params.arg_address_family);
+          const result = this.impl.createUdpSocket(params.arg_arg_address_family);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateUdpSocket FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec.$.structSpec, ['response.arg_arg_created_socket', 'response.arg_arg_rv']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createUdpSocket FAILED:', e));
           }
           break;
         }
@@ -324,4 +302,32 @@ mojo.internal.bindings.network.mojom.SocketBrokerReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.network.mojom.SocketBrokerPtr = mojo.internal.bindings.network.mojom.SocketBrokerRemote;
 mojo.internal.bindings.network.mojom.SocketBrokerRequest = mojo.internal.bindings.network.mojom.SocketBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_Params', [
+      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SocketBroker_CreateTcpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateTcpSocket_ResponseParams', [
+      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_Params', [
+      mojo.internal.StructField('arg_address_family', 0, 0, mojo.internal.bindings.network.mojom.AddressFamilySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.SocketBroker_CreateUdpSocket_ResponseParamsSpec, 'network.mojom.SocketBroker_CreateUdpSocket_ResponseParams', [
+      mojo.internal.StructField('arg_created_socket', 0, 0, mojo.internal.bindings.network.mojom.TransferableSocketSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rv', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

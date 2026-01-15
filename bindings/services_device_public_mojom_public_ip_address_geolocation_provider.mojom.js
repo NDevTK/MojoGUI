@@ -140,14 +140,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PublicIpAddressGeolocationProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec, 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params', [
-      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_id', 12, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,7 +252,7 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGeolocation');
-          const result = this.impl.createGeolocation(params.arg_tag, params.arg_receiver, params.arg_client_id);
+          const result = this.impl.createGeolocation(params.arg_arg_tag, params.arg_arg_receiver, params.arg_arg_client_id);
           break;
         }
       }
@@ -275,4 +267,14 @@ mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderReceiver =
 
 mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderPtr = mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderRemote;
 mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderRequest = mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_ParamsSpec, 'device.mojom.PublicIpAddressGeolocationProvider_CreateGeolocation_Params', [
+      mojo.internal.StructField('arg_tag', 0, 0, mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_id', 12, 0, mojo.internal.bindings.device.mojom.GeolocationClientIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

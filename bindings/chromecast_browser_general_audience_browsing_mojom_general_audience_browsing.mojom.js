@@ -131,12 +131,6 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject.$in
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec = { $: {} };
 
 // Interface: GeneralAudienceBrowsingAPIKeyObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec, 'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_Params', [
-      mojo.internal.StructField('arg_api_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,7 +243,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGeneralAudienceBrowsingAPIKeyChanged');
-          const result = this.impl.onGeneralAudienceBrowsingAPIKeyChanged(params.arg_api_key);
+          const result = this.impl.onGeneralAudienceBrowsingAPIKeyChanged(params.arg_arg_api_key);
           break;
         }
       }
@@ -267,12 +261,6 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverReq
 
 
 // Interface: GeneralAudienceBrowsingAPIKeySubject
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec, 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -385,7 +373,7 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addGeneralAudienceBrowsingAPIKeyObserver');
-          const result = this.impl.addGeneralAudienceBrowsingAPIKeyObserver(params.arg_observer);
+          const result = this.impl.addGeneralAudienceBrowsingAPIKeyObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -400,4 +388,18 @@ mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRece
 
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPtr = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRemote;
 mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectRequest = mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubjectPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_ParamsSpec, 'chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserver_OnGeneralAudienceBrowsingAPIKeyChanged_Params', [
+      mojo.internal.StructField('arg_api_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_ParamsSpec, 'chromecast.mojom.GeneralAudienceBrowsingAPIKeySubject_AddGeneralAudienceBrowsingAPIKeyObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.mojom.GeneralAudienceBrowsingAPIKeyObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

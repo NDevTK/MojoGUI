@@ -134,18 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ByteStringSpec = mojo.internal.bindings.mojo_base.mojom.ByteStringSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SecurityKeyForwarder
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_Params', [
-      mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParams', [
-      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,12 +246,15 @@ mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSecurityKeyRequest');
-          const result = this.impl.onSecurityKeyRequest(params.arg_request_data);
+          const result = this.impl.onSecurityKeyRequest(params.arg_arg_request_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnSecurityKeyRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response_data' in response) ? response.arg_arg_response_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onSecurityKeyRequest FAILED:', e));
           }
           break;
         }
@@ -279,4 +270,18 @@ mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderReceiver = mojo.intern
 
 mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPtr = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRemote;
 mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderRequest = mojo.internal.bindings.remoting.mojom.SecurityKeyForwarderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_Params', [
+      mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParamsSpec, 'remoting.mojom.SecurityKeyForwarder_OnSecurityKeyRequest_ResponseParams', [
+      mojo.internal.StructField('arg_response_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

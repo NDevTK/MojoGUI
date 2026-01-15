@@ -135,17 +135,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec = mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: PowerMonitorTest
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_ResponseParams', [
-      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.PowerMonitorTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -262,8 +251,11 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryNextState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_battery_power_status' in response) ? response.arg_arg_battery_power_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryNextState FAILED:', e));
           }
           break;
         }
@@ -279,4 +271,17 @@ mojo.internal.bindings.content.mojom.PowerMonitorTestReceiver = mojo.internal.bi
 
 mojo.internal.bindings.content.mojom.PowerMonitorTestPtr = mojo.internal.bindings.content.mojom.PowerMonitorTestRemote;
 mojo.internal.bindings.content.mojom.PowerMonitorTestRequest = mojo.internal.bindings.content.mojom.PowerMonitorTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.PowerMonitorTest_QueryNextState_ResponseParamsSpec, 'content.mojom.PowerMonitorTest_QueryNextState_ResponseParams', [
+      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

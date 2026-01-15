@@ -154,6 +154,8 @@ mojo.internal.bindings.chromeos.network_health.mojom.NetworkState = {
   kOnline: 7,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UInt32Value
 mojo.internal.Struct(
     mojo.internal.bindings.chromeos.network_health.mojom.UInt32ValueSpec, 'chromeos.network_health.mojom.UInt32Value', [

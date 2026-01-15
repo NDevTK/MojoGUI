@@ -140,13 +140,6 @@ mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageSpec = mojo.interna
 mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote = mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote || class {};
 
 // Interface: UntrustedPageInterfacesFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_Params', [
-      mojo.internal.StructField('arg_child_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_parent_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,7 +252,7 @@ mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createParentPage');
-          const result = this.impl.createParentPage(params.arg_child_page, params.arg_parent_page);
+          const result = this.impl.createParentPage(params.arg_arg_child_page, params.arg_arg_parent_page);
           break;
         }
       }
@@ -274,4 +267,13 @@ mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryReceiv
 
 mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPtr = mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRemote;
 mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryRequest = mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_ParamsSpec, 'ash.mojom.sample_swa.UntrustedPageInterfacesFactory_CreateParentPage_Params', [
+      mojo.internal.StructField('arg_child_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.mojom.sample_swa.ChildUntrustedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_parent_page', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.mojom.sample_swa.ParentTrustedPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

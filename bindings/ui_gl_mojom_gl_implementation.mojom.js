@@ -150,6 +150,8 @@ mojo.internal.bindings.gl.mojom.ANGLEImplementation = {
   kDefault: 10,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GLImplementationParts
 mojo.internal.Struct(
     mojo.internal.bindings.gl.mojom.GLImplementationPartsSpec, 'gl.mojom.GLImplementationParts', [

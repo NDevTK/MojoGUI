@@ -130,3 +130,5 @@ mojo.internal.bindings.gpu.mojom.ContextResult = {
   FatalFailure: 2,
   SurfaceFailure: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

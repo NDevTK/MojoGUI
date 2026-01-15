@@ -154,3 +154,5 @@ mojo.internal.bindings.blink.mojom.ConsoleMessageSource = {
 mojo.internal.bindings.blink.mojom.ConsoleMessageCategory = {
   Cors: 0,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

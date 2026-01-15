@@ -133,17 +133,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.BatteryStatusSpec = mojo.internal.bindings.device.mojom.BatteryStatusSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: BatteryMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.BatteryStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.BatteryMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,8 +249,11 @@ mojo.internal.bindings.device.mojom.BatteryMonitorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryNextStatus FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryNextStatus FAILED:', e));
           }
           break;
         }
@@ -277,4 +269,17 @@ mojo.internal.bindings.device.mojom.BatteryMonitorReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.device.mojom.BatteryMonitorPtr = mojo.internal.bindings.device.mojom.BatteryMonitorRemote;
 mojo.internal.bindings.device.mojom.BatteryMonitorRequest = mojo.internal.bindings.device.mojom.BatteryMonitorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.BatteryMonitor_QueryNextStatus_ResponseParamsSpec, 'device.mojom.BatteryMonitor_QueryNextStatus_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.device.mojom.BatteryStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

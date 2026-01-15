@@ -136,18 +136,6 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.PredictionTargetsSpec = mojo.internal.bindings.media.mojom.PredictionTargetsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VideoDecodeStatsRecorder
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params', [
-      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_UpdateRecord_Params', [
-      mojo.internal.StructField('arg_targets', 0, 0, mojo.internal.bindings.media.mojom.PredictionTargetsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -274,14 +262,14 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNewRecord');
-          const result = this.impl.startNewRecord(params.arg_features);
+          const result = this.impl.startNewRecord(params.arg_arg_features);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateRecord');
-          const result = this.impl.updateRecord(params.arg_targets);
+          const result = this.impl.updateRecord(params.arg_arg_targets);
           break;
         }
       }
@@ -296,4 +284,18 @@ mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderReceiver = mojo.inter
 
 mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderPtr = mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderRemote;
 mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderRequest = mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_StartNewRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_StartNewRecord_Params', [
+      mojo.internal.StructField('arg_features', 0, 0, mojo.internal.bindings.media.mojom.PredictionFeaturesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoDecodeStatsRecorder_UpdateRecord_ParamsSpec, 'media.mojom.VideoDecodeStatsRecorder_UpdateRecord_Params', [
+      mojo.internal.StructField('arg_targets', 0, 0, mojo.internal.bindings.media.mojom.PredictionTargetsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

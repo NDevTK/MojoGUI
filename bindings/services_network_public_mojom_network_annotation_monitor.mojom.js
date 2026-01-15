@@ -127,12 +127,6 @@ mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor.$interfaceName = '
 mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec = { $: {} };
 
 // Interface: NetworkAnnotationMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec, 'network.mojom.NetworkAnnotationMonitor_Report_Params', [
-      mojo.internal.StructField('arg_hash_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.report');
-          const result = this.impl.report(params.arg_hash_code);
+          const result = this.impl.report(params.arg_arg_hash_code);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorReceiver = mojo.int
 
 mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorPtr = mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorRemote;
 mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorRequest = mojo.internal.bindings.network.mojom.NetworkAnnotationMonitorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.NetworkAnnotationMonitor_Report_ParamsSpec, 'network.mojom.NetworkAnnotationMonitor_Report_Params', [
+      mojo.internal.StructField('arg_hash_code', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -139,3 +139,5 @@ mojo.internal.bindings.blink.mojom.InertialPhaseState = {
   kNonMomentum: 1,
   kMomentum: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

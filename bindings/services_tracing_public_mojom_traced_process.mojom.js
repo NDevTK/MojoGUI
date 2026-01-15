@@ -134,25 +134,7 @@ mojo.internal.bindings.tracing.mojom = mojo.internal.bindings.tracing.mojom || {
 mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec = mojo.internal.bindings.tracing.mojom.PerfettoServiceSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote = mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote || class {};
 
-// Struct: ConnectToTracingRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, 'tracing.mojom.ConnectToTracingRequest', [
-      mojo.internal.StructField('arg_perfetto_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: TracedProcess
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,12 +247,14 @@ mojo.internal.bindings.tracing.mojom.TracedProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToTracingService');
-          const result = this.impl.connectToTracingService(params.arg_request);
+          const result = this.impl.connectToTracingService(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ConnectToTracingService FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connectToTracingService FAILED:', e));
           }
           break;
         }
@@ -286,4 +270,24 @@ mojo.internal.bindings.tracing.mojom.TracedProcessReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.tracing.mojom.TracedProcessPtr = mojo.internal.bindings.tracing.mojom.TracedProcessRemote;
 mojo.internal.bindings.tracing.mojom.TracedProcessRequest = mojo.internal.bindings.tracing.mojom.TracedProcessPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ConnectToTracingRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, 'tracing.mojom.ConnectToTracingRequest', [
+      mojo.internal.StructField('arg_perfetto_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.PerfettoServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.tracing.mojom.ConnectToTracingRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParamsSpec, 'tracing.mojom.TracedProcess_ConnectToTracingService_ResponseParams', [
+    ],
+    [[0, 8]]);
 

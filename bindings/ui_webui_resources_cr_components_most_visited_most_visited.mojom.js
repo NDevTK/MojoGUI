@@ -174,47 +174,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: MostVisitedTile
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, 'most_visited.mojom.MostVisitedTile', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title_direction', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_query_tile', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_user_edit', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_user_delete', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 24, 0, mojo.internal.bindings.ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title_source', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: MostVisitedTheme
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, 'most_visited.mojom.MostVisitedTheme', [
-      mojo.internal.StructField('arg_background_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_white_tile_icon', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dark', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MostVisitedInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec, 'most_visited.mojom.MostVisitedInfo', [
-      mojo.internal.StructField('arg_custom_links_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enterprise_shortcuts_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_tiles', 8, 0, mojo.internal.Array(mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MostVisitedPageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -327,7 +287,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -345,127 +305,6 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactoryRequest =
 
 
 // Interface: MostVisitedPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_pos', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_Params', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_CancelPrerender_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParams', [
-      mojo.internal.StructField('arg_is_expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_Params', [
-      mojo.internal.StructField('arg_is_expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_Params', [
-      mojo.internal.StructField('arg_tiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_Params', [
-      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_button', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_alt_key', 13, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ctrl_key', 13, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_key', 13, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_shift_key', 13, 3, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -788,12 +627,15 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addMostVisitedTile');
-          const result = this.impl.addMostVisitedTile(params.arg_url, params.arg_title);
+          const result = this.impl.addMostVisitedTile(params.arg_arg_url, params.arg_arg_title);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddMostVisitedTile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addMostVisitedTile FAILED:', e));
           }
           break;
         }
@@ -801,21 +643,21 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteMostVisitedTile');
-          const result = this.impl.deleteMostVisitedTile(params.arg_tile);
+          const result = this.impl.deleteMostVisitedTile(params.arg_arg_tile);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reorderMostVisitedTile');
-          const result = this.impl.reorderMostVisitedTile(params.arg_tile, params.arg_new_pos);
+          const result = this.impl.reorderMostVisitedTile(params.arg_arg_tile, params.arg_arg_new_pos);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.restoreMostVisitedDefaults');
-          const result = this.impl.restoreMostVisitedDefaults(params.arg_source);
+          const result = this.impl.restoreMostVisitedDefaults(params.arg_arg_source);
           break;
         }
         case 4: {
@@ -829,7 +671,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.undoMostVisitedTileAction');
-          const result = this.impl.undoMostVisitedTileAction(params.arg_source);
+          const result = this.impl.undoMostVisitedTileAction(params.arg_arg_source);
           break;
         }
         case 6: {
@@ -843,12 +685,15 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMostVisitedTile');
-          const result = this.impl.updateMostVisitedTile(params.arg_tile, params.arg_new_url, params.arg_new_title);
+          const result = this.impl.updateMostVisitedTile(params.arg_arg_tile, params.arg_arg_new_url, params.arg_arg_new_title);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateMostVisitedTile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateMostVisitedTile FAILED:', e));
           }
           break;
         }
@@ -856,21 +701,21 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prerenderMostVisitedTile');
-          const result = this.impl.prerenderMostVisitedTile(params.arg_tile);
+          const result = this.impl.prerenderMostVisitedTile(params.arg_arg_tile);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetchMostVisitedTile');
-          const result = this.impl.prefetchMostVisitedTile(params.arg_tile);
+          const result = this.impl.prefetchMostVisitedTile(params.arg_arg_tile);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preconnectMostVisitedTile');
-          const result = this.impl.preconnectMostVisitedTile(params.arg_tile);
+          const result = this.impl.preconnectMostVisitedTile(params.arg_arg_tile);
           break;
         }
         case 11: {
@@ -888,8 +733,11 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMostVisitedExpandedState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_expanded' in response) ? response.arg_arg_is_expanded : response;
+              encoder.encodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMostVisitedExpandedState FAILED:', e));
           }
           break;
         }
@@ -897,21 +745,21 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedExpandedState');
-          const result = this.impl.setMostVisitedExpandedState(params.arg_is_expanded);
+          const result = this.impl.setMostVisitedExpandedState(params.arg_arg_is_expanded);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMostVisitedTilesRendered');
-          const result = this.impl.onMostVisitedTilesRendered(params.arg_tiles, params.arg_time);
+          const result = this.impl.onMostVisitedTilesRendered(params.arg_arg_tiles, params.arg_arg_time);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMostVisitedTileNavigation');
-          const result = this.impl.onMostVisitedTileNavigation(params.arg_tile, params.arg_index, params.arg_mouse_button, params.arg_alt_key, params.arg_ctrl_key, params.arg_meta_key, params.arg_shift_key);
+          const result = this.impl.onMostVisitedTileNavigation(params.arg_arg_tile, params.arg_arg_index, params.arg_arg_mouse_button, params.arg_arg_alt_key, params.arg_arg_ctrl_key, params.arg_arg_meta_key, params.arg_arg_shift_key);
           break;
         }
       }
@@ -929,17 +777,6 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRequest = mojo.i
 
 
 // Interface: MostVisitedPage
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec, 'most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec, 'most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.most_visited.mojom.MostVisitedPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1066,7 +903,7 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMostVisitedInfo');
-          const result = this.impl.setMostVisitedInfo(params.arg_info);
+          const result = this.impl.setMostVisitedInfo(params.arg_arg_info);
           break;
         }
         case 1: {
@@ -1088,4 +925,178 @@ mojo.internal.bindings.most_visited.mojom.MostVisitedPageReceiver = mojo.interna
 
 mojo.internal.bindings.most_visited.mojom.MostVisitedPagePtr = mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemote;
 mojo.internal.bindings.most_visited.mojom.MostVisitedPageRequest = mojo.internal.bindings.most_visited.mojom.MostVisitedPagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MostVisitedTile
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, 'most_visited.mojom.MostVisitedTile', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_direction', 8, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_query_tile', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_user_edit', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_user_delete', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 24, 0, mojo.internal.bindings.ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_source', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: MostVisitedTheme
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedThemeSpec, 'most_visited.mojom.MostVisitedTheme', [
+      mojo.internal.StructField('arg_background_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_white_tile_icon', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dark', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MostVisitedInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec, 'most_visited.mojom.MostVisitedInfo', [
+      mojo.internal.StructField('arg_custom_links_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enterprise_shortcuts_enabled', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_tiles', 8, 0, mojo.internal.Array(mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.most_visited.mojom.MostVisitedPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_AddMostVisitedTile_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_DeleteMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_ReorderMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_pos', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_RestoreMostVisitedDefaults_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedAutoRemoval_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UndoMostVisitedTileAction_Params', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.ntp_tiles.mojom.TileSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_title', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_UpdateMostVisitedTile_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PrerenderMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PrefetchMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_PreconnectMostVisitedTile_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_CancelPrerender_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_CancelPrerender_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_GetMostVisitedExpandedState_ResponseParams', [
+      mojo.internal.StructField('arg_is_expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_SetMostVisitedExpandedState_Params', [
+      mojo.internal.StructField('arg_is_expanded', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTilesRendered_Params', [
+      mojo.internal.StructField('arg_tiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_ParamsSpec, 'most_visited.mojom.MostVisitedPageHandler_OnMostVisitedTileNavigation_Params', [
+      mojo.internal.StructField('arg_tile', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedTileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_button', 12, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_key', 13, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ctrl_key', 13, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_key', 13, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_shift_key', 13, 3, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_ParamsSpec, 'most_visited.mojom.MostVisitedPage_SetMostVisitedInfo_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.most_visited.mojom.MostVisitedInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_ParamsSpec, 'most_visited.mojom.MostVisitedPage_OnMostVisitedTilesAutoRemoval_Params', [
+    ],
+    [[0, 8]]);
 

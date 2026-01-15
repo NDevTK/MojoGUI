@@ -129,3 +129,5 @@ mojo.internal.bindings.ui.mojom.SixPackShortcutModifier = {
   kAlt: 1,
   kSearch: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

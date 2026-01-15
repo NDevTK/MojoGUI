@@ -129,3 +129,5 @@ mojo.internal.bindings.cc.mojom.ScrollbarAnimator = {
   kAndroidOverlay: 1,
   kAuraOverlay: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -138,12 +138,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: NetworkDiagnostics
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec, 'chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_Params', [
-      mojo.internal.StructField('arg_failed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -256,7 +250,7 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runNetworkDiagnostics');
-          const result = this.impl.runNetworkDiagnostics(params.arg_failed_url);
+          const result = this.impl.runNetworkDiagnostics(params.arg_arg_failed_url);
           break;
         }
       }
@@ -274,18 +268,6 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsRequest = mojo.internal.bi
 
 
 // Interface: NetworkDiagnosticsClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec, 'chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_Params', [
-      mojo.internal.StructField('arg_can_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec, 'chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,14 +394,14 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCanShowNetworkDiagnosticsDialog');
-          const result = this.impl.setCanShowNetworkDiagnosticsDialog(params.arg_can_show);
+          const result = this.impl.setCanShowNetworkDiagnosticsDialog(params.arg_arg_can_show);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dNSProbeStatus');
-          const result = this.impl.dNSProbeStatus(params.arg_status);
+          const result = this.impl.dNSProbeStatus(params.arg_arg_status);
           break;
         }
       }
@@ -434,4 +416,24 @@ mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientReceiver = mojo.inte
 
 mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientPtr = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientRemote;
 mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientRequest = mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_ParamsSpec, 'chrome.mojom.NetworkDiagnostics_RunNetworkDiagnostics_Params', [
+      mojo.internal.StructField('arg_failed_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_ParamsSpec, 'chrome.mojom.NetworkDiagnosticsClient_SetCanShowNetworkDiagnosticsDialog_Params', [
+      mojo.internal.StructField('arg_can_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_ParamsSpec, 'chrome.mojom.NetworkDiagnosticsClient_DNSProbeStatus_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

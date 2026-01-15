@@ -138,23 +138,6 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResult = {
 };
 
 // Interface: OfflinePageAutoFetcher
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_TrySchedule_Params', [
-      mojo.internal.StructField('arg_user_requested', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,12 +264,15 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trySchedule');
-          const result = this.impl.trySchedule(params.arg_user_requested);
+          const result = this.impl.trySchedule(params.arg_arg_user_requested);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] TrySchedule FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] trySchedule FAILED:', e));
           }
           break;
         }
@@ -309,4 +295,23 @@ mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherReceiver = mojo.intern
 
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherPtr = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherRemote;
 mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherRequest = mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_TrySchedule_Params', [
+      mojo.internal.StructField('arg_user_requested', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_TrySchedule_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcherScheduleResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_ParamsSpec, 'chrome.mojom.OfflinePageAutoFetcher_CancelSchedule_Params', [
+    ],
+    [[0, 8]]);
 

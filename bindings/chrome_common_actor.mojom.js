@@ -305,6 +305,276 @@ mojo.internal.bindings.actor.mojom.JournalEntryType = {
   kInstant: 2,
 };
 
+// Interface: JournalClient
+mojo.internal.bindings.actor.mojom.JournalClientPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.actor.mojom.JournalClientRemote = class {
+  static get $interfaceName() {
+    return 'actor.mojom.JournalClient';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.actor.mojom.JournalClientPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.actor.mojom.JournalClientRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  addEntriesToJournal(arg_entries) {
+    return this.$.addEntriesToJournal(arg_entries);
+  }
+};
+
+mojo.internal.bindings.actor.mojom.JournalClientRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('actor.mojom.JournalClient', [
+      { explicit: null },
+    ]);
+  }
+
+  addEntriesToJournal(arg_entries) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
+      null,
+      [arg_entries],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.actor.mojom.JournalClient.getRemote = function() {
+  let remote = new mojo.internal.bindings.actor.mojom.JournalClientRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'actor.mojom.JournalClient',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.actor.mojom.JournalClientReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('actor.mojom.JournalClient', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.addEntriesToJournal');
+          const result = this.impl.addEntriesToJournal(params.arg_arg_entries);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.actor.mojom.JournalClientReceiver = mojo.internal.bindings.actor.mojom.JournalClientReceiver;
+
+mojo.internal.bindings.actor.mojom.JournalClientPtr = mojo.internal.bindings.actor.mojom.JournalClientRemote;
+mojo.internal.bindings.actor.mojom.JournalClientRequest = mojo.internal.bindings.actor.mojom.JournalClientPendingReceiver;
+
+
+// Interface: PageStabilityMonitor
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote = class {
+  static get $interfaceName() {
+    return 'actor.mojom.PageStabilityMonitor';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  notifyWhenStable(arg_observation_delay) {
+    return this.$.notifyWhenStable(arg_observation_delay);
+  }
+};
+
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('actor.mojom.PageStabilityMonitor', [
+      { explicit: null },
+    ]);
+  }
+
+  notifyWhenStable(arg_observation_delay) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
+      mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec,
+      [arg_observation_delay],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.actor.mojom.PageStabilityMonitor.getRemote = function() {
+  let remote = new mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'actor.mojom.PageStabilityMonitor',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('actor.mojom.PageStabilityMonitor', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.notifyWhenStable');
+          const result = this.impl.notifyWhenStable(params.arg_arg_observation_delay);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] notifyWhenStable FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver = mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver;
+
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorPtr = mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote;
+mojo.internal.bindings.actor.mojom.PageStabilityMonitorRequest = mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: ToolTarget
 mojo.internal.Union(
     mojo.internal.bindings.actor.mojom.ToolTargetSpec, 'actor.mojom.ToolTarget', {
@@ -487,144 +757,12 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_details', 40, 0, mojo.internal.Array(mojo.internal.bindings.actor.mojom.JournalDetailsSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
-
-// Interface: JournalClient
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec, 'actor.mojom.JournalClient_AddEntriesToJournal_Params', [
       mojo.internal.StructField('arg_entries', 0, 0, mojo.internal.Array(mojo.internal.bindings.actor.mojom.JournalEntrySpec, false), null, false, 0, undefined),
     ],
     [[0, 16]]);
 
-mojo.internal.bindings.actor.mojom.JournalClientPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.actor.mojom.JournalClientRemote = class {
-  static get $interfaceName() {
-    return 'actor.mojom.JournalClient';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.actor.mojom.JournalClientPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.actor.mojom.JournalClientRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  addEntriesToJournal(arg_entries) {
-    return this.$.addEntriesToJournal(arg_entries);
-  }
-};
-
-mojo.internal.bindings.actor.mojom.JournalClientRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('actor.mojom.JournalClient', [
-      { explicit: null },
-    ]);
-  }
-
-  addEntriesToJournal(arg_entries) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec,
-      null,
-      [arg_entries],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.actor.mojom.JournalClient.getRemote = function() {
-  let remote = new mojo.internal.bindings.actor.mojom.JournalClientRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'actor.mojom.JournalClient',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.actor.mojom.JournalClientReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('actor.mojom.JournalClient', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.mojom.JournalClient_AddEntriesToJournal_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.addEntriesToJournal');
-          const result = this.impl.addEntriesToJournal(params.arg_entries);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.actor.mojom.JournalClientReceiver = mojo.internal.bindings.actor.mojom.JournalClientReceiver;
-
-mojo.internal.bindings.actor.mojom.JournalClientPtr = mojo.internal.bindings.actor.mojom.JournalClientRemote;
-mojo.internal.bindings.actor.mojom.JournalClientRequest = mojo.internal.bindings.actor.mojom.JournalClientPendingReceiver;
-
-
-// Interface: PageStabilityMonitor
 mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec, 'actor.mojom.PageStabilityMonitor_NotifyWhenStable_Params', [
       mojo.internal.StructField('arg_observation_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
@@ -635,138 +773,4 @@ mojo.internal.Struct(
     mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec, 'actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParams', [
     ],
     [[0, 8]]);
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote = class {
-  static get $interfaceName() {
-    return 'actor.mojom.PageStabilityMonitor';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  notifyWhenStable(arg_observation_delay) {
-    return this.$.notifyWhenStable(arg_observation_delay);
-  }
-};
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('actor.mojom.PageStabilityMonitor', [
-      { explicit: null },
-    ]);
-  }
-
-  notifyWhenStable(arg_observation_delay) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec,
-      mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec,
-      [arg_observation_delay],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitor.getRemote = function() {
-  let remote = new mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'actor.mojom.PageStabilityMonitor',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('actor.mojom.PageStabilityMonitor', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.notifyWhenStable');
-          const result = this.impl.notifyWhenStable(params.arg_observation_delay);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.actor.mojom.PageStabilityMonitor_NotifyWhenStable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] NotifyWhenStable FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver = mojo.internal.bindings.actor.mojom.PageStabilityMonitorReceiver;
-
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorPtr = mojo.internal.bindings.actor.mojom.PageStabilityMonitorRemote;
-mojo.internal.bindings.actor.mojom.PageStabilityMonitorRequest = mojo.internal.bindings.actor.mojom.PageStabilityMonitorPendingReceiver;
 

@@ -144,6 +144,8 @@ mojo.internal.bindings.network.mojom.SignatureAlgorithm = {
   SIG_ALGO_ECDSA: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DigitallySigned
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.DigitallySignedSpec, 'network.mojom.DigitallySigned', [

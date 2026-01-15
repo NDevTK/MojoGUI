@@ -132,22 +132,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverSpec = { $ : {} }
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver.$interfaceName = 'chromecast.media.mojom.MediaCapsObserver';
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec = { $: {} };
 
-// Struct: CodecProfileLevel
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec, 'chromecast.media.mojom.CodecProfileLevel', [
-      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MediaCaps
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec, 'chromecast.media.mojom.MediaCaps_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,7 +245,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -278,12 +263,6 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsRequest = mojo.internal.b
 
 
 // Interface: MediaCapsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec, 'chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_Params', [
-      mojo.internal.StructField('arg_codec_profile_level', 0, 0, mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -396,7 +375,7 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSupportedCodecProfileLevel');
-          const result = this.impl.addSupportedCodecProfileLevel(params.arg_codec_profile_level);
+          const result = this.impl.addSupportedCodecProfileLevel(params.arg_arg_codec_profile_level);
           break;
         }
       }
@@ -411,4 +390,27 @@ mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverReceiver = mojo.i
 
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverPtr = mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemote;
 mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRequest = mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CodecProfileLevel
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec, 'chromecast.media.mojom.CodecProfileLevel', [
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_level', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.MediaCaps_AddObserver_ParamsSpec, 'chromecast.media.mojom.MediaCaps_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_ParamsSpec, 'chromecast.media.mojom.MediaCapsObserver_AddSupportedCodecProfileLevel_Params', [
+      mojo.internal.StructField('arg_codec_profile_level', 0, 0, mojo.internal.bindings.chromecast.media.mojom.CodecProfileLevelSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

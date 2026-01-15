@@ -134,17 +134,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DocumentTokenSpec = mojo.internal.bindings.blink.mojom.DocumentTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RenderFrameTestHelper
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.RenderFrameTestHelperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,8 +250,11 @@ mojo.internal.bindings.content.mojom.RenderFrameTestHelperReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDocumentToken FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_token' in response) ? response.arg_arg_token : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDocumentToken FAILED:', e));
           }
           break;
         }
@@ -278,4 +270,17 @@ mojo.internal.bindings.content.mojom.RenderFrameTestHelperReceiver = mojo.intern
 
 mojo.internal.bindings.content.mojom.RenderFrameTestHelperPtr = mojo.internal.bindings.content.mojom.RenderFrameTestHelperRemote;
 mojo.internal.bindings.content.mojom.RenderFrameTestHelperRequest = mojo.internal.bindings.content.mojom.RenderFrameTestHelperPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParamsSpec, 'content.mojom.RenderFrameTestHelper_GetDocumentToken_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

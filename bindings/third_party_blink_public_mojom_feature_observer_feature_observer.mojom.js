@@ -246,13 +246,6 @@ mojo.internal.bindings.blink.mojom.ObservedFeatureRequest = mojo.internal.bindin
 
 
 // Interface: FeatureObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ObservedFeatureRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FeatureObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -365,7 +358,7 @@ mojo.internal.bindings.blink.mojom.FeatureObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.register');
-          const result = this.impl.register(params.arg_feature, params.arg_type);
+          const result = this.impl.register(params.arg_arg_feature, params.arg_arg_type);
           break;
         }
       }
@@ -380,4 +373,13 @@ mojo.internal.bindings.blink.mojom.FeatureObserverReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.FeatureObserverPtr = mojo.internal.bindings.blink.mojom.FeatureObserverRemote;
 mojo.internal.bindings.blink.mojom.FeatureObserverRequest = mojo.internal.bindings.blink.mojom.FeatureObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FeatureObserver_Register_ParamsSpec, 'blink.mojom.FeatureObserver_Register_Params', [
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ObservedFeatureRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.blink.mojom.ObservedFeatureTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

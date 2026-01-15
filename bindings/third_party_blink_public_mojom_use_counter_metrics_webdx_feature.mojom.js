@@ -550,3 +550,5 @@ mojo.internal.bindings.blink.mojom.WebDXFeature = {
   kRewriter: 422,
   kWriter: 423,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -142,6 +142,8 @@ mojo.internal.bindings.crosapi.mojom.Reason = {
   MinVersion: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: TelemetryExtensionSupportStatus
 mojo.internal.Union(
     mojo.internal.bindings.crosapi.mojom.TelemetryExtensionSupportStatusSpec, 'crosapi.mojom.TelemetryExtensionSupportStatus', {

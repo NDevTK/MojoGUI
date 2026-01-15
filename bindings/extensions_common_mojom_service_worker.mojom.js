@@ -154,31 +154,6 @@ mojo.internal.bindings.extensions.mojom = mojo.internal.bindings.extensions.mojo
 mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec = mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ServiceWorker
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec, 'extensions.mojom.ServiceWorker_UpdatePermissions_Params', [
-      mojo.internal.StructField('arg_active_permissions', 0, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_withheld_permissions', 8, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_Params', [
-      mojo.internal.StructField('arg_port_id', 0, 0, mojo.internal.bindings.extensions.mojom.PortIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_type', 8, 0, mojo.internal.bindings.extensions.mojom.ChannelTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_info', 24, 0, mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_external_connection_info', 32, 0, mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port_host', 40, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.extensions.mojom.ServiceWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,19 +280,22 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updatePermissions');
-          const result = this.impl.updatePermissions(params.arg_active_permissions, params.arg_withheld_permissions);
+          const result = this.impl.updatePermissions(params.arg_arg_active_permissions, params.arg_arg_withheld_permissions);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchOnConnect');
-          const result = this.impl.dispatchOnConnect(params.arg_port_id, params.arg_channel_type, params.arg_channel_name, params.arg_tab_info, params.arg_external_connection_info, params.arg_port, params.arg_port_host);
+          const result = this.impl.dispatchOnConnect(params.arg_arg_port_id, params.arg_arg_channel_type, params.arg_arg_channel_name, params.arg_arg_tab_info, params.arg_arg_external_connection_info, params.arg_arg_port, params.arg_arg_port_host);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DispatchOnConnect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dispatchOnConnect FAILED:', e));
           }
           break;
         }
@@ -333,4 +311,31 @@ mojo.internal.bindings.extensions.mojom.ServiceWorkerReceiver = mojo.internal.bi
 
 mojo.internal.bindings.extensions.mojom.ServiceWorkerPtr = mojo.internal.bindings.extensions.mojom.ServiceWorkerRemote;
 mojo.internal.bindings.extensions.mojom.ServiceWorkerRequest = mojo.internal.bindings.extensions.mojom.ServiceWorkerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.ServiceWorker_UpdatePermissions_ParamsSpec, 'extensions.mojom.ServiceWorker_UpdatePermissions_Params', [
+      mojo.internal.StructField('arg_active_permissions', 0, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_withheld_permissions', 8, 0, mojo.internal.bindings.extensions.mojom.PermissionSetSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_Params', [
+      mojo.internal.StructField('arg_port_id', 0, 0, mojo.internal.bindings.extensions.mojom.PortIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_type', 8, 0, mojo.internal.bindings.extensions.mojom.ChannelTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 12, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.extensions.mojom.MessagePortRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_channel_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_info', 24, 0, mojo.internal.bindings.extensions.mojom.TabConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_external_connection_info', 32, 0, mojo.internal.bindings.extensions.mojom.ExternalConnectionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port_host', 40, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.extensions.mojom.MessagePortHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParamsSpec, 'extensions.mojom.ServiceWorker_DispatchOnConnect_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -170,13 +170,6 @@ mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethod = {
 };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.access_code_cast.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.access_code_cast.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -289,7 +282,7 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -307,30 +300,6 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactoryRequest = mojo.i
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec, 'access_code_cast.mojom.PageHandler_AddSink_Params', [
-      mojo.internal.StructField('arg_access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_discovery_method', 8, 0, mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec, 'access_code_cast.mojom.PageHandler_AddSink_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec, 'access_code_cast.mojom.PageHandler_CastToSink_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec, 'access_code_cast.mojom.PageHandler_CastToSink_ResponseParams', [
-      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.media_router.mojom.RouteRequestResultCodeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.access_code_cast.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -457,12 +426,15 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSink');
-          const result = this.impl.addSink(params.arg_access_code, params.arg_discovery_method);
+          const result = this.impl.addSink(params.arg_arg_access_code, params.arg_arg_discovery_method);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddSink FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addSink FAILED:', e));
           }
           break;
         }
@@ -474,8 +446,11 @@ mojo.internal.bindings.access_code_cast.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CastToSink FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result_code' in response) ? response.arg_arg_result_code : response;
+              encoder.encodeStructInline(mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] castToSink FAILED:', e));
           }
           break;
         }
@@ -600,4 +575,37 @@ mojo.internal.bindings.access_code_cast.mojom.PageReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.access_code_cast.mojom.PagePtr = mojo.internal.bindings.access_code_cast.mojom.PageRemote;
 mojo.internal.bindings.access_code_cast.mojom.PageRequest = mojo.internal.bindings.access_code_cast.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'access_code_cast.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.access_code_cast.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.access_code_cast.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ParamsSpec, 'access_code_cast.mojom.PageHandler_AddSink_Params', [
+      mojo.internal.StructField('arg_access_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_discovery_method', 8, 0, mojo.internal.bindings.access_code_cast.mojom.CastDiscoveryMethodSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.access_code_cast.mojom.PageHandler_AddSink_ResponseParamsSpec, 'access_code_cast.mojom.PageHandler_AddSink_ResponseParams', [
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.access_code_cast.mojom.AddSinkResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ParamsSpec, 'access_code_cast.mojom.PageHandler_CastToSink_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.access_code_cast.mojom.PageHandler_CastToSink_ResponseParamsSpec, 'access_code_cast.mojom.PageHandler_CastToSink_ResponseParams', [
+      mojo.internal.StructField('arg_result_code', 0, 0, mojo.internal.bindings.media_router.mojom.RouteRequestResultCodeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

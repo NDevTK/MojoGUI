@@ -135,18 +135,6 @@ mojo.internal.bindings.sandbox.mac.mojom = mojo.internal.bindings.sandbox.mac.mo
 mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec = mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TraitsTestService
-mojo.internal.Struct(
-    mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,12 +247,15 @@ mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoSeatbeltExtensionToken');
-          const result = this.impl.echoSeatbeltExtensionToken(params.arg_in);
+          const result = this.impl.echoSeatbeltExtensionToken(params.arg_arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoSeatbeltExtensionToken FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoSeatbeltExtensionToken FAILED:', e));
           }
           break;
         }
@@ -280,4 +271,18 @@ mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServiceReceiver = mojo.intern
 
 mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServicePtr = mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServiceRemote;
 mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServiceRequest = mojo.internal.bindings.sandbox.mac.mojom.TraitsTestServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_Params', [
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParamsSpec, 'sandbox.mac.mojom.TraitsTestService_EchoSeatbeltExtensionToken_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

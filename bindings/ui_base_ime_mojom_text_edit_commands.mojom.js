@@ -189,3 +189,5 @@ mojo.internal.bindings.ui.mojom.TextEditCommand = {
   kUnselect: 61,
   kInvalidCommand: 62,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

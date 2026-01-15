@@ -130,33 +130,6 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_P
 mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec = { $: {} };
 
 // Interface: TelemetryManagementService
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_Params', [
-      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_gain', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParams', [
-      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 2, undefined),
-    ],
-    [[0, 8], [2, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_Params', [
-      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_volume', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_muted', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParams', [
-      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.TelemetryManagementServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -283,12 +256,15 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioGain');
-          const result = this.impl.setAudioGain(params.arg_node_id, params.arg_gain);
+          const result = this.impl.setAudioGain(params.arg_arg_node_id, params.arg_arg_gain);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetAudioGain FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setAudioGain FAILED:', e));
           }
           break;
         }
@@ -296,12 +272,15 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAudioVolume');
-          const result = this.impl.setAudioVolume(params.arg_node_id, params.arg_volume, params.arg_is_muted);
+          const result = this.impl.setAudioVolume(params.arg_arg_node_id, params.arg_arg_volume, params.arg_arg_is_muted);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetAudioVolume FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_success' in response) ? response.arg_arg_is_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setAudioVolume FAILED:', e));
           }
           break;
         }
@@ -317,4 +296,33 @@ mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceReceiver = mojo.i
 
 mojo.internal.bindings.crosapi.mojom.TelemetryManagementServicePtr = mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceRemote;
 mojo.internal.bindings.crosapi.mojom.TelemetryManagementServiceRequest = mojo.internal.bindings.crosapi.mojom.TelemetryManagementServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_Params', [
+      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_gain', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioGain_ResponseParams', [
+      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 2, undefined),
+    ],
+    [[0, 8], [2, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_Params', [
+      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_volume', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_muted', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParamsSpec, 'crosapi.mojom.TelemetryManagementService_SetAudioVolume_ResponseParams', [
+      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -146,40 +146,7 @@ mojo.internal.bindings.arc.mojom.MidisInstance.$interfaceName = 'arc.mojom.Midis
 mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec = { $: {} };
 mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec = { $: {} };
 
-// Struct: MidisDeviceInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, 'arc.mojom.MidisDeviceInfo', [
-      mojo.internal.StructField('arg_card', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_subdevices', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_manufacturer', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: MidisRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisRequestSpec, 'arc.mojom.MidisRequest', [
-      mojo.internal.StructField('arg_card', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_subdevice_num', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MidisClient
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.MidisClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -306,14 +273,14 @@ mojo.internal.bindings.arc.mojom.MidisClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
-          const result = this.impl.onDeviceAdded(params.arg_device);
+          const result = this.impl.onDeviceAdded(params.arg_arg_device);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
-          const result = this.impl.onDeviceRemoved(params.arg_device);
+          const result = this.impl.onDeviceRemoved(params.arg_arg_device);
           break;
         }
       }
@@ -331,35 +298,6 @@ mojo.internal.bindings.arc.mojom.MidisClientRequest = mojo.internal.bindings.arc
 
 
 // Interface: MidisServer
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec, 'arc.mojom.MidisServer_ListDevices_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec, 'arc.mojom.MidisServer_ListDevices_ResponseParams', [
-      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec, 'arc.mojom.MidisServer_RequestPort_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.MidisRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec, 'arc.mojom.MidisServer_RequestPort_ResponseParams', [
-      mojo.internal.StructField('arg_port_handle', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec, 'arc.mojom.MidisServer_CloseDevice_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.MidisRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.MidisServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -504,8 +442,11 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ListDevices FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_devices' in response) ? response.arg_arg_devices : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] listDevices FAILED:', e));
           }
           break;
         }
@@ -513,12 +454,15 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPort');
-          const result = this.impl.requestPort(params.arg_request);
+          const result = this.impl.requestPort(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestPort FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_port_handle' in response) ? response.arg_arg_port_handle : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestPort FAILED:', e));
           }
           break;
         }
@@ -526,7 +470,7 @@ mojo.internal.bindings.arc.mojom.MidisServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeDevice');
-          const result = this.impl.closeDevice(params.arg_request);
+          const result = this.impl.closeDevice(params.arg_arg_request);
           break;
         }
       }
@@ -544,13 +488,6 @@ mojo.internal.bindings.arc.mojom.MidisServerRequest = mojo.internal.bindings.arc
 
 
 // Interface: MidisHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
-      mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.MidisHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -663,7 +600,7 @@ mojo.internal.bindings.arc.mojom.MidisHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_server, params.arg_client);
+          const result = this.impl.connect(params.arg_arg_server, params.arg_arg_client);
           break;
         }
       }
@@ -681,17 +618,6 @@ mojo.internal.bindings.arc.mojom.MidisHostRequest = mojo.internal.bindings.arc.m
 
 
 // Interface: MidisInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec, 'arc.mojom.MidisInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec, 'arc.mojom.MidisInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.MidisInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -804,12 +730,14 @@ mojo.internal.bindings.arc.mojom.MidisInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -825,4 +753,86 @@ mojo.internal.bindings.arc.mojom.MidisInstanceReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.arc.mojom.MidisInstancePtr = mojo.internal.bindings.arc.mojom.MidisInstanceRemote;
 mojo.internal.bindings.arc.mojom.MidisInstanceRequest = mojo.internal.bindings.arc.mojom.MidisInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MidisDeviceInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, 'arc.mojom.MidisDeviceInfo', [
+      mojo.internal.StructField('arg_card', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_subdevices', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_manufacturer', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: MidisRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisRequestSpec, 'arc.mojom.MidisRequest', [
+      mojo.internal.StructField('arg_card', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_num', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_subdevice_num', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceAdded_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceAdded_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisClient_OnDeviceRemoved_ParamsSpec, 'arc.mojom.MidisClient_OnDeviceRemoved_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ParamsSpec, 'arc.mojom.MidisServer_ListDevices_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisServer_ListDevices_ResponseParamsSpec, 'arc.mojom.MidisServer_ListDevices_ResponseParams', [
+      mojo.internal.StructField('arg_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.MidisDeviceInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ParamsSpec, 'arc.mojom.MidisServer_RequestPort_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.MidisRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisServer_RequestPort_ResponseParamsSpec, 'arc.mojom.MidisServer_RequestPort_ResponseParams', [
+      mojo.internal.StructField('arg_port_handle', 0, 0, mojo.internal.Handle, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisServer_CloseDevice_ParamsSpec, 'arc.mojom.MidisServer_CloseDevice_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.MidisRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisHost_Connect_ParamsSpec, 'arc.mojom.MidisHost_Connect_Params', [
+      mojo.internal.StructField('arg_server', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.MidisServerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisInstance_Init_ParamsSpec, 'arc.mojom.MidisInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MidisHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MidisInstance_Init_ResponseParamsSpec, 'arc.mojom.MidisInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

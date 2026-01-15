@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.OriginTrialsSettingsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OriginTrialsSettings
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.OriginTrialsSettingsSpec, 'blink.mojom.OriginTrialsSettings', [

@@ -217,6 +217,8 @@ mojo.internal.bindings.blink.mojom.EffectiveConnectionType = {
   kEffectiveConnectionTypeLast: 6,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WebPreferences
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebPreferencesSpec, 'blink.mojom.WebPreferences', [

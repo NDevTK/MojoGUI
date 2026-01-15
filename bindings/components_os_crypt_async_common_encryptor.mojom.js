@@ -133,6 +133,8 @@ mojo.internal.bindings.os_crypt_async = mojo.internal.bindings.os_crypt_async ||
 mojo.internal.bindings.os_crypt_async.mojom = mojo.internal.bindings.os_crypt_async.mojom || {};
 mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec = mojo.internal.bindings.os_crypt_async.mojom.AlgorithmSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Key
 mojo.internal.Struct(
     mojo.internal.bindings.os_crypt_async.mojom.KeySpec, 'os_crypt_async.mojom.Key', [

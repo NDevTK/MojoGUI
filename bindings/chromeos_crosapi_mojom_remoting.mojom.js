@@ -142,29 +142,6 @@ mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom ||
 mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec = mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Remoting
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParams', [
-      mojo.internal.StructField('arg_host_details', 0, 0, mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.crosapi.mojom.RemotingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -295,8 +272,11 @@ mojo.internal.bindings.crosapi.mojom.RemotingReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSupportHostDetails FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_host_details' in response) ? response.arg_arg_host_details : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSupportHostDetails FAILED:', e));
           }
           break;
         }
@@ -304,12 +284,15 @@ mojo.internal.bindings.crosapi.mojom.RemotingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startSupportSession');
-          const result = this.impl.startSupportSession(params.arg_params);
+          const result = this.impl.startSupportSession(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartSupportSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startSupportSession FAILED:', e));
           }
           break;
         }
@@ -325,4 +308,29 @@ mojo.internal.bindings.crosapi.mojom.RemotingReceiver = mojo.internal.bindings.c
 
 mojo.internal.bindings.crosapi.mojom.RemotingPtr = mojo.internal.bindings.crosapi.mojom.RemotingRemote;
 mojo.internal.bindings.crosapi.mojom.RemotingRequest = mojo.internal.bindings.crosapi.mojom.RemotingPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParamsSpec, 'crosapi.mojom.Remoting_GetSupportHostDetails_ResponseParams', [
+      mojo.internal.StructField('arg_host_details', 0, 0, mojo.internal.bindings.remoting.mojom.SupportHostDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.remoting.mojom.SupportSessionParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.Remoting_StartSupportSession_ResponseParamsSpec, 'crosapi.mojom.Remoting_StartSupportSession_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.remoting.mojom.StartSupportSessionResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

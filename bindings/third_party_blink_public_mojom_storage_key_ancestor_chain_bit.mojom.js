@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.AncestorChainBit = {
   kSameSite: 0,
   kCrossSite: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

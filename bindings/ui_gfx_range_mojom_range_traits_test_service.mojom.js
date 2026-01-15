@@ -138,30 +138,6 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RangeFSpec = mojo.internal.bindings.gfx.mojom.RangeFSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RangeTraitsTestService
-mojo.internal.Struct(
-    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_Params', [
-      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_Params', [
-      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParams', [
-      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,12 +264,15 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoRange');
-          const result = this.impl.echoRange(params.arg_p);
+          const result = this.impl.echoRange(params.arg_arg_p);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoRange FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoRange FAILED:', e));
           }
           break;
         }
@@ -301,12 +280,15 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoRangeF');
-          const result = this.impl.echoRangeF(params.arg_p);
+          const result = this.impl.echoRangeF(params.arg_arg_p);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoRangeF FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pass' in response) ? response.arg_arg_pass : response;
+              encoder.encodeStructInline(mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoRangeF FAILED:', e));
           }
           break;
         }
@@ -322,4 +304,30 @@ mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceReceiver = mojo.internal.
 
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestServicePtr = mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRemote;
 mojo.internal.bindings.gfx.mojom.RangeTraitsTestServiceRequest = mojo.internal.bindings.gfx.mojom.RangeTraitsTestServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_Params', [
+      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRange_ResponseParams', [
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_Params', [
+      mojo.internal.StructField('arg_p', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParamsSpec, 'gfx.mojom.RangeTraitsTestService_EchoRangeF_ResponseParams', [
+      mojo.internal.StructField('arg_pass', 0, 0, mojo.internal.bindings.gfx.mojom.RangeFSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -138,21 +138,7 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: WallpaperCalculatedColors
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec, 'ash.color_internals.mojom.WallpaperCalculatedColors', [
-      mojo.internal.StructField('arg_k_mean_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_celebi_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: WallpaperColorsObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params', [
-      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -265,7 +251,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWallpaperColorsChanged');
-          const result = this.impl.onWallpaperColorsChanged(params.arg_colors);
+          const result = this.impl.onWallpaperColorsChanged(params.arg_arg_colors);
           break;
         }
       }
@@ -283,12 +269,6 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRequest 
 
 
 // Interface: WallpaperColorsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -401,7 +381,7 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWallpaperColorsObserver');
-          const result = this.impl.setWallpaperColorsObserver(params.arg_observer);
+          const result = this.impl.setWallpaperColorsObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -416,4 +396,26 @@ mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerReceiver 
 
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerPtr = mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerRemote;
 mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerRequest = mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WallpaperCalculatedColors
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec, 'ash.color_internals.mojom.WallpaperCalculatedColors', [
+      mojo.internal.StructField('arg_k_mean_color', 0, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_celebi_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsObserver_OnWallpaperColorsChanged_Params', [
+      mojo.internal.StructField('arg_colors', 0, 0, mojo.internal.bindings.ash.color_internals.mojom.WallpaperCalculatedColorsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_ParamsSpec, 'ash.color_internals.mojom.WallpaperColorsHandler_SetWallpaperColorsObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.color_internals.mojom.WallpaperColorsObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

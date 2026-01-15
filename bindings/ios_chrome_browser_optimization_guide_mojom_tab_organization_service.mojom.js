@@ -134,18 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec = mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TabOrganizationService
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParams', [
-      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ai.mojom.TabOrganizationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,12 +246,15 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeGroupTabs');
-          const result = this.impl.executeGroupTabs(params.arg_request);
+          const result = this.impl.executeGroupTabs(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExecuteGroupTabs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_output' in response) ? response.arg_arg_output : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] executeGroupTabs FAILED:', e));
           }
           break;
         }
@@ -279,4 +270,18 @@ mojo.internal.bindings.ai.mojom.TabOrganizationServiceReceiver = mojo.internal.b
 
 mojo.internal.bindings.ai.mojom.TabOrganizationServicePtr = mojo.internal.bindings.ai.mojom.TabOrganizationServiceRemote;
 mojo.internal.bindings.ai.mojom.TabOrganizationServiceRequest = mojo.internal.bindings.ai.mojom.TabOrganizationServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParamsSpec, 'ai.mojom.TabOrganizationService_ExecuteGroupTabs_ResponseParams', [
+      mojo.internal.StructField('arg_output', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

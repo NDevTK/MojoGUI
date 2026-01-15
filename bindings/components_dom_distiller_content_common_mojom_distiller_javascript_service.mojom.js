@@ -138,29 +138,6 @@ mojo.internal.bindings.dom_distiller.mojom = mojo.internal.bindings.dom_distille
 mojo.internal.bindings.dom_distiller.mojom.ThemeSpec = mojo.internal.bindings.dom_distiller.mojom.ThemeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: DistillerJavaScriptService
-mojo.internal.Struct(
-    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params', [
-      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.dom_distiller.mojom.ThemeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params', [
-      mojo.internal.StructField('arg_font_family', 0, 0, mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params', [
-      mojo.internal.StructField('arg_font_scale', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -322,21 +299,21 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStoreThemePref');
-          const result = this.impl.handleStoreThemePref(params.arg_theme);
+          const result = this.impl.handleStoreThemePref(params.arg_arg_theme);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStoreFontFamilyPref');
-          const result = this.impl.handleStoreFontFamilyPref(params.arg_font_family);
+          const result = this.impl.handleStoreFontFamilyPref(params.arg_arg_font_family);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handleStoreFontScalingPref');
-          const result = this.impl.handleStoreFontScalingPref(params.arg_font_scale);
+          const result = this.impl.handleStoreFontScalingPref(params.arg_arg_font_scale);
           break;
         }
       }
@@ -351,4 +328,29 @@ mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceReceiver = 
 
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServicePtr = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRemote;
 mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServiceRequest = mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleDistillerOpenSettingsCall_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreThemePref_Params', [
+      mojo.internal.StructField('arg_theme', 0, 0, mojo.internal.bindings.dom_distiller.mojom.ThemeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontFamilyPref_Params', [
+      mojo.internal.StructField('arg_font_family', 0, 0, mojo.internal.bindings.dom_distiller.mojom.FontFamilySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_ParamsSpec, 'dom_distiller.mojom.DistillerJavaScriptService_HandleStoreFontScalingPref_Params', [
+      mojo.internal.StructField('arg_font_scale', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

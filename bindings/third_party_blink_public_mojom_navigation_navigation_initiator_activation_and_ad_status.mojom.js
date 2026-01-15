@@ -129,3 +129,5 @@ mojo.internal.bindings.blink.mojom.NavigationInitiatorActivationAndAdStatus = {
   kStartedWithTransientActivationFromNonAd: 1,
   kStartedWithTransientActivationFromAd: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -127,11 +127,6 @@ mojo.internal.bindings.device.mojom.GeolocationControl.$interfaceName = 'device.
 mojo.internal.bindings.device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec = { $: {} };
 
 // Interface: GeolocationControl
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec, 'device.mojom.GeolocationControl_UserDidOptIntoLocationServices_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.GeolocationControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.device.mojom.GeolocationControlReceiver = mojo.internal.b
 
 mojo.internal.bindings.device.mojom.GeolocationControlPtr = mojo.internal.bindings.device.mojom.GeolocationControlRemote;
 mojo.internal.bindings.device.mojom.GeolocationControlRequest = mojo.internal.bindings.device.mojom.GeolocationControlPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.GeolocationControl_UserDidOptIntoLocationServices_ParamsSpec, 'device.mojom.GeolocationControl_UserDidOptIntoLocationServices_Params', [
+    ],
+    [[0, 8]]);
 

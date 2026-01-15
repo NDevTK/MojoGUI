@@ -146,6 +146,8 @@ mojo.internal.bindings.blink.mojom.FrameOcclusionState = {
   kGuaranteedNotOccluded: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ViewportIntersectionState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ViewportIntersectionStateSpec, 'blink.mojom.ViewportIntersectionState', [

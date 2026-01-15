@@ -128,3 +128,5 @@ mojo.internal.bindings.network.mojom.DefaultCredentials = {
   DISALLOW_DEFAULT_CREDENTIALS: 0,
   ALLOW_DEFAULT_CREDENTIALS: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

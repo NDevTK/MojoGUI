@@ -153,3 +153,5 @@ mojo.internal.bindings.tabs.mojom.TabNetworkState = {
   kLoading: 2,
   kError: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

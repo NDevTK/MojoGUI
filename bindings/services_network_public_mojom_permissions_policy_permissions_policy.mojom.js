@@ -134,6 +134,8 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OriginWithPossibleWildcards
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.OriginWithPossibleWildcardsSpec, 'network.mojom.OriginWithPossibleWildcards', [

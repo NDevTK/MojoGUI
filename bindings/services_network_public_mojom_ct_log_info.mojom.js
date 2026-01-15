@@ -144,6 +144,8 @@ mojo.internal.bindings.network.mojom.LogType = {
   kStaticCTAPI: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PreviousOperatorEntry
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.PreviousOperatorEntrySpec, 'network.mojom.PreviousOperatorEntry', [

@@ -134,12 +134,6 @@ mojo.internal.bindings.ash.diagnostics.mojom = mojo.internal.bindings.ash.diagno
 mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec = mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: AshEventReporter
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec, 'ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +246,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendKeyboardDiagnosticEvent');
-          const result = this.impl.sendKeyboardDiagnosticEvent(params.arg_info);
+          const result = this.impl.sendKeyboardDiagnosticEvent(params.arg_arg_info);
           break;
         }
       }
@@ -267,4 +261,12 @@ mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterReceiver = mojo.in
 
 mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterPtr = mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterRemote;
 mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterRequest = mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_ParamsSpec, 'ash.cros_healthd.mojom.AshEventReporter_SendKeyboardDiagnosticEvent_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.KeyboardDiagnosticEventInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

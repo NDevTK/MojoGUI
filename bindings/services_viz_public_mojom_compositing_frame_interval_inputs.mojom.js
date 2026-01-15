@@ -142,6 +142,8 @@ mojo.internal.bindings.viz.mojom.ContentFrameIntervalType = {
   kCompositorScroll: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ContentFrameIntervalInfo
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.ContentFrameIntervalInfoSpec, 'viz.mojom.ContentFrameIntervalInfo', [

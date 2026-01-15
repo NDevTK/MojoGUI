@@ -146,3 +146,5 @@ mojo.internal.bindings.mojom.LifecycleUnitDiscardReason = {
   SUGGESTED: 3,
   FROZEN_WITH_GROWING_MEMORY: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

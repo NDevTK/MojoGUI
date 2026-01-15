@@ -182,48 +182,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReason = {
   kTimedOut: 2,
 };
 
-// Struct: HelpBubbleButtonParams
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec, 'help_bubble.mojom.HelpBubbleButtonParams', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_default', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Progress
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.ProgressSpec, 'help_bubble.mojom.Progress', [
-      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_total', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: HelpBubbleParams
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec, 'help_bubble.mojom.HelpBubbleParams', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_focus_on_show_hint_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_focus_on_show_hint_$value', originalFieldName: 'arg_focus_on_show_hint' }),
-      mojo.internal.StructField('arg_focus_on_show_hint_$value', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_focus_on_show_hint_$flag', originalFieldName: 'arg_focus_on_show_hint' }),
-      mojo.internal.StructField('arg_title_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_body_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_close_button_alt_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body_icon_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_body_icon_alt_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_progress', 56, 0, mojo.internal.bindings.help_bubble.mojom.ProgressSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_buttons', 64, 0, mojo.internal.Array(mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timeout', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
-    ],
-    [[0, 88]]);
-
 // Interface: HelpBubbleHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -336,7 +295,7 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
-          const result = this.impl.createHelpBubbleHandler(params.arg_client, params.arg_handler);
+          const result = this.impl.createHelpBubbleHandler(params.arg_arg_client, params.arg_arg_handler);
           break;
         }
       }
@@ -354,13 +313,6 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactoryRequest = mojo.
 
 
 // Interface: PdfHelpBubbleHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -473,7 +425,7 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHelpBubbleHandler');
-          const result = this.impl.createHelpBubbleHandler(params.arg_client, params.arg_handler);
+          const result = this.impl.createHelpBubbleHandler(params.arg_arg_client, params.arg_arg_handler);
           break;
         }
       }
@@ -491,26 +443,6 @@ mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactoryRequest = mo
 
 
 // Interface: HelpBubbleHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_button_index', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -651,21 +583,21 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTrackedElementHandler');
-          const result = this.impl.bindTrackedElementHandler(params.arg_handler);
+          const result = this.impl.bindTrackedElementHandler(params.arg_arg_handler);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleButtonPressed');
-          const result = this.impl.helpBubbleButtonPressed(params.arg_native_identifier, params.arg_button_index);
+          const result = this.impl.helpBubbleButtonPressed(params.arg_arg_native_identifier, params.arg_arg_button_index);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.helpBubbleClosed');
-          const result = this.impl.helpBubbleClosed(params.arg_native_identifier, params.arg_reason);
+          const result = this.impl.helpBubbleClosed(params.arg_arg_native_identifier, params.arg_arg_reason);
           break;
         }
       }
@@ -683,31 +615,6 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRequest = mojo.interna
 
 
 // Interface: HelpBubbleClient
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_HideHelpBubble_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -862,28 +769,28 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.showHelpBubble');
-          const result = this.impl.showHelpBubble(params.arg_params);
+          const result = this.impl.showHelpBubble(params.arg_arg_params);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.toggleFocusForAccessibility');
-          const result = this.impl.toggleFocusForAccessibility(params.arg_native_identifier);
+          const result = this.impl.toggleFocusForAccessibility(params.arg_arg_native_identifier);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hideHelpBubble');
-          const result = this.impl.hideHelpBubble(params.arg_native_identifier);
+          const result = this.impl.hideHelpBubble(params.arg_arg_native_identifier);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.externalHelpBubbleUpdated');
-          const result = this.impl.externalHelpBubbleUpdated(params.arg_native_identifier, params.arg_shown);
+          const result = this.impl.externalHelpBubbleUpdated(params.arg_arg_native_identifier, params.arg_arg_shown);
           break;
         }
       }
@@ -898,4 +805,99 @@ mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientReceiver = mojo.interna
 
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientPtr = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote;
 mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRequest = mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: HelpBubbleButtonParams
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec, 'help_bubble.mojom.HelpBubbleButtonParams', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_default', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Progress
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.ProgressSpec, 'help_bubble.mojom.Progress', [
+      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: HelpBubbleParams
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec, 'help_bubble.mojom.HelpBubbleParams', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_position', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleArrowPositionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_focus_on_show_hint_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_focus_on_show_hint_$value', originalFieldName: 'arg_focus_on_show_hint' }),
+      mojo.internal.StructField('arg_focus_on_show_hint_$value', 12, 1, mojo.internal.Bool, false, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_focus_on_show_hint_$flag', originalFieldName: 'arg_focus_on_show_hint' }),
+      mojo.internal.StructField('arg_title_text', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_close_button_alt_text', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body_icon_name', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_body_icon_alt_text', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_progress', 56, 0, mojo.internal.bindings.help_bubble.mojom.ProgressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_buttons', 64, 0, mojo.internal.Array(mojo.internal.bindings.help_bubble.mojom.HelpBubbleButtonParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timeout', 72, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 0, undefined),
+    ],
+    [[0, 88]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_ParamsSpec, 'help_bubble.mojom.PdfHelpBubbleHandlerFactory_CreateHelpBubbleHandler_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.help_bubble.mojom.HelpBubbleClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_BindTrackedElementHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleButtonPressed_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_button_index', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_ParamsSpec, 'help_bubble.mojom.HelpBubbleHandler_HelpBubbleClosed_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 8, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleClosedReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ShowHelpBubble_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.help_bubble.mojom.HelpBubbleParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ToggleFocusForAccessibility_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_HideHelpBubble_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_HideHelpBubble_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_ParamsSpec, 'help_bubble.mojom.HelpBubbleClient_ExternalHelpBubbleUpdated_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

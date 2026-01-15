@@ -123,6 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.CTPolicySpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CTPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.CTPolicySpec, 'network.mojom.CTPolicy', [

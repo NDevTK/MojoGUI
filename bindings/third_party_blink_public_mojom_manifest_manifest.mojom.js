@@ -254,6 +254,8 @@ mojo.internal.bindings.blink.mojom.ManifestRequestResult = {
   kSuccess: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: HomeTabUnion
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.HomeTabUnionSpec, 'blink.mojom.HomeTabUnion', {

@@ -142,3 +142,5 @@ mojo.internal.bindings.compose.mojom.ComposeStatus = {
   kOffline: 17,
   kRequestTimeout: 18,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

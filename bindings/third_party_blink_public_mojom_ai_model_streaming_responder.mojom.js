@@ -156,38 +156,7 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatus = {
   kErrorResponseLowQuality: 15,
 };
 
-// Struct: ModelExecutionContextInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec, 'blink.mojom.ModelExecutionContextInfo', [
-      mojo.internal.StructField('arg_current_tokens', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ModelStreamingResponder
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnCompletion_Params', [
-      mojo.internal.StructField('arg_context_info', 0, 0, mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnError_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnStreaming_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnQuotaOverflow_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -342,21 +311,21 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCompletion');
-          const result = this.impl.onCompletion(params.arg_context_info);
+          const result = this.impl.onCompletion(params.arg_arg_context_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_status, params.arg_quota_error_info);
+          const result = this.impl.onError(params.arg_arg_status, params.arg_arg_quota_error_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreaming');
-          const result = this.impl.onStreaming(params.arg_text);
+          const result = this.impl.onStreaming(params.arg_arg_text);
           break;
         }
         case 3: {
@@ -378,4 +347,37 @@ mojo.internal.bindings.blink.mojom.ModelStreamingResponderReceiver = mojo.intern
 
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderPtr = mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote;
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderRequest = mojo.internal.bindings.blink.mojom.ModelStreamingResponderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ModelExecutionContextInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec, 'blink.mojom.ModelExecutionContextInfo', [
+      mojo.internal.StructField('arg_current_tokens', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnCompletion_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnCompletion_Params', [
+      mojo.internal.StructField('arg_context_info', 0, 0, mojo.internal.bindings.blink.mojom.ModelExecutionContextInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnError_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnError_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.ModelStreamingResponseStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_quota_error_info', 8, 0, mojo.internal.bindings.blink.mojom.QuotaErrorInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnStreaming_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnStreaming_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ModelStreamingResponder_OnQuotaOverflow_ParamsSpec, 'blink.mojom.ModelStreamingResponder_OnQuotaOverflow_Params', [
+    ],
+    [[0, 8]]);
 

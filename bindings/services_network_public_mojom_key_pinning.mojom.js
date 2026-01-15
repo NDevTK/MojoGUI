@@ -130,6 +130,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.SHA256HashValueSpec = mojo.internal.bindings.network.mojom.SHA256HashValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PinSet
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.PinSetSpec, 'network.mojom.PinSet', [

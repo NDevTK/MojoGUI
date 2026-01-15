@@ -128,3 +128,5 @@ mojo.internal.bindings.attribution_reporting.mojom.TriggerDataMatching = {
   kModulus: 0,
   kExact: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

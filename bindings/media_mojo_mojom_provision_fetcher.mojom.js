@@ -134,20 +134,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ProvisionFetcher
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_Params', [
-      mojo.internal.StructField('arg_default_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.ProvisionFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,12 +246,14 @@ mojo.internal.bindings.media.mojom.ProvisionFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.retrieve');
-          const result = this.impl.retrieve(params.arg_default_url, params.arg_request_data);
+          const result = this.impl.retrieve(params.arg_arg_default_url, params.arg_arg_request_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Retrieve FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_response']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] retrieve FAILED:', e));
           }
           break;
         }
@@ -281,4 +269,20 @@ mojo.internal.bindings.media.mojom.ProvisionFetcherReceiver = mojo.internal.bind
 
 mojo.internal.bindings.media.mojom.ProvisionFetcherPtr = mojo.internal.bindings.media.mojom.ProvisionFetcherRemote;
 mojo.internal.bindings.media.mojom.ProvisionFetcherRequest = mojo.internal.bindings.media.mojom.ProvisionFetcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_Params', [
+      mojo.internal.StructField('arg_default_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.ProvisionFetcher_Retrieve_ResponseParamsSpec, 'media.mojom.ProvisionFetcher_Retrieve_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

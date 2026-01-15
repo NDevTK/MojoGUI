@@ -139,6 +139,8 @@ mojo.internal.bindings.blink.mojom.FrameCreationStackEvidence = {
   kCreatedByAdScript: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FrameAdEvidence
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FrameAdEvidenceSpec, 'blink.mojom.FrameAdEvidence', [

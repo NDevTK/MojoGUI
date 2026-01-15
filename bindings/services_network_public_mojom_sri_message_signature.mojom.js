@@ -162,6 +162,8 @@ mojo.internal.bindings.network.mojom.SRIMessageSignatureError = {
   kValidationFailedIntegrityMismatch: 20,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SRIMessageSignatureComponentParameter
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SRIMessageSignatureComponentParameterSpec, 'network.mojom.SRIMessageSignatureComponentParameter', [

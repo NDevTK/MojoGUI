@@ -154,51 +154,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec = mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: PolicyContainerPolicies
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec, 'blink.mojom.PolicyContainerPolicies', [
-      mojo.internal.StructField('arg_connection_allowlists', 0, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_integrity_policy', 16, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_integrity_policy_report_only', 24, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer_policy', 32, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_credentialless', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_can_navigate_top_without_user_gesture', 36, 1, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_cross_origin_isolation_enabled_by_dip', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_content_security_policies', 40, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_sandbox_flags', 48, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address_space', 52, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: PolicyContainer
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
-      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PolicyContainerBindParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: PolicyContainerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec, 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params', [
-      mojo.internal.StructField('arg_referrer_policy', 0, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec, 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params', [
-      mojo.internal.StructField('arg_content_security_policies', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PolicyContainerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -325,14 +281,14 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setReferrerPolicy');
-          const result = this.impl.setReferrerPolicy(params.arg_referrer_policy);
+          const result = this.impl.setReferrerPolicy(params.arg_arg_referrer_policy);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addContentSecurityPolicies');
-          const result = this.impl.addContentSecurityPolicies(params.arg_content_security_policies);
+          const result = this.impl.addContentSecurityPolicies(params.arg_arg_content_security_policies);
           break;
         }
       }
@@ -347,4 +303,50 @@ mojo.internal.bindings.blink.mojom.PolicyContainerHostReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.PolicyContainerHostPtr = mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote;
 mojo.internal.bindings.blink.mojom.PolicyContainerHostRequest = mojo.internal.bindings.blink.mojom.PolicyContainerHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PolicyContainerPolicies
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec, 'blink.mojom.PolicyContainerPolicies', [
+      mojo.internal.StructField('arg_connection_allowlists', 0, 0, mojo.internal.bindings.network.mojom.ConnectionAllowlistsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_embedder_policy', 8, 0, mojo.internal.bindings.network.mojom.CrossOriginEmbedderPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_integrity_policy', 16, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_integrity_policy_report_only', 24, 0, mojo.internal.bindings.network.mojom.IntegrityPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 32, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_credentialless', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_can_navigate_top_without_user_gesture', 36, 1, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_cross_origin_isolation_enabled_by_dip', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_content_security_policies', 40, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_sandbox_flags', 48, 0, mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address_space', 52, 0, mojo.internal.bindings.network.mojom.IPAddressSpaceSpec, 0, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: PolicyContainer
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PolicyContainerSpec, 'blink.mojom.PolicyContainer', [
+      mojo.internal.StructField('arg_policies', 0, 0, mojo.internal.bindings.blink.mojom.PolicyContainerPoliciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PolicyContainerBindParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PolicyContainerBindParamsSpec, 'blink.mojom.PolicyContainerBindParams', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.blink.mojom.PolicyContainerHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PolicyContainerHost_SetReferrerPolicy_ParamsSpec, 'blink.mojom.PolicyContainerHost_SetReferrerPolicy_Params', [
+      mojo.internal.StructField('arg_referrer_policy', 0, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_ParamsSpec, 'blink.mojom.PolicyContainerHost_AddContentSecurityPolicies_Params', [
+      mojo.internal.StructField('arg_content_security_policies', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ContentSecurityPolicySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

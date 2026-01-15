@@ -149,25 +149,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: AndroidOverlayConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, 'media.mojom.AndroidOverlayConfig', [
-      mojo.internal.StructField('arg_routing_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_power_efficient', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: AndroidOverlayProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
-      mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.media.mojom.AndroidOverlayProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -280,7 +262,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOverlay');
-          const result = this.impl.createOverlay(params.arg_overlay, params.arg_client, params.arg_config);
+          const result = this.impl.createOverlay(params.arg_arg_overlay, params.arg_arg_client, params.arg_arg_config);
           break;
         }
       }
@@ -298,12 +280,6 @@ mojo.internal.bindings.media.mojom.AndroidOverlayProviderRequest = mojo.internal
 
 
 // Interface: AndroidOverlay
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec, 'media.mojom.AndroidOverlay_ScheduleLayout_Params', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AndroidOverlayPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -416,7 +392,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scheduleLayout');
-          const result = this.impl.scheduleLayout(params.arg_rect);
+          const result = this.impl.scheduleLayout(params.arg_arg_rect);
           break;
         }
       }
@@ -434,33 +410,6 @@ mojo.internal.bindings.media.mojom.AndroidOverlayRequest = mojo.internal.binding
 
 
 // Interface: AndroidOverlayClient
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnSurfaceReady_Params', [
-      mojo.internal.StructField('arg_surface_key', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnDestroyed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec, 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnPowerEfficientState_Params', [
-      mojo.internal.StructField('arg_is_power_efficient', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AndroidOverlayClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -615,7 +564,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSurfaceReady');
-          const result = this.impl.onSurfaceReady(params.arg_surface_key);
+          const result = this.impl.onSurfaceReady(params.arg_arg_surface_key);
           break;
         }
         case 1: {
@@ -633,8 +582,10 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnSynchronouslyDestroyed FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onSynchronouslyDestroyed FAILED:', e));
           }
           break;
         }
@@ -642,7 +593,7 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPowerEfficientState');
-          const result = this.impl.onPowerEfficientState(params.arg_is_power_efficient);
+          const result = this.impl.onPowerEfficientState(params.arg_arg_is_power_efficient);
           break;
         }
       }
@@ -657,4 +608,57 @@ mojo.internal.bindings.media.mojom.AndroidOverlayClientReceiver = mojo.internal.
 
 mojo.internal.bindings.media.mojom.AndroidOverlayClientPtr = mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote;
 mojo.internal.bindings.media.mojom.AndroidOverlayClientRequest = mojo.internal.bindings.media.mojom.AndroidOverlayClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AndroidOverlayConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, 'media.mojom.AndroidOverlayConfig', [
+      mojo.internal.StructField('arg_routing_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 8, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_power_efficient', 16, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayProvider_CreateOverlay_ParamsSpec, 'media.mojom.AndroidOverlayProvider_CreateOverlay_Params', [
+      mojo.internal.StructField('arg_overlay', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AndroidOverlayRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.AndroidOverlayClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_config', 16, 0, mojo.internal.bindings.media.mojom.AndroidOverlayConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlay_ScheduleLayout_ParamsSpec, 'media.mojom.AndroidOverlay_ScheduleLayout_Params', [
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSurfaceReady_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnSurfaceReady_Params', [
+      mojo.internal.StructField('arg_surface_key', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnDestroyed_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnDestroyed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParamsSpec, 'media.mojom.AndroidOverlayClient_OnSynchronouslyDestroyed_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AndroidOverlayClient_OnPowerEfficientState_ParamsSpec, 'media.mojom.AndroidOverlayClient_OnPowerEfficientState_Params', [
+      mojo.internal.StructField('arg_is_power_efficient', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

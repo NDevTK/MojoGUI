@@ -150,13 +150,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VideoGeometryChangeClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_Params', [
-      mojo.internal.StructField('arg_rect_f', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transform', 8, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,7 +262,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVideoGeometryChange');
-          const result = this.impl.onVideoGeometryChange(params.arg_rect_f, params.arg_transform);
+          const result = this.impl.onVideoGeometryChange(params.arg_arg_rect_f, params.arg_arg_transform);
           break;
         }
       }
@@ -287,18 +280,6 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRequest =
 
 
 // Interface: VideoGeometryChangeSubscriber
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params', [
-      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -411,12 +392,14 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribeToVideoGeometryChange');
-          const result = this.impl.subscribeToVideoGeometryChange(params.arg_overlay_plane_id, params.arg_client_pending_remote);
+          const result = this.impl.subscribeToVideoGeometryChange(params.arg_arg_overlay_plane_id, params.arg_arg_client_pending_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SubscribeToVideoGeometryChange FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] subscribeToVideoGeometryChange FAILED:', e));
           }
           break;
         }
@@ -435,14 +418,6 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriberReque
 
 
 // Interface: VideoGeometrySetter
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec, 'chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_Params', [
-      mojo.internal.StructField('arg_rect_f', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transform', 8, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_overlay_plane_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -555,7 +530,7 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoGeometry');
-          const result = this.impl.setVideoGeometry(params.arg_rect_f, params.arg_transform, params.arg_overlay_plane_id);
+          const result = this.impl.setVideoGeometry(params.arg_arg_rect_f, params.arg_arg_transform, params.arg_arg_overlay_plane_id);
           break;
         }
       }
@@ -570,4 +545,33 @@ mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterReceiver = mojo
 
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterPtr = mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterRemote;
 mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterRequest = mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeClient_OnVideoGeometryChange_Params', [
+      mojo.internal.StructField('arg_rect_f', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transform', 8, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_Params', [
+      mojo.internal.StructField('arg_overlay_plane_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_pending_remote', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParamsSpec, 'chromecast.media.mojom.VideoGeometryChangeSubscriber_SubscribeToVideoGeometryChange_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_ParamsSpec, 'chromecast.media.mojom.VideoGeometrySetter_SetVideoGeometry_Params', [
+      mojo.internal.StructField('arg_rect_f', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transform', 8, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_overlay_plane_id', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

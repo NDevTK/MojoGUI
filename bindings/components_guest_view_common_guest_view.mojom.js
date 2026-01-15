@@ -247,27 +247,6 @@ mojo.internal.bindings.guest_view.mojom.ViewHandleRequest = mojo.internal.bindin
 
 
 // Interface: GuestViewHost
-mojo.internal.Struct(
-    mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params', [
-      mojo.internal.StructField('arg_element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_guest_instance_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
-      mojo.internal.StructField('arg_view_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_handle_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_view_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.guest_view.mojom.GuestViewHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -394,12 +373,14 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.attachToEmbedderFrame');
-          const result = this.impl.attachToEmbedderFrame(params.arg_element_instance_id, params.arg_guest_instance_id, params.arg_params);
+          const result = this.impl.attachToEmbedderFrame(params.arg_arg_element_instance_id, params.arg_arg_guest_instance_id, params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AttachToEmbedderFrame FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] attachToEmbedderFrame FAILED:', e));
           }
           break;
         }
@@ -407,7 +388,7 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.viewCreated');
-          const result = this.impl.viewCreated(params.arg_view_instance_id, params.arg_view_type, params.arg_keep_alive_handle_receiver);
+          const result = this.impl.viewCreated(params.arg_arg_view_instance_id, params.arg_arg_view_type, params.arg_arg_keep_alive_handle_receiver);
           break;
         }
       }
@@ -422,4 +403,27 @@ mojo.internal.bindings.guest_view.mojom.GuestViewHostReceiver = mojo.internal.bi
 
 mojo.internal.bindings.guest_view.mojom.GuestViewHostPtr = mojo.internal.bindings.guest_view.mojom.GuestViewHostRemote;
 mojo.internal.bindings.guest_view.mojom.GuestViewHostRequest = mojo.internal.bindings.guest_view.mojom.GuestViewHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_Params', [
+      mojo.internal.StructField('arg_element_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_guest_instance_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 8, 0, mojo.internal.bindings.mojo_base.mojom.DictionaryValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParamsSpec, 'guest_view.mojom.GuestViewHost_AttachToEmbedderFrame_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.guest_view.mojom.GuestViewHost_ViewCreated_ParamsSpec, 'guest_view.mojom.GuestViewHost_ViewCreated_Params', [
+      mojo.internal.StructField('arg_view_instance_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_handle_receiver', 4, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.guest_view.mojom.ViewHandleRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_view_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -128,19 +128,6 @@ mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpe
 mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec = { $: {} };
 
 // Interface: RemoteInterfaces
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_BindInterface_Params', [
-      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_AddClient_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.mojom.RemoteInterfacesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,14 +254,14 @@ mojo.internal.bindings.chromecast.mojom.RemoteInterfacesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindInterface');
-          const result = this.impl.bindInterface(params.arg_interface_name, params.arg_pipe);
+          const result = this.impl.bindInterface(params.arg_arg_interface_name, params.arg_arg_pipe);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_receiver);
+          const result = this.impl.addClient(params.arg_arg_receiver);
           break;
         }
       }
@@ -289,4 +276,19 @@ mojo.internal.bindings.chromecast.mojom.RemoteInterfacesReceiver = mojo.internal
 
 mojo.internal.bindings.chromecast.mojom.RemoteInterfacesPtr = mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemote;
 mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRequest = mojo.internal.bindings.chromecast.mojom.RemoteInterfacesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_BindInterface_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_BindInterface_Params', [
+      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.mojom.RemoteInterfaces_AddClient_ParamsSpec, 'chromecast.mojom.RemoteInterfaces_AddClient_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromecast.mojom.RemoteInterfacesRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

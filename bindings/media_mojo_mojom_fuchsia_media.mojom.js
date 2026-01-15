@@ -150,28 +150,7 @@ mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryMode = {
   SECURE_OUTPUT: 2,
 };
 
-// Struct: CdmRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmRequestSpec, 'media.mojom.CdmRequest', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: StreamProcessorRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec, 'media.mojom.StreamProcessorRequest', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: FuchsiaMediaCdmProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec, 'media.mojom.FuchsiaMediaCdmProvider_CreateCdm_Params', [
-      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cdm_request', 8, 0, mojo.internal.bindings.media.mojom.CdmRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,7 +263,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdm');
-          const result = this.impl.createCdm(params.arg_key_system, params.arg_cdm_request);
+          const result = this.impl.createCdm(params.arg_arg_key_system, params.arg_arg_cdm_request);
           break;
         }
       }
@@ -302,25 +281,6 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProviderRequest = mojo.interna
 
 
 // Interface: FuchsiaMediaCodecProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params', [
-      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_mode', 4, 0, mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_processor_request', 8, 0, mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParams', [
-      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -447,7 +407,7 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
-          const result = this.impl.createVideoDecoder(params.arg_codec, params.arg_secure_mode, params.arg_stream_processor_request);
+          const result = this.impl.createVideoDecoder(params.arg_arg_codec, params.arg_arg_secure_mode, params.arg_arg_stream_processor_request);
           break;
         }
         case 1: {
@@ -458,8 +418,11 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSupportedVideoDecoderConfigs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_supported_configs' in response) ? response.arg_arg_supported_configs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedVideoDecoderConfigs FAILED:', e));
           }
           break;
         }
@@ -475,4 +438,46 @@ mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderReceiver = mojo.inte
 
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderPtr = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRemote;
 mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderRequest = mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CdmRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmRequestSpec, 'media.mojom.CdmRequest', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: StreamProcessorRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec, 'media.mojom.StreamProcessorRequest', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FuchsiaMediaCdmProvider_CreateCdm_ParamsSpec, 'media.mojom.FuchsiaMediaCdmProvider_CreateCdm_Params', [
+      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cdm_request', 8, 0, mojo.internal.bindings.media.mojom.CdmRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_CreateVideoDecoder_Params', [
+      mojo.internal.StructField('arg_codec', 0, 0, mojo.internal.bindings.media.mojom.VideoCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_mode', 4, 0, mojo.internal.bindings.media.mojom.VideoDecoderSecureMemoryModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_processor_request', 8, 0, mojo.internal.bindings.media.mojom.StreamProcessorRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParamsSpec, 'media.mojom.FuchsiaMediaCodecProvider_GetSupportedVideoDecoderConfigs_ResponseParams', [
+      mojo.internal.StructField('arg_supported_configs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.SupportedVideoDecoderConfigSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

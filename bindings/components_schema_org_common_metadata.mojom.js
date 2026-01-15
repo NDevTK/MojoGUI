@@ -130,6 +130,8 @@ mojo.internal.bindings.schema_org = mojo.internal.bindings.schema_org || {};
 mojo.internal.bindings.schema_org.mojom = mojo.internal.bindings.schema_org.mojom || {};
 mojo.internal.bindings.schema_org.mojom.ValuesSpec = mojo.internal.bindings.schema_org.mojom.ValuesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Values
 mojo.internal.Union(
     mojo.internal.bindings.schema_org.mojom.ValuesSpec, 'schema_org.mojom.Values', {

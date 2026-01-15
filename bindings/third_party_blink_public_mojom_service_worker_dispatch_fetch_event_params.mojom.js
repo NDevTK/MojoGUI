@@ -137,6 +137,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.URLLoaderFactorySpec = mojo.internal.bindings.network.mojom.URLLoaderFactorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote || class {};
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DispatchFetchEventParams
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.DispatchFetchEventParamsSpec, 'blink.mojom.DispatchFetchEventParams', [

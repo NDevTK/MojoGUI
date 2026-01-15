@@ -144,6 +144,8 @@ mojo.internal.bindings.blink.mojom.JavaScriptFramework = {
   kWordPress: 15,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: JavaScriptFrameworkDetectionResult
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.JavaScriptFrameworkDetectionResultSpec, 'blink.mojom.JavaScriptFrameworkDetectionResult', [

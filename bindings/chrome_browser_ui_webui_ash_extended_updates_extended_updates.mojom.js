@@ -139,22 +139,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.Page = {};
 mojo.internal.bindings.ash.extended_updates.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.ash.extended_updates.mojom.Page.$interfaceName = 'ash.extended_updates.mojom.Page';
 
-// Struct: App
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.AppSpec, 'ash.extended_updates.mojom.App', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.extended_updates.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -267,7 +252,7 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -285,33 +270,6 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactoryRequest = mo
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_CloseDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParams', [
-      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.extended_updates.mojom.AppSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -456,8 +414,11 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OptInToExtendedUpdates FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] optInToExtendedUpdates FAILED:', e));
           }
           break;
         }
@@ -476,8 +437,11 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInstalledAndroidApps FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_apps' in response) ? response.arg_arg_apps : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInstalledAndroidApps FAILED:', e));
           }
           break;
         }
@@ -602,4 +566,48 @@ mojo.internal.bindings.ash.extended_updates.mojom.PageReceiver = mojo.internal.b
 
 mojo.internal.bindings.ash.extended_updates.mojom.PagePtr = mojo.internal.bindings.ash.extended_updates.mojom.PageRemote;
 mojo.internal.bindings.ash.extended_updates.mojom.PageRequest = mojo.internal.bindings.ash.extended_updates.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: App
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.AppSpec, 'ash.extended_updates.mojom.App', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.extended_updates.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.extended_updates.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.extended_updates.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_OptInToExtendedUpdates_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_CloseDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParamsSpec, 'ash.extended_updates.mojom.PageHandler_GetInstalledAndroidApps_ResponseParams', [
+      mojo.internal.StructField('arg_apps', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.extended_updates.mojom.AppSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

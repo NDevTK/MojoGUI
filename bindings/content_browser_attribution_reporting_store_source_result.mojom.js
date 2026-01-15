@@ -142,3 +142,5 @@ mojo.internal.bindings.attribution_reporting.mojom.StoreSourceResult = {
   kExceedsMaxScopesChannelCapacity: 15,
   kExceedsMaxEventStatesLimit: 16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

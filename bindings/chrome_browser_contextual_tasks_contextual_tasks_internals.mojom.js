@@ -152,38 +152,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: GetRelevantContextRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, 'contextual_tasks_internals.mojom.GetRelevantContextRequest', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_selection_mode', 8, 0, mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_model_score', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Tab
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec, 'contextual_tasks_internals.mojom.Tab', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: GetRelevantContextResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, 'contextual_tasks_internals.mojom.GetRelevantContextResponse', [
-      mojo.internal.StructField('arg_relevant_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ContextualTasksInternalsPageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,7 +265,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -314,18 +283,6 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 
 
 // Interface: ContextualTasksInternalsPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -438,12 +395,15 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getRelevantContext');
-          const result = this.impl.getRelevantContext(params.arg_request);
+          const result = this.impl.getRelevantContext(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetRelevantContext FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getRelevantContext FAILED:', e));
           }
           break;
         }
@@ -462,15 +422,6 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 
 
 // Interface: ContextualTasksInternalsPage
-mojo.internal.Struct(
-    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_Params', [
-      mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -583,7 +534,7 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_source_file, params.arg_source_line, params.arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_arg_event_time, params.arg_arg_source_file, params.arg_arg_source_line, params.arg_arg_message);
           break;
         }
       }
@@ -598,4 +549,58 @@ mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternals
 
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPagePtr = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote;
 mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRequest = mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: GetRelevantContextRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, 'contextual_tasks_internals.mojom.GetRelevantContextRequest', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_selection_mode', 8, 0, mojo.internal.bindings.contextual_tasks.mojom.TabSelectionModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_model_score', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Tab
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec, 'contextual_tasks_internals.mojom.Tab', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GetRelevantContextResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, 'contextual_tasks_internals.mojom.GetRelevantContextResponse', [
+      mojo.internal.StructField('arg_relevant_tabs', 0, 0, mojo.internal.Array(mojo.internal.bindings.contextual_tasks_internals.mojom.TabSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPageHandler_GetRelevantContext_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.contextual_tasks_internals.mojom.GetRelevantContextResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_ParamsSpec, 'contextual_tasks_internals.mojom.ContextualTasksInternalsPage_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_line', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 24, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

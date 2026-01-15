@@ -130,3 +130,5 @@ mojo.internal.bindings.device.mojom.GeolocationClientId = {
   kGeoLanguageProvider: 2,
   kFingerprintDataLoader: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

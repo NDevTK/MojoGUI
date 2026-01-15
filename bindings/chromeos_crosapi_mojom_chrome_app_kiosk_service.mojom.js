@@ -157,42 +157,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResult = {
   kChromeAppDeprecated: 4,
 };
 
-// Struct: AppInstallParams
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec, 'crosapi.mojom.AppInstallParams', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_crx_file_location', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_store_app', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ChromeKioskLaunchController
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_Params', [
-      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_network_ready', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -319,12 +284,15 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.installKioskApp');
-          const result = this.impl.installKioskApp(params.arg_params);
+          const result = this.impl.installKioskApp(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InstallKioskApp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] installKioskApp FAILED:', e));
           }
           break;
         }
@@ -332,12 +300,15 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchKioskApp');
-          const result = this.impl.launchKioskApp(params.arg_app_id, params.arg_is_network_ready);
+          const result = this.impl.launchKioskApp(params.arg_arg_app_id, params.arg_arg_is_network_ready);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LaunchKioskApp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] launchKioskApp FAILED:', e));
           }
           break;
         }
@@ -356,12 +327,6 @@ mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRequest = mojo.i
 
 
 // Interface: ChromeAppKioskService
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec, 'crosapi.mojom.ChromeAppKioskService_BindLaunchController_Params', [
-      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,7 +439,7 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLaunchController');
-          const result = this.impl.bindLaunchController(params.arg_controller);
+          const result = this.impl.bindLaunchController(params.arg_arg_controller);
           break;
         }
       }
@@ -489,4 +454,47 @@ mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceReceiver = mojo.intern
 
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServicePtr = mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceRemote;
 mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServiceRequest = mojo.internal.bindings.crosapi.mojom.ChromeAppKioskServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AppInstallParams
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec, 'crosapi.mojom.AppInstallParams', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_crx_file_location', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_store_app', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.crosapi.mojom.AppInstallParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_InstallKioskApp_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ChromeKioskInstallResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_Params', [
+      mojo.internal.StructField('arg_app_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_network_ready', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParamsSpec, 'crosapi.mojom.ChromeKioskLaunchController_LaunchKioskApp_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.ChromeAppKioskService_BindLaunchController_ParamsSpec, 'crosapi.mojom.ChromeAppKioskService_BindLaunchController_Params', [
+      mojo.internal.StructField('arg_controller', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.crosapi.mojom.ChromeKioskLaunchControllerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

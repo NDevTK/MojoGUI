@@ -132,12 +132,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec = mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SubresourceLoaderUpdater
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec, 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params', [
-      mojo.internal.StructField('arg_subresource_loader_factories', 0, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSubresourceLoaderFactories');
-          const result = this.impl.updateSubresourceLoaderFactories(params.arg_subresource_loader_factories);
+          const result = this.impl.updateSubresourceLoaderFactories(params.arg_arg_subresource_loader_factories);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterReceiver = mojo.inter
 
 mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterPtr = mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRemote;
 mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterRequest = mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdaterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_ParamsSpec, 'blink.mojom.SubresourceLoaderUpdater_UpdateSubresourceLoaderFactories_Params', [
+      mojo.internal.StructField('arg_subresource_loader_factories', 0, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

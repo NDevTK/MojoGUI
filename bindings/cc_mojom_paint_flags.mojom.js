@@ -132,6 +132,8 @@ mojo.internal.bindings.cc.mojom.FilterQuality = {
   kHigh: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DynamicRangeLimit
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.DynamicRangeLimitSpec, 'cc.mojom.DynamicRangeLimit', [

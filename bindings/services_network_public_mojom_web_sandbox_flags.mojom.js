@@ -147,3 +147,5 @@ mojo.internal.bindings.network.mojom.WebSandboxFlags = {
   kAllowSameSiteNoneCookies: 262144,
   kAll: -1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

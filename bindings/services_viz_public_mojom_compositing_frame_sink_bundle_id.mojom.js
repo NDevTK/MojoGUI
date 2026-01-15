@@ -123,6 +123,8 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 
 mojo.internal.bindings.viz.mojom.FrameSinkBundleIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FrameSinkBundleId
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameSinkBundleIdSpec, 'viz.mojom.FrameSinkBundleId', [

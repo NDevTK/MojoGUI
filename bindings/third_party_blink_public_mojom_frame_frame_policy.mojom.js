@@ -141,6 +141,8 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec = mojo.internal.bindings.network.mojom.WebSandboxFlagsSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FramePolicy
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FramePolicySpec, 'blink.mojom.FramePolicy', [

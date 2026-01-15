@@ -142,21 +142,7 @@ mojo.internal.bindings.download.mojom.NetworkRequestStatus = {
   NETWORK_FAILED: 9,
 };
 
-// Struct: DownloadStreamHandle
-mojo.internal.Struct(
-    mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec, 'download.mojom.DownloadStreamHandle', [
-      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.download.mojom.DownloadStreamClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: DownloadStreamClient
-mojo.internal.Struct(
-    mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec, 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.download.mojom.DownloadStreamClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -269,7 +255,7 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStreamCompleted');
-          const result = this.impl.onStreamCompleted(params.arg_status);
+          const result = this.impl.onStreamCompleted(params.arg_arg_status);
           break;
         }
       }
@@ -284,4 +270,20 @@ mojo.internal.bindings.download.mojom.DownloadStreamClientReceiver = mojo.intern
 
 mojo.internal.bindings.download.mojom.DownloadStreamClientPtr = mojo.internal.bindings.download.mojom.DownloadStreamClientRemote;
 mojo.internal.bindings.download.mojom.DownloadStreamClientRequest = mojo.internal.bindings.download.mojom.DownloadStreamClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DownloadStreamHandle
+mojo.internal.Struct(
+    mojo.internal.bindings.download.mojom.DownloadStreamHandleSpec, 'download.mojom.DownloadStreamHandle', [
+      mojo.internal.StructField('arg_stream', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.download.mojom.DownloadStreamClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.download.mojom.DownloadStreamClient_OnStreamCompleted_ParamsSpec, 'download.mojom.DownloadStreamClient_OnStreamCompleted_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.download.mojom.NetworkRequestStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

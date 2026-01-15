@@ -135,29 +135,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.VersionSpec = mojo.internal.bindings.mojo_base.mojom.VersionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: MediaDrmSupportResult
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec, 'media.mojom.MediaDrmSupportResult', [
-      mojo.internal.StructField('arg_key_system_supports_video_mp4', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_key_system_supports_video_webm', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_key_system_version', 8, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MediaDrmSupport
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_Params', [
-      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_secure', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParams', [
-      mojo.internal.StructField('arg_key_system_supports', 0, 0, mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.MediaDrmSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -270,12 +248,15 @@ mojo.internal.bindings.media.mojom.MediaDrmSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.isKeySystemSupported');
-          const result = this.impl.isKeySystemSupported(params.arg_key_system, params.arg_is_secure);
+          const result = this.impl.isKeySystemSupported(params.arg_arg_key_system, params.arg_arg_is_secure);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsKeySystemSupported FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_key_system_supports' in response) ? response.arg_arg_key_system_supports : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isKeySystemSupported FAILED:', e));
           }
           break;
         }
@@ -291,4 +272,28 @@ mojo.internal.bindings.media.mojom.MediaDrmSupportReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.media.mojom.MediaDrmSupportPtr = mojo.internal.bindings.media.mojom.MediaDrmSupportRemote;
 mojo.internal.bindings.media.mojom.MediaDrmSupportRequest = mojo.internal.bindings.media.mojom.MediaDrmSupportPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MediaDrmSupportResult
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec, 'media.mojom.MediaDrmSupportResult', [
+      mojo.internal.StructField('arg_key_system_supports_video_mp4', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_key_system_supports_video_webm', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_key_system_version', 8, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_Params', [
+      mojo.internal.StructField('arg_key_system', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_secure', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParamsSpec, 'media.mojom.MediaDrmSupport_IsKeySystemSupported_ResponseParams', [
+      mojo.internal.StructField('arg_key_system_supports', 0, 0, mojo.internal.bindings.media.mojom.MediaDrmSupportResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

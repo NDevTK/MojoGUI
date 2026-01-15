@@ -138,3 +138,5 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerStartStatus = {
   kNormalCompletion: 0,
   kAbruptCompletion: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

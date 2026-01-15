@@ -138,6 +138,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: GpuMemoryBufferPlatformHandle
 mojo.internal.Union(
     mojo.internal.bindings.gfx.mojom.GpuMemoryBufferPlatformHandleSpec, 'gfx.mojom.GpuMemoryBufferPlatformHandle', {

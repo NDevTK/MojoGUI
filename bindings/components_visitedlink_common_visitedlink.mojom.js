@@ -140,30 +140,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VisitedLinkNotificationSink
-mojo.internal.Struct(
-    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_Params', [
-      mojo.internal.StructField('arg_table_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_Params', [
-      mojo.internal.StructField('arg_link_hashes', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_Params', [
-      mojo.internal.StructField('arg_invalidate_cached_hashes', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_Params', [
-      mojo.internal.StructField('arg_origin_salts', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -318,28 +294,28 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVisitedLinks');
-          const result = this.impl.updateVisitedLinks(params.arg_table_region);
+          const result = this.impl.updateVisitedLinks(params.arg_arg_table_region);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVisitedLinks');
-          const result = this.impl.addVisitedLinks(params.arg_link_hashes);
+          const result = this.impl.addVisitedLinks(params.arg_arg_link_hashes);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resetVisitedLinks');
-          const result = this.impl.resetVisitedLinks(params.arg_invalidate_cached_hashes);
+          const result = this.impl.resetVisitedLinks(params.arg_arg_invalidate_cached_hashes);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateOriginSalts');
-          const result = this.impl.updateOriginSalts(params.arg_origin_salts);
+          const result = this.impl.updateOriginSalts(params.arg_arg_origin_salts);
           break;
         }
       }
@@ -354,4 +330,30 @@ mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkReceiver = m
 
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkPtr = mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRemote;
 mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkRequest = mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSinkPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateVisitedLinks_Params', [
+      mojo.internal.StructField('arg_table_region', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_AddVisitedLinks_Params', [
+      mojo.internal.StructField('arg_link_hashes', 0, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_ResetVisitedLinks_Params', [
+      mojo.internal.StructField('arg_invalidate_cached_hashes', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_ParamsSpec, 'visitedlink.mojom.VisitedLinkNotificationSink_UpdateOriginSalts_Params', [
+      mojo.internal.StructField('arg_origin_salts', 0, 0, mojo.internal.Map(mojo.internal.bindings.url.mojom.OriginSpec, mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

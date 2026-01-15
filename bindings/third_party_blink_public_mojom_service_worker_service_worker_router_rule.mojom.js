@@ -157,6 +157,8 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerRouterRunningStatusEnum = {
   kNotRunning: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: ServiceWorkerRouterSource
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRouterSourceSpec, 'blink.mojom.ServiceWorkerRouterSource', {

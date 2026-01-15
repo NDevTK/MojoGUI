@@ -123,6 +123,8 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 
 mojo.internal.bindings.device.mojom.BatteryStatusSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BatteryStatus
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.BatteryStatusSpec, 'device.mojom.BatteryStatus', [

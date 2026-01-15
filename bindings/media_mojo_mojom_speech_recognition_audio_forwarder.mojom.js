@@ -132,12 +132,6 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.AudioDataS16Spec = mojo.internal.bindings.media.mojom.AudioDataS16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SpeechRecognitionAudioForwarder
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec, 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params', [
-      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.AudioDataS16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAudioFromRenderer');
-          const result = this.impl.addAudioFromRenderer(params.arg_buffer);
+          const result = this.impl.addAudioFromRenderer(params.arg_arg_buffer);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderReceiver = moj
 
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderPtr = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRemote;
 mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderRequest = mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_ParamsSpec, 'media.mojom.SpeechRecognitionAudioForwarder_AddAudioFromRenderer_Params', [
+      mojo.internal.StructField('arg_buffer', 0, 0, mojo.internal.bindings.media.mojom.AudioDataS16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

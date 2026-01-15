@@ -137,37 +137,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: FeedbackInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, 'ash.mojom.scanner_feedback_ui.FeedbackInfo', [
-      mojo.internal.StructField('arg_action_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screenshot_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParams', [
-      mojo.internal.StructField('arg_feedback_info', 0, 0, mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_Params', [
-      mojo.internal.StructField('arg_user_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -312,8 +282,11 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFeedbackInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_feedback_info' in response) ? response.arg_arg_feedback_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFeedbackInfo FAILED:', e));
           }
           break;
         }
@@ -328,7 +301,7 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendFeedback');
-          const result = this.impl.sendFeedback(params.arg_user_description);
+          const result = this.impl.sendFeedback(params.arg_arg_user_description);
           break;
         }
       }
@@ -343,4 +316,36 @@ mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerReceiver = mojo.
 
 mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerPtr = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRemote;
 mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerRequest = mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FeedbackInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, 'ash.mojom.scanner_feedback_ui.FeedbackInfo', [
+      mojo.internal.StructField('arg_action_details', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_GetFeedbackInfo_ResponseParams', [
+      mojo.internal.StructField('arg_feedback_info', 0, 0, mojo.internal.bindings.ash.mojom.scanner_feedback_ui.FeedbackInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_CloseDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_ParamsSpec, 'ash.mojom.scanner_feedback_ui.PageHandler_SendFeedback_Params', [
+      mojo.internal.StructField('arg_user_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

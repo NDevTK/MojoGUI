@@ -133,18 +133,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.PointerLockResultSpec = mojo.internal.bindings.blink.mojom.PointerLockResultSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: PointerLockContext
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_Params', [
-      mojo.internal.StructField('arg_unadjusted_movement', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PointerLockResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PointerLockContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,12 +245,15 @@ mojo.internal.bindings.blink.mojom.PointerLockContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestMouseLockChange');
-          const result = this.impl.requestMouseLockChange(params.arg_unadjusted_movement);
+          const result = this.impl.requestMouseLockChange(params.arg_arg_unadjusted_movement);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestMouseLockChange FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestMouseLockChange FAILED:', e));
           }
           break;
         }
@@ -278,4 +269,18 @@ mojo.internal.bindings.blink.mojom.PointerLockContextReceiver = mojo.internal.bi
 
 mojo.internal.bindings.blink.mojom.PointerLockContextPtr = mojo.internal.bindings.blink.mojom.PointerLockContextRemote;
 mojo.internal.bindings.blink.mojom.PointerLockContextRequest = mojo.internal.bindings.blink.mojom.PointerLockContextPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_Params', [
+      mojo.internal.StructField('arg_unadjusted_movement', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParamsSpec, 'blink.mojom.PointerLockContext_RequestMouseLockChange_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.PointerLockResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

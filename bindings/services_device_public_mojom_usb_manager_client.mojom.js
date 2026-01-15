@@ -133,18 +133,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec = mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: UsbDeviceManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Params', [
-      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,14 +259,14 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceAdded');
-          const result = this.impl.onDeviceAdded(params.arg_device_info);
+          const result = this.impl.onDeviceAdded(params.arg_arg_device_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceRemoved');
-          const result = this.impl.onDeviceRemoved(params.arg_device_info);
+          const result = this.impl.onDeviceRemoved(params.arg_arg_device_info);
           break;
         }
       }
@@ -293,4 +281,18 @@ mojo.internal.bindings.device.mojom.UsbDeviceManagerClientReceiver = mojo.intern
 
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClientPtr = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRemote;
 mojo.internal.bindings.device.mojom.UsbDeviceManagerClientRequest = mojo.internal.bindings.device.mojom.UsbDeviceManagerClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceAdded_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceAdded_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_ParamsSpec, 'device.mojom.UsbDeviceManagerClient_OnDeviceRemoved_Params', [
+      mojo.internal.StructField('arg_device_info', 0, 0, mojo.internal.bindings.device.mojom.UsbDeviceInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

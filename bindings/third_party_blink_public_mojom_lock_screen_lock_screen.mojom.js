@@ -138,30 +138,6 @@ mojo.internal.bindings.blink.mojom.LockScreenServiceStatus = {
 };
 
 // Interface: LockScreenService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ParamsSpec, 'blink.mojom.LockScreenService_GetKeys_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec, 'blink.mojom.LockScreenService_GetKeys_ResponseParams', [
-      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ParamsSpec, 'blink.mojom.LockScreenService_SetData_Params', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ResponseParamsSpec, 'blink.mojom.LockScreenService_SetData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.LockScreenServiceStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.LockScreenServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -292,8 +268,11 @@ mojo.internal.bindings.blink.mojom.LockScreenServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetKeys FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_keys' in response) ? response.arg_arg_keys : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getKeys FAILED:', e));
           }
           break;
         }
@@ -301,12 +280,15 @@ mojo.internal.bindings.blink.mojom.LockScreenServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setData');
-          const result = this.impl.setData(params.arg_key, params.arg_data);
+          const result = this.impl.setData(params.arg_arg_key, params.arg_arg_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setData FAILED:', e));
           }
           break;
         }
@@ -322,4 +304,30 @@ mojo.internal.bindings.blink.mojom.LockScreenServiceReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.LockScreenServicePtr = mojo.internal.bindings.blink.mojom.LockScreenServiceRemote;
 mojo.internal.bindings.blink.mojom.LockScreenServiceRequest = mojo.internal.bindings.blink.mojom.LockScreenServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ParamsSpec, 'blink.mojom.LockScreenService_GetKeys_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockScreenService_GetKeys_ResponseParamsSpec, 'blink.mojom.LockScreenService_GetKeys_ResponseParams', [
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ParamsSpec, 'blink.mojom.LockScreenService_SetData_Params', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.LockScreenService_SetData_ResponseParamsSpec, 'blink.mojom.LockScreenService_SetData_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.LockScreenServiceStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

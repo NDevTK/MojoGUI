@@ -192,6 +192,8 @@ mojo.internal.bindings.tabs_api.mojom.Layout = {
   kHorizontal: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Data
 mojo.internal.Union(
     mojo.internal.bindings.tabs_api.mojom.DataSpec, 'tabs_api.mojom.Data', {

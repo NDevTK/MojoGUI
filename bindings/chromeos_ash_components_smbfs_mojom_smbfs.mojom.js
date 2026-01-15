@@ -189,71 +189,7 @@ mojo.internal.bindings.smbfs.mojom.Source = {
   kKerberos: 1,
 };
 
-// Struct: Password
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.PasswordSpec, 'smbfs.mojom.Password', [
-      mojo.internal.StructField('arg_kMaxLength', 0, 0, mojo.internal.OpaqueStruct, 255, false, 0, undefined),
-      mojo.internal.StructField('arg_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: KerberosConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, 'smbfs.mojom.KerberosConfig', [
-      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.smbfs.mojom.SourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: CredentialStorageOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, 'smbfs.mojom.CredentialStorageOptions', [
-      mojo.internal.StructField('arg_kMinSaltLength', 0, 0, mojo.internal.OpaqueStruct, 16, false, 0, undefined),
-      mojo.internal.StructField('arg_account_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: MountOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.MountOptionsSpec, 'smbfs.mojom.MountOptions', [
-      mojo.internal.StructField('arg_share_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_resolved_host', 8, 0, mojo.internal.bindings.smbfs.mojom.IPAddressSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_username', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_workgroup', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.smbfs.mojom.PasswordSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_kerberos_config', 40, 0, mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allow_ntlm', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_skip_connect', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_credential_storage_options', 56, 0, mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, null, true, 1, undefined),
-    ],
-    [[0, 64], [1, 72]]);
-
-// Struct: Credentials
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.CredentialsSpec, 'smbfs.mojom.Credentials', [
-      mojo.internal.StructField('arg_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_workgroup', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.bindings.smbfs.mojom.PasswordSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: SmbFsBootstrap
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
-      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.smbfs.mojom.MountOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_smbfs', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -366,12 +302,14 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mountShare');
-          const result = this.impl.mountShare(params.arg_options, params.arg_delegate);
+          const result = this.impl.mountShare(params.arg_arg_options, params.arg_arg_delegate);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] MountShare FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_smbfs']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] mountShare FAILED:', e));
           }
           break;
         }
@@ -390,29 +328,6 @@ mojo.internal.bindings.smbfs.mojom.SmbFsBootstrapRequest = mojo.internal.binding
 
 
 // Interface: SmbFs
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.smbfs.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.smbfs.mojom.SmbFsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -543,8 +458,11 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveSavedCredentials FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeSavedCredentials FAILED:', e));
           }
           break;
         }
@@ -552,12 +470,15 @@ mojo.internal.bindings.smbfs.mojom.SmbFsReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteRecursively');
-          const result = this.impl.deleteRecursively(params.arg_path);
+          const result = this.impl.deleteRecursively(params.arg_arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteRecursively FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deleteRecursively FAILED:', e));
           }
           break;
         }
@@ -576,17 +497,6 @@ mojo.internal.bindings.smbfs.mojom.SmbFsRequest = mojo.internal.bindings.smbfs.m
 
 
 // Interface: SmbFsDelegate
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParams', [
-      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.smbfs.mojom.CredentialsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -703,8 +613,11 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestCredentials FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_credentials' in response) ? response.arg_arg_credentials : response;
+              encoder.encodeStructInline(mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestCredentials FAILED:', e));
           }
           break;
         }
@@ -720,4 +633,104 @@ mojo.internal.bindings.smbfs.mojom.SmbFsDelegateReceiver = mojo.internal.binding
 
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegatePtr = mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemote;
 mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRequest = mojo.internal.bindings.smbfs.mojom.SmbFsDelegatePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Password
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.PasswordSpec, 'smbfs.mojom.Password', [
+      mojo.internal.StructField('arg_kMaxLength', 0, 0, mojo.internal.OpaqueStruct, 255, false, 0, undefined),
+      mojo.internal.StructField('arg_fd', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: KerberosConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, 'smbfs.mojom.KerberosConfig', [
+      mojo.internal.StructField('arg_source', 0, 0, mojo.internal.bindings.smbfs.mojom.SourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_identity', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CredentialStorageOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, 'smbfs.mojom.CredentialStorageOptions', [
+      mojo.internal.StructField('arg_kMinSaltLength', 0, 0, mojo.internal.OpaqueStruct, 16, false, 0, undefined),
+      mojo.internal.StructField('arg_account_hash', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_salt', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: MountOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.MountOptionsSpec, 'smbfs.mojom.MountOptions', [
+      mojo.internal.StructField('arg_share_path', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_resolved_host', 8, 0, mojo.internal.bindings.smbfs.mojom.IPAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_username', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_workgroup', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.smbfs.mojom.PasswordSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_kerberos_config', 40, 0, mojo.internal.bindings.smbfs.mojom.KerberosConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_allow_ntlm', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_skip_connect', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_credential_storage_options', 56, 0, mojo.internal.bindings.smbfs.mojom.CredentialStorageOptionsSpec, null, true, 1, undefined),
+    ],
+    [[0, 64], [1, 72]]);
+
+// Struct: Credentials
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.CredentialsSpec, 'smbfs.mojom.Credentials', [
+      mojo.internal.StructField('arg_username', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_workgroup', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 16, 0, mojo.internal.bindings.smbfs.mojom.PasswordSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_Params', [
+      mojo.internal.StructField('arg_options', 0, 0, mojo.internal.bindings.smbfs.mojom.MountOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_delegate', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsDelegateRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParamsSpec, 'smbfs.mojom.SmbFsBootstrap_MountShare_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.MountErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_smbfs', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.smbfs.mojom.SmbFsRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFs_RemoveSavedCredentials_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.smbfs.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFs_DeleteRecursively_ResponseParamsSpec, 'smbfs.mojom.SmbFs_DeleteRecursively_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.smbfs.mojom.DeleteRecursivelyErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParamsSpec, 'smbfs.mojom.SmbFsDelegate_RequestCredentials_ResponseParams', [
+      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.smbfs.mojom.CredentialsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

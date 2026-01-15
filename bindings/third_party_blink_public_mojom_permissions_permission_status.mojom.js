@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.PermissionStatus = {
   ASK: 2,
   LAST: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

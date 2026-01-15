@@ -210,6 +210,8 @@ mojo.internal.bindings.blink.mojom.AutomaticBeaconType = {
   kTopNavigationCommit: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: PotentiallyOpaqueURL
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PotentiallyOpaqueURLSpec, 'blink.mojom.PotentiallyOpaqueURL', {

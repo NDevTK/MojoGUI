@@ -167,48 +167,6 @@ mojo.internal.bindings.web_package.mojom.WebBundleParserFactorySpec = mojo.inter
 mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote = mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote || class {};
 
 // Interface: DataDecoderService
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindXmlParser_Params', [
-      mojo.internal.StructField('arg_reciever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.XmlParserRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindGzipper_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.GzipperRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindCborParser_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.CborParserRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindPixCodeValidator_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.data_decoder.mojom.DataDecoderServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -405,49 +363,49 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindImageDecoder');
-          const result = this.impl.bindImageDecoder(params.arg_receiver);
+          const result = this.impl.bindImageDecoder(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindXmlParser');
-          const result = this.impl.bindXmlParser(params.arg_reciever);
+          const result = this.impl.bindXmlParser(params.arg_arg_reciever);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindWebBundleParserFactory');
-          const result = this.impl.bindWebBundleParserFactory(params.arg_receiver);
+          const result = this.impl.bindWebBundleParserFactory(params.arg_arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindGzipper');
-          const result = this.impl.bindGzipper(params.arg_receiver);
+          const result = this.impl.bindGzipper(params.arg_arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindStructuredHeadersParser');
-          const result = this.impl.bindStructuredHeadersParser(params.arg_receiver);
+          const result = this.impl.bindStructuredHeadersParser(params.arg_arg_receiver);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindCborParser');
-          const result = this.impl.bindCborParser(params.arg_receiver);
+          const result = this.impl.bindCborParser(params.arg_arg_receiver);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindPixCodeValidator');
-          const result = this.impl.bindPixCodeValidator(params.arg_receiver);
+          const result = this.impl.bindPixCodeValidator(params.arg_arg_receiver);
           break;
         }
       }
@@ -462,4 +420,48 @@ mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceReceiver = mojo.inte
 
 mojo.internal.bindings.data_decoder.mojom.DataDecoderServicePtr = mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRemote;
 mojo.internal.bindings.data_decoder.mojom.DataDecoderServiceRequest = mojo.internal.bindings.data_decoder.mojom.DataDecoderServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindImageDecoder_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindImageDecoder_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindXmlParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindXmlParser_Params', [
+      mojo.internal.StructField('arg_reciever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.XmlParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindWebBundleParserFactory_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.web_package.mojom.WebBundleParserFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindGzipper_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindGzipper_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.GzipperRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindStructuredHeadersParser_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindCborParser_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindCborParser_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.data_decoder.mojom.CborParserRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.DataDecoderService_BindPixCodeValidator_ParamsSpec, 'data_decoder.mojom.DataDecoderService_BindPixCodeValidator_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.payments.facilitated.mojom.PixCodeValidatorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

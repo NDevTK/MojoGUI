@@ -140,3 +140,5 @@ mojo.internal.bindings.network.mojom.FetchPriorityAttribute = {
   kAuto: 1,
   kHigh: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

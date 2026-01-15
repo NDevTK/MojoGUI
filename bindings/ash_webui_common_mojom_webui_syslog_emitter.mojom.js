@@ -128,13 +128,6 @@ mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter.$interfaceName = 'ash
 mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec = { $: {} };
 
 // Interface: WebUiSyslogEmitter
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec, 'ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_Params', [
-      mojo.internal.StructField('arg_prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -247,7 +240,7 @@ mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitSyslog');
-          const result = this.impl.emitSyslog(params.arg_prefix, params.arg_message);
+          const result = this.impl.emitSyslog(params.arg_arg_prefix, params.arg_arg_message);
           break;
         }
       }
@@ -262,4 +255,13 @@ mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterReceiver = mojo.intern
 
 mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterPtr = mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterRemote;
 mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterRequest = mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_ParamsSpec, 'ash.common.mojom.WebUiSyslogEmitter_EmitSyslog_Params', [
+      mojo.internal.StructField('arg_prefix', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

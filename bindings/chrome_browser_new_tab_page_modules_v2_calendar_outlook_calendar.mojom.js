@@ -137,27 +137,6 @@ mojo.internal.bindings.ntp.calendar.mojom = mojo.internal.bindings.ntp.calendar.
 mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec = mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: OutlookCalendarPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParams', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -302,8 +281,11 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetEvents FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_events' in response) ? response.arg_arg_events : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getEvents FAILED:', e));
           }
           break;
         }
@@ -333,4 +315,27 @@ mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerReceiver = m
 
 mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerPtr = mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRemote;
 mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerRequest = mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_GetEvents_ResponseParams', [
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.ntp.calendar.mojom.CalendarEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_DismissModule_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_ParamsSpec, 'ntp.calendar.mojom.OutlookCalendarPageHandler_RestoreModule_Params', [
+    ],
+    [[0, 8]]);
 

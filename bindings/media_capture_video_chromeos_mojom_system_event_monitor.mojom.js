@@ -170,12 +170,6 @@ mojo.internal.bindings.cros.mojom.ClockwiseRotation = {
 };
 
 // Interface: CrosDisplayObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
-      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.CrosDisplayObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,7 +282,7 @@ mojo.internal.bindings.cros.mojom.CrosDisplayObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDisplayRotationChanged');
-          const result = this.impl.onDisplayRotationChanged(params.arg_rotation);
+          const result = this.impl.onDisplayRotationChanged(params.arg_arg_rotation);
           break;
         }
       }
@@ -306,12 +300,6 @@ mojo.internal.bindings.cros.mojom.CrosDisplayObserverRequest = mojo.internal.bin
 
 
 // Interface: CrosLidObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
-      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.cros.mojom.LidStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.CrosLidObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -424,7 +412,7 @@ mojo.internal.bindings.cros.mojom.CrosLidObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLidStateChanged');
-          const result = this.impl.onLidStateChanged(params.arg_new_state);
+          const result = this.impl.onLidStateChanged(params.arg_arg_new_state);
           break;
         }
       }
@@ -442,21 +430,6 @@ mojo.internal.bindings.cros.mojom.CrosLidObserverRequest = mojo.internal.binding
 
 
 // Interface: CrosPowerObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemResume_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.cros.mojom.CrosPowerObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -587,8 +560,10 @@ mojo.internal.bindings.cros.mojom.CrosPowerObserverReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnSystemSuspend FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onSystemSuspend FAILED:', e));
           }
           break;
         }
@@ -614,31 +589,6 @@ mojo.internal.bindings.cros.mojom.CrosPowerObserverRequest = mojo.internal.bindi
 
 
 // Interface: CrosSystemEventMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosLidObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params', [
-      mojo.internal.StructField('arg_client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosPowerObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.cros.mojom.DeviceTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -793,28 +743,28 @@ mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDisplayObserver');
-          const result = this.impl.addDisplayObserver(params.arg_observer);
+          const result = this.impl.addDisplayObserver(params.arg_arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLidObserver');
-          const result = this.impl.addLidObserver(params.arg_observer);
+          const result = this.impl.addLidObserver(params.arg_arg_observer);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPowerObserver');
-          const result = this.impl.addPowerObserver(params.arg_client_name, params.arg_observer);
+          const result = this.impl.addPowerObserver(params.arg_arg_client_name, params.arg_arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyDeviceChanged');
-          const result = this.impl.notifyDeviceChanged(params.arg_type);
+          const result = this.impl.notifyDeviceChanged(params.arg_arg_type);
           break;
         }
       }
@@ -829,4 +779,58 @@ mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorReceiver = mojo.internal
 
 mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPtr = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRemote;
 mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorRequest = mojo.internal.bindings.cros.mojom.CrosSystemEventMonitorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_ParamsSpec, 'cros.mojom.CrosDisplayObserver_OnDisplayRotationChanged_Params', [
+      mojo.internal.StructField('arg_rotation', 0, 0, mojo.internal.bindings.cros.mojom.ClockwiseRotationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosLidObserver_OnLidStateChanged_ParamsSpec, 'cros.mojom.CrosLidObserver_OnLidStateChanged_Params', [
+      mojo.internal.StructField('arg_new_state', 0, 0, mojo.internal.bindings.cros.mojom.LidStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemSuspend_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosPowerObserver_OnSystemResume_ParamsSpec, 'cros.mojom.CrosPowerObserver_OnSystemResume_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddDisplayObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosDisplayObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddLidObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddLidObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosLidObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_AddPowerObserver_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_AddPowerObserver_Params', [
+      mojo.internal.StructField('arg_client_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.CrosPowerObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_ParamsSpec, 'cros.mojom.CrosSystemEventMonitor_NotifyDeviceChanged_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.cros.mojom.DeviceTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

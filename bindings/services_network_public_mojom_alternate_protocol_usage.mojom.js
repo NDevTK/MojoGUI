@@ -134,3 +134,5 @@ mojo.internal.bindings.network.mojom.AlternateProtocolUsage = {
   kDnsAlpnH3JobWonRace: 6,
   kUnspecifiedReason: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -128,12 +128,6 @@ mojo.internal.bindings.printing.mojom.PrinterXmlParser.$interfaceName = 'printin
 mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec = { $: {} };
 
 // Interface: PrinterXmlParser
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec, 'printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_Params', [
-      mojo.internal.StructField('arg_capabilities_xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.printing.mojom.PrinterXmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,7 +240,7 @@ mojo.internal.bindings.printing.mojom.PrinterXmlParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseXmlForPrinterCapabilities');
-          const result = this.impl.parseXmlForPrinterCapabilities(params.arg_capabilities_xml);
+          const result = this.impl.parseXmlForPrinterCapabilities(params.arg_arg_capabilities_xml);
           break;
         }
       }
@@ -261,4 +255,12 @@ mojo.internal.bindings.printing.mojom.PrinterXmlParserReceiver = mojo.internal.b
 
 mojo.internal.bindings.printing.mojom.PrinterXmlParserPtr = mojo.internal.bindings.printing.mojom.PrinterXmlParserRemote;
 mojo.internal.bindings.printing.mojom.PrinterXmlParserRequest = mojo.internal.bindings.printing.mojom.PrinterXmlParserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_ParamsSpec, 'printing.mojom.PrinterXmlParser_ParseXmlForPrinterCapabilities_Params', [
+      mojo.internal.StructField('arg_capabilities_xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

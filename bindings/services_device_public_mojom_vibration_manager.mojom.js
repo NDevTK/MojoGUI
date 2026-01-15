@@ -134,27 +134,6 @@ mojo.internal.bindings.device.mojom.VibrationManagerListener.$interfaceName = 'd
 mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec = { $: {} };
 
 // Interface: VibrationManager
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec, 'device.mojom.VibrationManager_Vibrate_Params', [
-      mojo.internal.StructField('arg_milliseconds', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, 'device.mojom.VibrationManager_Vibrate_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec, 'device.mojom.VibrationManager_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec, 'device.mojom.VibrationManager_Cancel_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.VibrationManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,12 +260,14 @@ mojo.internal.bindings.device.mojom.VibrationManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.vibrate');
-          const result = this.impl.vibrate(params.arg_milliseconds);
+          const result = this.impl.vibrate(params.arg_arg_milliseconds);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Vibrate FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] vibrate FAILED:', e));
           }
           break;
         }
@@ -298,8 +279,10 @@ mojo.internal.bindings.device.mojom.VibrationManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }
@@ -318,11 +301,6 @@ mojo.internal.bindings.device.mojom.VibrationManagerRequest = mojo.internal.bind
 
 
 // Interface: VibrationManagerListener
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec, 'device.mojom.VibrationManagerListener_OnVibrate_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.VibrationManagerListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -450,4 +428,32 @@ mojo.internal.bindings.device.mojom.VibrationManagerListenerReceiver = mojo.inte
 
 mojo.internal.bindings.device.mojom.VibrationManagerListenerPtr = mojo.internal.bindings.device.mojom.VibrationManagerListenerRemote;
 mojo.internal.bindings.device.mojom.VibrationManagerListenerRequest = mojo.internal.bindings.device.mojom.VibrationManagerListenerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ParamsSpec, 'device.mojom.VibrationManager_Vibrate_Params', [
+      mojo.internal.StructField('arg_milliseconds', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VibrationManager_Vibrate_ResponseParamsSpec, 'device.mojom.VibrationManager_Vibrate_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ParamsSpec, 'device.mojom.VibrationManager_Cancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VibrationManager_Cancel_ResponseParamsSpec, 'device.mojom.VibrationManager_Cancel_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VibrationManagerListener_OnVibrate_ParamsSpec, 'device.mojom.VibrationManagerListener_OnVibrate_Params', [
+    ],
+    [[0, 8]]);
 

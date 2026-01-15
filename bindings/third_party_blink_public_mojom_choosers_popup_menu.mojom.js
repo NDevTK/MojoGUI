@@ -144,32 +144,7 @@ mojo.internal.bindings.blink.mojom.Type = {
   kSubMenu: 4,
 };
 
-// Struct: MenuItem
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.MenuItemSpec, 'blink.mojom.MenuItem', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_tool_tip', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.TypeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_text_direction', 24, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_text_direction_override', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_checked', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: PopupMenuClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec, 'blink.mojom.PopupMenuClient_DidAcceptIndices_Params', [
-      mojo.internal.StructField('arg_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PopupMenuClient_DidCancel_ParamsSpec, 'blink.mojom.PopupMenuClient_DidCancel_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.PopupMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,7 +271,7 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didAcceptIndices');
-          const result = this.impl.didAcceptIndices(params.arg_indices);
+          const result = this.impl.didAcceptIndices(params.arg_arg_indices);
           break;
         }
         case 1: {
@@ -318,4 +293,31 @@ mojo.internal.bindings.blink.mojom.PopupMenuClientReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.PopupMenuClientPtr = mojo.internal.bindings.blink.mojom.PopupMenuClientRemote;
 mojo.internal.bindings.blink.mojom.PopupMenuClientRequest = mojo.internal.bindings.blink.mojom.PopupMenuClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MenuItem
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.MenuItemSpec, 'blink.mojom.MenuItem', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_tool_tip', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.blink.mojom.TypeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 20, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_text_direction', 24, 0, mojo.internal.bindings.mojo_base.mojom.TextDirectionSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_text_direction_override', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 28, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_checked', 28, 2, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupMenuClient_DidAcceptIndices_ParamsSpec, 'blink.mojom.PopupMenuClient_DidAcceptIndices_Params', [
+      mojo.internal.StructField('arg_indices', 0, 0, mojo.internal.Array(mojo.internal.Int32, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PopupMenuClient_DidCancel_ParamsSpec, 'blink.mojom.PopupMenuClient_DidCancel_Params', [
+    ],
+    [[0, 8]]);
 

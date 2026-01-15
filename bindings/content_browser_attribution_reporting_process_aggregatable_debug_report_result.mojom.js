@@ -134,3 +134,5 @@ mojo.internal.bindings.attribution_reporting.mojom.ProcessAggregatableDebugRepor
   kBothRateLimitsReached: 6,
   kInternalError: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

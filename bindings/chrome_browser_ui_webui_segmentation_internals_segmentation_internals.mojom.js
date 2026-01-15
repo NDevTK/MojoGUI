@@ -147,43 +147,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.TimeSpec = mojo.internal.bindings.mojo_base.mojom.TimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ServiceStatus
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec, 'segmentation_internals.mojom.ServiceStatus', [
-      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_intialization_status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SegmentInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec, 'segmentation_internals.mojom.SegmentInfo', [
-      mojo.internal.StructField('arg_segment_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segment_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_can_execute_segment', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_segment_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prediction_result', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_prediction_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: ClientInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec, 'segmentation_internals.mojom.ClientInfo', [
-      mojo.internal.StructField('arg_segmentation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_segment', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_segment_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.segmentation_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,7 +260,7 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactoryReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -314,31 +278,6 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactoryRequest = 
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec, 'segmentation_internals.mojom.PageHandler_GetServiceStatus_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec, 'segmentation_internals.mojom.PageHandler_ExecuteModel_Params', [
-      mojo.internal.StructField('arg_segment_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec, 'segmentation_internals.mojom.PageHandler_OverwriteResult_Params', [
-      mojo.internal.StructField('arg_segment_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec, 'segmentation_internals.mojom.PageHandler_SetSelected_Params', [
-      mojo.internal.StructField('arg_segmentation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_optimization_target', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.segmentation_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -500,21 +439,21 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.executeModel');
-          const result = this.impl.executeModel(params.arg_segment_id);
+          const result = this.impl.executeModel(params.arg_arg_segment_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.overwriteResult');
-          const result = this.impl.overwriteResult(params.arg_segment_id, params.arg_result);
+          const result = this.impl.overwriteResult(params.arg_arg_segment_id, params.arg_arg_result);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSelected');
-          const result = this.impl.setSelected(params.arg_segmentation_key, params.arg_optimization_target);
+          const result = this.impl.setSelected(params.arg_arg_segmentation_key, params.arg_arg_optimization_target);
           break;
         }
       }
@@ -532,19 +471,6 @@ mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRequest = mojo.in
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec, 'segmentation_internals.mojom.Page_OnServiceStatusChanged_Params', [
-      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_status_flag', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec, 'segmentation_internals.mojom.Page_OnClientInfoAvailable_Params', [
-      mojo.internal.StructField('arg_client_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.segmentation_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -671,14 +597,14 @@ mojo.internal.bindings.segmentation_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onServiceStatusChanged');
-          const result = this.impl.onServiceStatusChanged(params.arg_is_initialized, params.arg_status_flag);
+          const result = this.impl.onServiceStatusChanged(params.arg_arg_is_initialized, params.arg_arg_status_flag);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onClientInfoAvailable');
-          const result = this.impl.onClientInfoAvailable(params.arg_client_info);
+          const result = this.impl.onClientInfoAvailable(params.arg_arg_client_info);
           break;
         }
       }
@@ -693,4 +619,80 @@ mojo.internal.bindings.segmentation_internals.mojom.PageReceiver = mojo.internal
 
 mojo.internal.bindings.segmentation_internals.mojom.PagePtr = mojo.internal.bindings.segmentation_internals.mojom.PageRemote;
 mojo.internal.bindings.segmentation_internals.mojom.PageRequest = mojo.internal.bindings.segmentation_internals.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ServiceStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.ServiceStatusSpec, 'segmentation_internals.mojom.ServiceStatus', [
+      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_intialization_status', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SegmentInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec, 'segmentation_internals.mojom.SegmentInfo', [
+      mojo.internal.StructField('arg_segment_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_segment_id', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_can_execute_segment', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_segment_data', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prediction_result', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_prediction_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: ClientInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec, 'segmentation_internals.mojom.ClientInfo', [
+      mojo.internal.StructField('arg_segmentation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_segment', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_segment_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.segmentation_internals.mojom.SegmentInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'segmentation_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.segmentation_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.segmentation_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_GetServiceStatus_ParamsSpec, 'segmentation_internals.mojom.PageHandler_GetServiceStatus_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_ExecuteModel_ParamsSpec, 'segmentation_internals.mojom.PageHandler_ExecuteModel_Params', [
+      mojo.internal.StructField('arg_segment_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_OverwriteResult_ParamsSpec, 'segmentation_internals.mojom.PageHandler_OverwriteResult_Params', [
+      mojo.internal.StructField('arg_segment_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.PageHandler_SetSelected_ParamsSpec, 'segmentation_internals.mojom.PageHandler_SetSelected_Params', [
+      mojo.internal.StructField('arg_segmentation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_optimization_target', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.Page_OnServiceStatusChanged_ParamsSpec, 'segmentation_internals.mojom.Page_OnServiceStatusChanged_Params', [
+      mojo.internal.StructField('arg_is_initialized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status_flag', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.segmentation_internals.mojom.Page_OnClientInfoAvailable_ParamsSpec, 'segmentation_internals.mojom.Page_OnClientInfoAvailable_Params', [
+      mojo.internal.StructField('arg_client_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.segmentation_internals.mojom.ClientInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

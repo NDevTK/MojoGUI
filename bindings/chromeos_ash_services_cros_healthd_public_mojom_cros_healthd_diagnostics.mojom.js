@@ -279,65 +279,7 @@ mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedColor = {
   kAmber: 6,
 };
 
-// Union: RoutineUpdateUnion
-mojo.internal.Union(
-    mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec, 'ash.cros_healthd.mojom.RoutineUpdateUnion', {
-      'arg_interactive_update': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec,
-        'nullable': false,
-      },
-      'arg_noninteractive_update': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: RunRoutineResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, 'ash.cros_healthd.mojom.RunRoutineResponse', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: InteractiveRoutineUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.InteractiveRoutineUpdate', [
-      mojo.internal.StructField('arg_user_message', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: NonInteractiveRoutineUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: RoutineUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec, 'ash.cros_healthd.mojom.RoutineUpdate', [
-      mojo.internal.StructField('arg_progress_percent', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_output', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
-      mojo.internal.StructField('arg_routine_update_union', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: DEPRECATED_LedLitUpRoutineReplier
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParams', [
-      mojo.internal.StructField('arg_matched', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -454,8 +396,11 @@ mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierR
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetColorMatched FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_matched' in response) ? response.arg_arg_matched : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getColorMatched FAILED:', e));
           }
           break;
         }
@@ -471,4 +416,64 @@ mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierR
 
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPtr = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRemote;
 mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierRequest = mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: RoutineUpdateUnion
+mojo.internal.Union(
+    mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec, 'ash.cros_healthd.mojom.RoutineUpdateUnion', {
+      'arg_interactive_update': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec,
+        'nullable': false,
+      },
+      'arg_noninteractive_update': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: RunRoutineResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.RunRoutineResponseSpec, 'ash.cros_healthd.mojom.RunRoutineResponse', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: InteractiveRoutineUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.InteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.InteractiveRoutineUpdate', [
+      mojo.internal.StructField('arg_user_message', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineUserMessageEnumSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: NonInteractiveRoutineUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.NonInteractiveRoutineUpdateSpec, 'ash.cros_healthd.mojom.NonInteractiveRoutineUpdate', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_healthd.mojom.DiagnosticRoutineStatusEnumSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: RoutineUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateSpec, 'ash.cros_healthd.mojom.RoutineUpdate', [
+      mojo.internal.StructField('arg_progress_percent', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output', 4, 0, mojo.internal.Handle, null, true, 0, undefined),
+      mojo.internal.StructField('arg_routine_update_union', 8, 0, mojo.internal.bindings.ash.cros_healthd.mojom.RoutineUpdateUnionSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParamsSpec, 'ash.cros_healthd.mojom.DEPRECATED_LedLitUpRoutineReplier_GetColorMatched_ResponseParams', [
+      mojo.internal.StructField('arg_matched', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

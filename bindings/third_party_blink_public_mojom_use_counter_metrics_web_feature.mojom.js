@@ -5076,3 +5076,5 @@ mojo.internal.bindings.blink.mojom.WebFeature = {
   kSetCookieWithEmptyNameAndAmbiguousValue: 5772,
   kStorageAccessAPI_requestStorageAccessFor_Method_AsyncSuccess: 5773,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

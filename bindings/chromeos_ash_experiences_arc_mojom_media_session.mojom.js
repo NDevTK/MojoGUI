@@ -135,17 +135,6 @@ mojo.internal.bindings.media_session.mojom.AudioFocusManagerSpec = mojo.internal
 mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote = mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote || class {};
 
 // Interface: MediaSessionInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_EnableAudioFocus_Params', [
-      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_DisableAudioFocus_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.MediaSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,7 +261,7 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableAudioFocus');
-          const result = this.impl.enableAudioFocus(params.arg_service);
+          const result = this.impl.enableAudioFocus(params.arg_arg_service);
           break;
         }
         case 1: {
@@ -294,4 +283,17 @@ mojo.internal.bindings.arc.mojom.MediaSessionInstanceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.arc.mojom.MediaSessionInstancePtr = mojo.internal.bindings.arc.mojom.MediaSessionInstanceRemote;
 mojo.internal.bindings.arc.mojom.MediaSessionInstanceRequest = mojo.internal.bindings.arc.mojom.MediaSessionInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MediaSessionInstance_EnableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_EnableAudioFocus_Params', [
+      mojo.internal.StructField('arg_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media_session.mojom.AudioFocusManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MediaSessionInstance_DisableAudioFocus_ParamsSpec, 'arc.mojom.MediaSessionInstance_DisableAudioFocus_Params', [
+    ],
+    [[0, 8]]);
 

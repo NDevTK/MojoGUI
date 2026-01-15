@@ -157,12 +157,6 @@ mojo.internal.bindings.content.mojom.RouteProviderSpec = mojo.internal.bindings.
 mojo.internal.bindings.content.mojom.RouteProviderRemote = mojo.internal.bindings.content.mojom.RouteProviderRemote || class {};
 
 // Interface: AgentSchedulingGroupHost
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_Params', [
-      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,7 +269,7 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUnloadRenderFrame');
-          const result = this.impl.didUnloadRenderFrame(params.arg_frame_token);
+          const result = this.impl.didUnloadRenderFrame(params.arg_arg_frame_token);
           break;
         }
       }
@@ -293,32 +287,6 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRequest = mojo.inte
 
 
 // Interface: AgentSchedulingGroup
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
-      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.RouteProviderRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateView_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateViewParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateFrame_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateFrameParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_global_scope_creation_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -473,28 +441,28 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindAssociatedInterfaces');
-          const result = this.impl.bindAssociatedInterfaces(params.arg_remote_host, params.arg_route_provider_receiver);
+          const result = this.impl.bindAssociatedInterfaces(params.arg_arg_remote_host, params.arg_arg_route_provider_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createView');
-          const result = this.impl.createView(params.arg_params);
+          const result = this.impl.createView(params.arg_arg_params);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFrame');
-          const result = this.impl.createFrame(params.arg_params);
+          const result = this.impl.createFrame(params.arg_arg_params);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSharedStorageWorkletService');
-          const result = this.impl.createSharedStorageWorkletService(params.arg_receiver, params.arg_global_scope_creation_params);
+          const result = this.impl.createSharedStorageWorkletService(params.arg_arg_receiver, params.arg_arg_global_scope_creation_params);
           break;
         }
       }
@@ -509,4 +477,38 @@ mojo.internal.bindings.content.mojom.AgentSchedulingGroupReceiver = mojo.interna
 
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupPtr = mojo.internal.bindings.content.mojom.AgentSchedulingGroupRemote;
 mojo.internal.bindings.content.mojom.AgentSchedulingGroupRequest = mojo.internal.bindings.content.mojom.AgentSchedulingGroupPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroupHost_DidUnloadRenderFrame_Params', [
+      mojo.internal.StructField('arg_frame_token', 0, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_ParamsSpec, 'content.mojom.AgentSchedulingGroup_BindAssociatedInterfaces_Params', [
+      mojo.internal.StructField('arg_remote_host', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.content.mojom.AgentSchedulingGroupHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_route_provider_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.content.mojom.RouteProviderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateView_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateView_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateViewParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateFrame_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateFrame_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.CreateFrameParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_ParamsSpec, 'content.mojom.AgentSchedulingGroup_CreateSharedStorageWorkletService_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.SharedStorageWorkletServiceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_global_scope_creation_params', 8, 0, mojo.internal.bindings.blink.mojom.WorkletGlobalScopeCreationParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

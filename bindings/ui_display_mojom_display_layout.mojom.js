@@ -140,6 +140,8 @@ mojo.internal.bindings.display.mojom.OffsetReference = {
   BOTTOM_RIGHT: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DisplayPlacement
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplayPlacementSpec, 'display.mojom.DisplayPlacement', [

@@ -393,3 +393,5 @@ mojo.internal.bindings.chromeos.settings.mojom.Setting = {
   kSetActiveKerberosTicketV2: 1802,
   kSnapWindowSuggestions: 1900,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

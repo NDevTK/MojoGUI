@@ -123,6 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.ConnectionEndpointMetadataSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ConnectionEndpointMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ConnectionEndpointMetadataSpec, 'network.mojom.ConnectionEndpointMetadata', [

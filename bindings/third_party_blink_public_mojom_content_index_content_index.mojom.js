@@ -170,81 +170,7 @@ mojo.internal.bindings.blink.mojom.ContentCategory = {
   AUDIO: 4,
 };
 
-// Struct: ContentIconDefinition
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec, 'blink.mojom.ContentIconDefinition', [
-      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sizes', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ContentDescription
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, 'blink.mojom.ContentDescription', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_category', 24, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_launch_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: ContentIndexService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec, 'blink.mojom.ContentIndexService_GetIconSizes_Params', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetIconSizes_ResponseParams', [
-      mojo.internal.StructField('arg_icon_sizes', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec, 'blink.mojom.ContentIndexService_Add_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_launchUrl', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec, 'blink.mojom.ContentIndexService_Add_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec, 'blink.mojom.ContentIndexService_Delete_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec, 'blink.mojom.ContentIndexService_Delete_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_descriptions', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.ContentIndexServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -399,12 +325,15 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIconSizes');
-          const result = this.impl.getIconSizes(params.arg_category);
+          const result = this.impl.getIconSizes(params.arg_arg_category);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetIconSizes FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_icon_sizes' in response) ? response.arg_arg_icon_sizes : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getIconSizes FAILED:', e));
           }
           break;
         }
@@ -412,12 +341,15 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.add');
-          const result = this.impl.add(params.arg_service_worker_registration_id, params.arg_description, params.arg_icon, params.arg_launchUrl);
+          const result = this.impl.add(params.arg_arg_service_worker_registration_id, params.arg_arg_description, params.arg_arg_icon, params.arg_arg_launchUrl);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Add FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] add FAILED:', e));
           }
           break;
         }
@@ -425,12 +357,15 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.delete');
-          const result = this.impl.delete(params.arg_service_worker_registration_id, params.arg_id);
+          const result = this.impl.delete(params.arg_arg_service_worker_registration_id, params.arg_arg_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Delete FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_error' in response) ? response.arg_arg_error : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] delete FAILED:', e));
           }
           break;
         }
@@ -438,12 +373,14 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getDescriptions');
-          const result = this.impl.getDescriptions(params.arg_service_worker_registration_id);
+          const result = this.impl.getDescriptions(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDescriptions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_descriptions']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDescriptions FAILED:', e));
           }
           break;
         }
@@ -459,4 +396,80 @@ mojo.internal.bindings.blink.mojom.ContentIndexServiceReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.ContentIndexServicePtr = mojo.internal.bindings.blink.mojom.ContentIndexServiceRemote;
 mojo.internal.bindings.blink.mojom.ContentIndexServiceRequest = mojo.internal.bindings.blink.mojom.ContentIndexServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ContentIconDefinition
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec, 'blink.mojom.ContentIconDefinition', [
+      mojo.internal.StructField('arg_src', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sizes', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ContentDescription
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, 'blink.mojom.ContentDescription', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_category', 24, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icons', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentIconDefinitionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_launch_url', 40, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ParamsSpec, 'blink.mojom.ContentIndexService_GetIconSizes_Params', [
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.blink.mojom.ContentCategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_GetIconSizes_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetIconSizes_ResponseParams', [
+      mojo.internal.StructField('arg_icon_sizes', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.SizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ParamsSpec, 'blink.mojom.ContentIndexService_Add_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.Array(mojo.internal.bindings.skia.mojom.BitmapN32Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_launchUrl', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_Add_ResponseParamsSpec, 'blink.mojom.ContentIndexService_Add_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ParamsSpec, 'blink.mojom.ContentIndexService_Delete_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_Delete_ResponseParamsSpec, 'blink.mojom.ContentIndexService_Delete_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContentIndexService_GetDescriptions_ResponseParamsSpec, 'blink.mojom.ContentIndexService_GetDescriptions_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.ContentIndexErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_descriptions', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContentDescriptionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

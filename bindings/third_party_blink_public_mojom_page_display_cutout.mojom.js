@@ -147,18 +147,6 @@ mojo.internal.bindings.blink.mojom.ViewportFit = {
 };
 
 // Interface: DisplayCutoutHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.ViewportFitSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DisplayCutoutHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,14 +273,14 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyViewportFitChanged');
-          const result = this.impl.notifyViewportFitChanged(params.arg_value);
+          const result = this.impl.notifyViewportFitChanged(params.arg_arg_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyComplexSafeAreaConstraintChanged');
-          const result = this.impl.notifyComplexSafeAreaConstraintChanged(params.arg_value);
+          const result = this.impl.notifyComplexSafeAreaConstraintChanged(params.arg_arg_value);
           break;
         }
       }
@@ -310,12 +298,6 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutHostRequest = mojo.internal.bind
 
 
 // Interface: DisplayCutoutClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec, 'blink.mojom.DisplayCutoutClient_SetSafeArea_Params', [
-      mojo.internal.StructField('arg_safe_area', 0, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.DisplayCutoutClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -428,7 +410,7 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSafeArea');
-          const result = this.impl.setSafeArea(params.arg_safe_area);
+          const result = this.impl.setSafeArea(params.arg_arg_safe_area);
           break;
         }
       }
@@ -443,4 +425,24 @@ mojo.internal.bindings.blink.mojom.DisplayCutoutClientReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.DisplayCutoutClientPtr = mojo.internal.bindings.blink.mojom.DisplayCutoutClientRemote;
 mojo.internal.bindings.blink.mojom.DisplayCutoutClientRequest = mojo.internal.bindings.blink.mojom.DisplayCutoutClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyViewportFitChanged_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.bindings.blink.mojom.ViewportFitSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_ParamsSpec, 'blink.mojom.DisplayCutoutHost_NotifyComplexSafeAreaConstraintChanged_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.DisplayCutoutClient_SetSafeArea_ParamsSpec, 'blink.mojom.DisplayCutoutClient_SetSafeArea_Params', [
+      mojo.internal.StructField('arg_safe_area', 0, 0, mojo.internal.bindings.gfx.mojom.InsetsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

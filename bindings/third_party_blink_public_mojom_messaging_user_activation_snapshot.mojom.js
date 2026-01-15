@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UserActivationSnapshot
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec, 'blink.mojom.UserActivationSnapshot', [

@@ -130,50 +130,7 @@ mojo.internal.bindings.content.mojom.ResourceUsageReporter.$interfaceName = 'con
 mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec = { $: {} };
 mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec = { $: {} };
 
-// Struct: ResourceTypeStat
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, 'content.mojom.ResourceTypeStat', [
-      mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_live_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_decoded_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ResourceTypeStats
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, 'content.mojom.ResourceTypeStats', [
-      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_css_style_sheets', 8, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scripts', 16, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_xsl_style_sheets', 24, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fonts', 32, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_other', 40, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: ResourceUsageData
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ResourceUsageDataSpec, 'content.mojom.ResourceUsageData', [
-      mojo.internal.StructField('arg_reports_v8_stats', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_v8_bytes_allocated', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_v8_bytes_used', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_web_cache_stats', 24, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: ResourceUsageReporter
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_ResponseParams', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content.mojom.ResourceUsageDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.ResourceUsageReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,8 +247,11 @@ mojo.internal.bindings.content.mojom.ResourceUsageReporterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetUsageData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_data' in response) ? response.arg_arg_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getUsageData FAILED:', e));
           }
           break;
         }
@@ -307,4 +267,49 @@ mojo.internal.bindings.content.mojom.ResourceUsageReporterReceiver = mojo.intern
 
 mojo.internal.bindings.content.mojom.ResourceUsageReporterPtr = mojo.internal.bindings.content.mojom.ResourceUsageReporterRemote;
 mojo.internal.bindings.content.mojom.ResourceUsageReporterRequest = mojo.internal.bindings.content.mojom.ResourceUsageReporterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ResourceTypeStat
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, 'content.mojom.ResourceTypeStat', [
+      mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_live_size', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_decoded_size', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ResourceTypeStats
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, 'content.mojom.ResourceTypeStats', [
+      mojo.internal.StructField('arg_images', 0, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_css_style_sheets', 8, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scripts', 16, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_xsl_style_sheets', 24, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fonts', 32, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_other', 40, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: ResourceUsageData
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ResourceUsageDataSpec, 'content.mojom.ResourceUsageData', [
+      mojo.internal.StructField('arg_reports_v8_stats', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_v8_bytes_allocated', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_v8_bytes_used', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_web_cache_stats', 24, 0, mojo.internal.bindings.content.mojom.ResourceTypeStatsSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ResourceUsageReporter_GetUsageData_ResponseParamsSpec, 'content.mojom.ResourceUsageReporter_GetUsageData_ResponseParams', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.content.mojom.ResourceUsageDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

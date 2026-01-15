@@ -134,6 +134,8 @@ mojo.internal.bindings.chromeos.machine_learning = mojo.internal.bindings.chrome
 mojo.internal.bindings.chromeos.machine_learning.mojom = mojo.internal.bindings.chromeos.machine_learning.mojom || {};
 mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec = mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: ValueList
 mojo.internal.Union(
     mojo.internal.bindings.chromeos.machine_learning.mojom.ValueListSpec, 'chromeos.machine_learning.mojom.ValueList', {

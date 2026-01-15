@@ -133,17 +133,6 @@ mojo.internal.bindings.webapps.mojom = mojo.internal.bindings.webapps.mojom || {
 mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec = mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebPageMetadataAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParams', [
-      mojo.internal.StructField('arg_web_page_metadata', 0, 0, mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,8 +249,11 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetWebPageMetadata FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_web_page_metadata' in response) ? response.arg_arg_web_page_metadata : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getWebPageMetadata FAILED:', e));
           }
           break;
         }
@@ -277,4 +269,17 @@ mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentReceiver = mojo.interna
 
 mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentPtr = mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentRemote;
 mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentRequest = mojo.internal.bindings.webapps.mojom.WebPageMetadataAgentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParamsSpec, 'webapps.mojom.WebPageMetadataAgent_GetWebPageMetadata_ResponseParams', [
+      mojo.internal.StructField('arg_web_page_metadata', 0, 0, mojo.internal.bindings.webapps.mojom.WebPageMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

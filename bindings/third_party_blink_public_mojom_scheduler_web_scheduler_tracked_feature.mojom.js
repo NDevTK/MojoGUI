@@ -176,3 +176,5 @@ mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeature = {
   kWebAuthentication: 70,
   kSharedWorkerMessage: 71,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

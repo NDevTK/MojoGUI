@@ -144,41 +144,7 @@ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.RectSpec = mojo.internal.bindings.arc.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: PrivacyApplication
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec, 'arc.mojom.PrivacyApplication', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PrivacyItem
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemSpec, 'arc.mojom.PrivacyItem', [
-      mojo.internal.StructField('arg_permission_group', 0, 0, mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_privacy_application', 8, 0, mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PrivacyItemsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_Params', [
-      mojo.internal.StructField('arg_privacy_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PrivacyItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_Params', [
-      mojo.internal.StructField('arg_flag', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_Params', [
-      mojo.internal.StructField('arg_flag', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.PrivacyItemsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -319,21 +285,21 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPrivacyItemsChanged');
-          const result = this.impl.onPrivacyItemsChanged(params.arg_privacy_items);
+          const result = this.impl.onPrivacyItemsChanged(params.arg_arg_privacy_items);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMicCameraIndicatorRequirementChanged');
-          const result = this.impl.onMicCameraIndicatorRequirementChanged(params.arg_flag);
+          const result = this.impl.onMicCameraIndicatorRequirementChanged(params.arg_arg_flag);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLocationIndicatorRequirementChanged');
-          const result = this.impl.onLocationIndicatorRequirementChanged(params.arg_flag);
+          const result = this.impl.onLocationIndicatorRequirementChanged(params.arg_arg_flag);
           break;
         }
       }
@@ -351,24 +317,6 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsHostRequest = mojo.internal.binding
 
 
 // Interface: PrivacyItemsInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params', [
-      mojo.internal.StructField('arg_displayId', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.RectSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -495,12 +443,14 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -508,7 +458,7 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStaticPrivacyIndicatorBoundsChanged');
-          const result = this.impl.onStaticPrivacyIndicatorBoundsChanged(params.arg_displayId, params.arg_bounds);
+          const result = this.impl.onStaticPrivacyIndicatorBoundsChanged(params.arg_arg_displayId, params.arg_arg_bounds);
           break;
         }
       }
@@ -523,4 +473,58 @@ mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstancePtr = mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceRemote;
 mojo.internal.bindings.arc.mojom.PrivacyItemsInstanceRequest = mojo.internal.bindings.arc.mojom.PrivacyItemsInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PrivacyApplication
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec, 'arc.mojom.PrivacyApplication', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PrivacyItem
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemSpec, 'arc.mojom.PrivacyItem', [
+      mojo.internal.StructField('arg_permission_group', 0, 0, mojo.internal.bindings.arc.mojom.AppPermissionGroupSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_privacy_application', 8, 0, mojo.internal.bindings.arc.mojom.PrivacyApplicationSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnPrivacyItemsChanged_Params', [
+      mojo.internal.StructField('arg_privacy_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.PrivacyItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnMicCameraIndicatorRequirementChanged_Params', [
+      mojo.internal.StructField('arg_flag', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_ParamsSpec, 'arc.mojom.PrivacyItemsHost_OnLocationIndicatorRequirementChanged_Params', [
+      mojo.internal.StructField('arg_flag', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.PrivacyItemsHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_Init_ResponseParamsSpec, 'arc.mojom.PrivacyItemsInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_ParamsSpec, 'arc.mojom.PrivacyItemsInstance_OnStaticPrivacyIndicatorBoundsChanged_Params', [
+      mojo.internal.StructField('arg_displayId', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.RectSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

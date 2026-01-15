@@ -235,189 +235,7 @@ mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatus = {
   kFailure: 2,
 };
 
-// Struct: CdmPromiseResult
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, 'chromeos.cdm.mojom.CdmPromiseResult', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_exception', 4, 0, mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: CdmKeyInformation
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec, 'chromeos.cdm.mojom.CdmKeyInformation', [
-      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_system_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: EncryptionPattern
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec, 'chromeos.cdm.mojom.EncryptionPattern', [
-      mojo.internal.StructField('arg_crypt_byte_block', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_skip_byte_block', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SubsampleEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec, 'chromeos.cdm.mojom.SubsampleEntry', [
-      mojo.internal.StructField('arg_clear_bytes', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cipher_bytes', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: DecryptConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, 'chromeos.cdm.mojom.DecryptConfig', [
-      mojo.internal.StructField('arg_encryption_scheme', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_iv', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subsamples', 24, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_pattern', 32, 0, mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: ContentDecryptionModule
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_Params', [
-      mojo.internal.StructField('arg_certificate_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_Params', [
-      mojo.internal.StructField('arg_min_hdcp_version', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_status', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_Params', [
-      mojo.internal.StructField('arg_session_type', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_data_type', 4, 0, mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_Params', [
-      mojo.internal.StructField('arg_session_type', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_Params', [
-      mojo.internal.StructField('arg_encrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypt_config', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_Params', [
-      mojo.internal.StructField('arg_decrypt_config', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_Params', [
-      mojo.internal.StructField('arg_encrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypt_config_in', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_video', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_secure_handle', 24, 0, mojo.internal.Uint64, 0, false, 3, undefined),
-    ],
-    [[0, 32], [3, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decrypt_config_out', 16, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModulePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -656,12 +474,15 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setServerCertificate');
-          const result = this.impl.setServerCertificate(params.arg_certificate_data);
+          const result = this.impl.setServerCertificate(params.arg_arg_certificate_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetServerCertificate FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setServerCertificate FAILED:', e));
           }
           break;
         }
@@ -669,12 +490,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getStatusForPolicy');
-          const result = this.impl.getStatusForPolicy(params.arg_min_hdcp_version);
+          const result = this.impl.getStatusForPolicy(params.arg_arg_min_hdcp_version);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStatusForPolicy FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_key_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStatusForPolicy FAILED:', e));
           }
           break;
         }
@@ -682,12 +505,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createSessionAndGenerateRequest');
-          const result = this.impl.createSessionAndGenerateRequest(params.arg_session_type, params.arg_init_data_type, params.arg_init_data);
+          const result = this.impl.createSessionAndGenerateRequest(params.arg_arg_session_type, params.arg_arg_init_data_type, params.arg_arg_init_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateSessionAndGenerateRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_session_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createSessionAndGenerateRequest FAILED:', e));
           }
           break;
         }
@@ -695,12 +520,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.loadSession');
-          const result = this.impl.loadSession(params.arg_session_type, params.arg_session_id);
+          const result = this.impl.loadSession(params.arg_arg_session_type, params.arg_arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LoadSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_session_id']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] loadSession FAILED:', e));
           }
           break;
         }
@@ -708,12 +535,15 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateSession');
-          const result = this.impl.updateSession(params.arg_session_id, params.arg_response);
+          const result = this.impl.updateSession(params.arg_arg_session_id, params.arg_arg_response);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateSession FAILED:', e));
           }
           break;
         }
@@ -721,12 +551,15 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.closeSession');
-          const result = this.impl.closeSession(params.arg_session_id);
+          const result = this.impl.closeSession(params.arg_arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CloseSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] closeSession FAILED:', e));
           }
           break;
         }
@@ -734,12 +567,15 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeSession');
-          const result = this.impl.removeSession(params.arg_session_id);
+          const result = this.impl.removeSession(params.arg_arg_session_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveSession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeSession FAILED:', e));
           }
           break;
         }
@@ -747,12 +583,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decryptDeprecated');
-          const result = this.impl.decryptDeprecated(params.arg_encrypted_data, params.arg_decrypt_config);
+          const result = this.impl.decryptDeprecated(params.arg_arg_encrypted_data, params.arg_arg_decrypt_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecryptDeprecated FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_decrypted_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decryptDeprecated FAILED:', e));
           }
           break;
         }
@@ -760,12 +598,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getHwKeyData');
-          const result = this.impl.getHwKeyData(params.arg_decrypt_config, params.arg_hw_identifier);
+          const result = this.impl.getHwKeyData(params.arg_arg_decrypt_config, params.arg_arg_hw_identifier);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHwKeyData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_key_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHwKeyData FAILED:', e));
           }
           break;
         }
@@ -773,12 +613,14 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decrypt');
-          const result = this.impl.decrypt(params.arg_encrypted_data, params.arg_decrypt_config_in, params.arg_is_video, params.arg_secure_handle);
+          const result = this.impl.decrypt(params.arg_arg_encrypted_data, params.arg_arg_decrypt_config_in, params.arg_arg_is_video, params.arg_arg_secure_handle);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Decrypt FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_decrypted_data', 'response.arg_arg_decrypt_config_out']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decrypt FAILED:', e));
           }
           break;
         }
@@ -797,35 +639,6 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleRequest = mojo.
 
 
 // Interface: ContentDecryptionModuleClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_type', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_additional_usable_key', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_keys_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_Params', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_expiry_time_sec', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -980,28 +793,28 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionMessage');
-          const result = this.impl.onSessionMessage(params.arg_session_id, params.arg_message_type, params.arg_message);
+          const result = this.impl.onSessionMessage(params.arg_arg_session_id, params.arg_arg_message_type, params.arg_arg_message);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionClosed');
-          const result = this.impl.onSessionClosed(params.arg_session_id);
+          const result = this.impl.onSessionClosed(params.arg_arg_session_id);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionKeysChange');
-          const result = this.impl.onSessionKeysChange(params.arg_session_id, params.arg_has_additional_usable_key, params.arg_keys_info);
+          const result = this.impl.onSessionKeysChange(params.arg_arg_session_id, params.arg_arg_has_additional_usable_key, params.arg_arg_keys_info);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSessionExpirationUpdate');
-          const result = this.impl.onSessionExpirationUpdate(params.arg_session_id, params.arg_new_expiry_time_sec);
+          const result = this.impl.onSessionExpirationUpdate(params.arg_arg_session_id, params.arg_arg_new_expiry_time_sec);
           break;
         }
       }
@@ -1016,4 +829,217 @@ mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientReceiver 
 
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientPtr = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRemote;
 mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientRequest = mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CdmPromiseResult
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, 'chromeos.cdm.mojom.CdmPromiseResult', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_exception', 4, 0, mojo.internal.bindings.chromeos.cdm.mojom.PromiseExceptionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_code', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: CdmKeyInformation
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec, 'chromeos.cdm.mojom.CdmKeyInformation', [
+      mojo.internal.StructField('arg_key_id', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_system_code', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: EncryptionPattern
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec, 'chromeos.cdm.mojom.EncryptionPattern', [
+      mojo.internal.StructField('arg_crypt_byte_block', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_skip_byte_block', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SubsampleEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec, 'chromeos.cdm.mojom.SubsampleEntry', [
+      mojo.internal.StructField('arg_clear_bytes', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cipher_bytes', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: DecryptConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, 'chromeos.cdm.mojom.DecryptConfig', [
+      mojo.internal.StructField('arg_encryption_scheme', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.EncryptionSchemeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_iv', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subsamples', 24, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cdm.mojom.SubsampleEntrySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_pattern', 32, 0, mojo.internal.bindings.chromeos.cdm.mojom.EncryptionPatternSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_Params', [
+      mojo.internal.StructField('arg_certificate_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_SetServerCertificate_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_Params', [
+      mojo.internal.StructField('arg_min_hdcp_version', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.HdcpVersionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetStatusForPolicy_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_status', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_Params', [
+      mojo.internal.StructField('arg_session_type', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_init_data_type', 4, 0, mojo.internal.bindings.chromeos.cdm.mojom.EmeInitDataTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_init_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CreateSessionAndGenerateRequest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_Params', [
+      mojo.internal.StructField('arg_session_type', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmSessionTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_LoadSession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_UpdateSession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_CloseSession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_RemoveSession_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmPromiseResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_Params', [
+      mojo.internal.StructField('arg_encrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypt_config', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_DecryptDeprecated_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_Params', [
+      mojo.internal.StructField('arg_decrypt_config', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hw_identifier', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_GetHwKeyData_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_Params', [
+      mojo.internal.StructField('arg_encrypted_data', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypt_config_in', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_video', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_secure_handle', 24, 0, mojo.internal.Uint64, 0, false, 3, undefined),
+    ],
+    [[0, 32], [3, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModule_Decrypt_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypted_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decrypt_config_out', 16, 0, mojo.internal.bindings.chromeos.cdm.mojom.DecryptConfigSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionMessage_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_type', 8, 0, mojo.internal.bindings.chromeos.cdm.mojom.CdmMessageTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 16, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionClosed_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionKeysChange_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_additional_usable_key', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_keys_info', 16, 0, mojo.internal.Array(mojo.internal.bindings.chromeos.cdm.mojom.CdmKeyInformationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_ParamsSpec, 'chromeos.cdm.mojom.ContentDecryptionModuleClient_OnSessionExpirationUpdate_Params', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_expiry_time_sec', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

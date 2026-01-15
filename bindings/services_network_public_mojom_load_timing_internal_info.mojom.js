@@ -144,6 +144,8 @@ mojo.internal.bindings.network.mojom.AdvertisedAltSvcState = {
   kQuicBroken: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: LoadTimingInternalInfo
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.LoadTimingInternalInfoSpec, 'network.mojom.LoadTimingInternalInfo', [

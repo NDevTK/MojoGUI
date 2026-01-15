@@ -123,6 +123,8 @@ mojo.internal.bindings.gpu.mojom = mojo.internal.bindings.gpu.mojom || {};
 
 mojo.internal.bindings.gpu.mojom.LuidSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Luid
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.LuidSpec, 'gpu.mojom.Luid', [

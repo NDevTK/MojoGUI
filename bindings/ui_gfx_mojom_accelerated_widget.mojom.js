@@ -123,6 +123,8 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
 mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AcceleratedWidget
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.AcceleratedWidgetSpec, 'gfx.mojom.AcceleratedWidget', [

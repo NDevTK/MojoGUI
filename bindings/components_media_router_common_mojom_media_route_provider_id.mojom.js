@@ -131,3 +131,5 @@ mojo.internal.bindings.media_router.mojom.MediaRouteProviderId = {
   ANDROID_CAF: 3,
   TEST: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

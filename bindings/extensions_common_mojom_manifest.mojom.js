@@ -137,3 +137,5 @@ mojo.internal.bindings.extensions.mojom.ManifestLocation = {
   kExternalPolicy: 9,
   kExternalComponent: 10,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

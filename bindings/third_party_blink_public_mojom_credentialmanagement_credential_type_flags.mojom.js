@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.CredentialTypeFlags = {
   kPublicKey: 2,
   kAll: -1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

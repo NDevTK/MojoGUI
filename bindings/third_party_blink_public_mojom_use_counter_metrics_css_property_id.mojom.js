@@ -949,3 +949,5 @@ mojo.internal.bindings.blink.mojom.CSSSampleId = {
   kTimelineTriggerActiveRange: 922,
   kGridLanesPack: 923,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

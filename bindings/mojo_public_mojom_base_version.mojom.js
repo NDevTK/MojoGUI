@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.VersionSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Version
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.VersionSpec, 'mojo_base.mojom.Version', [

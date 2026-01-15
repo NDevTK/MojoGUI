@@ -448,3 +448,5 @@ mojo.internal.bindings.chromeos.settings.mojom.Subpage = {
   kInternalStorybook: 1702,
   kKerberosAccountsV2: 1800,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -139,6 +139,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.BeginFrameIdSpec = mojo.internal.bindings.viz.mojom.BeginFrameIdSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FrameTimingDetails
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.FrameTimingDetailsSpec, 'viz.mojom.FrameTimingDetails', [

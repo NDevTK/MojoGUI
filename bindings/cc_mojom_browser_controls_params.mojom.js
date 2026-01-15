@@ -123,6 +123,8 @@ mojo.internal.bindings.cc.mojom = mojo.internal.bindings.cc.mojom || {};
 
 mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BrowserControlsParams
 mojo.internal.Struct(
     mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec, 'cc.mojom.BrowserControlsParams', [

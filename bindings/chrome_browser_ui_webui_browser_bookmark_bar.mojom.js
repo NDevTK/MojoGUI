@@ -156,24 +156,7 @@ mojo.internal.bindings.bookmark_bar.mojom.BookmarkType = {
   MOBILE: 4,
 };
 
-// Struct: BookmarkData
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_url_for_favicon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bookmark_bar.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,7 +269,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -304,23 +287,6 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactoryRequest = mojo.inter
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParams', [
-      mojo.internal.StructField('arg_bookmarks', 0, 0, mojo.internal.Array(mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec, 'bookmark_bar.mojom.PageHandler_OpenInNewTab_Params', [
-      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.bookmark_bar.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -451,8 +417,11 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBookmarkBar FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_bookmarks' in response) ? response.arg_arg_bookmarks : response;
+              encoder.encodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBookmarkBar FAILED:', e));
           }
           break;
         }
@@ -460,7 +429,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openInNewTab');
-          const result = this.impl.openInNewTab(params.arg_node_id);
+          const result = this.impl.openInNewTab(params.arg_arg_node_id);
           break;
         }
       }
@@ -478,27 +447,6 @@ mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRequest = mojo.internal.bin
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec, 'bookmark_bar.mojom.Page_BookmarkLoaded_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec, 'bookmark_bar.mojom.Page_FavIconChanged_Params', [
-      mojo.internal.StructField('arg_bookmark_data', 0, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec, 'bookmark_bar.mojom.Page_Show_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec, 'bookmark_bar.mojom.Page_Hide_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.bookmark_bar.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -660,7 +608,7 @@ mojo.internal.bindings.bookmark_bar.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.favIconChanged');
-          const result = this.impl.favIconChanged(params.arg_bookmark_data);
+          const result = this.impl.favIconChanged(params.arg_arg_bookmark_data);
           break;
         }
         case 2: {
@@ -689,4 +637,61 @@ mojo.internal.bindings.bookmark_bar.mojom.PageReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.bookmark_bar.mojom.PagePtr = mojo.internal.bindings.bookmark_bar.mojom.PageRemote;
 mojo.internal.bindings.bookmark_bar.mojom.PageRequest = mojo.internal.bindings.bookmark_bar.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BookmarkData
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, 'bookmark_bar.mojom.BookmarkData', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_url_for_favicon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'bookmark_bar.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bookmark_bar.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.bookmark_bar.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParamsSpec, 'bookmark_bar.mojom.PageHandler_GetBookmarkBar_ResponseParams', [
+      mojo.internal.StructField('arg_bookmarks', 0, 0, mojo.internal.Array(mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.PageHandler_OpenInNewTab_ParamsSpec, 'bookmark_bar.mojom.PageHandler_OpenInNewTab_Params', [
+      mojo.internal.StructField('arg_node_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.Page_BookmarkLoaded_ParamsSpec, 'bookmark_bar.mojom.Page_BookmarkLoaded_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.Page_FavIconChanged_ParamsSpec, 'bookmark_bar.mojom.Page_FavIconChanged_Params', [
+      mojo.internal.StructField('arg_bookmark_data', 0, 0, mojo.internal.bindings.bookmark_bar.mojom.BookmarkDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.Page_Show_ParamsSpec, 'bookmark_bar.mojom.Page_Show_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.bookmark_bar.mojom.Page_Hide_ParamsSpec, 'bookmark_bar.mojom.Page_Hide_Params', [
+    ],
+    [[0, 8]]);
 

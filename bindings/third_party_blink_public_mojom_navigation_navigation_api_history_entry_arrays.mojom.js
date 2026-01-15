@@ -130,6 +130,8 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: NavigationApiHistoryEntry
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationApiHistoryEntrySpec, 'blink.mojom.NavigationApiHistoryEntry', [

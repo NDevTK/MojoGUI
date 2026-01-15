@@ -142,3 +142,5 @@ mojo.internal.bindings.privacy_sandbox.notice.mojom.PrivacySandboxNotice = {
   kThreeAdsApisNotice: 2,
   kMeasurementNotice: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

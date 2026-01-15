@@ -128,3 +128,5 @@ mojo.internal.bindings.attribution_reporting.mojom.SourceRegistrationTimeConfig 
   kInclude: 0,
   kExclude: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

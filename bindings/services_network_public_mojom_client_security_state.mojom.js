@@ -144,6 +144,8 @@ mojo.internal.bindings.network.mojom.PrivateNetworkRequestPolicy = {
   kPermissionBlock: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ClientSecurityState
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.ClientSecurityStateSpec, 'network.mojom.ClientSecurityState', [

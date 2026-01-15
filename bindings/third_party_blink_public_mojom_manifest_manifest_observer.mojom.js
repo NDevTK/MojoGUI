@@ -133,12 +133,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ManifestUrlChangeObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec, 'blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_Params', [
-      mojo.internal.StructField('arg_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.manifestUrlChanged');
-          const result = this.impl.manifestUrlChanged(params.arg_manifest_url);
+          const result = this.impl.manifestUrlChanged(params.arg_arg_manifest_url);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverReceiver = mojo.inte
 
 mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverPtr = mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverRemote;
 mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverRequest = mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_ParamsSpec, 'blink.mojom.ManifestUrlChangeObserver_ManifestUrlChanged_Params', [
+      mojo.internal.StructField('arg_manifest_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

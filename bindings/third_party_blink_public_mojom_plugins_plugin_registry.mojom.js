@@ -138,39 +138,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: PluginMimeType
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec, 'blink.mojom.PluginMimeType', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: PluginInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PluginInfoSpec, 'blink.mojom.PluginInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filename', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_may_use_external_handler', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_types', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: PluginRegistry
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_ResponseParams', [
-      mojo.internal.StructField('arg_plugins', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PluginInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PluginRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,8 +255,11 @@ mojo.internal.bindings.blink.mojom.PluginRegistryReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPlugins FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_plugins' in response) ? response.arg_arg_plugins : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPlugins FAILED:', e));
           }
           break;
         }
@@ -304,4 +275,38 @@ mojo.internal.bindings.blink.mojom.PluginRegistryReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.blink.mojom.PluginRegistryPtr = mojo.internal.bindings.blink.mojom.PluginRegistryRemote;
 mojo.internal.bindings.blink.mojom.PluginRegistryRequest = mojo.internal.bindings.blink.mojom.PluginRegistryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PluginMimeType
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec, 'blink.mojom.PluginMimeType', [
+      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file_extensions', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: PluginInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PluginInfoSpec, 'blink.mojom.PluginInfo', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filename', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_may_use_external_handler', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_types', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PluginMimeTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PluginRegistry_GetPlugins_ResponseParamsSpec, 'blink.mojom.PluginRegistry_GetPlugins_ResponseParams', [
+      mojo.internal.StructField('arg_plugins', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.PluginInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

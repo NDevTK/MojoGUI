@@ -142,26 +142,6 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenSpec = mojo.inte
 mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote = mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote || class {};
 
 // Interface: FileSystemAccessObserverHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_recursive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Unobserve_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,12 +268,14 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observe');
-          const result = this.impl.observe(params.arg_token, params.arg_is_recursive);
+          const result = this.impl.observe(params.arg_arg_token, params.arg_arg_is_recursive);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Observe FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_observer_receiver']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] observe FAILED:', e));
           }
           break;
         }
@@ -301,7 +283,7 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unobserve');
-          const result = this.impl.unobserve(params.arg_token);
+          const result = this.impl.unobserve(params.arg_arg_token);
           break;
         }
       }
@@ -316,4 +298,26 @@ mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostReceiver = mojo.i
 
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostPtr = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRemote;
 mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostRequest = mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_recursive', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Observe_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileSystemAccessErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemAccessObserverHost_Unobserve_ParamsSpec, 'blink.mojom.FileSystemAccessObserverHost_Unobserve_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -134,3 +134,5 @@ mojo.internal.bindings.network.mojom.BlockedByResponseReason = {
   kCorpNotSameSite: 6,
   kSRIMessageSignatureMismatch: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -145,28 +145,7 @@ mojo.internal.bindings.new_tab_page.mojom = mojo.internal.bindings.new_tab_page.
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote || class {};
 
-// Struct: AccessToken
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec, 'new_tab_page.mojom.AccessToken', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expiration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MicrosoftAuthUntrustedDocumentInterfacesFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_Params', [
-      mojo.internal.StructField('arg_child_document', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_document', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,14 +272,14 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connectToParentDocument');
-          const result = this.impl.connectToParentDocument(params.arg_child_document);
+          const result = this.impl.connectToParentDocument(params.arg_arg_child_document);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler, params.arg_document);
+          const result = this.impl.createPageHandler(params.arg_arg_handler, params.arg_arg_document);
           break;
         }
       }
@@ -318,29 +297,6 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfac
 
 
 // Interface: MicrosoftAuthUntrustedPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params', [
-      mojo.internal.StructField('arg_access_token', 0, 0, mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_Params', [
-      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -509,14 +465,14 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccessToken');
-          const result = this.impl.setAccessToken(params.arg_access_token);
+          const result = this.impl.setAccessToken(params.arg_arg_access_token);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAuthStateError');
-          const result = this.impl.setAuthStateError(params.arg_error_code, params.arg_error_message);
+          const result = this.impl.setAuthStateError(params.arg_arg_error_code, params.arg_arg_error_message);
           break;
         }
       }
@@ -531,4 +487,50 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRecei
 
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPtr = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote;
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRequest = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AccessToken
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec, 'new_tab_page.mojom.AccessToken', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_ConnectToParentDocument_Params', [
+      mojo.internal.StructField('arg_child_document', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocumentInterfacesFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_document', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_ClearAuthData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_MaybeAcquireTokenSilent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAccessToken_Params', [
+      mojo.internal.StructField('arg_access_token', 0, 0, mojo.internal.bindings.new_tab_page.mojom.AccessTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedPageHandler_SetAuthStateError_Params', [
+      mojo.internal.StructField('arg_error_code', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

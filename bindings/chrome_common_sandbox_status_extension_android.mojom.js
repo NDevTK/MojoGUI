@@ -127,11 +127,6 @@ mojo.internal.bindings.chrome.mojom.SandboxStatusExtension.$interfaceName = 'chr
 mojo.internal.bindings.chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec = { $: {} };
 
 // Interface: SandboxStatusExtension
-mojo.internal.Struct(
-    mojo.internal.bindings.chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec, 'chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionReceiver = mojo.intern
 
 mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionPtr = mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionRemote;
 mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionRequest = mojo.internal.bindings.chrome.mojom.SandboxStatusExtensionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_ParamsSpec, 'chrome.mojom.SandboxStatusExtension_AddSandboxStatusExtension_Params', [
+    ],
+    [[0, 8]]);
 

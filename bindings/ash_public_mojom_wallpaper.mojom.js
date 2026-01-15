@@ -133,6 +133,8 @@ mojo.internal.bindings.ash.mojom.WallpaperLayout = {
   kCenterCropped: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: SetWallpaperResult
 mojo.internal.Union(
     mojo.internal.bindings.ash.mojom.SetWallpaperResultSpec, 'ash.mojom.SetWallpaperResult', {

@@ -161,21 +161,7 @@ mojo.internal.bindings.history_sync_optin.mojom.ScreenMode = {
   kDeadlined: 3,
 };
 
-// Struct: AccountInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec, 'history_sync_optin.mojom.AccountInfo', [
-      mojo.internal.StructField('arg_account_image_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec, 'history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_sync_optin.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -288,7 +274,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createHistorySyncOptinHandler');
-          const result = this.impl.createHistorySyncOptinHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createHistorySyncOptinHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -306,27 +292,6 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactoryRequest = mojo
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec, 'history_sync_optin.mojom.PageHandler_Accept_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec, 'history_sync_optin.mojom.PageHandler_Reject_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec, 'history_sync_optin.mojom.PageHandler_RequestAccountInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec, 'history_sync_optin.mojom.PageHandler_UpdateDialogHeight_Params', [
-      mojo.internal.StructField('arg_height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.history_sync_optin.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -502,7 +467,7 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDialogHeight');
-          const result = this.impl.updateDialogHeight(params.arg_height);
+          const result = this.impl.updateDialogHeight(params.arg_arg_height);
           break;
         }
       }
@@ -520,18 +485,6 @@ mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRequest = mojo.intern
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec, 'history_sync_optin.mojom.Page_SendAccountInfo_Params', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec, 'history_sync_optin.mojom.Page_SendScreenMode_Params', [
-      mojo.internal.StructField('arg_screen_mode', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.history_sync_optin.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -658,14 +611,14 @@ mojo.internal.bindings.history_sync_optin.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
-          const result = this.impl.sendAccountInfo(params.arg_account_info);
+          const result = this.impl.sendAccountInfo(params.arg_arg_account_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendScreenMode');
-          const result = this.impl.sendScreenMode(params.arg_screen_mode);
+          const result = this.impl.sendScreenMode(params.arg_arg_screen_mode);
           break;
         }
       }
@@ -680,4 +633,53 @@ mojo.internal.bindings.history_sync_optin.mojom.PageReceiver = mojo.internal.bin
 
 mojo.internal.bindings.history_sync_optin.mojom.PagePtr = mojo.internal.bindings.history_sync_optin.mojom.PageRemote;
 mojo.internal.bindings.history_sync_optin.mojom.PageRequest = mojo.internal.bindings.history_sync_optin.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AccountInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec, 'history_sync_optin.mojom.AccountInfo', [
+      mojo.internal.StructField('arg_account_image_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_ParamsSpec, 'history_sync_optin.mojom.PageHandlerFactory_CreateHistorySyncOptinHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history_sync_optin.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.history_sync_optin.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Accept_ParamsSpec, 'history_sync_optin.mojom.PageHandler_Accept_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_Reject_ParamsSpec, 'history_sync_optin.mojom.PageHandler_Reject_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_RequestAccountInfo_ParamsSpec, 'history_sync_optin.mojom.PageHandler_RequestAccountInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.PageHandler_UpdateDialogHeight_ParamsSpec, 'history_sync_optin.mojom.PageHandler_UpdateDialogHeight_Params', [
+      mojo.internal.StructField('arg_height', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.Page_SendAccountInfo_ParamsSpec, 'history_sync_optin.mojom.Page_SendAccountInfo_Params', [
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.AccountInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history_sync_optin.mojom.Page_SendScreenMode_ParamsSpec, 'history_sync_optin.mojom.Page_SendScreenMode_Params', [
+      mojo.internal.StructField('arg_screen_mode', 0, 0, mojo.internal.bindings.history_sync_optin.mojom.ScreenModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

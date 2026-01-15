@@ -146,6 +146,8 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec = mojo.internal.bindings.blink.mojom.UserActivationSnapshotSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TransferableMessage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.TransferableMessageSpec, 'blink.mojom.TransferableMessage', [

@@ -132,21 +132,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesSpec =
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities.$interfaceName = 'chromecast.shell.mojom.ApplicationMediaCapabilities';
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec = { $: {} };
 
-// Struct: BitstreamAudioCodecsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, 'chromecast.shell.mojom.BitstreamAudioCodecsInfo', [
-      mojo.internal.StructField('arg_codecs', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_spatial_rendering', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ApplicationMediaCapabilitiesObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,7 +245,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSupportedBitstreamAudioCodecsChanged');
-          const result = this.impl.onSupportedBitstreamAudioCodecsChanged(params.arg_info);
+          const result = this.impl.onSupportedBitstreamAudioCodecsChanged(params.arg_arg_info);
           break;
         }
       }
@@ -277,12 +263,6 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserv
 
 
 // Interface: ApplicationMediaCapabilities
-mojo.internal.Struct(
-    mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -395,7 +375,7 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -410,4 +390,26 @@ mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesReceiv
 
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesPtr = mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesRemote;
 mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesRequest = mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BitstreamAudioCodecsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, 'chromecast.shell.mojom.BitstreamAudioCodecsInfo', [
+      mojo.internal.StructField('arg_codecs', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_spatial_rendering', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilitiesObserver_OnSupportedBitstreamAudioCodecsChanged_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromecast.shell.mojom.BitstreamAudioCodecsInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_ParamsSpec, 'chromecast.shell.mojom.ApplicationMediaCapabilities_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromecast.shell.mojom.ApplicationMediaCapabilitiesObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

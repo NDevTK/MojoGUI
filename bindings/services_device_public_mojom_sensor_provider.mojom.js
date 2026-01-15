@@ -198,118 +198,7 @@ mojo.internal.bindings.device.mojom.GetVirtualSensorInformationError = {
   kSensorTypeNotOverridden: 0,
 };
 
-// Union: GetVirtualSensorInformationResult
-mojo.internal.Union(
-    mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec, 'device.mojom.GetVirtualSensorInformationResult', {
-      'arg_info': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: SensorInitParams
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorInitParamsSpec, 'device.mojom.SensorInitParams', [
-      mojo.internal.StructField('arg_sensor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SensorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.SensorClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mode', 12, 0, mojo.internal.bindings.device.mojom.ReportingModeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_buffer_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_default_configuration', 32, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum_frequency', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_minimum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_kReadBufferSizeForTests', 56, 0, mojo.internal.OpaqueStruct, 48, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
-// Struct: VirtualSensorMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec, 'device.mojom.VirtualSensorMetadata', [
-      mojo.internal.StructField('arg_available', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_maximum_frequency_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_maximum_frequency_$value', originalFieldName: 'arg_maximum_frequency' }),
-      mojo.internal.StructField('arg_minimum_frequency_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_minimum_frequency_$value', originalFieldName: 'arg_minimum_frequency' }),
-      mojo.internal.StructField('arg_reporting_mode', 4, 0, mojo.internal.bindings.device.mojom.ReportingModeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_maximum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_maximum_frequency_$flag', originalFieldName: 'arg_maximum_frequency' }),
-      mojo.internal.StructField('arg_minimum_frequency_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_minimum_frequency_$flag', originalFieldName: 'arg_minimum_frequency' }),
-    ],
-    [[0, 32]]);
-
-// Struct: VirtualSensorInformation
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec, 'device.mojom.VirtualSensorInformation', [
-      mojo.internal.StructField('arg_sampling_frequency', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SensorProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec, 'device.mojom.SensorProvider_GetSensor_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_GetSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_UpdateVirtualSensor_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_reading', 8, 0, mojo.internal.bindings.device.mojom.SensorReadingRawSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_RemoveVirtualSensor_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec, 'device.mojom.SensorProvider_GetVirtualSensorInformation_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec, 'device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.device.mojom.SensorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -478,12 +367,14 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSensor');
-          const result = this.impl.getSensor(params.arg_type);
+          const result = this.impl.getSensor(params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_init_params']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSensor FAILED:', e));
           }
           break;
         }
@@ -491,12 +382,15 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVirtualSensor');
-          const result = this.impl.createVirtualSensor(params.arg_type, params.arg_metadata);
+          const result = this.impl.createVirtualSensor(params.arg_arg_type, params.arg_arg_metadata);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateVirtualSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createVirtualSensor FAILED:', e));
           }
           break;
         }
@@ -504,12 +398,15 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateVirtualSensor');
-          const result = this.impl.updateVirtualSensor(params.arg_type, params.arg_reading);
+          const result = this.impl.updateVirtualSensor(params.arg_arg_type, params.arg_arg_reading);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateVirtualSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateVirtualSensor FAILED:', e));
           }
           break;
         }
@@ -517,12 +414,14 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVirtualSensor');
-          const result = this.impl.removeVirtualSensor(params.arg_type);
+          const result = this.impl.removeVirtualSensor(params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveVirtualSensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeVirtualSensor FAILED:', e));
           }
           break;
         }
@@ -530,12 +429,15 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getVirtualSensorInformation');
-          const result = this.impl.getVirtualSensorInformation(params.arg_type);
+          const result = this.impl.getVirtualSensorInformation(params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetVirtualSensorInformation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getVirtualSensorInformation FAILED:', e));
           }
           break;
         }
@@ -551,4 +453,117 @@ mojo.internal.bindings.device.mojom.SensorProviderReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.device.mojom.SensorProviderPtr = mojo.internal.bindings.device.mojom.SensorProviderRemote;
 mojo.internal.bindings.device.mojom.SensorProviderRequest = mojo.internal.bindings.device.mojom.SensorProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: GetVirtualSensorInformationResult
+mojo.internal.Union(
+    mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec, 'device.mojom.GetVirtualSensorInformationResult', {
+      'arg_info': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.device.mojom.GetVirtualSensorInformationErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: SensorInitParams
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorInitParamsSpec, 'device.mojom.SensorInitParams', [
+      mojo.internal.StructField('arg_sensor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.SensorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.SensorClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mode', 12, 0, mojo.internal.bindings.device.mojom.ReportingModeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_memory', 16, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_buffer_offset', 24, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_default_configuration', 32, 0, mojo.internal.bindings.device.mojom.SensorConfigurationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum_frequency', 40, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_minimum_frequency', 48, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_kReadBufferSizeForTests', 56, 0, mojo.internal.OpaqueStruct, 48, false, 0, undefined),
+    ],
+    [[0, 72]]);
+
+// Struct: VirtualSensorMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec, 'device.mojom.VirtualSensorMetadata', [
+      mojo.internal.StructField('arg_available', 0, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_maximum_frequency_$flag', 0, 1, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_maximum_frequency_$value', originalFieldName: 'arg_maximum_frequency' }),
+      mojo.internal.StructField('arg_minimum_frequency_$flag', 0, 2, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_minimum_frequency_$value', originalFieldName: 'arg_minimum_frequency' }),
+      mojo.internal.StructField('arg_reporting_mode', 4, 0, mojo.internal.bindings.device.mojom.ReportingModeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_maximum_frequency_$value', 8, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_maximum_frequency_$flag', originalFieldName: 'arg_maximum_frequency' }),
+      mojo.internal.StructField('arg_minimum_frequency_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_minimum_frequency_$flag', originalFieldName: 'arg_minimum_frequency' }),
+    ],
+    [[0, 32]]);
+
+// Struct: VirtualSensorInformation
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.VirtualSensorInformationSpec, 'device.mojom.VirtualSensorInformation', [
+      mojo.internal.StructField('arg_sampling_frequency', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ParamsSpec, 'device.mojom.SensorProvider_GetSensor_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_GetSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_GetSensor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.SensorCreationResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_init_params', 8, 0, mojo.internal.bindings.device.mojom.SensorInitParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metadata', 8, 0, mojo.internal.bindings.device.mojom.VirtualSensorMetadataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_CreateVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_CreateVirtualSensor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.CreateVirtualSensorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_UpdateVirtualSensor_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_reading', 8, 0, mojo.internal.bindings.device.mojom.SensorReadingRawSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_UpdateVirtualSensor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.UpdateVirtualSensorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ParamsSpec, 'device.mojom.SensorProvider_RemoveVirtualSensor_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParamsSpec, 'device.mojom.SensorProvider_RemoveVirtualSensor_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ParamsSpec, 'device.mojom.SensorProvider_GetVirtualSensorInformation_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.device.mojom.SensorTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParamsSpec, 'device.mojom.SensorProvider_GetVirtualSensorInformation_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.GetVirtualSensorInformationResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

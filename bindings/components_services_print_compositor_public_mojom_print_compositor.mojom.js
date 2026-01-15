@@ -180,112 +180,6 @@ mojo.internal.bindings.printing.mojom.DocumentType = {
 };
 
 // Interface: PrintCompositor
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec, 'printing.mojom.PrintCompositor_NotifyUnavailableSubframe_Params', [
-      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec, 'printing.mojom.PrintCompositor_AddSubframeContent_Params', [
-      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_serialized_content', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec, 'printing.mojom.PrintCompositor_SetAccessibilityTree_Params', [
-      mojo.internal.StructField('arg_accessibility_tree', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_Params', [
-      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sk_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_Params', [
-      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_sk_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_type', 24, 0, mojo.internal.bindings.printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_Params', [
-      mojo.internal.StructField('arg_document_type', 0, 0, mojo.internal.bindings.printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_Params', [
-      mojo.internal.StructField('arg_pages_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec, 'printing.mojom.PrintCompositor_SetWebContentsURL_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec, 'printing.mojom.PrintCompositor_SetUserAgent_Params', [
-      mojo.internal.StructField('arg_user_agent', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec, 'printing.mojom.PrintCompositor_SetGenerateDocumentOutline_Params', [
-      mojo.internal.StructField('arg_generate_document_outline', 0, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec, 'printing.mojom.PrintCompositor_SetTitle_Params', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec, 'printing.mojom.PrintCompositor_SetWatermarkBlock_Params', [
-      mojo.internal.StructField('arg_watermark_block', 0, 0, mojo.internal.bindings.watermark.mojom.WatermarkBlockSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.printing.mojom.PrintCompositorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -552,33 +446,35 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUnavailableSubframe');
-          const result = this.impl.notifyUnavailableSubframe(params.arg_frame_guid);
+          const result = this.impl.notifyUnavailableSubframe(params.arg_arg_frame_guid);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSubframeContent');
-          const result = this.impl.addSubframeContent(params.arg_frame_guid, params.arg_serialized_content, params.arg_subframe_content_info);
+          const result = this.impl.addSubframeContent(params.arg_arg_frame_guid, params.arg_arg_serialized_content, params.arg_arg_subframe_content_info);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAccessibilityTree');
-          const result = this.impl.setAccessibilityTree(params.arg_accessibility_tree);
+          const result = this.impl.setAccessibilityTree(params.arg_arg_accessibility_tree);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.compositePage');
-          const result = this.impl.compositePage(params.arg_frame_guid, params.arg_sk_region, params.arg_subframe_content_info);
+          const result = this.impl.compositePage(params.arg_arg_frame_guid, params.arg_arg_sk_region, params.arg_arg_subframe_content_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CompositePage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_document_region']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] compositePage FAILED:', e));
           }
           break;
         }
@@ -586,12 +482,14 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.compositeDocument');
-          const result = this.impl.compositeDocument(params.arg_frame_guid, params.arg_sk_region, params.arg_subframe_content_info, params.arg_document_type);
+          const result = this.impl.compositeDocument(params.arg_arg_frame_guid, params.arg_arg_sk_region, params.arg_arg_subframe_content_info, params.arg_arg_document_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CompositeDocument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_document_region']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] compositeDocument FAILED:', e));
           }
           break;
         }
@@ -599,12 +497,15 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prepareToCompositeDocument');
-          const result = this.impl.prepareToCompositeDocument(params.arg_document_type);
+          const result = this.impl.prepareToCompositeDocument(params.arg_arg_document_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PrepareToCompositeDocument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] prepareToCompositeDocument FAILED:', e));
           }
           break;
         }
@@ -612,12 +513,14 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.finishDocumentComposition');
-          const result = this.impl.finishDocumentComposition(params.arg_pages_count);
+          const result = this.impl.finishDocumentComposition(params.arg_arg_pages_count);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FinishDocumentComposition FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_document_region']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] finishDocumentComposition FAILED:', e));
           }
           break;
         }
@@ -625,35 +528,35 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebContentsURL');
-          const result = this.impl.setWebContentsURL(params.arg_url);
+          const result = this.impl.setWebContentsURL(params.arg_arg_url);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserAgent');
-          const result = this.impl.setUserAgent(params.arg_user_agent);
+          const result = this.impl.setUserAgent(params.arg_arg_user_agent);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setGenerateDocumentOutline');
-          const result = this.impl.setGenerateDocumentOutline(params.arg_generate_document_outline);
+          const result = this.impl.setGenerateDocumentOutline(params.arg_arg_generate_document_outline);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTitle');
-          const result = this.impl.setTitle(params.arg_title);
+          const result = this.impl.setTitle(params.arg_arg_title);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWatermarkBlock');
-          const result = this.impl.setWatermarkBlock(params.arg_watermark_block);
+          const result = this.impl.setWatermarkBlock(params.arg_arg_watermark_block);
           break;
         }
       }
@@ -668,4 +571,112 @@ mojo.internal.bindings.printing.mojom.PrintCompositorReceiver = mojo.internal.bi
 
 mojo.internal.bindings.printing.mojom.PrintCompositorPtr = mojo.internal.bindings.printing.mojom.PrintCompositorRemote;
 mojo.internal.bindings.printing.mojom.PrintCompositorRequest = mojo.internal.bindings.printing.mojom.PrintCompositorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_NotifyUnavailableSubframe_ParamsSpec, 'printing.mojom.PrintCompositor_NotifyUnavailableSubframe_Params', [
+      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_AddSubframeContent_ParamsSpec, 'printing.mojom.PrintCompositor_AddSubframeContent_Params', [
+      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_serialized_content', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_SetAccessibilityTree_ParamsSpec, 'printing.mojom.PrintCompositor_SetAccessibilityTree_Params', [
+      mojo.internal.StructField('arg_accessibility_tree', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_Params', [
+      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sk_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositePage_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositePage_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_Params', [
+      mojo.internal.StructField('arg_frame_guid', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_sk_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subframe_content_info', 16, 0, mojo.internal.Map(mojo.internal.Uint32, mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_type', 24, 0, mojo.internal.bindings.printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_CompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_CompositeDocument_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_Params', [
+      mojo.internal.StructField('arg_document_type', 0, 0, mojo.internal.bindings.printing.mojom.DocumentTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParamsSpec, 'printing.mojom.PrintCompositor_PrepareToCompositeDocument_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_Params', [
+      mojo.internal.StructField('arg_pages_count', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParamsSpec, 'printing.mojom.PrintCompositor_FinishDocumentComposition_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.printing.mojom.StatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_SetWebContentsURL_ParamsSpec, 'printing.mojom.PrintCompositor_SetWebContentsURL_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_SetUserAgent_ParamsSpec, 'printing.mojom.PrintCompositor_SetUserAgent_Params', [
+      mojo.internal.StructField('arg_user_agent', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_SetGenerateDocumentOutline_ParamsSpec, 'printing.mojom.PrintCompositor_SetGenerateDocumentOutline_Params', [
+      mojo.internal.StructField('arg_generate_document_outline', 0, 0, mojo.internal.bindings.printing.mojom.GenerateDocumentOutlineSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_SetTitle_ParamsSpec, 'printing.mojom.PrintCompositor_SetTitle_Params', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.printing.mojom.PrintCompositor_SetWatermarkBlock_ParamsSpec, 'printing.mojom.PrintCompositor_SetWatermarkBlock_Params', [
+      mojo.internal.StructField('arg_watermark_block', 0, 0, mojo.internal.bindings.watermark.mojom.WatermarkBlockSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

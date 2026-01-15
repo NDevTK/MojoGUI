@@ -190,37 +190,7 @@ mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6 = {
   kValue2: 2,
 };
 
-// Struct: JpUnusedStruct
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec, 'ash.ime.mojom.JpUnusedStruct', [
-      mojo.internal.StructField('arg_unused0', 0, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused1', 4, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused2', 8, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused3', 12, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused4', 16, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused5', 20, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused6', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unused8', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unused9', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unused11', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unused12', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_unused7', 28, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_unused10', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: JpUnused
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec, 'ash.ime.mojom.JpUnused_Unused_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec, 'ash.ime.mojom.JpUnused_Unused_ResponseParams', [
-      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.ime.mojom.JpUnusedPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -337,8 +307,11 @@ mojo.internal.bindings.ash.ime.mojom.JpUnusedReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Unused FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_unused' in response) ? response.arg_arg_unused : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unused FAILED:', e));
           }
           break;
         }
@@ -354,4 +327,36 @@ mojo.internal.bindings.ash.ime.mojom.JpUnusedReceiver = mojo.internal.bindings.a
 
 mojo.internal.bindings.ash.ime.mojom.JpUnusedPtr = mojo.internal.bindings.ash.ime.mojom.JpUnusedRemote;
 mojo.internal.bindings.ash.ime.mojom.JpUnusedRequest = mojo.internal.bindings.ash.ime.mojom.JpUnusedPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: JpUnusedStruct
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec, 'ash.ime.mojom.JpUnusedStruct', [
+      mojo.internal.StructField('arg_unused0', 0, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum0Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused1', 4, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum1Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused2', 8, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum2Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused3', 12, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum3Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused4', 16, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum4Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused5', 20, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum5Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused6', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unused8', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unused9', 24, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unused11', 24, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unused12', 24, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_unused7', 28, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedEnum6Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_unused10', 32, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ParamsSpec, 'ash.ime.mojom.JpUnused_Unused_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.JpUnused_Unused_ResponseParamsSpec, 'ash.ime.mojom.JpUnused_Unused_ResponseParams', [
+      mojo.internal.StructField('arg_unused', 0, 0, mojo.internal.bindings.ash.ime.mojom.JpUnusedStructSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

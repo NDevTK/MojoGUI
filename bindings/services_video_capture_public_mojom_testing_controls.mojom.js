@@ -127,11 +127,6 @@ mojo.internal.bindings.video_capture.mojom.TestingControls.$interfaceName = 'vid
 mojo.internal.bindings.video_capture.mojom.TestingControls_Crash_ParamsSpec = { $: {} };
 
 // Interface: TestingControls
-mojo.internal.Struct(
-    mojo.internal.bindings.video_capture.mojom.TestingControls_Crash_ParamsSpec, 'video_capture.mojom.TestingControls_Crash_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.video_capture.mojom.TestingControlsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.video_capture.mojom.TestingControlsReceiver = mojo.intern
 
 mojo.internal.bindings.video_capture.mojom.TestingControlsPtr = mojo.internal.bindings.video_capture.mojom.TestingControlsRemote;
 mojo.internal.bindings.video_capture.mojom.TestingControlsRequest = mojo.internal.bindings.video_capture.mojom.TestingControlsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.video_capture.mojom.TestingControls_Crash_ParamsSpec, 'video_capture.mojom.TestingControls_Crash_Params', [
+    ],
+    [[0, 8]]);
 

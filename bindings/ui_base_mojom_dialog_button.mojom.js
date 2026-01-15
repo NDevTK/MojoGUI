@@ -129,3 +129,5 @@ mojo.internal.bindings.ui.mojom.DialogButton = {
   kOk: 1,
   kCancel: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

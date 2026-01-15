@@ -166,63 +166,7 @@ mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.WebNNTensorSpec = mojo.internal.bindings.webnn.mojom.WebNNTensorSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.webnn.mojom.WebNNTensorRemote = mojo.internal.bindings.webnn.mojom.WebNNTensorRemote || class {};
 
-// Union: CreateTensorResult
-mojo.internal.Union(
-    mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, 'webnn.mojom.CreateTensorResult', {
-      'arg_success': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.gpu.mojom.ErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: CreateTensorSuccess
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec, 'webnn.mojom.CreateTensorSuccess', [
-      mojo.internal.StructField('arg_tensor_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNTensorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tensor_handle', 8, 0, mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: WebNNContext
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec, 'webnn.mojom.WebNNContext_CreateGraphBuilder_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec, 'webnn.mojom.WebNNContext_CreateTensor_Params', [
-      mojo.internal.StructField('arg_tensor_info', 0, 0, mojo.internal.bindings.webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tensor_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec, 'webnn.mojom.WebNNContext_CreateTensor_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec, 'webnn.mojom.WebNNContext_CreateTensorFromMailbox_Params', [
-      mojo.internal.StructField('arg_tensor_info', 0, 0, mojo.internal.bindings.webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mailbox', 8, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fence', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec, 'webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.webnn.mojom.WebNNContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -363,19 +307,22 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGraphBuilder');
-          const result = this.impl.createGraphBuilder(params.arg_receiver);
+          const result = this.impl.createGraphBuilder(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTensor');
-          const result = this.impl.createTensor(params.arg_tensor_info, params.arg_tensor_data);
+          const result = this.impl.createTensor(params.arg_arg_tensor_info, params.arg_arg_tensor_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateTensor FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createTensor FAILED:', e));
           }
           break;
         }
@@ -383,12 +330,15 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createTensorFromMailbox');
-          const result = this.impl.createTensorFromMailbox(params.arg_tensor_info, params.arg_mailbox, params.arg_fence);
+          const result = this.impl.createTensorFromMailbox(params.arg_arg_tensor_info, params.arg_arg_mailbox, params.arg_arg_fence);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateTensorFromMailbox FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createTensorFromMailbox FAILED:', e));
           }
           break;
         }
@@ -404,4 +354,62 @@ mojo.internal.bindings.webnn.mojom.WebNNContextReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.webnn.mojom.WebNNContextPtr = mojo.internal.bindings.webnn.mojom.WebNNContextRemote;
 mojo.internal.bindings.webnn.mojom.WebNNContextRequest = mojo.internal.bindings.webnn.mojom.WebNNContextPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: CreateTensorResult
+mojo.internal.Union(
+    mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, 'webnn.mojom.CreateTensorResult', {
+      'arg_success': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.gpu.mojom.ErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: CreateTensorSuccess
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.CreateTensorSuccessSpec, 'webnn.mojom.CreateTensorSuccess', [
+      mojo.internal.StructField('arg_tensor_remote', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.webnn.mojom.WebNNTensorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tensor_handle', 8, 0, mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateGraphBuilder_ParamsSpec, 'webnn.mojom.WebNNContext_CreateGraphBuilder_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.webnn.mojom.WebNNGraphBuilderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ParamsSpec, 'webnn.mojom.WebNNContext_CreateTensor_Params', [
+      mojo.internal.StructField('arg_tensor_info', 0, 0, mojo.internal.bindings.webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tensor_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensor_ResponseParamsSpec, 'webnn.mojom.WebNNContext_CreateTensor_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ParamsSpec, 'webnn.mojom.WebNNContext_CreateTensorFromMailbox_Params', [
+      mojo.internal.StructField('arg_tensor_info', 0, 0, mojo.internal.bindings.webnn.mojom.TensorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mailbox', 8, 0, mojo.internal.bindings.gpu.mojom.MailboxSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fence', 16, 0, mojo.internal.bindings.gpu.mojom.SyncTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParamsSpec, 'webnn.mojom.WebNNContext_CreateTensorFromMailbox_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.webnn.mojom.CreateTensorResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

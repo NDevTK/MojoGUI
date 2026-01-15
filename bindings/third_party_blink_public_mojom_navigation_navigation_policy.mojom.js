@@ -124,6 +124,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.NavigationDownloadTypesSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.NavigationDownloadPolicySpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: NavigationDownloadTypes
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationDownloadTypesSpec, 'blink.mojom.NavigationDownloadTypes', [

@@ -130,3 +130,5 @@ mojo.internal.bindings.ui.mojom.ExtendedFkeysModifier = {
   kShift: 2,
   kCtrlShift: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

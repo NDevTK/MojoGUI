@@ -160,6 +160,8 @@ mojo.internal.bindings.printing = mojo.internal.bindings.printing || {};
 mojo.internal.bindings.printing.mojom = mojo.internal.bindings.printing.mojom || {};
 mojo.internal.bindings.printing.mojom.PrinterLanguageTypeSpec = mojo.internal.bindings.printing.mojom.PrinterLanguageTypeSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PageMargins
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PageMarginsSpec, 'printing.mojom.PageMargins', [

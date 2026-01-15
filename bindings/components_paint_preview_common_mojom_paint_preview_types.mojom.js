@@ -147,6 +147,8 @@ mojo.internal.bindings.paint_preview.mojom.ClipCoordOverride = {
   kScrollOffset: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: SerializedRecording
 mojo.internal.Union(
     mojo.internal.bindings.paint_preview.mojom.SerializedRecordingSpec, 'paint_preview.mojom.SerializedRecording', {

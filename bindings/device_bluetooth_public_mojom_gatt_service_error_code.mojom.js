@@ -134,3 +134,5 @@ mojo.internal.bindings.bluetooth.mojom.GattServiceErrorCode = {
   kNotPaired: 6,
   kNotSupported: 7,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -202,13 +202,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResult = {
 };
 
 // Interface: NearbyConnectionStateListener
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_Params', [
-      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -321,7 +314,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onNearbyConnectionStateChanged');
-          const result = this.impl.onNearbyConnectionStateChanged(params.arg_step, params.arg_result);
+          const result = this.impl.onNearbyConnectionStateChanged(params.arg_arg_step, params.arg_arg_result);
           break;
         }
       }
@@ -339,18 +332,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerReq
 
 
 // Interface: NearbyMessageSender
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec, 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -463,12 +444,15 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendMessage');
-          const result = this.impl.sendMessage(params.arg_message);
+          const result = this.impl.sendMessage(params.arg_arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SendMessage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] sendMessage FAILED:', e));
           }
           break;
         }
@@ -487,12 +471,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRequest = moj
 
 
 // Interface: NearbyMessageReceiver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec, 'ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -605,7 +583,7 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMessageReceived');
-          const result = this.impl.onMessageReceived(params.arg_message);
+          const result = this.impl.onMessageReceived(params.arg_arg_message);
           break;
         }
       }
@@ -623,20 +601,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRequest = m
 
 
 // Interface: NearbyFilePayloadHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_Params', [
-      mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_payload_files', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -749,12 +713,15 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerPayloadFile');
-          const result = this.impl.registerPayloadFile(params.arg_payload_id, params.arg_payload_files, params.arg_listener);
+          const result = this.impl.registerPayloadFile(params.arg_arg_payload_id, params.arg_arg_payload_files, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RegisterPayloadFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] registerPayloadFile FAILED:', e));
           }
           break;
         }
@@ -773,22 +740,6 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRequest 
 
 
 // Interface: NearbyConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_Params', [
-      mojo.internal.StructField('arg_bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_eid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_message_receiver', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParams', [
-      mojo.internal.StructField('arg_message_sender', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -901,12 +852,14 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_bluetooth_public_address, params.arg_eid, params.arg_message_receiver, params.arg_nearby_connection_state_listener);
+          const result = this.impl.connect(params.arg_arg_bluetooth_public_address, params.arg_arg_eid, params.arg_arg_message_receiver, params.arg_arg_nearby_connection_state_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Connect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec.$.structSpec, ['response.arg_arg_message_sender', 'response.arg_arg_file_payload_handler']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] connect FAILED:', e));
           }
           break;
         }
@@ -922,4 +875,61 @@ mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorReceiver = mojo.i
 
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorPtr = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRemote;
 mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorRequest = mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnectionStateListener_OnNearbyConnectionStateChanged_Params', [
+      mojo.internal.StructField('arg_step', 0, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 4, 0, mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStepResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ParamsSpec, 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyMessageSender_SendMessage_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_ParamsSpec, 'ash.secure_channel.mojom.NearbyMessageReceiver_OnMessageReceived_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_Params', [
+      mojo.internal.StructField('arg_payload_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_payload_files', 8, 0, mojo.internal.bindings.ash.secure_channel.mojom.PayloadFilesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_listener', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.FilePayloadListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyFilePayloadHandler_RegisterPayloadFile_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_Params', [
+      mojo.internal.StructField('arg_bluetooth_public_address', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_eid', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_message_receiver', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageReceiverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connection_state_listener', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnectionStateListenerRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParamsSpec, 'ash.secure_channel.mojom.NearbyConnector_Connect_ResponseParams', [
+      mojo.internal.StructField('arg_message_sender', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyMessageSenderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_file_payload_handler', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.secure_channel.mojom.NearbyFilePayloadHandlerRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

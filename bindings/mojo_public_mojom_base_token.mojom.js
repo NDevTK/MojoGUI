@@ -123,6 +123,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 
 mojo.internal.bindings.mojo_base.mojom.TokenSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Token
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.TokenSpec, 'mojo_base.mojom.Token', [

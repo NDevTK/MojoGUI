@@ -132,12 +132,6 @@ mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec = mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: BeginFrameObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec, 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.BeginFrameObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onStandaloneBeginFrame');
-          const result = this.impl.onStandaloneBeginFrame(params.arg_args);
+          const result = this.impl.onStandaloneBeginFrame(params.arg_arg_args);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.viz.mojom.BeginFrameObserverReceiver = mojo.internal.bind
 
 mojo.internal.bindings.viz.mojom.BeginFrameObserverPtr = mojo.internal.bindings.viz.mojom.BeginFrameObserverRemote;
 mojo.internal.bindings.viz.mojom.BeginFrameObserverRequest = mojo.internal.bindings.viz.mojom.BeginFrameObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_ParamsSpec, 'viz.mojom.BeginFrameObserver_OnStandaloneBeginFrame_Params', [
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

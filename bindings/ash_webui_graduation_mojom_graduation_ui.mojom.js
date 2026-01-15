@@ -148,48 +148,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.AuthResult = {
   kError: 1,
 };
 
-// Struct: ProfileInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec, 'ash.graduation_ui.mojom.ProfileInfo', [
-      mojo.internal.StructField('arg_email', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_photo_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: GraduationUiHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParams', [
-      mojo.internal.StructField('arg_profile_info', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_Params', [
-      mojo.internal.StructField('arg_screen', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -348,8 +307,11 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AuthenticateWebview FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] authenticateWebview FAILED:', e));
           }
           break;
         }
@@ -361,8 +323,11 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetProfileInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_profile_info' in response) ? response.arg_arg_profile_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getProfileInfo FAILED:', e));
           }
           break;
         }
@@ -370,7 +335,7 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreenSwitched');
-          const result = this.impl.onScreenSwitched(params.arg_screen);
+          const result = this.impl.onScreenSwitched(params.arg_arg_screen);
           break;
         }
         case 3: {
@@ -392,4 +357,47 @@ mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerReceiver = moj
 
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerPtr = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRemote;
 mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerRequest = mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ProfileInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec, 'ash.graduation_ui.mojom.ProfileInfo', [
+      mojo.internal.StructField('arg_email', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_photo_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_AuthenticateWebview_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.AuthResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_GetProfileInfo_ResponseParams', [
+      mojo.internal.StructField('arg_profile_info', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.ProfileInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnScreenSwitched_Params', [
+      mojo.internal.StructField('arg_screen', 0, 0, mojo.internal.bindings.ash.graduation_ui.mojom.GraduationScreenSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_ParamsSpec, 'ash.graduation_ui.mojom.GraduationUiHandler_OnTransferComplete_Params', [
+    ],
+    [[0, 8]]);
 

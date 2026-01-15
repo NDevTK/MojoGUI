@@ -130,3 +130,5 @@ mojo.internal.bindings.network.mojom.IPAddressSpace = {
   kPublic: 2,
   kUnknown: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

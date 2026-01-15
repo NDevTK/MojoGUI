@@ -177,45 +177,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResult = {
   kUnableToRun: 3,
 };
 
-// Union: RoutineResult
-mojo.internal.Union(
-    mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, 'ash.diagnostics.mojom.RoutineResult', {
-      'arg_simple_result': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec,
-        'nullable': false,
-      },
-      'arg_power_result': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: PowerRoutineResult
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
-      mojo.internal.StructField('arg_simple_result', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_elapsed_seconds', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_change', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: RoutineResultInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: RoutineRunner
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -328,7 +290,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRoutineResult');
-          const result = this.impl.onRoutineResult(params.arg_info);
+          const result = this.impl.onRoutineResult(params.arg_arg_info);
           break;
         }
       }
@@ -346,24 +308,6 @@ mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRequest = mojo.interna
 
 
 // Interface: SystemRoutineController
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [
-      mojo.internal.StructField('arg_routines', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_runner', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -494,8 +438,11 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSupportedRoutines FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_routines' in response) ? response.arg_arg_routines : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSupportedRoutines FAILED:', e));
           }
           break;
         }
@@ -503,7 +450,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.runRoutine');
-          const result = this.impl.runRoutine(params.arg_type, params.arg_runner);
+          const result = this.impl.runRoutine(params.arg_arg_type, params.arg_arg_runner);
           break;
         }
       }
@@ -518,4 +465,62 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerReceiver = m
 
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPtr = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRemote;
 mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerRequest = mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineControllerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: RoutineResult
+mojo.internal.Union(
+    mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, 'ash.diagnostics.mojom.RoutineResult', {
+      'arg_simple_result': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec,
+        'nullable': false,
+      },
+      'arg_power_result': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: PowerRoutineResult
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.PowerRoutineResultSpec, 'ash.diagnostics.mojom.PowerRoutineResult', [
+      mojo.internal.StructField('arg_simple_result', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.StandardRoutineResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_elapsed_seconds', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_change', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: RoutineResultInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, 'ash.diagnostics.mojom.RoutineResultInfo', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_ParamsSpec, 'ash.diagnostics.mojom.RoutineRunner_OnRoutineResult_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineResultInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_GetSupportedRoutines_ResponseParams', [
+      mojo.internal.StructField('arg_routines', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemRoutineController_RunRoutine_ParamsSpec, 'ash.diagnostics.mojom.SystemRoutineController_RunRoutine_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.RoutineTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_runner', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.RoutineRunnerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

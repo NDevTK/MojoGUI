@@ -147,44 +147,7 @@ mojo.internal.bindings.arc.mojom.TtsEventType = {
   WORD: 4,
 };
 
-// Struct: TtsUtterance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsUtteranceSpec, 'arc.mojom.TtsUtterance', [
-      mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_voice_id', 4, 0, mojo.internal.Uint32, 0, false, 2, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_rate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_pitch', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 40], [2, 16]]);
-
-// Struct: TtsVoice
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsVoiceSpec, 'arc.mojom.TtsVoice', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_is_network_connection_required', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_locale', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: TtsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec, 'arc.mojom.TtsHost_OnVoicesChanged_Params', [
-      mojo.internal.StructField('arg_voices', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.TtsVoiceSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsHost_OnTtsEvent_ParamsSpec, 'arc.mojom.TtsHost_OnTtsEvent_Params', [
-      mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event_type', 4, 0, mojo.internal.bindings.arc.mojom.TtsEventTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_char_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error_msg', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.arc.mojom.TtsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -311,14 +274,14 @@ mojo.internal.bindings.arc.mojom.TtsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onVoicesChanged');
-          const result = this.impl.onVoicesChanged(params.arg_voices);
+          const result = this.impl.onVoicesChanged(params.arg_arg_voices);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsHost_OnTtsEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTtsEvent');
-          const result = this.impl.onTtsEvent(params.arg_utteranceId, params.arg_event_type, params.arg_char_index, params.arg_length, params.arg_error_msg);
+          const result = this.impl.onTtsEvent(params.arg_arg_utteranceId, params.arg_arg_event_type, params.arg_arg_char_index, params.arg_arg_length, params.arg_arg_error_msg);
           break;
         }
       }
@@ -336,33 +299,6 @@ mojo.internal.bindings.arc.mojom.TtsHostRequest = mojo.internal.bindings.arc.moj
 
 
 // Interface: TtsInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsInstance_Init_ParamsSpec, 'arc.mojom.TtsInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.TtsHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec, 'arc.mojom.TtsInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsInstance_Speak_ParamsSpec, 'arc.mojom.TtsInstance_Speak_Params', [
-      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.arc.mojom.TtsUtteranceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsInstance_Stop_ParamsSpec, 'arc.mojom.TtsInstance_Stop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.TtsInstance_RefreshVoices_ParamsSpec, 'arc.mojom.TtsInstance_RefreshVoices_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.TtsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -517,12 +453,14 @@ mojo.internal.bindings.arc.mojom.TtsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -530,7 +468,7 @@ mojo.internal.bindings.arc.mojom.TtsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.TtsInstance_Speak_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.speak');
-          const result = this.impl.speak(params.arg_utterance);
+          const result = this.impl.speak(params.arg_arg_utterance);
           break;
         }
         case 2: {
@@ -559,4 +497,70 @@ mojo.internal.bindings.arc.mojom.TtsInstanceReceiver = mojo.internal.bindings.ar
 
 mojo.internal.bindings.arc.mojom.TtsInstancePtr = mojo.internal.bindings.arc.mojom.TtsInstanceRemote;
 mojo.internal.bindings.arc.mojom.TtsInstanceRequest = mojo.internal.bindings.arc.mojom.TtsInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TtsUtterance
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsUtteranceSpec, 'arc.mojom.TtsUtterance', [
+      mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_id', 4, 0, mojo.internal.Uint32, 0, false, 2, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_rate', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_pitch', 24, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 40], [2, 16]]);
+
+// Struct: TtsVoice
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsVoiceSpec, 'arc.mojom.TtsVoice', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_is_network_connection_required', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_locale', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsHost_OnVoicesChanged_ParamsSpec, 'arc.mojom.TtsHost_OnVoicesChanged_Params', [
+      mojo.internal.StructField('arg_voices', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.TtsVoiceSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsHost_OnTtsEvent_ParamsSpec, 'arc.mojom.TtsHost_OnTtsEvent_Params', [
+      mojo.internal.StructField('arg_utteranceId', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type', 4, 0, mojo.internal.bindings.arc.mojom.TtsEventTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_char_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error_msg', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsInstance_Init_ParamsSpec, 'arc.mojom.TtsInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.TtsHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsInstance_Init_ResponseParamsSpec, 'arc.mojom.TtsInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsInstance_Speak_ParamsSpec, 'arc.mojom.TtsInstance_Speak_Params', [
+      mojo.internal.StructField('arg_utterance', 0, 0, mojo.internal.bindings.arc.mojom.TtsUtteranceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsInstance_Stop_ParamsSpec, 'arc.mojom.TtsInstance_Stop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.TtsInstance_RefreshVoices_ParamsSpec, 'arc.mojom.TtsInstance_RefreshVoices_Params', [
+    ],
+    [[0, 8]]);
 

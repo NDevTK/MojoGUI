@@ -133,6 +133,8 @@ mojo.internal.bindings.arc.mojom.ActionType = {
   EDIT: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ActivityName
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ActivityNameSpec, 'arc.mojom.ActivityName', [

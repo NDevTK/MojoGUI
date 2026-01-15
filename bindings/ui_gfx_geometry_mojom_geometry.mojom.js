@@ -137,6 +137,8 @@ mojo.internal.bindings.gfx.mojom.QuaternionSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.QuadFSpec = { $: {} };
 mojo.internal.bindings.gfx.mojom.AxisTransform2dSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Point
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.PointSpec, 'gfx.mojom.Point', [

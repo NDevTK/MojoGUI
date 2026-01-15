@@ -142,6 +142,8 @@ mojo.internal.bindings.gfx.mojom.RRectFType = {
   kComplex: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: RRectF
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.RRectFSpec, 'gfx.mojom.RRectF', [

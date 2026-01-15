@@ -164,87 +164,7 @@ mojo.internal.bindings.device_signals.mojom.AntiVirusProductState = {
   kExpired: 3,
 };
 
-// Struct: ExecutableMetadata
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, 'device_signals.mojom.ExecutableMetadata', [
-      mojo.internal.StructField('arg_is_running', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_os_verified', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_public_keys_hashes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subject_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: FileSystemItem
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec, 'device_signals.mojom.FileSystemItem', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_presence', 8, 0, mojo.internal.bindings.device_signals.mojom.PresenceValueSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_sha256_hash', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_executable_metadata', 24, 0, mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: FileSystemItemRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec, 'device_signals.mojom.FileSystemItemRequest', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_compute_sha256', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_compute_executable_metadata', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AntiVirusSignal
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec, 'device_signals.mojom.AntiVirusSignal', [
-      mojo.internal.StructField('arg_display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: HotfixSignal
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec, 'device_signals.mojom.HotfixSignal', [
-      mojo.internal.StructField('arg_hotfix_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SystemSignalsService
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetFileSystemSignals_Params', [
-      mojo.internal.StructField('arg_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParams', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParams', [
-      mojo.internal.StructField('arg_av_signals', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetHotfixSignals_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParams', [
-      mojo.internal.StructField('arg_hotfix_signals', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device_signals.mojom.SystemSignalsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -385,12 +305,15 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getFileSystemSignals');
-          const result = this.impl.getFileSystemSignals(params.arg_requests);
+          const result = this.impl.getFileSystemSignals(params.arg_arg_requests);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetFileSystemSignals FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_items' in response) ? response.arg_arg_items : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getFileSystemSignals FAILED:', e));
           }
           break;
         }
@@ -402,8 +325,11 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAntiVirusSignals FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_av_signals' in response) ? response.arg_arg_av_signals : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAntiVirusSignals FAILED:', e));
           }
           break;
         }
@@ -415,8 +341,11 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = class
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetHotfixSignals FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_hotfix_signals' in response) ? response.arg_arg_hotfix_signals : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getHotfixSignals FAILED:', e));
           }
           break;
         }
@@ -432,4 +361,86 @@ mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceReceiver = mojo.
 
 mojo.internal.bindings.device_signals.mojom.SystemSignalsServicePtr = mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRemote;
 mojo.internal.bindings.device_signals.mojom.SystemSignalsServiceRequest = mojo.internal.bindings.device_signals.mojom.SystemSignalsServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ExecutableMetadata
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, 'device_signals.mojom.ExecutableMetadata', [
+      mojo.internal.StructField('arg_is_running', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_os_verified', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_public_keys_hashes', 8, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_product_name', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_version', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subject_name', 32, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: FileSystemItem
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec, 'device_signals.mojom.FileSystemItem', [
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_presence', 8, 0, mojo.internal.bindings.device_signals.mojom.PresenceValueSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_sha256_hash', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_executable_metadata', 24, 0, mojo.internal.bindings.device_signals.mojom.ExecutableMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: FileSystemItemRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec, 'device_signals.mojom.FileSystemItemRequest', [
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_compute_sha256', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_compute_executable_metadata', 8, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AntiVirusSignal
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec, 'device_signals.mojom.AntiVirusSignal', [
+      mojo.internal.StructField('arg_display_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_state', 8, 0, mojo.internal.bindings.device_signals.mojom.AntiVirusProductStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: HotfixSignal
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec, 'device_signals.mojom.HotfixSignal', [
+      mojo.internal.StructField('arg_hotfix_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetFileSystemSignals_Params', [
+      mojo.internal.StructField('arg_requests', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.FileSystemItemRequestSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetFileSystemSignals_ResponseParams', [
+      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.FileSystemItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetAntiVirusSignals_ResponseParams', [
+      mojo.internal.StructField('arg_av_signals', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.AntiVirusSignalSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ParamsSpec, 'device_signals.mojom.SystemSignalsService_GetHotfixSignals_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParamsSpec, 'device_signals.mojom.SystemSignalsService_GetHotfixSignals_ResponseParams', [
+      mojo.internal.StructField('arg_hotfix_signals', 0, 0, mojo.internal.Array(mojo.internal.bindings.device_signals.mojom.HotfixSignalSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

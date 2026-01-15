@@ -135,6 +135,8 @@ mojo.internal.bindings.media.mojom.SpeechAudioErrorDetails = {
   kNoMic: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SpeechRecognitionError
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionErrorSpec, 'media.mojom.SpeechRecognitionError', [

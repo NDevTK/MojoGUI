@@ -135,3 +135,5 @@ mojo.internal.bindings.optimization_guide_common.mojom.LogSource = {
   NTP_MODULE: 7,
   CONTEXTUAL_TASKS_CONTEXT: 8,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

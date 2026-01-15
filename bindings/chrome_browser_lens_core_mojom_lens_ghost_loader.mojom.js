@@ -131,12 +131,6 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPage.$interfaceName = 'lens.moj
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec = { $: {} };
 
 // Interface: LensGhostLoaderPageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec, 'lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,7 +243,7 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGhostLoaderPage');
-          const result = this.impl.createGhostLoaderPage(params.arg_page);
+          const result = this.impl.createGhostLoaderPage(params.arg_arg_page);
           break;
         }
       }
@@ -267,11 +261,6 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactoryRequest = moj
 
 
 // Interface: LensGhostLoaderPage
-mojo.internal.Struct(
-    mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec, 'lens.mojom.LensGhostLoaderPage_ShowErrorState_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -399,4 +388,17 @@ mojo.internal.bindings.lens.mojom.LensGhostLoaderPageReceiver = mojo.internal.bi
 
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPagePtr = mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemote;
 mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRequest = mojo.internal.bindings.lens.mojom.LensGhostLoaderPagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_ParamsSpec, 'lens.mojom.LensGhostLoaderPageHandlerFactory_CreateGhostLoaderPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.lens.mojom.LensGhostLoaderPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.lens.mojom.LensGhostLoaderPage_ShowErrorState_ParamsSpec, 'lens.mojom.LensGhostLoaderPage_ShowErrorState_Params', [
+    ],
+    [[0, 8]]);
 

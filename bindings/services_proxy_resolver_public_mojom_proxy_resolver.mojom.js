@@ -200,30 +200,7 @@ mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatus = {
   kEmptyProxyList: 10,
 };
 
-// Struct: ProxyInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec, 'proxy_resolver.mojom.ProxyInfo', [
-      mojo.internal.StructField('arg_proxy_chains', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ProxyChainSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SystemProxyResolutionStatus
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec, 'proxy_resolver.mojom.SystemProxyResolutionStatus', [
-      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_os_error', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_win_http_status', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: HostResolverRequestClient
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.HostResolverRequestClient_ReportResult_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPAddressSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -336,7 +313,7 @@ mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_error, params.arg_result);
+          const result = this.impl.reportResult(params.arg_arg_error, params.arg_arg_result);
           break;
         }
       }
@@ -354,14 +331,6 @@ mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRequest = m
 
 
 // Interface: ProxyResolver
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec, 'proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -474,7 +443,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
-          const result = this.impl.getProxyForUrl(params.arg_url, params.arg_network_anonymization_key, params.arg_client);
+          const result = this.impl.getProxyForUrl(params.arg_arg_url, params.arg_arg_network_anonymization_key, params.arg_arg_client);
           break;
         }
       }
@@ -492,35 +461,6 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequest = mojo.internal
 
 
 // Interface: ProxyResolverRequestClient
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_proxy_info', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_Alert_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_OnError_Params', [
-      mojo.internal.StructField('arg_line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_anonymization_key', 16, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -675,28 +615,28 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_error, params.arg_proxy_info);
+          const result = this.impl.reportResult(params.arg_arg_error, params.arg_arg_proxy_info);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.alert');
-          const result = this.impl.alert(params.arg_error);
+          const result = this.impl.alert(params.arg_arg_error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_line_number, params.arg_error);
+          const result = this.impl.onError(params.arg_arg_line_number, params.arg_arg_error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveDns');
-          const result = this.impl.resolveDns(params.arg_host, params.arg_operation, params.arg_network_anonymization_key, params.arg_client);
+          const result = this.impl.resolveDns(params.arg_arg_host, params.arg_arg_operation, params.arg_arg_network_anonymization_key, params.arg_arg_client);
           break;
         }
       }
@@ -714,14 +654,6 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRequest = 
 
 
 // Interface: ProxyResolverFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_Params', [
-      mojo.internal.StructField('arg_pac_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -834,7 +766,7 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createResolver');
-          const result = this.impl.createResolver(params.arg_pac_script, params.arg_receiver, params.arg_client);
+          const result = this.impl.createResolver(params.arg_arg_pac_script, params.arg_arg_receiver, params.arg_arg_client);
           break;
         }
       }
@@ -852,34 +784,6 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequest = mojo.i
 
 
 // Interface: ProxyResolverFactoryRequestClient
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_Params', [
-      mojo.internal.StructField('arg_line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_network_anonymization_key', 16, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1034,28 +938,28 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRec
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportResult');
-          const result = this.impl.reportResult(params.arg_error);
+          const result = this.impl.reportResult(params.arg_arg_error);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.alert');
-          const result = this.impl.alert(params.arg_error);
+          const result = this.impl.alert(params.arg_arg_error);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_line_number, params.arg_error);
+          const result = this.impl.onError(params.arg_arg_line_number, params.arg_arg_error);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.resolveDns');
-          const result = this.impl.resolveDns(params.arg_host, params.arg_operation, params.arg_network_anonymization_key, params.arg_client);
+          const result = this.impl.resolveDns(params.arg_arg_host, params.arg_arg_operation, params.arg_arg_network_anonymization_key, params.arg_arg_client);
           break;
         }
       }
@@ -1073,19 +977,6 @@ mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientReq
 
 
 // Interface: SystemProxyResolver
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec, 'proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec, 'proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParams', [
-      mojo.internal.StructField('arg_proxy_list', 0, 0, mojo.internal.bindings.network.mojom.ProxyListSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1198,12 +1089,14 @@ mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getProxyForUrl');
-          const result = this.impl.getProxyForUrl(params.arg_url);
+          const result = this.impl.getProxyForUrl(params.arg_arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetProxyForUrl FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec.$.structSpec, ['response.arg_arg_proxy_list', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getProxyForUrl FAILED:', e));
           }
           break;
         }
@@ -1219,4 +1112,115 @@ mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverReceiver = mojo.i
 
 mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverPtr = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverRemote;
 mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverRequest = mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ProxyInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec, 'proxy_resolver.mojom.ProxyInfo', [
+      mojo.internal.StructField('arg_proxy_chains', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ProxyChainSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SystemProxyResolutionStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec, 'proxy_resolver.mojom.SystemProxyResolutionStatus', [
+      mojo.internal.StructField('arg_is_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_os_error', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_win_http_status', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.WinHttpStatusSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.HostResolverRequestClient_ReportResult_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.IPAddressSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_ParamsSpec, 'proxy_resolver.mojom.ProxyResolver_GetProxyForUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 8, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_ReportResult_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_proxy_info', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.ProxyInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_Alert_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_Alert_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_OnError_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_OnError_Params', [
+      mojo.internal.StructField('arg_line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverRequestClient_ResolveDns_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 16, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactory_CreateResolver_Params', [
+      mojo.internal.StructField('arg_pac_script', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ReportResult_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_Alert_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_OnError_Params', [
+      mojo.internal.StructField('arg_line_number', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_ParamsSpec, 'proxy_resolver.mojom.ProxyResolverFactoryRequestClient_ResolveDns_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.HostResolveOperationSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_network_anonymization_key', 16, 0, mojo.internal.bindings.network.mojom.NetworkAnonymizationKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.proxy_resolver.mojom.HostResolverRequestClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ParamsSpec, 'proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParamsSpec, 'proxy_resolver.mojom.SystemProxyResolver_GetProxyForUrl_ResponseParams', [
+      mojo.internal.StructField('arg_proxy_list', 0, 0, mojo.internal.bindings.network.mojom.ProxyListSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.proxy_resolver.mojom.SystemProxyResolutionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

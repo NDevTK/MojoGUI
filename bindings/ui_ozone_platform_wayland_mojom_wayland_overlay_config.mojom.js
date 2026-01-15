@@ -155,6 +155,8 @@ mojo.internal.bindings.wl = mojo.internal.bindings.wl || {};
 mojo.internal.bindings.wl.mojom = mojo.internal.bindings.wl.mojom || {};
 mojo.internal.bindings.wl.mojom.TransformUnionSpec = mojo.internal.bindings.wl.mojom.TransformUnionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: TransformUnion
 mojo.internal.Union(
     mojo.internal.bindings.wl.mojom.TransformUnionSpec, 'wl.mojom.TransformUnion', {

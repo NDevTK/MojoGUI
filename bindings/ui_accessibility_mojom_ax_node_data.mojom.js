@@ -147,6 +147,8 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.StringListAttributeSpec = mojo.internal.bindings.ax.mojom.StringListAttributeSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXBitsetData
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXBitsetDataSpec, 'ax.mojom.AXBitsetData', [

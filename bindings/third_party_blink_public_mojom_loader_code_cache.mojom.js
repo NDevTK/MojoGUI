@@ -157,57 +157,6 @@ mojo.internal.bindings.blink.mojom.CodeCacheType = {
 };
 
 // Interface: CodeCacheHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec, 'blink.mojom.CodeCacheHost_GetPendingBackend_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec, 'blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParams', [
-      mojo.internal.StructField('arg_pending_backend', 0, 0, mojo.internal.bindings.persistent_cache.mojom.PendingReadOnlyBackendSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec, 'blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_response_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec, 'blink.mojom.CodeCacheHost_FetchCachedCode_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec, 'blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParams', [
-      mojo.internal.StructField('arg_response_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec, 'blink.mojom.CodeCacheHost_ClearCodeCacheEntry_Params', [
-      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec, 'blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_response_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_storage_cache_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.blink.mojom.CodeCacheHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -376,12 +325,15 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPendingBackend');
-          const result = this.impl.getPendingBackend(params.arg_cache_type);
+          const result = this.impl.getPendingBackend(params.arg_arg_cache_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPendingBackend FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pending_backend' in response) ? response.arg_arg_pending_backend : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPendingBackend FAILED:', e));
           }
           break;
         }
@@ -389,19 +341,21 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadata');
-          const result = this.impl.didGenerateCacheableMetadata(params.arg_cache_type, params.arg_url, params.arg_expected_response_time, params.arg_data);
+          const result = this.impl.didGenerateCacheableMetadata(params.arg_arg_cache_type, params.arg_arg_url, params.arg_arg_expected_response_time, params.arg_arg_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.fetchCachedCode');
-          const result = this.impl.fetchCachedCode(params.arg_cache_type, params.arg_url);
+          const result = this.impl.fetchCachedCode(params.arg_arg_cache_type, params.arg_arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] FetchCachedCode FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec.$.structSpec, ['response.arg_arg_response_time', 'response.arg_arg_data']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] fetchCachedCode FAILED:', e));
           }
           break;
         }
@@ -409,14 +363,14 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearCodeCacheEntry');
-          const result = this.impl.clearCodeCacheEntry(params.arg_cache_type, params.arg_url);
+          const result = this.impl.clearCodeCacheEntry(params.arg_arg_cache_type, params.arg_arg_url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didGenerateCacheableMetadataInCacheStorage');
-          const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.arg_url, params.arg_expected_response_time, params.arg_data, params.arg_cache_storage_cache_name);
+          const result = this.impl.didGenerateCacheableMetadataInCacheStorage(params.arg_arg_url, params.arg_arg_expected_response_time, params.arg_arg_data, params.arg_arg_cache_storage_cache_name);
           break;
         }
       }
@@ -431,4 +385,57 @@ mojo.internal.bindings.blink.mojom.CodeCacheHostReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.CodeCacheHostPtr = mojo.internal.bindings.blink.mojom.CodeCacheHostRemote;
 mojo.internal.bindings.blink.mojom.CodeCacheHostRequest = mojo.internal.bindings.blink.mojom.CodeCacheHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ParamsSpec, 'blink.mojom.CodeCacheHost_GetPendingBackend_Params', [
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParamsSpec, 'blink.mojom.CodeCacheHost_GetPendingBackend_ResponseParams', [
+      mojo.internal.StructField('arg_pending_backend', 0, 0, mojo.internal.bindings.persistent_cache.mojom.PendingReadOnlyBackendSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_ParamsSpec, 'blink.mojom.CodeCacheHost_DidGenerateCacheableMetadata_Params', [
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_response_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 24, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ParamsSpec, 'blink.mojom.CodeCacheHost_FetchCachedCode_Params', [
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParamsSpec, 'blink.mojom.CodeCacheHost_FetchCachedCode_ResponseParams', [
+      mojo.internal.StructField('arg_response_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_ClearCodeCacheEntry_ParamsSpec, 'blink.mojom.CodeCacheHost_ClearCodeCacheEntry_Params', [
+      mojo.internal.StructField('arg_cache_type', 0, 0, mojo.internal.bindings.blink.mojom.CodeCacheTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_ParamsSpec, 'blink.mojom.CodeCacheHost_DidGenerateCacheableMetadataInCacheStorage_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_response_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_storage_cache_name', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 

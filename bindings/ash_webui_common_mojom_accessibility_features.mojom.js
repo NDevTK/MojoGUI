@@ -133,12 +133,6 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHidden
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec = { $: {} };
 
 // Interface: ForceHiddenElementsVisibleObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec, 'ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_Params', [
-      mojo.internal.StructField('arg_forceVisible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onForceHiddenElementsVisibleChange');
-          const result = this.impl.onForceHiddenElementsVisibleChange(params.arg_forceVisible);
+          const result = this.impl.onForceHiddenElementsVisibleChange(params.arg_arg_forceVisible);
           break;
         }
       }
@@ -269,18 +263,6 @@ mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverReques
 
 
 // Interface: AccessibilityFeatures
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec, 'ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec, 'ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParams', [
-      mojo.internal.StructField('arg_forceVisible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -393,12 +375,15 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeForceHiddenElementsVisible');
-          const result = this.impl.observeForceHiddenElementsVisible(params.arg_observer);
+          const result = this.impl.observeForceHiddenElementsVisible(params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ObserveForceHiddenElementsVisible FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_forceVisible' in response) ? response.arg_arg_forceVisible : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] observeForceHiddenElementsVisible FAILED:', e));
           }
           break;
         }
@@ -414,4 +399,24 @@ mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesReceiver = mojo.int
 
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesPtr = mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesRemote;
 mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesRequest = mojo.internal.bindings.ash.common.mojom.AccessibilityFeaturesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_ParamsSpec, 'ash.common.mojom.ForceHiddenElementsVisibleObserver_OnForceHiddenElementsVisibleChange_Params', [
+      mojo.internal.StructField('arg_forceVisible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ParamsSpec, 'ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ForceHiddenElementsVisibleObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParamsSpec, 'ash.common.mojom.AccessibilityFeatures_ObserveForceHiddenElementsVisible_ResponseParams', [
+      mojo.internal.StructField('arg_forceVisible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

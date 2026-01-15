@@ -126,14 +126,6 @@ mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterface = {};
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceSpec = { $ : {} };
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterface.$interfaceName = 'mojo_base.mojom.GenericAssociatedInterface';
 
-// Struct: GenericPendingAssociatedReceiver
-mojo.internal.Struct(
-    mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, 'mojo_base.mojom.GenericPendingAssociatedReceiver', [
-      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: GenericAssociatedInterface
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfacePendingReceiver = class {
   constructor(handle) {
@@ -242,3 +234,13 @@ mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceReceiver = mojo
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfacePtr = mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRemote;
 mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRequest = mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfacePendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: GenericPendingAssociatedReceiver
+mojo.internal.Struct(
+    mojo.internal.bindings.mojo_base.mojom.GenericPendingAssociatedReceiverSpec, 'mojo_base.mojom.GenericPendingAssociatedReceiver', [
+      mojo.internal.StructField('arg_interface_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.mojo_base.mojom.GenericAssociatedInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);

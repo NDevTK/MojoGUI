@@ -236,211 +236,7 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCode = {
   MinVersion: 1,
 };
 
-// Union: TextQueryResponse
-mojo.internal.Union(
-    mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, 'ash.orca.mojom.TextQueryResponse', {
-      'arg_results': {
-        'ordinal': 0,
-        'type': mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.TextQueryResultSpec, false),
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: PresetTextQuery
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec, 'ash.orca.mojom.PresetTextQuery', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: TextQueryRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec, 'ash.orca.mojom.TextQueryRequest', [
-      mojo.internal.StructField('arg_text_query_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: TextQueryResult
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.TextQueryResultSpec, 'ash.orca.mojom.TextQueryResult', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TextQueryError
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec, 'ash.orca.mojom.TextQueryError', [
-      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SurroundingText
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SurroundingTextSpec, 'ash.orca.mojom.SurroundingText', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_range', 8, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Context
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.ContextSpec, 'ash.orca.mojom.Context', [
-      mojo.internal.StructField('arg_surrounding_text', 0, 0, mojo.internal.bindings.ash.orca.mojom.SurroundingTextSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: EditorConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, 'ash.orca.mojom.EditorConfig', [
-      mojo.internal.StructField('arg_allowed_query_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_language_code', 8, 0, mojo.internal.String, null, true, 12, undefined),
-    ],
-    [[0, 16], [12, 24]]);
-
-// Struct: TriggerContext
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
-      mojo.internal.StructField('arg_freeform_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_preset_type_selected', 4, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: EditorClient
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParams', [
-      mojo.internal.StructField('arg_text_queries', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_Params', [
-      mojo.internal.StructField('arg_text_query_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_override', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_override', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec, 'ash.orca.mojom.EditorClient_InsertText_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_ApproveConsent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_DeclineConsent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_DismissConsent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.EditorClient_OpenUrlInNewWindow_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_ShowUI_ParamsSpec, 'ash.orca.mojom.EditorClient_ShowUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_CloseUI_ParamsSpec, 'ash.orca.mojom.EditorClient_CloseUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec, 'ash.orca.mojom.EditorClient_AppendText_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec, 'ash.orca.mojom.EditorClient_PreviewFeedback_Params', [
-      mojo.internal.StructField('arg_result_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParams', [
-      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec, 'ash.orca.mojom.EditorClient_SubmitFeedback_Params', [
-      mojo.internal.StructField('arg_result_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec, 'ash.orca.mojom.EditorClient_OnTrigger_Params', [
-      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.EditorClient_EmitMetricEvent_Params', [
-      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.orca.mojom.EditorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -767,8 +563,11 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPresetTextQueries FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_text_queries' in response) ? response.arg_arg_text_queries : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPresetTextQueries FAILED:', e));
           }
           break;
         }
@@ -776,12 +575,15 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPresetRewrite');
-          const result = this.impl.requestPresetRewrite(params.arg_text_query_id, params.arg_text_override);
+          const result = this.impl.requestPresetRewrite(params.arg_arg_text_query_id, params.arg_arg_text_override);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestPresetRewrite FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestPresetRewrite FAILED:', e));
           }
           break;
         }
@@ -789,12 +591,15 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformRewrite');
-          const result = this.impl.requestFreeformRewrite(params.arg_input, params.arg_text_override);
+          const result = this.impl.requestFreeformRewrite(params.arg_arg_input, params.arg_arg_text_override);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestFreeformRewrite FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestFreeformRewrite FAILED:', e));
           }
           break;
         }
@@ -802,12 +607,15 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestFreeformWrite');
-          const result = this.impl.requestFreeformWrite(params.arg_input);
+          const result = this.impl.requestFreeformWrite(params.arg_arg_input);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestFreeformWrite FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestFreeformWrite FAILED:', e));
           }
           break;
         }
@@ -815,7 +623,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
-          const result = this.impl.insertText(params.arg_text);
+          const result = this.impl.insertText(params.arg_arg_text);
           break;
         }
         case 5: {
@@ -843,7 +651,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
-          const result = this.impl.openUrlInNewWindow(params.arg_url);
+          const result = this.impl.openUrlInNewWindow(params.arg_arg_url);
           break;
         }
         case 9: {
@@ -864,19 +672,22 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.appendText');
-          const result = this.impl.appendText(params.arg_text);
+          const result = this.impl.appendText(params.arg_arg_text);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.previewFeedback');
-          const result = this.impl.previewFeedback(params.arg_result_id);
+          const result = this.impl.previewFeedback(params.arg_arg_result_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PreviewFeedback FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_preview' in response) ? response.arg_arg_preview : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] previewFeedback FAILED:', e));
           }
           break;
         }
@@ -884,21 +695,21 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
-          const result = this.impl.submitFeedback(params.arg_result_id, params.arg_user_description);
+          const result = this.impl.submitFeedback(params.arg_arg_result_id, params.arg_arg_user_description);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
-          const result = this.impl.onTrigger(params.arg_trigger_context);
+          const result = this.impl.onTrigger(params.arg_arg_trigger_context);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
-          const result = this.impl.emitMetricEvent(params.arg_metric_event);
+          const result = this.impl.emitMetricEvent(params.arg_arg_metric_event);
           break;
         }
       }
@@ -916,12 +727,6 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientRequest = mojo.internal.bindin
 
 
 // Interface: EditorClientConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec, 'ash.orca.mojom.EditorClientConnector_BindEditorClient_Params', [
-      mojo.internal.StructField('arg_editor_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1034,7 +839,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEditorClient');
-          const result = this.impl.bindEditorClient(params.arg_editor_client);
+          const result = this.impl.bindEditorClient(params.arg_arg_editor_client);
           break;
         }
       }
@@ -1052,12 +857,6 @@ mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRequest = mojo.intern
 
 
 // Interface: EditorEventSink
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec, 'ash.orca.mojom.EditorEventSink_OnContextUpdated_Params', [
-      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.ContextSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.orca.mojom.EditorEventSinkPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1170,7 +969,7 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onContextUpdated');
-          const result = this.impl.onContextUpdated(params.arg_context);
+          const result = this.impl.onContextUpdated(params.arg_arg_context);
           break;
         }
       }
@@ -1188,56 +987,6 @@ mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRequest = mojo.internal.bin
 
 
 // Interface: SystemActuator
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec, 'ash.orca.mojom.SystemActuator_InsertText_Params', [
-      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec, 'ash.orca.mojom.SystemActuator_ApproveConsent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec, 'ash.orca.mojom.SystemActuator_DeclineConsent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec, 'ash.orca.mojom.SystemActuator_ShowUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec, 'ash.orca.mojom.SystemActuator_CloseUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec, 'ash.orca.mojom.SystemActuator_SubmitFeedback_Params', [
-      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec, 'ash.orca.mojom.SystemActuator_OnTrigger_Params', [
-      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.SystemActuator_EmitMetricEvent_Params', [
-      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.orca.mojom.SystemActuatorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1462,7 +1211,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.insertText');
-          const result = this.impl.insertText(params.arg_text);
+          const result = this.impl.insertText(params.arg_arg_text);
           break;
         }
         case 1: {
@@ -1483,7 +1232,7 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrlInNewWindow');
-          const result = this.impl.openUrlInNewWindow(params.arg_url);
+          const result = this.impl.openUrlInNewWindow(params.arg_arg_url);
           break;
         }
         case 4: {
@@ -1504,21 +1253,21 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.submitFeedback');
-          const result = this.impl.submitFeedback(params.arg_description);
+          const result = this.impl.submitFeedback(params.arg_arg_description);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTrigger');
-          const result = this.impl.onTrigger(params.arg_trigger_context);
+          const result = this.impl.onTrigger(params.arg_arg_trigger_context);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.emitMetricEvent');
-          const result = this.impl.emitMetricEvent(params.arg_metric_event);
+          const result = this.impl.emitMetricEvent(params.arg_arg_metric_event);
           break;
         }
       }
@@ -1536,18 +1285,6 @@ mojo.internal.bindings.ash.orca.mojom.SystemActuatorRequest = mojo.internal.bind
 
 
 // Interface: TextQueryProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.orca.mojom.TextQueryProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1660,12 +1397,15 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.process');
-          const result = this.impl.process(params.arg_request);
+          const result = this.impl.process(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Process FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] process FAILED:', e));
           }
           break;
         }
@@ -1684,16 +1424,6 @@ mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRequest = mojo.internal.b
 
 
 // Interface: OrcaService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec, 'ash.orca.mojom.OrcaService_BindEditor_Params', [
-      mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_event_sink', 20, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_editor_config', 24, 0, mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, null, true, 9, undefined),
-    ],
-    [[0, 32], [9, 40]]);
-
 mojo.internal.bindings.ash.orca.mojom.OrcaServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1806,7 +1536,7 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindEditor');
-          const result = this.impl.bindEditor(params.arg_system_actuator, params.arg_text_query_provider, params.arg_client_connector, params.arg_event_sink, params.arg_editor_config);
+          const result = this.impl.bindEditor(params.arg_arg_system_actuator, params.arg_arg_text_query_provider, params.arg_arg_client_connector, params.arg_arg_event_sink, params.arg_arg_editor_config);
           break;
         }
       }
@@ -1821,4 +1551,294 @@ mojo.internal.bindings.ash.orca.mojom.OrcaServiceReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.ash.orca.mojom.OrcaServicePtr = mojo.internal.bindings.ash.orca.mojom.OrcaServiceRemote;
 mojo.internal.bindings.ash.orca.mojom.OrcaServiceRequest = mojo.internal.bindings.ash.orca.mojom.OrcaServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: TextQueryResponse
+mojo.internal.Union(
+    mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, 'ash.orca.mojom.TextQueryResponse', {
+      'arg_results': {
+        'ordinal': 0,
+        'type': mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.TextQueryResultSpec, false),
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: PresetTextQuery
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec, 'ash.orca.mojom.PresetTextQuery', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 24, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: TextQueryRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec, 'ash.orca.mojom.TextQueryRequest', [
+      mojo.internal.StructField('arg_text_query_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: TextQueryResult
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.TextQueryResultSpec, 'ash.orca.mojom.TextQueryResult', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TextQueryError
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.TextQueryErrorSpec, 'ash.orca.mojom.TextQueryError', [
+      mojo.internal.StructField('arg_code', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryErrorCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SurroundingText
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SurroundingTextSpec, 'ash.orca.mojom.SurroundingText', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_range', 8, 0, mojo.internal.bindings.gfx.mojom.RangeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Context
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.ContextSpec, 'ash.orca.mojom.Context', [
+      mojo.internal.StructField('arg_surrounding_text', 0, 0, mojo.internal.bindings.ash.orca.mojom.SurroundingTextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: EditorConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, 'ash.orca.mojom.EditorConfig', [
+      mojo.internal.StructField('arg_allowed_query_types', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_language_code', 8, 0, mojo.internal.String, null, true, 12, undefined),
+    ],
+    [[0, 16], [12, 24]]);
+
+// Struct: TriggerContext
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, 'ash.orca.mojom.TriggerContext', [
+      mojo.internal.StructField('arg_freeform_selected', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_preset_type_selected', 4, 0, mojo.internal.bindings.ash.orca.mojom.PresetTextQueryTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_GetPresetTextQueries_ResponseParams', [
+      mojo.internal.StructField('arg_text_queries', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.orca.mojom.PresetTextQuerySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_Params', [
+      mojo.internal.StructField('arg_text_query_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_override', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestPresetRewrite_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_override', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformRewrite_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_RequestFreeformWrite_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_InsertText_ParamsSpec, 'ash.orca.mojom.EditorClient_InsertText_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_ApproveConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_ApproveConsent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_DeclineConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_DeclineConsent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_DismissConsent_ParamsSpec, 'ash.orca.mojom.EditorClient_DismissConsent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.EditorClient_OpenUrlInNewWindow_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_ShowUI_ParamsSpec, 'ash.orca.mojom.EditorClient_ShowUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_CloseUI_ParamsSpec, 'ash.orca.mojom.EditorClient_CloseUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_AppendText_ParamsSpec, 'ash.orca.mojom.EditorClient_AppendText_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ParamsSpec, 'ash.orca.mojom.EditorClient_PreviewFeedback_Params', [
+      mojo.internal.StructField('arg_result_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParamsSpec, 'ash.orca.mojom.EditorClient_PreviewFeedback_ResponseParams', [
+      mojo.internal.StructField('arg_preview', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_SubmitFeedback_ParamsSpec, 'ash.orca.mojom.EditorClient_SubmitFeedback_Params', [
+      mojo.internal.StructField('arg_result_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_description', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_OnTrigger_ParamsSpec, 'ash.orca.mojom.EditorClient_OnTrigger_Params', [
+      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClient_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.EditorClient_EmitMetricEvent_Params', [
+      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorClientConnector_BindEditorClient_ParamsSpec, 'ash.orca.mojom.EditorClientConnector_BindEditorClient_Params', [
+      mojo.internal.StructField('arg_editor_client', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.EditorEventSink_OnContextUpdated_ParamsSpec, 'ash.orca.mojom.EditorEventSink_OnContextUpdated_Params', [
+      mojo.internal.StructField('arg_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.ContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_InsertText_ParamsSpec, 'ash.orca.mojom.SystemActuator_InsertText_Params', [
+      mojo.internal.StructField('arg_text', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_ApproveConsent_ParamsSpec, 'ash.orca.mojom.SystemActuator_ApproveConsent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_DeclineConsent_ParamsSpec, 'ash.orca.mojom.SystemActuator_DeclineConsent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_ParamsSpec, 'ash.orca.mojom.SystemActuator_OpenUrlInNewWindow_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_ShowUI_ParamsSpec, 'ash.orca.mojom.SystemActuator_ShowUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_CloseUI_ParamsSpec, 'ash.orca.mojom.SystemActuator_CloseUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_SubmitFeedback_ParamsSpec, 'ash.orca.mojom.SystemActuator_SubmitFeedback_Params', [
+      mojo.internal.StructField('arg_description', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_OnTrigger_ParamsSpec, 'ash.orca.mojom.SystemActuator_OnTrigger_Params', [
+      mojo.internal.StructField('arg_trigger_context', 0, 0, mojo.internal.bindings.ash.orca.mojom.TriggerContextSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.SystemActuator_EmitMetricEvent_ParamsSpec, 'ash.orca.mojom.SystemActuator_EmitMetricEvent_Params', [
+      mojo.internal.StructField('arg_metric_event', 0, 0, mojo.internal.bindings.ash.orca.mojom.MetricEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.TextQueryProvider_Process_ResponseParamsSpec, 'ash.orca.mojom.TextQueryProvider_Process_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.ash.orca.mojom.TextQueryResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.orca.mojom.OrcaService_BindEditor_ParamsSpec, 'ash.orca.mojom.OrcaService_BindEditor_Params', [
+      mojo.internal.StructField('arg_system_actuator', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.SystemActuatorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_text_query_provider', 8, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.ash.orca.mojom.TextQueryProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client_connector', 16, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorClientConnectorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_event_sink', 20, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.ash.orca.mojom.EditorEventSinkRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_editor_config', 24, 0, mojo.internal.bindings.ash.orca.mojom.EditorConfigSpec, null, true, 9, undefined),
+    ],
+    [[0, 32], [9, 40]]);
 

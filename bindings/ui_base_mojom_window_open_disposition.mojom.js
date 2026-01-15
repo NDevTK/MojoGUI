@@ -140,6 +140,8 @@ mojo.internal.bindings.ui.mojom.WindowOpenDisposition = {
   NEW_PICTURE_IN_PICTURE: 11,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ClickModifiers
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.ClickModifiersSpec, 'ui.mojom.ClickModifiers', [

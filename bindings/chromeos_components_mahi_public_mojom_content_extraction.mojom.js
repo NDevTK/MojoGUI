@@ -162,66 +162,7 @@ mojo.internal.bindings.mahi.mojom.ResponseStatus = {
   kScreen2xNotAvailable: 2,
 };
 
-// Struct: ExtractionMethods
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, 'mahi.mojom.ExtractionMethods', [
-      mojo.internal.StructField('arg_use_algorithm', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_screen2x', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ExtractionRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
-      mojo.internal.StructField('arg_deprecated_ukm_source_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$value', originalFieldName: 'arg_deprecated_ukm_source_id' }),
-      mojo.internal.StructField('arg_deprecated_ukm_source_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$flag', originalFieldName: 'arg_deprecated_ukm_source_id' }),
-      mojo.internal.StructField('arg_snapshot', 16, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_extraction_methods', 24, 0, mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 32, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: ExtractionResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec, 'mahi.mojom.ExtractionResponse', [
-      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mahi.mojom.ResponseStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ContentSizeResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
-      mojo.internal.StructField('arg_word_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.mahi.mojom.ResponseStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ContentExtractionService
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_Params', [
-      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_ResponseParams', [
-      mojo.internal.StructField('arg_extraction_response', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_Params', [
-      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_ResponseParams', [
-      mojo.internal.StructField('arg_contents_size_response', 0, 0, mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mahi.mojom.ContentExtractionServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -348,12 +289,15 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.extractContent');
-          const result = this.impl.extractContent(params.arg_extraction_request);
+          const result = this.impl.extractContent(params.arg_arg_extraction_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ExtractContent FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_extraction_response' in response) ? response.arg_arg_extraction_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] extractContent FAILED:', e));
           }
           break;
         }
@@ -361,12 +305,15 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getContentSize');
-          const result = this.impl.getContentSize(params.arg_extraction_request);
+          const result = this.impl.getContentSize(params.arg_arg_extraction_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetContentSize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_contents_size_response' in response) ? response.arg_arg_contents_size_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getContentSize FAILED:', e));
           }
           break;
         }
@@ -385,18 +332,6 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRequest = mojo.interna
 
 
 // Interface: ContentExtractionServiceFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params', [
-      mojo.internal.StructField('arg_content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_Params', [
-      mojo.internal.StructField('arg_extractor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -523,14 +458,14 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindContentExtractionService');
-          const result = this.impl.bindContentExtractionService(params.arg_content_extraction_service);
+          const result = this.impl.bindContentExtractionService(params.arg_arg_content_extraction_service);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onScreen2xReady');
-          const result = this.impl.onScreen2xReady(params.arg_extractor);
+          const result = this.impl.onScreen2xReady(params.arg_arg_extractor);
           break;
         }
       }
@@ -545,4 +480,77 @@ mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryReceiver = mojo
 
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPtr = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRemote;
 mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryRequest = mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ExtractionMethods
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, 'mahi.mojom.ExtractionMethods', [
+      mojo.internal.StructField('arg_use_algorithm', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_screen2x', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ExtractionRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, 'mahi.mojom.ExtractionRequest', [
+      mojo.internal.StructField('arg_deprecated_ukm_source_id_$flag', 0, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$value', originalFieldName: 'arg_deprecated_ukm_source_id' }),
+      mojo.internal.StructField('arg_deprecated_ukm_source_id_$value', 8, 0, mojo.internal.Int64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_deprecated_ukm_source_id_$flag', originalFieldName: 'arg_deprecated_ukm_source_id' }),
+      mojo.internal.StructField('arg_snapshot', 16, 0, mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_extraction_methods', 24, 0, mojo.internal.bindings.mahi.mojom.ExtractionMethodsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 32, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: ExtractionResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec, 'mahi.mojom.ExtractionResponse', [
+      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.mahi.mojom.ResponseStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ContentSizeResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec, 'mahi.mojom.ContentSizeResponse', [
+      mojo.internal.StructField('arg_word_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 4, 0, mojo.internal.bindings.mahi.mojom.ResponseStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_Params', [
+      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_ExtractContent_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_ExtractContent_ResponseParams', [
+      mojo.internal.StructField('arg_extraction_response', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_Params', [
+      mojo.internal.StructField('arg_extraction_request', 0, 0, mojo.internal.bindings.mahi.mojom.ExtractionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentExtractionService_GetContentSize_ResponseParamsSpec, 'mahi.mojom.ContentExtractionService_GetContentSize_ResponseParams', [
+      mojo.internal.StructField('arg_contents_size_response', 0, 0, mojo.internal.bindings.mahi.mojom.ContentSizeResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_BindContentExtractionService_Params', [
+      mojo.internal.StructField('arg_content_extraction_service', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mahi.mojom.ContentExtractionServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_ParamsSpec, 'mahi.mojom.ContentExtractionServiceFactory_OnScreen2xReady_Params', [
+      mojo.internal.StructField('arg_extractor', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.screen_ai.mojom.Screen2xMainContentExtractorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

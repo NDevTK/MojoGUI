@@ -481,258 +481,7 @@ mojo.internal.bindings.arc.mojom.AndroidDataDirectory = {
   kDataUserDE: 5,
 };
 
-// Struct: BootProgressEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.BootProgressEventSpec, 'arc.mojom.BootProgressEvent', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uptimeMillis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: GfxMetrics
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.GfxMetricsSpec, 'arc.mojom.GfxMetrics', [
-      mojo.internal.StructField('arg_framesTotal', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_framesJanky', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_frameTimePercentile95', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: AppKill
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppKillSpec, 'arc.mojom.AppKill', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AppKillTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: LowLatencyStylusLibPredictionTarget
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec, 'arc.mojom.LowLatencyStylusLibPredictionTarget', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibraryTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: AppCategoryDataSize
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec, 'arc.mojom.AppCategoryDataSize', [
-      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.arc.mojom.AndroidAppCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data_size_in_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: DataDirectorySize
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec, 'arc.mojom.DataDirectorySize', [
-      mojo.internal.StructField('arg_directory', 0, 0, mojo.internal.bindings.arc.mojom.AndroidDataDirectorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size_in_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: MetricsHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec, 'arc.mojom.MetricsHost_ReportBootProgress_Params', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BootProgressEventSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_boot_type', 8, 0, mojo.internal.bindings.arc.mojom.BootTypeSpec, null, false, 1, undefined),
-    ],
-    [[0, 16], [1, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec, 'arc.mojom.MetricsHost_ReportNativeBridge_Params', [
-      mojo.internal.StructField('arg_native_bridge_type', 0, 0, mojo.internal.bindings.arc.mojom.NativeBridgeTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportCompanionLibApiUsage_Params', [
-      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.CompanionLibApiIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppKill_Params', [
-      mojo.internal.StructField('arg_app_kill', 0, 0, mojo.internal.bindings.arc.mojom.AppKillSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcCorePriAbiMigEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_Params', [
-      mojo.internal.StructField('arg_failed_attempts', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_Params', [
-      mojo.internal.StructField('arg_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_Params', [
-      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAnr_ParamsSpec, 'arc.mojom.MetricsHost_ReportAnr_Params', [
-      mojo.internal.StructField('arg_anr', 0, 0, mojo.internal.bindings.arc.mojom.AnrSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_Params', [
-      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_packages_deleted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_Params', [
-      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibApiIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_Params', [
-      mojo.internal.StructField('arg_prediction_target', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportDnsQueryResult_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.arc.mojom.ArcDnsQuerySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec, 'arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.MainAccountHashMigrationStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcNetworkEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcNetworkErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppPrimaryAbi_Params', [
-      mojo.internal.StructField('arg_abi', 0, 0, mojo.internal.bindings.arc.mojom.AppPrimaryAbiSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataRestore_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DataRestoreStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec, 'arc.mojom.MetricsHost_ReportMemoryPressure_Params', [
-      mojo.internal.StructField('arg_psi_file_contents', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec, 'arc.mojom.MetricsHost_ReportProvisioningPreSignIn_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.WaylandTimingEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec, 'arc.mojom.MetricsHost_ReportWebViewProcessStarted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_Params', [
-      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.VpnServiceBuilderCompatApiIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec, 'arc.mojom.MetricsHost_ReportNewQosSocketCount_Params', [
-      mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec, 'arc.mojom.MetricsHost_ReportQosSocketPercentage_Params', [
-      mojo.internal.StructField('arg_perc', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec, 'arc.mojom.MetricsHost_ReportDragResizeLatency_Params', [
-      mojo.internal.StructField('arg_durations', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppErrorDialogType_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AppErrorDialogTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec, 'arc.mojom.MetricsHost_ReportApkCacheHit_Params', [
-      mojo.internal.StructField('arg_hit', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_Params', [
-      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataDirectorySizeList_Params', [
-      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_operation', 4, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintLoggedOperationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportCertificateSigningResult_Params', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.CertificateSigningResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.MetricsHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1293,133 +1042,133 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportBootProgress');
-          const result = this.impl.reportBootProgress(params.arg_events, params.arg_boot_type);
+          const result = this.impl.reportBootProgress(params.arg_arg_events, params.arg_arg_boot_type);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportNativeBridge');
-          const result = this.impl.reportNativeBridge(params.arg_native_bridge_type);
+          const result = this.impl.reportNativeBridge(params.arg_arg_native_bridge_type);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCompanionLibApiUsage');
-          const result = this.impl.reportCompanionLibApiUsage(params.arg_api_id);
+          const result = this.impl.reportCompanionLibApiUsage(params.arg_arg_api_id);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppKill');
-          const result = this.impl.reportAppKill(params.arg_app_kill);
+          const result = this.impl.reportAppKill(params.arg_arg_app_kill);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigEvent');
-          const result = this.impl.reportArcCorePriAbiMigEvent(params.arg_event);
+          const result = this.impl.reportArcCorePriAbiMigEvent(params.arg_arg_event);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigFailedTries');
-          const result = this.impl.reportArcCorePriAbiMigFailedTries(params.arg_failed_attempts);
+          const result = this.impl.reportArcCorePriAbiMigFailedTries(params.arg_arg_failed_attempts);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigDowngradeDelay');
-          const result = this.impl.reportArcCorePriAbiMigDowngradeDelay(params.arg_delay);
+          const result = this.impl.reportArcCorePriAbiMigDowngradeDelay(params.arg_arg_delay);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcCorePriAbiMigBootTime');
-          const result = this.impl.reportArcCorePriAbiMigBootTime(params.arg_duration);
+          const result = this.impl.reportArcCorePriAbiMigBootTime(params.arg_arg_duration);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAnr_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAnr');
-          const result = this.impl.reportAnr(params.arg_anr);
+          const result = this.impl.reportAnr(params.arg_arg_anr);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcSystemHealthUpgrade');
-          const result = this.impl.reportArcSystemHealthUpgrade(params.arg_duration, params.arg_packages_deleted);
+          const result = this.impl.reportArcSystemHealthUpgrade(params.arg_arg_duration, params.arg_arg_packages_deleted);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportLowLatencyStylusLibApiUsage');
-          const result = this.impl.reportLowLatencyStylusLibApiUsage(params.arg_api_id);
+          const result = this.impl.reportLowLatencyStylusLibApiUsage(params.arg_arg_api_id);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportLowLatencyStylusLibPredictionTarget');
-          const result = this.impl.reportLowLatencyStylusLibPredictionTarget(params.arg_prediction_target);
+          const result = this.impl.reportLowLatencyStylusLibPredictionTarget(params.arg_arg_prediction_target);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDnsQueryResult');
-          const result = this.impl.reportDnsQueryResult(params.arg_query, params.arg_success);
+          const result = this.impl.reportDnsQueryResult(params.arg_arg_query, params.arg_arg_success);
           break;
         }
         case 13: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMainAccountHashMigrationMetrics');
-          const result = this.impl.reportMainAccountHashMigrationMetrics(params.arg_status);
+          const result = this.impl.reportMainAccountHashMigrationMetrics(params.arg_arg_status);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcNetworkEvent');
-          const result = this.impl.reportArcNetworkEvent(params.arg_event);
+          const result = this.impl.reportArcNetworkEvent(params.arg_arg_event);
           break;
         }
         case 15: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcNetworkError');
-          const result = this.impl.reportArcNetworkError(params.arg_error);
+          const result = this.impl.reportArcNetworkError(params.arg_arg_error);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppPrimaryAbi');
-          const result = this.impl.reportAppPrimaryAbi(params.arg_abi);
+          const result = this.impl.reportAppPrimaryAbi(params.arg_arg_abi);
           break;
         }
         case 17: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDataRestore');
-          const result = this.impl.reportDataRestore(params.arg_status, params.arg_duration_ms);
+          const result = this.impl.reportDataRestore(params.arg_arg_status, params.arg_arg_duration_ms);
           break;
         }
         case 18: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportMemoryPressure');
-          const result = this.impl.reportMemoryPressure(params.arg_psi_file_contents);
+          const result = this.impl.reportMemoryPressure(params.arg_arg_psi_file_contents);
           break;
         }
         case 19: {
@@ -1433,7 +1182,7 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportWaylandLateTimingEvent');
-          const result = this.impl.reportWaylandLateTimingEvent(params.arg_event, params.arg_duration);
+          const result = this.impl.reportWaylandLateTimingEvent(params.arg_arg_event, params.arg_arg_duration);
           break;
         }
         case 21: {
@@ -1447,77 +1196,77 @@ mojo.internal.bindings.arc.mojom.MetricsHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportVpnServiceBuilderCompatApiUsage');
-          const result = this.impl.reportVpnServiceBuilderCompatApiUsage(params.arg_api_id);
+          const result = this.impl.reportVpnServiceBuilderCompatApiUsage(params.arg_arg_api_id);
           break;
         }
         case 23: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportNewQosSocketCount');
-          const result = this.impl.reportNewQosSocketCount(params.arg_count);
+          const result = this.impl.reportNewQosSocketCount(params.arg_arg_count);
           break;
         }
         case 24: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportQosSocketPercentage');
-          const result = this.impl.reportQosSocketPercentage(params.arg_perc);
+          const result = this.impl.reportQosSocketPercentage(params.arg_arg_perc);
           break;
         }
         case 25: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcKeyMintError');
-          const result = this.impl.reportArcKeyMintError(params.arg_error);
+          const result = this.impl.reportArcKeyMintError(params.arg_arg_error);
           break;
         }
         case 26: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDragResizeLatency');
-          const result = this.impl.reportDragResizeLatency(params.arg_durations);
+          const result = this.impl.reportDragResizeLatency(params.arg_arg_durations);
           break;
         }
         case 27: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppErrorDialogType');
-          const result = this.impl.reportAppErrorDialogType(params.arg_type);
+          const result = this.impl.reportAppErrorDialogType(params.arg_arg_type);
           break;
         }
         case 28: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportApkCacheHit');
-          const result = this.impl.reportApkCacheHit(params.arg_hit);
+          const result = this.impl.reportApkCacheHit(params.arg_arg_hit);
           break;
         }
         case 29: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportAppCategoryDataSizeList');
-          const result = this.impl.reportAppCategoryDataSizeList(params.arg_list);
+          const result = this.impl.reportAppCategoryDataSizeList(params.arg_arg_list);
           break;
         }
         case 30: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportDataDirectorySizeList');
-          const result = this.impl.reportDataDirectorySizeList(params.arg_list);
+          const result = this.impl.reportDataDirectorySizeList(params.arg_arg_list);
           break;
         }
         case 31: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportArcKeyMintErrorForOperation');
-          const result = this.impl.reportArcKeyMintErrorForOperation(params.arg_error, params.arg_operation);
+          const result = this.impl.reportArcKeyMintErrorForOperation(params.arg_arg_error, params.arg_arg_operation);
           break;
         }
         case 32: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reportCertificateSigningResult');
-          const result = this.impl.reportCertificateSigningResult(params.arg_result);
+          const result = this.impl.reportCertificateSigningResult(params.arg_arg_result);
           break;
         }
       }
@@ -1535,29 +1284,6 @@ mojo.internal.bindings.arc.mojom.MetricsHostRequest = mojo.internal.bindings.arc
 
 
 // Interface: MetricsInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec, 'arc.mojom.MetricsInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MetricsHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ResponseParamsSpec, 'arc.mojom.MetricsInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_Params', [
-      mojo.internal.StructField('arg_packageName', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParams', [
-      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.bindings.arc.mojom.GfxMetricsSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.MetricsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1684,12 +1410,14 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -1697,12 +1425,15 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getGfxMetrics');
-          const result = this.impl.getGfxMetrics(params.arg_packageName);
+          const result = this.impl.getGfxMetrics(params.arg_arg_packageName);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetGfxMetrics FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_metrics' in response) ? response.arg_arg_metrics : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getGfxMetrics FAILED:', e));
           }
           break;
         }
@@ -1718,4 +1449,280 @@ mojo.internal.bindings.arc.mojom.MetricsInstanceReceiver = mojo.internal.binding
 
 mojo.internal.bindings.arc.mojom.MetricsInstancePtr = mojo.internal.bindings.arc.mojom.MetricsInstanceRemote;
 mojo.internal.bindings.arc.mojom.MetricsInstanceRequest = mojo.internal.bindings.arc.mojom.MetricsInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BootProgressEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.BootProgressEventSpec, 'arc.mojom.BootProgressEvent', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uptimeMillis', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: GfxMetrics
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.GfxMetricsSpec, 'arc.mojom.GfxMetrics', [
+      mojo.internal.StructField('arg_framesTotal', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_framesJanky', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_frameTimePercentile95', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: AppKill
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppKillSpec, 'arc.mojom.AppKill', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AppKillTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: LowLatencyStylusLibPredictionTarget
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec, 'arc.mojom.LowLatencyStylusLibPredictionTarget', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibraryTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: AppCategoryDataSize
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec, 'arc.mojom.AppCategoryDataSize', [
+      mojo.internal.StructField('arg_category', 0, 0, mojo.internal.bindings.arc.mojom.AndroidAppCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data_size_in_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: DataDirectorySize
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec, 'arc.mojom.DataDirectorySize', [
+      mojo.internal.StructField('arg_directory', 0, 0, mojo.internal.bindings.arc.mojom.AndroidDataDirectorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size_in_mb', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportBootProgress_ParamsSpec, 'arc.mojom.MetricsHost_ReportBootProgress_Params', [
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.BootProgressEventSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_boot_type', 8, 0, mojo.internal.bindings.arc.mojom.BootTypeSpec, null, false, 1, undefined),
+    ],
+    [[0, 16], [1, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportNativeBridge_ParamsSpec, 'arc.mojom.MetricsHost_ReportNativeBridge_Params', [
+      mojo.internal.StructField('arg_native_bridge_type', 0, 0, mojo.internal.bindings.arc.mojom.NativeBridgeTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportCompanionLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportCompanionLibApiUsage_Params', [
+      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.CompanionLibApiIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppKill_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppKill_Params', [
+      mojo.internal.StructField('arg_app_kill', 0, 0, mojo.internal.bindings.arc.mojom.AppKillSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcCorePriAbiMigEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigFailedTries_Params', [
+      mojo.internal.StructField('arg_failed_attempts', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigDowngradeDelay_Params', [
+      mojo.internal.StructField('arg_delay', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcCorePriAbiMigBootTime_Params', [
+      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAnr_ParamsSpec, 'arc.mojom.MetricsHost_ReportAnr_Params', [
+      mojo.internal.StructField('arg_anr', 0, 0, mojo.internal.bindings.arc.mojom.AnrSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcSystemHealthUpgrade_Params', [
+      mojo.internal.StructField('arg_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_packages_deleted', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibApiUsage_Params', [
+      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibApiIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_ParamsSpec, 'arc.mojom.MetricsHost_ReportLowLatencyStylusLibPredictionTarget_Params', [
+      mojo.internal.StructField('arg_prediction_target', 0, 0, mojo.internal.bindings.arc.mojom.LowLatencyStylusLibPredictionTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDnsQueryResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportDnsQueryResult_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.arc.mojom.ArcDnsQuerySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_success', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_ParamsSpec, 'arc.mojom.MetricsHost_ReportMainAccountHashMigrationMetrics_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.MainAccountHashMigrationStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.ArcNetworkEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcNetworkError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcNetworkError_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcNetworkErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppPrimaryAbi_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppPrimaryAbi_Params', [
+      mojo.internal.StructField('arg_abi', 0, 0, mojo.internal.bindings.arc.mojom.AppPrimaryAbiSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataRestore_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataRestore_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.DataRestoreStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportMemoryPressure_ParamsSpec, 'arc.mojom.MetricsHost_ReportMemoryPressure_Params', [
+      mojo.internal.StructField('arg_psi_file_contents', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportProvisioningPreSignIn_ParamsSpec, 'arc.mojom.MetricsHost_ReportProvisioningPreSignIn_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_ParamsSpec, 'arc.mojom.MetricsHost_ReportWaylandLateTimingEvent_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.arc.mojom.WaylandTimingEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportWebViewProcessStarted_ParamsSpec, 'arc.mojom.MetricsHost_ReportWebViewProcessStarted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_ParamsSpec, 'arc.mojom.MetricsHost_ReportVpnServiceBuilderCompatApiUsage_Params', [
+      mojo.internal.StructField('arg_api_id', 0, 0, mojo.internal.bindings.arc.mojom.VpnServiceBuilderCompatApiIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportNewQosSocketCount_ParamsSpec, 'arc.mojom.MetricsHost_ReportNewQosSocketCount_Params', [
+      mojo.internal.StructField('arg_count', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportQosSocketPercentage_ParamsSpec, 'arc.mojom.MetricsHost_ReportQosSocketPercentage_Params', [
+      mojo.internal.StructField('arg_perc', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintError_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintError_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDragResizeLatency_ParamsSpec, 'arc.mojom.MetricsHost_ReportDragResizeLatency_Params', [
+      mojo.internal.StructField('arg_durations', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppErrorDialogType_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppErrorDialogType_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.AppErrorDialogTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportApkCacheHit_ParamsSpec, 'arc.mojom.MetricsHost_ReportApkCacheHit_Params', [
+      mojo.internal.StructField('arg_hit', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportAppCategoryDataSizeList_Params', [
+      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.AppCategoryDataSizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportDataDirectorySizeList_ParamsSpec, 'arc.mojom.MetricsHost_ReportDataDirectorySizeList_Params', [
+      mojo.internal.StructField('arg_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.DataDirectorySizeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_ParamsSpec, 'arc.mojom.MetricsHost_ReportArcKeyMintErrorForOperation_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_operation', 4, 0, mojo.internal.bindings.arc.mojom.ArcKeyMintLoggedOperationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsHost_ReportCertificateSigningResult_ParamsSpec, 'arc.mojom.MetricsHost_ReportCertificateSigningResult_Params', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.CertificateSigningResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ParamsSpec, 'arc.mojom.MetricsInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.MetricsHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsInstance_Init_ResponseParamsSpec, 'arc.mojom.MetricsInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_Params', [
+      mojo.internal.StructField('arg_packageName', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParamsSpec, 'arc.mojom.MetricsInstance_GetGfxMetrics_ResponseParams', [
+      mojo.internal.StructField('arg_metrics', 0, 0, mojo.internal.bindings.arc.mojom.GfxMetricsSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

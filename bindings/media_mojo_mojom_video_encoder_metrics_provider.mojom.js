@@ -154,37 +154,6 @@ mojo.internal.bindings.media.mojom.VideoEncoderUseCase = {
 };
 
 // Interface: VideoEncoderMetricsProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params', [
-      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_encoder_use_case', 8, 0, mojo.internal.bindings.media.mojom.VideoEncoderUseCaseSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 12, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encode_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_hardware_encoder', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_svc_mode', 28, 0, mojo.internal.bindings.media.mojom.SVCScalabilityModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_Params', [
-      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_encoded_frames', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetError_Params', [
-      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.media.mojom.EncoderStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Complete_Params', [
-      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -339,28 +308,28 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_encoder_id, params.arg_encoder_use_case, params.arg_profile, params.arg_encode_size, params.arg_is_hardware_encoder, params.arg_svc_mode);
+          const result = this.impl.initialize(params.arg_arg_encoder_id, params.arg_arg_encoder_use_case, params.arg_arg_profile, params.arg_arg_encode_size, params.arg_arg_is_hardware_encoder, params.arg_arg_svc_mode);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEncodedFrameCount');
-          const result = this.impl.setEncodedFrameCount(params.arg_encoder_id, params.arg_num_encoded_frames);
+          const result = this.impl.setEncodedFrameCount(params.arg_arg_encoder_id, params.arg_arg_num_encoded_frames);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setError');
-          const result = this.impl.setError(params.arg_encoder_id, params.arg_status);
+          const result = this.impl.setError(params.arg_arg_encoder_id, params.arg_arg_status);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.complete');
-          const result = this.impl.complete(params.arg_encoder_id);
+          const result = this.impl.complete(params.arg_arg_encoder_id);
           break;
         }
       }
@@ -375,4 +344,37 @@ mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderReceiver = mojo.in
 
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderPtr = mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRemote;
 mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderRequest = mojo.internal.bindings.media.mojom.VideoEncoderMetricsProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Initialize_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Initialize_Params', [
+      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_encoder_use_case', 8, 0, mojo.internal.bindings.media.mojom.VideoEncoderUseCaseSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 12, 0, mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encode_size', 16, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_hardware_encoder', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_svc_mode', 28, 0, mojo.internal.bindings.media.mojom.SVCScalabilityModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetEncodedFrameCount_Params', [
+      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_encoded_frames', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_SetError_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_SetError_Params', [
+      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.media.mojom.EncoderStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoEncoderMetricsProvider_Complete_ParamsSpec, 'media.mojom.VideoEncoderMetricsProvider_Complete_Params', [
+      mojo.internal.StructField('arg_encoder_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

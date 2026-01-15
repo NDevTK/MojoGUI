@@ -163,6 +163,8 @@ mojo.internal.bindings.display.mojom.AccelerometerSupport = {
   UNAVAILABLE: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Display
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplaySpec, 'display.mojom.Display', [

@@ -131,17 +131,6 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetric.$interfaceName = 'metric
 mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec = { $: {} };
 
 // Interface: SingleSampleMetricsProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec, 'metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_Params', [
-      mojo.internal.StructField('arg_histogram_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bucket_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -254,7 +243,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.acquireSingleSampleMetric');
-          const result = this.impl.acquireSingleSampleMetric(params.arg_histogram_name, params.arg_min, params.arg_max, params.arg_bucket_count, params.arg_flags, params.arg_receiver);
+          const result = this.impl.acquireSingleSampleMetric(params.arg_arg_histogram_name, params.arg_arg_min, params.arg_arg_max, params.arg_arg_bucket_count, params.arg_arg_flags, params.arg_arg_receiver);
           break;
         }
       }
@@ -272,12 +261,6 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProviderRequest = mojo.i
 
 
 // Interface: SingleSampleMetric
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec, 'metrics.mojom.SingleSampleMetric_SetSample_Params', [
-      mojo.internal.StructField('arg_sample', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -390,7 +373,7 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSample');
-          const result = this.impl.setSample(params.arg_sample);
+          const result = this.impl.setSample(params.arg_arg_sample);
           break;
         }
       }
@@ -405,4 +388,23 @@ mojo.internal.bindings.metrics.mojom.SingleSampleMetricReceiver = mojo.internal.
 
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricPtr = mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemote;
 mojo.internal.bindings.metrics.mojom.SingleSampleMetricRequest = mojo.internal.bindings.metrics.mojom.SingleSampleMetricPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_ParamsSpec, 'metrics.mojom.SingleSampleMetricsProvider_AcquireSingleSampleMetric_Params', [
+      mojo.internal.StructField('arg_histogram_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bucket_count', 16, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 24, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.SingleSampleMetricRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.SingleSampleMetric_SetSample_ParamsSpec, 'metrics.mojom.SingleSampleMetric_SetSample_Params', [
+      mojo.internal.StructField('arg_sample', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

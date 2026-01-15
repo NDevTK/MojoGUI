@@ -134,6 +134,8 @@ mojo.internal.bindings.network.mojom.LoadingMode = {
   kPrerenderCrossOriginFrames: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SupportsLoadingMode
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.SupportsLoadingModeSpec, 'network.mojom.SupportsLoadingMode', [

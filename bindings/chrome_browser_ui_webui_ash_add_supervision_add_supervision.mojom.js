@@ -142,56 +142,6 @@ mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatus = {
 };
 
 // Interface: AddSupervisionHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_RequestClose_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParams', [
-      mojo.internal.StructField('arg_closed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParams', [
-      mojo.internal.StructField('arg_package_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_LogOut_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -378,8 +328,11 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestClose FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_closed' in response) ? response.arg_arg_closed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestClose FAILED:', e));
           }
           break;
         }
@@ -391,8 +344,11 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetInstalledArcApps FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_package_names' in response) ? response.arg_arg_package_names : response;
+              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getInstalledArcApps FAILED:', e));
           }
           break;
         }
@@ -404,8 +360,10 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetOAuthToken FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_oauth_token']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getOAuthToken FAILED:', e));
           }
           break;
         }
@@ -427,7 +385,7 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setCloseOnEscape');
-          const result = this.impl.setCloseOnEscape(params.arg_enabled);
+          const result = this.impl.setCloseOnEscape(params.arg_arg_enabled);
           break;
         }
       }
@@ -442,4 +400,56 @@ mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerReceiver = moj
 
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerPtr = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRemote;
 mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerRequest = mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_RequestClose_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_RequestClose_ResponseParams', [
+      mojo.internal.StructField('arg_closed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetInstalledArcApps_ResponseParams', [
+      mojo.internal.StructField('arg_package_names', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_GetOAuthToken_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.add_supervision.mojom.OAuthTokenFetchStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_oauth_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_LogOut_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_LogOut_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_NotifySupervisionEnabled_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_ParamsSpec, 'add_supervision.mojom.AddSupervisionHandler_SetCloseOnEscape_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

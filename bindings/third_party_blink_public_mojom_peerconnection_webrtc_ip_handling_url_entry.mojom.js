@@ -132,6 +132,8 @@ mojo.internal.bindings.content_settings = mojo.internal.bindings.content_setting
 mojo.internal.bindings.content_settings.mojom = mojo.internal.bindings.content_settings.mojom || {};
 mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec = mojo.internal.bindings.content_settings.mojom.ContentSettingsPatternSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WebRtcIpHandlingUrlEntry
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.WebRtcIpHandlingUrlEntrySpec, 'blink.mojom.WebRtcIpHandlingUrlEntry', [

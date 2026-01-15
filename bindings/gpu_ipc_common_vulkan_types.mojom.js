@@ -141,6 +141,8 @@ mojo.internal.bindings.gpu.mojom.VkPhysicalDeviceType = {
   INVALID_VALUE: -1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VkExtensionProperties
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.VkExtensionPropertiesSpec, 'gpu.mojom.VkExtensionProperties', [

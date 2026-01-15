@@ -123,6 +123,8 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 
 mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GpuFenceHandle
 mojo.internal.Struct(
     mojo.internal.bindings.gfx.mojom.GpuFenceHandleSpec, 'gfx.mojom.GpuFenceHandle', [

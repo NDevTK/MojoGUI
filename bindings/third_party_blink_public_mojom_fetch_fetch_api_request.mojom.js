@@ -241,6 +241,8 @@ mojo.internal.bindings.blink.mojom.FetchPriorityHint = {
   kHigh: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FetchAPIRequestHeaders
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.FetchAPIRequestHeadersSpec, 'blink.mojom.FetchAPIRequestHeaders', [

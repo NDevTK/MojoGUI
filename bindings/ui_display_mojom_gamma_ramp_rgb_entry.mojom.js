@@ -123,6 +123,8 @@ mojo.internal.bindings.display.mojom = mojo.internal.bindings.display.mojom || {
 
 mojo.internal.bindings.display.mojom.GammaRampRGBEntrySpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: GammaRampRGBEntry
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.GammaRampRGBEntrySpec, 'display.mojom.GammaRampRGBEntry', [

@@ -136,6 +136,8 @@ mojo.internal.bindings.blink.mojom.EntryType = {
   kMeasure: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PerformanceMarkOrMeasure
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PerformanceMarkOrMeasureSpec, 'blink.mojom.PerformanceMarkOrMeasure', [

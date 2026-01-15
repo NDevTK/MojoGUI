@@ -195,50 +195,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioEffectType = {
   kBeamforming: 8,
 };
 
-// Struct: VoiceIsolationUIAppearance
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, 'ash.audio_config.mojom.VoiceIsolationUIAppearance', [
-      mojo.internal.StructField('arg_toggle_type', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_effect_mode_options', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_show_effect_fallback_message', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AudioDevice
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, 'ash.audio_config.mojom.AudioDevice', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_active', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 20, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_noise_cancellation_state', 24, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_style_transfer_state', 28, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_force_respect_ui_gains_state', 32, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hfp_mic_sr_state', 36, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_spatial_audio_state', 40, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: AudioSystemProperties
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec, 'ash.audio_config.mojom.AudioSystemProperties', [
-      mojo.internal.StructField('arg_output_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_volume_percent', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_input_gain_percent', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_output_mute_state', 12, 0, mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_devices', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_input_mute_state', 24, 0, mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_voice_isolation_ui_appearance', 32, 0, mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: AudioSystemPropertiesObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec, 'ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_Params', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -351,7 +308,7 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPropertiesUpdated');
-          const result = this.impl.onPropertiesUpdated(params.arg_properties);
+          const result = this.impl.onPropertiesUpdated(params.arg_arg_properties);
           break;
         }
       }
@@ -369,83 +326,6 @@ mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverReque
 
 
 // Interface: CrosAudioConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_Params', [
-      mojo.internal.StructField('arg_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_Params', [
-      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_Params', [
-      mojo.internal.StructField('arg_gain', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_Params', [
-      mojo.internal.StructField('arg_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_Params', [
-      mojo.internal.StructField('arg_preferred_effect', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -726,42 +606,42 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeAudioSystemProperties');
-          const result = this.impl.observeAudioSystemProperties(params.arg_observer);
+          const result = this.impl.observeAudioSystemProperties(params.arg_arg_observer);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputMuted');
-          const result = this.impl.setOutputMuted(params.arg_muted);
+          const result = this.impl.setOutputMuted(params.arg_arg_muted);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputVolumePercent');
-          const result = this.impl.setOutputVolumePercent(params.arg_volume);
+          const result = this.impl.setOutputVolumePercent(params.arg_arg_volume);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputGainPercent');
-          const result = this.impl.setInputGainPercent(params.arg_gain);
+          const result = this.impl.setInputGainPercent(params.arg_arg_gain);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setActiveDevice');
-          const result = this.impl.setActiveDevice(params.arg_device);
+          const result = this.impl.setActiveDevice(params.arg_arg_device);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setInputMuted');
-          const result = this.impl.setInputMuted(params.arg_muted);
+          const result = this.impl.setInputMuted(params.arg_arg_muted);
           break;
         }
         case 6: {
@@ -775,42 +655,42 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordVoiceIsolationPreferredEffectChange');
-          const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.arg_preferred_effect);
+          const result = this.impl.recordVoiceIsolationPreferredEffectChange(params.arg_arg_preferred_effect);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setNoiseCancellationEnabled');
-          const result = this.impl.setNoiseCancellationEnabled(params.arg_enabled);
+          const result = this.impl.setNoiseCancellationEnabled(params.arg_arg_enabled);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setStyleTransferEnabled');
-          const result = this.impl.setStyleTransferEnabled(params.arg_enabled);
+          const result = this.impl.setStyleTransferEnabled(params.arg_arg_enabled);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setForceRespectUiGainsEnabled');
-          const result = this.impl.setForceRespectUiGainsEnabled(params.arg_enabled);
+          const result = this.impl.setForceRespectUiGainsEnabled(params.arg_arg_enabled);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setHfpMicSrEnabled');
-          const result = this.impl.setHfpMicSrEnabled(params.arg_enabled);
+          const result = this.impl.setHfpMicSrEnabled(params.arg_arg_enabled);
           break;
         }
         case 12: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setSpatialAudioEnabled');
-          const result = this.impl.setSpatialAudioEnabled(params.arg_enabled);
+          const result = this.impl.setSpatialAudioEnabled(params.arg_arg_enabled);
           break;
         }
       }
@@ -825,4 +705,126 @@ mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigReceiver = mojo.int
 
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigPtr = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRemote;
 mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigRequest = mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfigPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: VoiceIsolationUIAppearance
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, 'ash.audio_config.mojom.VoiceIsolationUIAppearance', [
+      mojo.internal.StructField('arg_toggle_type', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_effect_mode_options', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_show_effect_fallback_message', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AudioDevice
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, 'ash.audio_config.mojom.AudioDevice', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_active', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 20, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_noise_cancellation_state', 24, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_style_transfer_state', 28, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_force_respect_ui_gains_state', 32, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hfp_mic_sr_state', 36, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_spatial_audio_state', 40, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: AudioSystemProperties
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec, 'ash.audio_config.mojom.AudioSystemProperties', [
+      mojo.internal.StructField('arg_output_devices', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_volume_percent', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_input_gain_percent', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_output_mute_state', 12, 0, mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_devices', 16, 0, mojo.internal.Array(mojo.internal.bindings.ash.audio_config.mojom.AudioDeviceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_input_mute_state', 24, 0, mojo.internal.bindings.ash.audio_config.mojom.MuteStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_voice_isolation_ui_appearance', 32, 0, mojo.internal.bindings.ash.audio_config.mojom.VoiceIsolationUIAppearanceSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_ParamsSpec, 'ash.audio_config.mojom.AudioSystemPropertiesObserver_OnPropertiesUpdated_Params', [
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_ObserveAudioSystemProperties_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.audio_config.mojom.AudioSystemPropertiesObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetOutputMuted_Params', [
+      mojo.internal.StructField('arg_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetOutputVolumePercent_Params', [
+      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetInputGainPercent_Params', [
+      mojo.internal.StructField('arg_gain', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetActiveDevice_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetInputMuted_Params', [
+      mojo.internal.StructField('arg_muted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationEnabledChange_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_RecordVoiceIsolationPreferredEffectChange_Params', [
+      mojo.internal.StructField('arg_preferred_effect', 0, 0, mojo.internal.bindings.ash.audio_config.mojom.AudioEffectTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetNoiseCancellationEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetStyleTransferEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetForceRespectUiGainsEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetHfpMicSrEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_ParamsSpec, 'ash.audio_config.mojom.CrosAudioConfig_SetSpatialAudioEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

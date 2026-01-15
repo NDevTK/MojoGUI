@@ -139,28 +139,7 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeatureSpec = mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeatureSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: BlockingDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BlockingDetailsSpec, 'blink.mojom.BlockingDetails', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: BackForwardCacheControllerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec, 'blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.RendererEvictionReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec, 'blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_Params', [
-      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BlockingDetailsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,14 +266,14 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.evictFromBackForwardCache');
-          const result = this.impl.evictFromBackForwardCache(params.arg_reason, params.arg_source);
+          const result = this.impl.evictFromBackForwardCache(params.arg_arg_reason, params.arg_arg_source);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didChangeBackForwardCacheDisablingFeatures');
-          const result = this.impl.didChangeBackForwardCacheDisablingFeatures(params.arg_details);
+          const result = this.impl.didChangeBackForwardCacheDisablingFeatures(params.arg_arg_details);
           break;
         }
       }
@@ -309,4 +288,27 @@ mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostReceiver = mojo
 
 mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostPtr = mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRemote;
 mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostRequest = mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BlockingDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BlockingDetailsSpec, 'blink.mojom.BlockingDetails', [
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.bindings.blink.mojom.WebSchedulerTrackedFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_ParamsSpec, 'blink.mojom.BackForwardCacheControllerHost_EvictFromBackForwardCache_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.blink.mojom.RendererEvictionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source', 8, 0, mojo.internal.bindings.blink.mojom.ScriptSourceLocationSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_ParamsSpec, 'blink.mojom.BackForwardCacheControllerHost_DidChangeBackForwardCacheDisablingFeatures_Params', [
+      mojo.internal.StructField('arg_details', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.BlockingDetailsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

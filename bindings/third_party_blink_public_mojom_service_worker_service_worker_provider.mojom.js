@@ -144,6 +144,8 @@ mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote = mojo.internal.bind
 
 mojo.internal.bindings.blink.mojom.kNavigation_ServiceWorkerSpec = "navigation:service_worker";
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ServiceWorkerProviderInfoForStartWorker
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerProviderInfoForStartWorkerSpec, 'blink.mojom.ServiceWorkerProviderInfoForStartWorker', [

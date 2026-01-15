@@ -137,3 +137,5 @@ mojo.internal.bindings.arc.mojom.CameraIntentAction = {
   APPEND_DATA: 2,
   CLEAR_DATA: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

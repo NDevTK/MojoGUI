@@ -123,6 +123,8 @@ mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 
 mojo.internal.bindings.arc.mojom.ArcBitmapSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ArcBitmap
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.ArcBitmapSpec, 'arc.mojom.ArcBitmap', [

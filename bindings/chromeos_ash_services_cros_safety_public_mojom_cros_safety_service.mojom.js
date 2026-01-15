@@ -166,30 +166,6 @@ mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResult = {
 };
 
 // Interface: CrosSafetyService
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_Params', [
-      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -316,12 +292,15 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createOnDeviceSafetySession');
-          const result = this.impl.createOnDeviceSafetySession(params.arg_session);
+          const result = this.impl.createOnDeviceSafetySession(params.arg_arg_session);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateOnDeviceSafetySession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createOnDeviceSafetySession FAILED:', e));
           }
           break;
         }
@@ -329,12 +308,15 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCloudSafetySession');
-          const result = this.impl.createCloudSafetySession(params.arg_session);
+          const result = this.impl.createCloudSafetySession(params.arg_arg_session);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateCloudSafetySession FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createCloudSafetySession FAILED:', e));
           }
           break;
         }
@@ -350,4 +332,30 @@ mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceReceiver = mojo.in
 
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServicePtr = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRemote;
 mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServiceRequest = mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_Params', [
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.OnDeviceSafetySessionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateOnDeviceSafetySession_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.GetOnDeviceSafetySessionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_Params', [
+      mojo.internal.StructField('arg_session', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.cros_safety.mojom.CloudSafetySessionRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParamsSpec, 'ash.cros_safety.mojom.CrosSafetyService_CreateCloudSafetySession_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.ash.cros_safety.mojom.GetCloudSafetySessionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.smbfs.mojom = mojo.internal.bindings.smbfs.mojom || {};
 
 mojo.internal.bindings.smbfs.mojom.FilePathSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FilePath
 mojo.internal.Struct(
     mojo.internal.bindings.smbfs.mojom.FilePathSpec, 'smbfs.mojom.FilePath', [

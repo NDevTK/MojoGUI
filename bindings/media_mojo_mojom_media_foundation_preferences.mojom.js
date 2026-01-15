@@ -128,17 +128,6 @@ mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDe
 mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec = { $: {} };
 
 // Interface: MediaFoundationPreferences
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParams', [
-      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.MediaFoundationPreferencesPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,8 +244,11 @@ mojo.internal.bindings.media.mojom.MediaFoundationPreferencesReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsHardwareSecureDecryptionAllowed FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_allowed' in response) ? response.arg_arg_allowed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isHardwareSecureDecryptionAllowed FAILED:', e));
           }
           break;
         }
@@ -272,4 +264,17 @@ mojo.internal.bindings.media.mojom.MediaFoundationPreferencesReceiver = mojo.int
 
 mojo.internal.bindings.media.mojom.MediaFoundationPreferencesPtr = mojo.internal.bindings.media.mojom.MediaFoundationPreferencesRemote;
 mojo.internal.bindings.media.mojom.MediaFoundationPreferencesRequest = mojo.internal.bindings.media.mojom.MediaFoundationPreferencesPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParamsSpec, 'media.mojom.MediaFoundationPreferences_IsHardwareSecureDecryptionAllowed_ResponseParams', [
+      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

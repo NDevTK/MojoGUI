@@ -134,19 +134,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebAppShortcutCopier
-mojo.internal.Struct(
-    mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Params', [
-      mojo.internal.StructField('arg_source_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,12 +246,15 @@ mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.copyWebAppShortcut');
-          const result = this.impl.copyWebAppShortcut(params.arg_source_path, params.arg_destination_path);
+          const result = this.impl.copyWebAppShortcut(params.arg_arg_source_path, params.arg_arg_destination_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CopyWebAppShortcut FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] copyWebAppShortcut FAILED:', e));
           }
           break;
         }
@@ -280,4 +270,19 @@ mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierReceiver = mojo.interna
 
 mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierPtr = mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierRemote;
 mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierRequest = mojo.internal.bindings.web_app.mojom.WebAppShortcutCopierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_Params', [
+      mojo.internal.StructField('arg_source_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParamsSpec, 'web_app.mojom.WebAppShortcutCopier_CopyWebAppShortcut_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

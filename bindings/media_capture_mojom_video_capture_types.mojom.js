@@ -467,6 +467,8 @@ mojo.internal.bindings.media.mojom.DeviceEnumerationResult = {
   kErrorCaptureServiceDroppedRequest: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VideoCaptureControlSupport
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.VideoCaptureControlSupportSpec, 'media.mojom.VideoCaptureControlSupport', [

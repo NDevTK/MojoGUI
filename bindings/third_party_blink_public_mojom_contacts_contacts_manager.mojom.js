@@ -135,43 +135,7 @@ mojo.internal.bindings.payments = mojo.internal.bindings.payments || {};
 mojo.internal.bindings.payments.mojom = mojo.internal.bindings.payments.mojom || {};
 mojo.internal.bindings.payments.mojom.PaymentAddressSpec = mojo.internal.bindings.payments.mojom.PaymentAddressSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ContactIconBlob
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContactIconBlobSpec, 'blink.mojom.ContactIconBlob', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ContactInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContactInfoSpec, 'blink.mojom.ContactInfo', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_email', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_tel', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_address', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentAddressSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContactIconBlobSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: ContactsManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContactsManager_Select_ParamsSpec, 'blink.mojom.ContactsManager_Select_Params', [
-      mojo.internal.StructField('arg_multiple', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_names', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_emails', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_tel', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_addresses', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_icons', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec, 'blink.mojom.ContactsManager_Select_ResponseParams', [
-      mojo.internal.StructField('arg_contacts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContactInfoSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ContactsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -284,12 +248,15 @@ mojo.internal.bindings.blink.mojom.ContactsManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContactsManager_Select_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.select');
-          const result = this.impl.select(params.arg_multiple, params.arg_include_names, params.arg_include_emails, params.arg_include_tel, params.arg_include_addresses, params.arg_include_icons);
+          const result = this.impl.select(params.arg_arg_multiple, params.arg_arg_include_names, params.arg_arg_include_emails, params.arg_arg_include_tel, params.arg_arg_include_addresses, params.arg_arg_include_icons);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Select FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_contacts' in response) ? response.arg_arg_contacts : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] select FAILED:', e));
           }
           break;
         }
@@ -305,4 +272,42 @@ mojo.internal.bindings.blink.mojom.ContactsManagerReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.blink.mojom.ContactsManagerPtr = mojo.internal.bindings.blink.mojom.ContactsManagerRemote;
 mojo.internal.bindings.blink.mojom.ContactsManagerRequest = mojo.internal.bindings.blink.mojom.ContactsManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ContactIconBlob
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContactIconBlobSpec, 'blink.mojom.ContactIconBlob', [
+      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_data', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ContactInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContactInfoSpec, 'blink.mojom.ContactInfo', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_email', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tel', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_address', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentAddressSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 32, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContactIconBlobSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContactsManager_Select_ParamsSpec, 'blink.mojom.ContactsManager_Select_Params', [
+      mojo.internal.StructField('arg_multiple', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_names', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_emails', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_tel', 0, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_addresses', 0, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_icons', 0, 5, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContactsManager_Select_ResponseParamsSpec, 'blink.mojom.ContactsManager_Select_ResponseParams', [
+      mojo.internal.StructField('arg_contacts', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ContactInfoSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

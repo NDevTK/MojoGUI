@@ -201,6 +201,8 @@ mojo.internal.bindings.auction_worklet.mojom.ReservedErrorEventType = {
   kUncaughtError: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: ForEventSignalBucket
 mojo.internal.Union(
     mojo.internal.bindings.auction_worklet.mojom.ForEventSignalBucketSpec, 'auction_worklet.mojom.ForEventSignalBucket', {

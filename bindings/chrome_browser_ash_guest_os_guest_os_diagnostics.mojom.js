@@ -139,6 +139,8 @@ mojo.internal.bindings.guest_os.mojom.Status = {
   kNotApplicable: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DiagnosticMessage
 mojo.internal.Struct(
     mojo.internal.bindings.guest_os.mojom.DiagnosticMessageSpec, 'guest_os.mojom.DiagnosticMessage', [

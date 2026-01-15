@@ -149,71 +149,7 @@ mojo.internal.bindings.optimization_guide_common = mojo.internal.bindings.optimi
 mojo.internal.bindings.optimization_guide_common.mojom = mojo.internal.bindings.optimization_guide_common.mojom || {};
 mojo.internal.bindings.optimization_guide_common.mojom.LogSourceSpec = mojo.internal.bindings.optimization_guide_common.mojom.LogSourceSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: DownloadedModelInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec, 'optimization_guide_internals.mojom.DownloadedModelInfo', [
-      mojo.internal.StructField('arg_optimization_target', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_file_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: LoggedClientIds
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec, 'optimization_guide_internals.mojom.LoggedClientIds', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: MqlsLog
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec, 'optimization_guide_internals.mojom.MqlsLog', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_proto', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide_internals.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_downloaded_models_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParams', [
-      mojo.internal.StructField('arg_logged_client_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParams', [
-      mojo.internal.StructField('arg_mqls_logs', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -368,7 +304,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page);
+          const result = this.impl.createPageHandler(params.arg_arg_page);
           break;
         }
         case 1: {
@@ -379,8 +315,11 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestDownloadedModelsInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_downloaded_models_info' in response) ? response.arg_arg_downloaded_models_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestDownloadedModelsInfo FAILED:', e));
           }
           break;
         }
@@ -392,8 +331,11 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestLoggedModelQualityClientIds FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_logged_client_ids' in response) ? response.arg_arg_logged_client_ids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestLoggedModelQualityClientIds FAILED:', e));
           }
           break;
         }
@@ -405,8 +347,11 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRece
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestMqlsLogs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_mqls_logs' in response) ? response.arg_arg_mqls_logs : response;
+              encoder.encodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestMqlsLogs FAILED:', e));
           }
           break;
         }
@@ -425,16 +370,6 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactoryRequ
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params', [
-      mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_log_source', 8, 0, mojo.internal.bindings.optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_line', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 32, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 mojo.internal.bindings.optimization_guide_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -547,7 +482,7 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessageAdded');
-          const result = this.impl.onLogMessageAdded(params.arg_event_time, params.arg_log_source, params.arg_source_file, params.arg_source_line, params.arg_message);
+          const result = this.impl.onLogMessageAdded(params.arg_arg_event_time, params.arg_arg_log_source, params.arg_arg_source_file, params.arg_arg_source_line, params.arg_arg_message);
           break;
         }
       }
@@ -562,4 +497,80 @@ mojo.internal.bindings.optimization_guide_internals.mojom.PageReceiver = mojo.in
 
 mojo.internal.bindings.optimization_guide_internals.mojom.PagePtr = mojo.internal.bindings.optimization_guide_internals.mojom.PageRemote;
 mojo.internal.bindings.optimization_guide_internals.mojom.PageRequest = mojo.internal.bindings.optimization_guide_internals.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DownloadedModelInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec, 'optimization_guide_internals.mojom.DownloadedModelInfo', [
+      mojo.internal.StructField('arg_optimization_target', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_file_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: LoggedClientIds
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec, 'optimization_guide_internals.mojom.LoggedClientIds', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: MqlsLog
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec, 'optimization_guide_internals.mojom.MqlsLog', [
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_proto', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.optimization_guide_internals.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestDownloadedModelsInfo_ResponseParams', [
+      mojo.internal.StructField('arg_downloaded_models_info', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.DownloadedModelInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestLoggedModelQualityClientIds_ResponseParams', [
+      mojo.internal.StructField('arg_logged_client_ids', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.LoggedClientIdsSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParamsSpec, 'optimization_guide_internals.mojom.PageHandlerFactory_RequestMqlsLogs_ResponseParams', [
+      mojo.internal.StructField('arg_mqls_logs', 0, 0, mojo.internal.Array(mojo.internal.bindings.optimization_guide_internals.mojom.MqlsLogSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.optimization_guide_internals.mojom.Page_OnLogMessageAdded_ParamsSpec, 'optimization_guide_internals.mojom.Page_OnLogMessageAdded_Params', [
+      mojo.internal.StructField('arg_event_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_log_source', 8, 0, mojo.internal.bindings.optimization_guide_common.mojom.LogSourceSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_file', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_line', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 32, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
 

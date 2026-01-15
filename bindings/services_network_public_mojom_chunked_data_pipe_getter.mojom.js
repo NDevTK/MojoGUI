@@ -129,24 +129,6 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParam
 mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec = { $: {} };
 
 // Interface: ChunkedDataPipeGetter
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_StartReading_Params', [
-      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,8 +259,10 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_size']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSize FAILED:', e));
           }
           break;
         }
@@ -286,7 +270,7 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startReading');
-          const result = this.impl.startReading(params.arg_pipe);
+          const result = this.impl.startReading(params.arg_arg_pipe);
           break;
         }
       }
@@ -301,4 +285,24 @@ mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterReceiver = mojo.intern
 
 mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterPtr = mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterRemote;
 mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterRequest = mojo.internal.bindings.network.mojom.ChunkedDataPipeGetterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParamsSpec, 'network.mojom.ChunkedDataPipeGetter_GetSize_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.ChunkedDataPipeGetter_StartReading_ParamsSpec, 'network.mojom.ChunkedDataPipeGetter_StartReading_Params', [
+      mojo.internal.StructField('arg_pipe', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

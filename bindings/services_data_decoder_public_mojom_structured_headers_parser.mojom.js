@@ -144,42 +144,6 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec = mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: StructuredHeadersParser
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseItem_Params', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseList_Params', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseDictionary_Params', [
-      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -320,12 +284,15 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseItem');
-          const result = this.impl.parseItem(params.arg_header);
+          const result = this.impl.parseItem(params.arg_arg_header);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseItem FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseItem FAILED:', e));
           }
           break;
         }
@@ -333,12 +300,15 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseList');
-          const result = this.impl.parseList(params.arg_header);
+          const result = this.impl.parseList(params.arg_arg_header);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseList FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseList FAILED:', e));
           }
           break;
         }
@@ -346,12 +316,15 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parseDictionary');
-          const result = this.impl.parseDictionary(params.arg_header);
+          const result = this.impl.parseDictionary(params.arg_arg_header);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ParseDictionary FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parseDictionary FAILED:', e));
           }
           break;
         }
@@ -367,4 +340,42 @@ mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserReceiver = mojo
 
 mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserPtr = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRemote;
 mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserRequest = mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseItem_Params', [
+      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseItem_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedItemSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseList_Params', [
+      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseList_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.StructuredHeadersParameterizedMemberSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseDictionary_Params', [
+      mojo.internal.StructField('arg_header', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParamsSpec, 'data_decoder.mojom.StructuredHeadersParser_ParseDictionary_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.network.mojom.StructuredHeadersDictionarySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

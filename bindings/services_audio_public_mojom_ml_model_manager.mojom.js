@@ -135,17 +135,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MlModelManager
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_SetResidualEchoEstimationModel_Params', [
-      mojo.internal.StructField('arg_tflite_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.audio.mojom.MlModelManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,7 +261,7 @@ mojo.internal.bindings.audio.mojom.MlModelManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setResidualEchoEstimationModel');
-          const result = this.impl.setResidualEchoEstimationModel(params.arg_tflite_file);
+          const result = this.impl.setResidualEchoEstimationModel(params.arg_arg_tflite_file);
           break;
         }
         case 1: {
@@ -294,4 +283,17 @@ mojo.internal.bindings.audio.mojom.MlModelManagerReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.audio.mojom.MlModelManagerPtr = mojo.internal.bindings.audio.mojom.MlModelManagerRemote;
 mojo.internal.bindings.audio.mojom.MlModelManagerRequest = mojo.internal.bindings.audio.mojom.MlModelManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.MlModelManager_SetResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_SetResidualEchoEstimationModel_Params', [
+      mojo.internal.StructField('arg_tflite_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_ParamsSpec, 'audio.mojom.MlModelManager_StopServingResidualEchoEstimationModel_Params', [
+    ],
+    [[0, 8]]);
 

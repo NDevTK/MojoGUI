@@ -154,50 +154,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTarget = {
   kPassword: 2,
 };
 
-// Struct: SelectOption
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec, 'autofill_ml_internals.mojom.SelectOption', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MlFieldPredictionLog
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec, 'autofill_ml_internals.mojom.MlFieldPredictionLog', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_placeholder', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_autocomplete', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_control_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_select_options', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_probabilities', 56, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_tokenized_field_representation', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 80]]);
-
-// Struct: MlPredictionLog
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec, 'autofill_ml_internals.mojom.MlPredictionLog', [
-      mojo.internal.StructField('arg_form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_model_output_types', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_field_predictions', 24, 0, mojo.internal.Array(mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_start_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_end_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_optimization_target', 56, 0, mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec, null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec, 'autofill_ml_internals.mojom.Page_OnLogAdded_Params', [
-      mojo.internal.StructField('arg_log', 0, 0, mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.autofill_ml_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -310,7 +267,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogAdded');
-          const result = this.impl.onLogAdded(params.arg_log);
+          const result = this.impl.onLogAdded(params.arg_arg_log);
           break;
         }
       }
@@ -328,12 +285,6 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageRequest = mojo.internal.b
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec, 'autofill_ml_internals.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.autofill_ml_internals.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -446,7 +397,7 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_page);
+          const result = this.impl.setPage(params.arg_arg_page);
           break;
         }
       }
@@ -461,4 +412,55 @@ mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerReceiver = mojo.in
 
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerPtr = mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerRemote;
 mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerRequest = mojo.internal.bindings.autofill_ml_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SelectOption
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec, 'autofill_ml_internals.mojom.SelectOption', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_text', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MlFieldPredictionLog
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec, 'autofill_ml_internals.mojom.MlFieldPredictionLog', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_placeholder', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_autocomplete', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_control_type', 40, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_select_options', 48, 0, mojo.internal.Array(mojo.internal.bindings.autofill_ml_internals.mojom.SelectOptionSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_probabilities', 56, 0, mojo.internal.Array(mojo.internal.Float, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tokenized_field_representation', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 80]]);
+
+// Struct: MlPredictionLog
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec, 'autofill_ml_internals.mojom.MlPredictionLog', [
+      mojo.internal.StructField('arg_form_signature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_model_output_types', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_field_predictions', 24, 0, mojo.internal.Array(mojo.internal.bindings.autofill_ml_internals.mojom.MlFieldPredictionLogSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_start_time', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_end_time', 40, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 48, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_optimization_target', 56, 0, mojo.internal.bindings.autofill_ml_internals.mojom.OptimizationTargetSpec, null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill_ml_internals.mojom.Page_OnLogAdded_ParamsSpec, 'autofill_ml_internals.mojom.Page_OnLogAdded_Params', [
+      mojo.internal.StructField('arg_log', 0, 0, mojo.internal.bindings.autofill_ml_internals.mojom.MlPredictionLogSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.autofill_ml_internals.mojom.PageHandler_SetPage_ParamsSpec, 'autofill_ml_internals.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.autofill_ml_internals.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

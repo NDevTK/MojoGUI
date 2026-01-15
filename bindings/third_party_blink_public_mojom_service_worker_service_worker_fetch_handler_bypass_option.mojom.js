@@ -133,3 +133,5 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerFetchHandlerBypassOption = {
   kSyntheticResponse: 5,
   kSyntheticResponseDryRunMode: 6,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

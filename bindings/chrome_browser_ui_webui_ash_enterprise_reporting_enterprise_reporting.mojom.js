@@ -141,39 +141,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageSpec = { $ : {} };
 mojo.internal.bindings.enterprise_reporting.mojom.Page.$interfaceName = 'enterprise_reporting.mojom.Page';
 mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec = { $: {} };
 
-// Struct: ErpHistoryData
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, 'enterprise_reporting.mojom.ErpHistoryData', [
-      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ErpHistoryEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec, 'enterprise_reporting.mojom.ErpHistoryEvent', [
-      mojo.internal.StructField('arg_call', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ErpHistoryEventParameter
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec, 'enterprise_reporting.mojom.ErpHistoryEventParameter', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.enterprise_reporting.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,7 +254,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -304,34 +272,6 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactoryRequest = mo
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_RecordDebugState_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParams', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParams', [
-      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -472,7 +412,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.recordDebugState');
-          const result = this.impl.recordDebugState(params.arg_state);
+          const result = this.impl.recordDebugState(params.arg_arg_state);
           break;
         }
         case 1: {
@@ -483,8 +423,11 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDebugState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_state' in response) ? response.arg_arg_state : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDebugState FAILED:', e));
           }
           break;
         }
@@ -496,8 +439,11 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetErpHistoryData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_history_data' in response) ? response.arg_arg_history_data : response;
+              encoder.encodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getErpHistoryData FAILED:', e));
           }
           break;
         }
@@ -516,12 +462,6 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRequest = mojo.inte
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.Page_SetErpHistoryData_Params', [
-      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.enterprise_reporting.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -634,7 +574,7 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setErpHistoryData');
-          const result = this.impl.setErpHistoryData(params.arg_history_data);
+          const result = this.impl.setErpHistoryData(params.arg_arg_history_data);
           break;
         }
       }
@@ -649,4 +589,72 @@ mojo.internal.bindings.enterprise_reporting.mojom.PageReceiver = mojo.internal.b
 
 mojo.internal.bindings.enterprise_reporting.mojom.PagePtr = mojo.internal.bindings.enterprise_reporting.mojom.PageRemote;
 mojo.internal.bindings.enterprise_reporting.mojom.PageRequest = mojo.internal.bindings.enterprise_reporting.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ErpHistoryData
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, 'enterprise_reporting.mojom.ErpHistoryData', [
+      mojo.internal.StructField('arg_events', 0, 0, mojo.internal.Array(mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ErpHistoryEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventSpec, 'enterprise_reporting.mojom.ErpHistoryEvent', [
+      mojo.internal.StructField('arg_call', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_parameters', 8, 0, mojo.internal.Array(mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ErpHistoryEventParameter
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryEventParameterSpec, 'enterprise_reporting.mojom.ErpHistoryEventParameter', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'enterprise_reporting.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.enterprise_reporting.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.enterprise_reporting.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_RecordDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_RecordDebugState_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetDebugState_ResponseParams', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParamsSpec, 'enterprise_reporting.mojom.PageHandler_GetErpHistoryData_ResponseParams', [
+      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.enterprise_reporting.mojom.Page_SetErpHistoryData_ParamsSpec, 'enterprise_reporting.mojom.Page_SetErpHistoryData_Params', [
+      mojo.internal.StructField('arg_history_data', 0, 0, mojo.internal.bindings.enterprise_reporting.mojom.ErpHistoryDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

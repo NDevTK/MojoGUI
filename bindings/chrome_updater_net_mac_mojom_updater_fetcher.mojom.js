@@ -152,41 +152,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: HttpHeader
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.HttpHeaderSpec, 'updater.mojom.HttpHeader', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PostRequestObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.PostRequestObserver_OnResponseStarted_Params', [
-      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_length_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
-      mojo.internal.StructField('arg_content_length_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec, 'updater.mojom.PostRequestObserver_OnProgress_Params', [
-      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec, 'updater.mojom.PostRequestObserver_OnRequestComplete_Params', [
-      mojo.internal.StructField('arg_response_body', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_xheader_retry_after_sec_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_xheader_retry_after_sec_$value', originalFieldName: 'arg_xheader_retry_after_sec' }),
-      mojo.internal.StructField('arg_header_etag', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_x_cup_server_proof', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_header_set_cookie', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_xheader_retry_after_sec_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_xheader_retry_after_sec_$flag', originalFieldName: 'arg_xheader_retry_after_sec' }),
-    ],
-    [[0, 56]]);
-
 mojo.internal.bindings.updater.mojom.PostRequestObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -327,21 +293,21 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
-          const result = this.impl.onResponseStarted(params.arg_http_status_code, params.arg_content_length);
+          const result = this.impl.onResponseStarted(params.arg_arg_http_status_code, params.arg_arg_content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_current);
+          const result = this.impl.onProgress(params.arg_arg_current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestComplete');
-          const result = this.impl.onRequestComplete(params.arg_response_body, params.arg_net_error, params.arg_header_etag, params.arg_header_x_cup_server_proof, params.arg_header_set_cookie, params.arg_xheader_retry_after_sec);
+          const result = this.impl.onRequestComplete(params.arg_arg_response_body, params.arg_arg_net_error, params.arg_arg_header_etag, params.arg_arg_header_x_cup_server_proof, params.arg_arg_header_set_cookie, params.arg_arg_xheader_retry_after_sec);
           break;
         }
       }
@@ -359,28 +325,6 @@ mojo.internal.bindings.updater.mojom.PostRequestObserverRequest = mojo.internal.
 
 
 // Interface: FileDownloadObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnResponseStarted_Params', [
-      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_length_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
-      mojo.internal.StructField('arg_content_length_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnProgress_Params', [
-      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnDownloadComplete_Params', [
-      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_content_size_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_size_$value', originalFieldName: 'arg_content_size' }),
-      mojo.internal.StructField('arg_content_size_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_size_$flag', originalFieldName: 'arg_content_size' }),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.updater.mojom.FileDownloadObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -521,21 +465,21 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseStarted');
-          const result = this.impl.onResponseStarted(params.arg_http_status_code, params.arg_content_length);
+          const result = this.impl.onResponseStarted(params.arg_arg_http_status_code, params.arg_arg_content_length);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_current);
+          const result = this.impl.onProgress(params.arg_arg_current);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDownloadComplete');
-          const result = this.impl.onDownloadComplete(params.arg_net_error, params.arg_content_size);
+          const result = this.impl.onDownloadComplete(params.arg_arg_net_error, params.arg_arg_content_size);
           break;
         }
       }
@@ -553,34 +497,6 @@ mojo.internal.bindings.updater.mojom.FileDownloadObserverRequest = mojo.internal
 
 
 // Interface: FetchService
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec, 'updater.mojom.FetchService_PostRequest_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_headers', 24, 0, mojo.internal.Array(mojo.internal.bindings.updater.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec, 'updater.mojom.FetchService_PostRequest_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.PostRequestObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec, 'updater.mojom.FetchService_DownloadToFile_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToFile_ResponseParams', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.FileDownloadObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.updater.mojom.FetchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -707,12 +623,15 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.postRequest');
-          const result = this.impl.postRequest(params.arg_url, params.arg_post_data, params.arg_content_type, params.arg_additional_headers);
+          const result = this.impl.postRequest(params.arg_arg_url, params.arg_arg_post_data, params.arg_arg_content_type, params.arg_arg_additional_headers);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PostRequest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] postRequest FAILED:', e));
           }
           break;
         }
@@ -720,12 +639,15 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.downloadToFile');
-          const result = this.impl.downloadToFile(params.arg_url, params.arg_output_file);
+          const result = this.impl.downloadToFile(params.arg_arg_url, params.arg_arg_output_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DownloadToFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_observer' in response) ? response.arg_arg_observer : response;
+              encoder.encodeStructInline(mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] downloadToFile FAILED:', e));
           }
           break;
         }
@@ -741,4 +663,90 @@ mojo.internal.bindings.updater.mojom.FetchServiceReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.updater.mojom.FetchServicePtr = mojo.internal.bindings.updater.mojom.FetchServiceRemote;
 mojo.internal.bindings.updater.mojom.FetchServiceRequest = mojo.internal.bindings.updater.mojom.FetchServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: HttpHeader
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.HttpHeaderSpec, 'updater.mojom.HttpHeader', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.PostRequestObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.PostRequestObserver_OnResponseStarted_Params', [
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_length_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
+      mojo.internal.StructField('arg_content_length_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.PostRequestObserver_OnProgress_ParamsSpec, 'updater.mojom.PostRequestObserver_OnProgress_Params', [
+      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.PostRequestObserver_OnRequestComplete_ParamsSpec, 'updater.mojom.PostRequestObserver_OnRequestComplete_Params', [
+      mojo.internal.StructField('arg_response_body', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_net_error', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_xheader_retry_after_sec_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_xheader_retry_after_sec_$value', originalFieldName: 'arg_xheader_retry_after_sec' }),
+      mojo.internal.StructField('arg_header_etag', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_x_cup_server_proof', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_header_set_cookie', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_xheader_retry_after_sec_$value', 40, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_xheader_retry_after_sec_$flag', originalFieldName: 'arg_xheader_retry_after_sec' }),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnResponseStarted_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnResponseStarted_Params', [
+      mojo.internal.StructField('arg_http_status_code', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_length_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_length_$value', originalFieldName: 'arg_content_length' }),
+      mojo.internal.StructField('arg_content_length_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_length_$flag', originalFieldName: 'arg_content_length' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnProgress_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnProgress_Params', [
+      mojo.internal.StructField('arg_current', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FileDownloadObserver_OnDownloadComplete_ParamsSpec, 'updater.mojom.FileDownloadObserver_OnDownloadComplete_Params', [
+      mojo.internal.StructField('arg_net_error', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_content_size_$flag', 4, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_content_size_$value', originalFieldName: 'arg_content_size' }),
+      mojo.internal.StructField('arg_content_size_$value', 8, 0, mojo.internal.Uint64, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_content_size_$flag', originalFieldName: 'arg_content_size' }),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ParamsSpec, 'updater.mojom.FetchService_PostRequest_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_post_data', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_headers', 24, 0, mojo.internal.Array(mojo.internal.bindings.updater.mojom.HttpHeaderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FetchService_PostRequest_ResponseParamsSpec, 'updater.mojom.FetchService_PostRequest_ResponseParams', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.PostRequestObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ParamsSpec, 'updater.mojom.FetchService_DownloadToFile_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.updater.mojom.FetchService_DownloadToFile_ResponseParamsSpec, 'updater.mojom.FetchService_DownloadToFile_ResponseParams', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.updater.mojom.FileDownloadObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

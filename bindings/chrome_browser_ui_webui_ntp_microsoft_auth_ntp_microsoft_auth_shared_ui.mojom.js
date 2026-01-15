@@ -136,21 +136,6 @@ mojo.internal.bindings.new_tab_page.mojom.AuthType = {
 };
 
 // Interface: MicrosoftAuthUntrustedDocument
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -320,4 +305,21 @@ mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentReceiver
 
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPtr = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRemote;
 mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentRequest = mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocumentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenPopup_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_AcquireTokenSilent_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_ParamsSpec, 'new_tab_page.mojom.MicrosoftAuthUntrustedDocument_SignOut_Params', [
+    ],
+    [[0, 8]]);
 

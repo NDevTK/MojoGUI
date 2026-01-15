@@ -152,45 +152,6 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Automation
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec, 'ax.mojom.Automation_DispatchTreeDestroyedEvent_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec, 'ax.mojom.Automation_DispatchActionResult_Params', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityEvents_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_location', 24, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_events', 32, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXEventSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityLocationChange_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bounds', 24, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityScrollChange_Params', [
-      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_x', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_y', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.ax.mojom.AutomationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -359,35 +320,35 @@ mojo.internal.bindings.ax.mojom.AutomationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchTreeDestroyedEvent');
-          const result = this.impl.dispatchTreeDestroyedEvent(params.arg_tree_id);
+          const result = this.impl.dispatchTreeDestroyedEvent(params.arg_arg_tree_id);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchActionResult');
-          const result = this.impl.dispatchActionResult(params.arg_data, params.arg_result);
+          const result = this.impl.dispatchActionResult(params.arg_arg_data, params.arg_arg_result);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityEvents');
-          const result = this.impl.dispatchAccessibilityEvents(params.arg_tree_id, params.arg_updates, params.arg_mouse_location, params.arg_events);
+          const result = this.impl.dispatchAccessibilityEvents(params.arg_arg_tree_id, params.arg_arg_updates, params.arg_arg_mouse_location, params.arg_arg_events);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityLocationChange');
-          const result = this.impl.dispatchAccessibilityLocationChange(params.arg_tree_id, params.arg_node_id, params.arg_bounds);
+          const result = this.impl.dispatchAccessibilityLocationChange(params.arg_arg_tree_id, params.arg_arg_node_id, params.arg_arg_bounds);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dispatchAccessibilityScrollChange');
-          const result = this.impl.dispatchAccessibilityScrollChange(params.arg_tree_id, params.arg_node_id, params.arg_scroll_x, params.arg_scroll_y);
+          const result = this.impl.dispatchAccessibilityScrollChange(params.arg_arg_tree_id, params.arg_arg_node_id, params.arg_arg_scroll_x, params.arg_arg_scroll_y);
           break;
         }
       }
@@ -402,4 +363,45 @@ mojo.internal.bindings.ax.mojom.AutomationReceiver = mojo.internal.bindings.ax.m
 
 mojo.internal.bindings.ax.mojom.AutomationPtr = mojo.internal.bindings.ax.mojom.AutomationRemote;
 mojo.internal.bindings.ax.mojom.AutomationRequest = mojo.internal.bindings.ax.mojom.AutomationPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.Automation_DispatchTreeDestroyedEvent_ParamsSpec, 'ax.mojom.Automation_DispatchTreeDestroyedEvent_Params', [
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.Automation_DispatchActionResult_ParamsSpec, 'ax.mojom.Automation_DispatchActionResult_Params', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ax.mojom.AXActionDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityEvents_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityEvents_Params', [
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates', 16, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXTreeUpdateSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_location', 24, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_events', 32, 0, mojo.internal.Array(mojo.internal.bindings.ax.mojom.AXEventSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityLocationChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityLocationChange_Params', [
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bounds', 24, 0, mojo.internal.bindings.ax.mojom.AXRelativeBoundsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ax.mojom.Automation_DispatchAccessibilityScrollChange_ParamsSpec, 'ax.mojom.Automation_DispatchAccessibilityScrollChange_Params', [
+      mojo.internal.StructField('arg_tree_id', 0, 0, mojo.internal.bindings.ax.mojom.AXTreeIDSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_node_id', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_x', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_y', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

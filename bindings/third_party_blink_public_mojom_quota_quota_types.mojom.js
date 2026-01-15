@@ -141,6 +141,8 @@ mojo.internal.bindings.blink.mojom.QuotaStatusCode = {
   kUnknown: -1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UsageBreakdown
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UsageBreakdownSpec, 'blink.mojom.UsageBreakdown', [

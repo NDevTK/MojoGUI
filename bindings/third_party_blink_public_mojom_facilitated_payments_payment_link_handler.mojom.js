@@ -134,12 +134,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PaymentLinkHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec, 'payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +246,7 @@ mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.handlePaymentLink');
-          const result = this.impl.handlePaymentLink(params.arg_url);
+          const result = this.impl.handlePaymentLink(params.arg_arg_url);
           break;
         }
       }
@@ -267,4 +261,12 @@ mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerReceiver = m
 
 mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerPtr = mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerRemote;
 mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerRequest = mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_ParamsSpec, 'payments.facilitated.mojom.PaymentLinkHandler_HandlePaymentLink_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

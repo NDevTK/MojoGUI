@@ -130,3 +130,5 @@ mojo.internal.bindings.skia.mojom.TileMode = {
   MIRROR: 2,
   DECAL: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

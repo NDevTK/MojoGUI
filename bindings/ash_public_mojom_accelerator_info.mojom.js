@@ -223,6 +223,8 @@ mojo.internal.bindings.ash.mojom.TextAcceleratorPartType = {
   kDelimiter: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: LayoutStyleProperties
 mojo.internal.Union(
     mojo.internal.bindings.ash.mojom.LayoutStylePropertiesSpec, 'ash.mojom.LayoutStyleProperties', {

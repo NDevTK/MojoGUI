@@ -151,37 +151,7 @@ mojo.internal.bindings.arc = mojo.internal.bindings.arc || {};
 mojo.internal.bindings.arc.mojom = mojo.internal.bindings.arc.mojom || {};
 mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec = mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec || { $: mojo.internal.Enum().$ };
 
-// Struct: VideoFrame
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoFrameSpec, 'arc.mojom.VideoFrame', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_format', 4, 0, mojo.internal.bindings.arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handle_fd', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 16, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_planes', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifier', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: VideoFramePool
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoFramePool_Initialize_ParamsSpec, 'arc.mojom.VideoFramePool_Initialize_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.arc.mojom.VideoFramePoolClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_Params', [
-      mojo.internal.StructField('arg_video_frame', 0, 0, mojo.internal.bindings.arc.mojom.VideoFrameSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.VideoFramePoolPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -308,19 +278,22 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoFramePool_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_client);
+          const result = this.impl.initialize(params.arg_arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVideoFrame');
-          const result = this.impl.addVideoFrame(params.arg_video_frame);
+          const result = this.impl.addVideoFrame(params.arg_arg_video_frame);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddVideoFrame FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addVideoFrame FAILED:', e));
           }
           break;
         }
@@ -339,20 +312,6 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolRequest = mojo.internal.bindings.
 
 
 // Interface: VideoFramePoolClient
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_Params', [
-      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_num_frames', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible_rect', 16, 0, mojo.internal.bindings.arc.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.VideoFramePoolClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -465,12 +424,14 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestVideoFrames');
-          const result = this.impl.requestVideoFrames(params.arg_format, params.arg_coded_size, params.arg_visible_rect, params.arg_num_frames);
+          const result = this.impl.requestVideoFrames(params.arg_arg_format, params.arg_arg_coded_size, params.arg_arg_visible_rect, params.arg_arg_num_frames);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestVideoFrames FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestVideoFrames FAILED:', e));
           }
           break;
         }
@@ -486,4 +447,50 @@ mojo.internal.bindings.arc.mojom.VideoFramePoolClientReceiver = mojo.internal.bi
 
 mojo.internal.bindings.arc.mojom.VideoFramePoolClientPtr = mojo.internal.bindings.arc.mojom.VideoFramePoolClientRemote;
 mojo.internal.bindings.arc.mojom.VideoFramePoolClientRequest = mojo.internal.bindings.arc.mojom.VideoFramePoolClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: VideoFrame
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoFrameSpec, 'arc.mojom.VideoFrame', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_format', 4, 0, mojo.internal.bindings.arc.mojom.HalPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handle_fd', 8, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 16, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_planes', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifier', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoFramePool_Initialize_ParamsSpec, 'arc.mojom.VideoFramePool_Initialize_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.arc.mojom.VideoFramePoolClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_Params', [
+      mojo.internal.StructField('arg_video_frame', 0, 0, mojo.internal.bindings.arc.mojom.VideoFrameSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoFramePool_AddVideoFrame_ResponseParamsSpec, 'arc.mojom.VideoFramePool_AddVideoFrame_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_Params', [
+      mojo.internal.StructField('arg_format', 0, 0, mojo.internal.bindings.arc.mojom.VideoPixelFormatSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_num_frames', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_coded_size', 8, 0, mojo.internal.bindings.arc.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible_rect', 16, 0, mojo.internal.bindings.arc.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParamsSpec, 'arc.mojom.VideoFramePoolClient_RequestVideoFrames_ResponseParams', [
+    ],
+    [[0, 8]]);
 

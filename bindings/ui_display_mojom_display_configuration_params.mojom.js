@@ -132,6 +132,8 @@ mojo.internal.bindings.gfx = mojo.internal.bindings.gfx || {};
 mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.PointSpec = mojo.internal.bindings.gfx.mojom.PointSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DisplayConfigurationParams
 mojo.internal.Struct(
     mojo.internal.bindings.display.mojom.DisplayConfigurationParamsSpec, 'display.mojom.DisplayConfigurationParams', [

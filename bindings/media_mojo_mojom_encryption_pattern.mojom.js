@@ -123,6 +123,8 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
 mojo.internal.bindings.media.mojom.EncryptionPatternSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: EncryptionPattern
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.EncryptionPatternSpec, 'media.mojom.EncryptionPattern', [

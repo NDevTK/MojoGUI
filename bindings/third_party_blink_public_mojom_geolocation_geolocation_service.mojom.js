@@ -138,19 +138,6 @@ mojo.internal.bindings.device.mojom.GeolocationSpec = mojo.internal.bindings.dev
 mojo.internal.bindings.device.mojom.GeolocationRemote = mojo.internal.bindings.device.mojom.GeolocationRemote || class {};
 
 // Interface: GeolocationService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_gesture', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.GeolocationServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,12 +250,15 @@ mojo.internal.bindings.blink.mojom.GeolocationServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createGeolocation');
-          const result = this.impl.createGeolocation(params.arg_receiver, params.arg_user_gesture);
+          const result = this.impl.createGeolocation(params.arg_arg_receiver, params.arg_arg_user_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateGeolocation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createGeolocation FAILED:', e));
           }
           break;
         }
@@ -284,4 +274,19 @@ mojo.internal.bindings.blink.mojom.GeolocationServiceReceiver = mojo.internal.bi
 
 mojo.internal.bindings.blink.mojom.GeolocationServicePtr = mojo.internal.bindings.blink.mojom.GeolocationServiceRemote;
 mojo.internal.bindings.blink.mojom.GeolocationServiceRequest = mojo.internal.bindings.blink.mojom.GeolocationServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.device.mojom.GeolocationRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_gesture', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.GeolocationService_CreateGeolocation_ResponseParamsSpec, 'blink.mojom.GeolocationService_CreateGeolocation_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PermissionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

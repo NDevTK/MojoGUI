@@ -147,56 +147,7 @@ mojo.internal.bindings.remoting = mojo.internal.bindings.remoting || {};
 mojo.internal.bindings.remoting.mojom = mojo.internal.bindings.remoting.mojom || {};
 mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec = mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: WebAuthnCreateResponse
-mojo.internal.Union(
-    mojo.internal.bindings.remoting.mojom.WebAuthnCreateResponseSpec, 'remoting.mojom.WebAuthnCreateResponse', {
-      'arg_error_details': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec,
-        'nullable': false,
-      },
-      'arg_response_data': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
-// Union: WebAuthnGetResponse
-mojo.internal.Union(
-    mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec, 'remoting.mojom.WebAuthnGetResponse', {
-      'arg_error_details': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec,
-        'nullable': false,
-      },
-      'arg_response_data': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
-// Struct: WebAuthnExceptionDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec, 'remoting.mojom.WebAuthnExceptionDetails', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: WebAuthnRequestCanceller
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParams', [
-      mojo.internal.StructField('arg_was_canceled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -313,8 +264,11 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Cancel FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_was_canceled' in response) ? response.arg_arg_was_canceled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cancel FAILED:', e));
           }
           break;
         }
@@ -333,43 +287,6 @@ mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRequest = mojo.int
 
 
 // Interface: WebAuthnProxy
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams', [
-      mojo.internal.StructField('arg_is_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_Params', [
-      mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.remoting.mojom.WebAuthnCreateResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
-      mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.remoting.mojom.WebAuthnProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -514,8 +431,11 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_available' in response) ? response.arg_arg_is_available : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isUserVerifyingPlatformAuthenticatorAvailable FAILED:', e));
           }
           break;
         }
@@ -523,12 +443,15 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_request_data, params.arg_request_canceller);
+          const result = this.impl.create(params.arg_arg_request_data, params.arg_arg_request_canceller);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Create FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] create FAILED:', e));
           }
           break;
         }
@@ -536,12 +459,15 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_request_data, params.arg_request_canceller);
+          const result = this.impl.get(params.arg_arg_request_data, params.arg_arg_request_canceller);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
           break;
         }
@@ -557,4 +483,92 @@ mojo.internal.bindings.remoting.mojom.WebAuthnProxyReceiver = mojo.internal.bind
 
 mojo.internal.bindings.remoting.mojom.WebAuthnProxyPtr = mojo.internal.bindings.remoting.mojom.WebAuthnProxyRemote;
 mojo.internal.bindings.remoting.mojom.WebAuthnProxyRequest = mojo.internal.bindings.remoting.mojom.WebAuthnProxyPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: WebAuthnCreateResponse
+mojo.internal.Union(
+    mojo.internal.bindings.remoting.mojom.WebAuthnCreateResponseSpec, 'remoting.mojom.WebAuthnCreateResponse', {
+      'arg_error_details': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec,
+        'nullable': false,
+      },
+      'arg_response_data': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+
+// Union: WebAuthnGetResponse
+mojo.internal.Union(
+    mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec, 'remoting.mojom.WebAuthnGetResponse', {
+      'arg_error_details': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec,
+        'nullable': false,
+      },
+      'arg_response_data': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+
+// Struct: WebAuthnExceptionDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnExceptionDetailsSpec, 'remoting.mojom.WebAuthnExceptionDetails', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParamsSpec, 'remoting.mojom.WebAuthnRequestCanceller_Cancel_ResponseParams', [
+      mojo.internal.StructField('arg_was_canceled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_IsUserVerifyingPlatformAuthenticatorAvailable_ResponseParams', [
+      mojo.internal.StructField('arg_is_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_Params', [
+      mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Create_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Create_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.remoting.mojom.WebAuthnCreateResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_Params', [
+      mojo.internal.StructField('arg_request_data', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_canceller', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.WebAuthnRequestCancellerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.WebAuthnProxy_Get_ResponseParamsSpec, 'remoting.mojom.WebAuthnProxy_Get_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.remoting.mojom.WebAuthnGetResponseSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

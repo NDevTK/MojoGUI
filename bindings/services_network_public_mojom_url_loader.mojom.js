@@ -167,44 +167,7 @@ mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlS
 
 mojo.internal.bindings.network.mojom.kClientDisconnectReason = 1;
 
-// Struct: URLRequestRedirectInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
-    ],
-    [[0, 8]]);
-
-// Struct: URLRequestRedirectInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
-      mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: URLLoaderClientEndpoints
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, 'network.mojom.URLLoaderClientEndpoints', [
-      mojo.internal.StructField('arg_url_loader', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_url_loader_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: URLLoader
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec, 'network.mojom.URLLoader_FollowRedirect_Params', [
-      mojo.internal.StructField('arg_removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modified_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modified_cors_exempt_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec, 'network.mojom.URLLoader_SetPriority_Params', [
-      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_intra_priority_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.URLLoaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -331,14 +294,14 @@ mojo.internal.bindings.network.mojom.URLLoaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.followRedirect');
-          const result = this.impl.followRedirect(params.arg_removed_headers, params.arg_modified_headers, params.arg_modified_cors_exempt_headers, params.arg_new_url);
+          const result = this.impl.followRedirect(params.arg_arg_removed_headers, params.arg_arg_modified_headers, params.arg_arg_modified_cors_exempt_headers, params.arg_arg_new_url);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPriority');
-          const result = this.impl.setPriority(params.arg_priority, params.arg_intra_priority_value);
+          const result = this.impl.setPriority(params.arg_arg_priority, params.arg_arg_intra_priority_value);
           break;
         }
       }
@@ -356,51 +319,6 @@ mojo.internal.bindings.network.mojom.URLLoaderRequest = mojo.internal.bindings.n
 
 
 // Interface: URLLoaderClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params', [
-      mojo.internal.StructField('arg_early_hints', 0, 0, mojo.internal.bindings.network.mojom.EarlyHintsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
-      mojo.internal.StructField('arg_head', 0, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cached_metadata', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params', [
-      mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_head', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_Params', [
-      mojo.internal.StructField('arg_current_position', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec, 'network.mojom.URLLoaderClient_OnTransferSizeUpdated_Params', [
-      mojo.internal.StructField('arg_transfer_size_diff', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec, 'network.mojom.URLLoaderClient_OnComplete_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -583,33 +501,35 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveEarlyHints');
-          const result = this.impl.onReceiveEarlyHints(params.arg_early_hints);
+          const result = this.impl.onReceiveEarlyHints(params.arg_arg_early_hints);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveResponse');
-          const result = this.impl.onReceiveResponse(params.arg_head, params.arg_body, params.arg_cached_metadata);
+          const result = this.impl.onReceiveResponse(params.arg_arg_head, params.arg_arg_body, params.arg_arg_cached_metadata);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onReceiveRedirect');
-          const result = this.impl.onReceiveRedirect(params.arg_redirect_info, params.arg_head);
+          const result = this.impl.onReceiveRedirect(params.arg_arg_redirect_info, params.arg_arg_head);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUploadProgress');
-          const result = this.impl.onUploadProgress(params.arg_current_position, params.arg_total_size);
+          const result = this.impl.onUploadProgress(params.arg_arg_current_position, params.arg_arg_total_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnUploadProgress FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onUploadProgress FAILED:', e));
           }
           break;
         }
@@ -617,14 +537,14 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTransferSizeUpdated');
-          const result = this.impl.onTransferSizeUpdated(params.arg_transfer_size_diff);
+          const result = this.impl.onTransferSizeUpdated(params.arg_arg_transfer_size_diff);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onComplete');
-          const result = this.impl.onComplete(params.arg_status);
+          const result = this.impl.onComplete(params.arg_arg_status);
           break;
         }
       }
@@ -639,4 +559,88 @@ mojo.internal.bindings.network.mojom.URLLoaderClientReceiver = mojo.internal.bin
 
 mojo.internal.bindings.network.mojom.URLLoaderClientPtr = mojo.internal.bindings.network.mojom.URLLoaderClientRemote;
 mojo.internal.bindings.network.mojom.URLLoaderClientRequest = mojo.internal.bindings.network.mojom.URLLoaderClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: URLRequestRedirectInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
+    ],
+    [[0, 8]]);
+
+// Struct: URLRequestRedirectInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, 'network.mojom.URLRequestRedirectInfo', [
+      mojo.internal.StructField('arg_kClientDisconnectReason', 0, 0, mojo.internal.OpaqueStruct, 1, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: URLLoaderClientEndpoints
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, 'network.mojom.URLLoaderClientEndpoints', [
+      mojo.internal.StructField('arg_url_loader', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_url_loader_client', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.URLLoaderClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoader_FollowRedirect_ParamsSpec, 'network.mojom.URLLoader_FollowRedirect_Params', [
+      mojo.internal.StructField('arg_removed_headers', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modified_headers', 8, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modified_cors_exempt_headers', 16, 0, mojo.internal.bindings.network.mojom.HttpRequestHeadersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoader_SetPriority_ParamsSpec, 'network.mojom.URLLoader_SetPriority_Params', [
+      mojo.internal.StructField('arg_priority', 0, 0, mojo.internal.bindings.network.mojom.RequestPrioritySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_intra_priority_value', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveEarlyHints_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveEarlyHints_Params', [
+      mojo.internal.StructField('arg_early_hints', 0, 0, mojo.internal.bindings.network.mojom.EarlyHintsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveResponse_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveResponse_Params', [
+      mojo.internal.StructField('arg_head', 0, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 8, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cached_metadata', 16, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnReceiveRedirect_ParamsSpec, 'network.mojom.URLLoaderClient_OnReceiveRedirect_Params', [
+      mojo.internal.StructField('arg_redirect_info', 0, 0, mojo.internal.bindings.network.mojom.URLRequestRedirectInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_head', 8, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_Params', [
+      mojo.internal.StructField('arg_current_position', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_total_size', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnUploadProgress_ResponseParamsSpec, 'network.mojom.URLLoaderClient_OnUploadProgress_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnTransferSizeUpdated_ParamsSpec, 'network.mojom.URLLoaderClient_OnTransferSizeUpdated_Params', [
+      mojo.internal.StructField('arg_transfer_size_diff', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.URLLoaderClient_OnComplete_ParamsSpec, 'network.mojom.URLLoaderClient_OnComplete_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.network.mojom.URLLoaderCompletionStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

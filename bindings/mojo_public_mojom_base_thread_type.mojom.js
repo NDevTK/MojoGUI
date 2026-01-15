@@ -132,3 +132,5 @@ mojo.internal.bindings.mojo_base.mojom.ThreadType = {
   kInteractive: 4,
   kRealtimeAudio: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

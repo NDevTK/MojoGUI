@@ -160,86 +160,7 @@ mojo.internal.bindings.skia = mojo.internal.bindings.skia || {};
 mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.SkColorSpec = mojo.internal.bindings.skia.mojom.SkColorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: MenuItem
-mojo.internal.Union(
-    mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, 'remote_cocoa.mojom.MenuItem', {
-      'arg_separator': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec,
-        'nullable': false,
-      },
-      'arg_regular': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec,
-        'nullable': false,
-      },
-      'arg_submenu': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: MenuItemCommonFields
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec, 'remote_cocoa.mojom.MenuItemCommonFields', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_may_have_mnemonics', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_checked', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_enabled', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_visible', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_alerted', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_new_feature', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SubmenuMenuItem
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec, 'remote_cocoa.mojom.SubmenuMenuItem', [
-      mojo.internal.StructField('arg_common', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MenuControllerParams
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec, 'remote_cocoa.mojom.MenuControllerParams', [
-      mojo.internal.StructField('arg_badge_font', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.FontSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_badge_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_badge_text_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_badge_horizontal_margin', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_badge_internal_padding', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_badge_min_height', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_badge_radius', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_iph_dot_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: ContextMenu
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec, 'remote_cocoa.mojom.ContextMenu', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_target_view_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: MenuHost
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec, 'remote_cocoa.mojom.MenuHost_CommandActivated_Params', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_event_flags', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec, 'remote_cocoa.mojom.MenuHost_MenuClosed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.remote_cocoa.mojom.MenuHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -366,7 +287,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commandActivated');
-          const result = this.impl.commandActivated(params.arg_command_id, params.arg_event_flags);
+          const result = this.impl.commandActivated(params.arg_arg_command_id, params.arg_arg_event_flags);
           break;
         }
         case 1: {
@@ -391,20 +312,6 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuHostRequest = mojo.internal.bindin
 
 
 // Interface: Menu
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec, 'remote_cocoa.mojom.Menu_Cancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec, 'remote_cocoa.mojom.Menu_UpdateMenuItem_Params', [
-      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.remote_cocoa.mojom.MenuPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -538,7 +445,7 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateMenuItem');
-          const result = this.impl.updateMenuItem(params.arg_command_id, params.arg_enabled, params.arg_visible, params.arg_label);
+          const result = this.impl.updateMenuItem(params.arg_arg_command_id, params.arg_arg_enabled, params.arg_arg_visible, params.arg_arg_label);
           break;
         }
       }
@@ -553,4 +460,99 @@ mojo.internal.bindings.remote_cocoa.mojom.MenuReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.remote_cocoa.mojom.MenuPtr = mojo.internal.bindings.remote_cocoa.mojom.MenuRemote;
 mojo.internal.bindings.remote_cocoa.mojom.MenuRequest = mojo.internal.bindings.remote_cocoa.mojom.MenuPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: MenuItem
+mojo.internal.Union(
+    mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, 'remote_cocoa.mojom.MenuItem', {
+      'arg_separator': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec,
+        'nullable': false,
+      },
+      'arg_regular': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec,
+        'nullable': false,
+      },
+      'arg_submenu': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: MenuItemCommonFields
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec, 'remote_cocoa.mojom.MenuItemCommonFields', [
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_may_have_mnemonics', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_checked', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_enabled', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_visible', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_alerted', 4, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_new_feature', 4, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SubmenuMenuItem
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.SubmenuMenuItemSpec, 'remote_cocoa.mojom.SubmenuMenuItem', [
+      mojo.internal.StructField('arg_common', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.MenuItemCommonFieldsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_children', 8, 0, mojo.internal.Array(mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MenuControllerParams
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec, 'remote_cocoa.mojom.MenuControllerParams', [
+      mojo.internal.StructField('arg_badge_font', 0, 0, mojo.internal.bindings.remote_cocoa.mojom.FontSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_color', 8, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_text_color', 16, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_horizontal_margin', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_internal_padding', 28, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_min_height', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_badge_radius', 36, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_iph_dot_color', 40, 0, mojo.internal.bindings.skia.mojom.SkColorSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: ContextMenu
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.ContextMenuSpec, 'remote_cocoa.mojom.ContextMenu', [
+      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.remote_cocoa.mojom.MenuItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_anchor', 8, 0, mojo.internal.bindings.gfx.mojom.PointSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_target_view_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.remote_cocoa.mojom.MenuControllerParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.MenuHost_CommandActivated_ParamsSpec, 'remote_cocoa.mojom.MenuHost_CommandActivated_Params', [
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_event_flags', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.MenuHost_MenuClosed_ParamsSpec, 'remote_cocoa.mojom.MenuHost_MenuClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Menu_Cancel_ParamsSpec, 'remote_cocoa.mojom.Menu_Cancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remote_cocoa.mojom.Menu_UpdateMenuItem_ParamsSpec, 'remote_cocoa.mojom.Menu_UpdateMenuItem_Params', [
+      mojo.internal.StructField('arg_command_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_label', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

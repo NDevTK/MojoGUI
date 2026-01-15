@@ -134,18 +134,6 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectSpec = mojo.internal.bindings.gfx.mojom.RectSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TextInputHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec, 'blink.mojom.TextInputHost_GotCharacterIndexAtPoint_Params', [
-      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec, 'blink.mojom.TextInputHost_GotFirstRectForRange_Params', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.TextInputHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,14 +260,14 @@ mojo.internal.bindings.blink.mojom.TextInputHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gotCharacterIndexAtPoint');
-          const result = this.impl.gotCharacterIndexAtPoint(params.arg_index);
+          const result = this.impl.gotCharacterIndexAtPoint(params.arg_arg_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.gotFirstRectForRange');
-          const result = this.impl.gotFirstRectForRange(params.arg_rect);
+          const result = this.impl.gotFirstRectForRange(params.arg_arg_rect);
           break;
         }
       }
@@ -294,4 +282,18 @@ mojo.internal.bindings.blink.mojom.TextInputHostReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.TextInputHostPtr = mojo.internal.bindings.blink.mojom.TextInputHostRemote;
 mojo.internal.bindings.blink.mojom.TextInputHostRequest = mojo.internal.bindings.blink.mojom.TextInputHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextInputHost_GotCharacterIndexAtPoint_ParamsSpec, 'blink.mojom.TextInputHost_GotCharacterIndexAtPoint_Params', [
+      mojo.internal.StructField('arg_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.TextInputHost_GotFirstRectForRange_ParamsSpec, 'blink.mojom.TextInputHost_GotFirstRectForRange_Params', [
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

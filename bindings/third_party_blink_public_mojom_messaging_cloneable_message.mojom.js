@@ -143,6 +143,8 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.OriginSpec = mojo.internal.bindings.url.mojom.OriginSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: CloneableMessage
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.CloneableMessageSpec, 'blink.mojom.CloneableMessage', [

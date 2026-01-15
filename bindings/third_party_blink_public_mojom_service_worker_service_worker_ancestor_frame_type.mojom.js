@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.AncestorFrameType = {
   kNormalFrame: 0,
   kFencedFrame: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

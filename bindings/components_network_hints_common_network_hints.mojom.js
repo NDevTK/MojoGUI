@@ -134,19 +134,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.SchemeHostPortSpec = mojo.internal.bindings.url.mojom.SchemeHostPortSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: NetworkHintsHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_PrefetchDNS_Params', [
-      mojo.internal.StructField('arg_url_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.SchemeHostPortSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_Preconnect_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_credentials', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -273,14 +260,14 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.prefetchDNS');
-          const result = this.impl.prefetchDNS(params.arg_url_list);
+          const result = this.impl.prefetchDNS(params.arg_arg_url_list);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.preconnect');
-          const result = this.impl.preconnect(params.arg_url, params.arg_allow_credentials);
+          const result = this.impl.preconnect(params.arg_arg_url, params.arg_arg_allow_credentials);
           break;
         }
       }
@@ -295,4 +282,19 @@ mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerReceiver = mojo.in
 
 mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerPtr = mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerRemote;
 mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerRequest = mojo.internal.bindings.network_hints.mojom.NetworkHintsHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_PrefetchDNS_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_PrefetchDNS_Params', [
+      mojo.internal.StructField('arg_url_list', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.SchemeHostPortSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network_hints.mojom.NetworkHintsHandler_Preconnect_ParamsSpec, 'network_hints.mojom.NetworkHintsHandler_Preconnect_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_credentials', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

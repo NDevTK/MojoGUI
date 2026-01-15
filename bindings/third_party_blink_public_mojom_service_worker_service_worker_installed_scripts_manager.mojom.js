@@ -138,35 +138,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: ServiceWorkerInstalledScriptsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
-      mojo.internal.StructField('arg_manager_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_manager_host_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_installed_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ServiceWorkerScriptInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec, 'blink.mojom.ServiceWorkerScriptInfo', [
-      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_encoding', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_body', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-      mojo.internal.StructField('arg_body_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_meta_data', 40, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_meta_data_size', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
 // Interface: ServiceWorkerInstalledScriptsManagerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params', [
-      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -279,7 +251,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRecei
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestInstalledScript');
-          const result = this.impl.requestInstalledScript(params.arg_script_url);
+          const result = this.impl.requestInstalledScript(params.arg_arg_script_url);
           break;
         }
       }
@@ -297,12 +269,6 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostReque
 
 
 // Interface: ServiceWorkerInstalledScriptsManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params', [
-      mojo.internal.StructField('arg_script_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -415,7 +381,7 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.transferInstalledScript');
-          const result = this.impl.transferInstalledScript(params.arg_script_info);
+          const result = this.impl.transferInstalledScript(params.arg_arg_script_info);
           break;
         }
       }
@@ -430,4 +396,40 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerReceiver 
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerPtr = mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote;
 mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRequest = mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ServiceWorkerInstalledScriptsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsInfoSpec, 'blink.mojom.ServiceWorkerInstalledScriptsInfo', [
+      mojo.internal.StructField('arg_manager_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_manager_host_remote', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHostRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_installed_urls', 16, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ServiceWorkerScriptInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec, 'blink.mojom.ServiceWorkerScriptInfo', [
+      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_encoding', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_headers', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_body', 24, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+      mojo.internal.StructField('arg_body_size', 32, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_meta_data', 40, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_meta_data_size', 48, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 64]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManagerHost_RequestInstalledScript_Params', [
+      mojo.internal.StructField('arg_script_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_ParamsSpec, 'blink.mojom.ServiceWorkerInstalledScriptsManager_TransferInstalledScript_Params', [
+      mojo.internal.StructField('arg_script_info', 0, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerScriptInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

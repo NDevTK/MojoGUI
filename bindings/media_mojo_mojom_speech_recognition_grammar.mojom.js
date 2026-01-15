@@ -129,6 +129,8 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SpeechRecognitionGrammar
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.SpeechRecognitionGrammarSpec, 'media.mojom.SpeechRecognitionGrammar', [

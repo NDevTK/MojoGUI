@@ -141,12 +141,6 @@ mojo.internal.bindings.ash.office_fallback.mojom.DialogChoice = {
 };
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,7 +253,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -277,12 +271,6 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactoryRequest = moj
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec, 'ash.office_fallback.mojom.PageHandler_Close_Params', [
-      mojo.internal.StructField('arg_choice', 0, 0, mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -395,7 +383,7 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.close');
-          const result = this.impl.close(params.arg_choice);
+          const result = this.impl.close(params.arg_arg_choice);
           break;
         }
       }
@@ -410,4 +398,18 @@ mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerReceiver = mojo.inte
 
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerPtr = mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemote;
 mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRequest = mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.office_fallback.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.office_fallback.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.office_fallback.mojom.PageHandler_Close_ParamsSpec, 'ash.office_fallback.mojom.PageHandler_Close_Params', [
+      mojo.internal.StructField('arg_choice', 0, 0, mojo.internal.bindings.ash.office_fallback.mojom.DialogChoiceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

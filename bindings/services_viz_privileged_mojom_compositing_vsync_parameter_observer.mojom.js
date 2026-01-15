@@ -136,13 +136,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec = mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: VSyncParameterObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec, 'viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_Params', [
-      mojo.internal.StructField('arg_timebase', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.viz.mojom.VSyncParameterObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -255,7 +248,7 @@ mojo.internal.bindings.viz.mojom.VSyncParameterObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUpdateVSyncParameters');
-          const result = this.impl.onUpdateVSyncParameters(params.arg_timebase, params.arg_interval);
+          const result = this.impl.onUpdateVSyncParameters(params.arg_arg_timebase, params.arg_arg_interval);
           break;
         }
       }
@@ -270,4 +263,13 @@ mojo.internal.bindings.viz.mojom.VSyncParameterObserverReceiver = mojo.internal.
 
 mojo.internal.bindings.viz.mojom.VSyncParameterObserverPtr = mojo.internal.bindings.viz.mojom.VSyncParameterObserverRemote;
 mojo.internal.bindings.viz.mojom.VSyncParameterObserverRequest = mojo.internal.bindings.viz.mojom.VSyncParameterObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_ParamsSpec, 'viz.mojom.VSyncParameterObserver_OnUpdateVSyncParameters_Params', [
+      mojo.internal.StructField('arg_timebase', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interval', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

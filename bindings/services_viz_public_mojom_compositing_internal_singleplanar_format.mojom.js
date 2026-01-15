@@ -143,3 +143,5 @@ mojo.internal.bindings.viz.mojom.SingleplanarFormat = {
   BGRA_1010102: 15,
   R_F16: 16,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

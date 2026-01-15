@@ -139,23 +139,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: LayeredWindowUpdater
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_Params', [
-      mojo.internal.StructField('arg_pixel_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_Draw_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec, 'viz.mojom.LayeredWindowUpdater_Draw_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -282,7 +265,7 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAllocatedSharedMemory');
-          const result = this.impl.onAllocatedSharedMemory(params.arg_pixel_size, params.arg_region);
+          const result = this.impl.onAllocatedSharedMemory(params.arg_arg_pixel_size, params.arg_arg_region);
           break;
         }
         case 1: {
@@ -293,8 +276,10 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Draw FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] draw FAILED:', e));
           }
           break;
         }
@@ -310,4 +295,23 @@ mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterReceiver = mojo.internal.bi
 
 mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterPtr = mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRemote;
 mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterRequest = mojo.internal.bindings.viz.mojom.LayeredWindowUpdaterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_OnAllocatedSharedMemory_Params', [
+      mojo.internal.StructField('arg_pixel_size', 0, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_region', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ParamsSpec, 'viz.mojom.LayeredWindowUpdater_Draw_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayeredWindowUpdater_Draw_ResponseParamsSpec, 'viz.mojom.LayeredWindowUpdater_Draw_ResponseParams', [
+    ],
+    [[0, 8]]);
 

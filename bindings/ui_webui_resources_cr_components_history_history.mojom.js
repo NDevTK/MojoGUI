@@ -171,188 +171,7 @@ mojo.internal.bindings.history.mojom.FilteringBehavior = {
   kInvalid: 3,
 };
 
-// Struct: QueryState
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.QueryStateSpec, 'history.mojom.QueryState', [
-      mojo.internal.StructField('arg_incremental', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_querying', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_search_term', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_after', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: HistoryQuery
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.HistoryQuerySpec, 'history.mojom.HistoryQuery', [
-      mojo.internal.StructField('arg_term', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_finished', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DebugInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.DebugInfoSpec, 'history.mojom.DebugInfo', [
-      mojo.internal.StructField('arg_is_url_in_local_database', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_visit_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_typed_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: HistoryEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.HistoryEntrySpec, 'history.mojom.HistoryEntry', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_domain', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fallback_favicon_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_all_timestamps', 40, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_date_short', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_type', 64, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_date_time_of_day', 72, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_date_relative_day', 80, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_starred', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_blocked_visit', 88, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_url_in_remote_user_data', 88, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_actor_visit', 88, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_host_filtering_behavior', 92, 0, mojo.internal.bindings.history.mojom.FilteringBehaviorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_readableTimestamp', 96, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_snippet', 104, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_remote_icon_url_for_uma', 112, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug', 120, 0, mojo.internal.bindings.history.mojom.DebugInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 136]]);
-
-// Struct: QueryResult
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.QueryResultSpec, 'history.mojom.QueryResult', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.history.mojom.HistoryQuerySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Array(mojo.internal.bindings.history.mojom.HistoryEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: RemovalItem
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.RemovalItemSpec, 'history.mojom.RemovalItem', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamps', 8, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AccountInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.AccountInfoSpec, 'history.mojom.AccountInfo', [
-      mojo.internal.StructField('arg_account_image_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_SetPage_ParamsSpec, 'history.mojom.PageHandler_SetPage_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history.mojom.PageRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec, 'history.mojom.PageHandler_QueryHistory_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_results', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_begin_time_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_begin_time_$value', originalFieldName: 'arg_begin_time' }),
-      mojo.internal.StructField('arg_begin_time_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_begin_time_$flag', originalFieldName: 'arg_begin_time' }),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistory_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.history.mojom.QueryResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.history.mojom.QueryResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history.mojom.PageHandler_RemoveVisits_Params', [
-      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.history.mojom.RemovalItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, 'history.mojom.PageHandler_RemoveVisits_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec, 'history.mojom.PageHandler_OpenClearBrowsingDataDialog_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_RemoveBookmark_ParamsSpec, 'history.mojom.PageHandler_RemoveBookmark_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec, 'history.mojom.PageHandler_SetLastSelectedTab_Params', [
-      mojo.internal.StructField('arg_last_tab', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec, 'history.mojom.PageHandler_ShowSidePanelUI_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_ResponseParams', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history.mojom.AccountInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec, 'history.mojom.PageHandler_TurnOnHistorySync_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec, 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec, 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParams', [
-      mojo.internal.StructField('arg_should_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec, 'history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec, 'history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.history.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -633,19 +452,22 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_SetPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPage');
-          const result = this.impl.setPage(params.arg_page);
+          const result = this.impl.setPage(params.arg_arg_page);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.queryHistory');
-          const result = this.impl.queryHistory(params.arg_query, params.arg_max_results, params.arg_begin_time);
+          const result = this.impl.queryHistory(params.arg_arg_query, params.arg_arg_max_results, params.arg_arg_begin_time);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryHistory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryHistory FAILED:', e));
           }
           break;
         }
@@ -657,8 +479,11 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryHistoryContinuation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryHistoryContinuation FAILED:', e));
           }
           break;
         }
@@ -666,12 +491,14 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeVisits');
-          const result = this.impl.removeVisits(params.arg_items);
+          const result = this.impl.removeVisits(params.arg_arg_items);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RemoveVisits FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] removeVisits FAILED:', e));
           }
           break;
         }
@@ -686,14 +513,14 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RemoveBookmark_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removeBookmark');
-          const result = this.impl.removeBookmark(params.arg_url);
+          const result = this.impl.removeBookmark(params.arg_arg_url);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLastSelectedTab');
-          const result = this.impl.setLastSelectedTab(params.arg_last_tab);
+          const result = this.impl.setLastSelectedTab(params.arg_arg_last_tab);
           break;
         }
         case 7: {
@@ -711,8 +538,11 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestAccountInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_account_info' in response) ? response.arg_arg_account_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestAccountInfo FAILED:', e));
           }
           break;
         }
@@ -731,8 +561,11 @@ mojo.internal.bindings.history.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShouldShowHistoryPageHistorySyncPromo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_should_show' in response) ? response.arg_arg_should_show : response;
+              encoder.encodeStructInline(mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shouldShowHistoryPageHistorySyncPromo FAILED:', e));
           }
           break;
         }
@@ -765,23 +598,6 @@ mojo.internal.bindings.history.mojom.PageHandlerRequest = mojo.internal.bindings
 
 
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.Page_OnHistoryDeleted_ParamsSpec, 'history.mojom.Page_OnHistoryDeleted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec, 'history.mojom.Page_OnHasOtherFormsChanged_Params', [
-      mojo.internal.StructField('arg_has_other_forms', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec, 'history.mojom.Page_SendAccountInfo_Params', [
-      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history.mojom.AccountInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.history.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -929,14 +745,14 @@ mojo.internal.bindings.history.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onHasOtherFormsChanged');
-          const result = this.impl.onHasOtherFormsChanged(params.arg_has_other_forms);
+          const result = this.impl.onHasOtherFormsChanged(params.arg_arg_has_other_forms);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.sendAccountInfo');
-          const result = this.impl.sendAccountInfo(params.arg_account_info);
+          const result = this.impl.sendAccountInfo(params.arg_arg_account_info);
           break;
         }
       }
@@ -951,4 +767,204 @@ mojo.internal.bindings.history.mojom.PageReceiver = mojo.internal.bindings.histo
 
 mojo.internal.bindings.history.mojom.PagePtr = mojo.internal.bindings.history.mojom.PageRemote;
 mojo.internal.bindings.history.mojom.PageRequest = mojo.internal.bindings.history.mojom.PagePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: QueryState
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.QueryStateSpec, 'history.mojom.QueryState', [
+      mojo.internal.StructField('arg_incremental', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_querying', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_search_term', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_after', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: HistoryQuery
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.HistoryQuerySpec, 'history.mojom.HistoryQuery', [
+      mojo.internal.StructField('arg_term', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_finished', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DebugInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.DebugInfoSpec, 'history.mojom.DebugInfo', [
+      mojo.internal.StructField('arg_is_url_in_local_database', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_visit_count', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_typed_count', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: HistoryEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.HistoryEntrySpec, 'history.mojom.HistoryEntry', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domain', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fallback_favicon_text', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time', 32, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_all_timestamps', 40, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_date_short', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_type', 64, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_date_time_of_day', 72, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_date_relative_day', 80, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected', 88, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_starred', 88, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_blocked_visit', 88, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_url_in_remote_user_data', 88, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_actor_visit', 88, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_host_filtering_behavior', 92, 0, mojo.internal.bindings.history.mojom.FilteringBehaviorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_readableTimestamp', 96, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_snippet', 104, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_remote_icon_url_for_uma', 112, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug', 120, 0, mojo.internal.bindings.history.mojom.DebugInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 136]]);
+
+// Struct: QueryResult
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.QueryResultSpec, 'history.mojom.QueryResult', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.history.mojom.HistoryQuerySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.Array(mojo.internal.bindings.history.mojom.HistoryEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: RemovalItem
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.RemovalItemSpec, 'history.mojom.RemovalItem', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamps', 8, 0, mojo.internal.Array(mojo.internal.Double, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AccountInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.AccountInfoSpec, 'history.mojom.AccountInfo', [
+      mojo.internal.StructField('arg_account_image_src', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_email', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_SetPage_ParamsSpec, 'history.mojom.PageHandler_SetPage_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.history.mojom.PageRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ParamsSpec, 'history.mojom.PageHandler_QueryHistory_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_results', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_begin_time_$flag', 12, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_begin_time_$value', originalFieldName: 'arg_begin_time' }),
+      mojo.internal.StructField('arg_begin_time_$value', 16, 0, mojo.internal.Double, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_begin_time_$flag', originalFieldName: 'arg_begin_time' }),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_QueryHistory_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistory_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.history.mojom.QueryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_QueryHistoryContinuation_ResponseParamsSpec, 'history.mojom.PageHandler_QueryHistoryContinuation_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.bindings.history.mojom.QueryResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ParamsSpec, 'history.mojom.PageHandler_RemoveVisits_Params', [
+      mojo.internal.StructField('arg_items', 0, 0, mojo.internal.Array(mojo.internal.bindings.history.mojom.RemovalItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_RemoveVisits_ResponseParamsSpec, 'history.mojom.PageHandler_RemoveVisits_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_OpenClearBrowsingDataDialog_ParamsSpec, 'history.mojom.PageHandler_OpenClearBrowsingDataDialog_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_RemoveBookmark_ParamsSpec, 'history.mojom.PageHandler_RemoveBookmark_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_SetLastSelectedTab_ParamsSpec, 'history.mojom.PageHandler_SetLastSelectedTab_Params', [
+      mojo.internal.StructField('arg_last_tab', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_ShowSidePanelUI_ParamsSpec, 'history.mojom.PageHandler_ShowSidePanelUI_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_RequestAccountInfo_ResponseParamsSpec, 'history.mojom.PageHandler_RequestAccountInfo_ResponseParams', [
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history.mojom.AccountInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_TurnOnHistorySync_ParamsSpec, 'history.mojom.PageHandler_TurnOnHistorySync_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ParamsSpec, 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParamsSpec, 'history.mojom.PageHandler_ShouldShowHistoryPageHistorySyncPromo_ResponseParams', [
+      mojo.internal.StructField('arg_should_show', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_ParamsSpec, 'history.mojom.PageHandler_RecordHistoryPageHistorySyncPromoDismissed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_ParamsSpec, 'history.mojom.PageHandler_IncrementHistoryPageHistorySyncPromoShownCount_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.Page_OnHistoryDeleted_ParamsSpec, 'history.mojom.Page_OnHistoryDeleted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.Page_OnHasOtherFormsChanged_ParamsSpec, 'history.mojom.Page_OnHasOtherFormsChanged_Params', [
+      mojo.internal.StructField('arg_has_other_forms', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.history.mojom.Page_SendAccountInfo_ParamsSpec, 'history.mojom.Page_SendAccountInfo_Params', [
+      mojo.internal.StructField('arg_account_info', 0, 0, mojo.internal.bindings.history.mojom.AccountInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

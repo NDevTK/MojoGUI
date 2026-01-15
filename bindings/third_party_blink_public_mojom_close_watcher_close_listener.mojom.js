@@ -127,11 +127,6 @@ mojo.internal.bindings.blink.mojom.CloseListener.$interfaceName = 'blink.mojom.C
 mojo.internal.bindings.blink.mojom.CloseListener_Signal_ParamsSpec = { $: {} };
 
 // Interface: CloseListener
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CloseListener_Signal_ParamsSpec, 'blink.mojom.CloseListener_Signal_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.CloseListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,4 +254,11 @@ mojo.internal.bindings.blink.mojom.CloseListenerReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.CloseListenerPtr = mojo.internal.bindings.blink.mojom.CloseListenerRemote;
 mojo.internal.bindings.blink.mojom.CloseListenerRequest = mojo.internal.bindings.blink.mojom.CloseListenerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CloseListener_Signal_ParamsSpec, 'blink.mojom.CloseListener_Signal_Params', [
+    ],
+    [[0, 8]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 
 mojo.internal.bindings.content.mojom.ExtraMojoJsFeaturesSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ExtraMojoJsFeatures
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.ExtraMojoJsFeaturesSpec, 'content.mojom.ExtraMojoJsFeatures', [

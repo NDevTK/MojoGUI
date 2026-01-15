@@ -132,12 +132,6 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.MediaLogRecordSpec = mojo.internal.bindings.media.mojom.MediaLogRecordSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MediaLog
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec, 'media.mojom.MediaLog_AddLogRecord_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.MediaLogRecordSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.MediaLogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.media.mojom.MediaLogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addLogRecord');
-          const result = this.impl.addLogRecord(params.arg_event);
+          const result = this.impl.addLogRecord(params.arg_arg_event);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.media.mojom.MediaLogReceiver = mojo.internal.bindings.med
 
 mojo.internal.bindings.media.mojom.MediaLogPtr = mojo.internal.bindings.media.mojom.MediaLogRemote;
 mojo.internal.bindings.media.mojom.MediaLogRequest = mojo.internal.bindings.media.mojom.MediaLogPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaLog_AddLogRecord_ParamsSpec, 'media.mojom.MediaLog_AddLogRecord_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.media.mojom.MediaLogRecordSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

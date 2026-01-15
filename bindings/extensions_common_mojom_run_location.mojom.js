@@ -132,3 +132,5 @@ mojo.internal.bindings.extensions.mojom.RunLocation = {
   kRunDeferred: 4,
   kBrowserDriven: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

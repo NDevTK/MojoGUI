@@ -135,27 +135,6 @@ mojo.internal.bindings.gfx.mojom = mojo.internal.bindings.gfx.mojom || {};
 mojo.internal.bindings.gfx.mojom.RectFSpec = mojo.internal.bindings.gfx.mojom.RectFSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: TrackedElementHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_Params', [
-      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -296,21 +275,21 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackedElementVisibilityChanged');
-          const result = this.impl.trackedElementVisibilityChanged(params.arg_native_identifier, params.arg_visible, params.arg_rect);
+          const result = this.impl.trackedElementVisibilityChanged(params.arg_arg_native_identifier, params.arg_arg_visible, params.arg_arg_rect);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackedElementActivated');
-          const result = this.impl.trackedElementActivated(params.arg_native_identifier);
+          const result = this.impl.trackedElementActivated(params.arg_arg_native_identifier);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.trackedElementCustomEvent');
-          const result = this.impl.trackedElementCustomEvent(params.arg_native_identifier, params.arg_custom_event_name);
+          const result = this.impl.trackedElementCustomEvent(params.arg_arg_native_identifier, params.arg_arg_custom_event_name);
           break;
         }
       }
@@ -325,4 +304,27 @@ mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerReceiver = moj
 
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPtr = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRemote;
 mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerRequest = mojo.internal.bindings.tracked_element.mojom.TrackedElementHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementVisibilityChanged_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_visible', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rect', 16, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementActivated_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_ParamsSpec, 'tracked_element.mojom.TrackedElementHandler_TrackedElementCustomEvent_Params', [
+      mojo.internal.StructField('arg_native_identifier', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_event_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

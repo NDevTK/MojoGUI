@@ -240,17 +240,6 @@ mojo.internal.bindings.arc.mojom.SharesheetHostRequest = mojo.internal.bindings.
 
 
 // Interface: SharesheetInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec, 'arc.mojom.SharesheetInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SharesheetHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ResponseParamsSpec, 'arc.mojom.SharesheetInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.SharesheetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -363,12 +352,14 @@ mojo.internal.bindings.arc.mojom.SharesheetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -384,4 +375,17 @@ mojo.internal.bindings.arc.mojom.SharesheetInstanceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.arc.mojom.SharesheetInstancePtr = mojo.internal.bindings.arc.mojom.SharesheetInstanceRemote;
 mojo.internal.bindings.arc.mojom.SharesheetInstanceRequest = mojo.internal.bindings.arc.mojom.SharesheetInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ParamsSpec, 'arc.mojom.SharesheetInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.SharesheetHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SharesheetInstance_Init_ResponseParamsSpec, 'arc.mojom.SharesheetInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

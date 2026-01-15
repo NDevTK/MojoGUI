@@ -333,235 +333,7 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionResult = {
   kInclude: 1,
 };
 
-// Union: DeviceBoundSessionEventTypeDetails
-mojo.internal.Union(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventTypeDetailsSpec, 'network.mojom.DeviceBoundSessionEventTypeDetails', {
-      'arg_creation': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec,
-        'nullable': false,
-      },
-      'arg_refresh': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec,
-        'nullable': false,
-      },
-      'arg_termination': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionTerminationDetailsSpec,
-        'nullable': false,
-      },
-      'arg_challenge': {
-        'ordinal': 3,
-        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeDetailsSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: DeviceBoundSessionKey
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, 'network.mojom.DeviceBoundSessionKey', [
-      mojo.internal.StructField('arg_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DeviceBoundSessionAccess
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessSpec, 'network.mojom.DeviceBoundSessionAccess', [
-      mojo.internal.StructField('arg_access_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_key', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookies', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DeviceBoundSessionScopeSpecification
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationSpec, 'network.mojom.DeviceBoundSessionScopeSpecification', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DeviceBoundSessionScope
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpec, 'network.mojom.DeviceBoundSessionScope', [
-      mojo.internal.StructField('arg_include_site', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_specifications', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DeviceBoundSessionCredential
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionCredentialSpec, 'network.mojom.DeviceBoundSessionCredential', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DeviceBoundSessionParams
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionParamsSpec, 'network.mojom.DeviceBoundSessionParams', [
-      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fetcher_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_refresh_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_scope', 24, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_credentials', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionCredentialSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_allowed_refresh_initiators', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: DeviceBoundSessionCookieCravingDisplay
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionCookieCravingDisplaySpec, 'network.mojom.DeviceBoundSessionCookieCravingDisplay', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_secure', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_http_only', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_same_site', 28, 0, mojo.internal.bindings.network.mojom.CookieSameSiteSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: DeviceBoundSessionUrlRuleDisplay
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, 'network.mojom.DeviceBoundSessionUrlRuleDisplay', [
-      mojo.internal.StructField('arg_rule_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_path_prefix', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DeviceBoundSessionInclusionRulesDisplay
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, 'network.mojom.DeviceBoundSessionInclusionRulesDisplay', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_site', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url_rules', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DeviceBoundSessionDisplay
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, 'network.mojom.DeviceBoundSessionDisplay', [
-      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_refresh_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_inclusion_rules', 16, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_cravings', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionCookieCravingDisplaySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_expiry_date', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cached_challenge', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_allowed_refresh_initiators', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: DeviceBoundSessionCreationDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec, 'network.mojom.DeviceBoundSessionCreationDetails', [
-      mojo.internal.StructField('arg_fetch_error', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DeviceBoundSessionRefreshDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec, 'network.mojom.DeviceBoundSessionRefreshDetails', [
-      mojo.internal.StructField('arg_refresh_result', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fetch_error', 4, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_was_fully_proactive_refresh', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: DeviceBoundSessionTerminationDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionTerminationDetailsSpec, 'network.mojom.DeviceBoundSessionTerminationDetails', [
-      mojo.internal.StructField('arg_deletion_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: DeviceBoundSessionChallengeDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeDetailsSpec, 'network.mojom.DeviceBoundSessionChallengeDetails', [
-      mojo.internal.StructField('arg_challenge_result', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: DeviceBoundSessionEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventSpec, 'network.mojom.DeviceBoundSessionEvent', [
-      mojo.internal.StructField('arg_event_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_succeeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_event_type_details', 32, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionEventTypeDetailsSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: DeviceBoundSessionManager
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParams', [
-      mojo.internal.StructField('arg_sessions', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteSession_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_created_after_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_created_before_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.bindings.network.mojom.ClearDataFilterSpec, null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddObserver_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddEventObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_CreateBoundSessions_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionParamsSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_wrapped_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookies_to_set', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CanonicalCookieSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_options', 24, 0, mojo.internal.bindings.network.mojom.CookieOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParams', [
-      mojo.internal.StructField('arg_session_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieInclusionStatusSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -748,8 +520,11 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAllSessions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_sessions' in response) ? response.arg_arg_sessions : response;
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAllSessions FAILED:', e));
           }
           break;
         }
@@ -757,19 +532,21 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteSession');
-          const result = this.impl.deleteSession(params.arg_reason, params.arg_session);
+          const result = this.impl.deleteSession(params.arg_arg_reason, params.arg_arg_session);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deleteAllSessions');
-          const result = this.impl.deleteAllSessions(params.arg_reason, params.arg_created_after_time, params.arg_created_before_time, params.arg_filter);
+          const result = this.impl.deleteAllSessions(params.arg_arg_reason, params.arg_arg_created_after_time, params.arg_arg_created_before_time, params.arg_arg_filter);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeleteAllSessions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deleteAllSessions FAILED:', e));
           }
           break;
         }
@@ -777,26 +554,28 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_url, params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_url, params.arg_arg_observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addEventObserver');
-          const result = this.impl.addEventObserver(params.arg_observer);
+          const result = this.impl.addEventObserver(params.arg_arg_observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createBoundSessions');
-          const result = this.impl.createBoundSessions(params.arg_params, params.arg_wrapped_key, params.arg_cookies_to_set, params.arg_cookie_options);
+          const result = this.impl.createBoundSessions(params.arg_arg_params, params.arg_arg_wrapped_key, params.arg_arg_cookies_to_set, params.arg_arg_cookie_options);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateBoundSessions FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec.$.structSpec, ['response.arg_arg_session_results', 'response.arg_arg_cookie_results']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createBoundSessions FAILED:', e));
           }
           break;
         }
@@ -815,18 +594,6 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionManagerRequest = mojo.int
 
 
 // Interface: DeviceBoundSessionAccessObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Params', [
-      mojo.internal.StructField('arg_access', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_Clone_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -953,14 +720,14 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionAccessed');
-          const result = this.impl.onDeviceBoundSessionAccessed(params.arg_access);
+          const result = this.impl.onDeviceBoundSessionAccessed(params.arg_arg_access);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_observer);
+          const result = this.impl.clone(params.arg_arg_observer);
           break;
         }
       }
@@ -978,18 +745,6 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRequest = m
 
 
 // Interface: DeviceBoundSessionEventObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec, 'network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_Params', [
-      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec, 'network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Params', [
-      mojo.internal.StructField('arg_session_displays', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1116,14 +871,14 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onDeviceBoundSessionEventReceived');
-          const result = this.impl.onDeviceBoundSessionEventReceived(params.arg_event);
+          const result = this.impl.onDeviceBoundSessionEventReceived(params.arg_arg_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceBoundSessionDisplays');
-          const result = this.impl.addDeviceBoundSessionDisplays(params.arg_session_displays);
+          const result = this.impl.addDeviceBoundSessionDisplays(params.arg_arg_session_displays);
           break;
         }
       }
@@ -1138,4 +893,258 @@ mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverReceiver = m
 
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverPtr = mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemote;
 mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRequest = mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: DeviceBoundSessionEventTypeDetails
+mojo.internal.Union(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventTypeDetailsSpec, 'network.mojom.DeviceBoundSessionEventTypeDetails', {
+      'arg_creation': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec,
+        'nullable': false,
+      },
+      'arg_refresh': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec,
+        'nullable': false,
+      },
+      'arg_termination': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionTerminationDetailsSpec,
+        'nullable': false,
+      },
+      'arg_challenge': {
+        'ordinal': 3,
+        'type': mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeDetailsSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: DeviceBoundSessionKey
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, 'network.mojom.DeviceBoundSessionKey', [
+      mojo.internal.StructField('arg_site', 0, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DeviceBoundSessionAccess
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessSpec, 'network.mojom.DeviceBoundSessionAccess', [
+      mojo.internal.StructField('arg_access_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_key', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookies', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DeviceBoundSessionScopeSpecification
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationSpec, 'network.mojom.DeviceBoundSessionScopeSpecification', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DeviceBoundSessionScope
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpec, 'network.mojom.DeviceBoundSessionScope', [
+      mojo.internal.StructField('arg_include_site', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_specifications', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpecificationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DeviceBoundSessionCredential
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionCredentialSpec, 'network.mojom.DeviceBoundSessionCredential', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_attributes', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DeviceBoundSessionParams
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionParamsSpec, 'network.mojom.DeviceBoundSessionParams', [
+      mojo.internal.StructField('arg_session_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetcher_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_refresh_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_scope', 24, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionScopeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credentials', 32, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionCredentialSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_allowed_refresh_initiators', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: DeviceBoundSessionCookieCravingDisplay
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionCookieCravingDisplaySpec, 'network.mojom.DeviceBoundSessionCookieCravingDisplay', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_domain', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_secure', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_http_only', 24, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_same_site', 28, 0, mojo.internal.bindings.network.mojom.CookieSameSiteSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: DeviceBoundSessionUrlRuleDisplay
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, 'network.mojom.DeviceBoundSessionUrlRuleDisplay', [
+      mojo.internal.StructField('arg_rule_type', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_pattern', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_path_prefix', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DeviceBoundSessionInclusionRulesDisplay
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, 'network.mojom.DeviceBoundSessionInclusionRulesDisplay', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_site', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url_rules', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionUrlRuleDisplaySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DeviceBoundSessionDisplay
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, 'network.mojom.DeviceBoundSessionDisplay', [
+      mojo.internal.StructField('arg_key', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_refresh_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_inclusion_rules', 16, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionInclusionRulesDisplaySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_cravings', 24, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionCookieCravingDisplaySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_expiry_date', 32, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cached_challenge', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_allowed_refresh_initiators', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: DeviceBoundSessionCreationDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionCreationDetailsSpec, 'network.mojom.DeviceBoundSessionCreationDetails', [
+      mojo.internal.StructField('arg_fetch_error', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DeviceBoundSessionRefreshDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshDetailsSpec, 'network.mojom.DeviceBoundSessionRefreshDetails', [
+      mojo.internal.StructField('arg_refresh_result', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionRefreshResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fetch_error', 4, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_new_session_display', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_was_fully_proactive_refresh', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: DeviceBoundSessionTerminationDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionTerminationDetailsSpec, 'network.mojom.DeviceBoundSessionTerminationDetails', [
+      mojo.internal.StructField('arg_deletion_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: DeviceBoundSessionChallengeDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeDetailsSpec, 'network.mojom.DeviceBoundSessionChallengeDetails', [
+      mojo.internal.StructField('arg_challenge_result', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionChallengeResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_challenge', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: DeviceBoundSessionEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventSpec, 'network.mojom.DeviceBoundSessionEvent', [
+      mojo.internal.StructField('arg_event_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_site', 8, 0, mojo.internal.bindings.network.mojom.SchemefulSiteSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_id', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_succeeded', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_event_type_details', 32, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionEventTypeDetailsSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_GetAllSessions_ResponseParams', [
+      mojo.internal.StructField('arg_sessions', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteSession_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteSession_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session', 8, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionKeySpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionDeletionReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_created_after_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_created_before_time', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.bindings.network.mojom.ClearDataFilterSpec, null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_DeleteAllSessions_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddObserver_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_AddEventObserver_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_AddEventObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ParamsSpec, 'network.mojom.DeviceBoundSessionManager_CreateBoundSessions_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionParamsSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_wrapped_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookies_to_set', 16, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CanonicalCookieSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_options', 24, 0, mojo.internal.bindings.network.mojom.CookieOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParamsSpec, 'network.mojom.DeviceBoundSessionManager_CreateBoundSessions_ResponseParams', [
+      mojo.internal.StructField('arg_session_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionErrorSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_results', 8, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.CookieInclusionStatusSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_OnDeviceBoundSessionAccessed_Params', [
+      mojo.internal.StructField('arg_access', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserver_Clone_ParamsSpec, 'network.mojom.DeviceBoundSessionAccessObserver_Clone_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.DeviceBoundSessionAccessObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_ParamsSpec, 'network.mojom.DeviceBoundSessionEventObserver_OnDeviceBoundSessionEventReceived_Params', [
+      mojo.internal.StructField('arg_event', 0, 0, mojo.internal.bindings.network.mojom.DeviceBoundSessionEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_ParamsSpec, 'network.mojom.DeviceBoundSessionEventObserver_AddDeviceBoundSessionDisplays_Params', [
+      mojo.internal.StructField('arg_session_displays', 0, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.DeviceBoundSessionDisplaySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

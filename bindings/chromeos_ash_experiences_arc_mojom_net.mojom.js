@@ -364,503 +364,7 @@ mojo.internal.bindings.arc.mojom.QosCategory = {
   kMultimediaConferencing: 2,
 };
 
-// Union: NetworkDetails
-mojo.internal.Union(
-    mojo.internal.bindings.arc.mojom.NetworkDetailsSpec, 'arc.mojom.NetworkDetails', {
-      'arg_visible': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.arc.mojom.VisibleNetworkDetailsSpec,
-        'nullable': false,
-      },
-      'arg_configured': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.arc.mojom.ConfiguredNetworkDetailsSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: ArcProxyInfo
-mojo.internal.Union(
-    mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec, 'arc.mojom.ArcProxyInfo', {
-      'arg_manual_proxy': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.arc.mojom.ManualProxyConfigSpec,
-        'nullable': false,
-      },
-      'arg_pac_url_proxy': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.arc.mojom.PacUrlProxyConfigSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: VisibleNetworkDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VisibleNetworkDetailsSpec, 'arc.mojom.VisibleNetworkDetails', [
-      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ConfiguredNetworkDetails
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ConfiguredNetworkDetailsSpec, 'arc.mojom.ConfiguredNetworkDetails', [
-      mojo.internal.StructField('arg_passphrase', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_autoconnect', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_bssid', 16, 0, mojo.internal.String, null, true, 33, undefined),
-    ],
-    [[0, 24], [33, 32]]);
-
-// Struct: PasspointCredentials
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PasspointCredentialsSpec, 'arc.mojom.PasspointCredentials', [
-      mojo.internal.StructField('arg_domains', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_realm', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_home_ois', 16, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_required_home_ois', 24, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_roaming_consortium_ois', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_eap', 40, 0, mojo.internal.bindings.arc.mojom.EapCredentialsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_metered', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_package_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_friendly_name', 64, 0, mojo.internal.String, null, true, 22, undefined),
-      mojo.internal.StructField('arg_subscription_expiration_time_ms', 72, 0, mojo.internal.Int64, 0, false, 22, undefined),
-    ],
-    [[0, 72], [22, 88]]);
-
-// Struct: PasspointRemovalProperties
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PasspointRemovalPropertiesSpec, 'arc.mojom.PasspointRemovalProperties', [
-      mojo.internal.StructField('arg_fqdn', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_package_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: EapCredentials
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.EapCredentialsSpec, 'arc.mojom.EapCredentials', [
-      mojo.internal.StructField('arg_method', 0, 0, mojo.internal.bindings.arc.mojom.EapMethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_phase2_method', 4, 0, mojo.internal.bindings.arc.mojom.EapPhase2MethodSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_anonymous_identity', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_identity', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_password', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_key_management', 32, 0, mojo.internal.bindings.arc.mojom.KeyManagementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_use_system_cas', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_proactive_key_caching', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_use_login_password', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_ca_certificate_pem', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_certificate_pem', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_client_certificate_key', 56, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subject_match', 64, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subject_alternative_name_match_list', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_domain_suffix_match_list', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_tls_version_max', 88, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 104]]);
-
-// Struct: IPConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.IPConfigurationSpec, 'arc.mojom.IPConfiguration', [
-      mojo.internal.StructField('arg_gateway', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name_servers', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_routing_prefix', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 28, 0, mojo.internal.bindings.arc.mojom.IPAddressTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: WiFi
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WiFiSpec, 'arc.mojom.WiFi', [
-      mojo.internal.StructField('arg_bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_hidden_ssid', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_passpoint', 12, 1, mojo.internal.Bool, false, false, 16, undefined),
-      mojo.internal.StructField('arg_rssi', 14, 0, mojo.internal.Int16, 0, false, 23, undefined),
-      mojo.internal.StructField('arg_hex_ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_security', 24, 0, mojo.internal.bindings.arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fqdn', 32, 0, mojo.internal.String, null, true, 16, undefined),
-    ],
-    [[0, 40], [16, 48], [23, 24]]);
-
-// Struct: NetworkConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetworkConfigurationSpec, 'arc.mojom.NetworkConfiguration', [
-      mojo.internal.StructField('arg_connection_state', 0, 0, mojo.internal.bindings.arc.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.arc.mojom.NetworkTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_ip_configs', 16, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.IPConfigurationSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wifi', 32, 0, mojo.internal.bindings.arc.mojom.WiFiSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_deprecated_tethering_client_state', 40, 0, mojo.internal.bindings.arc.mojom.TetheringClientStateSpec, null, false, 8, undefined),
-      mojo.internal.StructField('arg_is_default_network', 44, 0, mojo.internal.Bool, false, false, 11, undefined),
-      mojo.internal.StructField('arg_is_metered', 44, 1, mojo.internal.Bool, false, false, 14, undefined),
-      mojo.internal.StructField('arg_network_interface', 48, 0, mojo.internal.String, null, true, 10, undefined),
-      mojo.internal.StructField('arg_service_name', 56, 0, mojo.internal.String, null, true, 12, undefined),
-      mojo.internal.StructField('arg_host_mtu', 64, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('arg_host_ipv4_prefix_length', 68, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('arg_host_ipv4_address', 72, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_host_ipv4_gateway', 80, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_host_ipv6_prefix_length', 88, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('arg_arc_ipv4_prefix_length', 92, 0, mojo.internal.Uint32, 0, false, 13, undefined),
-      mojo.internal.StructField('arg_host_ipv6_global_addresses', 96, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
-      mojo.internal.StructField('arg_host_ipv6_gateway', 104, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_host_dns_addresses', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
-      mojo.internal.StructField('arg_host_search_domains', 120, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
-      mojo.internal.StructField('arg_arc_ipv4_address', 128, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_arc_ipv4_gateway', 136, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_arc_network_interface', 144, 0, mojo.internal.String, null, true, 13, undefined),
-      mojo.internal.StructField('arg_include_routes', 152, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
-      mojo.internal.StructField('arg_exclude_routes', 160, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
-      mojo.internal.StructField('arg_dns_proxy_addresses', 168, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 19, undefined),
-      mojo.internal.StructField('arg_link_speed', 176, 0, mojo.internal.bindings.arc.mojom.LinkSpeedSpec, null, true, 28, undefined),
-    ],
-    [[0, 48], [8, 56], [10, 64], [11, 56], [12, 72], [13, 160], [14, 56], [15, 176], [19, 184], [28, 192]]);
-
-// Struct: LinkSpeed
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.LinkSpeedSpec, 'arc.mojom.LinkSpeed', [
-      mojo.internal.StructField('arg_uplink_speed_kbps', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_downlink_speed_kbps', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: WifiConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.WifiConfigurationSpec, 'arc.mojom.WifiConfiguration', [
-      mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_security', 24, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_guid', 32, 0, mojo.internal.String, null, true, 1, undefined),
-      mojo.internal.StructField('arg_hexssid', 40, 0, mojo.internal.String, null, true, 2, undefined),
-      mojo.internal.StructField('arg_details', 48, 0, mojo.internal.bindings.arc.mojom.NetworkDetailsSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_eap', 64, 0, mojo.internal.bindings.arc.mojom.EapCredentialsSpec, null, true, 16, undefined),
-      mojo.internal.StructField('arg_metered_override', 72, 0, mojo.internal.bindings.arc.mojom.MeteredOverrideSpec, null, false, 20, undefined),
-      mojo.internal.StructField('arg_http_proxy', 80, 0, mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec, null, true, 20, undefined),
-      mojo.internal.StructField('arg_static_ipv4_config', 96, 0, mojo.internal.bindings.arc.mojom.StaticIpv4ConfigurationSpec, null, true, 20, undefined),
-      mojo.internal.StructField('arg_domains', 104, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 20, undefined),
-      mojo.internal.StructField('arg_dns_servers', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 20, undefined),
-      mojo.internal.StructField('arg_bssid_allowlist', 120, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 26, undefined),
-    ],
-    [[0, 40], [1, 48], [2, 72], [16, 80], [20, 128], [26, 136]]);
-
-// Struct: StaticIpv4Configuration
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.StaticIpv4ConfigurationSpec, 'arc.mojom.StaticIpv4Configuration', [
-      mojo.internal.StructField('arg_ipv4_addr', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gateway_ipv4_addr', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_prefix_length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: PacUrlProxyConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PacUrlProxyConfigSpec, 'arc.mojom.PacUrlProxyConfig', [
-      mojo.internal.StructField('arg_pac_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ManualProxyConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ManualProxyConfigSpec, 'arc.mojom.ManualProxyConfig', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_exclusion_list', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: GetNetworksResponseType
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.GetNetworksResponseTypeSpec, 'arc.mojom.GetNetworksResponseType', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_networks', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.NetworkConfigurationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AndroidVpnConfiguration
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.AndroidVpnConfigurationSpec, 'arc.mojom.AndroidVpnConfiguration', [
-      mojo.internal.StructField('arg_app_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tunnel_chrome_traffic', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mtu', 28, 0, mojo.internal.Int32, 0, false, 38, undefined),
-      mojo.internal.StructField('arg_ipv4_gateway', 32, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_split_include', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_split_exclude', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nameservers', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_domains', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_http_proxy', 72, 0, mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec, null, true, 21, undefined),
-    ],
-    [[0, 80], [21, 96], [38, 40]]);
-
-// Struct: ArcDnsResolutionTestResult
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ArcDnsResolutionTestResultSpec, 'arc.mojom.ArcDnsResolutionTestResult', [
-      mojo.internal.StructField('arg_is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_response_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: ArcHttpTestResult
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ArcHttpTestResultSpec, 'arc.mojom.ArcHttpTestResult', [
-      mojo.internal.StructField('arg_is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_status_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_response_header_fields', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: ArcPingTestResult
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ArcPingTestResultSpec, 'arc.mojom.ArcPingTestResult', [
-      mojo.internal.StructField('arg_is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: LohsConfig
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.LohsConfigSpec, 'arc.mojom.LohsConfig', [
-      mojo.internal.StructField('arg_band', 0, 0, mojo.internal.bindings.arc.mojom.WifiBandSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_security_type', 4, 0, mojo.internal.bindings.arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_hexssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_passphrase', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: PasspointApprovalRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PasspointApprovalRequestSpec, 'arc.mojom.PasspointApprovalRequest', [
-      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_friendly_name', 16, 0, mojo.internal.String, null, true, 31, undefined),
-      mojo.internal.StructField('arg_subscription_expiration_time_ms', 24, 0, mojo.internal.Int64, 0, false, 31, undefined),
-    ],
-    [[0, 24], [31, 40]]);
-
-// Struct: PasspointApprovalResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.PasspointApprovalResponseSpec, 'arc.mojom.PasspointApprovalResponse', [
-      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: SocketConnectionEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec, 'arc.mojom.SocketConnectionEvent', [
-      mojo.internal.StructField('arg_src_addr', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dst_addr', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_src_port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_dst_port', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_proto', 24, 0, mojo.internal.bindings.arc.mojom.IpProtocolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 28, 0, mojo.internal.bindings.arc.mojom.SocketEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_app_category', 32, 0, mojo.internal.bindings.arc.mojom.AppCategorySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_qos_category', 36, 0, mojo.internal.bindings.arc.mojom.QosCategorySpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: NetHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec, 'arc.mojom.NetHost_GetWifiEnabledState_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.NetHost_GetWifiEnabledState_ResponseParams', [
-      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartScan_ParamsSpec, 'arc.mojom.NetHost_StartScan_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec, 'arc.mojom.NetHost_SetWifiEnabledState_Params', [
-      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.NetHost_SetWifiEnabledState_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec, 'arc.mojom.NetHost_CreateNetwork_Params', [
-      mojo.internal.StructField('arg_cfg', 0, 0, mojo.internal.bindings.arc.mojom.WifiConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_CreateNetwork_ResponseParams', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec, 'arc.mojom.NetHost_ForgetNetwork_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_ForgetNetwork_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec, 'arc.mojom.NetHost_UpdateWifiNetwork_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cfg', 8, 0, mojo.internal.bindings.arc.mojom.WifiConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_UpdateWifiNetwork_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec, 'arc.mojom.NetHost_StartConnect_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec, 'arc.mojom.NetHost_StartConnect_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec, 'arc.mojom.NetHost_StartDisconnect_Params', [
-      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec, 'arc.mojom.NetHost_StartDisconnect_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec, 'arc.mojom.NetHost_GetNetworks_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.GetNetworksRequestTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec, 'arc.mojom.NetHost_GetNetworks_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.arc.mojom.GetNetworksResponseTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnConnected_Params', [
-      mojo.internal.StructField('arg_cfg', 0, 0, mojo.internal.bindings.arc.mojom.AndroidVpnConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnUpdated_Params', [
-      mojo.internal.StructField('arg_cfg', 0, 0, mojo.internal.bindings.arc.mojom.AndroidVpnConfigurationSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec, 'arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnDisconnected_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec, 'arc.mojom.NetHost_SetAlwaysOnVpn_Params', [
-      mojo.internal.StructField('arg_vpnPackage', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_lockdown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec, 'arc.mojom.NetHost_RequestPasspointAppApproval_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.PasspointApprovalRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec, 'arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParams', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.arc.mojom.PasspointApprovalResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec, 'arc.mojom.NetHost_AddPasspointCredentials_Params', [
-      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.arc.mojom.PasspointCredentialsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec, 'arc.mojom.NetHost_RemovePasspointCredentials_Params', [
-      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.arc.mojom.PasspointRemovalPropertiesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec, 'arc.mojom.NetHost_DisconnectHostVpn_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec, 'arc.mojom.NetHost_StartLohs_Params', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.LohsConfigSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec, 'arc.mojom.NetHost_StartLohs_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.LohsStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_StopLohs_ParamsSpec, 'arc.mojom.NetHost_StopLohs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec, 'arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_Params', [
-      mojo.internal.StructField('arg_is_held', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec, 'arc.mojom.NetHost_NotifySocketConnectionEvent_Params', [
-      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec, 'arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_Params', [
-      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.NetHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1285,8 +789,11 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetWifiEnabledState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_is_enabled' in response) ? response.arg_arg_is_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getWifiEnabledState FAILED:', e));
           }
           break;
         }
@@ -1301,12 +808,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWifiEnabledState');
-          const result = this.impl.setWifiEnabledState(params.arg_is_enabled);
+          const result = this.impl.setWifiEnabledState(params.arg_arg_is_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetWifiEnabledState FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setWifiEnabledState FAILED:', e));
           }
           break;
         }
@@ -1314,12 +824,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createNetwork');
-          const result = this.impl.createNetwork(params.arg_cfg);
+          const result = this.impl.createNetwork(params.arg_arg_cfg);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateNetwork FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_guid' in response) ? response.arg_arg_guid : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createNetwork FAILED:', e));
           }
           break;
         }
@@ -1327,12 +840,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.forgetNetwork');
-          const result = this.impl.forgetNetwork(params.arg_guid);
+          const result = this.impl.forgetNetwork(params.arg_arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ForgetNetwork FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] forgetNetwork FAILED:', e));
           }
           break;
         }
@@ -1340,12 +856,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateWifiNetwork');
-          const result = this.impl.updateWifiNetwork(params.arg_guid, params.arg_cfg);
+          const result = this.impl.updateWifiNetwork(params.arg_arg_guid, params.arg_arg_cfg);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] UpdateWifiNetwork FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] updateWifiNetwork FAILED:', e));
           }
           break;
         }
@@ -1353,12 +872,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startConnect');
-          const result = this.impl.startConnect(params.arg_guid);
+          const result = this.impl.startConnect(params.arg_arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartConnect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startConnect FAILED:', e));
           }
           break;
         }
@@ -1366,12 +888,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startDisconnect');
-          const result = this.impl.startDisconnect(params.arg_guid);
+          const result = this.impl.startDisconnect(params.arg_arg_guid);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartDisconnect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startDisconnect FAILED:', e));
           }
           break;
         }
@@ -1379,12 +904,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getNetworks');
-          const result = this.impl.getNetworks(params.arg_type);
+          const result = this.impl.getNetworks(params.arg_arg_type);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetNetworks FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getNetworks FAILED:', e));
           }
           break;
         }
@@ -1392,21 +920,21 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.androidVpnConnected');
-          const result = this.impl.androidVpnConnected(params.arg_cfg);
+          const result = this.impl.androidVpnConnected(params.arg_arg_cfg);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.androidVpnUpdated');
-          const result = this.impl.androidVpnUpdated(params.arg_cfg);
+          const result = this.impl.androidVpnUpdated(params.arg_arg_cfg);
           break;
         }
         case 11: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dEPRECATED_AndroidVpnStateChanged');
-          const result = this.impl.dEPRECATED_AndroidVpnStateChanged(params.arg_state);
+          const result = this.impl.dEPRECATED_AndroidVpnStateChanged(params.arg_arg_state);
           break;
         }
         case 12: {
@@ -1420,19 +948,22 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setAlwaysOnVpn');
-          const result = this.impl.setAlwaysOnVpn(params.arg_vpnPackage, params.arg_lockdown);
+          const result = this.impl.setAlwaysOnVpn(params.arg_arg_vpnPackage, params.arg_arg_lockdown);
           break;
         }
         case 14: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestPasspointAppApproval');
-          const result = this.impl.requestPasspointAppApproval(params.arg_request);
+          const result = this.impl.requestPasspointAppApproval(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestPasspointAppApproval FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_response' in response) ? response.arg_arg_response : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestPasspointAppApproval FAILED:', e));
           }
           break;
         }
@@ -1440,14 +971,14 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPasspointCredentials');
-          const result = this.impl.addPasspointCredentials(params.arg_credentials);
+          const result = this.impl.addPasspointCredentials(params.arg_arg_credentials);
           break;
         }
         case 16: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.removePasspointCredentials');
-          const result = this.impl.removePasspointCredentials(params.arg_properties);
+          const result = this.impl.removePasspointCredentials(params.arg_arg_properties);
           break;
         }
         case 17: {
@@ -1461,12 +992,15 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startLohs');
-          const result = this.impl.startLohs(params.arg_config);
+          const result = this.impl.startLohs(params.arg_arg_config);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartLohs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startLohs FAILED:', e));
           }
           break;
         }
@@ -1481,21 +1015,21 @@ mojo.internal.bindings.arc.mojom.NetHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyAndroidWifiMulticastLockChange');
-          const result = this.impl.notifyAndroidWifiMulticastLockChange(params.arg_is_held);
+          const result = this.impl.notifyAndroidWifiMulticastLockChange(params.arg_arg_is_held);
           break;
         }
         case 21: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifySocketConnectionEvent');
-          const result = this.impl.notifySocketConnectionEvent(params.arg_msg);
+          const result = this.impl.notifySocketConnectionEvent(params.arg_arg_msg);
           break;
         }
         case 22: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyARCVPNSocketConnectionEvent');
-          const result = this.impl.notifyARCVPNSocketConnectionEvent(params.arg_msg);
+          const result = this.impl.notifyARCVPNSocketConnectionEvent(params.arg_arg_msg);
           break;
         }
       }
@@ -1513,90 +1047,6 @@ mojo.internal.bindings.arc.mojom.NetHostRequest = mojo.internal.bindings.arc.moj
 
 
 // Interface: NetInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec, 'arc.mojom.NetInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NetHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec, 'arc.mojom.NetInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_ScanCompleted_ParamsSpec, 'arc.mojom.NetInstance_ScanCompleted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec, 'arc.mojom.NetInstance_WifiEnabledStateChanged_Params', [
-      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec, 'arc.mojom.NetInstance_DisconnectAndroidVpn_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec, 'arc.mojom.NetInstance_ConfigureAndroidVpn_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec, 'arc.mojom.NetInstance_ActiveNetworksChanged_Params', [
-      mojo.internal.StructField('arg_network', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.NetworkConfigurationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec, 'arc.mojom.NetInstance_DnsResolutionTest_Params', [
-      mojo.internal.StructField('arg_transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_host_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec, 'arc.mojom.NetInstance_DnsResolutionTest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcDnsResolutionTestResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec, 'arc.mojom.NetInstance_HttpTest_Params', [
-      mojo.internal.StructField('arg_transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec, 'arc.mojom.NetInstance_HttpTest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcHttpTestResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec, 'arc.mojom.NetInstance_PingTest_Params', [
-      mojo.internal.StructField('arg_transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec, 'arc.mojom.NetInstance_PingTest_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcPingTestResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec, 'arc.mojom.NetInstance_SetUpFlag_Params', [
-      mojo.internal.StructField('arg_flag', 0, 0, mojo.internal.bindings.arc.mojom.FlagSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.NetInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1835,12 +1285,14 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -1855,7 +1307,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.wifiEnabledStateChanged');
-          const result = this.impl.wifiEnabledStateChanged(params.arg_is_enabled);
+          const result = this.impl.wifiEnabledStateChanged(params.arg_arg_is_enabled);
           break;
         }
         case 3: {
@@ -1876,19 +1328,22 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.activeNetworksChanged');
-          const result = this.impl.activeNetworksChanged(params.arg_network);
+          const result = this.impl.activeNetworksChanged(params.arg_arg_network);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dnsResolutionTest');
-          const result = this.impl.dnsResolutionTest(params.arg_transport_name, params.arg_host_name);
+          const result = this.impl.dnsResolutionTest(params.arg_arg_transport_name, params.arg_arg_host_name);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DnsResolutionTest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dnsResolutionTest FAILED:', e));
           }
           break;
         }
@@ -1896,12 +1351,15 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.httpTest');
-          const result = this.impl.httpTest(params.arg_transport_name, params.arg_url);
+          const result = this.impl.httpTest(params.arg_arg_transport_name, params.arg_arg_url);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HttpTest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] httpTest FAILED:', e));
           }
           break;
         }
@@ -1909,12 +1367,15 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.pingTest');
-          const result = this.impl.pingTest(params.arg_transport_name, params.arg_ip_address);
+          const result = this.impl.pingTest(params.arg_arg_transport_name, params.arg_arg_ip_address);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PingTest FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] pingTest FAILED:', e));
           }
           break;
         }
@@ -1922,7 +1383,7 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpFlag');
-          const result = this.impl.setUpFlag(params.arg_flag, params.arg_value);
+          const result = this.impl.setUpFlag(params.arg_arg_flag, params.arg_arg_value);
           break;
         }
       }
@@ -1937,4 +1398,586 @@ mojo.internal.bindings.arc.mojom.NetInstanceReceiver = mojo.internal.bindings.ar
 
 mojo.internal.bindings.arc.mojom.NetInstancePtr = mojo.internal.bindings.arc.mojom.NetInstanceRemote;
 mojo.internal.bindings.arc.mojom.NetInstanceRequest = mojo.internal.bindings.arc.mojom.NetInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: NetworkDetails
+mojo.internal.Union(
+    mojo.internal.bindings.arc.mojom.NetworkDetailsSpec, 'arc.mojom.NetworkDetails', {
+      'arg_visible': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.arc.mojom.VisibleNetworkDetailsSpec,
+        'nullable': false,
+      },
+      'arg_configured': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.arc.mojom.ConfiguredNetworkDetailsSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: ArcProxyInfo
+mojo.internal.Union(
+    mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec, 'arc.mojom.ArcProxyInfo', {
+      'arg_manual_proxy': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.arc.mojom.ManualProxyConfigSpec,
+        'nullable': false,
+      },
+      'arg_pac_url_proxy': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.arc.mojom.PacUrlProxyConfigSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: VisibleNetworkDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VisibleNetworkDetailsSpec, 'arc.mojom.VisibleNetworkDetails', [
+      mojo.internal.StructField('arg_frequency', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ConfiguredNetworkDetails
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ConfiguredNetworkDetailsSpec, 'arc.mojom.ConfiguredNetworkDetails', [
+      mojo.internal.StructField('arg_passphrase', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_autoconnect', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_bssid', 16, 0, mojo.internal.String, null, true, 33, undefined),
+    ],
+    [[0, 24], [33, 32]]);
+
+// Struct: PasspointCredentials
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PasspointCredentialsSpec, 'arc.mojom.PasspointCredentials', [
+      mojo.internal.StructField('arg_domains', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_realm', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_home_ois', 16, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_required_home_ois', 24, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_roaming_consortium_ois', 32, 0, mojo.internal.Array(mojo.internal.Uint64, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_eap', 40, 0, mojo.internal.bindings.arc.mojom.EapCredentialsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_metered', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_package_name', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_friendly_name', 64, 0, mojo.internal.String, null, true, 22, undefined),
+      mojo.internal.StructField('arg_subscription_expiration_time_ms', 72, 0, mojo.internal.Int64, 0, false, 22, undefined),
+    ],
+    [[0, 72], [22, 88]]);
+
+// Struct: PasspointRemovalProperties
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PasspointRemovalPropertiesSpec, 'arc.mojom.PasspointRemovalProperties', [
+      mojo.internal.StructField('arg_fqdn', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_package_name', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: EapCredentials
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.EapCredentialsSpec, 'arc.mojom.EapCredentials', [
+      mojo.internal.StructField('arg_method', 0, 0, mojo.internal.bindings.arc.mojom.EapMethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_phase2_method', 4, 0, mojo.internal.bindings.arc.mojom.EapPhase2MethodSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_anonymous_identity', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_identity', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_password', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_key_management', 32, 0, mojo.internal.bindings.arc.mojom.KeyManagementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_use_system_cas', 36, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_proactive_key_caching', 36, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_use_login_password', 36, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_ca_certificate_pem', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_certificate_pem', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_client_certificate_key', 56, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subject_match', 64, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subject_alternative_name_match_list', 72, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_domain_suffix_match_list', 80, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_tls_version_max', 88, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 104]]);
+
+// Struct: IPConfiguration
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.IPConfigurationSpec, 'arc.mojom.IPConfiguration', [
+      mojo.internal.StructField('arg_gateway', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name_servers', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_routing_prefix', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 28, 0, mojo.internal.bindings.arc.mojom.IPAddressTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: WiFi
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WiFiSpec, 'arc.mojom.WiFi', [
+      mojo.internal.StructField('arg_bssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_hidden_ssid', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_passpoint', 12, 1, mojo.internal.Bool, false, false, 16, undefined),
+      mojo.internal.StructField('arg_rssi', 14, 0, mojo.internal.Int16, 0, false, 23, undefined),
+      mojo.internal.StructField('arg_hex_ssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security', 24, 0, mojo.internal.bindings.arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 28, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fqdn', 32, 0, mojo.internal.String, null, true, 16, undefined),
+    ],
+    [[0, 40], [16, 48], [23, 24]]);
+
+// Struct: NetworkConfiguration
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetworkConfigurationSpec, 'arc.mojom.NetworkConfiguration', [
+      mojo.internal.StructField('arg_connection_state', 0, 0, mojo.internal.bindings.arc.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 4, 0, mojo.internal.bindings.arc.mojom.NetworkTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_guid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_ip_configs', 16, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.IPConfigurationSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_mac_address', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wifi', 32, 0, mojo.internal.bindings.arc.mojom.WiFiSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_deprecated_tethering_client_state', 40, 0, mojo.internal.bindings.arc.mojom.TetheringClientStateSpec, null, false, 8, undefined),
+      mojo.internal.StructField('arg_is_default_network', 44, 0, mojo.internal.Bool, false, false, 11, undefined),
+      mojo.internal.StructField('arg_is_metered', 44, 1, mojo.internal.Bool, false, false, 14, undefined),
+      mojo.internal.StructField('arg_network_interface', 48, 0, mojo.internal.String, null, true, 10, undefined),
+      mojo.internal.StructField('arg_service_name', 56, 0, mojo.internal.String, null, true, 12, undefined),
+      mojo.internal.StructField('arg_host_mtu', 64, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('arg_host_ipv4_prefix_length', 68, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('arg_host_ipv4_address', 72, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arg_host_ipv4_gateway', 80, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arg_host_ipv6_prefix_length', 88, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('arg_arc_ipv4_prefix_length', 92, 0, mojo.internal.Uint32, 0, false, 13, undefined),
+      mojo.internal.StructField('arg_host_ipv6_global_addresses', 96, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('arg_host_ipv6_gateway', 104, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arg_host_dns_addresses', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('arg_host_search_domains', 120, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 13, undefined),
+      mojo.internal.StructField('arg_arc_ipv4_address', 128, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arg_arc_ipv4_gateway', 136, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arg_arc_network_interface', 144, 0, mojo.internal.String, null, true, 13, undefined),
+      mojo.internal.StructField('arg_include_routes', 152, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
+      mojo.internal.StructField('arg_exclude_routes', 160, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 15, undefined),
+      mojo.internal.StructField('arg_dns_proxy_addresses', 168, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 19, undefined),
+      mojo.internal.StructField('arg_link_speed', 176, 0, mojo.internal.bindings.arc.mojom.LinkSpeedSpec, null, true, 28, undefined),
+    ],
+    [[0, 48], [8, 56], [10, 64], [11, 56], [12, 72], [13, 160], [14, 56], [15, 176], [19, 184], [28, 192]]);
+
+// Struct: LinkSpeed
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.LinkSpeedSpec, 'arc.mojom.LinkSpeed', [
+      mojo.internal.StructField('arg_uplink_speed_kbps', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_downlink_speed_kbps', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: WifiConfiguration
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.WifiConfigurationSpec, 'arc.mojom.WifiConfiguration', [
+      mojo.internal.StructField('arg_ssid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frequency', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_signal_strength', 12, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bssid', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security', 24, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_guid', 32, 0, mojo.internal.String, null, true, 1, undefined),
+      mojo.internal.StructField('arg_hexssid', 40, 0, mojo.internal.String, null, true, 2, undefined),
+      mojo.internal.StructField('arg_details', 48, 0, mojo.internal.bindings.arc.mojom.NetworkDetailsSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_eap', 64, 0, mojo.internal.bindings.arc.mojom.EapCredentialsSpec, null, true, 16, undefined),
+      mojo.internal.StructField('arg_metered_override', 72, 0, mojo.internal.bindings.arc.mojom.MeteredOverrideSpec, null, false, 20, undefined),
+      mojo.internal.StructField('arg_http_proxy', 80, 0, mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec, null, true, 20, undefined),
+      mojo.internal.StructField('arg_static_ipv4_config', 96, 0, mojo.internal.bindings.arc.mojom.StaticIpv4ConfigurationSpec, null, true, 20, undefined),
+      mojo.internal.StructField('arg_domains', 104, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 20, undefined),
+      mojo.internal.StructField('arg_dns_servers', 112, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 20, undefined),
+      mojo.internal.StructField('arg_bssid_allowlist', 120, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 26, undefined),
+    ],
+    [[0, 40], [1, 48], [2, 72], [16, 80], [20, 128], [26, 136]]);
+
+// Struct: StaticIpv4Configuration
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.StaticIpv4ConfigurationSpec, 'arc.mojom.StaticIpv4Configuration', [
+      mojo.internal.StructField('arg_ipv4_addr', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gateway_ipv4_addr', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_prefix_length', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: PacUrlProxyConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PacUrlProxyConfigSpec, 'arc.mojom.PacUrlProxyConfig', [
+      mojo.internal.StructField('arg_pac_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ManualProxyConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ManualProxyConfigSpec, 'arc.mojom.ManualProxyConfig', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_port', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_exclusion_list', 16, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: GetNetworksResponseType
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.GetNetworksResponseTypeSpec, 'arc.mojom.GetNetworksResponseType', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_networks', 8, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.NetworkConfigurationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AndroidVpnConfiguration
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.AndroidVpnConfigurationSpec, 'arc.mojom.AndroidVpnConfiguration', [
+      mojo.internal.StructField('arg_app_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_label', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tunnel_chrome_traffic', 24, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mtu', 28, 0, mojo.internal.Int32, 0, false, 38, undefined),
+      mojo.internal.StructField('arg_ipv4_gateway', 32, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_split_include', 40, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_split_exclude', 48, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nameservers', 56, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_domains', 64, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_http_proxy', 72, 0, mojo.internal.bindings.arc.mojom.ArcProxyInfoSpec, null, true, 21, undefined),
+    ],
+    [[0, 80], [21, 96], [38, 40]]);
+
+// Struct: ArcDnsResolutionTestResult
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ArcDnsResolutionTestResultSpec, 'arc.mojom.ArcDnsResolutionTestResult', [
+      mojo.internal.StructField('arg_is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_response_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: ArcHttpTestResult
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ArcHttpTestResultSpec, 'arc.mojom.ArcHttpTestResult', [
+      mojo.internal.StructField('arg_is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_status_code', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_response_header_fields', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: ArcPingTestResult
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ArcPingTestResultSpec, 'arc.mojom.ArcPingTestResult', [
+      mojo.internal.StructField('arg_is_successful', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_duration_ms', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: LohsConfig
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.LohsConfigSpec, 'arc.mojom.LohsConfig', [
+      mojo.internal.StructField('arg_band', 0, 0, mojo.internal.bindings.arc.mojom.WifiBandSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_security_type', 4, 0, mojo.internal.bindings.arc.mojom.SecurityTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_hexssid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_passphrase', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: PasspointApprovalRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PasspointApprovalRequestSpec, 'arc.mojom.PasspointApprovalRequest', [
+      mojo.internal.StructField('arg_package_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_friendly_name', 16, 0, mojo.internal.String, null, true, 31, undefined),
+      mojo.internal.StructField('arg_subscription_expiration_time_ms', 24, 0, mojo.internal.Int64, 0, false, 31, undefined),
+    ],
+    [[0, 24], [31, 40]]);
+
+// Struct: PasspointApprovalResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.PasspointApprovalResponseSpec, 'arc.mojom.PasspointApprovalResponse', [
+      mojo.internal.StructField('arg_allowed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: SocketConnectionEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec, 'arc.mojom.SocketConnectionEvent', [
+      mojo.internal.StructField('arg_src_addr', 0, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dst_addr', 8, 0, mojo.internal.bindings.network.mojom.IPAddressSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_port', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_dst_port', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_proto', 24, 0, mojo.internal.bindings.arc.mojom.IpProtocolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 28, 0, mojo.internal.bindings.arc.mojom.SocketEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_app_category', 32, 0, mojo.internal.bindings.arc.mojom.AppCategorySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_qos_category', 36, 0, mojo.internal.bindings.arc.mojom.QosCategorySpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ParamsSpec, 'arc.mojom.NetHost_GetWifiEnabledState_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_GetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.NetHost_GetWifiEnabledState_ResponseParams', [
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartScan_ParamsSpec, 'arc.mojom.NetHost_StartScan_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ParamsSpec, 'arc.mojom.NetHost_SetWifiEnabledState_Params', [
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_SetWifiEnabledState_ResponseParamsSpec, 'arc.mojom.NetHost_SetWifiEnabledState_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ParamsSpec, 'arc.mojom.NetHost_CreateNetwork_Params', [
+      mojo.internal.StructField('arg_cfg', 0, 0, mojo.internal.bindings.arc.mojom.WifiConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_CreateNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_CreateNetwork_ResponseParams', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ParamsSpec, 'arc.mojom.NetHost_ForgetNetwork_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_ForgetNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_ForgetNetwork_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ParamsSpec, 'arc.mojom.NetHost_UpdateWifiNetwork_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cfg', 8, 0, mojo.internal.bindings.arc.mojom.WifiConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_UpdateWifiNetwork_ResponseParamsSpec, 'arc.mojom.NetHost_UpdateWifiNetwork_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ParamsSpec, 'arc.mojom.NetHost_StartConnect_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartConnect_ResponseParamsSpec, 'arc.mojom.NetHost_StartConnect_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ParamsSpec, 'arc.mojom.NetHost_StartDisconnect_Params', [
+      mojo.internal.StructField('arg_guid', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartDisconnect_ResponseParamsSpec, 'arc.mojom.NetHost_StartDisconnect_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.NetworkResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ParamsSpec, 'arc.mojom.NetHost_GetNetworks_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.GetNetworksRequestTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_GetNetworks_ResponseParamsSpec, 'arc.mojom.NetHost_GetNetworks_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.arc.mojom.GetNetworksResponseTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnConnected_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnConnected_Params', [
+      mojo.internal.StructField('arg_cfg', 0, 0, mojo.internal.bindings.arc.mojom.AndroidVpnConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnUpdated_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnUpdated_Params', [
+      mojo.internal.StructField('arg_cfg', 0, 0, mojo.internal.bindings.arc.mojom.AndroidVpnConfigurationSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_ParamsSpec, 'arc.mojom.NetHost_DEPRECATED_AndroidVpnStateChanged_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.arc.mojom.ConnectionStateTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_AndroidVpnDisconnected_ParamsSpec, 'arc.mojom.NetHost_AndroidVpnDisconnected_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_SetAlwaysOnVpn_ParamsSpec, 'arc.mojom.NetHost_SetAlwaysOnVpn_Params', [
+      mojo.internal.StructField('arg_vpnPackage', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_lockdown', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ParamsSpec, 'arc.mojom.NetHost_RequestPasspointAppApproval_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.PasspointApprovalRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParamsSpec, 'arc.mojom.NetHost_RequestPasspointAppApproval_ResponseParams', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.arc.mojom.PasspointApprovalResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_AddPasspointCredentials_ParamsSpec, 'arc.mojom.NetHost_AddPasspointCredentials_Params', [
+      mojo.internal.StructField('arg_credentials', 0, 0, mojo.internal.bindings.arc.mojom.PasspointCredentialsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_RemovePasspointCredentials_ParamsSpec, 'arc.mojom.NetHost_RemovePasspointCredentials_Params', [
+      mojo.internal.StructField('arg_properties', 0, 0, mojo.internal.bindings.arc.mojom.PasspointRemovalPropertiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_DisconnectHostVpn_ParamsSpec, 'arc.mojom.NetHost_DisconnectHostVpn_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ParamsSpec, 'arc.mojom.NetHost_StartLohs_Params', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.arc.mojom.LohsConfigSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StartLohs_ResponseParamsSpec, 'arc.mojom.NetHost_StartLohs_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.arc.mojom.LohsStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_StopLohs_ParamsSpec, 'arc.mojom.NetHost_StopLohs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_ParamsSpec, 'arc.mojom.NetHost_NotifyAndroidWifiMulticastLockChange_Params', [
+      mojo.internal.StructField('arg_is_held', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_NotifySocketConnectionEvent_ParamsSpec, 'arc.mojom.NetHost_NotifySocketConnectionEvent_Params', [
+      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_ParamsSpec, 'arc.mojom.NetHost_NotifyARCVPNSocketConnectionEvent_Params', [
+      mojo.internal.StructField('arg_msg', 0, 0, mojo.internal.bindings.arc.mojom.SocketConnectionEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_Init_ParamsSpec, 'arc.mojom.NetInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NetHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_Init_ResponseParamsSpec, 'arc.mojom.NetInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_ScanCompleted_ParamsSpec, 'arc.mojom.NetInstance_ScanCompleted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_WifiEnabledStateChanged_ParamsSpec, 'arc.mojom.NetInstance_WifiEnabledStateChanged_Params', [
+      mojo.internal.StructField('arg_is_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_DisconnectAndroidVpn_ParamsSpec, 'arc.mojom.NetInstance_DisconnectAndroidVpn_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_ConfigureAndroidVpn_ParamsSpec, 'arc.mojom.NetInstance_ConfigureAndroidVpn_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_ActiveNetworksChanged_ParamsSpec, 'arc.mojom.NetInstance_ActiveNetworksChanged_Params', [
+      mojo.internal.StructField('arg_network', 0, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.NetworkConfigurationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ParamsSpec, 'arc.mojom.NetInstance_DnsResolutionTest_Params', [
+      mojo.internal.StructField('arg_transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_host_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_DnsResolutionTest_ResponseParamsSpec, 'arc.mojom.NetInstance_DnsResolutionTest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcDnsResolutionTestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ParamsSpec, 'arc.mojom.NetInstance_HttpTest_Params', [
+      mojo.internal.StructField('arg_transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_HttpTest_ResponseParamsSpec, 'arc.mojom.NetInstance_HttpTest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcHttpTestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ParamsSpec, 'arc.mojom.NetInstance_PingTest_Params', [
+      mojo.internal.StructField('arg_transport_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_ip_address', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_PingTest_ResponseParamsSpec, 'arc.mojom.NetInstance_PingTest_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcPingTestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NetInstance_SetUpFlag_ParamsSpec, 'arc.mojom.NetInstance_SetUpFlag_Params', [
+      mojo.internal.StructField('arg_flag', 0, 0, mojo.internal.bindings.arc.mojom.FlagSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

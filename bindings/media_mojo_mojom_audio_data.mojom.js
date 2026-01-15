@@ -123,6 +123,8 @@ mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 
 mojo.internal.bindings.media.mojom.AudioDataS16Spec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AudioDataS16
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.AudioDataS16Spec, 'media.mojom.AudioDataS16', [

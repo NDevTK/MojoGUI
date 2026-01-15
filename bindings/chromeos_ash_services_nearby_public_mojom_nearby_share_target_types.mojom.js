@@ -130,3 +130,5 @@ mojo.internal.bindings.nearby_share.mojom.ShareTargetType = {
   kTablet: 2,
   kLaptop: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

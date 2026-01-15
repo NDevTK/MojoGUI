@@ -129,3 +129,5 @@ mojo.internal.bindings.extensions.mojom.ExecutionWorld = {
   kMain: 1,
   kUserScript: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

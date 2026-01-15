@@ -127,3 +127,5 @@ mojo.internal.bindings.js_injection.mojom.DocumentInjectionTimeSpec = { $: mojo.
 mojo.internal.bindings.js_injection.mojom.DocumentInjectionTime = {
   kDocumentStart: 0,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

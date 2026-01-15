@@ -205,3 +205,5 @@ mojo.internal.bindings.blink.mojom.EventType = {
   kPointerTypeLast: 41,
   kTypeLast: 41,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

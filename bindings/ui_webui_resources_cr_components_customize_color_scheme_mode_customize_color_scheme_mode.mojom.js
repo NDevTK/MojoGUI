@@ -144,13 +144,6 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeMode = {
 };
 
 // Interface: CustomizeColorSchemeModeHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_Params', [
-      mojo.internal.StructField('arg_pending_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -263,7 +256,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCustomizeColorSchemeModeHandler');
-          const result = this.impl.createCustomizeColorSchemeModeHandler(params.arg_pending_client, params.arg_pending_handler);
+          const result = this.impl.createCustomizeColorSchemeModeHandler(params.arg_arg_pending_client, params.arg_arg_pending_handler);
           break;
         }
       }
@@ -281,17 +274,6 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 
 
 // Interface: CustomizeColorSchemeModeHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_Params', [
-      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -418,7 +400,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorSchemeMode');
-          const result = this.impl.setColorSchemeMode(params.arg_colorSchemeMode);
+          const result = this.impl.setColorSchemeMode(params.arg_arg_colorSchemeMode);
           break;
         }
         case 1: {
@@ -443,12 +425,6 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 
 
 // Interface: CustomizeColorSchemeModeClient
-mojo.internal.Struct(
-    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_Params', [
-      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -561,7 +537,7 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setColorSchemeMode');
-          const result = this.impl.setColorSchemeMode(params.arg_colorSchemeMode);
+          const result = this.impl.setColorSchemeMode(params.arg_arg_colorSchemeMode);
           break;
         }
       }
@@ -576,4 +552,30 @@ mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeMod
 
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPtr = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote;
 mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRequest = mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerFactory_CreateCustomizeColorSchemeModeHandler_Params', [
+      mojo.internal.StructField('arg_pending_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_SetColorSchemeMode_Params', [
+      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeHandler_InitializeColorSchemeMode_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_ParamsSpec, 'customize_color_scheme_mode.mojom.CustomizeColorSchemeModeClient_SetColorSchemeMode_Params', [
+      mojo.internal.StructField('arg_colorSchemeMode', 0, 0, mojo.internal.bindings.customize_color_scheme_mode.mojom.ColorSchemeModeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

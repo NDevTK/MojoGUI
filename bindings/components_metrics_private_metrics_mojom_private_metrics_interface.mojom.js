@@ -131,6 +131,8 @@ mojo.internal.bindings.metrics.private_metrics.mojom.Type = {
   kDkm: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PrivateMetricsEntry
 mojo.internal.Struct(
     mojo.internal.bindings.metrics.private_metrics.mojom.PrivateMetricsEntrySpec, 'metrics.private_metrics.mojom.PrivateMetricsEntry', [

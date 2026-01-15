@@ -139,22 +139,6 @@ mojo.internal.bindings.remoting.mojom.RemotingHostControlSpec = mojo.internal.bi
 mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote = mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote || class {};
 
 // Interface: AgentProcess
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec, 'remoting.mojom.AgentProcess_SuspendProcess_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec, 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.AgentProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -309,7 +293,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindRemotingHostControl');
-          const result = this.impl.bindRemotingHostControl(params.arg_receiver);
+          const result = this.impl.bindRemotingHostControl(params.arg_arg_receiver);
           break;
         }
       }
@@ -327,12 +311,6 @@ mojo.internal.bindings.remoting.mojom.AgentProcessRequest = mojo.internal.bindin
 
 
 // Interface: AgentProcessBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
-      mojo.internal.StructField('arg_agent_process', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.AgentProcessRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -445,7 +423,7 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onAgentProcessLaunched');
-          const result = this.impl.onAgentProcessLaunched(params.arg_agent_process);
+          const result = this.impl.onAgentProcessLaunched(params.arg_arg_agent_process);
           break;
         }
       }
@@ -460,4 +438,28 @@ mojo.internal.bindings.remoting.mojom.AgentProcessBrokerReceiver = mojo.internal
 
 mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPtr = mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRemote;
 mojo.internal.bindings.remoting.mojom.AgentProcessBrokerRequest = mojo.internal.bindings.remoting.mojom.AgentProcessBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.AgentProcess_ResumeProcess_ParamsSpec, 'remoting.mojom.AgentProcess_ResumeProcess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.AgentProcess_SuspendProcess_ParamsSpec, 'remoting.mojom.AgentProcess_SuspendProcess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.AgentProcess_BindRemotingHostControl_ParamsSpec, 'remoting.mojom.AgentProcess_BindRemotingHostControl_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.remoting.mojom.RemotingHostControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_ParamsSpec, 'remoting.mojom.AgentProcessBroker_OnAgentProcessLaunched_Params', [
+      mojo.internal.StructField('arg_agent_process', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.remoting.mojom.AgentProcessRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

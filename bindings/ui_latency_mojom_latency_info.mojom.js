@@ -146,6 +146,8 @@ mojo.internal.bindings.ui.mojom.LatencyComponentType = {
   INPUT_EVENT_LATENCY_FRAME_SWAP_COMPONENT: 11,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: LatencyInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ui.mojom.LatencyInfoSpec, 'ui.mojom.LatencyInfo', [

@@ -135,44 +135,7 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl.$interfaceNam
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec = { $: {} };
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec = { $: {} };
 
-// Struct: StreamInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec, 'extensions.mime_handler.StreamInfo', [
-      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_original_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stream_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_embedded', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_response_headers', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: PdfPluginAttributes
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec, 'extensions.mime_handler.PdfPluginAttributes', [
-      mojo.internal.StructField('arg_background_color', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_allow_javascript', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: MimeHandlerService
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParams', [
-      mojo.internal.StructField('arg_stream_info', 0, 0, mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_Params', [
-      mojo.internal.StructField('arg_pdf_plugin_attributes', 0, 0, mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.extensions.mime_handler.MimeHandlerServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,8 +266,11 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetStreamInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_stream_info' in response) ? response.arg_arg_stream_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getStreamInfo FAILED:', e));
           }
           break;
         }
@@ -312,7 +278,7 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPdfPluginAttributes');
-          const result = this.impl.setPdfPluginAttributes(params.arg_pdf_plugin_attributes);
+          const result = this.impl.setPdfPluginAttributes(params.arg_arg_pdf_plugin_attributes);
           break;
         }
       }
@@ -330,17 +296,6 @@ mojo.internal.bindings.extensions.mime_handler.MimeHandlerServiceRequest = mojo.
 
 
 // Interface: BeforeUnloadControl
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_Params', [
-      mojo.internal.StructField('arg_show_dialog', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -453,12 +408,14 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setShowBeforeUnloadDialog');
-          const result = this.impl.setShowBeforeUnloadDialog(params.arg_show_dialog);
+          const result = this.impl.setShowBeforeUnloadDialog(params.arg_arg_show_dialog);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetShowBeforeUnloadDialog FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setShowBeforeUnloadDialog FAILED:', e));
           }
           break;
         }
@@ -474,4 +431,54 @@ mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlReceiver = moj
 
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlPtr = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlRemote;
 mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlRequest = mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControlPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: StreamInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec, 'extensions.mime_handler.StreamInfo', [
+      mojo.internal.StructField('arg_mime_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_original_url', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stream_url', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tab_id', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_embedded', 28, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_response_headers', 32, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: PdfPluginAttributes
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec, 'extensions.mime_handler.PdfPluginAttributes', [
+      mojo.internal.StructField('arg_background_color', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_allow_javascript', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParamsSpec, 'extensions.mime_handler.MimeHandlerService_GetStreamInfo_ResponseParams', [
+      mojo.internal.StructField('arg_stream_info', 0, 0, mojo.internal.bindings.extensions.mime_handler.StreamInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_ParamsSpec, 'extensions.mime_handler.MimeHandlerService_SetPdfPluginAttributes_Params', [
+      mojo.internal.StructField('arg_pdf_plugin_attributes', 0, 0, mojo.internal.bindings.extensions.mime_handler.PdfPluginAttributesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_Params', [
+      mojo.internal.StructField('arg_show_dialog', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParamsSpec, 'extensions.mime_handler.BeforeUnloadControl_SetShowBeforeUnloadDialog_ResponseParams', [
+    ],
+    [[0, 8]]);
 

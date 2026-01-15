@@ -134,6 +134,8 @@ mojo.internal.bindings.mojo.native.SerializedHandleType = {
   FUCHSIA_HANDLE: 4,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SerializedHandle
 mojo.internal.Struct(
     mojo.internal.bindings.mojo.native.SerializedHandleSpec, 'mojo.native.SerializedHandle', [

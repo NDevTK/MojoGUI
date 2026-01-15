@@ -184,6 +184,8 @@ mojo.internal.bindings.chromecast.media.mojom.EncryptionScheme = {
   kAesCbc: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AudioConfig
 mojo.internal.Struct(
     mojo.internal.bindings.chromecast.media.mojom.AudioConfigSpec, 'chromecast.media.mojom.AudioConfig', [

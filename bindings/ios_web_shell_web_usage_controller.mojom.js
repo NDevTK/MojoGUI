@@ -128,17 +128,6 @@ mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpe
 mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec = { $: {} };
 
 // Interface: WebUsageController
-mojo.internal.Struct(
-    mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.web.mojom.WebUsageControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,12 +240,14 @@ mojo.internal.bindings.web.mojom.WebUsageControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setWebUsageEnabled');
-          const result = this.impl.setWebUsageEnabled(params.arg_enabled);
+          const result = this.impl.setWebUsageEnabled(params.arg_arg_enabled);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetWebUsageEnabled FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setWebUsageEnabled FAILED:', e));
           }
           break;
         }
@@ -272,4 +263,17 @@ mojo.internal.bindings.web.mojom.WebUsageControllerReceiver = mojo.internal.bind
 
 mojo.internal.bindings.web.mojom.WebUsageControllerPtr = mojo.internal.bindings.web.mojom.WebUsageControllerRemote;
 mojo.internal.bindings.web.mojom.WebUsageControllerRequest = mojo.internal.bindings.web.mojom.WebUsageControllerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParamsSpec, 'web.mojom.WebUsageController_SetWebUsageEnabled_ResponseParams', [
+    ],
+    [[0, 8]]);
 

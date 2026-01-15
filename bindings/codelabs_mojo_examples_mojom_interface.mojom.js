@@ -143,11 +143,6 @@ mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec = { $: {} };
 mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec = { $: {} };
 
 // Interface: ObjectA
-mojo.internal.Struct(
-    mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec, 'codelabs.mojom.ObjectA_DoA_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.codelabs.mojom.ObjectAPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -278,11 +273,6 @@ mojo.internal.bindings.codelabs.mojom.ObjectARequest = mojo.internal.bindings.co
 
 
 // Interface: ObjectB
-mojo.internal.Struct(
-    mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec, 'codelabs.mojom.ObjectB_DoB_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.codelabs.mojom.ObjectBPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -413,12 +403,6 @@ mojo.internal.bindings.codelabs.mojom.ObjectBRequest = mojo.internal.bindings.co
 
 
 // Interface: AssociatedProcess
-mojo.internal.Struct(
-    mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec, 'codelabs.mojom.AssociatedProcess_SetProcess_Params', [
-      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.codelabs.mojom.ProcessRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.codelabs.mojom.AssociatedProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -531,7 +515,7 @@ mojo.internal.bindings.codelabs.mojom.AssociatedProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setProcess');
-          const result = this.impl.setProcess(params.arg_process);
+          const result = this.impl.setProcess(params.arg_arg_process);
           break;
         }
       }
@@ -658,18 +642,6 @@ mojo.internal.bindings.codelabs.mojom.GenericInterfaceRequest = mojo.internal.bi
 
 
 // Interface: Process
-mojo.internal.Struct(
-    mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec, 'codelabs.mojom.Process_SayHello_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfaceRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.codelabs.mojom.ProcessPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -803,7 +775,7 @@ mojo.internal.bindings.codelabs.mojom.ProcessReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getAssociatedInterface');
-          const result = this.impl.getAssociatedInterface(params.arg_name, params.arg_receiver);
+          const result = this.impl.getAssociatedInterface(params.arg_arg_name, params.arg_arg_receiver);
           break;
         }
       }
@@ -818,4 +790,34 @@ mojo.internal.bindings.codelabs.mojom.ProcessReceiver = mojo.internal.bindings.c
 
 mojo.internal.bindings.codelabs.mojom.ProcessPtr = mojo.internal.bindings.codelabs.mojom.ProcessRemote;
 mojo.internal.bindings.codelabs.mojom.ProcessRequest = mojo.internal.bindings.codelabs.mojom.ProcessPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.codelabs.mojom.ObjectA_DoA_ParamsSpec, 'codelabs.mojom.ObjectA_DoA_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.codelabs.mojom.ObjectB_DoB_ParamsSpec, 'codelabs.mojom.ObjectB_DoB_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.codelabs.mojom.AssociatedProcess_SetProcess_ParamsSpec, 'codelabs.mojom.AssociatedProcess_SetProcess_Params', [
+      mojo.internal.StructField('arg_process', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.codelabs.mojom.ProcessRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.codelabs.mojom.Process_SayHello_ParamsSpec, 'codelabs.mojom.Process_SayHello_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.codelabs.mojom.Process_GetAssociatedInterface_ParamsSpec, 'codelabs.mojom.Process_GetAssociatedInterface_Params', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.codelabs.mojom.GenericInterfaceRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

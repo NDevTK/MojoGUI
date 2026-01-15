@@ -136,24 +136,6 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.content.mojom.RendererTypeSpec = mojo.internal.bindings.content.mojom.RendererTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: MediaPlaybackOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Params', [
-      mojo.internal.StructField('arg_blocked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.RendererTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -294,21 +276,21 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsReceiv
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setMediaLoadingBlocked');
-          const result = this.impl.setMediaLoadingBlocked(params.arg_blocked);
+          const result = this.impl.setMediaLoadingBlocked(params.arg_arg_blocked);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackgroundVideoPlaybackEnabled');
-          const result = this.impl.setBackgroundVideoPlaybackEnabled(params.arg_enabled);
+          const result = this.impl.setBackgroundVideoPlaybackEnabled(params.arg_arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setRendererType');
-          const result = this.impl.setRendererType(params.arg_type);
+          const result = this.impl.setRendererType(params.arg_arg_type);
           break;
         }
       }
@@ -323,4 +305,24 @@ mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsReceiv
 
 mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsPtr = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRemote;
 mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsRequest = mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptionsPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetMediaLoadingBlocked_Params', [
+      mojo.internal.StructField('arg_blocked', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetBackgroundVideoPlaybackEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.components.media_control.mojom.MediaPlaybackOptions_SetRendererType_ParamsSpec, 'components.media_control.mojom.MediaPlaybackOptions_SetRendererType_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.content.mojom.RendererTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

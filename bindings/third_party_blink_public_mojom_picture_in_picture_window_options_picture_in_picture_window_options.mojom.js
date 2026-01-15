@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.PictureInPictureWindowOptionsSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PictureInPictureWindowOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.PictureInPictureWindowOptionsSpec, 'blink.mojom.PictureInPictureWindowOptions', [

@@ -151,51 +151,6 @@ mojo.internal.bindings.media.mojom.AudioLogComponent = {
 };
 
 // Interface: AudioLog
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec, 'media.mojom.AudioLog_OnCreated_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec, 'media.mojom.AudioLog_OnStarted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnStopped_ParamsSpec, 'media.mojom.AudioLog_OnStopped_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnClosed_ParamsSpec, 'media.mojom.AudioLog_OnClosed_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnError_ParamsSpec, 'media.mojom.AudioLog_OnError_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec, 'media.mojom.AudioLog_OnSetVolume_Params', [
-      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec, 'media.mojom.AudioLog_OnProcessingStateChanged_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec, 'media.mojom.AudioLog_OnLogMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.AudioLogPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -406,7 +361,7 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCreated');
-          const result = this.impl.onCreated(params.arg_params, params.arg_device_id);
+          const result = this.impl.onCreated(params.arg_arg_params, params.arg_arg_device_id);
           break;
         }
         case 1: {
@@ -441,21 +396,21 @@ mojo.internal.bindings.media.mojom.AudioLogReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSetVolume');
-          const result = this.impl.onSetVolume(params.arg_volume);
+          const result = this.impl.onSetVolume(params.arg_arg_volume);
           break;
         }
         case 6: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProcessingStateChanged');
-          const result = this.impl.onProcessingStateChanged(params.arg_message);
+          const result = this.impl.onProcessingStateChanged(params.arg_arg_message);
           break;
         }
         case 7: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onLogMessage');
-          const result = this.impl.onLogMessage(params.arg_message);
+          const result = this.impl.onLogMessage(params.arg_arg_message);
           break;
         }
       }
@@ -473,14 +428,6 @@ mojo.internal.bindings.media.mojom.AudioLogRequest = mojo.internal.bindings.medi
 
 
 // Interface: AudioLogFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
-      mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.media.mojom.AudioLogComponentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_component_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.AudioLogFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -593,7 +540,7 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioLog');
-          const result = this.impl.createAudioLog(params.arg_component, params.arg_component_id, params.arg_audio_log_receiver);
+          const result = this.impl.createAudioLog(params.arg_arg_component, params.arg_arg_component_id, params.arg_arg_audio_log_receiver);
           break;
         }
       }
@@ -608,4 +555,59 @@ mojo.internal.bindings.media.mojom.AudioLogFactoryReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.media.mojom.AudioLogFactoryPtr = mojo.internal.bindings.media.mojom.AudioLogFactoryRemote;
 mojo.internal.bindings.media.mojom.AudioLogFactoryRequest = mojo.internal.bindings.media.mojom.AudioLogFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnCreated_ParamsSpec, 'media.mojom.AudioLog_OnCreated_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.media.mojom.AudioParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnStarted_ParamsSpec, 'media.mojom.AudioLog_OnStarted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnStopped_ParamsSpec, 'media.mojom.AudioLog_OnStopped_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnClosed_ParamsSpec, 'media.mojom.AudioLog_OnClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnError_ParamsSpec, 'media.mojom.AudioLog_OnError_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnSetVolume_ParamsSpec, 'media.mojom.AudioLog_OnSetVolume_Params', [
+      mojo.internal.StructField('arg_volume', 0, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnProcessingStateChanged_ParamsSpec, 'media.mojom.AudioLog_OnProcessingStateChanged_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLog_OnLogMessage_ParamsSpec, 'media.mojom.AudioLog_OnLogMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.AudioLogFactory_CreateAudioLog_ParamsSpec, 'media.mojom.AudioLogFactory_CreateAudioLog_Params', [
+      mojo.internal.StructField('arg_component', 0, 0, mojo.internal.bindings.media.mojom.AudioLogComponentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_component_id', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_audio_log_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.AudioLogRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

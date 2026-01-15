@@ -133,12 +133,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: NewWindowProxy
-mojo.internal.Struct(
-    mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec, 'new_window_proxy.mojom.NewWindowProxy_OpenUrl_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -251,7 +245,7 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openUrl');
-          const result = this.impl.openUrl(params.arg_url);
+          const result = this.impl.openUrl(params.arg_arg_url);
           break;
         }
       }
@@ -266,4 +260,12 @@ mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyReceiver = mojo.inte
 
 mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyPtr = mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyRemote;
 mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyRequest = mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxyPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.new_window_proxy.mojom.NewWindowProxy_OpenUrl_ParamsSpec, 'new_window_proxy.mojom.NewWindowProxy_OpenUrl_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

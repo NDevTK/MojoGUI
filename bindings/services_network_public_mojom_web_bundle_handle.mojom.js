@@ -142,25 +142,6 @@ mojo.internal.bindings.network.mojom.WebBundleErrorType = {
 };
 
 // Interface: WebBundleHandle
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec, 'network.mojom.WebBundleHandle_Clone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebBundleHandleRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleError_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.WebBundleErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleLoadFinished_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.WebBundleHandlePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -301,21 +282,21 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_receiver);
+          const result = this.impl.clone(params.arg_arg_receiver);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebBundleError');
-          const result = this.impl.onWebBundleError(params.arg_type, params.arg_message);
+          const result = this.impl.onWebBundleError(params.arg_arg_type, params.arg_arg_message);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onWebBundleLoadFinished');
-          const result = this.impl.onWebBundleLoadFinished(params.arg_success);
+          const result = this.impl.onWebBundleLoadFinished(params.arg_arg_success);
           break;
         }
       }
@@ -330,4 +311,25 @@ mojo.internal.bindings.network.mojom.WebBundleHandleReceiver = mojo.internal.bin
 
 mojo.internal.bindings.network.mojom.WebBundleHandlePtr = mojo.internal.bindings.network.mojom.WebBundleHandleRemote;
 mojo.internal.bindings.network.mojom.WebBundleHandleRequest = mojo.internal.bindings.network.mojom.WebBundleHandlePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WebBundleHandle_Clone_ParamsSpec, 'network.mojom.WebBundleHandle_Clone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.network.mojom.WebBundleHandleRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleError_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleError_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.network.mojom.WebBundleErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_message', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.WebBundleHandle_OnWebBundleLoadFinished_ParamsSpec, 'network.mojom.WebBundleHandle_OnWebBundleLoadFinished_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

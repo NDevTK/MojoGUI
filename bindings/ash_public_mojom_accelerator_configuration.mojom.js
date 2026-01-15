@@ -142,3 +142,5 @@ mojo.internal.bindings.ash.mojom.AcceleratorConfigResult = {
   kNonStandardWithSearch: 14,
   kBlockQuickInsert: 15,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

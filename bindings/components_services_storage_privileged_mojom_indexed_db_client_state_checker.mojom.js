@@ -141,26 +141,6 @@ mojo.internal.bindings.storage.mojom.DisallowInactiveClientReason = {
 };
 
 // Interface: IndexedDBClientStateChecker
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_Params', [
-      mojo.internal.StructField('arg_connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.storage.mojom.DisallowInactiveClientReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_keep_active', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParams', [
-      mojo.internal.StructField('arg_was_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_MakeClone_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,12 +267,15 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.disallowInactiveClient');
-          const result = this.impl.disallowInactiveClient(params.arg_connection_id, params.arg_reason, params.arg_keep_active);
+          const result = this.impl.disallowInactiveClient(params.arg_arg_connection_id, params.arg_arg_reason, params.arg_arg_keep_active);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DisallowInactiveClient FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_was_active' in response) ? response.arg_arg_was_active : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] disallowInactiveClient FAILED:', e));
           }
           break;
         }
@@ -300,7 +283,7 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.makeClone');
-          const result = this.impl.makeClone(params.arg_receiver);
+          const result = this.impl.makeClone(params.arg_arg_receiver);
           break;
         }
       }
@@ -424,4 +407,26 @@ mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActiveReceiver = mojo.in
 
 mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActivePtr = mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActiveRemote;
 mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActiveRequest = mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActivePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_Params', [
+      mojo.internal.StructField('arg_connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_reason', 4, 0, mojo.internal.bindings.storage.mojom.DisallowInactiveClientReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_keep_active', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.IndexedDBClientKeepActiveRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_DisallowInactiveClient_ResponseParams', [
+      mojo.internal.StructField('arg_was_active', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.IndexedDBClientStateChecker_MakeClone_ParamsSpec, 'storage.mojom.IndexedDBClientStateChecker_MakeClone_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.IndexedDBClientStateCheckerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

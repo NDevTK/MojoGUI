@@ -146,21 +146,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.String16Spec = mojo.internal.bindings.mojo_base.mojom.String16Spec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: SearchResult
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec, 'ash.shortcut_customization.mojom.SearchResult', [
-      mojo.internal.StructField('arg_accelerator_layout_info', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accelerator_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: SearchResultsAvailabilityObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec, 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,25 +277,6 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilit
 
 
 // Interface: SearchHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -436,12 +403,15 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
-          const result = this.impl.search(params.arg_query, params.arg_max_num_results);
+          const result = this.impl.search(params.arg_arg_query, params.arg_arg_max_num_results);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Search FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
           break;
         }
@@ -449,7 +419,7 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerReceiver = 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addSearchResultsAvailabilityObserver');
-          const result = this.impl.addSearchResultsAvailabilityObserver(params.arg_observer);
+          const result = this.impl.addSearchResultsAvailabilityObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -464,4 +434,39 @@ mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerReceiver = 
 
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerPtr = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerRemote;
 mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerRequest = mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SearchResult
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec, 'ash.shortcut_customization.mojom.SearchResult', [
+      mojo.internal.StructField('arg_accelerator_layout_info', 0, 0, mojo.internal.bindings.ash.mojom.AcceleratorLayoutInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator_infos', 8, 0, mojo.internal.Array(mojo.internal.bindings.ash.mojom.AcceleratorInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance_score', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_ParamsSpec, 'ash.shortcut_customization.mojom.SearchResultsAvailabilityObserver_OnSearchResultsAvailabilityChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_num_results', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_Search_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_ParamsSpec, 'ash.shortcut_customization.mojom.SearchHandler_AddSearchResultsAvailabilityObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.shortcut_customization.mojom.SearchResultsAvailabilityObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

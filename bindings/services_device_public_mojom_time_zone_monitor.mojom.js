@@ -131,12 +131,6 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClient.$interfaceName = 'devi
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec = { $: {} };
 
 // Interface: TimeZoneMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec, 'device.mojom.TimeZoneMonitor_AddClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.TimeZoneMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -249,7 +243,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_client);
+          const result = this.impl.addClient(params.arg_arg_client);
           break;
         }
       }
@@ -267,12 +261,6 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorRequest = mojo.internal.bindi
 
 
 // Interface: TimeZoneMonitorClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec, 'device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_Params', [
-      mojo.internal.StructField('arg_tz_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -385,7 +373,7 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTimeZoneChange');
-          const result = this.impl.onTimeZoneChange(params.arg_tz_info);
+          const result = this.impl.onTimeZoneChange(params.arg_arg_tz_info);
           break;
         }
       }
@@ -400,4 +388,18 @@ mojo.internal.bindings.device.mojom.TimeZoneMonitorClientReceiver = mojo.interna
 
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClientPtr = mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemote;
 mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRequest = mojo.internal.bindings.device.mojom.TimeZoneMonitorClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.TimeZoneMonitor_AddClient_ParamsSpec, 'device.mojom.TimeZoneMonitor_AddClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.TimeZoneMonitorClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_ParamsSpec, 'device.mojom.TimeZoneMonitorClient_OnTimeZoneChange_Params', [
+      mojo.internal.StructField('arg_tz_info', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

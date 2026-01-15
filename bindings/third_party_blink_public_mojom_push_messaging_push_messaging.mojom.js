@@ -161,68 +161,7 @@ mojo.internal.bindings.blink.mojom.PushErrorType = {
   INVALID_STATE: 6,
 };
 
-// Struct: PushSubscriptionOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, 'blink.mojom.PushSubscriptionOptions', [
-      mojo.internal.StructField('arg_user_visible_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_application_server_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: PushSubscription
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, 'blink.mojom.PushSubscription', [
-      mojo.internal.StructField('arg_endpoint', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expirationTime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_p256dh', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_auth', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
 // Interface: PushMessaging
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec, 'blink.mojom.PushMessaging_Subscribe_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Subscribe_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PushRegistrationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_ResponseParams', [
-      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.blink.mojom.PushErrorTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_did_unsubscribe', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_Params', [
-      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PushGetRegistrationStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.PushMessagingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -363,12 +302,14 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.subscribe');
-          const result = this.impl.subscribe(params.arg_service_worker_registration_id, params.arg_options, params.arg_user_gesture);
+          const result = this.impl.subscribe(params.arg_arg_service_worker_registration_id, params.arg_arg_options, params.arg_arg_user_gesture);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Subscribe FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_subscription']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] subscribe FAILED:', e));
           }
           break;
         }
@@ -376,12 +317,14 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unsubscribe');
-          const result = this.impl.unsubscribe(params.arg_service_worker_registration_id);
+          const result = this.impl.unsubscribe(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Unsubscribe FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error_type', 'response.arg_arg_did_unsubscribe', 'response.arg_arg_error_message']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unsubscribe FAILED:', e));
           }
           break;
         }
@@ -389,12 +332,14 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSubscription');
-          const result = this.impl.getSubscription(params.arg_service_worker_registration_id);
+          const result = this.impl.getSubscription(params.arg_arg_service_worker_registration_id);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSubscription FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec.$.structSpec, ['response.arg_arg_status', 'response.arg_arg_subscription']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSubscription FAILED:', e));
           }
           break;
         }
@@ -410,4 +355,67 @@ mojo.internal.bindings.blink.mojom.PushMessagingReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.PushMessagingPtr = mojo.internal.bindings.blink.mojom.PushMessagingRemote;
 mojo.internal.bindings.blink.mojom.PushMessagingRequest = mojo.internal.bindings.blink.mojom.PushMessagingPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PushSubscriptionOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, 'blink.mojom.PushSubscriptionOptions', [
+      mojo.internal.StructField('arg_user_visible_only', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_application_server_key', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: PushSubscription
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, 'blink.mojom.PushSubscription', [
+      mojo.internal.StructField('arg_endpoint', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expirationTime', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_p256dh', 24, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_auth', 32, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ParamsSpec, 'blink.mojom.PushMessaging_Subscribe_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_gesture', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushMessaging_Subscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Subscribe_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PushRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushMessaging_Unsubscribe_ResponseParamsSpec, 'blink.mojom.PushMessaging_Unsubscribe_ResponseParams', [
+      mojo.internal.StructField('arg_error_type', 0, 0, mojo.internal.bindings.blink.mojom.PushErrorTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_did_unsubscribe', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error_message', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_Params', [
+      mojo.internal.StructField('arg_service_worker_registration_id', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PushMessaging_GetSubscription_ResponseParamsSpec, 'blink.mojom.PushMessaging_GetSubscription_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.PushGetRegistrationStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_subscription', 8, 0, mojo.internal.bindings.blink.mojom.PushSubscriptionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

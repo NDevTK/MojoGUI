@@ -141,20 +141,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebLaunchService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec, 'blink.mojom.WebLaunchService_SetLaunchFiles_Params', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec, 'blink.mojom.WebLaunchService_EnqueueLaunchParams_Params', [
-      mojo.internal.StructField('arg_launch_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_time_navigation_started_in_browser', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_started', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.blink.mojom.WebLaunchServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,14 +267,14 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setLaunchFiles');
-          const result = this.impl.setLaunchFiles(params.arg_files);
+          const result = this.impl.setLaunchFiles(params.arg_arg_files);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enqueueLaunchParams');
-          const result = this.impl.enqueueLaunchParams(params.arg_launch_url, params.arg_time_navigation_started_in_browser, params.arg_navigation_started);
+          const result = this.impl.enqueueLaunchParams(params.arg_arg_launch_url, params.arg_arg_time_navigation_started_in_browser, params.arg_arg_navigation_started);
           break;
         }
       }
@@ -303,4 +289,20 @@ mojo.internal.bindings.blink.mojom.WebLaunchServiceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.blink.mojom.WebLaunchServicePtr = mojo.internal.bindings.blink.mojom.WebLaunchServiceRemote;
 mojo.internal.bindings.blink.mojom.WebLaunchServiceRequest = mojo.internal.bindings.blink.mojom.WebLaunchServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebLaunchService_SetLaunchFiles_ParamsSpec, 'blink.mojom.WebLaunchService_SetLaunchFiles_Params', [
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileSystemAccessEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebLaunchService_EnqueueLaunchParams_ParamsSpec, 'blink.mojom.WebLaunchService_EnqueueLaunchParams_Params', [
+      mojo.internal.StructField('arg_launch_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_time_navigation_started_in_browser', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_started', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

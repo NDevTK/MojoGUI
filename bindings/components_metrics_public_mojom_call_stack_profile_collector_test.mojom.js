@@ -133,18 +133,6 @@ mojo.internal.bindings.metrics.mojom = mojo.internal.bindings.metrics.mojom || {
 mojo.internal.bindings.metrics.mojom.SampledProfileSpec = mojo.internal.bindings.metrics.mojom.SampledProfileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CallStackProfileCollectorTest
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,12 +245,15 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bounceSampledProfile');
-          const result = this.impl.bounceSampledProfile(params.arg_in);
+          const result = this.impl.bounceSampledProfile(params.arg_arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] BounceSampledProfile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] bounceSampledProfile FAILED:', e));
           }
           break;
         }
@@ -278,4 +269,18 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestReceiver = moj
 
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestPtr = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestRemote;
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestRequest = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_Params', [
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParamsSpec, 'metrics.mojom.CallStackProfileCollectorTest_BounceSampledProfile_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

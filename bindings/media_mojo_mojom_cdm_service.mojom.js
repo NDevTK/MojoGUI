@@ -156,13 +156,6 @@ mojo.internal.bindings.sandbox.mac.mojom = mojo.internal.bindings.sandbox.mac.mo
 mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec = mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CdmService
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec, 'media.mojom.CdmService_CreateCdmFactory_Params', [
-      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.media.mojom.CdmServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,7 +268,7 @@ mojo.internal.bindings.media.mojom.CdmServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createCdmFactory');
-          const result = this.impl.createCdmFactory(params.arg_factory, params.arg_frame_interfaces);
+          const result = this.impl.createCdmFactory(params.arg_arg_factory, params.arg_arg_frame_interfaces);
           break;
         }
       }
@@ -293,17 +286,6 @@ mojo.internal.bindings.media.mojom.CdmServiceRequest = mojo.internal.bindings.me
 
 
 // Interface: SeatbeltExtensionTokenProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
-      mojo.internal.StructField('arg_tokens', 0, 0, mojo.internal.Array(mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,8 +402,11 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderReceiver = clas
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetTokens FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_tokens' in response) ? response.arg_arg_tokens : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getTokens FAILED:', e));
           }
           break;
         }
@@ -440,14 +425,6 @@ mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRequest = mojo.
 
 
 // Interface: CdmServiceBroker
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
-      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.media.mojom.CdmServiceBrokerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -560,7 +537,7 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getService');
-          const result = this.impl.getService(params.arg_cdm_path, params.arg_token_provider, params.arg_receiver);
+          const result = this.impl.getService(params.arg_arg_cdm_path, params.arg_arg_token_provider, params.arg_arg_receiver);
           break;
         }
       }
@@ -575,4 +552,32 @@ mojo.internal.bindings.media.mojom.CdmServiceBrokerReceiver = mojo.internal.bind
 
 mojo.internal.bindings.media.mojom.CdmServiceBrokerPtr = mojo.internal.bindings.media.mojom.CdmServiceBrokerRemote;
 mojo.internal.bindings.media.mojom.CdmServiceBrokerRequest = mojo.internal.bindings.media.mojom.CdmServiceBrokerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmService_CreateCdmFactory_ParamsSpec, 'media.mojom.CdmService_CreateCdmFactory_Params', [
+      mojo.internal.StructField('arg_factory', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_interfaces', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.FrameInterfaceFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParamsSpec, 'media.mojom.SeatbeltExtensionTokenProvider_GetTokens_ResponseParams', [
+      mojo.internal.StructField('arg_tokens', 0, 0, mojo.internal.Array(mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmServiceBroker_GetService_ParamsSpec, 'media.mojom.CdmServiceBroker_GetService_Params', [
+      mojo.internal.StructField('arg_cdm_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token_provider', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.SeatbeltExtensionTokenProviderRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.CdmServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

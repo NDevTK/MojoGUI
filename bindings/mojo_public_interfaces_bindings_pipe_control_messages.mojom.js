@@ -135,6 +135,8 @@ mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec = mojo.internal
 
 mojo.internal.bindings.mojo.pipe_control.kRunOrClosePipeMessageId = 0xFFFFFFFE;
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: RunOrClosePipeInput
 mojo.internal.Union(
     mojo.internal.bindings.mojo.pipe_control.RunOrClosePipeInputSpec, 'mojo.pipe_control.RunOrClosePipeInput', {

@@ -136,3 +136,5 @@ mojo.internal.bindings.content.mojom.ScrollerStyle = {
 // Enum: NetworkConnectionType
 mojo.internal.bindings.content.mojom.NetworkConnectionType = {
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

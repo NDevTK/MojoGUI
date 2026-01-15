@@ -131,11 +131,6 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporter.$interfaceName = 'viz.m
 mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec = { $: {} };
 
 // Interface: CompositingModeWatcher
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec, 'viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.viz.mojom.CompositingModeWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,12 +261,6 @@ mojo.internal.bindings.viz.mojom.CompositingModeWatcherRequest = mojo.internal.b
 
 
 // Interface: CompositingModeReporter
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec, 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params', [
-      mojo.internal.StructField('arg_watcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.CompositingModeReporterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -384,7 +373,7 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addCompositingModeWatcher');
-          const result = this.impl.addCompositingModeWatcher(params.arg_watcher);
+          const result = this.impl.addCompositingModeWatcher(params.arg_arg_watcher);
           break;
         }
       }
@@ -399,4 +388,17 @@ mojo.internal.bindings.viz.mojom.CompositingModeReporterReceiver = mojo.internal
 
 mojo.internal.bindings.viz.mojom.CompositingModeReporterPtr = mojo.internal.bindings.viz.mojom.CompositingModeReporterRemote;
 mojo.internal.bindings.viz.mojom.CompositingModeReporterRequest = mojo.internal.bindings.viz.mojom.CompositingModeReporterPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_ParamsSpec, 'viz.mojom.CompositingModeWatcher_CompositingModeFallbackToSoftware_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_ParamsSpec, 'viz.mojom.CompositingModeReporter_AddCompositingModeWatcher_Params', [
+      mojo.internal.StructField('arg_watcher', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.viz.mojom.CompositingModeWatcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

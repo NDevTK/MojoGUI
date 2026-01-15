@@ -130,6 +130,8 @@ mojo.internal.bindings.signin.mojom.AccountType = {
   GOOGLE: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AccountId
 mojo.internal.Struct(
     mojo.internal.bindings.signin.mojom.AccountIdSpec, 'signin.mojom.AccountId', [

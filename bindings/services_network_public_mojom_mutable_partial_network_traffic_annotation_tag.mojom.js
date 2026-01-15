@@ -123,6 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: MutablePartialNetworkTrafficAnnotationTag
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.MutablePartialNetworkTrafficAnnotationTagSpec, 'network.mojom.MutablePartialNetworkTrafficAnnotationTag', [

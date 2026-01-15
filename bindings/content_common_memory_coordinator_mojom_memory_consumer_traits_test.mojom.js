@@ -133,18 +133,6 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec = mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MemoryConsumerTraitsTest
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params', [
-      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParams', [
-      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,12 +245,15 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.echoMemoryConsumerTraits');
-          const result = this.impl.echoMemoryConsumerTraits(params.arg_in);
+          const result = this.impl.echoMemoryConsumerTraits(params.arg_arg_in);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EchoMemoryConsumerTraits FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_out' in response) ? response.arg_arg_out : response;
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] echoMemoryConsumerTraits FAILED:', e));
           }
           break;
         }
@@ -278,4 +269,18 @@ mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestReceiver = mojo.int
 
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestPtr = mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestRemote;
 mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestRequest = mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTestPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_Params', [
+      mojo.internal.StructField('arg_in', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParamsSpec, 'content.mojom.MemoryConsumerTraitsTest_EchoMemoryConsumerTraits_ResponseParams', [
+      mojo.internal.StructField('arg_out', 0, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

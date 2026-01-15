@@ -233,3 +233,5 @@ mojo.internal.bindings.network.mojom.SocketConnectionTrackerReceiver = mojo.inte
 mojo.internal.bindings.network.mojom.SocketConnectionTrackerPtr = mojo.internal.bindings.network.mojom.SocketConnectionTrackerRemote;
 mojo.internal.bindings.network.mojom.SocketConnectionTrackerRequest = mojo.internal.bindings.network.mojom.SocketConnectionTrackerPendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -124,6 +124,8 @@ mojo.internal.bindings.ash.annotator.mojom = mojo.internal.bindings.ash.annotato
 
 mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AnnotatorTool
 mojo.internal.Struct(
     mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec, 'ash.annotator.mojom.AnnotatorTool', [

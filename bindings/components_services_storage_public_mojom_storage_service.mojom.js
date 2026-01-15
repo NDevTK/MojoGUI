@@ -154,38 +154,6 @@ mojo.internal.bindings.storage.mojom.kStorageSandbox = mojo.internal.bindings.sa
 mojo.internal.bindings.storage.mojom.kStorageSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Interface: StorageService
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec, 'storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec, 'storage.mojom.StorageService_SetDataDirectory_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindSessionStorageControl_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.SessionStorageControlRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindLocalStorageControl_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.LocalStorageControlRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec, 'storage.mojom.StorageService_BindTestApi_Params', [
-      mojo.internal.StructField('arg_test_api_receiver', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.storage.mojom.StorageServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -361,28 +329,28 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setDataDirectory');
-          const result = this.impl.setDataDirectory(params.arg_path, params.arg_directory);
+          const result = this.impl.setDataDirectory(params.arg_arg_path, params.arg_arg_directory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindSessionStorageControl');
-          const result = this.impl.bindSessionStorageControl(params.arg_path, params.arg_receiver);
+          const result = this.impl.bindSessionStorageControl(params.arg_arg_path, params.arg_arg_receiver);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindLocalStorageControl');
-          const result = this.impl.bindLocalStorageControl(params.arg_path, params.arg_receiver);
+          const result = this.impl.bindLocalStorageControl(params.arg_arg_path, params.arg_arg_receiver);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindTestApi');
-          const result = this.impl.bindTestApi(params.arg_test_api_receiver);
+          const result = this.impl.bindTestApi(params.arg_arg_test_api_receiver);
           break;
         }
       }
@@ -397,4 +365,38 @@ mojo.internal.bindings.storage.mojom.StorageServiceReceiver = mojo.internal.bind
 
 mojo.internal.bindings.storage.mojom.StorageServicePtr = mojo.internal.bindings.storage.mojom.StorageServiceRemote;
 mojo.internal.bindings.storage.mojom.StorageServiceRequest = mojo.internal.bindings.storage.mojom.StorageServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_ParamsSpec, 'storage.mojom.StorageService_EnableAggressiveDomStorageFlushing_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.StorageService_SetDataDirectory_ParamsSpec, 'storage.mojom.StorageService_SetDataDirectory_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_directory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.StorageService_BindSessionStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindSessionStorageControl_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.SessionStorageControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.StorageService_BindLocalStorageControl_ParamsSpec, 'storage.mojom.StorageService_BindLocalStorageControl_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_receiver', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.LocalStorageControlRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.StorageService_BindTestApi_ParamsSpec, 'storage.mojom.StorageService_BindTestApi_Params', [
+      mojo.internal.StructField('arg_test_api_receiver', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

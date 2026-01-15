@@ -185,105 +185,7 @@ mojo.internal.bindings.blink.mojom.CustomContextMenuItemType = {
   kSubMenu: 4,
 };
 
-// Struct: Accelerator
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AcceleratorSpec, 'blink.mojom.Accelerator', [
-      mojo.internal.StructField('arg_key_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FormRendererId
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FormRendererIdSpec, 'blink.mojom.FormRendererId', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FieldRendererId
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FieldRendererIdSpec, 'blink.mojom.FieldRendererId', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: CustomContextMenuItem
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, 'blink.mojom.CustomContextMenuItem', [
-      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_accelerator', 8, 0, mojo.internal.bindings.blink.mojom.AcceleratorSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_tool_tip', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_action', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_feature_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_experimental_feature', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_rtl', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_directional_override', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_enabled', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_checked', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_force_show_accelerator_for_item', 48, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_submenu', 56, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 72]]);
-
-// Struct: UntrustworthyContextMenuParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec, 'blink.mojom.UntrustworthyContextMenuParams', [
-      mojo.internal.StructField('arg_media_type', 0, 0, mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_has_image_contents', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_image_media_plugin_document', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_spellcheck_enabled', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_editable', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_opened_from_interest_for', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_content_editable_for_autofill', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_link_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_link_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_impression', 32, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_unfiltered_link_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_src_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_media_flags', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_writing_direction_default', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_text', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title_text', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alt_text', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suggested_filename', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_misspelled_word', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_dictionary_suggestions', 104, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_writing_direction_left_to_right', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_writing_direction_right_to_left', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_edit_flags', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer_policy', 124, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_charset', 128, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_link_followed', 136, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_custom_items', 144, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_type', 152, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_start_offset', 156, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_selection_rect', 160, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_annotation_type', 168, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_interest_for_node_id', 172, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_form_control_type', 176, 0, mojo.internal.bindings.blink.mojom.FormControlTypeSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_field_renderer_id', 184, 0, mojo.internal.bindings.blink.mojom.FieldRendererIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_form_renderer_id', 192, 0, mojo.internal.bindings.blink.mojom.FormRendererIdSpec, null, false, 0, undefined),
-    ],
-    [[0, 208]]);
-
 // Interface: ContextMenuClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec, 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params', [
-      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec, 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params', [
-      mojo.internal.StructField('arg_link_followed', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_impression', 8, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.ContextMenuClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -410,14 +312,14 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.customContextMenuAction');
-          const result = this.impl.customContextMenuAction(params.arg_action);
+          const result = this.impl.customContextMenuAction(params.arg_arg_action);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.contextMenuClosed');
-          const result = this.impl.contextMenuClosed(params.arg_link_followed, params.arg_impression);
+          const result = this.impl.contextMenuClosed(params.arg_arg_link_followed, params.arg_arg_impression);
           break;
         }
       }
@@ -432,4 +334,104 @@ mojo.internal.bindings.blink.mojom.ContextMenuClientReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.ContextMenuClientPtr = mojo.internal.bindings.blink.mojom.ContextMenuClientRemote;
 mojo.internal.bindings.blink.mojom.ContextMenuClientRequest = mojo.internal.bindings.blink.mojom.ContextMenuClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Accelerator
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AcceleratorSpec, 'blink.mojom.Accelerator', [
+      mojo.internal.StructField('arg_key_code', 0, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FormRendererId
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FormRendererIdSpec, 'blink.mojom.FormRendererId', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FieldRendererId
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FieldRendererIdSpec, 'blink.mojom.FieldRendererId', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: CustomContextMenuItem
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, 'blink.mojom.CustomContextMenuItem', [
+      mojo.internal.StructField('arg_label', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_accelerator', 8, 0, mojo.internal.bindings.blink.mojom.AcceleratorSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_tool_tip', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 32, 0, mojo.internal.bindings.blink.mojom.CustomContextMenuItemTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_action', 36, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_feature_name', 40, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_experimental_feature', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_rtl', 48, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_directional_override', 48, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_enabled', 48, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_checked', 48, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_force_show_accelerator_for_item', 48, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_submenu', 56, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 72]]);
+
+// Struct: UntrustworthyContextMenuParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.UntrustworthyContextMenuParamsSpec, 'blink.mojom.UntrustworthyContextMenuParams', [
+      mojo.internal.StructField('arg_media_type', 0, 0, mojo.internal.bindings.blink.mojom.ContextMenuDataMediaTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_x', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_y', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_has_image_contents', 12, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_image_media_plugin_document', 12, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_spellcheck_enabled', 12, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_editable', 12, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_opened_from_interest_for', 12, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_content_editable_for_autofill', 12, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_link_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_link_text', 24, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_impression', 32, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unfiltered_link_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_src_url', 48, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_media_flags', 56, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction_default', 60, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_text', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_text', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alt_text', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suggested_filename', 88, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_misspelled_word', 96, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_dictionary_suggestions', 104, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction_left_to_right', 112, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_writing_direction_right_to_left', 116, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_edit_flags', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer_policy', 124, 0, mojo.internal.bindings.network.mojom.ReferrerPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_charset', 128, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_link_followed', 136, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_custom_items', 144, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.CustomContextMenuItemSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_type', 152, 0, mojo.internal.bindings.ui.mojom.MenuSourceTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_start_offset', 156, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_selection_rect', 160, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_annotation_type', 168, 0, mojo.internal.bindings.blink.mojom.AnnotationTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_interest_for_node_id', 172, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_form_control_type', 176, 0, mojo.internal.bindings.blink.mojom.FormControlTypeSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_field_renderer_id', 184, 0, mojo.internal.bindings.blink.mojom.FieldRendererIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_form_renderer_id', 192, 0, mojo.internal.bindings.blink.mojom.FormRendererIdSpec, null, false, 0, undefined),
+    ],
+    [[0, 208]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContextMenuClient_CustomContextMenuAction_ParamsSpec, 'blink.mojom.ContextMenuClient_CustomContextMenuAction_Params', [
+      mojo.internal.StructField('arg_action', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ContextMenuClient_ContextMenuClosed_ParamsSpec, 'blink.mojom.ContextMenuClient_ContextMenuClosed_Params', [
+      mojo.internal.StructField('arg_link_followed', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_impression', 8, 0, mojo.internal.bindings.blink.mojom.ImpressionSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -133,18 +133,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec = mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: SharedWorker
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec, 'blink.mojom.SharedWorker_Connect_Params', [
-      mojo.internal.StructField('arg_connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_message_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.SharedWorker_Terminate_ParamsSpec, 'blink.mojom.SharedWorker_Terminate_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.SharedWorkerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,7 +259,7 @@ mojo.internal.bindings.blink.mojom.SharedWorkerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_connection_id, params.arg_message_port);
+          const result = this.impl.connect(params.arg_arg_connection_id, params.arg_arg_message_port);
           break;
         }
         case 1: {
@@ -293,4 +281,18 @@ mojo.internal.bindings.blink.mojom.SharedWorkerReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.blink.mojom.SharedWorkerPtr = mojo.internal.bindings.blink.mojom.SharedWorkerRemote;
 mojo.internal.bindings.blink.mojom.SharedWorkerRequest = mojo.internal.bindings.blink.mojom.SharedWorkerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SharedWorker_Connect_ParamsSpec, 'blink.mojom.SharedWorker_Connect_Params', [
+      mojo.internal.StructField('arg_connection_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_message_port', 8, 0, mojo.internal.bindings.blink.mojom.MessagePortDescriptorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.SharedWorker_Terminate_ParamsSpec, 'blink.mojom.SharedWorker_Terminate_Params', [
+    ],
+    [[0, 8]]);
 

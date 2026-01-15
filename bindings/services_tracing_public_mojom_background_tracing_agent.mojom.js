@@ -137,28 +137,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderSpec = { $ : 
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider.$interfaceName = 'tracing.mojom.BackgroundTracingAgentProvider';
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec = { $: {} };
 
-// Struct: BackgroundTracingRule
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, 'tracing.mojom.BackgroundTracingRule', [
-      mojo.internal.StructField('arg_rule_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: BackgroundTracingAgentClient
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnInitialized_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [
-      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_value_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_histogram_value_$value', originalFieldName: 'arg_histogram_value' }),
-      mojo.internal.StructField('arg_histogram_value_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_histogram_value_$flag', originalFieldName: 'arg_histogram_value' }),
-      mojo.internal.StructField('arg_flow_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -292,7 +271,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTriggerBackgroundTrace');
-          const result = this.impl.onTriggerBackgroundTrace(params.arg_rule, params.arg_histogram_value, params.arg_flow_id);
+          const result = this.impl.onTriggerBackgroundTrace(params.arg_arg_rule, params.arg_arg_histogram_value, params.arg_arg_flow_id);
           break;
         }
       }
@@ -310,21 +289,6 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRequest = mojo.
 
 
 // Interface: BackgroundTracingAgent
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_SetUMACallback_Params', [
-      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_lower_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_histogram_upper_value', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_ClearUMACallback_Params', [
-      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -451,14 +415,14 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUMACallback');
-          const result = this.impl.setUMACallback(params.arg_rule, params.arg_histogram_name, params.arg_histogram_lower_value, params.arg_histogram_upper_value);
+          const result = this.impl.setUMACallback(params.arg_arg_rule, params.arg_arg_histogram_name, params.arg_arg_histogram_lower_value, params.arg_arg_histogram_upper_value);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clearUMACallback');
-          const result = this.impl.clearUMACallback(params.arg_rule);
+          const result = this.impl.clearUMACallback(params.arg_arg_rule);
           break;
         }
       }
@@ -476,14 +440,6 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRequest = mojo.intern
 
 
 // Interface: BackgroundTracingAgentProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params', [
-      mojo.internal.StructField('arg_tracing_process_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_agent', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -596,7 +552,7 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_tracing_process_id, params.arg_client, params.arg_agent);
+          const result = this.impl.create(params.arg_arg_tracing_process_id, params.arg_arg_client, params.arg_arg_agent);
           break;
         }
       }
@@ -611,4 +567,50 @@ mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderReceiver = mo
 
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderPtr = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRemote;
 mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderRequest = mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: BackgroundTracingRule
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, 'tracing.mojom.BackgroundTracingRule', [
+      mojo.internal.StructField('arg_rule_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnInitialized_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnInitialized_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentClient_OnTriggerBackgroundTrace_Params', [
+      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_histogram_value_$flag', 8, 0, mojo.internal.Bool, false, false, 0, { isPrimary: true, linkedValueFieldName: 'arg_histogram_value_$value', originalFieldName: 'arg_histogram_value' }),
+      mojo.internal.StructField('arg_histogram_value_$value', 12, 0, mojo.internal.Int32, 0, false, 0, { isPrimary: false, linkedValueFieldName: 'arg_histogram_value_$flag', originalFieldName: 'arg_histogram_value' }),
+      mojo.internal.StructField('arg_flow_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_SetUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_SetUMACallback_Params', [
+      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_histogram_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_histogram_lower_value', 16, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_histogram_upper_value', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgent_ClearUMACallback_ParamsSpec, 'tracing.mojom.BackgroundTracingAgent_ClearUMACallback_Params', [
+      mojo.internal.StructField('arg_rule', 0, 0, mojo.internal.bindings.tracing.mojom.BackgroundTracingRuleSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentProvider_Create_ParamsSpec, 'tracing.mojom.BackgroundTracingAgentProvider_Create_Params', [
+      mojo.internal.StructField('arg_tracing_process_id', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_agent', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.tracing.mojom.BackgroundTracingAgentRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

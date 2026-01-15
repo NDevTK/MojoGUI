@@ -141,6 +141,8 @@ mojo.internal.bindings.blink.mojom.AdSignals = {
   kUserAdInterests: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AdProperties
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AdPropertiesSpec, 'blink.mojom.AdProperties', [

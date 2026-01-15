@@ -152,45 +152,6 @@ mojo.internal.bindings.mirroring.mojom.SessionError = {
 };
 
 // Interface: SessionObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec, 'mirroring.mojom.SessionObserver_OnError_Params', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionErrorSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStart_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStart_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStop_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStop_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogInfoMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogErrorMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnSourceChanged_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnRemotingStateChanged_Params', [
-      mojo.internal.StructField('arg_is_remoting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mirroring.mojom.SessionObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -387,7 +348,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onError');
-          const result = this.impl.onError(params.arg_error);
+          const result = this.impl.onError(params.arg_arg_error);
           break;
         }
         case 1: {
@@ -408,14 +369,14 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logInfoMessage');
-          const result = this.impl.logInfoMessage(params.arg_message);
+          const result = this.impl.logInfoMessage(params.arg_arg_message);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.logErrorMessage');
-          const result = this.impl.logErrorMessage(params.arg_message);
+          const result = this.impl.logErrorMessage(params.arg_arg_message);
           break;
         }
         case 5: {
@@ -429,7 +390,7 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotingStateChanged');
-          const result = this.impl.onRemotingStateChanged(params.arg_is_remoting);
+          const result = this.impl.onRemotingStateChanged(params.arg_arg_is_remoting);
           break;
         }
       }
@@ -444,4 +405,45 @@ mojo.internal.bindings.mirroring.mojom.SessionObserverReceiver = mojo.internal.b
 
 mojo.internal.bindings.mirroring.mojom.SessionObserverPtr = mojo.internal.bindings.mirroring.mojom.SessionObserverRemote;
 mojo.internal.bindings.mirroring.mojom.SessionObserverRequest = mojo.internal.bindings.mirroring.mojom.SessionObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_OnError_ParamsSpec, 'mirroring.mojom.SessionObserver_OnError_Params', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionErrorSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStart_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStart_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_DidStop_ParamsSpec, 'mirroring.mojom.SessionObserver_DidStop_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_LogInfoMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogInfoMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_LogErrorMessage_ParamsSpec, 'mirroring.mojom.SessionObserver_LogErrorMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_OnSourceChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnSourceChanged_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.SessionObserver_OnRemotingStateChanged_ParamsSpec, 'mirroring.mojom.SessionObserver_OnRemotingStateChanged_Params', [
+      mojo.internal.StructField('arg_is_remoting', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

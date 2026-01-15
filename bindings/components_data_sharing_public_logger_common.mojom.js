@@ -131,3 +131,5 @@ mojo.internal.bindings.logger_common.mojom.LogSource = {
   TabGroupSyncService: 3,
   UI: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

@@ -166,3 +166,5 @@ mojo.internal.bindings.attribution_reporting.mojom.DebugDataType = {
   kSourceMaxEventStatesLimit: 39,
   kTriggerAggregateInsufficientNamedBudget: 40,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

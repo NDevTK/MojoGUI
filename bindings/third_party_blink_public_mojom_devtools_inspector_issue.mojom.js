@@ -396,6 +396,8 @@ mojo.internal.bindings.blink.mojom.UserReidentificationIssueType = {
   kNoisedCanvasReadback: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AffectedCookie
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AffectedCookieSpec, 'blink.mojom.AffectedCookie', [

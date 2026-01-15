@@ -307,6 +307,147 @@ mojo.internal.bindings.blink.mojom.AIPageContentMode = {
   kActionableElements: 1,
 };
 
+// Interface: AIPageContentAgent
+mojo.internal.bindings.blink.mojom.AIPageContentAgentPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.blink.mojom.AIPageContentAgentRemote = class {
+  static get $interfaceName() {
+    return 'blink.mojom.AIPageContentAgent';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.blink.mojom.AIPageContentAgentPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.blink.mojom.AIPageContentAgentRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  getAIPageContent(arg_request) {
+    return this.$.getAIPageContent(arg_request);
+  }
+};
+
+mojo.internal.bindings.blink.mojom.AIPageContentAgentRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIPageContentAgent', [
+      { explicit: null },
+    ]);
+  }
+
+  getAIPageContent(arg_request) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
+      mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
+      [arg_request],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.blink.mojom.AIPageContentAgent.getRemote = function() {
+  let remote = new mojo.internal.bindings.blink.mojom.AIPageContentAgentRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'blink.mojom.AIPageContentAgent',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIPageContentAgent', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.getAIPageContent');
+          const result = this.impl.getAIPageContent(params.arg_arg_request);
+          const expectsResponse = header.expectsResponse || (header.flags & 1);
+          if (expectsResponse) {
+            Promise.resolve(result).then(response => {
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_page_content' in response) ? response.arg_arg_page_content : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getAIPageContent FAILED:', e));
+          }
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver = mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver;
+
+mojo.internal.bindings.blink.mojom.AIPageContentAgentPtr = mojo.internal.bindings.blink.mojom.AIPageContentAgentRemote;
+mojo.internal.bindings.blink.mojom.AIPageContentAgentRequest = mojo.internal.bindings.blink.mojom.AIPageContentAgentPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: AIPageContentIframeContent
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.AIPageContentIframeContentSpec, 'blink.mojom.AIPageContentIframeContent', {
@@ -586,8 +727,6 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_main_frame_view_rect_in_dips', 16, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
     ],
     [[0, 32]]);
-
-// Interface: AIPageContentAgent
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec, 'blink.mojom.AIPageContentAgent_GetAIPageContent_Params', [
       mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.blink.mojom.AIPageContentOptionsSpec, null, false, 0, undefined),
@@ -599,138 +738,4 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_page_content', 0, 0, mojo.internal.bindings.blink.mojom.AIPageContentSpec, null, true, 0, undefined),
     ],
     [[0, 16]]);
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgentPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgentRemote = class {
-  static get $interfaceName() {
-    return 'blink.mojom.AIPageContentAgent';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.blink.mojom.AIPageContentAgentPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.blink.mojom.AIPageContentAgentRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  getAIPageContent(arg_request) {
-    return this.$.getAIPageContent(arg_request);
-  }
-};
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgentRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIPageContentAgent', [
-      { explicit: null },
-    ]);
-  }
-
-  getAIPageContent(arg_request) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec,
-      mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec,
-      [arg_request],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgent.getRemote = function() {
-  let remote = new mojo.internal.bindings.blink.mojom.AIPageContentAgentRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'blink.mojom.AIPageContentAgent',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('blink.mojom.AIPageContentAgent', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.getAIPageContent');
-          const result = this.impl.getAIPageContent(params.arg_request);
-          const expectsResponse = header.expectsResponse || (header.flags & 1);
-          if (expectsResponse) {
-            Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.AIPageContentAgent_GetAIPageContent_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetAIPageContent FAILED:', e));
-          }
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver = mojo.internal.bindings.blink.mojom.AIPageContentAgentReceiver;
-
-mojo.internal.bindings.blink.mojom.AIPageContentAgentPtr = mojo.internal.bindings.blink.mojom.AIPageContentAgentRemote;
-mojo.internal.bindings.blink.mojom.AIPageContentAgentRequest = mojo.internal.bindings.blink.mojom.AIPageContentAgentPendingReceiver;
 

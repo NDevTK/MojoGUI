@@ -139,18 +139,6 @@ mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorSpec = mojo.i
 mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote = mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote || class {};
 
 // Interface: JpegAcceleratorProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jea', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_Params', [
-      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,14 +265,14 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getJpegEncodeAccelerator');
-          const result = this.impl.getJpegEncodeAccelerator(params.arg_jea);
+          const result = this.impl.getJpegEncodeAccelerator(params.arg_arg_jea);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getMjpegDecodeAccelerator');
-          const result = this.impl.getMjpegDecodeAccelerator(params.arg_jda);
+          const result = this.impl.getMjpegDecodeAccelerator(params.arg_arg_jda);
           break;
         }
       }
@@ -299,4 +287,18 @@ mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderReceiver = mojo.interna
 
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderPtr = mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRemote;
 mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderRequest = mojo.internal.bindings.cros.mojom.JpegAcceleratorProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetJpegEncodeAccelerator_Params', [
+      mojo.internal.StructField('arg_jea', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.JpegEncodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_ParamsSpec, 'cros.mojom.JpegAcceleratorProvider_GetMjpegDecodeAccelerator_Params', [
+      mojo.internal.StructField('arg_jda', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos_camera.mojom.MjpegDecodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

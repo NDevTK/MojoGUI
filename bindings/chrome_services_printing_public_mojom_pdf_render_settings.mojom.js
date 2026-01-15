@@ -146,6 +146,8 @@ mojo.internal.bindings.printing.mojom.Mode = {
   POSTSCRIPT_LEVEL3_WITH_TYPE42_FONTS: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PdfRenderSettings
 mojo.internal.Struct(
     mojo.internal.bindings.printing.mojom.PdfRenderSettingsSpec, 'printing.mojom.PdfRenderSettings', [

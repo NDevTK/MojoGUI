@@ -123,6 +123,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 
 mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: HttpRawHeaderPair
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.HttpRawHeaderPairSpec, 'network.mojom.HttpRawHeaderPair', [

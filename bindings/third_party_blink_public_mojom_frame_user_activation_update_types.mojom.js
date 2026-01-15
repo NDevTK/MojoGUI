@@ -130,3 +130,5 @@ mojo.internal.bindings.blink.mojom.UserActivationUpdateType = {
   kConsumeTransientActivation: 2,
   kClearActivation: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

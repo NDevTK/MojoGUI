@@ -128,31 +128,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsum
 mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec = { $: {} };
 mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec = { $: {} };
 
-// Struct: AudioConsumerRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.AudioConsumerRequestSpec, 'mojom.AudioConsumerRequest', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: WebEngineMediaResourceProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec, 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojom.AudioConsumerRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.mojom.WebEngineMediaResourceProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -283,8 +259,11 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShouldUseAudioConsumer FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shouldUseAudioConsumer FAILED:', e));
           }
           break;
         }
@@ -292,7 +271,7 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createAudioConsumer');
-          const result = this.impl.createAudioConsumer(params.arg_request);
+          const result = this.impl.createAudioConsumer(params.arg_arg_request);
           break;
         }
       }
@@ -307,4 +286,30 @@ mojo.internal.bindings.mojom.WebEngineMediaResourceProviderReceiver = mojo.inter
 
 mojo.internal.bindings.mojom.WebEngineMediaResourceProviderPtr = mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRemote;
 mojo.internal.bindings.mojom.WebEngineMediaResourceProviderRequest = mojo.internal.bindings.mojom.WebEngineMediaResourceProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AudioConsumerRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.AudioConsumerRequestSpec, 'mojom.AudioConsumerRequest', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.OpaqueStruct, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParamsSpec, 'mojom.WebEngineMediaResourceProvider_ShouldUseAudioConsumer_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_ParamsSpec, 'mojom.WebEngineMediaResourceProvider_CreateAudioConsumer_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.mojom.AudioConsumerRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

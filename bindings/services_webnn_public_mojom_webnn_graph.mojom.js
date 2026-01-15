@@ -348,6 +348,138 @@ mojo.internal.bindings.webnn.mojom.InterpolationMode = {
   kLinear: 1,
 };
 
+// Interface: WebNNGraph
+mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver = class {
+  constructor(handle) {
+    this.handle = handle;
+  }
+};
+
+mojo.internal.bindings.webnn.mojom.WebNNGraphRemote = class {
+  static get $interfaceName() {
+    return 'webnn.mojom.WebNNGraph';
+  }
+
+  constructor(handle = undefined) {
+    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
+      mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver,
+      handle);
+    this.$ = new mojo.internal.bindings.webnn.mojom.WebNNGraphRemoteCallHandler(this.proxy);
+  }
+
+  bindNewPipeAndPassReceiver() {
+    return this.proxy.bindNewPipeAndPassReceiver();
+  }
+
+  close() {
+    this.proxy.close();
+  }
+  dispatch(arg_named_inputs, arg_named_outputs) {
+    return this.$.dispatch(arg_named_inputs, arg_named_outputs);
+  }
+};
+
+mojo.internal.bindings.webnn.mojom.WebNNGraphRemoteCallHandler = class {
+  constructor(proxy) {
+    this.proxy = proxy;
+    this.ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraph', [
+      { explicit: null },
+    ]);
+  }
+
+  dispatch(arg_named_inputs, arg_named_outputs) {
+    return this.proxy.sendMessage(
+      this.ordinals[0],  // ordinal
+      mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
+      null,
+      [arg_named_inputs, arg_named_outputs],
+      false);
+  }
+
+};
+
+mojo.internal.bindings.webnn.mojom.WebNNGraph.getRemote = function() {
+  let remote = new mojo.internal.bindings.webnn.mojom.WebNNGraphRemote();
+  let receiver = remote.bindNewPipeAndPassReceiver();
+  mojo.internal.interfaceSupport.bind(
+    receiver.handle,
+    'webnn.mojom.WebNNGraph',
+    'context');
+  return remote.$;
+};
+
+mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver = class {
+  constructor(impl) {
+    this.impl = impl;
+    this.endpoint = null;
+    this.ordinalMap = new Map();
+    const ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraph', [
+      { explicit: null },
+    ]);
+    ordinals.forEach((ord, idx) => {
+      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
+    });
+    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
+  }
+  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
+  bind(handle) {
+    console.log('[GeneratedReceiver] Binding handle...');
+    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
+    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
+    this.endpoint.start({ onMessageReceived: (...args) => {
+      try {
+      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
+      let message = args[0];
+      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
+      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
+        // Create a view of ONLY the payload (skipping the header)
+        let payload = args[2];
+        const headerSize = args[1].headerSize;
+        if (payload instanceof ArrayBuffer) {
+           payload = new DataView(payload, headerSize);
+        }
+        message = {
+          header: args[1],
+          payload: payload,
+          handles: args[3] || []
+        };
+      }
+      const header = message && message.header;
+      if (!header) return;
+      let dispatchId = this.ordinalMap.get(header.ordinal);
+      if (dispatchId === undefined) {
+           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
+           return;
+      }
+      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
+      
+      // FEEDBACK LOOP: Report the wire truth to the learner
+      this.mapOrdinal(header.ordinal, dispatchId);
+      
+      switch (dispatchId) {
+        case 0: {
+          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
+          const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec.$.structSpec);
+          console.log('[GeneratedReceiver] Calling impl.dispatch');
+          const result = this.impl.dispatch(params.arg_arg_named_inputs, params.arg_arg_named_outputs);
+          break;
+        }
+      }
+      } catch (err) {
+        console.error('[GeneratedReceiver] Error processing message:', err);
+      }
+    }});
+  }
+};
+
+mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver = mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver;
+
+mojo.internal.bindings.webnn.mojom.WebNNGraphPtr = mojo.internal.bindings.webnn.mojom.WebNNGraphRemote;
+mojo.internal.bindings.webnn.mojom.WebNNGraphRequest = mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: Number
 mojo.internal.Union(
     mojo.internal.bindings.webnn.mojom.NumberSpec, 'webnn.mojom.Number', {
@@ -1287,140 +1419,10 @@ mojo.internal.Struct(
       mojo.internal.StructField('arg_id_to_constant_tensor_operand_map', 40, 0, mojo.internal.Map(mojo.internal.bindings.webnn.mojom.OperandIdSpec, mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec, false), null, false, 0, undefined),
     ],
     [[0, 56]]);
-
-// Interface: WebNNGraph
 mojo.internal.Struct(
     mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec, 'webnn.mojom.WebNNGraph_Dispatch_Params', [
       mojo.internal.StructField('arg_named_inputs', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec, false), null, false, 0, undefined),
       mojo.internal.StructField('arg_named_outputs', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.blink.mojom.WebNNTensorTokenSpec, false), null, false, 0, undefined),
     ],
     [[0, 24]]);
-
-mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver = class {
-  constructor(handle) {
-    this.handle = handle;
-  }
-};
-
-mojo.internal.bindings.webnn.mojom.WebNNGraphRemote = class {
-  static get $interfaceName() {
-    return 'webnn.mojom.WebNNGraph';
-  }
-
-  constructor(handle = undefined) {
-    this.proxy = new mojo.internal.interfaceSupport.InterfaceRemoteBase(
-      mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver,
-      handle);
-    this.$ = new mojo.internal.bindings.webnn.mojom.WebNNGraphRemoteCallHandler(this.proxy);
-  }
-
-  bindNewPipeAndPassReceiver() {
-    return this.proxy.bindNewPipeAndPassReceiver();
-  }
-
-  close() {
-    this.proxy.close();
-  }
-  dispatch(arg_named_inputs, arg_named_outputs) {
-    return this.$.dispatch(arg_named_inputs, arg_named_outputs);
-  }
-};
-
-mojo.internal.bindings.webnn.mojom.WebNNGraphRemoteCallHandler = class {
-  constructor(proxy) {
-    this.proxy = proxy;
-    this.ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraph', [
-      { explicit: null },
-    ]);
-  }
-
-  dispatch(arg_named_inputs, arg_named_outputs) {
-    return this.proxy.sendMessage(
-      this.ordinals[0],  // ordinal
-      mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec,
-      null,
-      [arg_named_inputs, arg_named_outputs],
-      false);
-  }
-
-};
-
-mojo.internal.bindings.webnn.mojom.WebNNGraph.getRemote = function() {
-  let remote = new mojo.internal.bindings.webnn.mojom.WebNNGraphRemote();
-  let receiver = remote.bindNewPipeAndPassReceiver();
-  mojo.internal.interfaceSupport.bind(
-    receiver.handle,
-    'webnn.mojom.WebNNGraph',
-    'context');
-  return remote.$;
-};
-
-mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver = class {
-  constructor(impl) {
-    this.impl = impl;
-    this.endpoint = null;
-    this.ordinalMap = new Map();
-    const ordinals = window.mojoScrambler.getOrdinals('webnn.mojom.WebNNGraph', [
-      { explicit: null },
-    ]);
-    ordinals.forEach((ord, idx) => {
-      this.ordinalMap.set(ord, idx); // Scrambled/Explicit
-    });
-    console.log('[GeneratedReceiver] Constructed for ' + this.impl);
-  }
-  mapOrdinal(hash, id) { this.ordinalMap.set(hash, id); }
-  bind(handle) {
-    console.log('[GeneratedReceiver] Binding handle...');
-    this.router_ = new mojo.internal.interfaceSupport.Router(handle, false);
-    this.endpoint = new mojo.internal.interfaceSupport.Endpoint(this.router_);
-    this.endpoint.start({ onMessageReceived: (...args) => {
-      try {
-      console.log('[GeneratedReceiver] FRESH LOADER: Args received', args);
-      let message = args[0];
-      // Handle decomposed arguments from internal runtime (endpoint, header, buffer, handles)
-      if (args.length > 1 && args[0] instanceof mojo.internal.interfaceSupport.Endpoint) {
-        // Create a view of ONLY the payload (skipping the header)
-        let payload = args[2];
-        const headerSize = args[1].headerSize;
-        if (payload instanceof ArrayBuffer) {
-           payload = new DataView(payload, headerSize);
-        }
-        message = {
-          header: args[1],
-          payload: payload,
-          handles: args[3] || []
-        };
-      }
-      const header = message && message.header;
-      if (!header) return;
-      let dispatchId = this.ordinalMap.get(header.ordinal);
-      if (dispatchId === undefined) {
-           console.warn('[GeneratedReceiver] Failed to discover ordinal ' + header.ordinal);
-           return;
-      }
-      console.log('[GeneratedReceiver] Dispatching ordinal:', header.ordinal, 'as ID:', dispatchId);
-      
-      // FEEDBACK LOOP: Report the wire truth to the learner
-      this.mapOrdinal(header.ordinal, dispatchId);
-      
-      switch (dispatchId) {
-        case 0: {
-          const decoder = new mojo.internal.Decoder(message.payload, message.handles);
-          const params = decoder.decodeStructInline(mojo.internal.bindings.webnn.mojom.WebNNGraph_Dispatch_ParamsSpec.$.structSpec);
-          console.log('[GeneratedReceiver] Calling impl.dispatch');
-          const result = this.impl.dispatch(params.arg_named_inputs, params.arg_named_outputs);
-          break;
-        }
-      }
-      } catch (err) {
-        console.error('[GeneratedReceiver] Error processing message:', err);
-      }
-    }});
-  }
-};
-
-mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver = mojo.internal.bindings.webnn.mojom.WebNNGraphReceiver;
-
-mojo.internal.bindings.webnn.mojom.WebNNGraphPtr = mojo.internal.bindings.webnn.mojom.WebNNGraphRemote;
-mojo.internal.bindings.webnn.mojom.WebNNGraphRequest = mojo.internal.bindings.webnn.mojom.WebNNGraphPendingReceiver;
 

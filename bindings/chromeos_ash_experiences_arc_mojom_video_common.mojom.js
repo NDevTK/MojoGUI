@@ -227,6 +227,8 @@ mojo.internal.bindings.arc.mojom.VideoPixelFormat = {
   MinVersion: 1,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: VideoFramePlane
 mojo.internal.Struct(
     mojo.internal.bindings.arc.mojom.VideoFramePlaneSpec, 'arc.mojom.VideoFramePlane', [

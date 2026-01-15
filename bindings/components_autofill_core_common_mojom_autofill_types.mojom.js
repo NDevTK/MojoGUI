@@ -396,6 +396,8 @@ mojo.internal.bindings.autofill.mojom.AutofillSuggestionTriggerSource = {
   kProactivePasswordRecovery: 20,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FrameToken
 mojo.internal.Struct(
     mojo.internal.bindings.autofill.mojom.FrameTokenSpec, 'autofill.mojom.FrameToken', [

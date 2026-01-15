@@ -128,3 +128,5 @@ mojo.internal.bindings.extensions.mojom.InjectionType = {
   kContentScript: 0,
   kProgrammaticScript: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

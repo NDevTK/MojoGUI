@@ -230,6 +230,8 @@ mojo.internal.bindings.ash.diagnostics.mojom.NumpadLayout = {
   kNumpad4Column: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: KeyboardInfo
 mojo.internal.Struct(
     mojo.internal.bindings.ash.diagnostics.mojom.KeyboardInfoSpec, 'ash.diagnostics.mojom.KeyboardInfo', [

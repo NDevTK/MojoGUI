@@ -128,26 +128,7 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler.
 mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec = { $: {} };
 mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec = { $: {} };
 
-// Struct: IssuerTokenCount
-mojo.internal.Struct(
-    mojo.internal.bindings.private_state_tokens.mojom.IssuerTokenCountSpec, 'private_state_tokens.mojom.IssuerTokenCount', [
-      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: PrivateStateTokensPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParams', [
-      mojo.internal.StructField('arg_private_state_tokens_count', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_state_tokens.mojom.IssuerTokenCountSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -264,8 +245,11 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerR
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetIssuerTokenCounts FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_private_state_tokens_count' in response) ? response.arg_arg_private_state_tokens_count : response;
+              encoder.encodeStructInline(mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getIssuerTokenCounts FAILED:', e));
           }
           break;
         }
@@ -281,4 +265,25 @@ mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerR
 
 mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerPtr = mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerRemote;
 mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerRequest = mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: IssuerTokenCount
+mojo.internal.Struct(
+    mojo.internal.bindings.private_state_tokens.mojom.IssuerTokenCountSpec, 'private_state_tokens.mojom.IssuerTokenCount', [
+      mojo.internal.StructField('arg_issuer', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParamsSpec, 'private_state_tokens.mojom.PrivateStateTokensPageHandler_GetIssuerTokenCounts_ResponseParams', [
+      mojo.internal.StructField('arg_private_state_tokens_count', 0, 0, mojo.internal.Array(mojo.internal.bindings.private_state_tokens.mojom.IssuerTokenCountSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

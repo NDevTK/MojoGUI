@@ -162,77 +162,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Union: DialogArgs
-mojo.internal.Union(
-    mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
-      'arg_app_info_args': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec,
-        'nullable': false,
-      },
-      'arg_no_app_error_args': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec,
-        'nullable': false,
-      },
-      'arg_connection_error_actions': {
-        'ordinal': 2,
-        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemote),
-        'nullable': false,
-      },
-    });
-
-// Struct: AppInfoArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
-      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: AppInfoData
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec, 'ash.app_install.mojom.AppInfoData', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screenshots', 32, 0, mojo.internal.Array(mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: Screenshot
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec, 'ash.app_install.mojom.Screenshot', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: NoAppErrorArgs
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec, 'ash.app_install.mojom.NoAppErrorArgs', [
-    ],
-    [[0, 8]]);
-
 // Interface: AppInfoActions
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParams', [
-      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -363,8 +293,11 @@ mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] InstallApp FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_installed' in response) ? response.arg_arg_installed : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] installApp FAILED:', e));
           }
           break;
         }
@@ -390,11 +323,6 @@ mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRequest = mojo.intern
 
 
 // Interface: ConnectionErrorActions
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec, 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -525,12 +453,6 @@ mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRequest = moj
 
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -643,7 +565,7 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_handler);
           break;
         }
       }
@@ -661,22 +583,6 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactoryRequest = mojo.in
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
-      mojo.internal.StructField('arg_dialog_args', 0, 0, mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.app_install.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -807,8 +713,11 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDialogArgs FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_dialog_args' in response) ? response.arg_arg_dialog_args : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDialogArgs FAILED:', e));
           }
           break;
         }
@@ -831,4 +740,103 @@ mojo.internal.bindings.ash.app_install.mojom.PageHandlerReceiver = mojo.internal
 
 mojo.internal.bindings.ash.app_install.mojom.PageHandlerPtr = mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemote;
 mojo.internal.bindings.ash.app_install.mojom.PageHandlerRequest = mojo.internal.bindings.ash.app_install.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: DialogArgs
+mojo.internal.Union(
+    mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec, 'ash.app_install.mojom.DialogArgs', {
+      'arg_app_info_args': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec,
+        'nullable': false,
+      },
+      'arg_no_app_error_args': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec,
+        'nullable': false,
+      },
+      'arg_connection_error_actions': {
+        'ordinal': 2,
+        'type': mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActionsRemote),
+        'nullable': false,
+      },
+    });
+
+// Struct: AppInfoArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoArgsSpec, 'ash.app_install.mojom.AppInfoArgs', [
+      mojo.internal.StructField('arg_data', 0, 0, mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_actions', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.app_install.mojom.AppInfoActionsRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: AppInfoData
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoDataSpec, 'ash.app_install.mojom.AppInfoData', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_description', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icon_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshots', 32, 0, mojo.internal.Array(mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_already_installed', 40, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: Screenshot
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.ScreenshotSpec, 'ash.app_install.mojom.Screenshot', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: NoAppErrorArgs
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.NoAppErrorArgsSpec, 'ash.app_install.mojom.NoAppErrorArgs', [
+    ],
+    [[0, 8]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParamsSpec, 'ash.app_install.mojom.AppInfoActions_InstallApp_ResponseParams', [
+      mojo.internal.StructField('arg_installed', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.AppInfoActions_LaunchApp_ParamsSpec, 'ash.app_install.mojom.AppInfoActions_LaunchApp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.ConnectionErrorActions_TryAgain_ParamsSpec, 'ash.app_install.mojom.ConnectionErrorActions_TryAgain_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'ash.app_install.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.app_install.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParamsSpec, 'ash.app_install.mojom.PageHandler_GetDialogArgs_ResponseParams', [
+      mojo.internal.StructField('arg_dialog_args', 0, 0, mojo.internal.bindings.ash.app_install.mojom.DialogArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.app_install.mojom.PageHandler_CloseDialog_ParamsSpec, 'ash.app_install.mojom.PageHandler_CloseDialog_Params', [
+    ],
+    [[0, 8]]);
 

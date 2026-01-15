@@ -135,82 +135,7 @@ mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_Response
 mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec = { $: {} };
 mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec = { $: {} };
 
-// Struct: SiteDataFeature
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, 'discards.mojom.SiteDataFeature', [
-      mojo.internal.StructField('arg_observation_duration', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_use_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SiteDataPerformanceMeasurement
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec, 'discards.mojom.SiteDataPerformanceMeasurement', [
-      mojo.internal.StructField('arg_avg_cpu_usage_us', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_avg_footprint_kb', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_avg_load_duration_us', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SiteDataDatabaseSize
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec, 'discards.mojom.SiteDataDatabaseSize', [
-      mojo.internal.StructField('arg_num_rows', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_on_disk_size_kb', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SiteDataValue
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
-      mojo.internal.StructField('arg_last_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_updates_favicon_in_background', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_updates_title_in_background', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uses_audio_in_background', 24, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_load_time_estimates', 32, 0, mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: SiteDataEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_dirty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: SiteDataArray
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataArraySpec, 'discards.mojom.SiteDataArray', [
-      mojo.internal.StructField('arg_db_rows', 0, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.SiteDataEntrySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: SiteDataProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_Params', [
-      mojo.internal.StructField('arg_explicitly_requested_origins', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataArraySpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParams', [
-      mojo.internal.StructField('arg_db_size', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.discards.mojom.SiteDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -337,12 +262,15 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getSiteDataArray');
-          const result = this.impl.getSiteDataArray(params.arg_explicitly_requested_origins);
+          const result = this.impl.getSiteDataArray(params.arg_arg_explicitly_requested_origins);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSiteDataArray FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSiteDataArray FAILED:', e));
           }
           break;
         }
@@ -354,8 +282,11 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSiteDataDatabaseSize FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_db_size' in response) ? response.arg_arg_db_size : response;
+              encoder.encodeStructInline(mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSiteDataDatabaseSize FAILED:', e));
           }
           break;
         }
@@ -371,4 +302,81 @@ mojo.internal.bindings.discards.mojom.SiteDataProviderReceiver = mojo.internal.b
 
 mojo.internal.bindings.discards.mojom.SiteDataProviderPtr = mojo.internal.bindings.discards.mojom.SiteDataProviderRemote;
 mojo.internal.bindings.discards.mojom.SiteDataProviderRequest = mojo.internal.bindings.discards.mojom.SiteDataProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SiteDataFeature
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, 'discards.mojom.SiteDataFeature', [
+      mojo.internal.StructField('arg_observation_duration', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_use_timestamp', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SiteDataPerformanceMeasurement
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec, 'discards.mojom.SiteDataPerformanceMeasurement', [
+      mojo.internal.StructField('arg_avg_cpu_usage_us', 0, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_avg_footprint_kb', 4, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_avg_load_duration_us', 8, 0, mojo.internal.Float, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SiteDataDatabaseSize
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec, 'discards.mojom.SiteDataDatabaseSize', [
+      mojo.internal.StructField('arg_num_rows', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_on_disk_size_kb', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SiteDataValue
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataValueSpec, 'discards.mojom.SiteDataValue', [
+      mojo.internal.StructField('arg_last_loaded', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_updates_favicon_in_background', 8, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_updates_title_in_background', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uses_audio_in_background', 24, 0, mojo.internal.bindings.discards.mojom.SiteDataFeatureSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_load_time_estimates', 32, 0, mojo.internal.bindings.discards.mojom.SiteDataPerformanceMeasurementSpec, null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: SiteDataEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataEntrySpec, 'discards.mojom.SiteDataEntry', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_dirty', 8, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 16, 0, mojo.internal.bindings.discards.mojom.SiteDataValueSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: SiteDataArray
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataArraySpec, 'discards.mojom.SiteDataArray', [
+      mojo.internal.StructField('arg_db_rows', 0, 0, mojo.internal.Array(mojo.internal.bindings.discards.mojom.SiteDataEntrySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_Params', [
+      mojo.internal.StructField('arg_explicitly_requested_origins', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataArray_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataArraySpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParamsSpec, 'discards.mojom.SiteDataProvider_GetSiteDataDatabaseSize_ResponseParams', [
+      mojo.internal.StructField('arg_db_size', 0, 0, mojo.internal.bindings.discards.mojom.SiteDataDatabaseSizeSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

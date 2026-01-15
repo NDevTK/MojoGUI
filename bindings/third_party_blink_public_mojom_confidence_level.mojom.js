@@ -128,3 +128,5 @@ mojo.internal.bindings.blink.mojom.ConfidenceLevel = {
   kHigh: 0,
   kLow: 1,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

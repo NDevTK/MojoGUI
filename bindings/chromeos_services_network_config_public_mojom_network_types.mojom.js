@@ -196,3 +196,5 @@ mojo.internal.bindings.chromeos.network_config.mojom.PortalState = {
   kDeprecatedProxyAuthRequired: 4,
   kNoInternet: 5,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

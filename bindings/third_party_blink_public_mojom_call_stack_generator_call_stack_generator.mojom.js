@@ -133,18 +133,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec = mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CallStackGenerator
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParams', [
-      mojo.internal.StructField('arg_javascript_call_stack', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.CallStackGeneratorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,8 +249,10 @@ mojo.internal.bindings.blink.mojom.CallStackGeneratorReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CollectJavaScriptCallStack FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec.$.structSpec, ['response.arg_arg_javascript_call_stack', 'response.arg_arg_frame_token']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] collectJavaScriptCallStack FAILED:', e));
           }
           break;
         }
@@ -278,4 +268,18 @@ mojo.internal.bindings.blink.mojom.CallStackGeneratorReceiver = mojo.internal.bi
 
 mojo.internal.bindings.blink.mojom.CallStackGeneratorPtr = mojo.internal.bindings.blink.mojom.CallStackGeneratorRemote;
 mojo.internal.bindings.blink.mojom.CallStackGeneratorRequest = mojo.internal.bindings.blink.mojom.CallStackGeneratorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParamsSpec, 'blink.mojom.CallStackGenerator_CollectJavaScriptCallStack_ResponseParams', [
+      mojo.internal.StructField('arg_javascript_call_stack', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_token', 8, 0, mojo.internal.bindings.blink.mojom.LocalFrameTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

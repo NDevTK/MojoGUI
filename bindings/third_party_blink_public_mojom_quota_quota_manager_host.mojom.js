@@ -136,20 +136,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.UsageBreakdownSpec = mojo.internal.bindings.blink.mojom.UsageBreakdownSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: QuotaManagerHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_usage', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_current_quota', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_usage_breakdown', 24, 0, mojo.internal.bindings.blink.mojom.UsageBreakdownSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.blink.mojom.QuotaManagerHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,8 +252,10 @@ mojo.internal.bindings.blink.mojom.QuotaManagerHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] QueryStorageUsageAndQuota FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_current_usage', 'response.arg_arg_current_quota', 'response.arg_arg_usage_breakdown']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] queryStorageUsageAndQuota FAILED:', e));
           }
           break;
         }
@@ -283,4 +271,20 @@ mojo.internal.bindings.blink.mojom.QuotaManagerHostReceiver = mojo.internal.bind
 
 mojo.internal.bindings.blink.mojom.QuotaManagerHostPtr = mojo.internal.bindings.blink.mojom.QuotaManagerHostRemote;
 mojo.internal.bindings.blink.mojom.QuotaManagerHostRequest = mojo.internal.bindings.blink.mojom.QuotaManagerHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParamsSpec, 'blink.mojom.QuotaManagerHost_QueryStorageUsageAndQuota_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.QuotaStatusCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_usage', 8, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_current_quota', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_usage_breakdown', 24, 0, mojo.internal.bindings.blink.mojom.UsageBreakdownSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

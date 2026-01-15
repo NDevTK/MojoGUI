@@ -142,6 +142,8 @@ mojo.internal.bindings.webapps.mojom.WebPageMobileCapable = {
   ENABLED_APPLE: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WebPageIconInfo
 mojo.internal.Struct(
     mojo.internal.bindings.webapps.mojom.WebPageIconInfoSpec, 'webapps.mojom.WebPageIconInfo', [

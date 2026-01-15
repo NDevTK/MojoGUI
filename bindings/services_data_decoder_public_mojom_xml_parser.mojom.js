@@ -159,20 +159,6 @@ mojo.internal.bindings.data_decoder.mojom.WhitespaceBehavior = {
 };
 
 // Interface: XmlParser
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec, 'data_decoder.mojom.XmlParser_Parse_Params', [
-      mojo.internal.StructField('arg_xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_whitespace_behavior', 8, 0, mojo.internal.bindings.data_decoder.mojom.WhitespaceBehaviorSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec, 'data_decoder.mojom.XmlParser_Parse_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.data_decoder.mojom.XmlParserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,12 +271,14 @@ mojo.internal.bindings.data_decoder.mojom.XmlParserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.parse');
-          const result = this.impl.parse(params.arg_xml, params.arg_whitespace_behavior);
+          const result = this.impl.parse(params.arg_arg_xml, params.arg_arg_whitespace_behavior);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Parse FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec.$.structSpec, ['response.arg_arg_result', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] parse FAILED:', e));
           }
           break;
         }
@@ -306,4 +294,20 @@ mojo.internal.bindings.data_decoder.mojom.XmlParserReceiver = mojo.internal.bind
 
 mojo.internal.bindings.data_decoder.mojom.XmlParserPtr = mojo.internal.bindings.data_decoder.mojom.XmlParserRemote;
 mojo.internal.bindings.data_decoder.mojom.XmlParserRequest = mojo.internal.bindings.data_decoder.mojom.XmlParserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ParamsSpec, 'data_decoder.mojom.XmlParser_Parse_Params', [
+      mojo.internal.StructField('arg_xml', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_whitespace_behavior', 8, 0, mojo.internal.bindings.data_decoder.mojom.WhitespaceBehaviorSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.XmlParser_Parse_ResponseParamsSpec, 'data_decoder.mojom.XmlParser_Parse_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 16, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
 

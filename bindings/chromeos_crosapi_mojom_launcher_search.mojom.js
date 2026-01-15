@@ -238,42 +238,7 @@ mojo.internal.bindings.crosapi.mojom.PageTransition = {
   kGenerated: 2,
 };
 
-// Struct: SearchResult
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.SearchResultSpec, 'crosapi.mojom.SearchResult', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.crosapi.mojom.SearchResultTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_omnibox_search', 4, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_relevance', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_destination_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_is_answer', 24, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_omnibox_type', 28, 0, mojo.internal.bindings.crosapi.mojom.OmniboxTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_answer_type', 32, 0, mojo.internal.bindings.crosapi.mojom.AnswerTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_additional_description_type', 36, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_image_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_favicon', 48, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_contents', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_additional_contents', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_description', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_additional_description', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_stripped_destination_url', 88, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 2, undefined),
-      mojo.internal.StructField('arg_page_transition', 96, 0, mojo.internal.bindings.crosapi.mojom.PageTransitionSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_contents_type', 100, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_additional_contents_type', 104, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_description_type', 108, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
-      mojo.internal.StructField('arg_description_a11y_label', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 3, undefined),
-      mojo.internal.StructField('arg_metrics_type', 120, 0, mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec, null, false, 5, undefined),
-      mojo.internal.StructField('arg_receiver', 124, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
-    ],
-    [[0, 96], [2, 120], [3, 128], [5, 136]]);
-
 // Interface: SearchResultsPublisher
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec, 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.SearchStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.SearchResultSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -386,7 +351,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onSearchResultsReceived');
-          const result = this.impl.onSearchResultsReceived(params.arg_status, params.arg_result);
+          const result = this.impl.onSearchResultsReceived(params.arg_arg_status, params.arg_arg_result);
           break;
         }
       }
@@ -404,18 +369,6 @@ mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRequest = mojo.intern
 
 
 // Interface: SearchController
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec, 'crosapi.mojom.SearchController_Search_Params', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
-      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.SearchControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -528,12 +481,15 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.search');
-          const result = this.impl.search(params.arg_query);
+          const result = this.impl.search(params.arg_arg_query);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Search FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_publisher' in response) ? response.arg_arg_publisher : response;
+              encoder.encodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] search FAILED:', e));
           }
           break;
         }
@@ -552,12 +508,6 @@ mojo.internal.bindings.crosapi.mojom.SearchControllerRequest = mojo.internal.bin
 
 
 // Interface: SearchResultConsumer
-mojo.internal.Struct(
-    mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec, 'crosapi.mojom.SearchResultConsumer_OnFaviconReceived_Params', [
-      mojo.internal.StructField('arg_favicon', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -670,7 +620,7 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onFaviconReceived');
-          const result = this.impl.onFaviconReceived(params.arg_favicon);
+          const result = this.impl.onFaviconReceived(params.arg_arg_favicon);
           break;
         }
       }
@@ -685,4 +635,59 @@ mojo.internal.bindings.crosapi.mojom.SearchResultConsumerReceiver = mojo.interna
 
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumerPtr = mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemote;
 mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRequest = mojo.internal.bindings.crosapi.mojom.SearchResultConsumerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SearchResult
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.SearchResultSpec, 'crosapi.mojom.SearchResult', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.crosapi.mojom.SearchResultTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_omnibox_search', 4, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_relevance', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_destination_url', 16, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_is_answer', 24, 0, mojo.internal.bindings.crosapi.mojom.OptionalBoolSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_omnibox_type', 28, 0, mojo.internal.bindings.crosapi.mojom.OmniboxTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_answer_type', 32, 0, mojo.internal.bindings.crosapi.mojom.AnswerTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_additional_description_type', 36, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_image_url', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_favicon', 48, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_contents', 56, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_additional_contents', 64, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_description', 72, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_additional_description', 80, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_stripped_destination_url', 88, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 2, undefined),
+      mojo.internal.StructField('arg_page_transition', 96, 0, mojo.internal.bindings.crosapi.mojom.PageTransitionSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_contents_type', 100, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_additional_contents_type', 104, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_description_type', 108, 0, mojo.internal.bindings.crosapi.mojom.TextTypeSpec, null, false, 2, undefined),
+      mojo.internal.StructField('arg_description_a11y_label', 112, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 3, undefined),
+      mojo.internal.StructField('arg_metrics_type', 120, 0, mojo.internal.bindings.crosapi.mojom.MetricsTypeSpec, null, false, 5, undefined),
+      mojo.internal.StructField('arg_receiver', 124, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultConsumerRemote), null, true, 5, undefined),
+    ],
+    [[0, 96], [2, 120], [3, 128], [5, 136]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_ParamsSpec, 'crosapi.mojom.SearchResultsPublisher_OnSearchResultsReceived_Params', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.crosapi.mojom.SearchStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_result', 8, 0, mojo.internal.Array(mojo.internal.bindings.crosapi.mojom.SearchResultSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.SearchController_Search_ParamsSpec, 'crosapi.mojom.SearchController_Search_Params', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.SearchController_Search_ResponseParamsSpec, 'crosapi.mojom.SearchController_Search_ResponseParams', [
+      mojo.internal.StructField('arg_publisher', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.crosapi.mojom.SearchResultsPublisherRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.crosapi.mojom.SearchResultConsumer_OnFaviconReceived_ParamsSpec, 'crosapi.mojom.SearchResultConsumer_OnFaviconReceived_Params', [
+      mojo.internal.StructField('arg_favicon', 0, 0, mojo.internal.bindings.gfx.mojom.ImageSkiaSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

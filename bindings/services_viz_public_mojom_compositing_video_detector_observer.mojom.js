@@ -128,16 +128,6 @@ mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Pa
 mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec = { $: {} };
 
 // Interface: VideoDetectorObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.viz.mojom.VideoDetectorObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -286,4 +276,16 @@ mojo.internal.bindings.viz.mojom.VideoDetectorObserverReceiver = mojo.internal.b
 
 mojo.internal.bindings.viz.mojom.VideoDetectorObserverPtr = mojo.internal.bindings.viz.mojom.VideoDetectorObserverRemote;
 mojo.internal.bindings.viz.mojom.VideoDetectorObserverRequest = mojo.internal.bindings.viz.mojom.VideoDetectorObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityStarted_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_ParamsSpec, 'viz.mojom.VideoDetectorObserver_OnVideoActivityEnded_Params', [
+    ],
+    [[0, 8]]);
 

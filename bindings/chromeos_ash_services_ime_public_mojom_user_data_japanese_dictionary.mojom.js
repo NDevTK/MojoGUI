@@ -175,6 +175,8 @@ mojo.internal.bindings.ash.ime.mojom.JpPosType = {
   kSuppressionWord: 44,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: JapaneseDictionaryEntry
 mojo.internal.Struct(
     mojo.internal.bindings.ash.ime.mojom.JapaneseDictionaryEntrySpec, 'ash.ime.mojom.JapaneseDictionaryEntry', [

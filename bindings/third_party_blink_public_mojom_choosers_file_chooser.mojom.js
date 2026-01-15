@@ -163,87 +163,7 @@ mojo.internal.bindings.blink.mojom.Mode = {
   kSave: 4,
 };
 
-// Union: FileChooserFileInfo
-mojo.internal.Union(
-    mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec, 'blink.mojom.FileChooserFileInfo', {
-      'arg_native_file': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.blink.mojom.NativeFileInfoSpec,
-        'nullable': false,
-      },
-      'arg_file_system': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: FileChooserParams
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileChooserParamsSpec, 'blink.mojom.FileChooserParams', [
-      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ModeSpec, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_need_local_path', 4, 0, mojo.internal.Bool, true, false, 0, undefined),
-      mojo.internal.StructField('arg_use_media_capture', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_open_writable', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_default_file_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_selected_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_accept_types', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_requestor', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-// Struct: NativeFileInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.NativeFileInfoSpec, 'blink.mojom.NativeFileInfo', [
-      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_base_subdirs', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: FileSystemFileInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec, 'blink.mojom.FileSystemFileInfo', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modification_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: FileChooserResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileChooserResultSpec, 'blink.mojom.FileChooserResult', [
-      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_base_directory', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: FileChooser
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec, 'blink.mojom.FileChooser_OpenFileChooser_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec, 'blink.mojom.FileChooser_OpenFileChooser_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec, 'blink.mojom.FileChooser_EnumerateChosenDirectory_Params', [
-      mojo.internal.StructField('arg_directory_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec, 'blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserResultSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.FileChooserPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -370,12 +290,15 @@ mojo.internal.bindings.blink.mojom.FileChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFileChooser');
-          const result = this.impl.openFileChooser(params.arg_params);
+          const result = this.impl.openFileChooser(params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenFileChooser FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openFileChooser FAILED:', e));
           }
           break;
         }
@@ -383,12 +306,15 @@ mojo.internal.bindings.blink.mojom.FileChooserReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enumerateChosenDirectory');
-          const result = this.impl.enumerateChosenDirectory(params.arg_directory_path);
+          const result = this.impl.enumerateChosenDirectory(params.arg_arg_directory_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EnumerateChosenDirectory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] enumerateChosenDirectory FAILED:', e));
           }
           break;
         }
@@ -404,4 +330,86 @@ mojo.internal.bindings.blink.mojom.FileChooserReceiver = mojo.internal.bindings.
 
 mojo.internal.bindings.blink.mojom.FileChooserPtr = mojo.internal.bindings.blink.mojom.FileChooserRemote;
 mojo.internal.bindings.blink.mojom.FileChooserRequest = mojo.internal.bindings.blink.mojom.FileChooserPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: FileChooserFileInfo
+mojo.internal.Union(
+    mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec, 'blink.mojom.FileChooserFileInfo', {
+      'arg_native_file': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.blink.mojom.NativeFileInfoSpec,
+        'nullable': false,
+      },
+      'arg_file_system': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: FileChooserParams
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileChooserParamsSpec, 'blink.mojom.FileChooserParams', [
+      mojo.internal.StructField('arg_mode', 0, 0, mojo.internal.bindings.blink.mojom.ModeSpec, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_need_local_path', 4, 0, mojo.internal.Bool, true, false, 0, undefined),
+      mojo.internal.StructField('arg_use_media_capture', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_open_writable', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_default_file_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_selected_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.FilePathSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_accept_types', 32, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_requestor', 40, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+// Struct: NativeFileInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.NativeFileInfoSpec, 'blink.mojom.NativeFileInfo', [
+      mojo.internal.StructField('arg_file_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_name', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base_subdirs', 16, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.String16Spec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: FileSystemFileInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileSystemFileInfoSpec, 'blink.mojom.FileSystemFileInfo', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modification_time', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_length', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: FileChooserResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileChooserResultSpec, 'blink.mojom.FileChooserResult', [
+      mojo.internal.StructField('arg_files', 0, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.FileChooserFileInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_base_directory', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ParamsSpec, 'blink.mojom.FileChooser_OpenFileChooser_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileChooser_OpenFileChooser_ResponseParamsSpec, 'blink.mojom.FileChooser_OpenFileChooser_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ParamsSpec, 'blink.mojom.FileChooser_EnumerateChosenDirectory_Params', [
+      mojo.internal.StructField('arg_directory_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParamsSpec, 'blink.mojom.FileChooser_EnumerateChosenDirectory_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.FileChooserResultSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

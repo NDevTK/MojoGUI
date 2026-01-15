@@ -158,13 +158,6 @@ mojo.internal.bindings.metrics.mojom.UmaPingCallSource = {
 };
 
 // Interface: ChildHistogramFetcherFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec, 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params', [
-      mojo.internal.StructField('arg_shared_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -277,7 +270,7 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createFetcher');
-          const result = this.impl.createFetcher(params.arg_shared_memory, params.arg_child_histogram_fetcher);
+          const result = this.impl.createFetcher(params.arg_arg_shared_memory, params.arg_arg_child_histogram_fetcher);
           break;
         }
       }
@@ -295,28 +288,6 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactoryRequest = mojo.
 
 
 // Interface: ChildHistogramFetcher
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParams', [
-      mojo.internal.StructField('arg_deltas', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_Params', [
-      mojo.internal.StructField('arg_call_source', 0, 0, mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -447,8 +418,11 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetChildNonPersistentHistogramData FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_deltas' in response) ? response.arg_arg_deltas : response;
+              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getChildNonPersistentHistogramData FAILED:', e));
           }
           break;
         }
@@ -456,12 +430,14 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.ping');
-          const result = this.impl.ping(params.arg_call_source);
+          const result = this.impl.ping(params.arg_arg_call_source);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Ping FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] ping FAILED:', e));
           }
           break;
         }
@@ -477,4 +453,35 @@ mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherReceiver = mojo.intern
 
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherPtr = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemote;
 mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRequest = mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_ParamsSpec, 'metrics.mojom.ChildHistogramFetcherFactory_CreateFetcher_Params', [
+      mojo.internal.StructField('arg_shared_memory', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnsafeSharedMemoryRegionSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_child_histogram_fetcher', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.metrics.mojom.ChildHistogramFetcherRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_GetChildNonPersistentHistogramData_ResponseParams', [
+      mojo.internal.StructField('arg_deltas', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_Params', [
+      mojo.internal.StructField('arg_call_source', 0, 0, mojo.internal.bindings.metrics.mojom.UmaPingCallSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.ChildHistogramFetcher_Ping_ResponseParamsSpec, 'metrics.mojom.ChildHistogramFetcher_Ping_ResponseParams', [
+    ],
+    [[0, 8]]);
 

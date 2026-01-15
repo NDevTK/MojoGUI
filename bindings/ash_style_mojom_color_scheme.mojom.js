@@ -132,3 +132,5 @@ mojo.internal.bindings.ash.style.mojom.ColorScheme = {
   kExpressive: 3,
   kVibrant: 4,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

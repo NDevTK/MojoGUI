@@ -136,30 +136,6 @@ mojo.internal.bindings.skia.mojom = mojo.internal.bindings.skia.mojom || {};
 mojo.internal.bindings.skia.mojom.BitmapN32Spec = mojo.internal.bindings.skia.mojom.BitmapN32Spec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: PdfProgressiveSearchifier
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params', [
-      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_DeletePage_Params', [
-      mojo.internal.StructField('arg_page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParams', [
-      mojo.internal.StructField('arg_searchified_pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -300,14 +276,14 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addPage');
-          const result = this.impl.addPage(params.arg_image, params.arg_page_index);
+          const result = this.impl.addPage(params.arg_arg_image, params.arg_arg_page_index);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePage');
-          const result = this.impl.deletePage(params.arg_page_index);
+          const result = this.impl.deletePage(params.arg_arg_page_index);
           break;
         }
         case 2: {
@@ -318,8 +294,11 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Save FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_searchified_pdf' in response) ? response.arg_arg_searchified_pdf : response;
+              encoder.encodeStructInline(mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] save FAILED:', e));
           }
           break;
         }
@@ -335,4 +314,30 @@ mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierReceiver = mojo.intern
 
 mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierPtr = mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRemote;
 mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierRequest = mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_AddPage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_AddPage_Params', [
+      mojo.internal.StructField('arg_image', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_index', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_DeletePage_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_DeletePage_Params', [
+      mojo.internal.StructField('arg_page_index', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParamsSpec, 'pdf.mojom.PdfProgressiveSearchifier_Save_ResponseParams', [
+      mojo.internal.StructField('arg_searchified_pdf', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

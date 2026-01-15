@@ -129,3 +129,5 @@ mojo.internal.bindings.ntp_tiles.mojom.TileType = {
   kCustomLinks: 1,
   kEnterpriseShortcuts: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

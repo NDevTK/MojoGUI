@@ -157,6 +157,8 @@ mojo.internal.bindings.crostini.mojom.InstallerError = {
   kErrorUnknown: 12,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DiskSliderTick
 mojo.internal.Struct(
     mojo.internal.bindings.crostini.mojom.DiskSliderTickSpec, 'crostini.mojom.DiskSliderTick', [

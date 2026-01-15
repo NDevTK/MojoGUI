@@ -131,13 +131,6 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor.$interfaceName =
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec = { $: {} };
 
 // Interface: VideoCaptureDeviceInfoObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_Params', [
-      mojo.internal.StructField('arg_camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +243,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGetCameraIdToDeviceIdMapping');
-          const result = this.impl.onGetCameraIdToDeviceIdMapping(params.arg_camera_id, params.arg_device_id);
+          const result = this.impl.onGetCameraIdToDeviceIdMapping(params.arg_arg_camera_id, params.arg_arg_device_id);
           break;
         }
       }
@@ -268,12 +261,6 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRequest = mojo.i
 
 
 // Interface: VideoCaptureDeviceInfoMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -386,7 +373,7 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addVideoCaptureDeviceInfoObserver');
-          const result = this.impl.addVideoCaptureDeviceInfoObserver(params.arg_observer);
+          const result = this.impl.addVideoCaptureDeviceInfoObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -401,4 +388,19 @@ mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorReceiver = mojo.i
 
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorPtr = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorRemote;
 mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorRequest = mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoObserver_OnGetCameraIdToDeviceIdMapping_Params', [
+      mojo.internal.StructField('arg_camera_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_ParamsSpec, 'cros.mojom.VideoCaptureDeviceInfoMonitor_AddVideoCaptureDeviceInfoObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.cros.mojom.VideoCaptureDeviceInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -146,27 +146,6 @@ mojo.internal.bindings.ash.annotator.mojom = mojo.internal.bindings.ash.annotato
 mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec = mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: UntrustedAnnotatorPage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Clear_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Undo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Redo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params', [
-      mojo.internal.StructField('arg_tool', 0, 0, mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -342,7 +321,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setTool');
-          const result = this.impl.setTool(params.arg_tool);
+          const result = this.impl.setTool(params.arg_arg_tool);
           break;
         }
       }
@@ -360,19 +339,6 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRequest = mojo.
 
 
 // Interface: UntrustedAnnotatorPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_Params', [
-      mojo.internal.StructField('arg_undo_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_redo_available', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_Params', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -499,14 +465,14 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onUndoRedoAvailabilityChanged');
-          const result = this.impl.onUndoRedoAvailabilityChanged(params.arg_undo_available, params.arg_redo_available);
+          const result = this.impl.onUndoRedoAvailabilityChanged(params.arg_arg_undo_available, params.arg_arg_redo_available);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCanvasInitialized');
-          const result = this.impl.onCanvasInitialized(params.arg_success);
+          const result = this.impl.onCanvasInitialized(params.arg_arg_success);
           break;
         }
       }
@@ -524,13 +490,6 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRequest 
 
 
 // Interface: UntrustedAnnotatorPageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params', [
-      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_annotator', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -643,7 +602,7 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.create');
-          const result = this.impl.create(params.arg_handler, params.arg_annotator);
+          const result = this.impl.create(params.arg_arg_handler, params.arg_arg_annotator);
           break;
         }
       }
@@ -658,4 +617,47 @@ mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryR
 
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPtr = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRemote;
 mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryRequest = mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Clear_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Clear_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Undo_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Undo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_Redo_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_Redo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPage_SetTool_Params', [
+      mojo.internal.StructField('arg_tool', 0, 0, mojo.internal.bindings.ash.annotator.mojom.AnnotatorToolSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnUndoRedoAvailabilityChanged_Params', [
+      mojo.internal.StructField('arg_undo_available', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_redo_available', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandler_OnCanvasInitialized_Params', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_ParamsSpec, 'ash.annotator.mojom.UntrustedAnnotatorPageHandlerFactory_Create_Params', [
+      mojo.internal.StructField('arg_handler', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageHandlerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_annotator', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.annotator.mojom.UntrustedAnnotatorPageRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

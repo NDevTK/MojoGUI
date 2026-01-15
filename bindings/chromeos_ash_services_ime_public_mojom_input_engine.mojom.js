@@ -129,18 +129,6 @@ mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec = { 
 mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec = { $: {} };
 
 // Interface: InputChannel
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec, 'ash.ime.mojom.InputChannel_ProcessMessage_Params', [
-      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec, 'ash.ime.mojom.InputChannel_ProcessMessage_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.ime.mojom.InputChannelPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,12 +241,15 @@ mojo.internal.bindings.ash.ime.mojom.InputChannelReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.processMessage');
-          const result = this.impl.processMessage(params.arg_message);
+          const result = this.impl.processMessage(params.arg_arg_message);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ProcessMessage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] processMessage FAILED:', e));
           }
           break;
         }
@@ -274,4 +265,18 @@ mojo.internal.bindings.ash.ime.mojom.InputChannelReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.ash.ime.mojom.InputChannelPtr = mojo.internal.bindings.ash.ime.mojom.InputChannelRemote;
 mojo.internal.bindings.ash.ime.mojom.InputChannelRequest = mojo.internal.bindings.ash.ime.mojom.InputChannelPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ParamsSpec, 'ash.ime.mojom.InputChannel_ProcessMessage_Params', [
+      mojo.internal.StructField('arg_message', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.ime.mojom.InputChannel_ProcessMessage_ResponseParamsSpec, 'ash.ime.mojom.InputChannel_ProcessMessage_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

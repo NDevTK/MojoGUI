@@ -233,3 +233,5 @@ mojo.internal.bindings.blink.mojom.KeepAliveHandleReceiver = mojo.internal.bindi
 mojo.internal.bindings.blink.mojom.KeepAliveHandlePtr = mojo.internal.bindings.blink.mojom.KeepAliveHandleRemote;
 mojo.internal.bindings.blink.mojom.KeepAliveHandleRequest = mojo.internal.bindings.blink.mojom.KeepAliveHandlePendingReceiver;
 
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

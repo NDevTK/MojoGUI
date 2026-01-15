@@ -132,6 +132,8 @@ mojo.internal.bindings.blink.mojom.PolicyValueType = {
   kEnum: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: PolicyValue
 mojo.internal.Union(
     mojo.internal.bindings.blink.mojom.PolicyValueSpec, 'blink.mojom.PolicyValue', {

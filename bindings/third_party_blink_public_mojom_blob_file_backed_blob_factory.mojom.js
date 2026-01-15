@@ -138,29 +138,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.DataElementFileSpec = mojo.internal.bindings.blink.mojom.DataElementFileSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FileBackedBlobFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlob_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_Params', [
-      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -287,19 +264,21 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerBlob');
-          const result = this.impl.registerBlob(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_file);
+          const result = this.impl.registerBlob(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_content_type, params.arg_arg_file);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerBlobSync');
-          const result = this.impl.registerBlobSync(params.arg_blob, params.arg_uuid, params.arg_content_type, params.arg_file);
+          const result = this.impl.registerBlobSync(params.arg_arg_blob, params.arg_arg_uuid, params.arg_arg_content_type, params.arg_arg_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RegisterBlobSync FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] registerBlobSync FAILED:', e));
           }
           break;
         }
@@ -315,4 +294,29 @@ mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryReceiver = mojo.internal
 
 mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryPtr = mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryRemote;
 mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryRequest = mojo.internal.bindings.blink.mojom.FileBackedBlobFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlob_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlob_Params', [
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_Params', [
+      mojo.internal.StructField('arg_blob', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.BlobRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_uuid', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_content_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_file', 24, 0, mojo.internal.bindings.blink.mojom.DataElementFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParamsSpec, 'blink.mojom.FileBackedBlobFactory_RegisterBlobSync_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -171,29 +171,6 @@ mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactorySpec = mojo.internal.
 mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote = mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote || class {};
 
 // Interface: VideoHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParams', [
-      mojo.internal.StructField('arg_channel_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParams', [
-      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.VideoHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -324,8 +301,10 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OnBootstrapVideoAcceleratorFactory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec.$.structSpec, ['response.arg_arg_channel_handle', 'response.arg_arg_token']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] onBootstrapVideoAcceleratorFactory FAILED:', e));
           }
           break;
         }
@@ -337,8 +316,11 @@ mojo.internal.bindings.arc.mojom.VideoHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateVideoAcceleratorFactory FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_remote' in response) ? response.arg_arg_remote : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createVideoAcceleratorFactory FAILED:', e));
           }
           break;
         }
@@ -357,17 +339,6 @@ mojo.internal.bindings.arc.mojom.VideoHostRequest = mojo.internal.bindings.arc.m
 
 
 // Interface: VideoInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec, 'arc.mojom.VideoInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec, 'arc.mojom.VideoInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.VideoInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -480,12 +451,14 @@ mojo.internal.bindings.arc.mojom.VideoInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -504,32 +477,6 @@ mojo.internal.bindings.arc.mojom.VideoInstanceRequest = mojo.internal.bindings.a
 
 
 // Interface: VideoAcceleratorFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_Params', [
-      mojo.internal.StructField('arg_video_encoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_Params', [
-      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_protected_buffer_manager', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote), null, true, 8, undefined),
-      mojo.internal.StructField('arg_browser_cdm_factory', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote), null, true, 10, undefined),
-    ],
-    [[0, 16], [8, 24], [10, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_Params', [
-      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoDecoderRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_Params', [
-      mojo.internal.StructField('arg_video_protected_buffer_allocator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -684,28 +631,28 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createEncodeAccelerator');
-          const result = this.impl.createEncodeAccelerator(params.arg_video_encoder);
+          const result = this.impl.createEncodeAccelerator(params.arg_arg_video_encoder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createDecodeAccelerator');
-          const result = this.impl.createDecodeAccelerator(params.arg_video_decoder, params.arg_protected_buffer_manager, params.arg_browser_cdm_factory);
+          const result = this.impl.createDecodeAccelerator(params.arg_arg_video_decoder, params.arg_arg_protected_buffer_manager, params.arg_arg_browser_cdm_factory);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createVideoDecoder');
-          const result = this.impl.createVideoDecoder(params.arg_video_decoder);
+          const result = this.impl.createVideoDecoder(params.arg_arg_video_decoder);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createProtectedBufferAllocator');
-          const result = this.impl.createProtectedBufferAllocator(params.arg_video_protected_buffer_allocator);
+          const result = this.impl.createProtectedBufferAllocator(params.arg_arg_video_protected_buffer_allocator);
           break;
         }
       }
@@ -720,4 +667,66 @@ mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryReceiver = mojo.internal
 
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryPtr = mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemote;
 mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRequest = mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_OnBootstrapVideoAcceleratorFactory_ResponseParams', [
+      mojo.internal.StructField('arg_channel_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParamsSpec, 'arc.mojom.VideoHost_CreateVideoAcceleratorFactory_ResponseParams', [
+      mojo.internal.StructField('arg_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoAcceleratorFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoInstance_Init_ParamsSpec, 'arc.mojom.VideoInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.VideoHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoInstance_Init_ResponseParamsSpec, 'arc.mojom.VideoInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateEncodeAccelerator_Params', [
+      mojo.internal.StructField('arg_video_encoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoEncodeAcceleratorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateDecodeAccelerator_Params', [
+      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoDecodeAcceleratorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_protected_buffer_manager', 4, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.ProtectedBufferManagerRemote), null, true, 8, undefined),
+      mojo.internal.StructField('arg_browser_cdm_factory', 12, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cdm.mojom.BrowserCdmFactoryRemote), null, true, 10, undefined),
+    ],
+    [[0, 16], [8, 24], [10, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateVideoDecoder_Params', [
+      mojo.internal.StructField('arg_video_decoder', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_ParamsSpec, 'arc.mojom.VideoAcceleratorFactory_CreateProtectedBufferAllocator_Params', [
+      mojo.internal.StructField('arg_video_protected_buffer_allocator', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.arc.mojom.VideoProtectedBufferAllocatorRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

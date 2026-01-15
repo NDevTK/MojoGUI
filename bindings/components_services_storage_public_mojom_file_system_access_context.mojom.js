@@ -140,32 +140,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.StorageKeySpec = mojo.internal.bindings.blink.mojom.StorageKeySpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FileSystemAccessContext
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_SerializeHandle_Params', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec, 'storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParams', [
-      mojo.internal.StructField('arg_bits', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params', [
-      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_bits', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec, 'storage.mojom.FileSystemAccessContext_Clone_Params', [
-      mojo.internal.StructField('arg_receiever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.storage.mojom.FileSystemAccessContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -306,12 +280,15 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.serializeHandle');
-          const result = this.impl.serializeHandle(params.arg_token);
+          const result = this.impl.serializeHandle(params.arg_arg_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SerializeHandle FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_bits' in response) ? response.arg_arg_bits : response;
+              encoder.encodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] serializeHandle FAILED:', e));
           }
           break;
         }
@@ -319,14 +296,14 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deserializeHandle');
-          const result = this.impl.deserializeHandle(params.arg_storage_key, params.arg_bits, params.arg_token);
+          const result = this.impl.deserializeHandle(params.arg_arg_storage_key, params.arg_arg_bits, params.arg_arg_token);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.clone');
-          const result = this.impl.clone(params.arg_receiever);
+          const result = this.impl.clone(params.arg_arg_receiever);
           break;
         }
       }
@@ -341,4 +318,32 @@ mojo.internal.bindings.storage.mojom.FileSystemAccessContextReceiver = mojo.inte
 
 mojo.internal.bindings.storage.mojom.FileSystemAccessContextPtr = mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemote;
 mojo.internal.bindings.storage.mojom.FileSystemAccessContextRequest = mojo.internal.bindings.storage.mojom.FileSystemAccessContextPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_SerializeHandle_Params', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParamsSpec, 'storage.mojom.FileSystemAccessContext_SerializeHandle_ResponseParams', [
+      mojo.internal.StructField('arg_bits', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_DeserializeHandle_ParamsSpec, 'storage.mojom.FileSystemAccessContext_DeserializeHandle_Params', [
+      mojo.internal.StructField('arg_storage_key', 0, 0, mojo.internal.bindings.blink.mojom.StorageKeySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_bits', 8, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.FileSystemAccessTransferTokenRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.storage.mojom.FileSystemAccessContext_Clone_ParamsSpec, 'storage.mojom.FileSystemAccessContext_Clone_Params', [
+      mojo.internal.StructField('arg_receiever', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.storage.mojom.FileSystemAccessContextRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

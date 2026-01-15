@@ -137,3 +137,5 @@ mojo.internal.bindings.extensions.mojom.ViewType = {
   kExtensionSidePanel: 11,
   kDeveloperTools: 12,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

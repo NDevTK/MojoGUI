@@ -126,3 +126,5 @@ mojo.internal.bindings.cc.mojom.TouchActionSpec = { $: mojo.internal.Enum().$ };
 // Enum: TouchAction
 mojo.internal.bindings.cc.mojom.TouchAction = {
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

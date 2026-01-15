@@ -137,48 +137,7 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: AnchorElementPointerData
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, 'blink.mojom.AnchorElementPointerData', [
-      mojo.internal.StructField('arg_is_mouse_pointer', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_velocity', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_acceleration', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: AnchorElementInteractionHost
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerDown_Params', [
-      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_Params', [
-      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_Params', [
-      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Params', [
-      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Params', [
-      mojo.internal.StructField('arg_targets', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -347,35 +306,35 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerDown');
-          const result = this.impl.onPointerDown(params.arg_target);
+          const result = this.impl.onPointerDown(params.arg_arg_target);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverEager');
-          const result = this.impl.onPointerHoverEager(params.arg_target, params.arg_mouse_data);
+          const result = this.impl.onPointerHoverEager(params.arg_arg_target, params.arg_arg_mouse_data);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPointerHoverModerate');
-          const result = this.impl.onPointerHoverModerate(params.arg_target, params.arg_mouse_data);
+          const result = this.impl.onPointerHoverModerate(params.arg_arg_target, params.arg_arg_mouse_data);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onModerateViewportHeuristicTriggered');
-          const result = this.impl.onModerateViewportHeuristicTriggered(params.arg_target);
+          const result = this.impl.onModerateViewportHeuristicTriggered(params.arg_arg_target);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onEagerViewportHeuristicTriggered');
-          const result = this.impl.onEagerViewportHeuristicTriggered(params.arg_targets);
+          const result = this.impl.onEagerViewportHeuristicTriggered(params.arg_arg_targets);
           break;
         }
       }
@@ -390,4 +349,47 @@ mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostReceiver = mojo.i
 
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostPtr = mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRemote;
 mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostRequest = mojo.internal.bindings.blink.mojom.AnchorElementInteractionHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AnchorElementPointerData
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, 'blink.mojom.AnchorElementPointerData', [
+      mojo.internal.StructField('arg_is_mouse_pointer', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_velocity', 8, 0, mojo.internal.Double, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_acceleration', 16, 0, mojo.internal.Double, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerDown_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerDown_Params', [
+      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverEager_Params', [
+      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnPointerHoverModerate_Params', [
+      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mouse_data', 8, 0, mojo.internal.bindings.blink.mojom.AnchorElementPointerDataSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnModerateViewportHeuristicTriggered_Params', [
+      mojo.internal.StructField('arg_target', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_ParamsSpec, 'blink.mojom.AnchorElementInteractionHost_OnEagerViewportHeuristicTriggered_Params', [
+      mojo.internal.StructField('arg_targets', 0, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

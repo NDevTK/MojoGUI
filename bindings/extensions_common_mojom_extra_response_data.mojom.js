@@ -129,6 +129,8 @@ mojo.internal.bindings.blink = mojo.internal.bindings.blink || {};
 mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.SerializedBlobSpec = mojo.internal.bindings.blink.mojom.SerializedBlobSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ExtraResponseData
 mojo.internal.Struct(
     mojo.internal.bindings.extensions.mojom.ExtraResponseDataSpec, 'extensions.mojom.ExtraResponseData', [

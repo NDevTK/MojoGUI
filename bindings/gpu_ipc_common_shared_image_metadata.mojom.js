@@ -143,6 +143,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.SharedImageFormatSpec = mojo.internal.bindings.viz.mojom.SharedImageFormatSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SharedImageMetadata
 mojo.internal.Struct(
     mojo.internal.bindings.gpu.mojom.SharedImageMetadataSpec, 'gpu.mojom.SharedImageMetadata', [

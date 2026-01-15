@@ -164,6 +164,8 @@ mojo.internal.bindings.lens.mojom.Alignment = {
   kCenterAligned: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Text
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.TextSpec, 'lens.mojom.Text', [

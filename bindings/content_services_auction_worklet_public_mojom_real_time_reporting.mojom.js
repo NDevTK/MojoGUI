@@ -123,6 +123,8 @@ mojo.internal.bindings.auction_worklet.mojom = mojo.internal.bindings.auction_wo
 
 mojo.internal.bindings.auction_worklet.mojom.RealTimeReportingContributionSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: RealTimeReportingContribution
 mojo.internal.Struct(
     mojo.internal.bindings.auction_worklet.mojom.RealTimeReportingContributionSpec, 'auction_worklet.mojom.RealTimeReportingContribution', [

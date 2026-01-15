@@ -137,3 +137,5 @@ mojo.internal.bindings.blink.mojom.FrameLifecycleState = {
   kPaused: 1,
   kFrozen: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

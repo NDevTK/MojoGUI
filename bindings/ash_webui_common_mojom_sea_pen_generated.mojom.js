@@ -812,3 +812,5 @@ mojo.internal.bindings.ash.personalization_app.mojom.SeaPenTemplateOption = {
   kVcBackgroundGlowscapesFeatureWalkway: 10216,
   kVcBackgroundGlowscapesFeaturePool: 10217,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

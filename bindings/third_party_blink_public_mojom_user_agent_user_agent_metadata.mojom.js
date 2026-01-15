@@ -125,6 +125,8 @@ mojo.internal.bindings.blink.mojom.UserAgentBrandVersionSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.UserAgentMetadataSpec = { $: {} };
 mojo.internal.bindings.blink.mojom.UserAgentOverrideSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: UserAgentBrandVersion
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.UserAgentBrandVersionSpec, 'blink.mojom.UserAgentBrandVersion', [

@@ -126,11 +126,6 @@ mojo.internal.bindings.mojom.ResetPasswordHandler.$interfaceName = 'mojom.ResetP
 mojo.internal.bindings.mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec = { $: {} };
 
 // Interface: ResetPasswordHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec, 'mojom.ResetPasswordHandler_HandlePasswordReset_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.mojom.ResetPasswordHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -258,4 +253,11 @@ mojo.internal.bindings.mojom.ResetPasswordHandlerReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.mojom.ResetPasswordHandlerPtr = mojo.internal.bindings.mojom.ResetPasswordHandlerRemote;
 mojo.internal.bindings.mojom.ResetPasswordHandlerRequest = mojo.internal.bindings.mojom.ResetPasswordHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mojom.ResetPasswordHandler_HandlePasswordReset_ParamsSpec, 'mojom.ResetPasswordHandler_HandlePasswordReset_Params', [
+    ],
+    [[0, 8]]);
 

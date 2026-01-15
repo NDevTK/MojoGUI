@@ -220,106 +220,7 @@ mojo.internal.bindings.viz.mojom.Type = {
   kDelete: 1,
 };
 
-// Struct: TransferableUIResourceRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec, 'viz.mojom.TransferableUIResourceRequest', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.TypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_opaque', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uid', 8, 0, mojo.internal.bindings.cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transferable_resource', 16, 0, mojo.internal.bindings.viz.mojom.TransferableResourceSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: LayerTreeUpdate
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec, 'viz.mojom.LayerTreeUpdate', [
-      mojo.internal.StructField('arg_begin_frame_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_source_frame_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_page_scale_factor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_primary_main_frame_item_sequence_number', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_selection', 32, 0, mojo.internal.bindings.cc.mojom.LayerSelectionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_min_page_scale_factor', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_page_scale_factor', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_external_page_scale_factor', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_scale_factor', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_viewport', 56, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_painted_device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_next_frame_token', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_display_color_spaces', 72, 0, mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_local_surface_id_from_parent', 80, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_current_local_surface_id', 88, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_send_frame_token_to_embedder', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_full_tree_damaged', 96, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_frame_has_damage', 96, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_handling_interaction', 96, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_may_throttle_if_undrawn_frames', 96, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_viewport_mobile_optimized', 96, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_overscroll_elasticity_transform', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_target_local_surface_id', 104, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_background_color', 112, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_page_scale_transform', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_inner_scroll', 124, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_outer_clip', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_outer_scroll', 132, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_viewport_damage_rect', 136, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_debug_state', 144, 0, mojo.internal.bindings.cc.mojom.LayerTreeDebugStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_display_transform_hint', 152, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_safe_area_inset_bottom', 156, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_controls_params', 160, 0, mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_browser_controls_offset_tag_modifications', 168, 0, mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_top_controls_shown_ratio', 176, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 180, 0, mojo.internal.Float, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_ui_resource_requests', 184, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_layers', 192, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.LayerSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_layer_order', 200, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_transform_tree_update', 208, 0, mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_scroll_tree_update', 216, 0, mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_transform_nodes', 224, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransformNodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_clip_nodes', 232, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ClipNodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_effect_nodes', 240, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.EffectNodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_scroll_nodes', 248, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ScrollNodeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_num_transform_nodes', 256, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_clip_nodes', 260, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_effect_nodes', 264, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_num_scroll_nodes', 268, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tilings', 272, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TilingSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_surface_ranges', 280, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_view_transition_requests', 288, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ViewTransitionRequestSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_animation_timelines', 296, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.AnimationTimelineSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_removed_animation_timelines', 304, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_damage_reasons_bit_mask', 312, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_delegated_ink_metadata', 320, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec, null, true, 0, undefined),
-    ],
-    [[0, 336]]);
-
-// Struct: PendingLayerContext
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.PendingLayerContextSpec, 'viz.mojom.PendingLayerContext', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.LayerContextRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.LayerContextClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: LayerContext
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec, 'viz.mojom.LayerContext_SetVisible_Params', [
-      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec, 'viz.mojom.LayerContext_UpdateDisplayTree_Params', [
-      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec, 'viz.mojom.LayerContext_UpdateDisplayTiling_Params', [
-      mojo.internal.StructField('arg_tiling', 0, 0, mojo.internal.bindings.viz.mojom.TilingSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.LayerContextPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -460,21 +361,21 @@ mojo.internal.bindings.viz.mojom.LayerContextReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisible');
-          const result = this.impl.setVisible(params.arg_visible);
+          const result = this.impl.setVisible(params.arg_arg_visible);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTree');
-          const result = this.impl.updateDisplayTree(params.arg_update);
+          const result = this.impl.updateDisplayTree(params.arg_arg_update);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.updateDisplayTiling');
-          const result = this.impl.updateDisplayTiling(params.arg_tiling);
+          const result = this.impl.updateDisplayTiling(params.arg_arg_tiling);
           break;
         }
       }
@@ -492,19 +393,6 @@ mojo.internal.bindings.viz.mojom.LayerContextRequest = mojo.internal.bindings.vi
 
 
 // Interface: LayerContextClient
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec, 'viz.mojom.LayerContextClient_OnRequestCommitForFrame_Params', [
-      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec, 'viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_Params', [
-      mojo.internal.StructField('arg_layer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_tiling_scales_to_clean_up', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.viz.mojom.LayerContextClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -631,14 +519,14 @@ mojo.internal.bindings.viz.mojom.LayerContextClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRequestCommitForFrame');
-          const result = this.impl.onRequestCommitForFrame(params.arg_args);
+          const result = this.impl.onRequestCommitForFrame(params.arg_arg_args);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTilingsReadyForCleanup');
-          const result = this.impl.onTilingsReadyForCleanup(params.arg_layer_id, params.arg_tiling_scales_to_clean_up);
+          const result = this.impl.onTilingsReadyForCleanup(params.arg_arg_layer_id, params.arg_arg_tiling_scales_to_clean_up);
           break;
         }
       }
@@ -653,4 +541,118 @@ mojo.internal.bindings.viz.mojom.LayerContextClientReceiver = mojo.internal.bind
 
 mojo.internal.bindings.viz.mojom.LayerContextClientPtr = mojo.internal.bindings.viz.mojom.LayerContextClientRemote;
 mojo.internal.bindings.viz.mojom.LayerContextClientRequest = mojo.internal.bindings.viz.mojom.LayerContextClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: TransferableUIResourceRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec, 'viz.mojom.TransferableUIResourceRequest', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.viz.mojom.TypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_opaque', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uid', 8, 0, mojo.internal.bindings.cc.mojom.UIResourceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transferable_resource', 16, 0, mojo.internal.bindings.viz.mojom.TransferableResourceSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: LayerTreeUpdate
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec, 'viz.mojom.LayerTreeUpdate', [
+      mojo.internal.StructField('arg_begin_frame_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_source_frame_number', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_page_scale_factor', 12, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_trace_id', 16, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_primary_main_frame_item_sequence_number', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_selection', 32, 0, mojo.internal.bindings.cc.mojom.LayerSelectionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_min_page_scale_factor', 40, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_page_scale_factor', 44, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_external_page_scale_factor', 48, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_scale_factor', 52, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_viewport', 56, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_painted_device_scale_factor', 64, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_next_frame_token', 68, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_display_color_spaces', 72, 0, mojo.internal.bindings.gfx.mojom.DisplayColorSpacesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_local_surface_id_from_parent', 80, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_current_local_surface_id', 88, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_send_frame_token_to_embedder', 96, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_full_tree_damaged', 96, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_frame_has_damage', 96, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_handling_interaction', 96, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_may_throttle_if_undrawn_frames', 96, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_viewport_mobile_optimized', 96, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_overscroll_elasticity_transform', 100, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_target_local_surface_id', 104, 0, mojo.internal.bindings.viz.mojom.LocalSurfaceIdSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_background_color', 112, 0, mojo.internal.bindings.skia.mojom.SkColor4fSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_page_scale_transform', 120, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_inner_scroll', 124, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_outer_clip', 128, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_outer_scroll', 132, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_viewport_damage_rect', 136, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_debug_state', 144, 0, mojo.internal.bindings.cc.mojom.LayerTreeDebugStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_display_transform_hint', 152, 0, mojo.internal.bindings.gfx.mojom.OverlayTransformSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_safe_area_inset_bottom', 156, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_controls_params', 160, 0, mojo.internal.bindings.cc.mojom.BrowserControlsParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_browser_controls_offset_tag_modifications', 168, 0, mojo.internal.bindings.cc.mojom.BrowserControlsOffsetTagModificationsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_top_controls_shown_ratio', 176, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_bottom_controls_shown_ratio', 180, 0, mojo.internal.Float, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_ui_resource_requests', 184, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransferableUIResourceRequestSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_layers', 192, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.LayerSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_layer_order', 200, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_transform_tree_update', 208, 0, mojo.internal.bindings.viz.mojom.TransformTreeUpdateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_scroll_tree_update', 216, 0, mojo.internal.bindings.viz.mojom.ScrollTreeUpdateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_transform_nodes', 224, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TransformNodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_clip_nodes', 232, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ClipNodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_effect_nodes', 240, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.EffectNodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_scroll_nodes', 248, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ScrollNodeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_num_transform_nodes', 256, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_clip_nodes', 260, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_effect_nodes', 264, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_num_scroll_nodes', 268, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tilings', 272, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.TilingSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_surface_ranges', 280, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.SurfaceRangeSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_view_transition_requests', 288, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.ViewTransitionRequestSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_animation_timelines', 296, 0, mojo.internal.Array(mojo.internal.bindings.viz.mojom.AnimationTimelineSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_removed_animation_timelines', 304, 0, mojo.internal.Array(mojo.internal.Int32, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_damage_reasons_bit_mask', 312, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_delegated_ink_metadata', 320, 0, mojo.internal.bindings.gfx.mojom.DelegatedInkMetadataSpec, null, true, 0, undefined),
+    ],
+    [[0, 336]]);
+
+// Struct: PendingLayerContext
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.PendingLayerContextSpec, 'viz.mojom.PendingLayerContext', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.AssociatedInterfaceRequest(mojo.internal.bindings.viz.mojom.LayerContextRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 4, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.viz.mojom.LayerContextClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayerContext_SetVisible_ParamsSpec, 'viz.mojom.LayerContext_SetVisible_Params', [
+      mojo.internal.StructField('arg_visible', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTree_ParamsSpec, 'viz.mojom.LayerContext_UpdateDisplayTree_Params', [
+      mojo.internal.StructField('arg_update', 0, 0, mojo.internal.bindings.viz.mojom.LayerTreeUpdateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayerContext_UpdateDisplayTiling_ParamsSpec, 'viz.mojom.LayerContext_UpdateDisplayTiling_Params', [
+      mojo.internal.StructField('arg_tiling', 0, 0, mojo.internal.bindings.viz.mojom.TilingSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayerContextClient_OnRequestCommitForFrame_ParamsSpec, 'viz.mojom.LayerContextClient_OnRequestCommitForFrame_Params', [
+      mojo.internal.StructField('arg_args', 0, 0, mojo.internal.bindings.viz.mojom.BeginFrameArgsSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_ParamsSpec, 'viz.mojom.LayerContextClient_OnTilingsReadyForCleanup_Params', [
+      mojo.internal.StructField('arg_layer_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_tiling_scales_to_clean_up', 8, 0, mojo.internal.Array(mojo.internal.Float, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

@@ -123,6 +123,8 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 
 mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: NavigationPreloadState
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.NavigationPreloadStateSpec, 'blink.mojom.NavigationPreloadState', [

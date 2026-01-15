@@ -143,41 +143,7 @@ mojo.internal.bindings.arc.mojom.ArcShellCommand = {
   kMeminfo: 2,
 };
 
-// Union: ArcShellExecutionResult
-mojo.internal.Union(
-    mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec, 'arc.mojom.ArcShellExecutionResult', {
-      'arg_stdout': {
-        'ordinal': 0,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-      'arg_error': {
-        'ordinal': 1,
-        'type': mojo.internal.String,
-        'nullable': false,
-      },
-    });
-
-// Struct: ArcShellExecutionRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec, 'arc.mojom.ArcShellExecutionRequest', [
-      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellCommandSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: ArcShellExecutionInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,12 +256,15 @@ mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.exec');
-          const result = this.impl.exec(params.arg_request);
+          const result = this.impl.exec(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Exec FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] exec FAILED:', e));
           }
           break;
         }
@@ -311,4 +280,40 @@ mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceReceiver = mojo.intern
 
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstancePtr = mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceRemote;
 mojo.internal.bindings.arc.mojom.ArcShellExecutionInstanceRequest = mojo.internal.bindings.arc.mojom.ArcShellExecutionInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: ArcShellExecutionResult
+mojo.internal.Union(
+    mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec, 'arc.mojom.ArcShellExecutionResult', {
+      'arg_stdout': {
+        'ordinal': 0,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+      'arg_error': {
+        'ordinal': 1,
+        'type': mojo.internal.String,
+        'nullable': false,
+      },
+    });
+
+// Struct: ArcShellExecutionRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec, 'arc.mojom.ArcShellExecutionRequest', [
+      mojo.internal.StructField('arg_command', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellCommandSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ArcShellExecutionInstance_Exec_ResponseParamsSpec, 'arc.mojom.ArcShellExecutionInstance_Exec_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ArcShellExecutionResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

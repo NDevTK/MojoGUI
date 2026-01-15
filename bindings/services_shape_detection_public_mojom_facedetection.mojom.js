@@ -151,43 +151,7 @@ mojo.internal.bindings.shape_detection.mojom.LandmarkType = {
   NOSE: 2,
 };
 
-// Struct: Landmark
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.LandmarkSpec, 'shape_detection.mojom.Landmark', [
-      mojo.internal.StructField('arg_locations', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: FaceDetectionResult
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec, 'shape_detection.mojom.FaceDetectionResult', [
-      mojo.internal.StructField('arg_bounding_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_landmarks', 8, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.LandmarkSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: FaceDetectorOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec, 'shape_detection.mojom.FaceDetectorOptions', [
-      mojo.internal.StructField('arg_max_detected_faces', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_fast_mode', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: FaceDetection
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec, 'shape_detection.mojom.FaceDetection_Detect_Params', [
-      mojo.internal.StructField('arg_bitmap_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.FaceDetection_Detect_ResponseParams', [
-      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -300,12 +264,15 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detect');
-          const result = this.impl.detect(params.arg_bitmap_data);
+          const result = this.impl.detect(params.arg_arg_bitmap_data);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Detect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_results' in response) ? response.arg_arg_results : response;
+              encoder.encodeStructInline(mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] detect FAILED:', e));
           }
           break;
         }
@@ -321,4 +288,42 @@ mojo.internal.bindings.shape_detection.mojom.FaceDetectionReceiver = mojo.intern
 
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionPtr = mojo.internal.bindings.shape_detection.mojom.FaceDetectionRemote;
 mojo.internal.bindings.shape_detection.mojom.FaceDetectionRequest = mojo.internal.bindings.shape_detection.mojom.FaceDetectionPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: Landmark
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.LandmarkSpec, 'shape_detection.mojom.Landmark', [
+      mojo.internal.StructField('arg_locations', 0, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 8, 0, mojo.internal.bindings.shape_detection.mojom.LandmarkTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: FaceDetectionResult
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec, 'shape_detection.mojom.FaceDetectionResult', [
+      mojo.internal.StructField('arg_bounding_box', 0, 0, mojo.internal.bindings.gfx.mojom.RectFSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_landmarks', 8, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.LandmarkSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: FaceDetectorOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.FaceDetectorOptionsSpec, 'shape_detection.mojom.FaceDetectorOptions', [
+      mojo.internal.StructField('arg_max_detected_faces', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_fast_mode', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ParamsSpec, 'shape_detection.mojom.FaceDetection_Detect_Params', [
+      mojo.internal.StructField('arg_bitmap_data', 0, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.shape_detection.mojom.FaceDetection_Detect_ResponseParamsSpec, 'shape_detection.mojom.FaceDetection_Detect_ResponseParams', [
+      mojo.internal.StructField('arg_results', 0, 0, mojo.internal.Array(mojo.internal.bindings.shape_detection.mojom.FaceDetectionResultSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -131,6 +131,8 @@ mojo.internal.bindings.ax = mojo.internal.bindings.ax || {};
 mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 mojo.internal.bindings.ax.mojom.TextAffinitySpec = mojo.internal.bindings.ax.mojom.TextAffinitySpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXTreeData
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXTreeDataSpec, 'ax.mojom.AXTreeData', [

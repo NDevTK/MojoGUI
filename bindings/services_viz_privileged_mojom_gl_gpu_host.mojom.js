@@ -190,127 +190,6 @@ mojo.internal.bindings.webnn.mojom = mojo.internal.bindings.webnn.mojom || {};
 mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec = mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: GpuHost
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec, 'viz.mojom.GpuHost_DidInitialize_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_gpu_info_for_hardware_gpu', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_feature_info_for_hardware_gpu', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_gpu_extra_info', 32, 0, mojo.internal.bindings.gfx.mojom.GpuExtraInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec, 'viz.mojom.GpuHost_DidFailInitialize_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec, 'viz.mojom.GpuHost_DidCreateContextSuccessfully_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidCreateOffscreenContext_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyOffscreenContext_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyChannel_Params', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyAllChannels_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec, 'viz.mojom.GpuHost_DidLoseContext_Params', [
-      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_active_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateGPUInfo_Params', [
-      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateOverlayInfo_Params', [
-      mojo.internal.StructField('arg_overlay_info', 0, 0, mojo.internal.bindings.gpu.mojom.OverlayInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateDXGIInfo_Params', [
-      mojo.internal.StructField('arg_dxgi_info', 0, 0, mojo.internal.bindings.gfx.mojom.DXGIInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec, 'viz.mojom.GpuHost_DisableGpuCompositing_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_Params', [
-      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_wgpu_context_token', 8, 0, mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_ResponseParams', [
-      mojo.internal.StructField('arg_isolation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec, 'viz.mojom.GpuHost_StoreBlobToDisk_Params', [
-      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_blob', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec, 'viz.mojom.GpuHost_ClearGrShaderDiskCache_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParams', [
-      mojo.internal.StructField('arg_ep_package_info', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParams', [
-      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.viz.mojom.GpuHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -647,7 +526,7 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didInitialize');
-          const result = this.impl.didInitialize(params.arg_gpu_info, params.arg_gpu_feature_info, params.arg_gpu_info_for_hardware_gpu, params.arg_gpu_feature_info_for_hardware_gpu, params.arg_gpu_extra_info);
+          const result = this.impl.didInitialize(params.arg_arg_gpu_info, params.arg_arg_gpu_feature_info, params.arg_arg_gpu_info_for_hardware_gpu, params.arg_arg_gpu_feature_info_for_hardware_gpu, params.arg_arg_gpu_extra_info);
           break;
         }
         case 1: {
@@ -668,21 +547,21 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didCreateOffscreenContext');
-          const result = this.impl.didCreateOffscreenContext(params.arg_url);
+          const result = this.impl.didCreateOffscreenContext(params.arg_arg_url);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didDestroyOffscreenContext');
-          const result = this.impl.didDestroyOffscreenContext(params.arg_url);
+          const result = this.impl.didDestroyOffscreenContext(params.arg_arg_url);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didDestroyChannel');
-          const result = this.impl.didDestroyChannel(params.arg_client_id);
+          const result = this.impl.didDestroyChannel(params.arg_arg_client_id);
           break;
         }
         case 6: {
@@ -696,28 +575,28 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didLoseContext');
-          const result = this.impl.didLoseContext(params.arg_reason, params.arg_active_url);
+          const result = this.impl.didLoseContext(params.arg_arg_reason, params.arg_arg_active_url);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateGPUInfo');
-          const result = this.impl.didUpdateGPUInfo(params.arg_gpu_info);
+          const result = this.impl.didUpdateGPUInfo(params.arg_arg_gpu_info);
           break;
         }
         case 9: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateOverlayInfo');
-          const result = this.impl.didUpdateOverlayInfo(params.arg_overlay_info);
+          const result = this.impl.didUpdateOverlayInfo(params.arg_arg_overlay_info);
           break;
         }
         case 10: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.didUpdateDXGIInfo');
-          const result = this.impl.didUpdateDXGIInfo(params.arg_dxgi_info);
+          const result = this.impl.didUpdateDXGIInfo(params.arg_arg_dxgi_info);
           break;
         }
         case 11: {
@@ -731,12 +610,15 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getIsolationKey');
-          const result = this.impl.getIsolationKey(params.arg_client_id, params.arg_wgpu_context_token);
+          const result = this.impl.getIsolationKey(params.arg_arg_client_id, params.arg_arg_wgpu_context_token);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetIsolationKey FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_isolation_key' in response) ? response.arg_arg_isolation_key : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getIsolationKey FAILED:', e));
           }
           break;
         }
@@ -744,7 +626,7 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.storeBlobToDisk');
-          const result = this.impl.storeBlobToDisk(params.arg_cache_handle, params.arg_key, params.arg_blob);
+          const result = this.impl.storeBlobToDisk(params.arg_arg_cache_handle, params.arg_arg_key, params.arg_arg_blob);
           break;
         }
         case 14: {
@@ -762,8 +644,11 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EnsureWebNNExecutionProvidersReady FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_ep_package_info' in response) ? response.arg_arg_ep_package_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] ensureWebNNExecutionProvidersReady FAILED:', e));
           }
           break;
         }
@@ -775,8 +660,11 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CreateWebNNWeightsFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_file' in response) ? response.arg_arg_file : response;
+              encoder.encodeStructInline(mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] createWebNNWeightsFile FAILED:', e));
           }
           break;
         }
@@ -792,4 +680,127 @@ mojo.internal.bindings.viz.mojom.GpuHostReceiver = mojo.internal.bindings.viz.mo
 
 mojo.internal.bindings.viz.mojom.GpuHostPtr = mojo.internal.bindings.viz.mojom.GpuHostRemote;
 mojo.internal.bindings.viz.mojom.GpuHostRequest = mojo.internal.bindings.viz.mojom.GpuHostPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidInitialize_ParamsSpec, 'viz.mojom.GpuHost_DidInitialize_Params', [
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info', 8, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_gpu_info_for_hardware_gpu', 16, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gpu_feature_info_for_hardware_gpu', 24, 0, mojo.internal.bindings.gpu.mojom.GpuFeatureInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_gpu_extra_info', 32, 0, mojo.internal.bindings.gfx.mojom.GpuExtraInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidFailInitialize_ParamsSpec, 'viz.mojom.GpuHost_DidFailInitialize_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidCreateContextSuccessfully_ParamsSpec, 'viz.mojom.GpuHost_DidCreateContextSuccessfully_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidCreateOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidCreateOffscreenContext_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyOffscreenContext_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyOffscreenContext_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyChannel_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyChannel_Params', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidDestroyAllChannels_ParamsSpec, 'viz.mojom.GpuHost_DidDestroyAllChannels_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidLoseContext_ParamsSpec, 'viz.mojom.GpuHost_DidLoseContext_Params', [
+      mojo.internal.StructField('arg_reason', 0, 0, mojo.internal.bindings.gpu.mojom.ContextLostReasonSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_active_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateGPUInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateGPUInfo_Params', [
+      mojo.internal.StructField('arg_gpu_info', 0, 0, mojo.internal.bindings.gpu.mojom.GpuInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateOverlayInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateOverlayInfo_Params', [
+      mojo.internal.StructField('arg_overlay_info', 0, 0, mojo.internal.bindings.gpu.mojom.OverlayInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DidUpdateDXGIInfo_ParamsSpec, 'viz.mojom.GpuHost_DidUpdateDXGIInfo_Params', [
+      mojo.internal.StructField('arg_dxgi_info', 0, 0, mojo.internal.bindings.gfx.mojom.DXGIInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_DisableGpuCompositing_ParamsSpec, 'viz.mojom.GpuHost_DisableGpuCompositing_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_Params', [
+      mojo.internal.StructField('arg_client_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_wgpu_context_token', 8, 0, mojo.internal.bindings.blink.mojom.WebGPUExecutionContextTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_GetIsolationKey_ResponseParamsSpec, 'viz.mojom.GpuHost_GetIsolationKey_ResponseParams', [
+      mojo.internal.StructField('arg_isolation_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_StoreBlobToDisk_ParamsSpec, 'viz.mojom.GpuHost_StoreBlobToDisk_Params', [
+      mojo.internal.StructField('arg_cache_handle', 0, 0, mojo.internal.bindings.gpu.mojom.GpuDiskCacheHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key', 16, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_blob', 24, 0, mojo.internal.bindings.mojo_base.mojom.ByteStringSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_ClearGrShaderDiskCache_ParamsSpec, 'viz.mojom.GpuHost_ClearGrShaderDiskCache_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParamsSpec, 'viz.mojom.GpuHost_EnsureWebNNExecutionProvidersReady_ResponseParams', [
+      mojo.internal.StructField('arg_ep_package_info', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.webnn.mojom.EpPackageInfoSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParamsSpec, 'viz.mojom.GpuHost_CreateWebNNWeightsFile_ResponseParams', [
+      mojo.internal.StructField('arg_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

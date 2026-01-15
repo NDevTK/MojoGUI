@@ -177,6 +177,8 @@ mojo.internal.bindings.composebox_query.mojom.InputType = {
   kLensFile: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: InputState
 mojo.internal.Struct(
     mojo.internal.bindings.composebox_query.mojom.InputStateSpec, 'composebox_query.mojom.InputState', [

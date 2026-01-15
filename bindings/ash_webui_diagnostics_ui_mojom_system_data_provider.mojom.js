@@ -180,91 +180,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryState = {
   kFull: 2,
 };
 
-// Struct: DeviceCapabilities
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec, 'ash.diagnostics.mojom.DeviceCapabilities', [
-      mojo.internal.StructField('arg_has_battery', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: VersionInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec, 'ash.diagnostics.mojom.VersionInfo', [
-      mojo.internal.StructField('arg_milestone_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_full_version_string', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: SystemInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec, 'ash.diagnostics.mojom.SystemInfo', [
-      mojo.internal.StructField('arg_board_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_marketing_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_model_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_total_memory_kib', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_threads_count', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_max_clock_speed_khz', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_version_info', 40, 0, mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_device_capabilities', 48, 0, mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec, null, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: BatteryInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec, 'ash.diagnostics.mojom.BatteryInfo', [
-      mojo.internal.StructField('arg_manufacturer', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_charge_full_design_milliamp_hours', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: BatteryChargeStatus
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec, 'ash.diagnostics.mojom.BatteryChargeStatus', [
-      mojo.internal.StructField('arg_power_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_current_now_milliamps', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_charge_now_milliamp_hours', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_state', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_power_adapter_status', 20, 0, mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: BatteryHealth
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec, 'ash.diagnostics.mojom.BatteryHealth', [
-      mojo.internal.StructField('arg_charge_full_now_milliamp_hours', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_charge_full_design_milliamp_hours', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cycle_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_battery_wear_percentage', 12, 0, mojo.internal.Int8, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: MemoryUsage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec, 'ash.diagnostics.mojom.MemoryUsage', [
-      mojo.internal.StructField('arg_total_memory_kib', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_available_memory_kib', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_free_memory_kib', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: CpuUsage
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec, 'ash.diagnostics.mojom.CpuUsage', [
-      mojo.internal.StructField('arg_percent_usage_user', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_usage_system', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_percent_usage_free', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_average_cpu_temp_celsius', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_scaling_current_frequency_khz', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: BatteryChargeStatusObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec, 'ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_Params', [
-      mojo.internal.StructField('arg_battery_charge_status', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -377,7 +293,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverReceiver
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatteryChargeStatusUpdated');
-          const result = this.impl.onBatteryChargeStatusUpdated(params.arg_battery_charge_status);
+          const result = this.impl.onBatteryChargeStatusUpdated(params.arg_arg_battery_charge_status);
           break;
         }
       }
@@ -395,12 +311,6 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRequest 
 
 
 // Interface: BatteryHealthObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec, 'ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_Params', [
-      mojo.internal.StructField('arg_battery_health', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -513,7 +423,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onBatteryHealthUpdated');
-          const result = this.impl.onBatteryHealthUpdated(params.arg_battery_health);
+          const result = this.impl.onBatteryHealthUpdated(params.arg_arg_battery_health);
           break;
         }
       }
@@ -531,12 +441,6 @@ mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRequest = mojo
 
 
 // Interface: MemoryUsageObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec, 'ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_Params', [
-      mojo.internal.StructField('arg_memory_usage', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -649,7 +553,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMemoryUsageUpdated');
-          const result = this.impl.onMemoryUsageUpdated(params.arg_memory_usage);
+          const result = this.impl.onMemoryUsageUpdated(params.arg_arg_memory_usage);
           break;
         }
       }
@@ -667,12 +571,6 @@ mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRequest = mojo.i
 
 
 // Interface: CpuUsageObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec, 'ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_Params', [
-      mojo.internal.StructField('arg_cpu_usage', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -785,7 +683,7 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onCpuUsageUpdated');
-          const result = this.impl.onCpuUsageUpdated(params.arg_cpu_usage);
+          const result = this.impl.onCpuUsageUpdated(params.arg_arg_cpu_usage);
           break;
         }
       }
@@ -803,52 +701,6 @@ mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRequest = mojo.inte
 
 
 // Interface: SystemDataProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParams', [
-      mojo.internal.StructField('arg_system_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParams', [
-      mojo.internal.StructField('arg_battery_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -1035,8 +887,11 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSystemInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_system_info' in response) ? response.arg_arg_system_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSystemInfo FAILED:', e));
           }
           break;
         }
@@ -1048,8 +903,11 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetBatteryInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_battery_info' in response) ? response.arg_arg_battery_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getBatteryInfo FAILED:', e));
           }
           break;
         }
@@ -1057,28 +915,28 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryChargeStatus');
-          const result = this.impl.observeBatteryChargeStatus(params.arg_observer);
+          const result = this.impl.observeBatteryChargeStatus(params.arg_arg_observer);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeBatteryHealth');
-          const result = this.impl.observeBatteryHealth(params.arg_observer);
+          const result = this.impl.observeBatteryHealth(params.arg_arg_observer);
           break;
         }
         case 4: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeMemoryUsage');
-          const result = this.impl.observeMemoryUsage(params.arg_observer);
+          const result = this.impl.observeMemoryUsage(params.arg_arg_observer);
           break;
         }
         case 5: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.observeCpuUsage');
-          const result = this.impl.observeCpuUsage(params.arg_observer);
+          const result = this.impl.observeCpuUsage(params.arg_arg_observer);
           break;
         }
       }
@@ -1093,4 +951,154 @@ mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderReceiver = mojo.i
 
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderPtr = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRemote;
 mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderRequest = mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DeviceCapabilities
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec, 'ash.diagnostics.mojom.DeviceCapabilities', [
+      mojo.internal.StructField('arg_has_battery', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: VersionInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec, 'ash.diagnostics.mojom.VersionInfo', [
+      mojo.internal.StructField('arg_milestone_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_full_version_string', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: SystemInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec, 'ash.diagnostics.mojom.SystemInfo', [
+      mojo.internal.StructField('arg_board_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_marketing_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_model_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_total_memory_kib', 24, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_threads_count', 28, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_max_clock_speed_khz', 32, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_version_info', 40, 0, mojo.internal.bindings.ash.diagnostics.mojom.VersionInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_device_capabilities', 48, 0, mojo.internal.bindings.ash.diagnostics.mojom.DeviceCapabilitiesSpec, null, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: BatteryInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec, 'ash.diagnostics.mojom.BatteryInfo', [
+      mojo.internal.StructField('arg_manufacturer', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_charge_full_design_milliamp_hours', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: BatteryChargeStatus
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec, 'ash.diagnostics.mojom.BatteryChargeStatus', [
+      mojo.internal.StructField('arg_power_time', 0, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_current_now_milliamps', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_charge_now_milliamp_hours', 12, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_state', 16, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_power_adapter_status', 20, 0, mojo.internal.bindings.ash.diagnostics.mojom.ExternalPowerSourceSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: BatteryHealth
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec, 'ash.diagnostics.mojom.BatteryHealth', [
+      mojo.internal.StructField('arg_charge_full_now_milliamp_hours', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_charge_full_design_milliamp_hours', 4, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cycle_count', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_battery_wear_percentage', 12, 0, mojo.internal.Int8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: MemoryUsage
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec, 'ash.diagnostics.mojom.MemoryUsage', [
+      mojo.internal.StructField('arg_total_memory_kib', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_available_memory_kib', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_free_memory_kib', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CpuUsage
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec, 'ash.diagnostics.mojom.CpuUsage', [
+      mojo.internal.StructField('arg_percent_usage_user', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_usage_system', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_percent_usage_free', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_average_cpu_temp_celsius', 4, 0, mojo.internal.Uint16, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_scaling_current_frequency_khz', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_ParamsSpec, 'ash.diagnostics.mojom.BatteryChargeStatusObserver_OnBatteryChargeStatusUpdated_Params', [
+      mojo.internal.StructField('arg_battery_charge_status', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_ParamsSpec, 'ash.diagnostics.mojom.BatteryHealthObserver_OnBatteryHealthUpdated_Params', [
+      mojo.internal.StructField('arg_battery_health', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_ParamsSpec, 'ash.diagnostics.mojom.MemoryUsageObserver_OnMemoryUsageUpdated_Params', [
+      mojo.internal.StructField('arg_memory_usage', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_ParamsSpec, 'ash.diagnostics.mojom.CpuUsageObserver_OnCpuUsageUpdated_Params', [
+      mojo.internal.StructField('arg_cpu_usage', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetSystemInfo_ResponseParams', [
+      mojo.internal.StructField('arg_system_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.SystemInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_GetBatteryInfo_ResponseParams', [
+      mojo.internal.StructField('arg_battery_info', 0, 0, mojo.internal.bindings.ash.diagnostics.mojom.BatteryInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryChargeStatus_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryChargeStatusObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveBatteryHealth_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.BatteryHealthObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveMemoryUsage_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.MemoryUsageObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_ParamsSpec, 'ash.diagnostics.mojom.SystemDataProvider_ObserveCpuUsage_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.diagnostics.mojom.CpuUsageObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

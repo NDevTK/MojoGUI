@@ -127,3 +127,5 @@ mojo.internal.bindings.blink.mojom.RuntimeFeatureSpec = { $: mojo.internal.Enum(
 mojo.internal.bindings.blink.mojom.RuntimeFeature = {
   kDummyFeature: 0,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

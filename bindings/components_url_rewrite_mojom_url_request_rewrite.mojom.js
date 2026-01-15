@@ -151,110 +151,7 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicy = {
   kDeny: 1,
 };
 
-// Union: UrlRequestAction
-mojo.internal.Union(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec, 'url_rewrite.mojom.UrlRequestAction', {
-      'arg_add_headers': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec,
-        'nullable': false,
-      },
-      'arg_remove_header': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec,
-        'nullable': false,
-      },
-      'arg_substitute_query_pattern': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec,
-        'nullable': false,
-      },
-      'arg_replace_url': {
-        'ordinal': 3,
-        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec,
-        'nullable': false,
-      },
-      'arg_append_to_query': {
-        'ordinal': 4,
-        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec,
-        'nullable': false,
-      },
-      'arg_policy': {
-        'ordinal': 5,
-        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: UrlRequestRewriteRules
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec, 'url_rewrite.mojom.UrlRequestRewriteRules', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: UrlRequestRule
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec, 'url_rewrite.mojom.UrlRequestRule', [
-      mojo.internal.StructField('arg_hosts_filter', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_schemes_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_actions', 16, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: UrlRequestRewriteAddHeaders
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec, 'url_rewrite.mojom.UrlRequestRewriteAddHeaders', [
-      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: UrlHeader
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec, 'url_rewrite.mojom.UrlHeader', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: UrlRequestRewriteRemoveHeader
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec, 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader', [
-      mojo.internal.StructField('arg_query_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_header_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: UrlRequestRewriteSubstituteQueryPattern
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec, 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern', [
-      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_substitution', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: UrlRequestRewriteReplaceUrl
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec, 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl', [
-      mojo.internal.StructField('arg_url_ends_with', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_new_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: UrlRequestRewriteAppendToQuery
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec, 'url_rewrite.mojom.UrlRequestRewriteAppendToQuery', [
-      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: UrlRequestRulesReceiver
-mojo.internal.Struct(
-    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec, 'url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_Params', [
-      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -367,7 +264,7 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRulesUpdated');
-          const result = this.impl.onRulesUpdated(params.arg_rules);
+          const result = this.impl.onRulesUpdated(params.arg_arg_rules);
           break;
         }
       }
@@ -382,4 +279,109 @@ mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverReceiver = mojo.
 
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverPtr = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverRemote;
 mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverRequest = mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: UrlRequestAction
+mojo.internal.Union(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec, 'url_rewrite.mojom.UrlRequestAction', {
+      'arg_add_headers': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec,
+        'nullable': false,
+      },
+      'arg_remove_header': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec,
+        'nullable': false,
+      },
+      'arg_substitute_query_pattern': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec,
+        'nullable': false,
+      },
+      'arg_replace_url': {
+        'ordinal': 3,
+        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec,
+        'nullable': false,
+      },
+      'arg_append_to_query': {
+        'ordinal': 4,
+        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec,
+        'nullable': false,
+      },
+      'arg_policy': {
+        'ordinal': 5,
+        'type': mojo.internal.bindings.url_rewrite.mojom.UrlRequestAccessPolicySpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: UrlRequestRewriteRules
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec, 'url_rewrite.mojom.UrlRequestRewriteRules', [
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: UrlRequestRule
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRuleSpec, 'url_rewrite.mojom.UrlRequestRule', [
+      mojo.internal.StructField('arg_hosts_filter', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_schemes_filter', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_actions', 16, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlRequestActionSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: UrlRequestRewriteAddHeaders
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAddHeadersSpec, 'url_rewrite.mojom.UrlRequestRewriteAddHeaders', [
+      mojo.internal.StructField('arg_headers', 0, 0, mojo.internal.Array(mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: UrlHeader
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlHeaderSpec, 'url_rewrite.mojom.UrlHeader', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_value', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: UrlRequestRewriteRemoveHeader
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRemoveHeaderSpec, 'url_rewrite.mojom.UrlRequestRewriteRemoveHeader', [
+      mojo.internal.StructField('arg_query_pattern', 0, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_header_name', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: UrlRequestRewriteSubstituteQueryPattern
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPatternSpec, 'url_rewrite.mojom.UrlRequestRewriteSubstituteQueryPattern', [
+      mojo.internal.StructField('arg_pattern', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_substitution', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: UrlRequestRewriteReplaceUrl
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteReplaceUrlSpec, 'url_rewrite.mojom.UrlRequestRewriteReplaceUrl', [
+      mojo.internal.StructField('arg_url_ends_with', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_new_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: UrlRequestRewriteAppendToQuery
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteAppendToQuerySpec, 'url_rewrite.mojom.UrlRequestRewriteAppendToQuery', [
+      mojo.internal.StructField('arg_query', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_ParamsSpec, 'url_rewrite.mojom.UrlRequestRulesReceiver_OnRulesUpdated_Params', [
+      mojo.internal.StructField('arg_rules', 0, 0, mojo.internal.bindings.url_rewrite.mojom.UrlRequestRewriteRulesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

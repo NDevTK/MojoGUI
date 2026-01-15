@@ -157,46 +157,7 @@ mojo.internal.bindings.data_decoder.mojom.ImageCodec = {
   kPng: 1,
 };
 
-// Struct: AnimationFrame
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec, 'data_decoder.mojom.AnimationFrame', [
-      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.InlineBitmapSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ImageDecoder
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_Params', [
-      mojo.internal.StructField('arg_encoded_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_codec', 16, 0, mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shrink_to_fit', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_desired_image_frame_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParams', [
-      mojo.internal.StructField('arg_decoding_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoded_image', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params', [
-      mojo.internal.StructField('arg_encoded_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_shrink_to_fit', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParams', [
-      mojo.internal.StructField('arg_decoded_image', 0, 0, mojo.internal.Array(mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.data_decoder.mojom.ImageDecoderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -323,12 +284,14 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeImage');
-          const result = this.impl.decodeImage(params.arg_encoded_data, params.arg_codec, params.arg_shrink_to_fit, params.arg_max_size_in_bytes, params.arg_desired_image_frame_size);
+          const result = this.impl.decodeImage(params.arg_arg_encoded_data, params.arg_arg_codec, params.arg_arg_shrink_to_fit, params.arg_arg_max_size_in_bytes, params.arg_arg_desired_image_frame_size);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecodeImage FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec.$.structSpec, ['response.arg_arg_decoding_duration', 'response.arg_arg_decoded_image']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decodeImage FAILED:', e));
           }
           break;
         }
@@ -336,12 +299,15 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeAnimation');
-          const result = this.impl.decodeAnimation(params.arg_encoded_data, params.arg_shrink_to_fit, params.arg_max_size_in_bytes);
+          const result = this.impl.decodeAnimation(params.arg_arg_encoded_data, params.arg_arg_shrink_to_fit, params.arg_arg_max_size_in_bytes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecodeAnimation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_decoded_image' in response) ? response.arg_arg_decoded_image : response;
+              encoder.encodeStructInline(mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decodeAnimation FAILED:', e));
           }
           break;
         }
@@ -357,4 +323,45 @@ mojo.internal.bindings.data_decoder.mojom.ImageDecoderReceiver = mojo.internal.b
 
 mojo.internal.bindings.data_decoder.mojom.ImageDecoderPtr = mojo.internal.bindings.data_decoder.mojom.ImageDecoderRemote;
 mojo.internal.bindings.data_decoder.mojom.ImageDecoderRequest = mojo.internal.bindings.data_decoder.mojom.ImageDecoderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AnimationFrame
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec, 'data_decoder.mojom.AnimationFrame', [
+      mojo.internal.StructField('arg_bitmap', 0, 0, mojo.internal.bindings.skia.mojom.InlineBitmapSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_duration', 8, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_Params', [
+      mojo.internal.StructField('arg_encoded_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_codec', 16, 0, mojo.internal.bindings.data_decoder.mojom.ImageCodecSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shrink_to_fit', 20, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_desired_image_frame_size', 32, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeImage_ResponseParams', [
+      mojo.internal.StructField('arg_decoding_duration', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoded_image', 8, 0, mojo.internal.bindings.skia.mojom.BitmapN32Spec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_Params', [
+      mojo.internal.StructField('arg_encoded_data', 0, 0, mojo.internal.bindings.mojo_base.mojom.BigBufferSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_shrink_to_fit', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_max_size_in_bytes', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParamsSpec, 'data_decoder.mojom.ImageDecoder_DecodeAnimation_ResponseParams', [
+      mojo.internal.StructField('arg_decoded_image', 0, 0, mojo.internal.Array(mojo.internal.bindings.data_decoder.mojom.AnimationFrameSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -142,27 +142,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.JSTimeSpec = mojo.internal.bindings.mojo_base.mojom.JSTimeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: JournalEntry
-mojo.internal.Struct(
-    mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec, 'actor_internals.mojom.JournalEntry', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_details', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_task_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_track', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_screenshot', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: Page
-mojo.internal.Struct(
-    mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec, 'actor_internals.mojom.Page_JournalEntryAdded_Params', [
-      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.actor_internals.mojom.PagePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -275,7 +255,7 @@ mojo.internal.bindings.actor_internals.mojom.PageReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.journalEntryAdded');
-          const result = this.impl.journalEntryAdded(params.arg_entry);
+          const result = this.impl.journalEntryAdded(params.arg_arg_entry);
           break;
         }
       }
@@ -293,16 +273,6 @@ mojo.internal.bindings.actor_internals.mojom.PageRequest = mojo.internal.binding
 
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StartLogging_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StopLogging_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.actor_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -454,13 +424,6 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerRequest = mojo.internal.
 
 
 // Interface: PageHandlerFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
-      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.actor_internals.mojom.PageRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -573,7 +536,7 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryReceiver = class 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createPageHandler');
-          const result = this.impl.createPageHandler(params.arg_page, params.arg_handler);
+          const result = this.impl.createPageHandler(params.arg_arg_page, params.arg_arg_handler);
           break;
         }
       }
@@ -588,4 +551,43 @@ mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryReceiver = mojo.i
 
 mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryPtr = mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryRemote;
 mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryRequest = mojo.internal.bindings.actor_internals.mojom.PageHandlerFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: JournalEntry
+mojo.internal.Struct(
+    mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec, 'actor_internals.mojom.JournalEntry', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_event', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_type', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_details', 24, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 32, 0, mojo.internal.bindings.mojo_base.mojom.JSTimeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_task_id', 40, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_track', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_screenshot', 56, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, true, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.actor_internals.mojom.Page_JournalEntryAdded_ParamsSpec, 'actor_internals.mojom.Page_JournalEntryAdded_Params', [
+      mojo.internal.StructField('arg_entry', 0, 0, mojo.internal.bindings.actor_internals.mojom.JournalEntrySpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor_internals.mojom.PageHandler_StartLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StartLogging_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor_internals.mojom.PageHandler_StopLogging_ParamsSpec, 'actor_internals.mojom.PageHandler_StopLogging_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.actor_internals.mojom.PageHandlerFactory_CreatePageHandler_ParamsSpec, 'actor_internals.mojom.PageHandlerFactory_CreatePageHandler_Params', [
+      mojo.internal.StructField('arg_page', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.actor_internals.mojom.PageRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_handler', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.actor_internals.mojom.PageHandlerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

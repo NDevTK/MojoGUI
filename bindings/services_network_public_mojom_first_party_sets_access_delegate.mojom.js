@@ -137,34 +137,7 @@ mojo.internal.bindings.network = mojo.internal.bindings.network || {};
 mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {};
 mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec = mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: FirstPartySetsAccessDelegateParams
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec, 'network.mojom.FirstPartySetsAccessDelegateParams', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: FirstPartySetsReadyEvent
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec, 'network.mojom.FirstPartySetsReadyEvent', [
-      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cache_filter', 8, 0, mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: FirstPartySetsAccessDelegate
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_NotifyReady_Params', [
-      mojo.internal.StructField('arg_ready_event', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_SetEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegatePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -291,14 +264,14 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyReady');
-          const result = this.impl.notifyReady(params.arg_ready_event);
+          const result = this.impl.notifyReady(params.arg_arg_ready_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setEnabled');
-          const result = this.impl.setEnabled(params.arg_enabled);
+          const result = this.impl.setEnabled(params.arg_arg_enabled);
           break;
         }
       }
@@ -313,4 +286,33 @@ mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateReceiver = mojo
 
 mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegatePtr = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRemote;
 mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateRequest = mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegatePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FirstPartySetsAccessDelegateParams
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegateParamsSpec, 'network.mojom.FirstPartySetsAccessDelegateParams', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: FirstPartySetsReadyEvent
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec, 'network.mojom.FirstPartySetsReadyEvent', [
+      mojo.internal.StructField('arg_config', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetsContextConfigSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cache_filter', 8, 0, mojo.internal.bindings.network.mojom.FirstPartySetsCacheFilterSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_NotifyReady_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_NotifyReady_Params', [
+      mojo.internal.StructField('arg_ready_event', 0, 0, mojo.internal.bindings.network.mojom.FirstPartySetsReadyEventSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.FirstPartySetsAccessDelegate_SetEnabled_ParamsSpec, 'network.mojom.FirstPartySetsAccessDelegate_SetEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

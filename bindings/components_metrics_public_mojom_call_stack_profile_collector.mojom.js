@@ -143,22 +143,7 @@ mojo.internal.bindings.metrics.mojom.ProfileType = {
   kHeap: 1,
 };
 
-// Struct: SampledProfile
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.SampledProfileSpec, 'metrics.mojom.SampledProfile', [
-      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: CallStackProfileCollector
-mojo.internal.Struct(
-    mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec, 'metrics.mojom.CallStackProfileCollector_Collect_Params', [
-      mojo.internal.StructField('arg_start_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile_type', 8, 0, mojo.internal.bindings.metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_profile', 16, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,7 +256,7 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.collect');
-          const result = this.impl.collect(params.arg_start_timestamp, params.arg_profile_type, params.arg_profile);
+          const result = this.impl.collect(params.arg_arg_start_timestamp, params.arg_arg_profile_type, params.arg_arg_profile);
           break;
         }
       }
@@ -286,4 +271,21 @@ mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorReceiver = mojo.in
 
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorPtr = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRemote;
 mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorRequest = mojo.internal.bindings.metrics.mojom.CallStackProfileCollectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: SampledProfile
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.SampledProfileSpec, 'metrics.mojom.SampledProfile', [
+      mojo.internal.StructField('arg_contents', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProtoWrapperSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.metrics.mojom.CallStackProfileCollector_Collect_ParamsSpec, 'metrics.mojom.CallStackProfileCollector_Collect_Params', [
+      mojo.internal.StructField('arg_start_timestamp', 0, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile_type', 8, 0, mojo.internal.bindings.metrics.mojom.ProfileTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_profile', 16, 0, mojo.internal.bindings.metrics.mojom.SampledProfileSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

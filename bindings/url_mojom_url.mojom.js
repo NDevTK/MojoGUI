@@ -125,6 +125,8 @@ mojo.internal.bindings.url.mojom.UrlSpec = { $: {} };
 
 mojo.internal.bindings.url.mojom.kMaxURLChars = 2097152;
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Url
 mojo.internal.Struct(
     mojo.internal.bindings.url.mojom.UrlSpec, 'url.mojom.Url', [

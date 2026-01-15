@@ -124,6 +124,8 @@ mojo.internal.bindings.sandbox.mac.mojom = mojo.internal.bindings.sandbox.mac.mo
 
 mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: SeatbeltExtensionToken
 mojo.internal.Struct(
     mojo.internal.bindings.sandbox.mac.mojom.SeatbeltExtensionTokenSpec, 'sandbox.mac.mojom.SeatbeltExtensionToken', [

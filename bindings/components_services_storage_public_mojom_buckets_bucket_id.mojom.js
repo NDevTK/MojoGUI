@@ -123,6 +123,8 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 
 mojo.internal.bindings.storage.mojom.BucketIdSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: BucketId
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.BucketIdSpec, 'storage.mojom.BucketId', [

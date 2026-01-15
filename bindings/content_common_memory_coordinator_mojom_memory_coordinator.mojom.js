@@ -132,34 +132,7 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistrySpec = { $ : {
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry.$interfaceName = 'content.mojom.BrowserMemoryConsumerRegistry';
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec = { $: {} };
 
-// Struct: MemoryConsumerTraits
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, 'content.mojom.MemoryConsumerTraits', [
-      mojo.internal.StructField('arg_supports_memory_limit', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_in_process', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_estimated_memory_usage', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_release_memory_cost', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_recreate_memory_cost', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_information_retention', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_memory_release_behavior', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_execution_type', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_release_gc_references', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_garbage_collects_v8_heap', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: ChildMemoryConsumer
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params', [
-      mojo.internal.StructField('arg_percentage', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.ChildMemoryConsumerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -293,7 +266,7 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUpdateMemoryLimit');
-          const result = this.impl.notifyUpdateMemoryLimit(params.arg_percentage);
+          const result = this.impl.notifyUpdateMemoryLimit(params.arg_arg_percentage);
           break;
         }
       }
@@ -311,14 +284,6 @@ mojo.internal.bindings.content.mojom.ChildMemoryConsumerRequest = mojo.internal.
 
 
 // Interface: BrowserMemoryConsumerRegistry
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
-      mojo.internal.StructField('arg_consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_traits', 8, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_child_consumer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -431,7 +396,7 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerChildMemoryConsumer');
-          const result = this.impl.registerChildMemoryConsumer(params.arg_consumer_id, params.arg_traits, params.arg_child_consumer);
+          const result = this.impl.registerChildMemoryConsumer(params.arg_arg_consumer_id, params.arg_arg_traits, params.arg_arg_child_consumer);
           break;
         }
       }
@@ -446,4 +411,41 @@ mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryReceiver = moj
 
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPtr = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRemote;
 mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryRequest = mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: MemoryConsumerTraits
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, 'content.mojom.MemoryConsumerTraits', [
+      mojo.internal.StructField('arg_supports_memory_limit', 0, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_in_process', 1, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_estimated_memory_usage', 2, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_memory_cost', 3, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_recreate_memory_cost', 4, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_information_retention', 5, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_memory_release_behavior', 6, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_execution_type', 7, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_release_gc_references', 8, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_garbage_collects_v8_heap', 9, 0, mojo.internal.Uint8, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyReleaseMemory_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_ParamsSpec, 'content.mojom.ChildMemoryConsumer_NotifyUpdateMemoryLimit_Params', [
+      mojo.internal.StructField('arg_percentage', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_ParamsSpec, 'content.mojom.BrowserMemoryConsumerRegistry_RegisterChildMemoryConsumer_Params', [
+      mojo.internal.StructField('arg_consumer_id', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_traits', 8, 0, mojo.internal.bindings.content.mojom.MemoryConsumerTraitsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_child_consumer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.content.mojom.ChildMemoryConsumerRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

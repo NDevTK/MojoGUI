@@ -141,14 +141,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: MhtmlPageNotifier
-mojo.internal.Struct(
-    mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec, 'offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_Params', [
-      mojo.internal.StructField('arg_load_result', 0, 0, mojo.internal.bindings.blink.mojom.MHTMLLoadResultSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_date', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -261,7 +253,7 @@ mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyMhtmlPageLoadAttempted');
-          const result = this.impl.notifyMhtmlPageLoadAttempted(params.arg_load_result, params.arg_url, params.arg_date);
+          const result = this.impl.notifyMhtmlPageLoadAttempted(params.arg_arg_load_result, params.arg_arg_url, params.arg_arg_date);
           break;
         }
       }
@@ -276,4 +268,14 @@ mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierReceiver = mojo.inte
 
 mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierPtr = mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierRemote;
 mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierRequest = mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_ParamsSpec, 'offline_pages.mojom.MhtmlPageNotifier_NotifyMhtmlPageLoadAttempted_Params', [
+      mojo.internal.StructField('arg_load_result', 0, 0, mojo.internal.bindings.blink.mojom.MHTMLLoadResultSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_date', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

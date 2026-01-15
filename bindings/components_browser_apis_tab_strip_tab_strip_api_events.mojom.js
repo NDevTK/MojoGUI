@@ -144,6 +144,8 @@ mojo.internal.bindings.tabs_api = mojo.internal.bindings.tabs_api || {};
 mojo.internal.bindings.tabs_api.mojom = mojo.internal.bindings.tabs_api.mojom || {};
 mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec = mojo.internal.bindings.tabs_api.mojom.TabCreatedContainerSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OnTabsCreatedEvent
 mojo.internal.Struct(
     mojo.internal.bindings.tabs_api.mojom.OnTabsCreatedEventSpec, 'tabs_api.mojom.OnTabsCreatedEvent', [

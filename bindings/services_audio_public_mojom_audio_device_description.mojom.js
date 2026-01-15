@@ -123,6 +123,8 @@ mojo.internal.bindings.audio.mojom = mojo.internal.bindings.audio.mojom || {};
 
 mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AudioDeviceDescription
 mojo.internal.Struct(
     mojo.internal.bindings.audio.mojom.AudioDeviceDescriptionSpec, 'audio.mojom.AudioDeviceDescription', [

@@ -127,12 +127,6 @@ mojo.internal.bindings.extensions.mojom.AppWindow.$interfaceName = 'extensions.m
 mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec = { $: {} };
 
 // Interface: AppWindow
-mojo.internal.Struct(
-    mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec, 'extensions.mojom.AppWindow_SetVisuallyDeemphasized_Params', [
-      mojo.internal.StructField('arg_deemphasized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.extensions.mojom.AppWindowPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.extensions.mojom.AppWindowReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVisuallyDeemphasized');
-          const result = this.impl.setVisuallyDeemphasized(params.arg_deemphasized);
+          const result = this.impl.setVisuallyDeemphasized(params.arg_arg_deemphasized);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.extensions.mojom.AppWindowReceiver = mojo.internal.bindin
 
 mojo.internal.bindings.extensions.mojom.AppWindowPtr = mojo.internal.bindings.extensions.mojom.AppWindowRemote;
 mojo.internal.bindings.extensions.mojom.AppWindowRequest = mojo.internal.bindings.extensions.mojom.AppWindowPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.extensions.mojom.AppWindow_SetVisuallyDeemphasized_ParamsSpec, 'extensions.mojom.AppWindow_SetVisuallyDeemphasized_Params', [
+      mojo.internal.StructField('arg_deemphasized', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

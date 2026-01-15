@@ -139,20 +139,6 @@ mojo.internal.bindings.ash.mojom = mojo.internal.bindings.ash.mojom || {};
 mojo.internal.bindings.ash.mojom.KeyEventSpec = mojo.internal.bindings.ash.mojom.KeyEventSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: ShortcutInputObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_Params', [
-      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_Params', [
-      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -279,14 +265,14 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShortcutInputEventPressed');
-          const result = this.impl.onShortcutInputEventPressed(params.arg_prerewritten_key_event, params.arg_key_event);
+          const result = this.impl.onShortcutInputEventPressed(params.arg_arg_prerewritten_key_event, params.arg_arg_key_event);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onShortcutInputEventReleased');
-          const result = this.impl.onShortcutInputEventReleased(params.arg_prerewritten_key_event, params.arg_key_event);
+          const result = this.impl.onShortcutInputEventReleased(params.arg_arg_prerewritten_key_event, params.arg_arg_key_event);
           break;
         }
       }
@@ -304,17 +290,6 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRequest = mojo.inte
 
 
 // Interface: ShortcutInputProvider
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -441,7 +416,7 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startObservingShortcutInput');
-          const result = this.impl.startObservingShortcutInput(params.arg_observer);
+          const result = this.impl.startObservingShortcutInput(params.arg_arg_observer);
           break;
         }
         case 1: {
@@ -463,4 +438,31 @@ mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderReceiver = mojo.int
 
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderPtr = mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRemote;
 mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderRequest = mojo.internal.bindings.ash.common.mojom.ShortcutInputProviderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventPressed_Params', [
+      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_ParamsSpec, 'ash.common.mojom.ShortcutInputObserver_OnShortcutInputEventReleased_Params', [
+      mojo.internal.StructField('arg_prerewritten_key_event', 0, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_key_event', 8, 0, mojo.internal.bindings.ash.mojom.KeyEventSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StartObservingShortcutInput_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.common.mojom.ShortcutInputObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_ParamsSpec, 'ash.common.mojom.ShortcutInputProvider_StopObservingShortcutInput_Params', [
+    ],
+    [[0, 8]]);
 

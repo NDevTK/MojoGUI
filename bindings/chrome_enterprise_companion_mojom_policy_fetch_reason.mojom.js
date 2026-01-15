@@ -129,3 +129,5 @@ mojo.internal.bindings.enterprise_companion.mojom.PolicyFetchReason = {
   USER_REQUEST: 1,
   SCHEDULED: 2,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

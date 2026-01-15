@@ -135,19 +135,6 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeN
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec = { $: {} };
 
 // Interface: P2PTrustedSocketManagerClient
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec, 'network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec, 'network.mojom.P2PTrustedSocketManagerClient_DumpPacket_Params', [
-      mojo.internal.StructField('arg_packet_header', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_packet_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_incoming', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -281,7 +268,7 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpPacket');
-          const result = this.impl.dumpPacket(params.arg_packet_header, params.arg_packet_length, params.arg_incoming);
+          const result = this.impl.dumpPacket(params.arg_arg_packet_header, params.arg_arg_packet_length, params.arg_arg_incoming);
           break;
         }
       }
@@ -299,30 +286,6 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClientRequest = mojo
 
 
 // Interface: P2PTrustedSocketManager
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_StartRtpDump_Params', [
-      mojo.internal.StructField('arg_incoming', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_outgoing', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_StopRtpDump_Params', [
-      mojo.internal.StructField('arg_incoming', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_outgoing', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -477,14 +440,14 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startRtpDump');
-          const result = this.impl.startRtpDump(params.arg_incoming, params.arg_outgoing);
+          const result = this.impl.startRtpDump(params.arg_arg_incoming, params.arg_arg_outgoing);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.stopRtpDump');
-          const result = this.impl.stopRtpDump(params.arg_incoming, params.arg_outgoing);
+          const result = this.impl.stopRtpDump(params.arg_arg_incoming, params.arg_arg_outgoing);
           break;
         }
         case 2: {
@@ -513,4 +476,43 @@ mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerReceiver = mojo.inte
 
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerPtr = mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRemote;
 mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerRequest = mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_ParamsSpec, 'network.mojom.P2PTrustedSocketManagerClient_InvalidSocketPortRangeRequested_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PTrustedSocketManagerClient_DumpPacket_ParamsSpec, 'network.mojom.P2PTrustedSocketManagerClient_DumpPacket_Params', [
+      mojo.internal.StructField('arg_packet_header', 0, 0, mojo.internal.Array(mojo.internal.Uint8, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_packet_length', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_incoming', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StartRtpDump_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_StartRtpDump_Params', [
+      mojo.internal.StructField('arg_incoming', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_outgoing', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_StopRtpDump_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_StopRtpDump_Params', [
+      mojo.internal.StructField('arg_incoming', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_outgoing', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_PauseNetworkChangeNotifications_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_ParamsSpec, 'network.mojom.P2PTrustedSocketManager_ResumeNetworkChangeNotifications_Params', [
+    ],
+    [[0, 8]]);
 

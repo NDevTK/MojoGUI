@@ -190,146 +190,7 @@ mojo.internal.bindings.coral.mojom.CoralError = {
   kClusteringError: 4,
 };
 
-// Union: Entity
-mojo.internal.Union(
-    mojo.internal.bindings.coral.mojom.EntitySpec, 'coral.mojom.Entity', {
-      'arg_unknown': {
-        'ordinal': 0,
-        'type': mojo.internal.Bool,
-        'nullable': false,
-      },
-      'arg_tab': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.coral.mojom.TabSpec,
-        'nullable': false,
-      },
-      'arg_app': {
-        'ordinal': 2,
-        'type': mojo.internal.bindings.coral.mojom.AppSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: GroupResult
-mojo.internal.Union(
-    mojo.internal.bindings.coral.mojom.GroupResultSpec, 'coral.mojom.GroupResult', {
-      'arg_error': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec,
-        'nullable': false,
-      },
-      'arg_response': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.coral.mojom.GroupResponseSpec,
-        'nullable': false,
-      },
-    });
-
-// Union: CacheEmbeddingsResult
-mojo.internal.Union(
-    mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, 'coral.mojom.CacheEmbeddingsResult', {
-      'arg_error': {
-        'ordinal': 0,
-        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec,
-        'nullable': false,
-      },
-      'arg_response': {
-        'ordinal': 1,
-        'type': mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec,
-        'nullable': false,
-      },
-    });
-
-// Struct: Tab
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.TabSpec, 'coral.mojom.Tab', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: App
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.AppSpec, 'coral.mojom.App', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: EmbeddingOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, 'coral.mojom.EmbeddingOptions', [
-      mojo.internal.StructField('arg_check_safety_filter_$flag', 0, 0, mojo.internal.Bool, false, false, 1, { isPrimary: true, linkedValueFieldName: 'arg_check_safety_filter_$value', originalFieldName: 'arg_check_safety_filter' }),
-      mojo.internal.StructField('arg_check_safety_filter_$value', 0, 1, mojo.internal.Bool, false, false, 1, { isPrimary: false, linkedValueFieldName: 'arg_check_safety_filter_$flag', originalFieldName: 'arg_check_safety_filter' }),
-    ],
-    [[0, 8], [1, 16]]);
-
-// Struct: ClusteringOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec, 'coral.mojom.ClusteringOptions', [
-      mojo.internal.StructField('arg_min_items_in_cluster', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_items_in_cluster', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_max_clusters', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: TitleGenerationOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, 'coral.mojom.TitleGenerationOptions', [
-      mojo.internal.StructField('arg_max_characters', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_language_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Group
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.GroupSpec, 'coral.mojom.Group', [
-      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: GroupRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.GroupRequestSpec, 'coral.mojom.GroupRequest', [
-      mojo.internal.StructField('arg_entities', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_clustering_options', 16, 0, mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title_generation_options', 24, 0, mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_suppression_context', 32, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, true, 1, undefined),
-    ],
-    [[0, 40], [1, 48]]);
-
-// Struct: GroupResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.GroupResponseSpec, 'coral.mojom.GroupResponse', [
-      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.GroupSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: CacheEmbeddingsRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, 'coral.mojom.CacheEmbeddingsRequest', [
-      mojo.internal.StructField('arg_entities', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: CacheEmbeddingsResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec, 'coral.mojom.CacheEmbeddingsResponse', [
-    ],
-    [[0, 8]]);
-
 // Interface: TitleObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec, 'coral.mojom.TitleObserver_TitleUpdated_Params', [
-      mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.coral.mojom.TitleObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -442,7 +303,7 @@ mojo.internal.bindings.coral.mojom.TitleObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.titleUpdated');
-          const result = this.impl.titleUpdated(params.arg_group_id, params.arg_title);
+          const result = this.impl.titleUpdated(params.arg_arg_group_id, params.arg_arg_title);
           break;
         }
       }
@@ -460,31 +321,6 @@ mojo.internal.bindings.coral.mojom.TitleObserverRequest = mojo.internal.bindings
 
 
 // Interface: CoralProcessor
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec, 'coral.mojom.CoralProcessor_Group_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.GroupResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.coral.mojom.CoralProcessorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -611,12 +447,15 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.group');
-          const result = this.impl.group(params.arg_request, params.arg_observer);
+          const result = this.impl.group(params.arg_arg_request, params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Group FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] group FAILED:', e));
           }
           break;
         }
@@ -624,12 +463,15 @@ mojo.internal.bindings.coral.mojom.CoralProcessorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddings');
-          const result = this.impl.cacheEmbeddings(params.arg_request);
+          const result = this.impl.cacheEmbeddings(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CacheEmbeddings FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cacheEmbeddings FAILED:', e));
           }
           break;
         }
@@ -648,44 +490,6 @@ mojo.internal.bindings.coral.mojom.CoralProcessorRequest = mojo.internal.binding
 
 
 // Interface: CoralService
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.GroupResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec, 'coral.mojom.CoralService_PrepareResource_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
-      mojo.internal.StructField('arg_ml_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
-    ],
-    [[0, 24], [2, 32]]);
-
 mojo.internal.bindings.coral.mojom.CoralServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -840,12 +644,15 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.groupDeprecated');
-          const result = this.impl.groupDeprecated(params.arg_request, params.arg_observer);
+          const result = this.impl.groupDeprecated(params.arg_arg_request, params.arg_arg_observer);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GroupDeprecated FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] groupDeprecated FAILED:', e));
           }
           break;
         }
@@ -853,12 +660,15 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cacheEmbeddingsDeprecated');
-          const result = this.impl.cacheEmbeddingsDeprecated(params.arg_request);
+          const result = this.impl.cacheEmbeddingsDeprecated(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CacheEmbeddingsDeprecated FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] cacheEmbeddingsDeprecated FAILED:', e));
           }
           break;
         }
@@ -873,7 +683,7 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.initialize');
-          const result = this.impl.initialize(params.arg_ml_service, params.arg_processor, params.arg_language_code);
+          const result = this.impl.initialize(params.arg_arg_ml_service, params.arg_arg_processor, params.arg_arg_language_code);
           break;
         }
       }
@@ -888,4 +698,208 @@ mojo.internal.bindings.coral.mojom.CoralServiceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.coral.mojom.CoralServicePtr = mojo.internal.bindings.coral.mojom.CoralServiceRemote;
 mojo.internal.bindings.coral.mojom.CoralServiceRequest = mojo.internal.bindings.coral.mojom.CoralServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Union: Entity
+mojo.internal.Union(
+    mojo.internal.bindings.coral.mojom.EntitySpec, 'coral.mojom.Entity', {
+      'arg_unknown': {
+        'ordinal': 0,
+        'type': mojo.internal.Bool,
+        'nullable': false,
+      },
+      'arg_tab': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.coral.mojom.TabSpec,
+        'nullable': false,
+      },
+      'arg_app': {
+        'ordinal': 2,
+        'type': mojo.internal.bindings.coral.mojom.AppSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: GroupResult
+mojo.internal.Union(
+    mojo.internal.bindings.coral.mojom.GroupResultSpec, 'coral.mojom.GroupResult', {
+      'arg_error': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec,
+        'nullable': false,
+      },
+      'arg_response': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.coral.mojom.GroupResponseSpec,
+        'nullable': false,
+      },
+    });
+
+// Union: CacheEmbeddingsResult
+mojo.internal.Union(
+    mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, 'coral.mojom.CacheEmbeddingsResult', {
+      'arg_error': {
+        'ordinal': 0,
+        'type': mojo.internal.bindings.coral.mojom.CoralErrorSpec,
+        'nullable': false,
+      },
+      'arg_response': {
+        'ordinal': 1,
+        'type': mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec,
+        'nullable': false,
+      },
+    });
+
+// Struct: Tab
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.TabSpec, 'coral.mojom.Tab', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: App
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.AppSpec, 'coral.mojom.App', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: EmbeddingOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, 'coral.mojom.EmbeddingOptions', [
+      mojo.internal.StructField('arg_check_safety_filter_$flag', 0, 0, mojo.internal.Bool, false, false, 1, { isPrimary: true, linkedValueFieldName: 'arg_check_safety_filter_$value', originalFieldName: 'arg_check_safety_filter' }),
+      mojo.internal.StructField('arg_check_safety_filter_$value', 0, 1, mojo.internal.Bool, false, false, 1, { isPrimary: false, linkedValueFieldName: 'arg_check_safety_filter_$flag', originalFieldName: 'arg_check_safety_filter' }),
+    ],
+    [[0, 8], [1, 16]]);
+
+// Struct: ClusteringOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec, 'coral.mojom.ClusteringOptions', [
+      mojo.internal.StructField('arg_min_items_in_cluster', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_items_in_cluster', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_max_clusters', 8, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: TitleGenerationOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, 'coral.mojom.TitleGenerationOptions', [
+      mojo.internal.StructField('arg_max_characters', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_language_code', 8, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Group
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.GroupSpec, 'coral.mojom.Group', [
+      mojo.internal.StructField('arg_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_entities', 16, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: GroupRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.GroupRequestSpec, 'coral.mojom.GroupRequest', [
+      mojo.internal.StructField('arg_entities', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_clustering_options', 16, 0, mojo.internal.bindings.coral.mojom.ClusteringOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title_generation_options', 24, 0, mojo.internal.bindings.coral.mojom.TitleGenerationOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_suppression_context', 32, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, true, 1, undefined),
+    ],
+    [[0, 40], [1, 48]]);
+
+// Struct: GroupResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.GroupResponseSpec, 'coral.mojom.GroupResponse', [
+      mojo.internal.StructField('arg_groups', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.GroupSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: CacheEmbeddingsRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, 'coral.mojom.CacheEmbeddingsRequest', [
+      mojo.internal.StructField('arg_entities', 0, 0, mojo.internal.Array(mojo.internal.bindings.coral.mojom.EntitySpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedding_options', 8, 0, mojo.internal.bindings.coral.mojom.EmbeddingOptionsSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CacheEmbeddingsResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CacheEmbeddingsResponseSpec, 'coral.mojom.CacheEmbeddingsResponse', [
+    ],
+    [[0, 8]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.TitleObserver_TitleUpdated_ParamsSpec, 'coral.mojom.TitleObserver_TitleUpdated_Params', [
+      mojo.internal.StructField('arg_group_id', 0, 0, mojo.internal.bindings.mojo_base.mojom.TokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_title', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ParamsSpec, 'coral.mojom.CoralProcessor_Group_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralProcessor_Group_ResponseParamsSpec, 'coral.mojom.CoralProcessor_Group_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.GroupResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParamsSpec, 'coral.mojom.CoralProcessor_CacheEmbeddings_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.GroupRequestSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.coral.mojom.TitleObserverRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralService_GroupDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_GroupDeprecated_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.GroupResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParamsSpec, 'coral.mojom.CoralService_CacheEmbeddingsDeprecated_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.coral.mojom.CacheEmbeddingsResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralService_PrepareResource_ParamsSpec, 'coral.mojom.CoralService_PrepareResource_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.coral.mojom.CoralService_Initialize_ParamsSpec, 'coral.mojom.CoralService_Initialize_Params', [
+      mojo.internal.StructField('arg_ml_service', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.machine_learning.mojom.MachineLearningServiceRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_processor', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.coral.mojom.CoralProcessorRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_language_code', 16, 0, mojo.internal.String, null, true, 2, undefined),
+    ],
+    [[0, 24], [2, 32]]);
 

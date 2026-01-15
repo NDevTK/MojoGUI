@@ -171,55 +171,7 @@ mojo.internal.bindings.blink.mojom.CredentialManagerError = {
   UNKNOWN: 3,
 };
 
-// Struct: CredentialInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialInfoSpec, 'blink.mojom.CredentialInfo', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.CredentialTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_federation', 40, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: CredentialManager
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec, 'blink.mojom.CredentialManager_Store_Params', [
-      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec, 'blink.mojom.CredentialManager_Store_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [
-      mojo.internal.StructField('arg_mediation', 0, 0, mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_include_passwords', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_federations', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec, 'blink.mojom.CredentialManager_Get_ResponseParams', [
-      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.CredentialManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -360,12 +312,14 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.store');
-          const result = this.impl.store(params.arg_credential);
+          const result = this.impl.store(params.arg_arg_credential);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Store FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] store FAILED:', e));
           }
           break;
         }
@@ -377,8 +331,10 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] PreventSilentAccess FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] preventSilentAccess FAILED:', e));
           }
           break;
         }
@@ -386,12 +342,14 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.get');
-          const result = this.impl.get(params.arg_mediation, params.arg_include_passwords, params.arg_federations);
+          const result = this.impl.get(params.arg_arg_mediation, params.arg_arg_include_passwords, params.arg_arg_federations);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Get FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec.$.structSpec, ['response.arg_arg_error', 'response.arg_arg_credential']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] get FAILED:', e));
           }
           break;
         }
@@ -407,4 +365,54 @@ mojo.internal.bindings.blink.mojom.CredentialManagerReceiver = mojo.internal.bin
 
 mojo.internal.bindings.blink.mojom.CredentialManagerPtr = mojo.internal.bindings.blink.mojom.CredentialManagerRemote;
 mojo.internal.bindings.blink.mojom.CredentialManagerRequest = mojo.internal.bindings.blink.mojom.CredentialManagerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: CredentialInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialInfoSpec, 'blink.mojom.CredentialInfo', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.blink.mojom.CredentialTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_id', 8, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_icon', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 32, 0, mojo.internal.bindings.mojo_base.mojom.String16Spec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_federation', 40, 0, mojo.internal.bindings.url.mojom.SchemeHostPortSpec, null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialManager_Store_ParamsSpec, 'blink.mojom.CredentialManager_Store_Params', [
+      mojo.internal.StructField('arg_credential', 0, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialManager_Store_ResponseParamsSpec, 'blink.mojom.CredentialManager_Store_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialManager_PreventSilentAccess_ResponseParamsSpec, 'blink.mojom.CredentialManager_PreventSilentAccess_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialManager_Get_ParamsSpec, 'blink.mojom.CredentialManager_Get_Params', [
+      mojo.internal.StructField('arg_mediation', 0, 0, mojo.internal.bindings.blink.mojom.CredentialMediationRequirementSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_include_passwords', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_federations', 8, 0, mojo.internal.Array(mojo.internal.bindings.url.mojom.UrlSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.CredentialManager_Get_ResponseParamsSpec, 'blink.mojom.CredentialManager_Get_ResponseParams', [
+      mojo.internal.StructField('arg_error', 0, 0, mojo.internal.bindings.blink.mojom.CredentialManagerErrorSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_credential', 8, 0, mojo.internal.bindings.blink.mojom.CredentialInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

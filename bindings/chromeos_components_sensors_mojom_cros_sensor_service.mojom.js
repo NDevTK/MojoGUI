@@ -139,12 +139,6 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceSpec = mojo.internal.
 mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote = mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote || class {};
 
 // Interface: SensorHalServer
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalServer_CreateChannel_Params', [
-      mojo.internal.StructField('arg_sensor_service_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,7 +251,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.createChannel');
-          const result = this.impl.createChannel(params.arg_sensor_service_request);
+          const result = this.impl.createChannel(params.arg_arg_sensor_service_request);
           break;
         }
       }
@@ -275,12 +269,6 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServerRequest = mojo.inte
 
 
 // Interface: SensorHalClient
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalClient_SetUpChannel_Params', [
-      mojo.internal.StructField('arg_sensor_service_ptr', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -393,7 +381,7 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUpChannel');
-          const result = this.impl.setUpChannel(params.arg_sensor_service_ptr);
+          const result = this.impl.setUpChannel(params.arg_arg_sensor_service_ptr);
           break;
         }
       }
@@ -408,4 +396,18 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientReceiver = mojo.int
 
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientPtr = mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote;
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRequest = mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.sensors.mojom.SensorHalServer_CreateChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalServer_CreateChannel_Params', [
+      mojo.internal.StructField('arg_sensor_service_request', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClient_SetUpChannel_ParamsSpec, 'chromeos.sensors.mojom.SensorHalClient_SetUpChannel_Params', [
+      mojo.internal.StructField('arg_sensor_service_ptr', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.sensors.mojom.SensorServiceRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

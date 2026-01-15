@@ -145,6 +145,8 @@ mojo.internal.bindings.network.mojom.SiteType = {
   kService: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: FirstPartySetEntry
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.FirstPartySetEntrySpec, 'network.mojom.FirstPartySetEntry', [

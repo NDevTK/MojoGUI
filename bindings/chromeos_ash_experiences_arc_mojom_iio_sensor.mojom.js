@@ -141,12 +141,6 @@ mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientSpec = mojo.interna
 mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote = mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote || class {};
 
 // Interface: IioSensorHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec, 'arc.mojom.IioSensorHost_RegisterSensorHalClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.IioSensorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -259,7 +253,7 @@ mojo.internal.bindings.arc.mojom.IioSensorHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerSensorHalClient');
-          const result = this.impl.registerSensorHalClient(params.arg_client);
+          const result = this.impl.registerSensorHalClient(params.arg_arg_client);
           break;
         }
       }
@@ -277,23 +271,6 @@ mojo.internal.bindings.arc.mojom.IioSensorHostRequest = mojo.internal.bindings.a
 
 
 // Interface: IioSensorInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec, 'arc.mojom.IioSensorInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.IioSensorHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec, 'arc.mojom.IioSensorInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec, 'arc.mojom.IioSensorInstance_OnTabletModeChanged_Params', [
-      mojo.internal.StructField('arg_is_tablet_mode_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.IioSensorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -420,12 +397,14 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -433,7 +412,7 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onTabletModeChanged');
-          const result = this.impl.onTabletModeChanged(params.arg_is_tablet_mode_on);
+          const result = this.impl.onTabletModeChanged(params.arg_arg_is_tablet_mode_on);
           break;
         }
       }
@@ -448,4 +427,29 @@ mojo.internal.bindings.arc.mojom.IioSensorInstanceReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.arc.mojom.IioSensorInstancePtr = mojo.internal.bindings.arc.mojom.IioSensorInstanceRemote;
 mojo.internal.bindings.arc.mojom.IioSensorInstanceRequest = mojo.internal.bindings.arc.mojom.IioSensorInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.IioSensorHost_RegisterSensorHalClient_ParamsSpec, 'arc.mojom.IioSensorHost_RegisterSensorHalClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.sensors.mojom.SensorHalClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ParamsSpec, 'arc.mojom.IioSensorInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.IioSensorHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.IioSensorInstance_Init_ResponseParamsSpec, 'arc.mojom.IioSensorInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.IioSensorInstance_OnTabletModeChanged_ParamsSpec, 'arc.mojom.IioSensorInstance_OnTabletModeChanged_Params', [
+      mojo.internal.StructField('arg_is_tablet_mode_on', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

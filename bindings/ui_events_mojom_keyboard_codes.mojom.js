@@ -305,3 +305,5 @@ mojo.internal.bindings.ui.mojom.KeyboardCode = {
   ALTGR: 225,
   COMPOSE: 230,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

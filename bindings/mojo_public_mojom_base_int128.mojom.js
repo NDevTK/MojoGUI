@@ -124,6 +124,8 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.Int128Spec = { $: {} };
 mojo.internal.bindings.mojo_base.mojom.Uint128Spec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Int128
 mojo.internal.Struct(
     mojo.internal.bindings.mojo_base.mojom.Int128Spec, 'mojo_base.mojom.Int128', [

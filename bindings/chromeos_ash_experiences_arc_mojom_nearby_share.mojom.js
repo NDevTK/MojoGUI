@@ -147,26 +147,6 @@ mojo.internal.bindings.url = mojo.internal.bindings.url || {};
 mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: FileInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.FileInfoSpec, 'arc.mojom.FileInfo', [
-      mojo.internal.StructField('arg_content_uri', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: ShareIntentInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec, 'arc.mojom.ShareIntentInfo', [
-      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_extras', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.FileInfoSpec, false), null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
 // Interface: NearbyShareSessionHost
 mojo.internal.bindings.arc.mojom.NearbyShareSessionHostPendingReceiver = class {
   constructor(handle) {
@@ -277,11 +257,6 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionHostRequest = mojo.internal.b
 
 
 // Interface: NearbyShareSessionInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec, 'arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.NearbyShareSessionInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -412,20 +387,6 @@ mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRequest = mojo.intern
 
 
 // Interface: NearbyShareHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_Params', [
-      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instance', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParams', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.NearbyShareHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -538,12 +499,15 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.startNearbyShare');
-          const result = this.impl.startNearbyShare(params.arg_task_id, params.arg_info, params.arg_instance);
+          const result = this.impl.startNearbyShare(params.arg_arg_task_id, params.arg_arg_info, params.arg_arg_instance);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] StartNearbyShare FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_host' in response) ? response.arg_arg_host : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] startNearbyShare FAILED:', e));
           }
           break;
         }
@@ -562,17 +526,6 @@ mojo.internal.bindings.arc.mojom.NearbyShareHostRequest = mojo.internal.bindings
 
 
 // Interface: NearbyShareInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec, 'arc.mojom.NearbyShareInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec, 'arc.mojom.NearbyShareInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.NearbyShareInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -685,12 +638,14 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -706,4 +661,56 @@ mojo.internal.bindings.arc.mojom.NearbyShareInstanceReceiver = mojo.internal.bin
 
 mojo.internal.bindings.arc.mojom.NearbyShareInstancePtr = mojo.internal.bindings.arc.mojom.NearbyShareInstanceRemote;
 mojo.internal.bindings.arc.mojom.NearbyShareInstanceRequest = mojo.internal.bindings.arc.mojom.NearbyShareInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FileInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.FileInfoSpec, 'arc.mojom.FileInfo', [
+      mojo.internal.StructField('arg_content_uri', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_name', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: ShareIntentInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec, 'arc.mojom.ShareIntentInfo', [
+      mojo.internal.StructField('arg_title', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mime_type', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_extras', 16, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_files', 24, 0, mojo.internal.Array(mojo.internal.bindings.arc.mojom.FileInfoSpec, false), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_ParamsSpec, 'arc.mojom.NearbyShareSessionInstance_OnNearbyShareViewClosed_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_Params', [
+      mojo.internal.StructField('arg_task_id', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_info', 8, 0, mojo.internal.bindings.arc.mojom.ShareIntentInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instance', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionInstanceRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParamsSpec, 'arc.mojom.NearbyShareHost_StartNearbyShare_ResponseParams', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareSessionHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ParamsSpec, 'arc.mojom.NearbyShareInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.NearbyShareHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.NearbyShareInstance_Init_ResponseParamsSpec, 'arc.mojom.NearbyShareInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

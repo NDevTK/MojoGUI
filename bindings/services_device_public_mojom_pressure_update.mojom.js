@@ -147,6 +147,8 @@ mojo.internal.bindings.device.mojom.PressureState = {
   kCritical: 3,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: PressureUpdate
 mojo.internal.Struct(
     mojo.internal.bindings.device.mojom.PressureUpdateSpec, 'device.mojom.PressureUpdate', [

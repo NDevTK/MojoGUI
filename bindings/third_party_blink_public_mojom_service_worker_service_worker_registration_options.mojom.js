@@ -140,6 +140,8 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerUpdateViaCache = {
   kNone: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ServiceWorkerRegistrationOptions
 mojo.internal.Struct(
     mojo.internal.bindings.blink.mojom.ServiceWorkerRegistrationOptionsSpec, 'blink.mojom.ServiceWorkerRegistrationOptions', [

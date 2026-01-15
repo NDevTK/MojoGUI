@@ -162,33 +162,6 @@ mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = mojo.internal.binding
 mojo.internal.bindings.mirroring.mojom.kMirroringSandbox = mojo.internal.bindings.sandbox.mojom.Sandbox.kService;
 
 // Interface: MirroringService
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec, 'mirroring.mojom.MirroringService_Start_Params', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionParametersSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_max_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_resource_provider', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec, 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [
-      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.mirroring.mojom.MirroringServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -329,7 +302,7 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.start');
-          const result = this.impl.start(params.arg_params, params.arg_max_resolution, params.arg_observer, params.arg_resource_provider, params.arg_outbound_channel, params.arg_inbound_channel);
+          const result = this.impl.start(params.arg_arg_params, params.arg_arg_max_resolution, params.arg_arg_observer, params.arg_arg_resource_provider, params.arg_arg_outbound_channel, params.arg_arg_inbound_channel);
           break;
         }
         case 1: {
@@ -347,8 +320,11 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMirroringStats FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_json_stats' in response) ? response.arg_arg_json_stats : response;
+              encoder.encodeStructInline(mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMirroringStats FAILED:', e));
           }
           break;
         }
@@ -364,4 +340,33 @@ mojo.internal.bindings.mirroring.mojom.MirroringServiceReceiver = mojo.internal.
 
 mojo.internal.bindings.mirroring.mojom.MirroringServicePtr = mojo.internal.bindings.mirroring.mojom.MirroringServiceRemote;
 mojo.internal.bindings.mirroring.mojom.MirroringServiceRequest = mojo.internal.bindings.mirroring.mojom.MirroringServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.MirroringService_Start_ParamsSpec, 'mirroring.mojom.MirroringService_Start_Params', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.mirroring.mojom.SessionParametersSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_max_resolution', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_observer', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.SessionObserverRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_resource_provider', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.ResourceProviderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_outbound_channel', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_inbound_channel', 40, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.mirroring.mojom.CastMessageChannelRemote), null, false, 0, undefined),
+    ],
+    [[0, 56]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.MirroringService_SwitchMirroringSourceTab_ParamsSpec, 'mirroring.mojom.MirroringService_SwitchMirroringSourceTab_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.mirroring.mojom.MirroringService_GetMirroringStats_ResponseParamsSpec, 'mirroring.mojom.MirroringService_GetMirroringStats_ResponseParams', [
+      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

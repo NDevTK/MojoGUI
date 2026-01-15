@@ -141,13 +141,6 @@ mojo.internal.bindings.blink.mojom.kAutoplayFlagForceAllow = 0x00002;
 mojo.internal.bindings.blink.mojom.kAutoplayFlagUserException = 0x00004;
 
 // Interface: AutoplayConfigurationClient
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec, 'blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_Params', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -260,7 +253,7 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addAutoplayFlags');
-          const result = this.impl.addAutoplayFlags(params.arg_origin, params.arg_flags);
+          const result = this.impl.addAutoplayFlags(params.arg_arg_origin, params.arg_arg_flags);
           break;
         }
       }
@@ -275,4 +268,13 @@ mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientReceiver = mojo.in
 
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientPtr = mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientRemote;
 mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientRequest = mojo.internal.bindings.blink.mojom.AutoplayConfigurationClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_ParamsSpec, 'blink.mojom.AutoplayConfigurationClient_AddAutoplayFlags_Params', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_flags', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
 

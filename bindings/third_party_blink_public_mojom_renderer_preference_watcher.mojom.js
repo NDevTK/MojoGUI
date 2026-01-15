@@ -132,12 +132,6 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.RendererPreferencesSpec = mojo.internal.bindings.blink.mojom.RendererPreferencesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: RendererPreferenceWatcher
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec, 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params', [
-      mojo.internal.StructField('arg_new_prefs', 0, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -250,7 +244,7 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.notifyUpdate');
-          const result = this.impl.notifyUpdate(params.arg_new_prefs);
+          const result = this.impl.notifyUpdate(params.arg_arg_new_prefs);
           break;
         }
       }
@@ -265,4 +259,12 @@ mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherReceiver = mojo.inte
 
 mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherPtr = mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRemote;
 mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherRequest = mojo.internal.bindings.blink.mojom.RendererPreferenceWatcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.RendererPreferenceWatcher_NotifyUpdate_ParamsSpec, 'blink.mojom.RendererPreferenceWatcher_NotifyUpdate_Params', [
+      mojo.internal.StructField('arg_new_prefs', 0, 0, mojo.internal.bindings.blink.mojom.RendererPreferencesSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -176,6 +176,8 @@ mojo.internal.bindings.storage.mojom.ServiceWorkerDatabaseStatus = {
   kErrorStorageDisconnected: 7,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ServiceWorkerRegistrationData
 mojo.internal.Struct(
     mojo.internal.bindings.storage.mojom.ServiceWorkerRegistrationDataSpec, 'storage.mojom.ServiceWorkerRegistrationData', [

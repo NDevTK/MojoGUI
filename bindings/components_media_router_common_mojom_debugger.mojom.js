@@ -136,29 +136,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ValueSpec = mojo.internal.bindings.mojo_base.mojom.ValueSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: Debugger
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParams', [
-      mojo.internal.StructField('arg_should_fetch', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_OnMirroringStats_Params', [
-      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [
-      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.DebuggerRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media_router.mojom.DebuggerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -303,8 +280,11 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShouldFetchMirroringStats FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_should_fetch' in response) ? response.arg_arg_should_fetch : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shouldFetchMirroringStats FAILED:', e));
           }
           break;
         }
@@ -312,14 +292,14 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onMirroringStats');
-          const result = this.impl.onMirroringStats(params.arg_json_stats);
+          const result = this.impl.onMirroringStats(params.arg_arg_json_stats);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.bindReceiver');
-          const result = this.impl.bindReceiver(params.arg_receiver);
+          const result = this.impl.bindReceiver(params.arg_arg_receiver);
           break;
         }
       }
@@ -334,4 +314,29 @@ mojo.internal.bindings.media_router.mojom.DebuggerReceiver = mojo.internal.bindi
 
 mojo.internal.bindings.media_router.mojom.DebuggerPtr = mojo.internal.bindings.media_router.mojom.DebuggerRemote;
 mojo.internal.bindings.media_router.mojom.DebuggerRequest = mojo.internal.bindings.media_router.mojom.DebuggerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParamsSpec, 'media_router.mojom.Debugger_ShouldFetchMirroringStats_ResponseParams', [
+      mojo.internal.StructField('arg_should_fetch', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Debugger_OnMirroringStats_ParamsSpec, 'media_router.mojom.Debugger_OnMirroringStats_Params', [
+      mojo.internal.StructField('arg_json_stats', 0, 0, mojo.internal.bindings.mojo_base.mojom.ValueSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media_router.mojom.Debugger_BindReceiver_ParamsSpec, 'media_router.mojom.Debugger_BindReceiver_Params', [
+      mojo.internal.StructField('arg_receiver', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media_router.mojom.DebuggerRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

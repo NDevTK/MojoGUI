@@ -137,33 +137,7 @@ mojo.internal.bindings.blink.mojom = mojo.internal.bindings.blink.mojom || {};
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec = mojo.internal.bindings.blink.mojom.ModelStreamingResponderSpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote = mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote || class {};
 
-// Struct: AIProofreaderCreateOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec, 'blink.mojom.AIProofreaderCreateOptions', [
-      mojo.internal.StructField('arg_include_correction_types', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_include_correction_explanations', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_correction_explanation_language', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_expected_input_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: AIProofreader
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec, 'blink.mojom.AIProofreader_Proofread_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec, 'blink.mojom.AIProofreader_GetCorrectionType_Params', [
-      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_corrected_input', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_correction_instruction', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pending_responder', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
 mojo.internal.bindings.blink.mojom.AIProofreaderPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -290,14 +264,14 @@ mojo.internal.bindings.blink.mojom.AIProofreaderReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.proofread');
-          const result = this.impl.proofread(params.arg_input, params.arg_pending_responder);
+          const result = this.impl.proofread(params.arg_arg_input, params.arg_arg_pending_responder);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getCorrectionType');
-          const result = this.impl.getCorrectionType(params.arg_input, params.arg_corrected_input, params.arg_correction_instruction, params.arg_pending_responder);
+          const result = this.impl.getCorrectionType(params.arg_arg_input, params.arg_arg_corrected_input, params.arg_arg_correction_instruction, params.arg_arg_pending_responder);
           break;
         }
       }
@@ -312,4 +286,32 @@ mojo.internal.bindings.blink.mojom.AIProofreaderReceiver = mojo.internal.binding
 
 mojo.internal.bindings.blink.mojom.AIProofreaderPtr = mojo.internal.bindings.blink.mojom.AIProofreaderRemote;
 mojo.internal.bindings.blink.mojom.AIProofreaderRequest = mojo.internal.bindings.blink.mojom.AIProofreaderPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: AIProofreaderCreateOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AIProofreaderCreateOptionsSpec, 'blink.mojom.AIProofreaderCreateOptions', [
+      mojo.internal.StructField('arg_include_correction_types', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_include_correction_explanations', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_correction_explanation_language', 8, 0, mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_expected_input_languages', 16, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.AILanguageCodeSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AIProofreader_Proofread_ParamsSpec, 'blink.mojom.AIProofreader_Proofread_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.AIProofreader_GetCorrectionType_ParamsSpec, 'blink.mojom.AIProofreader_GetCorrectionType_Params', [
+      mojo.internal.StructField('arg_input', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_corrected_input', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_correction_instruction', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pending_responder', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ModelStreamingResponderRemote), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
 

@@ -133,6 +133,8 @@ mojo.internal.bindings.media = mojo.internal.bindings.media || {};
 mojo.internal.bindings.media.mojom = mojo.internal.bindings.media.mojom || {};
 mojo.internal.bindings.media.mojom.VideoPixelFormatSpec = mojo.internal.bindings.media.mojom.VideoPixelFormatSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: ResolutionRateLimit
 mojo.internal.Struct(
     mojo.internal.bindings.media.mojom.ResolutionRateLimitSpec, 'media.mojom.ResolutionRateLimit', [

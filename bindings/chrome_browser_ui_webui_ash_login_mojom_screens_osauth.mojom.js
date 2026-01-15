@@ -131,26 +131,6 @@ mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_
 mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec = { $: {} };
 
 // Interface: LocalDataLossWarningPageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -341,4 +321,26 @@ mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerR
 
 mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPtr = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRemote;
 mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerRequest = mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnPowerwash_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnRecreateUser_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnCancel_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_ParamsSpec, 'ash.screens_osauth.mojom.LocalDataLossWarningPageHandler_OnBack_Params', [
+    ],
+    [[0, 8]]);
 

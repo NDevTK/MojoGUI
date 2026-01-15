@@ -123,6 +123,8 @@ mojo.internal.bindings.ax.mojom = mojo.internal.bindings.ax.mojom || {};
 
 mojo.internal.bindings.ax.mojom.AXModeSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AXMode
 mojo.internal.Struct(
     mojo.internal.bindings.ax.mojom.AXModeSpec, 'ax.mojom.AXMode', [

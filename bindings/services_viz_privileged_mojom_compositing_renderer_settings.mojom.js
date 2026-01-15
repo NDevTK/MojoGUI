@@ -133,6 +133,8 @@ mojo.internal.bindings.viz.mojom.OverlayStrategySpec = mojo.internal.bindings.vi
 
 mojo.internal.bindings.viz.mojom.kInvalidDisplayId = -1;
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OcclusionCullerSettings
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.OcclusionCullerSettingsSpec, 'viz.mojom.OcclusionCullerSettings', [

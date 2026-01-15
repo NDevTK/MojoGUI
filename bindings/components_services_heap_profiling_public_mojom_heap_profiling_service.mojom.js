@@ -153,32 +153,6 @@ mojo.internal.bindings.heap_profiling.mojom.ProcessType = {
 };
 
 // Interface: ProfilingService
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_Params', [
-      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_process_type', 16, 0, mojo.internal.bindings.heap_profiling.mojom.ProcessTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParams', [
-      mojo.internal.StructField('arg_pids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.heap_profiling.mojom.ProfilingServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,12 +279,15 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addProfilingClient');
-          const result = this.impl.addProfilingClient(params.arg_pid, params.arg_client, params.arg_process_type, params.arg_params);
+          const result = this.impl.addProfilingClient(params.arg_arg_pid, params.arg_arg_client, params.arg_arg_process_type, params.arg_arg_params);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] AddProfilingClient FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] addProfilingClient FAILED:', e));
           }
           break;
         }
@@ -322,8 +299,11 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetProfiledPids FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_pids' in response) ? response.arg_arg_pids : response;
+              encoder.encodeStructInline(mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getProfiledPids FAILED:', e));
           }
           break;
         }
@@ -339,4 +319,32 @@ mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceReceiver = mojo.inte
 
 mojo.internal.bindings.heap_profiling.mojom.ProfilingServicePtr = mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRemote;
 mojo.internal.bindings.heap_profiling.mojom.ProfilingServiceRequest = mojo.internal.bindings.heap_profiling.mojom.ProfilingServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_Params', [
+      mojo.internal.StructField('arg_pid', 0, 0, mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_client', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.heap_profiling.mojom.ProfilingClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_process_type', 16, 0, mojo.internal.bindings.heap_profiling.mojom.ProcessTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_params', 24, 0, mojo.internal.bindings.heap_profiling.mojom.ProfilingParamsSpec, null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_AddProfilingClient_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParamsSpec, 'heap_profiling.mojom.ProfilingService_GetProfiledPids_ResponseParams', [
+      mojo.internal.StructField('arg_pids', 0, 0, mojo.internal.Array(mojo.internal.bindings.mojo_base.mojom.ProcessIdSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

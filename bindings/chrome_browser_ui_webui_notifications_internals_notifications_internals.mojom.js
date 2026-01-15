@@ -127,12 +127,6 @@ mojo.internal.bindings.notifications_internals.mojom.PageHandler.$interfaceName 
 mojo.internal.bindings.notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec = { $: {} };
 
 // Interface: PageHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec, 'notifications_internals.mojom.PageHandler_ScheduleNotification_Params', [
-      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.notifications_internals.mojom.PageHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.notifications_internals.mojom.PageHandlerReceiver = class
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.scheduleNotification');
-          const result = this.impl.scheduleNotification(params.arg_feature);
+          const result = this.impl.scheduleNotification(params.arg_arg_feature);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.notifications_internals.mojom.PageHandlerReceiver = mojo.
 
 mojo.internal.bindings.notifications_internals.mojom.PageHandlerPtr = mojo.internal.bindings.notifications_internals.mojom.PageHandlerRemote;
 mojo.internal.bindings.notifications_internals.mojom.PageHandlerRequest = mojo.internal.bindings.notifications_internals.mojom.PageHandlerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.notifications_internals.mojom.PageHandler_ScheduleNotification_ParamsSpec, 'notifications_internals.mojom.PageHandler_ScheduleNotification_Params', [
+      mojo.internal.StructField('arg_feature', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

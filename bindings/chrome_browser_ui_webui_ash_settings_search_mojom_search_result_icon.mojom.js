@@ -208,3 +208,5 @@ mojo.internal.bindings.ash.settings.mojom.SearchResultIcon = {
   kWifi: 79,
   kZoomIn: 80,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

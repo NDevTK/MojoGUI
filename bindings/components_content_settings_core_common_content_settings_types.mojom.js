@@ -249,3 +249,5 @@ mojo.internal.bindings.content_settings.mojom.ContentSettingsType = {
   PERMISSION_ACTIONS_HISTORY: 120,
   SUSPICIOUS_NOTIFICATION_SHOW_ORIGINAL: 121,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

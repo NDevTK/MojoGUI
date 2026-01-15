@@ -130,3 +130,5 @@ mojo.internal.bindings.gfx.mojom.SwapResult = {
   SKIPPED: 2,
   NAK_RECREATE_BUFFERS: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

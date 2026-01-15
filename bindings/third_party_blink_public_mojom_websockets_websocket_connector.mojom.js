@@ -148,18 +148,6 @@ mojo.internal.bindings.url.mojom = mojo.internal.bindings.url.mojom || {};
 mojo.internal.bindings.url.mojom.UrlSpec = mojo.internal.bindings.url.mojom.UrlSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: WebSocketConnector
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.WebSocketConnector_Connect_ParamsSpec, 'blink.mojom.WebSocketConnector_Connect_Params', [
-      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_requested_protocols', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_site_for_cookies', 16, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_user_agent', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_access_api_status', 32, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_handshake_client', 36, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_throttling_profile_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-    ],
-    [[0, 64]]);
-
 mojo.internal.bindings.blink.mojom.WebSocketConnectorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,7 +260,7 @@ mojo.internal.bindings.blink.mojom.WebSocketConnectorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.WebSocketConnector_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_url, params.arg_requested_protocols, params.arg_site_for_cookies, params.arg_user_agent, params.arg_storage_access_api_status, params.arg_handshake_client, params.arg_throttling_profile_id);
+          const result = this.impl.connect(params.arg_arg_url, params.arg_arg_requested_protocols, params.arg_arg_site_for_cookies, params.arg_arg_user_agent, params.arg_arg_storage_access_api_status, params.arg_arg_handshake_client, params.arg_arg_throttling_profile_id);
           break;
         }
       }
@@ -287,4 +275,18 @@ mojo.internal.bindings.blink.mojom.WebSocketConnectorReceiver = mojo.internal.bi
 
 mojo.internal.bindings.blink.mojom.WebSocketConnectorPtr = mojo.internal.bindings.blink.mojom.WebSocketConnectorRemote;
 mojo.internal.bindings.blink.mojom.WebSocketConnectorRequest = mojo.internal.bindings.blink.mojom.WebSocketConnectorPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.WebSocketConnector_Connect_ParamsSpec, 'blink.mojom.WebSocketConnector_Connect_Params', [
+      mojo.internal.StructField('arg_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_requested_protocols', 8, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_site_for_cookies', 16, 0, mojo.internal.bindings.network.mojom.SiteForCookiesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_user_agent', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_access_api_status', 32, 0, mojo.internal.bindings.network.mojom.StorageAccessApiStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_handshake_client', 36, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.WebSocketHandshakeClientRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_throttling_profile_id', 48, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+    ],
+    [[0, 64]]);
 

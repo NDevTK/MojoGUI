@@ -141,38 +141,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec = mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: CrashCollectorHost
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpCrash_Params', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_uptime', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 6, undefined),
-    ],
-    [[0, 24], [6, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec, 'arc.mojom.CrashCollectorHost_SetBuildProperties_Params', [
-      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_board', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cpu_abi', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_fingerprint', 24, 0, mojo.internal.String, null, true, 3, undefined),
-    ],
-    [[0, 32], [3, 40]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpNativeCrash_Params', [
-      mojo.internal.StructField('arg_exec_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_minidump_fd', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
-      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpKernelCrash_Params', [
-      mojo.internal.StructField('arg_ramoops_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.CrashCollectorHostPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -327,28 +295,28 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpCrash');
-          const result = this.impl.dumpCrash(params.arg_type, params.arg_pipe, params.arg_uptime);
+          const result = this.impl.dumpCrash(params.arg_arg_type, params.arg_arg_pipe, params.arg_arg_uptime);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBuildProperties');
-          const result = this.impl.setBuildProperties(params.arg_device, params.arg_board, params.arg_cpu_abi, params.arg_fingerprint);
+          const result = this.impl.setBuildProperties(params.arg_arg_device, params.arg_arg_board, params.arg_arg_cpu_abi, params.arg_arg_fingerprint);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpNativeCrash');
-          const result = this.impl.dumpNativeCrash(params.arg_exec_name, params.arg_pid, params.arg_timestamp, params.arg_minidump_fd);
+          const result = this.impl.dumpNativeCrash(params.arg_arg_exec_name, params.arg_arg_pid, params.arg_arg_timestamp, params.arg_arg_minidump_fd);
           break;
         }
         case 3: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.dumpKernelCrash');
-          const result = this.impl.dumpKernelCrash(params.arg_ramoops_handle);
+          const result = this.impl.dumpKernelCrash(params.arg_arg_ramoops_handle);
           break;
         }
       }
@@ -366,17 +334,6 @@ mojo.internal.bindings.arc.mojom.CrashCollectorHostRequest = mojo.internal.bindi
 
 
 // Interface: CrashCollectorInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_Params', [
-      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CrashCollectorHostRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.arc.mojom.CrashCollectorInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -489,12 +446,14 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_host_remote);
+          const result = this.impl.init(params.arg_arg_host_remote);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Init FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] init FAILED:', e));
           }
           break;
         }
@@ -510,4 +469,49 @@ mojo.internal.bindings.arc.mojom.CrashCollectorInstanceReceiver = mojo.internal.
 
 mojo.internal.bindings.arc.mojom.CrashCollectorInstancePtr = mojo.internal.bindings.arc.mojom.CrashCollectorInstanceRemote;
 mojo.internal.bindings.arc.mojom.CrashCollectorInstanceRequest = mojo.internal.bindings.arc.mojom.CrashCollectorInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpCrash_Params', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pipe', 8, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_uptime', 16, 0, mojo.internal.bindings.mojo_base.mojom.TimeDeltaSpec, null, true, 6, undefined),
+    ],
+    [[0, 24], [6, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CrashCollectorHost_SetBuildProperties_ParamsSpec, 'arc.mojom.CrashCollectorHost_SetBuildProperties_Params', [
+      mojo.internal.StructField('arg_device', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_board', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cpu_abi', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_fingerprint', 24, 0, mojo.internal.String, null, true, 3, undefined),
+    ],
+    [[0, 32], [3, 40]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpNativeCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpNativeCrash_Params', [
+      mojo.internal.StructField('arg_exec_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_pid', 8, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_minidump_fd', 12, 0, mojo.internal.Handle, null, false, 0, undefined),
+      mojo.internal.StructField('arg_timestamp', 16, 0, mojo.internal.Int64, 0, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CrashCollectorHost_DumpKernelCrash_ParamsSpec, 'arc.mojom.CrashCollectorHost_DumpKernelCrash_Params', [
+      mojo.internal.StructField('arg_ramoops_handle', 0, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_Params', [
+      mojo.internal.StructField('arg_host_remote', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.arc.mojom.CrashCollectorHostRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.CrashCollectorInstance_Init_ResponseParamsSpec, 'arc.mojom.CrashCollectorInstance_Init_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -245,18 +245,6 @@ mojo.internal.bindings.sharing.mojom.FirewallHoleRequest = mojo.internal.binding
 
 
 // Interface: FirewallHoleFactory
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_Params', [
-      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParams', [
-      mojo.internal.StructField('arg_firewall_hole', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleRemote), null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -369,12 +357,15 @@ mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.openFirewallHole');
-          const result = this.impl.openFirewallHole(params.arg_port);
+          const result = this.impl.openFirewallHole(params.arg_arg_port);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] OpenFirewallHole FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_firewall_hole' in response) ? response.arg_arg_firewall_hole : response;
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] openFirewallHole FAILED:', e));
           }
           break;
         }
@@ -390,4 +381,18 @@ mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryReceiver = mojo.internal
 
 mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryPtr = mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote;
 mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRequest = mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_Params', [
+      mojo.internal.StructField('arg_port', 0, 0, mojo.internal.bindings.sharing.mojom.TcpServerSocketPortSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParamsSpec, 'sharing.mojom.FirewallHoleFactory_OpenFirewallHole_ResponseParams', [
+      mojo.internal.StructField('arg_firewall_hole', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleRemote), null, true, 0, undefined),
+    ],
+    [[0, 16]]);
 

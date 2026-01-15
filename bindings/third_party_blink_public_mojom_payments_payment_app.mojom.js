@@ -246,162 +246,7 @@ mojo.internal.bindings.payments.mojom.PaymentDelegation = {
   PAYER_EMAIL: 3,
 };
 
-// Struct: PaymentInstrument
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec, 'payments.mojom.PaymentInstrument', [
-      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_icons', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_method', 16, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: CanMakePaymentEventData
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec, 'payments.mojom.CanMakePaymentEventData', [
-      mojo.internal.StructField('arg_top_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_request_origin', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_method_data', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: PaymentRequestEventData
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec, 'payments.mojom.PaymentRequestEventData', [
-      mojo.internal.StructField('arg_top_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_request_origin', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_request_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_method_data', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_total', 32, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_modifiers', 40, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_instrument_key', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payment_options', 56, 0, mojo.internal.bindings.payments.mojom.PaymentOptionsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_shipping_options', 64, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_payment_handler_host', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote), null, true, 0, undefined),
-    ],
-    [[0, 88]]);
-
-// Struct: CanMakePaymentResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec, 'payments.mojom.CanMakePaymentResponse', [
-      mojo.internal.StructField('arg_response_type', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_can_make_payment', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: PaymentHandlerResponse
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec, 'payments.mojom.PaymentHandlerResponse', [
-      mojo.internal.StructField('arg_method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_type', 16, 0, mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_payer_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payer_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_payer_phone', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_shipping_address', 48, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_shipping_option', 56, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 72]]);
-
 // Interface: PaymentManager
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec, 'payments.mojom.PaymentManager_Init_Params', [
-      mojo.internal.StructField('arg_context_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_service_worker_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_DeletePaymentInstrument_Params', [
-      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_GetPaymentInstrument_Params', [
-      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_instrument', 0, 0, mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParams', [
-      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_HasPaymentInstrument_Params', [
-      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_Params', [
-      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_instrument', 8, 0, mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec, 'payments.mojom.PaymentManager_SetUserHint_Params', [
-      mojo.internal.StructField('arg_user_hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_Params', [
-      mojo.internal.StructField('arg_delegations', 0, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDelegationSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_ResponseParams', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.payments.mojom.PaymentManagerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -626,19 +471,22 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.init');
-          const result = this.impl.init(params.arg_context_url, params.arg_service_worker_scope);
+          const result = this.impl.init(params.arg_arg_context_url, params.arg_arg_service_worker_scope);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.deletePaymentInstrument');
-          const result = this.impl.deletePaymentInstrument(params.arg_instrument_key);
+          const result = this.impl.deletePaymentInstrument(params.arg_arg_instrument_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DeletePaymentInstrument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] deletePaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -646,12 +494,14 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getPaymentInstrument');
-          const result = this.impl.getPaymentInstrument(params.arg_instrument_key);
+          const result = this.impl.getPaymentInstrument(params.arg_arg_instrument_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPaymentInstrument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec.$.structSpec, ['response.arg_arg_instrument', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -663,8 +513,10 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] KeysOfPaymentInstruments FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec.$.structSpec, ['response.arg_arg_keys', 'response.arg_arg_status']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] keysOfPaymentInstruments FAILED:', e));
           }
           break;
         }
@@ -672,12 +524,15 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.hasPaymentInstrument');
-          const result = this.impl.hasPaymentInstrument(params.arg_instrument_key);
+          const result = this.impl.hasPaymentInstrument(params.arg_arg_instrument_key);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] HasPaymentInstrument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] hasPaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -685,12 +540,15 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setPaymentInstrument');
-          const result = this.impl.setPaymentInstrument(params.arg_instrument_key, params.arg_instrument);
+          const result = this.impl.setPaymentInstrument(params.arg_arg_instrument_key, params.arg_arg_instrument);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetPaymentInstrument FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setPaymentInstrument FAILED:', e));
           }
           break;
         }
@@ -702,8 +560,11 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ClearPaymentInstruments FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] clearPaymentInstruments FAILED:', e));
           }
           break;
         }
@@ -711,19 +572,22 @@ mojo.internal.bindings.payments.mojom.PaymentManagerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setUserHint');
-          const result = this.impl.setUserHint(params.arg_user_hint);
+          const result = this.impl.setUserHint(params.arg_arg_user_hint);
           break;
         }
         case 8: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.enableDelegations');
-          const result = this.impl.enableDelegations(params.arg_delegations);
+          const result = this.impl.enableDelegations(params.arg_arg_delegations);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] EnableDelegations FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_status' in response) ? response.arg_arg_status : response;
+              encoder.encodeStructInline(mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] enableDelegations FAILED:', e));
           }
           break;
         }
@@ -742,24 +606,6 @@ mojo.internal.bindings.payments.mojom.PaymentManagerRequest = mojo.internal.bind
 
 
 // Interface: PaymentHandlerResponseCallback
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_Params', [
-      mojo.internal.StructField('arg_payment_aborted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params', [
-      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -900,21 +746,21 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseForAbortPayment');
-          const result = this.impl.onResponseForAbortPayment(params.arg_payment_aborted);
+          const result = this.impl.onResponseForAbortPayment(params.arg_arg_payment_aborted);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseForCanMakePayment');
-          const result = this.impl.onResponseForCanMakePayment(params.arg_response);
+          const result = this.impl.onResponseForCanMakePayment(params.arg_arg_response);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onResponseForPaymentRequest');
-          const result = this.impl.onResponseForPaymentRequest(params.arg_response);
+          const result = this.impl.onResponseForPaymentRequest(params.arg_arg_response);
           break;
         }
       }
@@ -929,4 +775,179 @@ mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackReceiver = m
 
 mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackPtr = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackRemote;
 mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackRequest = mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallbackPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PaymentInstrument
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec, 'payments.mojom.PaymentInstrument', [
+      mojo.internal.StructField('arg_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_icons', 8, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.ManifestImageResourceSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 16, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: CanMakePaymentEventData
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.CanMakePaymentEventDataSpec, 'payments.mojom.CanMakePaymentEventData', [
+      mojo.internal.StructField('arg_top_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_request_origin', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 16, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: PaymentRequestEventData
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentRequestEventDataSpec, 'payments.mojom.PaymentRequestEventData', [
+      mojo.internal.StructField('arg_top_origin', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_request_origin', 8, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_request_id', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method_data', 24, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentMethodDataSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_total', 32, 0, mojo.internal.bindings.payments.mojom.PaymentCurrencyAmountSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_modifiers', 40, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDetailsModifierSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_instrument_key', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payment_options', 56, 0, mojo.internal.bindings.payments.mojom.PaymentOptionsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_options', 64, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentShippingOptionSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_payment_handler_host', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.payments.mojom.PaymentHandlerHostRemote), null, true, 0, undefined),
+    ],
+    [[0, 88]]);
+
+// Struct: CanMakePaymentResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec, 'payments.mojom.CanMakePaymentResponse', [
+      mojo.internal.StructField('arg_response_type', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentEventResponseTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_can_make_payment', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: PaymentHandlerResponse
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec, 'payments.mojom.PaymentHandlerResponse', [
+      mojo.internal.StructField('arg_method_name', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_stringified_details', 8, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_type', 16, 0, mojo.internal.bindings.payments.mojom.PaymentEventResponseTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_payer_name', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payer_email', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_payer_phone', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_address', 48, 0, mojo.internal.bindings.payments.mojom.PaymentAddressSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_shipping_option', 56, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_Init_ParamsSpec, 'payments.mojom.PaymentManager_Init_Params', [
+      mojo.internal.StructField('arg_context_url', 0, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_service_worker_scope', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_DeletePaymentInstrument_Params', [
+      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_DeletePaymentInstrument_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_GetPaymentInstrument_Params', [
+      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_GetPaymentInstrument_ResponseParams', [
+      mojo.internal.StructField('arg_instrument', 0, 0, mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_KeysOfPaymentInstruments_ResponseParams', [
+      mojo.internal.StructField('arg_keys', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_status', 8, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_HasPaymentInstrument_Params', [
+      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_HasPaymentInstrument_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_Params', [
+      mojo.internal.StructField('arg_instrument_key', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_instrument', 8, 0, mojo.internal.bindings.payments.mojom.PaymentInstrumentSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParamsSpec, 'payments.mojom.PaymentManager_SetPaymentInstrument_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParamsSpec, 'payments.mojom.PaymentManager_ClearPaymentInstruments_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_SetUserHint_ParamsSpec, 'payments.mojom.PaymentManager_SetUserHint_Params', [
+      mojo.internal.StructField('arg_user_hint', 0, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_Params', [
+      mojo.internal.StructField('arg_delegations', 0, 0, mojo.internal.Array(mojo.internal.bindings.payments.mojom.PaymentDelegationSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentManager_EnableDelegations_ResponseParamsSpec, 'payments.mojom.PaymentManager_EnableDelegations_ResponseParams', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForAbortPayment_Params', [
+      mojo.internal.StructField('arg_payment_aborted', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForCanMakePayment_Params', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.CanMakePaymentResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_ParamsSpec, 'payments.mojom.PaymentHandlerResponseCallback_OnResponseForPaymentRequest_Params', [
+      mojo.internal.StructField('arg_response', 0, 0, mojo.internal.bindings.payments.mojom.PaymentHandlerResponseSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

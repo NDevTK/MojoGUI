@@ -258,137 +258,7 @@ mojo.internal.bindings.content.mojom.NavigationClientDisconnectReason = {
   kResetForDuplicateNavigation: 4,
 };
 
-// Struct: PageState
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
-    ],
-    [[0, 8]]);
-
-// Struct: PageState
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
-      mojo.internal.StructField('arg_item_sequence_number', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_document_sequence_number', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_api_key', 16, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_referrer', 32, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_transition', 40, 0, mojo.internal.bindings.content.mojom.PageTransitionSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_should_update_history', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_did_create_new_entry', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_url_is_unreachable', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_overriding_user_agent', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_history_list_was_cleared', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_has_potentially_trustworthy_unique_origin', 44, 5, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_contents_mime_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_method', 56, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_post_id', 64, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_http_status_code', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_insecure_request_policy', 76, 0, mojo.internal.bindings.blink.mojom.InsecureRequestPolicySpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_previous_page_state', 80, 0, mojo.internal.bindings.content.mojom.PageStateSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_page_state', 88, 0, mojo.internal.bindings.content.mojom.PageStateSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_origin', 96, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_initiator_base_url', 104, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_permissions_policy_header', 112, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_document_policy_header', 120, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.DocumentPolicyFeatureSpec, mojo.internal.bindings.blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_insecure_navigations_set', 128, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_id', 136, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_token', 144, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_embedding_token', 152, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_unload_start', 160, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_unload_end', 168, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_commit_navigation_start', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_commit_navigation_end', 184, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_commit_reply_sent', 192, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
-    ],
-    [[0, 208]]);
-
-// Struct: DidCommitSameDocumentNavigationParams
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec, 'content.mojom.DidCommitSameDocumentNavigationParams', [
-      mojo.internal.StructField('arg_same_document_navigation_type', 0, 0, mojo.internal.bindings.blink.mojom.SameDocumentNavigationTypeSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_is_client_redirect', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_started_with_transient_activation', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_should_replace_current_entry', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_caused_by_ad', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_navigation_entry_screenshot_destination', 8, 0, mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_same_document_metrics_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-// Struct: CookieManagerInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.CookieManagerInfoSpec, 'content.mojom.CookieManagerInfo', [
-      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_cookie_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: StorageInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.StorageInfoSpec, 'content.mojom.StorageInfo', [
-      mojo.internal.StructField('arg_local_storage_area', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_session_storage_area', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: NavigationClient
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec, 'content.mojom.NavigationClient_CommitNavigation_Params', [
-      mojo.internal.StructField('arg_common_params', 0, 0, mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_params', 8, 0, mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_response_body', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
-      mojo.internal.StructField('arg_url_loader_client_endpoints', 32, 0, mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_factories', 40, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subresource_overrides', 48, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.TransferrableURLLoaderSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_controller_service_worker_info', 56, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_container_info', 64, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subresource_proxying_loader_factory', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_keep_alive_loader_factory', 80, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_fetch_later_loader_factory', 88, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_document_token', 96, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_navigation_token', 104, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_base_auction_nonce', 112, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_permissions_policy', 120, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, true, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 128, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_code_cache_host', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_code_cache_host_for_background', 144, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_cookie_manager_info', 152, 0, mojo.internal.bindings.content.mojom.CookieManagerInfoSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_storage_info', 160, 0, mojo.internal.bindings.content.mojom.StorageInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 176]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitNavigation_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec, 'content.mojom.NavigationClient_CommitFailedNavigation_Params', [
-      mojo.internal.StructField('arg_common_params', 0, 0, mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_request_params', 8, 0, mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_has_stale_copy_in_cache', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_error_code', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_extended_error_code', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_resolve_error_info', 32, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_error_page_content', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_subresource_loader_factories', 48, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_document_token', 56, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_devtools_navigation_token', 64, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_policy_container', 72, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_alternative_error_page_info', 80, 0, mojo.internal.bindings.content.mojom.AlternativeErrorPageOverrideInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 96]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitFailedNavigation_ResponseParams', [
-      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, null, true, 0, undefined),
-    ],
-    [[0, 24]]);
-
 mojo.internal.bindings.content.mojom.NavigationClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -515,12 +385,14 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitNavigation');
-          const result = this.impl.commitNavigation(params.arg_common_params, params.arg_request_params, params.arg_response_head, params.arg_response_body, params.arg_url_loader_client_endpoints, params.arg_subresource_loader_factories, params.arg_subresource_overrides, params.arg_controller_service_worker_info, params.arg_container_info, params.arg_subresource_proxying_loader_factory, params.arg_keep_alive_loader_factory, params.arg_fetch_later_loader_factory, params.arg_document_token, params.arg_devtools_navigation_token, params.arg_base_auction_nonce, params.arg_permissions_policy, params.arg_policy_container, params.arg_code_cache_host, params.arg_code_cache_host_for_background, params.arg_cookie_manager_info, params.arg_storage_info);
+          const result = this.impl.commitNavigation(params.arg_arg_common_params, params.arg_arg_request_params, params.arg_arg_response_head, params.arg_arg_response_body, params.arg_arg_url_loader_client_endpoints, params.arg_arg_subresource_loader_factories, params.arg_arg_subresource_overrides, params.arg_arg_controller_service_worker_info, params.arg_arg_container_info, params.arg_arg_subresource_proxying_loader_factory, params.arg_arg_keep_alive_loader_factory, params.arg_arg_fetch_later_loader_factory, params.arg_arg_document_token, params.arg_arg_devtools_navigation_token, params.arg_arg_base_auction_nonce, params.arg_arg_permissions_policy, params.arg_arg_policy_container, params.arg_arg_code_cache_host, params.arg_arg_code_cache_host_for_background, params.arg_arg_cookie_manager_info, params.arg_arg_storage_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CommitNavigation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec.$.structSpec, ['response.arg_arg_params', 'response.arg_arg_interface_params']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] commitNavigation FAILED:', e));
           }
           break;
         }
@@ -528,12 +400,14 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.commitFailedNavigation');
-          const result = this.impl.commitFailedNavigation(params.arg_common_params, params.arg_request_params, params.arg_has_stale_copy_in_cache, params.arg_error_code, params.arg_extended_error_code, params.arg_resolve_error_info, params.arg_error_page_content, params.arg_subresource_loader_factories, params.arg_document_token, params.arg_devtools_navigation_token, params.arg_policy_container, params.arg_alternative_error_page_info);
+          const result = this.impl.commitFailedNavigation(params.arg_arg_common_params, params.arg_arg_request_params, params.arg_arg_has_stale_copy_in_cache, params.arg_arg_error_code, params.arg_arg_extended_error_code, params.arg_arg_resolve_error_info, params.arg_arg_error_page_content, params.arg_arg_subresource_loader_factories, params.arg_arg_document_token, params.arg_arg_devtools_navigation_token, params.arg_arg_policy_container, params.arg_arg_alternative_error_page_info);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] CommitFailedNavigation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec.$.structSpec, ['response.arg_arg_params', 'response.arg_arg_interface_params']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] commitFailedNavigation FAILED:', e));
           }
           break;
         }
@@ -549,4 +423,136 @@ mojo.internal.bindings.content.mojom.NavigationClientReceiver = mojo.internal.bi
 
 mojo.internal.bindings.content.mojom.NavigationClientPtr = mojo.internal.bindings.content.mojom.NavigationClientRemote;
 mojo.internal.bindings.content.mojom.NavigationClientRequest = mojo.internal.bindings.content.mojom.NavigationClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PageState
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
+    ],
+    [[0, 8]]);
+
+// Struct: PageState
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.PageStateSpec, 'content.mojom.PageState', [
+      mojo.internal.StructField('arg_item_sequence_number', 0, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_document_sequence_number', 8, 0, mojo.internal.Int64, -1, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_api_key', 16, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_url', 24, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_referrer', 32, 0, mojo.internal.bindings.blink.mojom.ReferrerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_transition', 40, 0, mojo.internal.bindings.content.mojom.PageTransitionSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_should_update_history', 44, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_did_create_new_entry', 44, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_url_is_unreachable', 44, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_overriding_user_agent', 44, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_history_list_was_cleared', 44, 4, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_has_potentially_trustworthy_unique_origin', 44, 5, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_contents_mime_type', 48, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_method', 56, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_post_id', 64, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_http_status_code', 72, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_insecure_request_policy', 76, 0, mojo.internal.bindings.blink.mojom.InsecureRequestPolicySpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_previous_page_state', 80, 0, mojo.internal.bindings.content.mojom.PageStateSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_page_state', 88, 0, mojo.internal.bindings.content.mojom.PageStateSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_origin', 96, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_initiator_base_url', 104, 0, mojo.internal.bindings.url.mojom.UrlSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_permissions_policy_header', 112, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_document_policy_header', 120, 0, mojo.internal.Map(mojo.internal.bindings.blink.mojom.DocumentPolicyFeatureSpec, mojo.internal.bindings.blink.mojom.PolicyValueSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_insecure_navigations_set', 128, 0, mojo.internal.Array(mojo.internal.Uint32, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_id', 136, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_token', 144, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_embedding_token', 152, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unload_start', 160, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_unload_end', 168, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_commit_navigation_start', 176, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_commit_navigation_end', 184, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_commit_reply_sent', 192, 0, mojo.internal.bindings.mojo_base.mojom.TimeTicksSpec, null, false, 0, undefined),
+    ],
+    [[0, 208]]);
+
+// Struct: DidCommitSameDocumentNavigationParams
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.DidCommitSameDocumentNavigationParamsSpec, 'content.mojom.DidCommitSameDocumentNavigationParams', [
+      mojo.internal.StructField('arg_same_document_navigation_type', 0, 0, mojo.internal.bindings.blink.mojom.SameDocumentNavigationTypeSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_is_client_redirect', 4, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_started_with_transient_activation', 4, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_should_replace_current_entry', 4, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_caused_by_ad', 4, 3, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_navigation_entry_screenshot_destination', 8, 0, mojo.internal.bindings.blink.mojom.SameDocNavigationScreenshotDestinationTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_same_document_metrics_token', 16, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+// Struct: CookieManagerInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.CookieManagerInfoSpec, 'content.mojom.CookieManagerInfo', [
+      mojo.internal.StructField('arg_origin', 0, 0, mojo.internal.bindings.url.mojom.OriginSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_cookie_manager', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.RestrictedCookieManagerRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: StorageInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.StorageInfoSpec, 'content.mojom.StorageInfo', [
+      mojo.internal.StructField('arg_local_storage_area', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_session_storage_area', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.StorageAreaRemote), null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ParamsSpec, 'content.mojom.NavigationClient_CommitNavigation_Params', [
+      mojo.internal.StructField('arg_common_params', 0, 0, mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_params', 8, 0, mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_head', 16, 0, mojo.internal.bindings.network.mojom.URLResponseHeadSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_response_body', 24, 0, mojo.internal.OpaqueStruct, null, true, 0, undefined),
+      mojo.internal.StructField('arg_url_loader_client_endpoints', 32, 0, mojo.internal.bindings.network.mojom.URLLoaderClientEndpointsSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 40, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subresource_overrides', 48, 0, mojo.internal.Array(mojo.internal.bindings.blink.mojom.TransferrableURLLoaderSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_controller_service_worker_info', 56, 0, mojo.internal.bindings.blink.mojom.ControllerServiceWorkerInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_container_info', 64, 0, mojo.internal.bindings.blink.mojom.ServiceWorkerContainerInfoForClientSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subresource_proxying_loader_factory', 72, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_keep_alive_loader_factory', 80, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.network.mojom.URLLoaderFactoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_fetch_later_loader_factory', 88, 0, mojo.internal.AssociatedInterfaceProxy(mojo.internal.bindings.blink.mojom.FetchLaterLoaderFactoryRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_document_token', 96, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_navigation_token', 104, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_base_auction_nonce', 112, 0, mojo.internal.bindings.mojo_base.mojom.UuidSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_permissions_policy', 120, 0, mojo.internal.Array(mojo.internal.bindings.network.mojom.ParsedPermissionsPolicyDeclarationSpec, false), null, true, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 128, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_code_cache_host', 136, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_code_cache_host_for_background', 144, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.CodeCacheHostRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_cookie_manager_info', 152, 0, mojo.internal.bindings.content.mojom.CookieManagerInfoSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_storage_info', 160, 0, mojo.internal.bindings.content.mojom.StorageInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 176]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.NavigationClient_CommitNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitNavigation_ResponseParams', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ParamsSpec, 'content.mojom.NavigationClient_CommitFailedNavigation_Params', [
+      mojo.internal.StructField('arg_common_params', 0, 0, mojo.internal.bindings.blink.mojom.CommonNavigationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_request_params', 8, 0, mojo.internal.bindings.blink.mojom.CommitNavigationParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_has_stale_copy_in_cache', 16, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_error_code', 20, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_extended_error_code', 24, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_resolve_error_info', 32, 0, mojo.internal.bindings.network.mojom.ResolveErrorInfoSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_error_page_content', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_subresource_loader_factories', 48, 0, mojo.internal.bindings.blink.mojom.URLLoaderFactoryBundleSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_document_token', 56, 0, mojo.internal.bindings.blink.mojom.DocumentTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_devtools_navigation_token', 64, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_policy_container', 72, 0, mojo.internal.bindings.blink.mojom.PolicyContainerSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_alternative_error_page_info', 80, 0, mojo.internal.bindings.content.mojom.AlternativeErrorPageOverrideInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 96]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.NavigationClient_CommitFailedNavigation_ResponseParamsSpec, 'content.mojom.NavigationClient_CommitFailedNavigation_ResponseParams', [
+      mojo.internal.StructField('arg_params', 0, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadParamsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_interface_params', 8, 0, mojo.internal.bindings.content.mojom.DidCommitProvisionalLoadInterfaceParamsSpec, null, true, 0, undefined),
+    ],
+    [[0, 24]]);
 

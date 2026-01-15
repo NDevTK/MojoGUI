@@ -133,14 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.FilePathSpec = mojo.internal.bindings.mojo_base.mojom.FilePathSpec || { $: mojo.internal.OpaqueStruct.$ };
 
 // Interface: FakeDriveFsLauncher
-mojo.internal.Struct(
-    mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec, 'drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_Params', [
-      mojo.internal.StructField('arg_datadir_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mount_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_mojo_socket_handle', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
 mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -253,7 +245,7 @@ mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.launchDriveFs');
-          const result = this.impl.launchDriveFs(params.arg_datadir_path, params.arg_mount_path, params.arg_mojo_socket_handle);
+          const result = this.impl.launchDriveFs(params.arg_arg_datadir_path, params.arg_arg_mount_path, params.arg_arg_mojo_socket_handle);
           break;
         }
       }
@@ -268,4 +260,14 @@ mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherReceiver = mojo.internal
 
 mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherPtr = mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherRemote;
 mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherRequest = mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_ParamsSpec, 'drivefs.mojom.FakeDriveFsLauncher_LaunchDriveFs_Params', [
+      mojo.internal.StructField('arg_datadir_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mount_path', 8, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_mojo_socket_handle', 16, 0, mojo.internal.Handle, null, false, 0, undefined),
+    ],
+    [[0, 32]]);
 

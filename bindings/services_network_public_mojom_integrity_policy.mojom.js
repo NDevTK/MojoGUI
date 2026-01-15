@@ -135,6 +135,8 @@ mojo.internal.bindings.network.mojom.Source = {
   kInline: 0,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: IntegrityPolicy
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.IntegrityPolicySpec, 'network.mojom.IntegrityPolicy', [

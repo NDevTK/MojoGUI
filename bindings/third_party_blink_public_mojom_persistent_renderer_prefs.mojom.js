@@ -127,12 +127,6 @@ mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService.$interfaceName
 mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec = { $: {} };
 
 // Interface: PersistentRendererPrefsService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec, 'blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_Params', [
-      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -245,7 +239,7 @@ mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceReceiver = clas
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setViewSourceLineWrapping');
-          const result = this.impl.setViewSourceLineWrapping(params.arg_value);
+          const result = this.impl.setViewSourceLineWrapping(params.arg_arg_value);
           break;
         }
       }
@@ -260,4 +254,12 @@ mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceReceiver = mojo
 
 mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServicePtr = mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceRemote;
 mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServiceRequest = mojo.internal.bindings.blink.mojom.PersistentRendererPrefsServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_ParamsSpec, 'blink.mojom.PersistentRendererPrefsService_SetViewSourceLineWrapping_Params', [
+      mojo.internal.StructField('arg_value', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -162,37 +162,7 @@ mojo.internal.bindings.storage.mojom = mojo.internal.bindings.storage.mojom || {
 mojo.internal.bindings.storage.mojom.DirectorySpec = mojo.internal.bindings.storage.mojom.DirectorySpec || { $: mojo.internal.OpaqueStruct.$ };
 mojo.internal.bindings.storage.mojom.DirectoryRemote = mojo.internal.bindings.storage.mojom.DirectoryRemote || class {};
 
-// Struct: UnzipOptions
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec, 'unzip.mojom.UnzipOptions', [
-      mojo.internal.StructField('arg_encoding', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: Info
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.InfoSpec, 'unzip.mojom.Info', [
-      mojo.internal.StructField('arg_size_is_valid', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_is_encrypted', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_uses_aes_encryption', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: UnzipFilter
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec, 'unzip.mojom.UnzipFilter_ShouldUnzipFile_Params', [
-      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec, 'unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.unzip.mojom.UnzipFilterPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -305,12 +275,15 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.shouldUnzipFile');
-          const result = this.impl.shouldUnzipFile(params.arg_path);
+          const result = this.impl.shouldUnzipFile(params.arg_arg_path);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShouldUnzipFile FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shouldUnzipFile FAILED:', e));
           }
           break;
         }
@@ -329,12 +302,6 @@ mojo.internal.bindings.unzip.mojom.UnzipFilterRequest = mojo.internal.bindings.u
 
 
 // Interface: UnzipListener
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec, 'unzip.mojom.UnzipListener_OnProgress_Params', [
-      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.unzip.mojom.UnzipListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -447,7 +414,7 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onProgress');
-          const result = this.impl.onProgress(params.arg_bytes);
+          const result = this.impl.onProgress(params.arg_arg_bytes);
           break;
         }
       }
@@ -465,59 +432,6 @@ mojo.internal.bindings.unzip.mojom.UnzipListenerRequest = mojo.internal.bindings
 
 
 // Interface: Unzipper
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec, 'unzip.mojom.Unzipper_Unzip_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_output_dir', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipFilterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipListenerRemote), null, true, 0, undefined),
-    ],
-    [[0, 48]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec, 'unzip.mojom.Unzipper_Unzip_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec, 'unzip.mojom.Unzipper_DetectEncoding_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec, 'unzip.mojom.Unzipper_DetectEncoding_ResponseParams', [
-      mojo.internal.StructField('arg_encoding', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_Params', [
-      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.unzip.mojom.InfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec, 'unzip.mojom.Unzipper_DecodeXz_Params', [
-      mojo.internal.StructField('arg_in_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_out_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec, 'unzip.mojom.Unzipper_DecodeXz_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.unzip.mojom.UnzipperPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -672,12 +586,15 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.unzip');
-          const result = this.impl.unzip(params.arg_zip_file, params.arg_output_dir, params.arg_options, params.arg_filter, params.arg_listener);
+          const result = this.impl.unzip(params.arg_arg_zip_file, params.arg_arg_output_dir, params.arg_arg_options, params.arg_arg_filter, params.arg_arg_listener);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Unzip FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] unzip FAILED:', e));
           }
           break;
         }
@@ -685,12 +602,15 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectEncoding');
-          const result = this.impl.detectEncoding(params.arg_zip_file);
+          const result = this.impl.detectEncoding(params.arg_arg_zip_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DetectEncoding FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_encoding' in response) ? response.arg_arg_encoding : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] detectEncoding FAILED:', e));
           }
           break;
         }
@@ -698,12 +618,15 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.getExtractedInfo');
-          const result = this.impl.getExtractedInfo(params.arg_zip_file);
+          const result = this.impl.getExtractedInfo(params.arg_arg_zip_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetExtractedInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getExtractedInfo FAILED:', e));
           }
           break;
         }
@@ -711,12 +634,15 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.decodeXz');
-          const result = this.impl.decodeXz(params.arg_in_file, params.arg_out_file);
+          const result = this.impl.decodeXz(params.arg_arg_in_file, params.arg_arg_out_file);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DecodeXz FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] decodeXz FAILED:', e));
           }
           break;
         }
@@ -732,4 +658,95 @@ mojo.internal.bindings.unzip.mojom.UnzipperReceiver = mojo.internal.bindings.unz
 
 mojo.internal.bindings.unzip.mojom.UnzipperPtr = mojo.internal.bindings.unzip.mojom.UnzipperRemote;
 mojo.internal.bindings.unzip.mojom.UnzipperRequest = mojo.internal.bindings.unzip.mojom.UnzipperPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: UnzipOptions
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec, 'unzip.mojom.UnzipOptions', [
+      mojo.internal.StructField('arg_encoding', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_password', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: Info
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.InfoSpec, 'unzip.mojom.Info', [
+      mojo.internal.StructField('arg_size_is_valid', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_is_encrypted', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_uses_aes_encryption', 0, 2, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_size', 8, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ParamsSpec, 'unzip.mojom.UnzipFilter_ShouldUnzipFile_Params', [
+      mojo.internal.StructField('arg_path', 0, 0, mojo.internal.bindings.mojo_base.mojom.FilePathSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParamsSpec, 'unzip.mojom.UnzipFilter_ShouldUnzipFile_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.UnzipListener_OnProgress_ParamsSpec, 'unzip.mojom.UnzipListener_OnProgress_Params', [
+      mojo.internal.StructField('arg_bytes', 0, 0, mojo.internal.Uint64, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ParamsSpec, 'unzip.mojom.Unzipper_Unzip_Params', [
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_output_dir', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.storage.mojom.DirectoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_options', 16, 0, mojo.internal.bindings.unzip.mojom.UnzipOptionsSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_filter', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipFilterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_listener', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.unzip.mojom.UnzipListenerRemote), null, true, 0, undefined),
+    ],
+    [[0, 48]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_Unzip_ResponseParamsSpec, 'unzip.mojom.Unzipper_Unzip_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ParamsSpec, 'unzip.mojom.Unzipper_DetectEncoding_Params', [
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_DetectEncoding_ResponseParamsSpec, 'unzip.mojom.Unzipper_DetectEncoding_ResponseParams', [
+      mojo.internal.StructField('arg_encoding', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_Params', [
+      mojo.internal.StructField('arg_zip_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_GetExtractedInfo_ResponseParamsSpec, 'unzip.mojom.Unzipper_GetExtractedInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.unzip.mojom.InfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ParamsSpec, 'unzip.mojom.Unzipper_DecodeXz_Params', [
+      mojo.internal.StructField('arg_in_file', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlyFileSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_out_file', 8, 0, mojo.internal.bindings.mojo_base.mojom.FileSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.unzip.mojom.Unzipper_DecodeXz_ResponseParamsSpec, 'unzip.mojom.Unzipper_DecodeXz_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

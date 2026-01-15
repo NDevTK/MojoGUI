@@ -162,29 +162,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec = mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: FrameTextureInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FrameTextureInfoSpec, 'media.mojom.FrameTextureInfo', [
-      mojo.internal.StructField('arg_texture_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: FramePoolInitializationParameters
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec, 'media.mojom.FramePoolInitializationParameters', [
-      mojo.internal.StructField('arg_frame_textures', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FrameTextureInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_texture_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: FlingingRendererClientExtension
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec, 'media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_Params', [
-      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.MediaStatusStateSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -297,7 +275,7 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onRemotePlayStateChange');
-          const result = this.impl.onRemotePlayStateChange(params.arg_state);
+          const result = this.impl.onRemotePlayStateChange(params.arg_arg_state);
           break;
         }
       }
@@ -315,36 +293,6 @@ mojo.internal.bindings.media.mojom.FlingingRendererClientExtensionRequest = mojo
 
 
 // Interface: MediaFoundationRendererExtension
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParams', [
-      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_Params', [
-      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParams', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -489,8 +437,10 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetDCOMPSurface FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec.$.structSpec, ['response.arg_arg_token', 'response.arg_arg_error']);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getDCOMPSurface FAILED:', e));
           }
           break;
         }
@@ -498,19 +448,22 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererExtensionReceiver = cl
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setVideoStreamEnabled');
-          const result = this.impl.setVideoStreamEnabled(params.arg_enabled);
+          const result = this.impl.setVideoStreamEnabled(params.arg_arg_enabled);
           break;
         }
         case 2: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setOutputRect');
-          const result = this.impl.setOutputRect(params.arg_rect);
+          const result = this.impl.setOutputRect(params.arg_arg_rect);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] SetOutputRect FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_success' in response) ? response.arg_arg_success : response;
+              encoder.encodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] setOutputRect FAILED:', e));
           }
           break;
         }
@@ -638,12 +591,6 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRequest = mojo
 
 
 // Interface: MediaFoundationRendererNotifier
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec, 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -756,7 +703,7 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierReceiver = cla
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.mediaFoundationRendererCreated');
-          const result = this.impl.mediaFoundationRendererCreated(params.arg_observer);
+          const result = this.impl.mediaFoundationRendererCreated(params.arg_arg_observer);
           break;
         }
       }
@@ -771,4 +718,64 @@ mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierReceiver = moj
 
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierPtr = mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierRemote;
 mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierRequest = mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifierPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: FrameTextureInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FrameTextureInfoSpec, 'media.mojom.FrameTextureInfo', [
+      mojo.internal.StructField('arg_texture_handle', 0, 0, mojo.internal.bindings.gfx.mojom.GpuMemoryBufferHandleSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_token', 8, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: FramePoolInitializationParameters
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FramePoolInitializationParametersSpec, 'media.mojom.FramePoolInitializationParameters', [
+      mojo.internal.StructField('arg_frame_textures', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.FrameTextureInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_texture_size', 8, 0, mojo.internal.bindings.gfx.mojom.SizeSpec, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_ParamsSpec, 'media.mojom.FlingingRendererClientExtension_OnRemotePlayStateChange_Params', [
+      mojo.internal.StructField('arg_state', 0, 0, mojo.internal.bindings.media.mojom.MediaStatusStateSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_GetDCOMPSurface_ResponseParams', [
+      mojo.internal.StructField('arg_token', 0, 0, mojo.internal.bindings.mojo_base.mojom.UnguessableTokenSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_error', 8, 0, mojo.internal.String, null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetVideoStreamEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_Params', [
+      mojo.internal.StructField('arg_rect', 0, 0, mojo.internal.bindings.gfx.mojom.RectSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParamsSpec, 'media.mojom.MediaFoundationRendererExtension_SetOutputRect_ResponseParams', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_ParamsSpec, 'media.mojom.MediaFoundationRendererNotifier_MediaFoundationRendererCreated_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.media.mojom.MediaFoundationRendererObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

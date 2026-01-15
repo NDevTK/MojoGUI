@@ -127,13 +127,6 @@ mojo.internal.bindings.arc.mojom.BackupSettingsInstance.$interfaceName = 'arc.mo
 mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec = { $: {} };
 
 // Interface: BackupSettingsInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec, 'arc.mojom.BackupSettingsInstance_SetBackupEnabled_Params', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.BackupSettingsInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -246,7 +239,7 @@ mojo.internal.bindings.arc.mojom.BackupSettingsInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setBackupEnabled');
-          const result = this.impl.setBackupEnabled(params.arg_enabled, params.arg_managed);
+          const result = this.impl.setBackupEnabled(params.arg_arg_enabled, params.arg_arg_managed);
           break;
         }
       }
@@ -261,4 +254,13 @@ mojo.internal.bindings.arc.mojom.BackupSettingsInstanceReceiver = mojo.internal.
 
 mojo.internal.bindings.arc.mojom.BackupSettingsInstancePtr = mojo.internal.bindings.arc.mojom.BackupSettingsInstanceRemote;
 mojo.internal.bindings.arc.mojom.BackupSettingsInstanceRequest = mojo.internal.bindings.arc.mojom.BackupSettingsInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.BackupSettingsInstance_SetBackupEnabled_ParamsSpec, 'arc.mojom.BackupSettingsInstance_SetBackupEnabled_Params', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_managed', 0, 1, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

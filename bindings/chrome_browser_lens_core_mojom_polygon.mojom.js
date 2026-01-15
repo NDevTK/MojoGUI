@@ -140,6 +140,8 @@ mojo.internal.bindings.lens.mojom.CoordinateType = {
   kImage: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: Polygon
 mojo.internal.Struct(
     mojo.internal.bindings.lens.mojom.PolygonSpec, 'lens.mojom.Polygon', [

@@ -139,12 +139,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec = mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: PowerMonitor
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PowerMonitor_AddClient_ParamsSpec, 'device.mojom.PowerMonitor_AddClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.PowerMonitorClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.PowerMonitorPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -257,7 +251,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PowerMonitor_AddClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addClient');
-          const result = this.impl.addClient(params.arg_client);
+          const result = this.impl.addClient(params.arg_arg_client);
           break;
         }
       }
@@ -275,22 +269,6 @@ mojo.internal.bindings.device.mojom.PowerMonitorRequest = mojo.internal.bindings
 
 
 // Interface: PowerMonitorClient
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec, 'device.mojom.PowerMonitorClient_PowerStateChange_Params', [
-      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PowerMonitorClient_Suspend_ParamsSpec, 'device.mojom.PowerMonitorClient_Suspend_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.PowerMonitorClient_Resume_ParamsSpec, 'device.mojom.PowerMonitorClient_Resume_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.PowerMonitorClientPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -431,7 +409,7 @@ mojo.internal.bindings.device.mojom.PowerMonitorClientReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.powerStateChange');
-          const result = this.impl.powerStateChange(params.arg_battery_power_status);
+          const result = this.impl.powerStateChange(params.arg_arg_battery_power_status);
           break;
         }
         case 1: {
@@ -460,4 +438,28 @@ mojo.internal.bindings.device.mojom.PowerMonitorClientReceiver = mojo.internal.b
 
 mojo.internal.bindings.device.mojom.PowerMonitorClientPtr = mojo.internal.bindings.device.mojom.PowerMonitorClientRemote;
 mojo.internal.bindings.device.mojom.PowerMonitorClientRequest = mojo.internal.bindings.device.mojom.PowerMonitorClientPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.PowerMonitor_AddClient_ParamsSpec, 'device.mojom.PowerMonitor_AddClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.device.mojom.PowerMonitorClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.PowerMonitorClient_PowerStateChange_ParamsSpec, 'device.mojom.PowerMonitorClient_PowerStateChange_Params', [
+      mojo.internal.StructField('arg_battery_power_status', 0, 0, mojo.internal.bindings.mojo_base.mojom.BatteryPowerStatusSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.PowerMonitorClient_Suspend_ParamsSpec, 'device.mojom.PowerMonitorClient_Suspend_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.PowerMonitorClient_Resume_ParamsSpec, 'device.mojom.PowerMonitorClient_Resume_Params', [
+    ],
+    [[0, 8]]);
 

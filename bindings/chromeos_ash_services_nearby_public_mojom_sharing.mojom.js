@@ -197,57 +197,7 @@ mojo.internal.bindings.sharing = mojo.internal.bindings.sharing || {};
 mojo.internal.bindings.sharing.mojom = mojo.internal.bindings.sharing.mojom || {};
 mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec = mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: WifiLanDependencies
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec, 'sharing.mojom.WifiLanDependencies', [
-      mojo.internal.StructField('arg_cros_network_config', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_tcp_socket_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_mdns_manager', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsManagerRemote), null, true, 0, undefined),
-    ],
-    [[0, 40]]);
-
-// Struct: WifiDirectDependencies
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec, 'sharing.mojom.WifiDirectDependencies', [
-      mojo.internal.StructField('arg_wifi_direct_manager', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: NearbyDependencies
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec, 'sharing.mojom.NearbyDependencies', [
-      mojo.internal.StructField('arg_bluetooth_adapter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_webrtc_dependencies', 8, 0, mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_wifilan_dependencies', 16, 0, mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_wifidirect_dependencies', 24, 0, mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_nearby_presence_credential_storage', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote), null, true, 0, undefined),
-      mojo.internal.StructField('arg_min_log_severity', 40, 0, mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec, 0, false, 0, undefined),
-    ],
-    [[0, 56]]);
-
 // Interface: Sharing
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec, 'sharing.mojom.Sharing_Connect_Params', [
-      mojo.internal.StructField('arg_deps', 0, 0, mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_connections', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_nearby_presence', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_decoder', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemote), null, false, 0, undefined),
-      mojo.internal.StructField('arg_quick_start_decoder', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemote), null, false, 0, undefined),
-    ],
-    [[0, 32]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec, 'sharing.mojom.Sharing_ShutDown_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, 'sharing.mojom.Sharing_ShutDown_ResponseParams', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.sharing.mojom.SharingPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -374,7 +324,7 @@ mojo.internal.bindings.sharing.mojom.SharingReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.connect');
-          const result = this.impl.connect(params.arg_deps, params.arg_nearby_connections, params.arg_nearby_presence, params.arg_decoder, params.arg_quick_start_decoder);
+          const result = this.impl.connect(params.arg_arg_deps, params.arg_arg_nearby_connections, params.arg_arg_nearby_presence, params.arg_arg_decoder, params.arg_arg_quick_start_decoder);
           break;
         }
         case 1: {
@@ -385,8 +335,10 @@ mojo.internal.bindings.sharing.mojom.SharingReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] ShutDown FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              encoder.encodeStructInline(mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec.$.structSpec, []);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] shutDown FAILED:', e));
           }
           break;
         }
@@ -402,4 +354,56 @@ mojo.internal.bindings.sharing.mojom.SharingReceiver = mojo.internal.bindings.sh
 
 mojo.internal.bindings.sharing.mojom.SharingPtr = mojo.internal.bindings.sharing.mojom.SharingRemote;
 mojo.internal.bindings.sharing.mojom.SharingRequest = mojo.internal.bindings.sharing.mojom.SharingPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: WifiLanDependencies
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec, 'sharing.mojom.WifiLanDependencies', [
+      mojo.internal.StructField('arg_cros_network_config', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.network_config.mojom.CrosNetworkConfigRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_tcp_socket_factory', 16, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.TcpSocketFactoryRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_mdns_manager', 24, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.MdnsManagerRemote), null, true, 0, undefined),
+    ],
+    [[0, 40]]);
+
+// Struct: WifiDirectDependencies
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec, 'sharing.mojom.WifiDirectDependencies', [
+      mojo.internal.StructField('arg_wifi_direct_manager', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.wifi_direct.mojom.WifiDirectManagerRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_firewall_hole_factory', 8, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.sharing.mojom.FirewallHoleFactoryRemote), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: NearbyDependencies
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec, 'sharing.mojom.NearbyDependencies', [
+      mojo.internal.StructField('arg_bluetooth_adapter', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.bluetooth.mojom.AdapterRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_webrtc_dependencies', 8, 0, mojo.internal.bindings.sharing.mojom.WebRtcDependenciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_wifilan_dependencies', 16, 0, mojo.internal.bindings.sharing.mojom.WifiLanDependenciesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_wifidirect_dependencies', 24, 0, mojo.internal.bindings.sharing.mojom.WifiDirectDependenciesSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_nearby_presence_credential_storage', 32, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceCredentialStorageRemote), null, true, 0, undefined),
+      mojo.internal.StructField('arg_min_log_severity', 40, 0, mojo.internal.bindings.nearby.connections.mojom.LogSeveritySpec, 0, false, 0, undefined),
+    ],
+    [[0, 56]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.Sharing_Connect_ParamsSpec, 'sharing.mojom.Sharing_Connect_Params', [
+      mojo.internal.StructField('arg_deps', 0, 0, mojo.internal.bindings.sharing.mojom.NearbyDependenciesSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_connections', 8, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.nearby.connections.mojom.NearbyConnectionsRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_nearby_presence', 12, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.nearby.presence.mojom.NearbyPresenceRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_decoder', 16, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.sharing.mojom.NearbySharingDecoderRemote), null, false, 0, undefined),
+      mojo.internal.StructField('arg_quick_start_decoder', 20, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.ash.quick_start.mojom.QuickStartDecoderRemote), null, false, 0, undefined),
+    ],
+    [[0, 32]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ParamsSpec, 'sharing.mojom.Sharing_ShutDown_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.sharing.mojom.Sharing_ShutDown_ResponseParamsSpec, 'sharing.mojom.Sharing_ShutDown_ResponseParams', [
+    ],
+    [[0, 8]]);
 

@@ -138,45 +138,7 @@ mojo.internal.bindings.arc.mojom.ReclaimType = {
   ALL: 1,
 };
 
-// Struct: ReclaimRequest
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ReclaimRequestSpec, 'arc.mojom.ReclaimRequest', [
-      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-// Struct: ReclaimResult
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.ReclaimResultSpec, 'arc.mojom.ReclaimResult', [
-      mojo.internal.StructField('arg_reclaimed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_unreclaimed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: MemoryInstance
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ParamsSpec, 'arc.mojom.MemoryInstance_DropCaches_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec, 'arc.mojom.MemoryInstance_DropCaches_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_Params', [
-      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimRequestSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.arc.mojom.MemoryInstancePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -307,8 +269,11 @@ mojo.internal.bindings.arc.mojom.MemoryInstanceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DropCaches FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] dropCaches FAILED:', e));
           }
           break;
         }
@@ -316,12 +281,15 @@ mojo.internal.bindings.arc.mojom.MemoryInstanceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.reclaim');
-          const result = this.impl.reclaim(params.arg_request);
+          const result = this.impl.reclaim(params.arg_arg_request);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] Reclaim FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] reclaim FAILED:', e));
           }
           break;
         }
@@ -337,4 +305,44 @@ mojo.internal.bindings.arc.mojom.MemoryInstanceReceiver = mojo.internal.bindings
 
 mojo.internal.bindings.arc.mojom.MemoryInstancePtr = mojo.internal.bindings.arc.mojom.MemoryInstanceRemote;
 mojo.internal.bindings.arc.mojom.MemoryInstanceRequest = mojo.internal.bindings.arc.mojom.MemoryInstancePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: ReclaimRequest
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ReclaimRequestSpec, 'arc.mojom.ReclaimRequest', [
+      mojo.internal.StructField('arg_type', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+// Struct: ReclaimResult
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.ReclaimResultSpec, 'arc.mojom.ReclaimResult', [
+      mojo.internal.StructField('arg_reclaimed', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_unreclaimed', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ParamsSpec, 'arc.mojom.MemoryInstance_DropCaches_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MemoryInstance_DropCaches_ResponseParamsSpec, 'arc.mojom.MemoryInstance_DropCaches_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_Params', [
+      mojo.internal.StructField('arg_request', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimRequestSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.arc.mojom.MemoryInstance_Reclaim_ResponseParamsSpec, 'arc.mojom.MemoryInstance_Reclaim_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.arc.mojom.ReclaimResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -142,23 +142,6 @@ mojo.internal.bindings.device.mojom = mojo.internal.bindings.device.mojom || {};
 mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec = mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: ScreenOrientation
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_Params', [
-      mojo.internal.StructField('arg_orientation', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_UnlockOrientation_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.device.mojom.ScreenOrientationPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -285,12 +268,15 @@ mojo.internal.bindings.device.mojom.ScreenOrientationReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.lockOrientation');
-          const result = this.impl.lockOrientation(params.arg_orientation);
+          const result = this.impl.lockOrientation(params.arg_arg_orientation);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] LockOrientation FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] lockOrientation FAILED:', e));
           }
           break;
         }
@@ -316,17 +302,6 @@ mojo.internal.bindings.device.mojom.ScreenOrientationRequest = mojo.internal.bin
 
 
 // Interface: ScreenOrientationListener
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParams', [
-      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.device.mojom.ScreenOrientationListenerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -443,8 +418,11 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] IsAutoRotateEnabledByUser FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_enabled' in response) ? response.arg_arg_enabled : response;
+              encoder.encodeStructInline(mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] isAutoRotateEnabledByUser FAILED:', e));
           }
           break;
         }
@@ -460,4 +438,34 @@ mojo.internal.bindings.device.mojom.ScreenOrientationListenerReceiver = mojo.int
 
 mojo.internal.bindings.device.mojom.ScreenOrientationListenerPtr = mojo.internal.bindings.device.mojom.ScreenOrientationListenerRemote;
 mojo.internal.bindings.device.mojom.ScreenOrientationListenerRequest = mojo.internal.bindings.device.mojom.ScreenOrientationListenerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_Params', [
+      mojo.internal.StructField('arg_orientation', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.ScreenOrientation_LockOrientation_ResponseParamsSpec, 'device.mojom.ScreenOrientation_LockOrientation_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.device.mojom.ScreenOrientationLockResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.ScreenOrientation_UnlockOrientation_ParamsSpec, 'device.mojom.ScreenOrientation_UnlockOrientation_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParamsSpec, 'device.mojom.ScreenOrientationListener_IsAutoRotateEnabledByUser_ResponseParams', [
+      mojo.internal.StructField('arg_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

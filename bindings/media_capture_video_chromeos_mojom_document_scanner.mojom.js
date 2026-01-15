@@ -138,27 +138,7 @@ mojo.internal.bindings.mojo_base = mojo.internal.bindings.mojo_base || {};
 mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom || {};
 mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec = mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec || { $: mojo.internal.OpaqueStruct.$ };
 
-// Struct: DetectCornersResult
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.DetectCornersResultSpec, 'cros.mojom.DetectCornersResult', [
-      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-      mojo.internal.StructField('arg_corners', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: CrosDocumentScanner
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_Params', [
-      mojo.internal.StructField('arg_nv12_image', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.cros.mojom.DetectCornersResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.cros.mojom.CrosDocumentScannerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -271,12 +251,15 @@ mojo.internal.bindings.cros.mojom.CrosDocumentScannerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.detectCornersFromNV12Image');
-          const result = this.impl.detectCornersFromNV12Image(params.arg_nv12_image);
+          const result = this.impl.detectCornersFromNV12Image(params.arg_arg_nv12_image);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] DetectCornersFromNV12Image FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] detectCornersFromNV12Image FAILED:', e));
           }
           break;
         }
@@ -292,4 +275,26 @@ mojo.internal.bindings.cros.mojom.CrosDocumentScannerReceiver = mojo.internal.bi
 
 mojo.internal.bindings.cros.mojom.CrosDocumentScannerPtr = mojo.internal.bindings.cros.mojom.CrosDocumentScannerRemote;
 mojo.internal.bindings.cros.mojom.CrosDocumentScannerRequest = mojo.internal.bindings.cros.mojom.CrosDocumentScannerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: DetectCornersResult
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.DetectCornersResultSpec, 'cros.mojom.DetectCornersResult', [
+      mojo.internal.StructField('arg_success', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+      mojo.internal.StructField('arg_corners', 8, 0, mojo.internal.Array(mojo.internal.bindings.gfx.mojom.PointFSpec, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_Params', [
+      mojo.internal.StructField('arg_nv12_image', 0, 0, mojo.internal.bindings.mojo_base.mojom.ReadOnlySharedMemoryRegionSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParamsSpec, 'cros.mojom.CrosDocumentScanner_DetectCornersFromNV12Image_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.cros.mojom.DetectCornersResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

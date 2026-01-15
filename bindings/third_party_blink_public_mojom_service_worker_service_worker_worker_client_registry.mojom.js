@@ -134,18 +134,6 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientSpec = mojo.internal
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote || class {};
 
 // Interface: ServiceWorkerWorkerClientRegistry
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_Params', [
-      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_Params', [
-      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -272,14 +260,14 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = c
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.registerWorkerClient');
-          const result = this.impl.registerWorkerClient(params.arg_client);
+          const result = this.impl.registerWorkerClient(params.arg_arg_client);
           break;
         }
         case 1: {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.cloneWorkerClientRegistry');
-          const result = this.impl.cloneWorkerClientRegistry(params.arg_host);
+          const result = this.impl.cloneWorkerClientRegistry(params.arg_arg_host);
           break;
         }
       }
@@ -294,4 +282,18 @@ mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryReceiver = m
 
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryPtr = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemote;
 mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRequest = mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_RegisterWorkerClient_Params', [
+      mojo.internal.StructField('arg_client', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_ParamsSpec, 'blink.mojom.ServiceWorkerWorkerClientRegistry_CloneWorkerClientRegistry_Params', [
+      mojo.internal.StructField('arg_host', 0, 0, mojo.internal.InterfaceRequest(mojo.internal.bindings.blink.mojom.ServiceWorkerWorkerClientRegistryRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -149,43 +149,7 @@ mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatus = {
   kDenied: 2,
 };
 
-// Struct: GetKeyboardLayoutMapResult
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec, 'blink.mojom.GetKeyboardLayoutMapResult', [
-      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatusSpec, null, false, 0, undefined),
-      mojo.internal.StructField('arg_layout_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
 // Interface: KeyboardLockService
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec, 'blink.mojom.KeyboardLockService_RequestKeyboardLock_Params', [
-      mojo.internal.StructField('arg_key_codes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.KeyboardLockRequestResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec, 'blink.mojom.KeyboardLockService_CancelKeyboardLock_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParams', [
-      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.blink.mojom.KeyboardLockServicePendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -326,12 +290,15 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.requestKeyboardLock');
-          const result = this.impl.requestKeyboardLock(params.arg_key_codes);
+          const result = this.impl.requestKeyboardLock(params.arg_arg_key_codes);
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] RequestKeyboardLock FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] requestKeyboardLock FAILED:', e));
           }
           break;
         }
@@ -350,8 +317,11 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetKeyboardLayoutMap FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_result' in response) ? response.arg_arg_result : response;
+              encoder.encodeStructInline(mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getKeyboardLayoutMap FAILED:', e));
           }
           break;
         }
@@ -367,4 +337,42 @@ mojo.internal.bindings.blink.mojom.KeyboardLockServiceReceiver = mojo.internal.b
 
 mojo.internal.bindings.blink.mojom.KeyboardLockServicePtr = mojo.internal.bindings.blink.mojom.KeyboardLockServiceRemote;
 mojo.internal.bindings.blink.mojom.KeyboardLockServiceRequest = mojo.internal.bindings.blink.mojom.KeyboardLockServicePendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: GetKeyboardLayoutMapResult
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec, 'blink.mojom.GetKeyboardLayoutMapResult', [
+      mojo.internal.StructField('arg_status', 0, 0, mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapStatusSpec, null, false, 0, undefined),
+      mojo.internal.StructField('arg_layout_map', 8, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 24]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ParamsSpec, 'blink.mojom.KeyboardLockService_RequestKeyboardLock_Params', [
+      mojo.internal.StructField('arg_key_codes', 0, 0, mojo.internal.Array(mojo.internal.String, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_RequestKeyboardLock_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.KeyboardLockRequestResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.KeyboardLockService_CancelKeyboardLock_ParamsSpec, 'blink.mojom.KeyboardLockService_CancelKeyboardLock_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParamsSpec, 'blink.mojom.KeyboardLockService_GetKeyboardLayoutMap_ResponseParams', [
+      mojo.internal.StructField('arg_result', 0, 0, mojo.internal.bindings.blink.mojom.GetKeyboardLayoutMapResultSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

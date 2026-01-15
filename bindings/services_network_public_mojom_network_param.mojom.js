@@ -156,6 +156,8 @@ mojo.internal.bindings.network.mojom.ProxyScheme = {
   kQuic: 5,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: AuthCredentials
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.AuthCredentialsSpec, 'network.mojom.AuthCredentials', [

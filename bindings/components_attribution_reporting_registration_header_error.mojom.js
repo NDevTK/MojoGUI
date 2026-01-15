@@ -138,6 +138,8 @@ mojo.internal.bindings.attribution_reporting = mojo.internal.bindings.attributio
 mojo.internal.bindings.attribution_reporting.mojom = mojo.internal.bindings.attribution_reporting.mojom || {};
 mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationErrorSpec = mojo.internal.bindings.attribution_reporting.mojom.TriggerRegistrationErrorSpec || { $: mojo.internal.Enum().$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Union: RegistrationHeaderErrorDetails
 mojo.internal.Union(
     mojo.internal.bindings.attribution_reporting.mojom.RegistrationHeaderErrorDetailsSpec, 'attribution_reporting.mojom.RegistrationHeaderErrorDetails', {

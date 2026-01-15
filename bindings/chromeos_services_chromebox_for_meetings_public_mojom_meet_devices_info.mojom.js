@@ -140,80 +140,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverSpec = { $ : {} };
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver.$interfaceName = 'chromeos.cfm.mojom.PolicyInfoObserver';
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec = { $: {} };
 
-// Struct: PolicyInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, 'chromeos.cfm.mojom.PolicyInfo', [
-      mojo.internal.StructField('arg_timestamp_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_service_account_email_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_service_account_gaia_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_cros_device_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_cohort_hint', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_release_channel_delegated', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 64]]);
-
-// Struct: SysInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec, 'chromeos.cfm.mojom.SysInfo', [
-      mojo.internal.StructField('arg_kernel_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
-      mojo.internal.StructField('arg_release_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_release_build_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_release_track', 24, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_release_milestone', 32, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_browser_version', 40, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_channel_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
-      mojo.internal.StructField('arg_release_board', 56, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 72]]);
-
-// Struct: MachineStatisticsInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec, 'chromeos.cfm.mojom.MachineStatisticsInfo', [
-      mojo.internal.StructField('arg_hwid', 0, 0, mojo.internal.String, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 // Interface: MeetDevicesInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParams', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec, null, true, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -368,7 +295,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addDeviceSettingsObserver');
-          const result = this.impl.addDeviceSettingsObserver(params.arg_observer);
+          const result = this.impl.addDeviceSettingsObserver(params.arg_arg_observer);
           break;
         }
         case 1: {
@@ -379,8 +306,11 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetPolicyInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getPolicyInfo FAILED:', e));
           }
           break;
         }
@@ -392,8 +322,11 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetSysInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getSysInfo FAILED:', e));
           }
           break;
         }
@@ -405,8 +338,11 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoReceiver = class {
           const expectsResponse = header.expectsResponse || (header.flags & 1);
           if (expectsResponse) {
             Promise.resolve(result).then(response => {
-              this.endpoint.send(header.ordinal, header.requestId, mojo.internal.kMessageFlagIsResponse, mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, response);
-            }).catch(e => console.error('[GeneratedReceiver] GetMachineStatisticsInfo FAILED:', e));
+              const encoder = new mojo.internal.Encoder(header.requestId, true);
+              const val = (response && typeof response === 'object' && 'arg_arg_info' in response) ? response.arg_arg_info : response;
+              encoder.encodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec.$.structSpec, [val]);
+              this.router_.sendMessage(encoder.finish());
+            }).catch(e => console.error('[GeneratedReceiver] getMachineStatisticsInfo FAILED:', e));
           }
           break;
         }
@@ -425,12 +361,6 @@ mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfoRequest = mojo.internal
 
 
 // Interface: PolicyInfoObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec, 'chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_Params', [
-      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -543,7 +473,7 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onPolicyInfoChange');
-          const result = this.impl.onPolicyInfoChange(params.arg_info);
+          const result = this.impl.onPolicyInfoChange(params.arg_arg_info);
           break;
         }
       }
@@ -558,4 +488,85 @@ mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverReceiver = mojo.inte
 
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverPtr = mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemote;
 mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRequest = mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: PolicyInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, 'chromeos.cfm.mojom.PolicyInfo', [
+      mojo.internal.StructField('arg_timestamp_ms', 0, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_device_id', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_service_account_email_address', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_service_account_gaia_id', 24, 0, mojo.internal.Int64, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_cros_device_id', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_cohort_hint', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_channel_delegated', 48, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 64]]);
+
+// Struct: SysInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec, 'chromeos.cfm.mojom.SysInfo', [
+      mojo.internal.StructField('arg_kernel_version', 0, 0, mojo.internal.String, null, false, 0, undefined),
+      mojo.internal.StructField('arg_release_version', 8, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_build_type', 16, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_track', 24, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_milestone', 32, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_browser_version', 40, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_channel_name', 48, 0, mojo.internal.String, null, true, 0, undefined),
+      mojo.internal.StructField('arg_release_board', 56, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 72]]);
+
+// Struct: MachineStatisticsInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec, 'chromeos.cfm.mojom.MachineStatisticsInfo', [
+      mojo.internal.StructField('arg_hwid', 0, 0, mojo.internal.String, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_AddDeviceSettingsObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetPolicyInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetSysInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.SysInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParamsSpec, 'chromeos.cfm.mojom.MeetDevicesInfo_GetMachineStatisticsInfo_ResponseParams', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.MachineStatisticsInfoSpec, null, true, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_ParamsSpec, 'chromeos.cfm.mojom.PolicyInfoObserver_OnPolicyInfoChange_Params', [
+      mojo.internal.StructField('arg_info', 0, 0, mojo.internal.bindings.chromeos.cfm.mojom.PolicyInfoSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

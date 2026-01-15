@@ -169,3 +169,5 @@ mojo.internal.bindings.content_settings.mojom.ProviderType = {
   kDefaultProvider: 12,
   kNone: 13,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

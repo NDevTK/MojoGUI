@@ -136,6 +136,8 @@ mojo.internal.bindings.remoting.mojom.DesktopCaptureResult = {
   kErrorPermanent: 2,
 };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: DesktopCaptureOptions
 mojo.internal.Struct(
     mojo.internal.bindings.remoting.mojom.DesktopCaptureOptionsSpec, 'remoting.mojom.DesktopCaptureOptions', [

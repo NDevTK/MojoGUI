@@ -123,6 +123,8 @@ mojo.internal.bindings.content.mojom = mojo.internal.bindings.content.mojom || {
 
 mojo.internal.bindings.content.mojom.WebPluginInfoSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: WebPluginInfo
 mojo.internal.Struct(
     mojo.internal.bindings.content.mojom.WebPluginInfoSpec, 'content.mojom.WebPluginInfo', [

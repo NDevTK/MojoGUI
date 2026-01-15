@@ -131,3 +131,5 @@ mojo.internal.bindings.chromeos.machine_learning.mojom.Rotation = {
   ROTATION_180: 2,
   ROTATION_270: 3,
 };
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)

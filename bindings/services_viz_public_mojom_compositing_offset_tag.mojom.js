@@ -138,6 +138,8 @@ mojo.internal.bindings.viz = mojo.internal.bindings.viz || {};
 mojo.internal.bindings.viz.mojom = mojo.internal.bindings.viz.mojom || {};
 mojo.internal.bindings.viz.mojom.SurfaceRangeSpec = mojo.internal.bindings.viz.mojom.SurfaceRangeSpec || { $: mojo.internal.OpaqueStruct.$ };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: OffsetTag
 mojo.internal.Struct(
     mojo.internal.bindings.viz.mojom.OffsetTagSpec, 'viz.mojom.OffsetTag', [

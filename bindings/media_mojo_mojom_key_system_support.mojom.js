@@ -172,42 +172,7 @@ mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatus = {
   kMediaFoundationGetExtendedDRMTypeSupportFailed: 12,
 };
 
-// Struct: VideoCodecInfo
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.VideoCodecInfoSpec, 'media.mojom.VideoCodecInfo', [
-      mojo.internal.StructField('arg_supported_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_supports_clear_lead', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
-    ],
-    [[0, 24]]);
-
-// Struct: CdmCapability
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.CdmCapabilitySpec, 'media.mojom.CdmCapability', [
-      mojo.internal.StructField('arg_audio_codecs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioCodecSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_video_codecs', 8, 0, mojo.internal.Map(mojo.internal.bindings.media.mojom.VideoCodecSpec, mojo.internal.bindings.media.mojom.VideoCodecInfoSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_encryption_schemes', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_session_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.CdmSessionTypeSpec, false), null, false, 0, undefined),
-      mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, false, 0, undefined),
-    ],
-    [[0, 48]]);
-
-// Struct: KeySystemCapability
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, 'media.mojom.KeySystemCapability', [
-      mojo.internal.StructField('arg_sw_secure_capability', 0, 0, mojo.internal.bindings.media.mojom.CdmCapabilitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hw_secure_capability', 8, 0, mojo.internal.bindings.media.mojom.CdmCapabilitySpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_sw_secure_capability_query_status', 16, 0, mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec, null, true, 0, undefined),
-      mojo.internal.StructField('arg_hw_secure_capability_query_status', 20, 0, mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec, null, true, 0, undefined),
-    ],
-    [[0, 32]]);
-
 // Interface: KeySystemSupportObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec, 'media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_Params', [
-      mojo.internal.StructField('arg_key_systems', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, false), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.KeySystemSupportObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -320,7 +285,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onKeySystemSupportUpdated');
-          const result = this.impl.onKeySystemSupportUpdated(params.arg_key_systems);
+          const result = this.impl.onKeySystemSupportUpdated(params.arg_arg_key_systems);
           break;
         }
       }
@@ -338,12 +303,6 @@ mojo.internal.bindings.media.mojom.KeySystemSupportObserverRequest = mojo.intern
 
 
 // Interface: KeySystemSupport
-mojo.internal.Struct(
-    mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec, 'media.mojom.KeySystemSupport_SetObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.media.mojom.KeySystemSupportPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -456,7 +415,7 @@ mojo.internal.bindings.media.mojom.KeySystemSupportReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setObserver');
-          const result = this.impl.setObserver(params.arg_observer);
+          const result = this.impl.setObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -471,4 +430,47 @@ mojo.internal.bindings.media.mojom.KeySystemSupportReceiver = mojo.internal.bind
 
 mojo.internal.bindings.media.mojom.KeySystemSupportPtr = mojo.internal.bindings.media.mojom.KeySystemSupportRemote;
 mojo.internal.bindings.media.mojom.KeySystemSupportRequest = mojo.internal.bindings.media.mojom.KeySystemSupportPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
+// Struct: VideoCodecInfo
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.VideoCodecInfoSpec, 'media.mojom.VideoCodecInfo', [
+      mojo.internal.StructField('arg_supported_profiles', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.VideoCodecProfileSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_supports_clear_lead', 8, 0, mojo.internal.Bool, true, false, 0, undefined),
+    ],
+    [[0, 24]]);
+
+// Struct: CdmCapability
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.CdmCapabilitySpec, 'media.mojom.CdmCapability', [
+      mojo.internal.StructField('arg_audio_codecs', 0, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.AudioCodecSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_video_codecs', 8, 0, mojo.internal.Map(mojo.internal.bindings.media.mojom.VideoCodecSpec, mojo.internal.bindings.media.mojom.VideoCodecInfoSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_encryption_schemes', 16, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.EncryptionSchemeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_session_types', 24, 0, mojo.internal.Array(mojo.internal.bindings.media.mojom.CdmSessionTypeSpec, false), null, false, 0, undefined),
+      mojo.internal.StructField('arg_version', 32, 0, mojo.internal.bindings.mojo_base.mojom.VersionSpec, null, false, 0, undefined),
+    ],
+    [[0, 48]]);
+
+// Struct: KeySystemCapability
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, 'media.mojom.KeySystemCapability', [
+      mojo.internal.StructField('arg_sw_secure_capability', 0, 0, mojo.internal.bindings.media.mojom.CdmCapabilitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hw_secure_capability', 8, 0, mojo.internal.bindings.media.mojom.CdmCapabilitySpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_sw_secure_capability_query_status', 16, 0, mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec, null, true, 0, undefined),
+      mojo.internal.StructField('arg_hw_secure_capability_query_status', 20, 0, mojo.internal.bindings.media.mojom.CdmCapabilityQueryStatusSpec, null, true, 0, undefined),
+    ],
+    [[0, 32]]);
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_ParamsSpec, 'media.mojom.KeySystemSupportObserver_OnKeySystemSupportUpdated_Params', [
+      mojo.internal.StructField('arg_key_systems', 0, 0, mojo.internal.Map(mojo.internal.String, mojo.internal.bindings.media.mojom.KeySystemCapabilitySpec, false), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.media.mojom.KeySystemSupport_SetObserver_ParamsSpec, 'media.mojom.KeySystemSupport_SetObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.media.mojom.KeySystemSupportObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -134,17 +134,6 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver.$interfa
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec = { $: {} };
 
 // Interface: GraduationHandler
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_Params', [
-    ],
-    [[0, 8]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params', [
-      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemote), null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -278,7 +267,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerReceiver =
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.addObserver');
-          const result = this.impl.addObserver(params.arg_observer);
+          const result = this.impl.addObserver(params.arg_arg_observer);
           break;
         }
       }
@@ -296,12 +285,6 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandlerRequest = 
 
 
 // Interface: GraduationObserver
-mojo.internal.Struct(
-    mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec, 'ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_Params', [
-      mojo.internal.StructField('arg_is_app_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -414,7 +397,7 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverReceiver 
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.onGraduationAppUpdated');
-          const result = this.impl.onGraduationAppUpdated(params.arg_is_app_enabled);
+          const result = this.impl.onGraduationAppUpdated(params.arg_arg_is_app_enabled);
           break;
         }
       }
@@ -429,4 +412,23 @@ mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverReceiver 
 
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverPtr = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemote;
 mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRequest = mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_LaunchGraduationApp_Params', [
+    ],
+    [[0, 8]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.graduation.mojom.GraduationHandler_AddObserver_ParamsSpec, 'ash.settings.graduation.mojom.GraduationHandler_AddObserver_Params', [
+      mojo.internal.StructField('arg_observer', 0, 0, mojo.internal.InterfaceProxy(mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserverRemote), null, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_ParamsSpec, 'ash.settings.graduation.mojom.GraduationObserver_OnGraduationAppUpdated_Params', [
+      mojo.internal.StructField('arg_is_app_enabled', 0, 0, mojo.internal.Bool, false, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

@@ -128,18 +128,6 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_Para
 mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec = { $: {} };
 
 // Interface: SnapshotController
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_TakeSnapshot_Params', [
-      mojo.internal.StructField('arg_process_probability_pct', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_process_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
-mojo.internal.Struct(
-    mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_Params', [
-    ],
-    [[0, 8]]);
-
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -266,7 +254,7 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.takeSnapshot');
-          const result = this.impl.takeSnapshot(params.arg_process_probability_pct, params.arg_process_index);
+          const result = this.impl.takeSnapshot(params.arg_arg_process_probability_pct, params.arg_arg_process_index);
           break;
         }
         case 1: {
@@ -288,4 +276,18 @@ mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerReceiver = mojo.in
 
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPtr = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRemote;
 mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerRequest = mojo.internal.bindings.heap_profiling.mojom.SnapshotControllerPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.SnapshotController_TakeSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_TakeSnapshot_Params', [
+      mojo.internal.StructField('arg_process_probability_pct', 0, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_process_index', 4, 0, mojo.internal.Uint32, 0, false, 0, undefined),
+    ],
+    [[0, 16]]);
+
+mojo.internal.Struct(
+    mojo.internal.bindings.heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_ParamsSpec, 'heap_profiling.mojom.SnapshotController_LogMetricsWithoutSnapshot_Params', [
+    ],
+    [[0, 8]]);
 

@@ -133,13 +133,6 @@ mojo.internal.bindings.mojo_base.mojom = mojo.internal.bindings.mojo_base.mojom 
 mojo.internal.bindings.mojo_base.mojom.ThreadTypeSpec = mojo.internal.bindings.mojo_base.mojom.ThreadTypeSpec || { $: mojo.internal.Enum().$ };
 
 // Interface: ThreadTypeSwitcher
-mojo.internal.Struct(
-    mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec, 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params', [
-      mojo.internal.StructField('arg_platform_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
-      mojo.internal.StructField('arg_thread_type', 4, 0, mojo.internal.bindings.mojo_base.mojom.ThreadTypeSpec, null, false, 0, undefined),
-    ],
-    [[0, 16]]);
-
 mojo.internal.bindings.content.mojom.ThreadTypeSwitcherPendingReceiver = class {
   constructor(handle) {
     this.handle = handle;
@@ -252,7 +245,7 @@ mojo.internal.bindings.content.mojom.ThreadTypeSwitcherReceiver = class {
           const decoder = new mojo.internal.Decoder(message.payload, message.handles);
           const params = decoder.decodeStructInline(mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec.$.structSpec);
           console.log('[GeneratedReceiver] Calling impl.setThreadType');
-          const result = this.impl.setThreadType(params.arg_platform_thread_id, params.arg_thread_type);
+          const result = this.impl.setThreadType(params.arg_arg_platform_thread_id, params.arg_arg_thread_type);
           break;
         }
       }
@@ -267,4 +260,13 @@ mojo.internal.bindings.content.mojom.ThreadTypeSwitcherReceiver = mojo.internal.
 
 mojo.internal.bindings.content.mojom.ThreadTypeSwitcherPtr = mojo.internal.bindings.content.mojom.ThreadTypeSwitcherRemote;
 mojo.internal.bindings.content.mojom.ThreadTypeSwitcherRequest = mojo.internal.bindings.content.mojom.ThreadTypeSwitcherPendingReceiver;
+
+
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+mojo.internal.Struct(
+    mojo.internal.bindings.content.mojom.ThreadTypeSwitcher_SetThreadType_ParamsSpec, 'content.mojom.ThreadTypeSwitcher_SetThreadType_Params', [
+      mojo.internal.StructField('arg_platform_thread_id', 0, 0, mojo.internal.Int32, 0, false, 0, undefined),
+      mojo.internal.StructField('arg_thread_type', 4, 0, mojo.internal.bindings.mojo_base.mojom.ThreadTypeSpec, null, false, 0, undefined),
+    ],
+    [[0, 16]]);
 

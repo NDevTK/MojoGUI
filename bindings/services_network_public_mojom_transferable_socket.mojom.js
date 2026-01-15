@@ -124,6 +124,8 @@ mojo.internal.bindings.network.mojom = mojo.internal.bindings.network.mojom || {
 mojo.internal.bindings.network.mojom.TransferableSocketSpec = { $: {} };
 mojo.internal.bindings.network.mojom.TransferableSocketSpec = { $: {} };
 
+// Specs (at the end to ensure classes are defined for InterfaceProxy)
+
 // Struct: TransferableSocket
 mojo.internal.Struct(
     mojo.internal.bindings.network.mojom.TransferableSocketSpec, 'network.mojom.TransferableSocket', [
