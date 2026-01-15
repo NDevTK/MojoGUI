@@ -1088,16 +1088,28 @@
             if (inputType === 'number') inputType = 'text';
         } else if (typeof value === 'object' && value !== null) {
             // Mojo Handle Detection for Form View
-            if (value.$ && value.proxy && typeof value.$ === 'object') {
-                const meta = value.$;
-                const ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
-                const ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
+            if ((value.$ && value.proxy && typeof value.$ === 'object') || (value.handle && value.handle.router_)) {
+                let ifaceName = 'Unknown';
+                let ifaceId = '0';
+                let typeLabel = 'Mojo Handle';
+
+                if (value.$ && value.proxy) {
+                    const meta = value.$;
+                    ifaceName = meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown';
+                    ifaceId = meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || '0';
+                } else if (value.handle && value.handle.router_) {
+                    typeLabel = 'Pending Receiver';
+                    // Try to infer interface from context or router? Hard without metadata.
+                    // But we can show ID.
+                    ifaceId = value.handle.interfaceId_ || '0';
+                    ifaceName = 'PendingReceiver';
+                }
 
                 return `
                     <div class="form-group" data-original-name="${escapeHtml(param.name)}">
                         <label>
                             ${escapeHtml(param.name ? param.name.replace(/^arg_/, '') : '')}
-                            <span class="type">Mojo Handle</span>
+                            <span class="type">${typeLabel}</span>
                         </label>
                         <div class="mojo-handle-card">
                             <div class="handle-icon">🔌</div>
@@ -2257,14 +2269,24 @@
 
         // Mojo Remote/Handle Detection:
         // These objects usually have a '$' property containing metadata and a 'proxy' property.
-        if (obj.$ && obj.proxy && typeof obj.$ === 'object') {
-            const meta = obj.$;
-            return {
-                __mojoType: 'Handle',
-                interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
-                interfaceId: meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || 0,
-                namespace: meta.interfaceNameNamespace || ''
-            };
+        // OR they are PendingReceivers with a 'handle' and 'router_'.
+        if ((obj.$ && obj.proxy && typeof obj.$ === 'object') || (obj.handle && obj.handle.router_)) {
+            if (obj.$ && obj.proxy) {
+                const meta = obj.$;
+                return {
+                    __mojoType: 'Handle',
+                    interface: meta.interfaceName || (meta.proxy && meta.proxy.interfaceName) || 'Unknown',
+                    interfaceId: meta.interfaceId || (meta.proxy && meta.proxy.interfaceId) || 0,
+                    namespace: meta.interfaceNameNamespace || ''
+                };
+            } else {
+                return {
+                    __mojoType: 'Handle',
+                    interface: 'PendingReceiver',
+                    interfaceId: obj.handle.interfaceId_ || 0,
+                    namespace: ''
+                };
+            }
         }
 
         if (Array.isArray(obj)) return obj.map(v => sanitizeKeys(v, seen));
@@ -2382,6 +2404,11 @@
         // we MUST restore the original object so the Mojo bindings can re-serialize it.
         // We accept both the Handle Card value "[Mojo Handle]" and the sanitized string "[Mojo ...]" just in case.
         if (typeof edited === 'string' && (edited === '[Mojo Handle]' || edited.startsWith('[Mojo ')) && original && typeof original === 'object') {
+            return original;
+        }
+
+        // Handle sanitized handle objects (from Textarea view fallback)
+        if (edited && typeof edited === 'object' && edited.__mojoType === 'Handle' && original) {
             return original;
         }
 
